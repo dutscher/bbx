@@ -1,0 +1,142 @@
+[
+  [
+    "Plate",
+    "Platte"
+  ],
+  [
+    "Brick",
+    "Stein"
+  ],
+  [
+    "Brick Modified",
+    "Stein modifiziert",
+    "Knobs",
+    "Palisade",
+    "Horizontal Snap"
+  ],
+  [
+    "Flat Tile",
+    "Fliese",
+    "Tile",
+    [
+      "Ridged",
+      "Roof"
+    ]
+  ],
+  [
+    "Round",
+    "Rund",
+    "Circle"
+  ],
+  [
+    "Plate Modified",
+    "Modifizierte Platte",
+    "Plate with teeth",
+    "Angle Plate",
+    "With Rail",
+    "Holder Vertical"
+  ],
+  [
+    "Technic",
+    "Technik",
+    "Holes",
+    "Bush",
+    "Angle Element",
+    "Panel"
+  ],
+  [
+    "Fence",
+    "Zaun"
+  ],
+  [
+    "Roof",
+    "Dach",
+    "Ridged"
+  ],
+  [
+    "Wedge",
+    "Keil"
+  ],
+  [
+    "Arch",
+    "Bogen",
+    "Bow"
+  ],
+  [
+    "Tube",
+    "Rohr"
+  ],
+  [
+    "Aircraft",
+    "Flugzeug",
+    "Propeller"
+  ],
+  [
+    "Right",
+    "Rechts"
+  ],
+  [
+    "Left",
+    "Links"
+  ],
+  [
+    "Slopes",
+    "Schräge"
+  ],
+  [
+    "Rock",
+    "Felsen"
+  ],
+  [
+    "Plants",
+    "Pflanzen",
+    "Leaf",
+    "Leaves",
+    "Limb",
+    "Tree",
+    "Busch",
+    "Bracelet"
+  ],
+  [
+    "Corner",
+    "Ecke"
+  ],
+  [
+    "Gun",
+    "Waffe"
+  ],
+  [
+    "x 10",
+    "10 Stück",
+    "10x",
+    [
+      "100"
+    ]
+  ],
+  [
+    "x 20",
+    "20 Stück",
+    [
+      "200"
+    ]
+  ],
+  [
+    "x 50",
+    "50 Stück",
+    [
+      "500"
+    ]
+  ],
+  [
+    "x 100",
+    "100 Stück"
+  ],
+  [
+    "x 200",
+    "200 Stück"
+  ],
+  [
+    "x 500",
+    "500 Stück"
+  ]
+]

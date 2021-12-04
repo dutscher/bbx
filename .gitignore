@@ -1,0 +1,12 @@
+/node_modules/
+/public/build/
+/data/cache
+/data/fetch
+/data/inst
+/data/api
+/data/*.compare.json
+/scripts/*.secret.json
+/public/data/
+/public/index.html
+.DS_Store
+.idea/

@@ -1,0 +1,446 @@
+[
+  "Special",
+  [
+    "Pro",
+    [
+      "Profile",
+      "Propeller"
+    ]
+  ],
+  [
+    "Architektur",
+    "architecture",
+    [
+      "Stickerbogen"
+    ]
+  ],
+  [
+    "Feuerwehr",
+    "Fire_Rescue",
+    "Seagrave",
+    "Pierce",
+    "Spartan",
+    "Technisches Hilfswerk",
+    "Rettungswagen",
+    [
+      "Polizei"
+    ]
+  ],
+  [
+    "Polizei",
+    "Police",
+    "Survivor",
+    [
+      "Manhattan"
+    ]
+  ],
+  [
+    "Militär",
+    "Military"
+  ],
+  [
+    "Fahrzeuge",
+    "Motor_Vehicle"
+  ],
+  [
+    "Scifi",
+    "Star Trek"
+  ],
+  [
+    "Eisenbahn",
+    "Trains",
+    "Regionalexpress"
+  ],
+  [
+    "Oberleitung",
+    "Eisenbahndisplay"
+  ],
+  [
+    "Gebäude",
+    "Stellwerk",
+    "Schuppen",
+    "Anlage",
+    "Übergang",
+    "Turm",
+    "Bahnsteig",
+    "Windmühle",
+    "Wolkenkratzer",
+    "Tankstelle",
+    "Halle",
+    "Station",
+    "Shop",
+    "Wharf",
+    "Werft",
+    "Tower",
+    "Bunker",
+    "Kirche",
+    "Kneipe",
+    "Werkstatt",
+    "Pizzeria",
+    [
+      "Manhattan",
+      "Lattice",
+      "Online-Shop"
+    ]
+  ],
+  [
+    "Gleise",
+    "Schienen",
+    "Übergang",
+    "Weiche",
+    "Tankanlage",
+    "Bekohlungsanlage",
+    "Bahnsteig",
+    "Bahnübergang",
+    "Reiterstellwerk",
+    "Güterschuppen",
+    "Lokschuppen",
+    "Lichtsignale",
+    "Formsignale",
+    "Oberleitung",
+    "Eisenbahndisplay",
+    [
+      "Schienenbus",
+      "Schienendrehkran",
+      "Stickerbogen"
+    ]
+  ],
+  [
+    "Signale",
+    "Signal"
+  ],
+  [
+    "Lok",
+    "Zug",
+    "Triebwagen",
+    [
+      "Schuppen",
+      "Halle"
+    ]
+  ],
+  [
+    "Lok Wagon",
+    "Wagon",
+    "Wagen",
+    "Personenwagen",
+    "Transporter",
+    "1te Klasse",
+    "2te Klasse",
+    [
+      "Kübelwagen",
+      "Funkspähwagen",
+      "Abschlepper",
+      "Kommandowagen",
+      "Krankenwagen",
+      "Leiterwagen",
+      "Kompaktwagen",
+      "Truppentransporter",
+      "Transporter Wolfsburg",
+      "Stickerbogen",
+      "Kleinwagen",
+      "Geländewagen",
+      "Rennwagen",
+      "Rettungswagen",
+      " Sportwagen",
+      "Traktor",
+      "Eiswagen",
+      "Feuerwehr",
+      "Formel Wagen",
+      "Abschleppwagen",
+      "Einsatzwagen"
+    ]
+  ],
+  "Stickerbogen",
+  [
+    "Mittelalter",
+    "Gasthaus",
+    "Dorfschmiede",
+    "Alte Kirche",
+    "Wachturm",
+    "Windmühle",
+    "Wassermühle",
+    "Blaustein",
+    "Eiche",
+    "Das Schwarze Auge",
+    [
+      "Weichenset",
+      "Doppelweiche",
+      "Weiche"
+    ]
+  ],
+  "Manhattan",
+  [
+    "Western",
+    "Sheriffs",
+    "General Store"
+  ],
+  [
+    "Fachwerk",
+    "Kleine Scheune mit Gemüsegarten"
+  ],
+  [
+    "Burg",
+    "Schloss",
+    [
+      "Augsburg",
+      "Wolfsburg",
+      "Hamburg"
+    ]
+  ],
+  [
+    "Pflanzen",
+    "Plants",
+    "Eiche",
+    "Birken",
+    "Bäume",
+    "Fichten",
+    "Kiefern",
+    "Buchen",
+    "Tannen",
+    "Stellung",
+    "Einmannbunker",
+    "Busch",
+    "Limb",
+    "Leaf",
+    "Bamboo",
+    [
+      "Weichenset",
+      "Ausstellungsstück",
+      "Ausstellungsstueck",
+      "Animal",
+      "Horn"
+    ]
+  ],
+  [
+    "Panzer",
+    "Pz.",
+    "Pershing",
+    "Sherman",
+    "Porsche Tiger",
+    "Bundeswehr",
+    "Churchill",
+    "Mörser Thor",
+    "M8",
+    "M5",
+    "GMC",
+    "HMC"
+  ],
+  "Hund",
+  [
+    "Hafen RA-MT",
+    "RA-MT",
+    "Captain's Wharf",
+    "kleine Bootsreparaturwerkstatt",
+    "Schiffsreparatur",
+    "Tauchshop",
+    "Leuchtturm",
+    "Schiffswerft",
+    "Hafenkneipe",
+    [
+      "Leuchtturm des Astronomen"
+    ]
+  ],
+  "Jahreszeiten",
+  [
+    "Diorama",
+    "Ruine",
+    "Autobahnabschnitt",
+    "Geschichte des Fliegens"
+  ],
+  [
+    "Micro",
+    "Le Mont",
+    "Reichstag",
+    "Neuschwanstein",
+    "Eltz",
+    "Messeturm",
+    "Commerzbank",
+    "Talmberg",
+    "Hamburger"
+  ],
+  [
+    "Film Modelle",
+    "Schwarzes Heldenfahrzeug",
+    "Kleines Schwarzes Heldenfahrzeug",
+    "Kleines Schwarzes Gangster",
+    "Amerikanischer Truck + Black Herocar",
+    "Schwarzer Hubschrauber",
+    "American Van",
+    "Apokalypse",
+    "Geleittruck",
+    "Kampftruck",
+    "Oranges US-Muscle-Car",
+    "Kleines oranges US-Muscle-Car",
+    "1974 Limousine Coupe",
+    "Kleines Limousinen Coupe 1974",
+    "Graues US-Muscle-Car 1967",
+    "Grünes US-Muscle-Car",
+    "Kleines grünes US-Muscle-Car",
+    "Großes US-Polizeifahrzeug",
+    "Kleines US-Polizeifahrzeug",
+    "Klassischer Italienischer Sportwagen",
+    "Amerikanisches gelbes Taxi",
+    "Amerikanischer Truck + Sport Cabriolet der 70er Jahre",
+    "Stuntman Truck",
+    "Französisches Hochgeschwindigkeits-Taxi",
+    "US Classic 2-türiges Hardtop",
+    "US Classic 2-türiges Hardtop klein",
+    "Italienischer Sportwagen rot",
+    "Klassischer Italienischer Sportwagen",
+    "Klassischer gelber US Sportwagen",
+    "Blue Runner",
+    "Amerikanisches Sport Cabriolet der 70er Jahre",
+    "Geländewagen",
+    "US Geldtransporter",
+    "Klassischer Geländewagen 4WD",
+    "Klassischer Kleinwagen",
+    "Großes Mutterschiff",
+    "Centurion Raider",
+    "Centurion Raumbasis",
+    "Viper",
+    "Star Trek",
+    "Nave Nostro",
+    [
+      "Stickerbogen",
+      "Geländewagen in rot"
+    ]
+  ],
+  [
+    "Bild",
+    "Jahreszeiten",
+    "Sehenswürdigkeiten"
+  ],
+  [
+    "LKW",
+    "Sattelzug",
+    "Truck",
+    "Zugmaschine",
+    "Tanklaster",
+    "Abschlepper"
+  ],
+  [
+    "Kran",
+    [
+      "Kranken"
+    ]
+  ],
+  [
+    "THW",
+    "Hilfswerk"
+  ],
+  [
+    "Bus",
+    [
+      "Busch",
+      "Bush",
+      "Kubus"
+    ]
+  ],
+  [
+    "Boot",
+    "Dampfer",
+    "Galeone",
+    "Schiff",
+    "Flugzeugträger",
+    "Kreuzer",
+    [
+      "Mutterschiff",
+      "Raumschiff"
+    ]
+  ],
+  "Traktor",
+  "Formel",
+  "Klassisch",
+  [
+    "Figuren",
+    "Soldaten",
+    [
+      "Ohne Figuren"
+    ]
+  ],
+  "Burg Blaustein",
+  [
+    "Piraten",
+    "Pirates",
+    "Galeone"
+  ],
+  [
+    "Spiel",
+    "Schachbrett",
+    "Das Schwarze Auge"
+  ],
+  "Das Schwarze Auge",
+  [
+    "Technik",
+    "RC ",
+    "Technic",
+    "Cataya",
+    "Bush"
+  ],
+  [
+    "Tier",
+    "Hund",
+    "Katze",
+    "Dino",
+    "T-Rex",
+    "Neuseeland",
+    "Kakadu",
+    "Sittich",
+    "Buchfink",
+    "Felsentaube",
+    "Blaukehlchen",
+    "Wintergoldhähnchen",
+    "Blaumeise"
+  ],
+  [
+    "USA",
+    "US-Muscle",
+    "US-Polizei",
+    "Amerika",
+    "Casion",
+    "Diner",
+    "Strand Abschnitt"
+  ],
+  "Rheingold",
+  "8w",
+  [
+    "Parts",
+    "Stück",
+    "chrome-packs",
+    "part-packs",
+    "gemischt",
+    "Gun",
+    [
+      "Ausstellungsstück",
+      "Mittelstück",
+      "Schienen",
+      "Gleise"
+    ]
+  ],
+  [
+    "Star Trek"
+  ],
+  [
+    "Gutscheine",
+    "Gutschein"
+  ],
+  [
+    "Schiffe",
+    "ships"
+  ],
+  [
+    "Sontiges",
+    "others"
+  ],
+  [
+    "Zubehör",
+    "assortments"
+  ],
+  [
+    "Ritter",
+    "knights",
+    "Mittelalter"
+  ],
+  "Landmaschinen",
+  "City"
+]

@@ -1,0 +1,59 @@
+@import './colors';
+@import './functions';
+
+$color-primary-lighter: $color-blue-0;
+$color-primary-light: $color-blue-25;
+$color-primary: $color-blue-50;
+$color-primary-dark: $color-blue-100;
+$color-primary-darker: $color-blue-200;
+
+$color-secondary: $color-brown-50;
+$color-secondary-dark: $color-brown-100;
+$color-secondary-darker: $color-brown-200;
+
+$font-family: 'Arial', 'sans-serif';
+$base-font-size: 16px;
+$modular-scale-ratio: 1.2;
+$font-weight-light: 400;
+$font-weight-base: 500;
+$font-weight-bold: 700;
+
+// Borders
+$border-radius: rem(4px); // 0.25rem
+$border-radius-lg: rem(8px); // 0.5rem
+$border-radius-xl: rem(16px); // 1rem
+
+// Spacing/Padding
+$spacing-base: 0.125rem;
+$space-xs: $spacing-base * 1;
+$space-sm: $spacing-base * 2;
+$space-md: $spacing-base * 3;
+$space-lg: $spacing-base * 4;
+$space-xl: $spacing-base * 5;
+
+// media queries
+// use @include media-breakpoint-up(sm) {...}
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 1024px,
+        xl: 1200px,
+);
+
+// Grid containers
+// Define the maximum width of `.container` for different screen sizes.
+
+$container-max-widths: (
+        sm: 576px,
+        md: 768px,
+        lg: 1024px,
+        xl: 1080px,
+);
+
+// z-index map
+// use "z-index: z-index('modal');" -> z-index: 5000
+
+$z-indexes: (
+  'default': auto,
+);

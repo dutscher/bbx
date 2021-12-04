@@ -1,0 +1,26 @@
+{
+  "de": [
+    "VERFÜGBAR",
+    "BALD ERHÄLTLICH!",
+    "ZURZEIT VERGRIFFEN",
+    "ANKÜNDIGUNG"
+  ],
+  "en": [
+    "available",
+    "comingsoon!",
+    "unavailable",
+    "announcement"
+  ],
+  "colors": [
+    "white",
+    "green",
+    "red",
+    "orange"
+  ],
+  "api": [
+    "BUYABLE",
+    "COMING_SOON",
+    "UNAVAILABLE",
+    "ANNOUNCEMENT"
+  ]
+}

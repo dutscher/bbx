@@ -1,0 +1,300 @@
+{
+  "url": "https://www.bluebrixx.com/de",
+  "instUrl": "https://www.bluebrixx.com/data/files/manuals",
+  "parseCategories": [
+    "https://www.bluebrixx.com/de/bluebrixxspecials",
+    "https://www.bluebrixx.com/de/bluebrixxspecials/military_models",
+    "https://www.bluebrixx.com/de/bluebrixxspecials/architecture",
+    "https://www.bluebrixx.com/de/bluebrixxspecials/trains",
+    "https://www.bluebrixx.com/de/bluebrixxspecials/motor_vehicle",
+    "https://www.bluebrixx.com/de/bluebrixxspecials/fire_rescue",
+    "https://www.bluebrixx.com/de/bluebrixxspecials/scifi",
+    "https://www.bluebrixx.com/de/bluebrixxspecials/western",
+    "https://www.bluebrixx.com/de/bluebrixxspecials/city",
+    "https://www.bluebrixx.com/de/bluebrixxspecials/knights",
+    "https://www.bluebrixx.com/de/bluebrixxspecials/ships",
+    "https://www.bluebrixx.com/de/bluebrixxspecials/others",
+    "https://www.bluebrixx.com/de/bluebrixxspecials/assortments",
+    "https://www.bluebrixx.com/de/bluebrixxspecials/plants",
+    "https://www.bluebrixx.com/de/bluebrixxspecials/landmaschinen",
+    "https://www.bluebrixx.com/de/bluebrixx-pro",
+    "https://www.bluebrixx.com/de/chrome-packs",
+    "https://www.bluebrixx.com/de/bluebrixxaccessories",
+    "https://www.bluebrixx.com/de/gift_vouchers",
+    "https://www.bluebrixx.com/de/items?q=Bundeswehr"
+  ],
+  "parsePartPacks": [
+    "https://www.bluebrixx.com/de/part-packs/bars_ladders_and_fences",
+    "https://www.bluebrixx.com/de/part-packs/brackets",
+    "https://www.bluebrixx.com/de/part-packs/bricks",
+    "https://www.bluebrixx.com/de/part-packs/bricks_arches",
+    "https://www.bluebrixx.com/de/part-packs/bricks_modified",
+    "https://www.bluebrixx.com/de/part-packs/bricks_round_and_cones",
+    "https://www.bluebrixx.com/de/part-packs/containers",
+    "https://www.bluebrixx.com/de/part-packs/flags_signs_plastics_and_cloth",
+    "https://www.bluebrixx.com/de/part-packs/hinges_arms_and_turntables",
+    "https://www.bluebrixx.com/de/part-packs/minifig_accessories",
+    "https://www.bluebrixx.com/de/part-packs/minifig_parts",
+    "https://www.bluebrixx.com/de/part-packs/panels",
+    "https://www.bluebrixx.com/de/part-packs/plants_and_animals",
+    "https://www.bluebrixx.com/de/part-packs/plates",
+    "https://www.bluebrixx.com/de/part-packs/plates_modified",
+    "https://www.bluebrixx.com/de/part-packs/plates_round_and_dishes",
+    "https://www.bluebrixx.com/de/part-packs/rock",
+    "https://www.bluebrixx.com/de/part-packs/slopes",
+    "https://www.bluebrixx.com/de/part-packs/slopes_curved",
+    "https://www.bluebrixx.com/de/part-packs/string_bands_and_reels",
+    "https://www.bluebrixx.com/de/part-packs/supports_girders_and_cranes",
+    "https://www.bluebrixx.com/de/part-packs/technic_axles",
+    "https://www.bluebrixx.com/de/part-packs/technic_bricks",
+    "https://www.bluebrixx.com/de/part-packs/technic_bushes",
+    "https://www.bluebrixx.com/de/part-packs/technic_connectors",
+    "https://www.bluebrixx.com/de/part-packs/technic_gears",
+    "https://www.bluebrixx.com/de/part-packs/technic_liftarms",
+    "https://www.bluebrixx.com/de/part-packs/technic_panels",
+    "https://www.bluebrixx.com/de/part-packs/technic_pins",
+    "https://www.bluebrixx.com/de/part-packs/technic_special",
+    "https://www.bluebrixx.com/de/part-packs/technic_steering_suspension_and_engine",
+    "https://www.bluebrixx.com/de/part-packs/tiles",
+    "https://www.bluebrixx.com/de/part-packs/tiles_modified",
+    "https://www.bluebrixx.com/de/part-packs/transportation_land",
+    "https://www.bluebrixx.com/de/part-packs/transportation_sea_and_air",
+    "https://www.bluebrixx.com/de/part-packs/tubes_and_hoses",
+    "https://www.bluebrixx.com/de/part-packs/wedge_bricks",
+    "https://www.bluebrixx.com/de/part-packs/wedge_plates",
+    "https://www.bluebrixx.com/de/part-packs/wheels_and_tyres",
+    "https://www.bluebrixx.com/de/part-packs/windows_and_doors",
+    "https://www.bluebrixx.com/de/part-packs/windscreens_and_fuselage"
+  ],
+  "partPacks": [
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/bars_ladders_and_fences",
+      "title": "Bars, Ladders and Fences",
+      "img": "img/shop/subsections/elements_new/bars_ladders_and_fences.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/brackets",
+      "title": "Brackets",
+      "img": "img/shop/subsections/elements_new/brackets.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/bricks",
+      "title": "Bricks",
+      "img": "img/shop/subsections/elements_new/bricks.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/bricks_arches",
+      "title": "Bricks Arches",
+      "img": "img/shop/subsections/elements_new/bricks_arches.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/bricks_modified",
+      "title": "Bricks Modified",
+      "img": "img/shop/subsections/elements_new/bricks_modified.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/bricks_round_and_cones",
+      "title": "Bricks Round and Cones",
+      "img": "img/shop/subsections/elements_new/bricks_round_and_cones.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/containers",
+      "title": "Containers",
+      "img": "img/shop/subsections/elements_new/containers.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/flags_signs_plastics_and_cloth",
+      "title": "Flags, Signs, Plastics and Cloth",
+      "img": "img/shop/subsections/elements_new/flags_signs_plastics_and_cloth.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/hinges_arms_and_turntables",
+      "title": "Hinges, Arms and Turntables",
+      "img": "img/shop/subsections/elements_new/hinges_arms_and_turntables.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/minifig_accessories",
+      "title": "Minifig Accessories",
+      "img": "img/shop/subsections/elements_new/minifig_accessories.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/minifig_parts",
+      "title": "Minifig Parts",
+      "img": "img/shop/subsections/elements_new/minifig_parts.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/panels",
+      "title": "Panels",
+      "img": "img/shop/subsections/elements_new/panels.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/plants_and_animals",
+      "title": "Plants and Animals",
+      "img": "img/shop/subsections/elements_new/plants_and_animals.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/plates",
+      "title": "Plates",
+      "img": "img/shop/subsections/elements_new/plates.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/plates_modified",
+      "title": "Plates Modified",
+      "img": "img/shop/subsections/elements_new/plates_modified.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/plates_round_and_dishes",
+      "title": "Plates Round and Dishes",
+      "img": "img/shop/subsections/elements_new/plates_round_and_dishes.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/rock",
+      "title": "Rock",
+      "img": "img/shop/subsections/elements_new/rock.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/slopes",
+      "title": "Slopes",
+      "img": "img/shop/subsections/elements_new/slopes.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/slopes_curved",
+      "title": "Slopes Curved",
+      "img": "img/shop/subsections/elements_new/slopes_curved.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/string_bands_and_reels",
+      "title": "String, Bands and Reels",
+      "img": "img/shop/subsections/elements_new/string_bands_and_reels.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/supports_girders_and_cranes",
+      "title": "Supports, Girders and Cranes",
+      "img": "img/shop/subsections/elements_new/supports_girders_and_cranes.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/technic_axles",
+      "title": "Technic Axles",
+      "img": "img/shop/subsections/elements_new/technic_axles.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/technic_bricks",
+      "title": "Technic Bricks",
+      "img": "img/shop/subsections/elements_new/technic_bricks.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/technic_bushes",
+      "title": "Technic Bushes",
+      "img": "img/shop/subsections/elements_new/technic_bushes.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/technic_connectors",
+      "title": "Technic Connectors",
+      "img": "img/shop/subsections/elements_new/technic_connectors.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/technic_gears",
+      "title": "Technic Gears",
+      "img": "img/shop/subsections/elements_new/technic_gears.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/technic_liftarms",
+      "title": "Technic Liftarms",
+      "img": "img/shop/subsections/elements_new/technic_liftarms.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/technic_panels",
+      "title": "Technic Panels",
+      "img": "img/shop/subsections/elements_new/technic_panels.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/technic_pins",
+      "title": "Technic Pins",
+      "img": "img/shop/subsections/elements_new/technic_pins.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/technic_special",
+      "title": "Technic Special",
+      "img": "img/shop/subsections/elements_new/technic_special.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/technic_steering_suspension_and_engine",
+      "title": "Technic Steering, Suspension and Engine",
+      "img": "img/shop/subsections/elements_new/technic_steering_suspension_and_engine.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/tiles",
+      "title": "Tiles",
+      "img": "img/shop/subsections/elements_new/tiles.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/tiles_modified",
+      "title": "Tiles Modified",
+      "img": "img/shop/subsections/elements_new/tiles_modified.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/transportation_land",
+      "title": "Transportation - Land",
+      "img": "img/shop/subsections/elements_new/transportation_land.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/transportation_sea_and_air",
+      "title": "Transportation - Sea and Air",
+      "img": "img/shop/subsections/elements_new/transportation_sea_and_air.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/tubes_and_hoses",
+      "title": "Tubes and Hoses",
+      "img": "img/shop/subsections/elements_new/tubes_and_hoses.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/wedge_bricks",
+      "title": "Wedge Bricks",
+      "img": "img/shop/subsections/elements_new/wedge_bricks.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/wedge_plates",
+      "title": "Wedge Plates",
+      "img": "img/shop/subsections/elements_new/wedge_plates.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/wheels_and_tyres",
+      "title": "Wheels and Tyres",
+      "img": "img/shop/subsections/elements_new/wheels_and_tyres.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/windows_and_doors",
+      "title": "Windows and Doors",
+      "img": "img/shop/subsections/elements_new/windows_and_doors.jpg"
+    },
+    {
+      "href": "https://www.bluebrixx.com/de/part-packs/windscreens_and_fuselage",
+      "title": "Windscreens and Fuselage",
+      "img": "img/shop/subsections/elements_new/windscreens_and_fuselage.jpg"
+    }
+  ],
+  "manhattan": {
+    "complete": "/103047/Manhattan-Suedspitze-BlueBrixx-Special",
+    "border": "/103046/Manhattan-Unit-18-Umrandung-BlueBrixx-Special",
+    "island": "/100872/Manhattan-Ellis-Island-BlueBrixx-Special",
+    "pieces": [
+      "/101338/Manhattan-Unit-1-Esplanade-BlueBrixx-Special",
+      "/101339/Manhattan-Unit-2-Tribeca-BlueBrixx-Special",
+      "/100871/Manhattan-Unit-3-Foley-Square-BlueBrixx-Special",
+      "/100992/Manhattan-Unit-4-NYC-Police-HQ-BlueBrixx-Special",
+      "/100263/Manhattan-Unit-5-Two-Bridges-BlueBrixx-Special",
+      "/100991/Manhattan-Unit-6-Brookfield-Place-BlueBrixx-Special",
+      "/100870/Manhattan-Unit-7-World-Trade-Center-BlueBrixx-Special",
+      "/100735/Manhattan-Unit-8-City-Hall-BlueBrixx-Special",
+      "/100264/Manhattan-Unit-9-Brooklyn-Bridge-BlueBrixx-Special",
+      "/100265/Manhattan-Unit-10-Federal-Reserve-BlueBrixx-Special",
+      "/100266/Manhattan-Unit-11-Southbridge-BlueBrixx-Special",
+      "/100267/Manhattan-Unit-12-South-Street-Seaport-BlueBrixx-Special",
+      "/101046/Manhattan-Unit-13-South-Cove-BlueBrixx-Special",
+      "/101045/Manhattan-Unit-14-Trinity-Church-BlueBrixx-Special",
+      "/100268/Manhattan-Unit-15-Hanover-Square-BlueBrixx-Special",
+      "/100269/Manhattan-Unit-16-FDR-Drive-BlueBrixx-Special",
+      "/100270/Manhattan-Unit-17-Battery-Park-BlueBrixx-Special"
+    ]
+  }
+}
