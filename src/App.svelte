@@ -2,6 +2,7 @@
     import { ApolloClient, InMemoryCache } from "@apollo/client";
     import { setClient } from "svelte-apollo";
     import Welcome from "./comps/Welcome.svelte";
+    import Hearts from "./comps/Hearts.svelte";
     import Changes from "./comps/Changes.svelte";
     import Filter from "./comps/Filter/Filter.svelte";
     import Manhattan from "./comps/Manhattan.svelte";
@@ -36,6 +37,7 @@
 <main>
 <!--    <Notifications />-->
     <Welcome/>
+    <Hearts/>
     <Changes/>
     <Filter/>
     {#if activeTagIds.includes(ID_MANHATTAN) && activeTagIds.length === 1}
@@ -46,6 +48,7 @@
     <strong>Legende:</strong><br />
     <Icon modifier="new"/> = Neues Produkt
     <Icon modifier="flame"/> = Beliebtes Produkt (mehr als 2 mal Verfügbar)
+    <Icon modifier="heart" svg="true" class="active"/> = "Will Ich haben" Produkt
 </main>
 
 <style lang="scss">
