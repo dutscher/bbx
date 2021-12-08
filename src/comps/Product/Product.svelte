@@ -11,7 +11,7 @@
         STAR_TREK,
         UNLOADED
     } from '../../_interfaces';
-    import { storedGlobalData, storedActiveSelection, storedStates, loadInstData } from '../../stores';
+    import { storedGlobalData, storedActiveSelection, storedStates, storedHearts, loadInstData } from '../../stores';
     import { getLatestStateOfToday } from "../../utils";
 
     export let product: any;
@@ -21,10 +21,12 @@
 
     let data: any;
     let states: any;
+    let hearts: any;
     let activeProduct: any;
     let activeTagsIds: any;
     let dataLoaded: string;
     let showTooltip = false;
+    let isHeart = false;
     let isNew = false;
     let isHot = false;
 
@@ -37,8 +39,9 @@
             showTooltip = false;
         }
     });
-    storedGlobalData.subscribe(value => data = value);
-    storedStates.subscribe(value => states = value);
+    storedGlobalData.subscribe(store => data = store);
+    storedStates.subscribe(store => states = store);
+    storedHearts.subscribe(store => hearts = store);
 
     $:isActive = activeProduct && (activeProduct.id === product.id) && (type === activeProduct.type) || false;
 
@@ -50,6 +53,7 @@
         isNew = lastHistory === ID_STATE_AVAILABLE && beforeLastHistory === ID_STATE_ANNOUNCEMENT
             || lastHistory === ID_STATE_AVAILABLE && beforeLastHistory === ID_STATE_COMING_SOON && beforeBeforeLastHistory === ID_STATE_ANNOUNCEMENT;
         isHot = historyStates.filter(state => state === 0).length >= 3;
+        isHeart = hearts.includes(product.id);
     }
 
     const onClick = () => {
@@ -124,8 +128,9 @@
     <div class="product {handleStateColor(product)}"
          data-state={handleStateName(product)}>
         <span class="product__label" on:click={onClick}>
-            {#if isNew}<Icon modifier="new" title="Neues Produkt"/>{/if}
-            {#if isHot}<Icon modifier="flame" title="Beliebtes Produkt"/>{/if}
+            {#if isHeart}<Icon modifier="heart" svg="true" class="active" title="Will ich haben"/>{/if}
+            {#if isNew && !isHeart}<Icon modifier="new" title="Neues Produkt"/>{/if}
+            {#if isHot && !isHeart}<Icon modifier="flame" title="Beliebtes Produkt"/>{/if}
             {getTitle(product)}
             {#if product.movieData && activeTagsIds.includes(ID_MOVIE)}
             <span class="product__movie">{product.movieData}</span>

@@ -1,5 +1,5 @@
 // listen to messages from service worker
-import { storedProducts } from "../stores";
+import { storedProducts } from './products';
 
 export default () => {
     if (navigator && 'serviceWorker' in navigator) {

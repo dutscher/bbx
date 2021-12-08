@@ -1,4 +1,5 @@
-import { storedActiveSelection, storedProducts } from "../../stores";
+import { storedProducts } from '../products';
+import { storedActiveSelection } from '../states';
 import { LOADED, LOADING } from "../../_interfaces";
 
 export const loadMovieData = async () => {

@@ -33,7 +33,7 @@
 </script>
 
 <h2 class="with-toggle" on:click={() => isVisible = !isVisible}>
-    <Icon modifier="arrow" classes={`icon--${!isVisible ? 'down' : 'up'}`}/>
+    <Icon modifier="arrow" class="icon--{!isVisible ? 'down' : 'up'}"/>
     Filter
 </h2>
 <div class="flex flex--wrap{isVisible ? ' show' : ''} no-toggle-space">

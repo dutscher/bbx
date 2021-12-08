@@ -2,7 +2,8 @@ import endCursorsFromParse from '../../../data/api-changes.last-cursor.json'
 import { queryChanges } from '../../queries';
 import { getHRDate, getDateTime, graphql } from '../../utils';
 import { ID_PARTS, LOADED, LOADING } from '../../_interfaces';
-import { sortedStates, storedActiveSelection, sortedProducts, storedProducts } from '../../stores';
+import { sortedProducts, storedProducts } from '../products';
+import { sortedStates, storedActiveSelection } from '../states';
 
 // changes
 let edges = [];

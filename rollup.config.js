@@ -43,6 +43,7 @@ export default {
         name: 'app',
         file: 'public/build/bundle.js'
     },
+    external: ['react'],
     plugins: [
         url({ destDir: 'public' }),
         json({

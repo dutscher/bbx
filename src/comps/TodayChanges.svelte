@@ -117,7 +117,7 @@
 {/if}
 -->
 <h2 class="with-toggle" on:click={() => isVisible = !isVisible}>
-    <Icon modifier={'arrow ' + (!isVisible ? 'down' : 'up')}/>
+    <Icon modifier="arrow {!isVisible ? 'down' : 'up'}"/>
     Status vom
     <span>
         <Icon svg="true" modifier="arrow left" on:click={(event) => handleDate(event, 'prev')}></Icon>

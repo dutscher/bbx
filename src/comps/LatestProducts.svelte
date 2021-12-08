@@ -95,7 +95,7 @@
 </script>
 
 <h2 class="with-toggle" on:click={() => isVisible = !isVisible}>
-    <Icon modifier="arrow" classes={`icon--${!isVisible ? 'down' : 'up'}`}/>
+    <Icon modifier="arrow" class="icon--{!isVisible ? 'down' : 'up'}"/>
     {title}
     <b>({sortedProducts.length})</b>
 </h2>

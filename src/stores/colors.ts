@@ -1,5 +1,4 @@
 import { writable } from 'svelte/store';
-
 import colorsJSON from '../../data/bricklink-colors.json';
 import hexJSON from '../../data/bricklink-hex.json';
 // sort colors

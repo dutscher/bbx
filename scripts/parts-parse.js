@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 import request from 'request';
 import sharp from 'sharp';
-import parts from '../data/parts.json';
+import parts from '../data/parts/bb-parts.json';
 
 const thumbnail = (dir, title) => {
     fs.ensureDirSync(dir);

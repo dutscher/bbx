@@ -7,6 +7,7 @@ export { storedGlobalData } from './stores/global-data';
 export { storedColors } from './stores/colors';
 export { storedParts, storedPartTypes } from './stores/parts';
 export { storedImageExtension } from './stores/image-extension';
+export { storedHearts, lsKey as lsKeyHeart } from './stores/heart';
 
 export { localStore } from './stores/local-storage';
 

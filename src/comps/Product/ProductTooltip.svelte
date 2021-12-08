@@ -5,6 +5,9 @@
         storedTags,
         storedStates,
         storedActiveSelection,
+        storedHearts,
+        lsKeyHeart,
+        localStore,
     } from '../../stores';
     import { jsVoid, setUrlParams } from "../../utils";
     import Icon from '../Icon.svelte';
@@ -19,6 +22,7 @@
     let data: any;
     let categories: any;
     let tags: any;
+    let hearts: any;
     const spaceing: number = 16;
     let innerWidth: number;
     let wrapWidth: number;
@@ -28,10 +32,11 @@
 
     let timer;
 
-    storedStates.subscribe(value => states = value);
-    storedGlobalData.subscribe(value => data = value);
-    storedCategories.subscribe(value => categories = value);
-    storedTags.subscribe(value => tags = value);
+    storedStates.subscribe(store => states = store);
+    storedGlobalData.subscribe(store => data = store);
+    storedCategories.subscribe(store => categories = store);
+    storedTags.subscribe(store => tags = store);
+    storedHearts.subscribe(store => hearts = store);
 
     // /101/101857%20Das%20Schwarze%20Auge,%20Thowaler%20Drachenschiff,%20Otta%20(45MB).pdf
     // https://www.bluebrixx.com/data/files/manuals/103/103272%20Nimitz%20Teil%202%20(26MB).pdf
@@ -117,6 +122,20 @@
         });
     }
 
+    const clickHeart = () => {
+        storedHearts.update(store => {
+            if (!store.includes(product.id)) {
+                store.push(product.id);
+            } else {
+                store = store.filter(pid => pid !== product.id)
+            }
+
+            localStore.set(lsKeyHeart, JSON.stringify(store));
+
+            return store;
+        })
+    }
+
     $: {
         if (wrap) {
             handleLeftAdjust(wrap, showTooltip);
@@ -135,7 +154,13 @@
                     <Icon modifier="cross" svg="true" on:click={onClose}/>
                 </div>
                 {#if product.title}
-                    <div class="tooltip__title-wrap"><strong class="tooltip__title">{product.title}</strong></div>
+                    <div class="tooltip__title-wrap">
+                        <strong class="tooltip__title">
+                            <Icon modifier="heart" svg="true" class="{hearts.includes(product.id) ? 'active' : ''}" title="Will ich haben"
+                                  on:click={clickHeart}/>
+                            {product.title}
+                        </strong>
+                    </div>
                 {/if}
                 {#if product.movieData}<strong>{product.movieData}</strong><br/>{/if}
                 {#if product.id}<strong>ID:</strong> <span class="tooltip__content">{product.id}</span><br/>{/if}

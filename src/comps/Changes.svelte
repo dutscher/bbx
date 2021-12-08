@@ -63,7 +63,7 @@
 </script>
 
 <h2 class="with-toggle" on:click={onClick}>
-    <Icon modifier="arrow" classes={`icon--${!isVisible ? 'down' : 'up'}`}/>
+    <Icon modifier="arrow" class="icon--{!isVisible ? 'down' : 'up'}"/>
     Änderungen
 </h2>
 <div class="changes{isVisible ? ' show' : ''}">

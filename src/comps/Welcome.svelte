@@ -55,7 +55,7 @@
 </script>
 
 <h1 class="with-toggle" on:click={onClick}>
-    <Icon modifier="arrow" classes={`icon--${!isVisible ? 'down' : 'up'}`}/>
+    <Icon modifier="arrow" class="icon--{!isVisible ? 'down' : 'up'}"/>
     BBX Watcher
 </h1>
 <div class="welcome{isVisible ? ' show' : ''}">
