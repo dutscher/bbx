@@ -32,8 +32,9 @@
 
   $selector: '.icon';
   #{$selector} {
-    vertical-align: top;
+    vertical-align: middle;
     cursor: pointer;
+    line-height: 0;
 
     &--bg {
       &::after {
@@ -112,13 +113,20 @@
     }
   }
 
-  :global(#{$selector}--heart#{$selector}--svg:not(.active) path){
+  :global(#{$selector}--heart#{$selector}--svg path) {
     stroke-width: 5px;
     stroke: white;
+  }
+
+  :global(#{$selector}--heart#{$selector}--svg:not(.active) path) {
     fill: none;
   }
 
-  :global(#{$selector}--heart#{$selector}--svg.active){
+  :global(#{$selector}--heart#{$selector}--svg:not(.active):hover path) {
+    fill: #C4262F;
+  }
+
+  :global(#{$selector}--heart#{$selector}--svg.active) {
     color: #C4262F;
 
     &:hover {
