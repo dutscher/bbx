@@ -79,7 +79,7 @@ const loadChanges = async (endCursor) => {
           edges {
             node {
               datetime
-              status{_id},
+              status{_id}
               product {
                 _id
                 name

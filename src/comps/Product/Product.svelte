@@ -7,7 +7,6 @@
         ID_STAR_TREK,
         ID_STATE_ANNOUNCEMENT,
         ID_STATE_AVAILABLE,
-        ID_STATE_UNAVAILABLE,
         ID_STATE_COMING_SOON,
         STAR_TREK,
         UNLOADED

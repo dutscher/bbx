@@ -42,8 +42,10 @@
     <script defer src="/build/bundle.js?cb=1626458022163"></script>
     <script defer src="/pwa/loader.js?cb=1626458022163"></script>
     <script>
-        const _paq = window._paq = window._paq || [];
-        _paq.push(['disableCookies']);
+        let _paq = window._paq = window._paq || [];
+        _paq.push(["setCookieDomain", "*.bbx.watch"]);
+        _paq.push(["setDoNotTrack", true]);
+        _paq.push(["disableCookies"]);
         _paq.push(['trackPageView']);
         _paq.push(['enableLinkTracking']);
         (function() {
@@ -51,7 +53,7 @@
             _paq.push(['setTrackerUrl', u+'matomo.php']);
             _paq.push(['setSiteId', '1']);
             const d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.type='text/javascript'; g.async=true; g.Xsrc=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+            g.async=true; g.Xsrc=u+'matomo.js'; s.parentNode.insertBefore(g,s);
         })();
     </script>
     <script async defer crossorigin="anonymous" Xsrc="https://connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v11.0" nonce="6GocSq2n"></script>
