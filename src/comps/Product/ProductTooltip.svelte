@@ -45,8 +45,11 @@
         const defaultLabel = 'Download';
         const foundSize = str.match(/\((\d*MB)\)/);
         const foundPart = str.match(/Teil(%20| )(\d{1})/);
-        if (foundSize || foundPart) {
-            if (foundPart) {
+        const foundUnit = str.match(/Unit (\d{1,2})/);
+        if (foundSize || foundPart || foundUnit) {
+            if (foundUnit) {
+                strReturn = 'Unit ' + foundUnit[1] + (foundSize ? ' - ' + foundSize[1] : '');
+            } else if (foundPart) {
                 strReturn = 'Teil ' + foundPart[2] + (foundSize ? ' - ' + foundSize[1] : '');
             } else {
                 strReturn = foundSize[1];

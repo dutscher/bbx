@@ -7,7 +7,7 @@
     "buildNdeploy": "npm run build && npm run deploy",
     "buildFastNDeploy": "npm run build:html && npm run deploy",
     "--- dev": "this is a divider",
-    "dev": "npm run build:html -- --dev && rollup -c -w",
+    "dev": "npm run build:html -- -- --dev && rollup -c -w",
     "start-by-rollup": "sirv public --no-clear",
     "validate": "svelte-check",
     "--- update": "this is a divider",
@@ -64,9 +64,8 @@
     "svelte-preprocess": "^4.0.0",
     "svelte-watch-resize": "^1.0.3",
     "tslib": "^2.0.0",
-    "typescript": "^4.0.0"
-  },
-  "dependencies": {
-    "sirv-cli": "^1.0.0"
+    "typescript": "^4.0.0",
+    "sirv-cli": "^1.0.0",
+    "yargs": "^17.3.0"
   }
 }

@@ -1,8 +1,10 @@
 import fs from 'fs-extra';
 import Client from 'ssh2-sftp-client';
-// TODO: change to params
-import secrets from './ftp.secret.json';
+//import secrets from './ftp.secret.json';
+import yargs from 'yargs'
+import { hideBin } from 'yargs/helpers'
 
+const secrets = yargs(hideBin(process.argv)).argv;
 const sftp = new Client();
 const src = './public';
 
@@ -11,7 +13,8 @@ sftp.connect({
     port: secrets.port,
     username: secrets.username,
     passphrase: secrets.passphrase,
-    privateKey: fs.readFileSync(secrets.privateKey), // Buffer or string that contains
+    //privateKey: fs.readFileSync(secrets.privateKey),
+    privateKey: secrets.privateKey,
 })
     .then(() => sftp.uploadDir(src, secrets.destination))
     .then(msg => {
