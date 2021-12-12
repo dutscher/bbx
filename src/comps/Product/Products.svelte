@@ -1,6 +1,6 @@
 <script lang="ts">
     import Product from "./Product.svelte";
-    import FilterSummary from "../filter/FilterSummary.svelte";
+    import FilterSummary from "../Filter/FilterSummary.svelte";
     import { titleMatch, jsVoid } from "../../utils";
     import {
         storedProducts,
