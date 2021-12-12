@@ -20,7 +20,7 @@ jobs:
         run: |
           npm ci
           npm run build
-          npm run deploy -- -- ${{ secrets.DEPLOY }}
+
       - name: Deploy to gh-pages 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
