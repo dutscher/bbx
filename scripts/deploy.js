@@ -10,9 +10,8 @@ const sftp = new Client();
 const src = './public';
 
 console.log(secrets)
-const privateKey = Buffer.from(secrets.privateKey, 'utf-8');
+const privateKey = Buffer.from('-----BEGIN RSA PRIVATE KEY-----\n'+secrets.privateKey+'\n-----END RSA PRIVATE KEY-----', 'utf-8');
 //privateKey: fs.readFileSync(secrets.privateKey),
-//privateKey: '-----BEGIN RSA PRIVATE KEY-----\n'+secrets.privateKey+'\n-----END RSA PRIVATE KEY-----',
 console.log(privateKey)
 
 sftp.connect({
