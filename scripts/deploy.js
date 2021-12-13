@@ -14,7 +14,9 @@ sftp.connect({
     username: secrets.username,
     passphrase: secrets.passphrase,
     //privateKey: fs.readFileSync(secrets.privateKey),
-    privateKey: '-----BEGIN RSA PRIVATE KEY-----\n'+secrets.privateKey+'\n-----END RSA PRIVATE KEY-----',
+    //privateKey: '-----BEGIN RSA PRIVATE KEY-----\n'+secrets.privateKey+'\n-----END RSA PRIVATE KEY-----',
+    privateKey:  Buffer.from('-----BEGIN RSA PRIVATE KEY-----\n'+secrets.privateKey+'\n-----END RSA PRIVATE KEY-----', 'utf-8'),
+
 })
     .then(() => sftp.uploadDir(src, secrets.destination))
     .then(msg => {
