@@ -29,7 +29,7 @@ if (true) {
     })
         .then(() => sftp.uploadDir(src, secrets.destination))
         .then(msg => {
-            console.log('Upload dome:', msg);
+            console.log('Upload done:', msg);
             return sftp.end();
         })
         .catch(err => {

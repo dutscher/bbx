@@ -11,6 +11,7 @@
     import { ID_MANHATTAN, ID_MOVIE, UNLOADED } from "./_interfaces";
     import Icon from "./comps/Icon.svelte";
     import Notifications from "./comps/Notifications.svelte";
+    import Github from "./comps/Github.svelte";
 
     const client = new ApolloClient({
         uri: 'https://api.bbx.watch/api/graphql',
@@ -36,6 +37,7 @@
 
 <main>
 <!--    <Notifications />-->
+    <Github/>
     <Welcome/>
     <Hearts/>
     <Changes/>
@@ -48,7 +50,7 @@
     <strong>Legende:</strong><br />
     <Icon modifier="new"/> = Neues Produkt
     <Icon modifier="flame"/> = Beliebtes Produkt (mehr als 2 mal Verfügbar)
-    <Icon modifier="heart" svg="true" class="active"/> = "Will Ich haben" Produkt Test
+    <Icon modifier="heart" svg="true" class="active"/> = "Will Ich haben" Produkt
 </main>
 
 <style lang="scss">
