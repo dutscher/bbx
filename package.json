@@ -12,6 +12,7 @@
     "validate": "svelte-check",
     "--- update": "this is a divider",
     "fetch": "npm run exec ./scripts/fetch-stats.js",
+    "fetch:compare": "npm run fetch -- -- --create-compare",
     "fetch:parse-pages": "npm run fetch -- -- --parse-pages",
     "fetch:parse-pages-n-parts": "npm run fetch -- -- --parse-pages-n-parts",
     "cat-n-tags": "npm run exec ./scripts/cats-n-tags.js",

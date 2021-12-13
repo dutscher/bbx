@@ -359,21 +359,29 @@ const mergeChangesWithDB = async () => {
         return convertToReduce(product);
     });
 
-    // write images files
-    if (Object.keys(parsedDataToday.images).length > 0) {
+    if (params.includes('--create-compare')) {
+        // write images files
+        if (Object.keys(parsedDataToday.images).length > 0) {
+            await handleCache(
+                './data/api/',
+                `images.compare.json`,
+                () => JSON.stringify(parsedDataToday.images, null, 2),
+                true);
+        }
+
+        // write compare file
         await handleCache(
-            './data/api/',
-            `images.compare.json`,
-            () => JSON.stringify(parsedDataToday.images, null, 2),
+            './data/',
+            `all-products.compare.json`,
+            () => JSON.stringify(orderedItems, null, 2),
+            true);
+    } else {
+        await handleCache(
+            './data/',
+            `all-products.json`,
+            () => JSON.stringify(orderedItems, null, 2),
             true);
     }
-
-    // write compare file
-    await handleCache(
-        './data/',
-        `all-products.compare.json`,
-        () => JSON.stringify(orderedItems, null, 2),
-        true);
 
     console.log('all done in milliseconds: ', moment(moment(new Date())).diff(startDate, 'milliseconds')) // 50
 })();
