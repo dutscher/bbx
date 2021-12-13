@@ -22,5 +22,5 @@ jobs:
           npm run build
 
       - name: Run npm deploy
-           run: |
-             node ./scripts/deploy.js ${{ secrets.DEPLOY }}
+        run: |
+          node ./scripts/deploy.js ${{ secrets.DEPLOY }}
