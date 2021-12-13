@@ -23,4 +23,4 @@ jobs:
 
       - name: Run npm deploy
         run: |
-          node ./scripts/deploy.js ${{ secrets.DEPLOY }} --privateKey=${{ secrets.PRIVATE_KEY }}
+          node ./scripts/deploy.js ${{ secrets.DEPLOY }} --privateKey="${{ secrets.PRIVATE_KEY }}"

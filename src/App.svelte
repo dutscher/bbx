@@ -48,7 +48,7 @@
     <strong>Legende:</strong><br />
     <Icon modifier="new"/> = Neues Produkt
     <Icon modifier="flame"/> = Beliebtes Produkt (mehr als 2 mal Verfügbar)
-    <Icon modifier="heart" svg="true" class="active"/> = "Will Ich haben" Produkt
+    <Icon modifier="heart" svg="true" class="active"/> = "Will Ich haben" Produkt Test
 </main>
 
 <style lang="scss">
