@@ -20,12 +20,7 @@ jobs:
         run: |
           npm ci
           npm run build
-          npm run deploy -- -- ${{ secrets.DEPLOY }}
 
-      - name: Deploy to gh-pages 🚀
-        uses: JamesIves/github-pages-deploy-action@releases/v4
-        with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: public # The folder the action should deploy.
-          clean: true
-          single-commit: true
+      - name: Run npm deploy
+           run: |
+             node ./scripts/deploy.js ${{ secrets.DEPLOY }}
