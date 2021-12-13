@@ -1,5 +1,6 @@
 //import fs from 'fs-extra';
 //import secrets from './ftp.secret.json';
+import { Buffer } from 'buffer';
 import Client from 'ssh2-sftp-client';
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
