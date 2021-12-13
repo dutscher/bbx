@@ -9,6 +9,8 @@ const secrets = yargs(hideBin(process.argv)).argv;
 const sftp = new Client();
 const src = './public';
 
+console.log(secrets)
+
 sftp.connect({
     host: secrets.host,
     port: secrets.port,
