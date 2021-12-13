@@ -5,7 +5,7 @@ import Client from 'ssh2-sftp-client';
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 
-//const secrets = yargs(hideBin(process.argv)).argv;
+const secrets = yargs(hideBin(process.argv)).argv;
 const sftp = new Client();
 const src = './public';
 
