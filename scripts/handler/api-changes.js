@@ -283,7 +283,7 @@ const fetchChanges = async (writeLastCursor = true) => {
         await handleCache(
             './data/',
             `api-changes.last-cursor.json`,
-            () => JSON.stringify([lastCursors[lastCursors.length - 1]], null, 2),
+            () => JSON.stringify([lastCursors[lastCursors.length - 1]]),
             true);
     }
 
