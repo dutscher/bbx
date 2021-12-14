@@ -1,11 +1,14 @@
 #!/bin/bash
 echo "commit change"
 
+#git pull
+
+#npm run fetch
+
 #git add *
 
 # ../data/api-changes.last-cursor.json
-
-echo "Add latest ${cat ./data/api-changes.last-cursor.json}"
-#git commit -m "Add latest "
+#value=$(<../data/api-changes.last-cursor.json)
+#git commit -m "Add latest $value"
 
 #git push
