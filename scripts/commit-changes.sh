@@ -13,6 +13,6 @@ git commit -m "Add latest $value"
 # update repo
 # https://github.com/dutscher/bbx.git
 login=$(<./bbx.secret)
-git push https://$(login)@github.com/dutscher/bbx.git --all
+git push "https://$login@github.com/dutscher/bbx.git" --all
 
 #git reset --hard
