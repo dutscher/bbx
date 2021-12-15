@@ -12,6 +12,7 @@ export const loadChanges = async (endCursor?: string) => {
     if (!endCursor) {
         storedActiveSelection.update(value => {
             value.loadedData.changes = LOADING;
+            value.lastCursor = endCursorsFromParse;
             return value;
         });
     }

@@ -20,20 +20,18 @@
     setClient(client);
 
     let activeTagIds;
+    let lastCursor;
 
-    storedActiveSelection.subscribe(value => {
-        activeTagIds = value.tags || [];
+    storedActiveSelection.subscribe(store => {
+        activeTagIds = store.tags || [];
+        lastCursor = store.lastCursor || [];
 
         // load movie data
-        if (value.loadedData.movie === UNLOADED && activeTagIds.includes(ID_MOVIE)) {
+        if (store.loadedData.movie === UNLOADED && activeTagIds.includes(ID_MOVIE)) {
             loadMovieData();
         }
     });
 </script>
-
-<svelte:head>
-    <title>BBX Watcher</title>
-</svelte:head>
 
 <main>
 <!--    <Notifications />-->
@@ -50,7 +48,9 @@
     <strong>Legende:</strong><br />
     <Icon modifier="new"/> = Neues Produkt
     <Icon modifier="flame"/> = Beliebtes Produkt (mehr als 2 mal Verfügbar)
-    <Icon modifier="heart" svg="true" class="active"/> = "Will Ich haben" Produkt
+    <Icon modifier="heart" svg="true" class="active"/> = "Will Ich haben" Produkt<br />
+    <br />
+    <strong>Stand:</strong> {lastCursor[0] && lastCursor[0].split('|')[1]}
 </main>
 
 <style lang="scss">

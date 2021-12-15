@@ -7,7 +7,8 @@ export const storedActiveSelection = writable({
         changes: UNLOADED,
         inst: UNLOADED,
         movie: UNLOADED,
-    }
+    },
+    lastCursor: []
 });
 
 import statesJSON from '../../data/states.json';
