@@ -17,6 +17,8 @@
         uri: 'https://api.bbx.watch/api/graphql',
         cache: new InMemoryCache(),
     });
+
+    console.log(client);
     setClient(client);
 
     let activeTagIds;
@@ -45,12 +47,14 @@
     {/if}
     <Products/>
 
-    <strong>Legende:</strong><br />
-    <Icon modifier="new"/> = Neues Produkt
-    <Icon modifier="flame"/> = Beliebtes Produkt (mehr als 2 mal Verfügbar)
-    <Icon modifier="heart" svg="true" class="active"/> = "Will Ich haben" Produkt<br />
-    <br />
-    <strong>Stand:</strong> {lastCursor[0] && lastCursor[0].split('|')[1]}
+    <div class="footer">
+        <strong>Legende:</strong><br />
+        <Icon modifier="new"/> = Neues Produkt
+        <Icon modifier="flame"/> = Beliebtes Produkt (mehr als 2 mal Verfügbar)
+        <Icon modifier="heart" svg="true" class="active"/> = "Will Ich haben" Produkt<br />
+        <br />
+        <strong>Stand:</strong> {lastCursor[0] && lastCursor[0].split('|')[1]}
+    </div>
 </main>
 
 <style lang="scss">
@@ -74,9 +78,18 @@
     color: $color-primary
   }
 
-  :global(h1.with-toggle, h2.with-toggle) {
+  :global(.with-toggle) {
     cursor: pointer;
     user-select: none;
+    background: $color-neutral-42;
+    border-radius: $space-xl;
+    padding-left: $space-xl;
+
+
+  }
+
+  :global(.with-toggle:hover) {
+      background: $color-neutral-50;
   }
 
   :global(.with-toggle + *) {
@@ -136,6 +149,12 @@
     @media (min-width: 1024px) {
       width: 65vw;
     }
-    padding-bottom: 300px;
+    padding-bottom: 150px;
+    margin: 0 auto;
+
+    .footer {
+      padding-top: 50px;
+      font-size: ms(-1);
+    }
   }
 </style>

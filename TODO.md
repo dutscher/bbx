@@ -1,6 +1,7 @@
 * concat util code 'Chrome Silver' 3 times
   * to share code between svelte and nodejs
 * 13 vulnerabilities (7 moderate, 6 high)
+* cart call?
 * manhattan scale mobile bug innerWidth
 * add cherrio to parsePage and extract pageParsing (jsdom 24sekunden vs? )
 * notifications

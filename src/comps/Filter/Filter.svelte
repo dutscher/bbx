@@ -40,7 +40,7 @@
     })
 </script>
 
-<h2 class="with-toggle" on:click={() => isVisible = !isVisible}>
+<h2 class="with-toggle" on:click={onClick}>
     <Icon modifier="arrow" class="icon--{!isVisible ? 'down' : 'up'}"/>
     Filter
 </h2>

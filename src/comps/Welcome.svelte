@@ -33,6 +33,9 @@
 <h1 class="with-toggle" on:click={onClick}>
     <Icon modifier="arrow" class="icon--{!isVisible ? 'down' : 'up'}"/>
     BBX Watcher
+
+    <div class="fb-like" data-href="https://www.facebook.com/bbxwatcher" data-width="170px" data-layout="button_count"
+         data-action="like" data-size="small" data-share="true"></div>
 </h1>
 <div class="welcome{isVisible ? ' show' : ''}">
     <div class="welcome__content">
@@ -49,8 +52,6 @@
             Aber Obacht: es gibt noch 3 Überraschungen ;)<br/>
             Viel Spaß
         </p>
-        <div class="fb-like" data-href="https://www.facebook.com/bbxwatcher" data-width="" data-layout="button_count"
-             data-action="like" data-size="small" data-share="true"></div>
     </div>
     <div class="welcome__other">
         <Imprint/>
@@ -62,6 +63,11 @@
 
   h1 {
     color: $color-primary;
+
+    .fb-like {
+      height: 30px;
+      width: 170px;
+    }
   }
 
   .welcome {
@@ -69,10 +75,6 @@
 
     &.show {
       display: block;
-    }
-
-    .fb-like {
-      height: 30px;
     }
   }
 </style>
