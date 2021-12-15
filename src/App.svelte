@@ -18,7 +18,6 @@
         cache: new InMemoryCache(),
     });
 
-    console.log(client);
     setClient(client);
 
     let activeTagIds;
