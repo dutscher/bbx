@@ -17,5 +17,7 @@ git commit -m "Cronjob add latest changes: $value"
 # https://github.com/dutscher/bbx.git
 login=$(<./bbx.secret)
 git push "https://$login@github.com/dutscher/bbx.git" --all
+# reset exectuable shell for cronjob
+chmod 777 ./cronjob-changes.sh
 
 #git reset --hard
