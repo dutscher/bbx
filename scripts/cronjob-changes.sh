@@ -1,5 +1,8 @@
 #!/bin/bash
+# https://manual.uberspace.de/daemons-cron/
+# 37 13 * * * /home/dutscher/bbx.willy-selma.de/scripts/cronjob-changes.sh > /home/dutscher/tmp/bbx.cron.log 2>&1
 echo "commit change"
+cd /home/dutscher/bbx.willy-selma.de/scripts/
 # get latest repo changes
 git pull
 # fetch graphql
@@ -9,7 +12,7 @@ git add .*
 # use json for commit message
 # ../data/api-changes.last-cursor.json
 value=$(<../data/api-changes.last-cursor.json)
-git commit -m "Add latest $value"
+git commit -m "Cronjob add latest changes: $value"
 # update repo
 # https://github.com/dutscher/bbx.git
 login=$(<./bbx.secret)
