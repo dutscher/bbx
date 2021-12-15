@@ -1,5 +1,5 @@
 <script lang="ts">
-    import FilterSummary from "./FilterSummary.svelte";
+    import { onMount } from 'svelte';
     import FilterTags from "./FilterTags.svelte";
     import FilterColors from "./FilterColors.svelte";
     import FilterParts from "./FilterParts.svelte";
@@ -7,8 +7,8 @@
     import FilterStates from "./FilterStates.svelte";
     import FilterSearch from "./FilterSearch.svelte";
     import Icon from "../Icon.svelte";
-    import { ID_PARTS, } from '../../_interfaces';
-    import { storedActiveSelection } from '../../stores';
+    import { ID_PARTS, lsKeyFilter, } from '../../_interfaces';
+    import { localStore, storedActiveSelection } from '../../stores';
 
     let activeTagIds: any = [];
     let activePartIds: any = [];
@@ -25,11 +25,19 @@
         activeColorIds = value.colors || [];
         activeStateIds = value.states || [];
         activeSearchString = value.search || '';
-        // if filter in url, close it
-        if (value.reason === 'url-parsed') {
-            //isVisible = false;
-        }
     });
+
+    const onClick = () => {
+        isVisible = !isVisible;
+        localStore.set(lsKeyFilter, isVisible);
+    }
+
+    onMount(() => {
+        const lsValue = localStore.get(lsKeyFilter);
+        if (!lsValue) {
+            isVisible = lsValue;
+        }
+    })
 </script>
 
 <h2 class="with-toggle" on:click={() => isVisible = !isVisible}>

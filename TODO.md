@@ -3,10 +3,6 @@
 * 13 vulnerabilities (7 moderate, 6 high)
 * manhattan scale mobile bug innerWidth
 * add cherrio to parsePage and extract pageParsing (jsdom 24sekunden vs? )
-* cronjob with changes from api
-  * own github project
-  * fetch pages after new images
-  * commit and push after merge
 * notifications
   * store empty maybe sw ask svelte and ping pong
   * settings and store in serviceworker

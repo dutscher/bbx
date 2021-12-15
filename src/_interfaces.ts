@@ -9,6 +9,10 @@ export const ID_STATE_COMING_SOON = 1;
 export const ID_STATE_UNAVAILABLE = 2;
 export const ID_STATE_ANNOUNCEMENT = 3;
 
+export const lsKeyWelcome = 'welcomeVisible';
+export const lsKeyChanges = 'changesVisible';
+export const lsKeyFilter = 'filterVisible';
+
 export interface Tag {
     id: number,
     name: string,

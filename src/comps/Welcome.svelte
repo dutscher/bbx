@@ -4,51 +4,27 @@
     import Imprint from "./Imprint.svelte";
     // app
     import {
-        storedActiveSelection,
         storedTags,
         storedProducts,
         localStore
     } from '../stores';
+    import { lsKeyWelcome } from "../_interfaces";
 
-    let activeTagIds;
-    let activePartIds;
-    let activeColorIds;
-    let activeStateIds;
-    let activeSearchString;
-    let loadedChanges;
     let tags: number = 0;
     let products: number = 0;
-    let isTouched = false;
+    let isVisible = true;
 
-    storedTags.subscribe(value => tags = value.length);
-    storedProducts.subscribe(value => products = value.length);
-    storedActiveSelection.subscribe(value => {
-        activeTagIds = value.tags || [];
-        activePartIds = value.parts || [];
-        activeColorIds = value.colors || [];
-        activeStateIds = value.states || [];
-        activeSearchString = value.search || '';
-        loadedChanges = value.loadedData.changes;
-    });
-
-    $: isFiltered = !isTouched && (!!activeSearchString
-        || activeTagIds.length > 0
-        || activeStateIds.length > 0
-        || activeColorIds.length > 0
-        || activePartIds.length > 0);
-
-    $: isVisible = !isFiltered;
+    storedTags.subscribe(store => tags = store.length);
+    storedProducts.subscribe(store => products = store.length);
 
     const onClick = () => {
-        isTouched = true;
         isVisible = !isVisible;
-        localStore.set('welcomeVisible', isVisible);
+        localStore.set(lsKeyWelcome, isVisible);
     }
 
     onMount(() => {
-        const lsValue = localStore.get('welcomeVisible');
+        const lsValue = localStore.get(lsKeyWelcome);
         if (!lsValue) {
-            isTouched = true;
             isVisible = lsValue;
         }
     })
