@@ -12,7 +12,7 @@ git add .*
 # use json for commit message
 # ../data/api-changes.last-cursor.json
 value=$(<../data/api-changes.last-cursor.json)
-git commit -m "Cronjob add latest changes: $value"
+git commit -m "Cronjob changes: $value"
 # update repo
 # https://github.com/dutscher/bbx.git
 login=$(<./bbx.secret)
