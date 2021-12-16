@@ -28,10 +28,39 @@
             }
             return 0;
         });
+
+    let heartSummary = {price: 0, pricePerPart: 0, parts: 0};
+
+    $: {
+        heartSummary = {price: 0, pricePerPart: 0, parts: 0};
+
+        heartItems.map(product => {
+            heartSummary.price += product.price;
+            heartSummary.parts += product.parts;
+        });
+
+        heartSummary.pricePerPart = heartSummary.price && heartSummary.parts ? (heartSummary.price / heartSummary.parts) * 100 : 0;
+    }
 </script>
 
 <div class="flex flex--wrap">
     {#each heartItems as product (product.id)}
         <Product {product} type="hearts"/>
     {/each}
+    {#if heartItems.length > 1}
+        <span class="summary"> =
+            <strong>Listenpreis:</strong> {heartSummary.price.toFixed(2).replace('.', ',')} EUR /
+            <strong>Steine:</strong> {heartSummary.parts} /
+            <strong>Preis pro Stein:</strong> {heartSummary.pricePerPart.toFixed(2).replace('.', ',')} ct/Stein
+        </span>
+    {/if}
 </div>
+
+<style lang="scss">
+  @import '../scss/variables';
+
+  .summary {
+    font-size: ms(-2);
+    line-height: 2;
+  }
+</style>
