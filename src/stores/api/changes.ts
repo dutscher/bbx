@@ -1,6 +1,6 @@
 import endCursorsFromParse from '../../../data/api-changes.last-cursor.json'
 import { queryChanges } from '../../queries';
-import { getHRDate, getDateTime, graphql } from '../../utils';
+import { getHRDate, getDateTime, graphql, getProductHref } from '../../utils';
 import { ID_PARTS, LOADED, LOADING } from '../../_interfaces';
 import { sortedProducts, storedProducts } from '../products';
 import { sortedStates, storedActiveSelection } from '../states';
@@ -117,7 +117,7 @@ const evalChanges = (edges: any) => {
                             history: {
                                 [getHRDate(date)]: state.id
                             },
-                            href: `/${id}/.html`,
+                            href: getProductHref({title: product.name, id}),
                         },
                     );
                 }
