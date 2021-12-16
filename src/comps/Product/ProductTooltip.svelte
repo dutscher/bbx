@@ -86,7 +86,7 @@
 
     const handlePrice = (product) => {
         if (product.price > 0) {
-            return `${('' + product.price.toFixed(2)).replace('.', ',')}EUR (${product.pricePerPart.toFixed(2).replace('.', ',')} ct/Teil)`;
+            return `${('' + product.price.toFixed(2)).replace('.', ',')}EUR (${product.pricePerPart.toFixed(2).replace('.', ',')} ct/Stein)`;
         }
         return '';
     }
@@ -167,7 +167,7 @@
                 {/if}
                 {#if product.movieData}<strong>{product.movieData}</strong><br/>{/if}
                 {#if product.id}<strong>ID:</strong> <span class="tooltip__content">{product.id}</span><br/>{/if}
-                {#if product.parts}<strong>Teile:</strong> <span
+                {#if product.parts}<strong>Steine:</strong> <span
                         class="tooltip__content">{product.parts}</span><br/>{/if}
                 {#if !!product.price}
                     <strong>Preis:</strong> <span class="tooltip__content">{handlePrice(product)}</span><br/>
