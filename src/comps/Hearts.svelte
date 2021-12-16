@@ -51,7 +51,7 @@
         <span class="summary"> =
             <strong>Listenpreis:</strong> {heartSummary.price.toFixed(2).replace('.', ',')} EUR /
             <strong>Steine:</strong> {heartSummary.parts} /
-            <strong>Preis pro Stein:</strong> {heartSummary.pricePerPart.toFixed(2).replace('.', ',')} ct/Stein
+            <strong>Preis pro Stein:</strong> {heartSummary.pricePerPart.toFixed(2).replace('.', ',')} ct
         </span>
     {/if}
 </div>
