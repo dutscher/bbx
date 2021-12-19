@@ -65,6 +65,7 @@
     color: $color-primary;
 
     .fb-like {
+      display: inline-block;
       height: 30px;
       width: 170px;
     }
