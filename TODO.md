@@ -2,6 +2,8 @@
   * to share code between svelte and nodejs
 * 13 vulnerabilities (7 moderate, 6 high)
 * cart call?
+* OFFLINE page
+* niederländische special
 * manhattan scale mobile bug innerWidth
 * add cherrio to parsePage and extract pageParsing (jsdom 24sekunden vs? )
 * notifications

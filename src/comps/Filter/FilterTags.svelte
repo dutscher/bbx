@@ -64,12 +64,14 @@
         return 0;
     });
 
+
+
     const sortedAbcTags = abc.map((letter) => {
         return {
             letter,
             sortedTags: sortedTags
                 .filter((tag) => tag.count > 0)
-                .filter((tag) => tag.name.startsWith(letter)),
+                .filter((tag) => tag.name.toUpperCase().startsWith(letter)),
         }
     })
 
