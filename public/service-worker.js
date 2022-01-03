@@ -1,13 +1,26 @@
-// Update cache names any time any of the cached files change.
-const CACHE_NAME = 'static-cache-v1';
 const pre = '[ServiceWorker]';
 // notification and product store
 const store = {};
-
+// Update cache names any time any of the cached files change.
 // Add list of files to cache here.
+const CACHE_NAME = 'static-cache-v1';
 const FILES_TO_CACHE = [
     './index.html',
     './offline.html',
+    './manifest.json',
+    './favicon.ico',
+    './build/bundle.js?cb=1636753040329',
+    './build/bundle.css?cb=1636753040329',
+    './images/icon-arrow.svg',
+    './images/icon-cart.svg',
+    './images/icon-cross.svg',
+    './images/icon-flame.svg',
+    './images/icon-heart.svg',
+    './images/icon-manual.svg',
+    './images/icon-new.svg',
+    './images/pearl-gold.svg',
+    './images/pearl-gray.svg',
+    './images/spinner.svg',
 ];
 
 self.addEventListener('install', (evt) => {
@@ -40,24 +53,20 @@ self.addEventListener('activate', (evt) => {
     self.clients.claim();
 });
 
-self.addEventListener('fetch', (evt) => {
-    //console.log(pre, 'fetch', evt.request.url);
-    // Add fetch event handler here.
-    if (evt.request.mode !== 'navigate') {
-        // Not a page navigation, bail.
-        return;
-    }
-    evt.respondWith(
-        fetch(evt.request)
-            .catch(() => {
-                return caches.open(CACHE_NAME)
-                    .then((cache) => {
-                        return cache.match('offline.html');
-                    });
-            })
-    );
+self.addEventListener('fetch', (e) => {
+    e.respondWith((async () => {
+        const r = await caches.match(e.request);
+        console.log(pre, `Fetching resource: ${e.request.url}`);
+        if (r) {
+            return r;
+        }
+        const response = await fetch(e.request);
+        const cache = await caches.open(cacheName);
+        console.log(pre, `Caching new resource: ${e.request.url}`);
+        cache.put(e.request, response.clone());
+        return response;
+    })());
 });
-
 
 // Katze weiß + streckend : state: BUYABLE => UNAVAILABLE;  https://www.bluebrixx.com/de//102046/.html -> jekca
 // Dampflokomotive BR 89 : state: BUYABLE => UNAVAILABLE;  https://www.bluebrixx.com/de//101019/.html
