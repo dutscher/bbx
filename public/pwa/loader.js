@@ -88,9 +88,8 @@
             // navigator.serviceWorker.addEventListener('message', (event) => {
             //     console.log(pre, 'message', event);
             // });
-            // TODO: find out which call opens the chrome notificationshizzle
 
-            if ('permissions' in navigator) {
+            if ('permissions' in navigator && false) {
                 navigator.permissions.query({ name: 'notifications' })
                     .then(function (notificationPerm) {
                         console.log(pre, 'notification permission changed: ', notificationPerm.state)

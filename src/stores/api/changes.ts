@@ -5,6 +5,11 @@ import { ID_PARTS, LOADED, LOADING } from '../../_interfaces';
 import { sortedProducts, storedProducts } from '../products';
 import { sortedStates, storedActiveSelection } from '../states';
 
+storedActiveSelection.update(value => {
+    value.lastCursor = endCursorsFromParse;
+    return value;
+});
+
 // changes
 let edges = [];
 export const loadChanges = async (endCursor?: string) => {

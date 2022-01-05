@@ -7,5 +7,6 @@
 /data/*.compare.json
 /scripts/*.secret*
 /public/index.html
+/public/offline.html
 .DS_Store
 .idea/

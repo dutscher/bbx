@@ -4,34 +4,35 @@ const store = {};
 // Update cache names any time any of the cached files change.
 // Add list of files to cache here.
 const CACHE_NAME = 'static-cache-v1';
+const IGNORE_REQUESTS = [
+    'chrome-extension:',
+    '/api/graphql'
+]
 const FILES_TO_CACHE = [
     './index.html',
-    './offline.html',
     './manifest.json',
-    './favicon.ico',
-    './build/bundle.js?cb=1636753040329',
-    './build/bundle.css?cb=1636753040329',
-    './images/icon-arrow.svg',
-    './images/icon-cart.svg',
-    './images/icon-cross.svg',
-    './images/icon-flame.svg',
-    './images/icon-heart.svg',
-    './images/icon-manual.svg',
-    './images/icon-new.svg',
-    './images/pearl-gold.svg',
-    './images/pearl-gray.svg',
-    './images/spinner.svg',
+    // './favicon.ico',
+    // './build/bundle.js?cb=1636753040329',
+    // './build/bundle.css?cb=1636753040329',
+    // './images/icon-arrow.svg',
+    // './images/icon-cart.svg',
+    // './images/icon-cross.svg',
+    // './images/icon-flame.svg',
+    // './images/icon-heart.svg',
+    // './images/icon-manual.svg',
+    // './images/icon-new.svg',
+    // './images/pearl-gold.svg',
+    // './images/pearl-gray.svg',
+    // './images/spinner.svg',
 ];
 
-self.addEventListener('install', (evt) => {
-    console.log(pre, 'install');
+self.addEventListener('install', (e) => {
+    console.log(pre, 'install', FILES_TO_CACHE);
 
-    evt.waitUntil(
-        caches.open(CACHE_NAME).then((cache) => {
-            console.log('[ServiceWorker] Pre-caching offline page');
-            return cache.addAll(FILES_TO_CACHE);
-        })
-    );
+    e.waitUntil((async () => {
+        const cache = await caches.open(CACHE_NAME);
+        await cache.addAll(FILES_TO_CACHE);
+    })());
 
     self.skipWaiting();
 });
@@ -61,9 +62,11 @@ self.addEventListener('fetch', (e) => {
             return r;
         }
         const response = await fetch(e.request);
-        const cache = await caches.open(cacheName);
-        console.log(pre, `Caching new resource: ${e.request.url}`);
-        cache.put(e.request, response.clone());
+        if (!IGNORE_REQUESTS.some(request => e.request.url.includes(request))) {
+            const cache = await caches.open(CACHE_NAME);
+            console.log(pre, `Caching new resource: ${e.request.url}`);
+            cache.put(e.request, response.clone());
+        }
         return response;
     })());
 });

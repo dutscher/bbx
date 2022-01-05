@@ -10,19 +10,26 @@
         storedTags,
         storedProducts,
         loadChanges,
-        localStore
+        localStore,
+        internetConnection,
     } from '../stores';
 
     let loadedChanges;
     let tags: number = 0;
     let products: number = 0;
     let isVisible = true;
+    let isOnline = false;
 
-    storedTags.subscribe(value => tags = value.length);
-    storedProducts.subscribe(value => products = value.length);
-    storedActiveSelection.subscribe(value => {
-        loadedChanges = value.loadedData.changes;
+    internetConnection.subscribe(store => {
+        isOnline = store.isOnline
+
+        if (isOnline && loadedChanges === UNLOADED) {
+            loadChanges();
+        }
     });
+    storedTags.subscribe(store => tags = store.length);
+    storedProducts.subscribe(store => products = store.length);
+    storedActiveSelection.subscribe(store => loadedChanges = store.loadedData.changes);
 
     const onClick = () => {
         isVisible = !isVisible;
@@ -30,7 +37,7 @@
     }
 
     onMount(() => {
-        if (loadedChanges === UNLOADED) {
+        if (isOnline && loadedChanges === UNLOADED) {
             loadChanges();
         }
 
@@ -46,13 +53,15 @@
     Änderungen
 </h2>
 <div class="changes{isVisible ? ' show' : ''}">
-    {#if loadedChanges !== LOADED}
-        <div class="loader"></div>
-    {:else}
-        <TodayChanges/>
-        <LatestProducts state={0} title="Verfügbar"/>
-        <LatestProducts state={1} title="Bald erhältlich"/>
-        <LatestProducts state={3} title="Ankündigungen"/>
+    {#if isOnline || loadedChanges === LOADED}
+        {#if loadedChanges !== LOADED}
+            <div class="loader"></div>
+        {:else}
+            <TodayChanges/>
+            <LatestProducts state={0} title="Verfügbar"/>
+            <LatestProducts state={1} title="Bald erhältlich"/>
+            <LatestProducts state={3} title="Ankündigungen"/>
+        {/if}
     {/if}
 </div>
 

@@ -7,7 +7,7 @@
     import Filter from "./comps/Filter/Filter.svelte";
     import Manhattan from "./comps/Manhattan.svelte";
     import Products from "./comps/Product/Products.svelte";
-    import { loadMovieData, storedActiveSelection } from './stores';
+    import { loadMovieData, storedActiveSelection, internetConnection } from './stores';
     import { ID_MANHATTAN, ID_MOVIE, UNLOADED } from "./_interfaces";
     import Icon from "./comps/Icon.svelte";
     import Notifications from "./comps/Notifications.svelte";
@@ -22,6 +22,9 @@
 
     let activeTagIds;
     let lastCursor;
+    let isOnline = false;
+
+    internetConnection.subscribe(store => isOnline = store.isOnline);
 
     storedActiveSelection.subscribe(store => {
         activeTagIds = store.tags || [];
@@ -35,7 +38,8 @@
 </script>
 
 <main>
-<!--    <Notifications />-->
+    <!--    <Notifications />-->
+    <div>{#if isOnline}Du Bist online{:else}Deine Internet Verbindung ist weg aber du kannst den Watcher weiterhin nutzen{/if}</div>
     <Github/>
     <Welcome/>
     <Hearts/>
@@ -47,11 +51,14 @@
     <Products/>
 
     <div class="footer">
-        <strong>Legende:</strong><br />
-        <Icon modifier="new"/> = Neues Produkt
-        <Icon modifier="flame"/> = Beliebtes Produkt (mehr als 2 mal Verfügbar)
-        <Icon modifier="heart" svg="true" class="active"/> = "Will Ich haben" Produkt<br />
-        <br />
+        <strong>Legende:</strong><br/>
+        <Icon modifier="new"/>
+        = Neues Produkt
+        <Icon modifier="flame"/>
+        = Beliebtes Produkt (mehr als 2 mal Verfügbar)
+        <Icon modifier="heart" svg="true" class="active"/>
+        = "Will Ich haben" Produkt<br/>
+        <br/>
         <strong>Stand:</strong> {lastCursor[0] && lastCursor[0].split('|')[1]}
     </div>
 </main>
@@ -88,7 +95,7 @@
   }
 
   :global(.with-toggle:hover) {
-      background: $color-neutral-50;
+    background: $color-neutral-50;
   }
 
   :global(.with-toggle + *) {

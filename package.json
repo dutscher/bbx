@@ -4,10 +4,10 @@
   "type": "module",
   "scripts": {
     "npm:install": "npm install",
-    "buildNdeploy": "npm run build && npm run deploy",
-    "buildFastNDeploy": "npm run build:html && npm run deploy",
+    "buildNdeploy": "npm run build -- --prod && npm run deploy",
+    "buildFastNDeploy": "npm run build:html -- -- --prod && npm run deploy",
     "--- dev": "this is a divider",
-    "dev": "npm run build:html -- -- --dev && rollup -c -w",
+    "dev": "npm run build:html && rollup -c -w",
     "start-by-rollup": "sirv public --no-clear",
     "validate": "svelte-check",
     "--- update": "this is a divider",
