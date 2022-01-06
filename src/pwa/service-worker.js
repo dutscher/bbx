@@ -3,7 +3,7 @@ const pre = '[ServiceWorker]';
 const store = {};
 // Update cache names any time any of the cached files change.
 // Add list of files to cache here.
-const CACHE_NAME = 'static-cache-v1';
+const CACHE_NAME = 'cacheBuster-v1';
 const IGNORE_REQUESTS = [
     'chrome-extension:',
     '/api/graphql'
