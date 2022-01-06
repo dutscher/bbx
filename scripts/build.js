@@ -25,6 +25,9 @@ Object.entries(copy).map(([src, dest]) => {
             // activate tracking scripts
             .replace(/Xsrc/g, 'src');
     }
+    // create dest dir and remove file from path to get dir name
+    fs.mkdirsSync(dest.substring(0, dest.lastIndexOf("/")));
+    // create file
     fs.writeFileSync(dest, fileContent, 'utf-8');
     copiedFiles.push(dest);
 });
