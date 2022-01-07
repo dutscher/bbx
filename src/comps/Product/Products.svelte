@@ -252,7 +252,12 @@
 
       &:hover {
         color: $color-primary-darker;
+
+        @media (prefers-color-scheme: dark) {
+          color: $color-white;
+        }
       }
+
     }
   }
 

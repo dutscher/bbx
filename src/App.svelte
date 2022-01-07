@@ -7,7 +7,7 @@
     import Filter from "./comps/Filter/Filter.svelte";
     import Manhattan from "./comps/Manhattan.svelte";
     import Products from "./comps/Product/Products.svelte";
-    import { loadMovieData, storedActiveSelection, internetConnection } from './stores';
+    import { loadMovieData, storedActiveSelection } from './stores';
     import { ID_MANHATTAN, ID_MOVIE, UNLOADED } from "./_interfaces";
     import Icon from "./comps/Icon.svelte";
     import Notifications from "./comps/Notifications.svelte";
@@ -22,9 +22,6 @@
 
     let activeTagIds;
     let lastCursor;
-    let isOnline = false;
-
-    internetConnection.subscribe(store => isOnline = store.isOnline);
 
     storedActiveSelection.subscribe(store => {
         activeTagIds = store.tags || [];
@@ -39,9 +36,6 @@
 
 <main>
     <!--    <Notifications />-->
-    {#if !isOnline}
-        <div class="warning">Deine Internet Verbindung ist weg aber du kannst den Watcher weiterhin nutzen</div>
-    {/if}
     <Github/>
     <Welcome/>
     <Hearts/>
@@ -177,10 +171,6 @@
 
     padding-bottom: 150px;
     margin: 0 auto;
-
-    .warning {
-
-    }
 
     .footer {
       padding-top: 50px;

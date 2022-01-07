@@ -10,7 +10,7 @@
     let imageSrc: any;
 
     storedImageExtension.subscribe(store => imageExtensions = store);
-    internetConnection.subscribe(store => isOnline = store);
+    internetConnection.subscribe(store => isOnline = store.isOnline);
 
     $: imageSrc = generateImageSrc(product, imageExtensions, overrideExtension);
 

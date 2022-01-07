@@ -53,7 +53,7 @@
 </script>
 
 {#if !invisible}
-    <div class="flex flex--inline filter-summary">
+    <div class="flex flex--inline filter-summary  with-text-shadow">
         <div class="flex flex--wrap flex--vertical-center filter-summary__wrap">
             <strong class="filter-headline">| Filter:&nbsp;</strong>
             <FilterSummaryActive

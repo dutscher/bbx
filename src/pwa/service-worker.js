@@ -28,7 +28,7 @@ const FILES_TO_CACHE = [
 ];
 
 self.addEventListener('install', (e) => {
-    console.log(pre, 'install', FILES_TO_CACHE);
+    console.log(pre, 'install');
 
     e.waitUntil((async () => {
         const cache = await caches.open(CACHE_NAME);

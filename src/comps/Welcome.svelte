@@ -6,16 +6,20 @@
     import {
         storedTags,
         storedProducts,
-        localStore
+        localStore, internetConnection, storedActiveSelection
     } from '../stores';
     import { lsKeyWelcome } from "../_interfaces";
 
     let tags: number = 0;
     let products: number = 0;
     let isVisible = true;
+    let isOnline = false;
+    let lastCursor;
 
+    internetConnection.subscribe(store => isOnline = store.isOnline);
     storedTags.subscribe(store => tags = store.length);
     storedProducts.subscribe(store => products = store.length);
+    storedActiveSelection.subscribe(store => lastCursor = store.lastCursor);
 
     const onClick = () => {
         isVisible = !isVisible;
@@ -34,9 +38,15 @@
     <Icon modifier="arrow {!isVisible ? 'down' : 'up'}" svg/>
     BBX Watcher
 
-    <div class="fb-like" data-href="https://www.facebook.com/bbxwatcher" data-width="170px" data-layout="button_count"
-         data-action="like" data-size="small" data-share="true"></div>
+    <span class="fb-like" data-href="https://www.facebook.com/bbxwatcher" data-width="170px" data-layout="button_count"
+          data-action="like" data-size="small" data-share="true"></span>
 </h1>
+{#if !isOnline}
+    <span class="warning">
+        Deine Internet Verbindung ist weg aber du kannst den Watcher weiterhin nutzen.<br />
+        <strong>Letzter Stand:</strong> {lastCursor[0] && lastCursor[0].split('|')[1]}
+    </span>
+{/if}
 <div class="welcome{isVisible ? ' show' : ''}">
     <div class="welcome__content">
         <p>
@@ -65,10 +75,18 @@
     color: $color-primary;
 
     .fb-like {
-      display: inline-block;
       height: 30px;
       width: 170px;
     }
+  }
+
+  .warning {
+    font-size: ms(-1);
+    display: block;
+    color: $color-white;
+    background: $color-warning;
+    border-radius: $space-md;
+    padding: $space-md $space-lg;
   }
 
   .welcome {
