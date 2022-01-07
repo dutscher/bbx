@@ -49,7 +49,7 @@
 </script>
 
 <h2 class="with-toggle" on:click={onClick}>
-    <Icon modifier="arrow" class="icon--{!isVisible ? 'down' : 'up'}"/>
+    <Icon modifier="arrow {!isVisible ? 'down' : 'up'}" svg/>
     Änderungen
 </h2>
 <div class="changes{isVisible ? ' show' : ''}">

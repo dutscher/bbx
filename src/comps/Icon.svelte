@@ -75,6 +75,17 @@
           color: $color-primary-darker;
         }
       }
+
+      @media (prefers-color-scheme: dark) {
+        &#{$selector}--svg {
+          color: $color-white;
+          font-size: ms(0);
+
+          &:hover {
+            color: $color-primary;
+          }
+        }
+      }
     }
 
     &--cross {
@@ -104,18 +115,28 @@
       }
     }
 
-    &--down::after {
-      transform: rotate(90deg);
+    &--down {
+      &::after,
+      :global(&#{$selector}--svg svg) {
+        transform: rotate(90deg);
+      }
     }
 
-    &--up::after {
-      transform: rotate(-90deg);
+    &--up {
+      &::after,
+      :global(&#{$selector}--svg svg) {
+        transform: rotate(-90deg);
+      }
     }
+  }
+
+  :global(#{$selector}--svg svg) {
+      transition: transform ease-in-out 150ms;
   }
 
   :global(#{$selector}--heart#{$selector}--svg path) {
     stroke-width: 5px;
-    stroke: white;
+    stroke: $color-white;
   }
 
   :global(#{$selector}--heart#{$selector}--svg:not(.active) path) {

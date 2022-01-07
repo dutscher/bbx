@@ -6,7 +6,8 @@ const store = {};
 const CACHE_NAME = 'cacheBuster-v1';
 const IGNORE_REQUESTS = [
     'chrome-extension:',
-    '/api/graphql'
+    '/api/graphql',
+    '/localhost',
 ]
 const FILES_TO_CACHE = [
     './index.html',
@@ -57,7 +58,7 @@ self.addEventListener('activate', (evt) => {
 self.addEventListener('fetch', (e) => {
     e.respondWith((async () => {
         const r = await caches.match(e.request);
-        console.log(pre, `Fetching resource: ${e.request.url}`);
+        // console.log(pre, `Fetching resource: ${e.request.url}`);
         if (r) {
             return r;
         }
@@ -112,7 +113,7 @@ async function sendMessage(productID, title, notificationData) {
 self.addEventListener('message', (event) => {
     //const client = evt.source;
     //client.postMessage(`Pong: ${ evt.data }`);
-    console.log(pre, 'message', event.data)
+   // console.log(pre, 'message', event.data)
 
     switch (event.data.type) {
         case 'update-products': {

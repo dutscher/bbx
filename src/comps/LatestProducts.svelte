@@ -16,8 +16,8 @@
     const monthNames = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
     const labels = ['Diesen Monat', 'Letzten Monat', 'vor X Monaten'];
 
-    storedProducts.subscribe(value => products = value);
-    storedStates.subscribe(value => states = value);
+    storedProducts.subscribe(store => products = store);
+    storedStates.subscribe(store => states = store);
 
     function sortProducts(products, showParts, showFirstRelease) {
         countParts = 0;
@@ -62,24 +62,28 @@
     function sortMonths(sortedProducts) {
         const maxMonths = 12;
         const months = [];
-        let thisMonth = new Date().getMonth() + 1;
+        let actualMonth = new Date().getMonth() + 1;
+        let nextMonth = actualMonth;
+
         for (let i = 0; i < maxMonths; i++) {
-            let nextMonth = thisMonth - i;
-            if (nextMonth === 0) {
-                thisMonth = 12;
-                nextMonth = thisMonth;
-            }
             const nextLabel = (i < labels.length - 1)
                 ? labels[i]
-                : (labels[labels.length - 1] + '').replace('X', i);
+                : (labels[labels.length - 1] + '').replace('X', i.toString());
+
             months.push({
                 id: nextMonth,
                 monthPad: monthNames[nextMonth - 1],
                 label: nextLabel,
                 products: sortedProducts.filter((product) => {
-                    return product.stateDate.includes(`2021-${(nextMonth + '').padStart(2, '00')}-`)
+                    return product.stateDate.includes(`2021-${nextMonth.toString().padStart(2, '00')}-`)
                 })
             });
+
+            nextMonth--;
+
+            if (nextMonth === 0) {
+                nextMonth = maxMonths;
+            }
         }
 
         if (state !== 0) {
@@ -95,7 +99,7 @@
 </script>
 
 <h2 class="with-toggle" on:click={() => isVisible = !isVisible}>
-    <Icon modifier="arrow" class="icon--{!isVisible ? 'down' : 'up'}"/>
+    <Icon modifier="arrow {!isVisible ? 'down' : 'up'}" svg/>
     {title}
     <b>({sortedProducts.length})</b>
 </h2>

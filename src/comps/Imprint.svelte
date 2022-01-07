@@ -9,7 +9,7 @@
 </script>
 
 <h2 class="with-toggle" on:click={onClick}>
-    <Icon modifier="arrow" class="icon--{!isVisible ? 'down' : 'up'}"/>
+    <Icon modifier="arrow {!isVisible ? 'down' : 'up'}" svg/>
     Impressum
 </h2>
 <div class="imprint{isVisible ? ' show' : ''}">
@@ -54,11 +54,13 @@
 </div>
 
 <style lang="scss">
-    .imprint {
-        display: none;
+  @import '../scss/variables';
 
-        &.show {
-            display: block;
-        }
+  .imprint {
+    display: none;
+
+    &.show {
+      display: block;
     }
+  }
 </style>

@@ -148,6 +148,11 @@
       left: -($space-xl * 2.5);
       color: $color-primary-dark;
 
+      @media (prefers-color-scheme: dark) {
+        color: $color-primary;
+        text-shadow: $color-black 1px 1px 2px;
+      }
+
       &::after {
         width: ($space-xl * 2.5);
         text-align: center;

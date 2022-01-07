@@ -1,14 +1,16 @@
 <script lang="ts">
-    import { storedImageExtension, storedProducts } from "../../stores";
+    import { storedImageExtension, storedProducts, internetConnection } from "../../stores";
 
     export let product: any;
     export let onLoad = () => {};
     let imageExtensions: any;
     let imageExtension: any;
     let overrideExtension: any;
+    let isOnline: boolean = false;
     let imageSrc: any;
 
-    storedImageExtension.subscribe(value => imageExtensions = value);
+    storedImageExtension.subscribe(store => imageExtensions = store);
+    internetConnection.subscribe(store => isOnline = store);
 
     $: imageSrc = generateImageSrc(product, imageExtensions, overrideExtension);
 
@@ -20,7 +22,7 @@
         return src;
     }
 
-    const handleError = (event) => {
+    const handleError = () => {
         //console.log('generate handleError', imageExtension)
         overrideExtension = imageExtension !== 'jpg' ? 'jpg' : 'png';
 
@@ -36,8 +38,10 @@
     }
 </script>
 
-<img src={imageSrc} on:error={handleError} on:load={onLoad} alt="Produkt Bild" width="100%"/>
-
+<!--TODO: is image in service worker cache -->
+{#if isOnline}
+    <img src={imageSrc} on:error={handleError} on:load={onLoad} alt="Produkt Bild" width="100%"/>
+{/if}
 <style lang="scss">
   img {
     display: block;

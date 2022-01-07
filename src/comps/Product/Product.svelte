@@ -132,7 +132,7 @@
             {#if isNew && !isHeart}<Icon modifier="new" title="Neues Produkt"/>{/if}
             {#if isHot && !isHeart}<Icon modifier="flame" title="Beliebtes Produkt"/>{/if}
             {getTitle(product)}
-            {#if product.movieData && activeTagsIds.includes(ID_MOVIE)}
+            {#if type === 'products' && product.movieData && activeTagsIds.includes(ID_MOVIE)}
             <span class="product__movie">{product.movieData}</span>
             {/if}
         </span>

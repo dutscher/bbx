@@ -39,7 +39,9 @@
 
 <main>
     <!--    <Notifications />-->
-    <div>{#if isOnline}Du Bist online{:else}Deine Internet Verbindung ist weg aber du kannst den Watcher weiterhin nutzen{/if}</div>
+    {#if !isOnline}
+        <div class="warning">Deine Internet Verbindung ist weg aber du kannst den Watcher weiterhin nutzen</div>
+    {/if}
     <Github/>
     <Welcome/>
     <Hearts/>
@@ -70,18 +72,29 @@
     font-family: $font-family;
     font-size: $base-font-size;
     overflow-y: scroll;
+
+    @media (prefers-color-scheme: dark) {
+      background: $color-neutral-200;
+      color: $color-white;
+    }
   }
 
   :global(h1, h2, h3) {
     margin: $space-lg 0;
   }
 
-  :global(h1:hover, h2:hover, h3:hover) {
-    background: $color-neutral-25;
+  :global(h2 b, h3 b, h4 b, p b, p a) {
+    color: $color-primary;
+
+    @media (prefers-color-scheme: dark) {
+      text-shadow: $color-black 1px 1px 2px;
+    }
   }
 
-  :global(h2 b, h3 b, h4 b, p b) {
-    color: $color-primary
+  :global(.with-text-shadow) {
+    @media (prefers-color-scheme: dark) {
+      text-shadow: $color-black 1px 1px 2px;
+    }
   }
 
   :global(.with-toggle) {
@@ -91,11 +104,17 @@
     border-radius: $space-xl;
     padding-left: $space-xl;
 
-
+    @media (prefers-color-scheme: dark) {
+      background: $color-neutral-150;
+    }
   }
 
   :global(.with-toggle:hover) {
     background: $color-neutral-50;
+
+    @media (prefers-color-scheme: dark) {
+      background: $color-neutral-100;
+    }
   }
 
   :global(.with-toggle + *) {
@@ -155,8 +174,13 @@
     @media (min-width: 1024px) {
       width: 65vw;
     }
+
     padding-bottom: 150px;
     margin: 0 auto;
+
+    .warning {
+
+    }
 
     .footer {
       padding-top: 50px;

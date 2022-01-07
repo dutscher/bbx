@@ -3,7 +3,7 @@ import { storedProducts } from './products';
 
 export default () => {
     if (navigator && 'serviceWorker' in navigator) {
-        const pre = 'stores.ts';
+        const pre = '[svelte-to-service-worker]';
         navigator.serviceWorker.addEventListener('message', (event) => {
             console.log(pre, 'message', event);
             const eventData = event.data;
@@ -18,9 +18,9 @@ export default () => {
                     // new products -> open bluebrixx
                     // parts -> open bluebrixx
                     // all notifications -> open bluebrixx
-                    console.log(pre, 'sw ready for message')
+                    //console.log(pre, 'sw ready for message')
                     storedProducts.subscribe(store => {
-                        console.log(pre, 'send store message')
+                        //console.log(pre, 'send store message')
                         // TODO: reduce product infos id, title, tags,
                         registration.active.postMessage({ type: 'update-products', store });
                     });

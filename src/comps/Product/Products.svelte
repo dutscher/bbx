@@ -208,13 +208,13 @@
     }
 </script>
 
-<h2>
+<h2 class="">
     Produkte <b>({filteredProducts.withFilter.length} / {products.length})</b>
 
     <FilterSummary {activeSearchString} {activeTagIds} {activeStateIds} {activeColorIds} {activePartIds}
                    {activePartTypeIds}/>
 
-    <div class="flex flex--inline flex--vertical-center filter">
+    <div class="flex flex--inline flex--vertical-center filter with-text-shadow">
         <strong class="filter-headline">| Sortieren:</strong>
         {#each sorter as item}
             <a href={jsVoid} on:click={() => sort(item.split(':')[1])}>
