@@ -8,6 +8,7 @@ const IGNORE_REQUESTS = [
     'matomo.bbx.watch',
     'api.bbx.watch',
     'facebook.com',
+    'facebook.net',
     'chrome-extension',
     'localhost',
 ]
