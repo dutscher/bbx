@@ -1,6 +1,7 @@
 <script lang="ts">
     import { storedProducts, storedHearts } from '../stores';
     import Product from "./Product/Product.svelte";
+    import Icon from "./Icon.svelte";
 
     let hearts: any;
     let products: any;
@@ -35,8 +36,10 @@
         heartSummary = {price: 0, pricePerPart: 0, parts: 0};
 
         heartItems.map(product => {
-            heartSummary.price += product.price;
-            heartSummary.parts += product.parts;
+            if (!!product.price && !!product.parts) {
+                heartSummary.price += product.price;
+                heartSummary.parts += product.parts;
+            }
         });
 
         heartSummary.pricePerPart = heartSummary.price && heartSummary.parts ? (heartSummary.price / heartSummary.parts) * 100 : 0;
@@ -44,6 +47,11 @@
 </script>
 
 <div class="flex flex--wrap">
+    {#if heartItems.length > 0}
+        <span class="icon">
+            <Icon modifier="heart" svg="true" class="active" title="Will ich haben"/>
+        </span>
+    {/if}
     {#each heartItems as product (product.id)}
         <Product {product} type="hearts"/>
     {/each}
@@ -58,6 +66,11 @@
 
 <style lang="scss">
   @import '../scss/variables';
+
+  .icon {
+    position: relative;
+    top: 2px;
+  }
 
   .summary {
     font-size: ms(-2);

@@ -128,7 +128,7 @@
     <div class="product {handleStateColor(product)}"
          data-state={handleStateName(product)}>
         <span class="product__label" on:click={onClick}>
-            {#if isHeart}<Icon modifier="heart" svg="true" class="active" title="Will ich haben"/>{/if}
+            {#if isHeart && type !== 'hearts'}<Icon modifier="heart" svg="true" class="active" title="Will ich haben"/>{/if}
             {#if isNew && !isHeart}<Icon modifier="new" title="Neues Produkt"/>{/if}
             {#if isHot && !isHeart}<Icon modifier="flame" title="Beliebtes Produkt"/>{/if}
             {getTitle(product)}
