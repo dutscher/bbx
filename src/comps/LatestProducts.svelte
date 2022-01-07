@@ -2,9 +2,9 @@
     import Product from './Product/Product.svelte';
     import Icon from './Icon.svelte';
     import { storedProducts, storedStates } from '../stores';
-    import { ID_PARTS, ID_STATE_AVAILABLE, ID_STATE_COMING_SOON } from "../_interfaces";
+    import { ID_PARTS, ID_STATE_AVAILABLE, ID_STATE_ANNOUNCEMENT, ID_STATE_COMING_SOON } from "../_interfaces";
 
-    export let state: number = 3;
+    export let state: number = ID_STATE_ANNOUNCEMENT;
     export let title: string = '';
 
     let products: any;
@@ -29,12 +29,18 @@
             // show only products with same state
             .filter(product => {
                 if (showFirstRelease) {
+                    // TODO: ab in den store
                     const historyStates = Object.values(product.history);
                     const lastState = historyStates[historyStates.length - 1];
                     const lastBeforeState = historyStates[historyStates.length - 2];
-                    // 1 = Bald erhältlich
-                    // 3 = Ankündigung
-                    return (lastState === 1 && lastBeforeState === 3);
+
+                    if (state === ID_STATE_COMING_SOON) {
+                        return (lastState === ID_STATE_COMING_SOON && lastBeforeState === ID_STATE_ANNOUNCEMENT);
+                    } else if (state === ID_STATE_AVAILABLE) {
+                        const lastBeforeBeforeState = historyStates[historyStates.length - 3];
+                        return (lastState === ID_STATE_AVAILABLE && lastBeforeState === ID_STATE_COMING_SOON && lastBeforeBeforeState === ID_STATE_ANNOUNCEMENT ||
+                            lastState === ID_STATE_AVAILABLE && lastBeforeState === ID_STATE_ANNOUNCEMENT);
+                    }
                 } else {
                     return product.state.id === state;
                 }
@@ -109,30 +115,31 @@
     <b>({sortedProducts.length})</b>
 </h2>
 <div class="changes{isVisible ? ' show' : ''}">
-    <label>
-        <input type="checkbox" bind:checked={showParts}/>
-        Auf Parts ({countParts}) umschalten
-    </label>
-    {#if state === ID_STATE_COMING_SOON}
-        <label>
+    {#if state !== ID_STATE_ANNOUNCEMENT}
+        <label class="with-text-shadow">
             <input type="checkbox" bind:checked={showFirstRelease}/>
             Erstveröffentlichung
         </label>
     {/if}
     {#if state !== ID_STATE_AVAILABLE}
-        <label>
+        <label class="with-text-shadow">
             <input type="checkbox" bind:checked={reverseSort}/>
             Neuste zuerst
         </label>
-        {#if !reverseSort}
-            <p><b>Was kommt wohlmöglich als nächstes:</b></p>
-        {/if}
+    {/if}
+    <label class="with-text-shadow">
+        <input type="checkbox" bind:checked={showParts}/>
+        Auf Parts ({countParts}) umschalten
+    </label>
+    {#if state !== ID_STATE_AVAILABLE && !reverseSort}
+        <p><b>Was kommt wohlmöglich als nächstes:</b></p>
     {/if}
     <div>
         {#if isVisible}
             {#each sortedMonths as month (month.id)}
                 {#if month.products.length > 0}
-                    <h3>{month.label} ({month.monthPad}{#if month.year !== thisYear}&nbsp;{month.year}{/if})</h3>
+                    <h3>{month.label} ({month.monthPad}
+                        {#if month.year !== thisYear}&nbsp;{month.year}{/if})</h3>
                     <div class="flex flex--wrap">
                         {#each month.products as product (product.id)}
                             <Product {product} type="latestProducts"/>
@@ -164,6 +171,7 @@
     label {
       user-select: none;
       cursor: pointer;
+      color: $color-primary-light;
     }
   }
 </style>

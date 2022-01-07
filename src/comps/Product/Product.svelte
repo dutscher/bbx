@@ -46,6 +46,7 @@
     $:isActive = activeProduct && (activeProduct.id === product.id) && (type === activeProduct.type) || false;
 
     $: {
+        // TODO: ab in den store
         const historyStates = Object.values(product.history);
         const lastHistory = historyStates[historyStates.length - 1];
         const beforeLastHistory = historyStates[historyStates.length - 2];
