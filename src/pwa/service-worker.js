@@ -17,6 +17,7 @@ const FILES_TO_CACHE = [
     './manifest.json',
     './favicon.ico',
     './service-worker.js?cb=1626458022163',
+    './pwa/loader.js?cb=1626458022163',
     './data/inst.json?cb=1626458022163',
     './build/bundle.js?cb=1626458022163',
     './build/bundle.css?cb=1626458022163',
