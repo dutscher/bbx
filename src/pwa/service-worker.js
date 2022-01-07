@@ -5,9 +5,11 @@ const store = {};
 // Add list of files to cache here.
 const CACHE_NAME = 'cacheBuster-v1';
 const IGNORE_REQUESTS = [
-    'chrome-extension:',
-    '/api/graphql',
-    '/localhost',
+    'matomo.bbx.watch',
+    'api.bbx.watch',
+    'facebook.com',
+    'chrome-extension',
+    'localhost',
 ]
 const FILES_TO_CACHE = [
     './index.html',
