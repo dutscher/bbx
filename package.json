@@ -18,7 +18,7 @@
     "cat-n-tags": "npm run exec ./scripts/cats-n-tags.js",
     "parse-parts": "npm run exec ./scripts/parts-parse.js",
     "--- deploy": "this is a divider",
-    "build": "rollup -c && npm run build:copy",
+    "build": "rollup -c && npm run build:copy -- --prod",
     "build:movie-names": "npm run exec ./scripts/movie-names.js",
     "build:inst": "npm run exec ./scripts/inst-parse.js",
     "build:copy": "npm run exec ./scripts/build.js",
