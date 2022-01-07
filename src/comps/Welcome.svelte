@@ -38,8 +38,8 @@
     <Icon modifier="arrow {!isVisible ? 'down' : 'up'}" svg/>
     BBX Watcher
 
-    <span class="fb-like" data-href="https://www.facebook.com/bbxwatcher" data-width="170px" data-layout="button_count"
-          data-action="like" data-size="small" data-share="true"></span>
+    <div class="fb-like" data-href="https://www.facebook.com/bbxwatcher" data-width="170px" data-layout="button_count"
+          data-action="like" data-size="small" data-share="true"></div>
 </h1>
 {#if !isOnline}
     <span class="warning">
@@ -75,6 +75,7 @@
     color: $color-primary;
 
     .fb-like {
+      display: inline-block;
       height: 30px;
       width: 170px;
     }
