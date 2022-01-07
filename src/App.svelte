@@ -54,7 +54,11 @@
         = Beliebtes Produkt (mehr als 2 mal Verfügbar)
         <Icon modifier="heart" svg="true" class="active"/>
         = "Will Ich haben" Produkt<br/>
-        <br/>
+        <span class="state state--blue"></span> = Verfügbar
+        <span class="state state--green"></span> = Bald erhältlich
+        <span class="state state--red"></span> = Zurzeit Vergriffen
+        <span class="state state--orange"></span> = In Ankündigung
+        <br/><br/>
         <strong>Stand:</strong> {lastCursor[0] && lastCursor[0].split('|')[1]}
     </div>
 </main>
@@ -175,6 +179,27 @@
     .footer {
       padding-top: 50px;
       font-size: ms(-1);
+    }
+
+    .state {
+      padding: $space-lg;
+      border-radius: 100%;
+      background: $color-primary;
+      font-size: 0;
+      vertical-align: middle;
+      margin-right: $space-xs;
+
+      &--green {
+        background: $color-comingsoon;
+      }
+
+      &--red {
+        background: $color-unavailable;
+      }
+
+      &--orange {
+        background: $color-annoucement;
+      }
     }
   }
 </style>
