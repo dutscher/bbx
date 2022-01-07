@@ -28,8 +28,8 @@ const FILES_TO_CACHE = [
     './images/icon-heart.svg',
     './images/icon-manual.svg',
     './images/icon-new.svg',
-    './images/pearl-gold.svg',
-    './images/pearl-gray.svg',
+    './images/pearl-gold.jpg',
+    './images/pearl-gray.jpg',
     './images/spinner.svg',
 ];
 
