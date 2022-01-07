@@ -53,15 +53,13 @@
     Änderungen
 </h2>
 <div class="changes{isVisible ? ' show' : ''}">
-    {#if isOnline || loadedChanges === LOADED}
-        {#if loadedChanges !== LOADED}
-            <div class="loader"></div>
-        {:else}
-            <TodayChanges/>
-            <LatestProducts state={0} title="Verfügbar"/>
-            <LatestProducts state={1} title="Bald erhältlich"/>
-            <LatestProducts state={3} title="Ankündigungen"/>
-        {/if}
+    {#if isOnline && loadedChanges !== LOADED}
+        <div class="loader"></div>
+    {:else}
+        <TodayChanges/>
+        <LatestProducts state={0} title="Verfügbar"/>
+        <LatestProducts state={1} title="Bald erhältlich"/>
+        <LatestProducts state={3} title="Ankündigungen"/>
     {/if}
 </div>
 
