@@ -2,7 +2,7 @@
     import Product from './Product/Product.svelte';
     import Icon from './Icon.svelte';
     import { storedProducts, storedStates } from '../stores';
-    import { ID_PARTS } from "../_interfaces";
+    import { ID_PARTS, ID_STATE_AVAILABLE, ID_STATE_COMING_SOON } from "../_interfaces";
 
     export let state: number = 3;
     export let title: string = '';
@@ -10,11 +10,13 @@
     let products: any;
     let states: any;
     let isVisible = false;
+    let reverseSort = false;
     let showParts = false;
     let showFirstRelease = false;
     let countParts = 0;
     const monthNames = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
     const labels = ['Diesen Monat', 'Letzten Monat', 'vor X Monaten'];
+    const thisYear = new Date().getFullYear();
 
     storedProducts.subscribe(store => products = store);
     storedStates.subscribe(store => states = store);
@@ -59,10 +61,11 @@
         return sortedData;
     }
 
-    function sortMonths(sortedProducts) {
+    function sortMonths(sortedProducts, reverseSort) {
         const maxMonths = 12;
         const months = [];
         let actualMonth = new Date().getMonth() + 1;
+        let actualYear = thisYear;
         let nextMonth = actualMonth;
 
         for (let i = 0; i < maxMonths; i++) {
@@ -73,9 +76,10 @@
             months.push({
                 id: nextMonth,
                 monthPad: monthNames[nextMonth - 1],
+                year: actualYear,
                 label: nextLabel,
                 products: sortedProducts.filter((product) => {
-                    return product.stateDate.includes(`2021-${nextMonth.toString().padStart(2, '00')}-`)
+                    return product.stateDate.includes(`${actualYear}-${nextMonth.toString().padStart(2, '00')}-`)
                 })
             });
 
@@ -83,10 +87,11 @@
 
             if (nextMonth === 0) {
                 nextMonth = maxMonths;
+                actualYear--;
             }
         }
 
-        if (state !== 0) {
+        if (state !== ID_STATE_AVAILABLE && !reverseSort) {
             return months.reverse();
         }
 
@@ -95,7 +100,7 @@
 
     $: sortedProducts = sortProducts(products, showParts, showFirstRelease);
 
-    $: sortedMonths = sortMonths(sortedProducts);
+    $: sortedMonths = sortMonths(sortedProducts, reverseSort);
 </script>
 
 <h2 class="with-toggle" on:click={() => isVisible = !isVisible}>
@@ -104,24 +109,30 @@
     <b>({sortedProducts.length})</b>
 </h2>
 <div class="changes{isVisible ? ' show' : ''}">
-    {#if state === 1}
+    <label>
+        <input type="checkbox" bind:checked={showParts}/>
+        Auf Parts ({countParts}) umschalten
+    </label>
+    {#if state === ID_STATE_COMING_SOON}
         <label>
             <input type="checkbox" bind:checked={showFirstRelease}/>
-            <strong>Erstveröffentlichung</strong>
+            Erstveröffentlichung
         </label>
     {/if}
-    {#if state !== 0}
+    {#if state !== ID_STATE_AVAILABLE}
         <label>
-            <input type="checkbox" bind:checked={showParts}/>
-            Auf Parts ({countParts}) umschalten
+            <input type="checkbox" bind:checked={reverseSort}/>
+            Neuste zuerst
         </label>
+        {#if !reverseSort}
+            <p><b>Was kommt wohlmöglich als nächstes:</b></p>
+        {/if}
     {/if}
-    <br/>
     <div>
         {#if isVisible}
             {#each sortedMonths as month (month.id)}
                 {#if month.products.length > 0}
-                    <h3>{month.label} ({month.monthPad})</h3>
+                    <h3>{month.label} ({month.monthPad}{#if month.year !== thisYear}&nbsp;{month.year}{/if})</h3>
                     <div class="flex flex--wrap">
                         {#each month.products as product (product.id)}
                             <Product {product} type="latestProducts"/>
