@@ -76,10 +76,11 @@
         }
       }
 
-      @media (prefers-color-scheme: dark) {
-        &#{$selector}--svg {
+      &#{$selector}--svg {
+        font-size: ms(0);
+
+        @media (prefers-color-scheme: dark) {
           color: $color-white;
-          font-size: ms(0);
 
           &:hover {
             color: $color-primary;

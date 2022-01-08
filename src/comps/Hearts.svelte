@@ -46,22 +46,24 @@
     }
 </script>
 
-<div class="flex flex--wrap">
+<div class="flex">
     {#if heartItems.length > 0}
         <span class="icon">
             <Icon modifier="heart" svg="true" class="active" title="Will ich haben"/>
         </span>
     {/if}
-    {#each heartItems as product (product.id)}
-        <Product {product} type="hearts"/>
-    {/each}
-    {#if heartItems.length > 1}
+    <div class="flex flex--wrap">
+        {#each heartItems as product (product.id)}
+            <Product {product} type="hearts"/>
+        {/each}
+        {#if heartItems.length > 1}
         <span class="summary"> =
             <strong>Listenpreis:</strong> {heartSummary.price.toFixed(2).replace('.', ',')} EUR /
             <strong>Steine:</strong> {heartSummary.parts} /
             <strong>Preis pro Stein:</strong> {heartSummary.pricePerPart.toFixed(2).replace('.', ',')} ct
         </span>
-    {/if}
+        {/if}
+    </div>
 </div>
 
 <style lang="scss">
