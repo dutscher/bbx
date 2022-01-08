@@ -2,9 +2,8 @@
   * to share code between svelte and nodejs
 * 13 vulnerabilities (7 moderate, 6 high)
 * cart call?
-* OFFLINE page
+* https://stackoverflow.com/questions/56300132/how-to-override-css-prefers-color-scheme-setting
 * niederländische special
-* manhattan scale mobile bug innerWidth
 * add cherrio to parsePage and extract pageParsing (jsdom 24sekunden vs? )
 * notifications
   * store empty maybe sw ask svelte and ping pong

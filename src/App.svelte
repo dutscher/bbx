@@ -71,6 +71,7 @@
     font-size: $base-font-size;
     overflow-y: scroll;
 
+    // test darkmode https://stackoverflow.com/questions/57606960/how-can-i-emulate-prefers-color-scheme-media-query-in-chrome
     @media (prefers-color-scheme: dark) {
       background: $color-neutral-200;
       color: $color-white;

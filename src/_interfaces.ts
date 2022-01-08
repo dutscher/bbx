@@ -1,9 +1,10 @@
 export const ID_MANHATTAN = 17;
+export const STR_MANHATTAN = 'Manhattan';
 export const ID_MOVIE = 28;
 export const ID_PARTS = 48;
 export const ID_STAR_TREK = 49;
 export const ID_CAT_CHROME_PARTS = 3;
-export const STAR_TREK = 'Star Trek';
+export const STR_STAR_TREK = 'Star Trek';
 export const ID_STATE_AVAILABLE = 0;
 export const ID_STATE_COMING_SOON = 1;
 export const ID_STATE_UNAVAILABLE = 2;

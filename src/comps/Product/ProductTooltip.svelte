@@ -114,14 +114,15 @@
         });
     }
 
-    const onClose = () => {
-        storedActiveSelection.update(value => {
-            value.product = {
+    const onClose = (event) => {
+        event.stopPropagation();
+        storedActiveSelection.update(store => {
+            store.product = {
                 id: 0,
                 type: 'Tooltip',
             };
-            value.reason = 'close-tooltip';
-            return value;
+            store.reason = 'close-tooltip';
+            return store;
         });
     }
 
