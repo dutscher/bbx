@@ -93,7 +93,7 @@
     <circle
             cx="12"
             cy="12"
-            r={$centerCircleProps.r}
+            r={$centerCircleProps.r > 0 ? $centerCircleProps.r : 0}
             fill="white"
             mask="url(#myMask2)"
     />
