@@ -41,6 +41,7 @@
     // /101/101857%20Das%20Schwarze%20Auge,%20Thowaler%20Drachenschiff,%20Otta%20(45MB).pdf
     // https://www.bluebrixx.com/data/files/manuals/103/103272%20Nimitz%20Teil%202%20(26MB).pdf
     const getInstLabel = (str) => {
+        console.log('getInstLabel',str)
         let strReturn = '';
         const defaultLabel = 'Download';
         const foundSize = str.match(/\((\d*MB)\)/);
@@ -140,6 +141,17 @@
         })
     }
 
+    const setDownload = (downloadUrl, name) => {
+        const link = document.createElement("a");
+        // If you don't know the name or want to use
+        // the webserver default set name = ''
+        link.setAttribute('download', name);
+        link.href = downloadUrl;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+    }
+
     $: {
         if (wrap) {
             handleLeftAdjust(wrap, showTooltip);
@@ -200,13 +212,13 @@
                     <div class="tooltip__content tooltip__content--rows">
                         {#if Array.isArray(product.inst)}
                             {#each product.inst as inst}
-                                <a class="inst-link" target="_blank" href="{data.instUrl + inst}">
+                                <a class="inst-link" target="_blank" href={data.instUrl + inst}>
                                     <Icon modifier="manual"/>
                                     {getInstLabel(inst)}
                                 </a>
                             {/each}
                         {:else}
-                            <a target="_blank" href="{data.instUrl + product.inst}">
+                            <a class="inst-link" target="_blank" href={data.instUrl + product.inst}>
                                 <Icon modifier="manual"/>
                                 {getInstLabel(product.inst)}
                             </a>

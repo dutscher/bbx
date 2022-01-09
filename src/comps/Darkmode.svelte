@@ -27,7 +27,7 @@
             damping: 0.25
         }
     };
-    let theme = 'light'; // default to light
+
     let isDarkmode = false;
     let svgContainerProps = spring({transform: 0}, properties.springConfig);
     let maskedCircleProps = spring({cx: 0, cy: 0}, properties.springConfig);
@@ -36,25 +36,25 @@
 
     const toggleDarkMode = () => {
         isDarkmode = !isDarkmode;
-        theme = isDarkmode ? 'dark' : 'light';
         updateToggle();
     };
 
     const initToggle = () => {
-        //local storage is used to override OS theme settings
+        // local storage is used to override OS theme settings
         if (localStorage.getItem('theme')) {
             if (localStorage.getItem('theme') === 'dark') {
-                theme = 'dark';
+                isDarkmode = true;
             }
         } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            //OS theme setting detected as dark
-            theme = 'dark';
+            // OS theme setting detected as dark
+            isDarkmode = true;
         }
 
         updateToggle();
     }
 
     const updateToggle = () => {
+        const theme = isDarkmode ? 'dark' : 'light';
         const {r, transform, cx, cy, opacity} = properties[theme];
 
         svgContainerProps.set({transform});

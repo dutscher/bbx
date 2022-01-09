@@ -258,7 +258,7 @@
   }
 
   :global([data-theme='dark'] #{$selector} a:hover){
-    color: $color-white;
+    color: $color-white !important;
   }
 
   .warning {
