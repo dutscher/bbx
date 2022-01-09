@@ -12,6 +12,7 @@
     import Icon from "./comps/Icon.svelte";
     import Notifications from "./comps/Notifications.svelte";
     import Github from "./comps/Github.svelte";
+    import Darkmode from "./comps/Darkmode.svelte";
 
     const client = new ApolloClient({
         uri: 'https://api.bbx.watch/api/graphql',
@@ -36,6 +37,7 @@
 
 <main>
     <!--    <Notifications />-->
+    <Darkmode/>
     <Github/>
     <Welcome/>
     <Hearts/>
@@ -70,12 +72,13 @@
     font-family: $font-family;
     font-size: $base-font-size;
     overflow-y: scroll;
+    transition: background 250ms ease-in-out;
+  }
 
-    // test darkmode https://stackoverflow.com/questions/57606960/how-can-i-emulate-prefers-color-scheme-media-query-in-chrome
-    @media (prefers-color-scheme: dark) {
-      background: $color-neutral-200;
-      color: $color-white;
-    }
+  // test darkmode https://stackoverflow.com/questions/57606960/how-can-i-emulate-prefers-color-scheme-media-query-in-chrome
+  :global([data-theme='dark'] body) {
+    background: $color-neutral-200;
+    color: $color-white;
   }
 
   :global(h1, h2, h3) {
@@ -84,16 +87,14 @@
 
   :global(h2 b, h3 b, h4 b, p b, p a) {
     color: $color-primary;
-
-    @media (prefers-color-scheme: dark) {
-      text-shadow: $color-black 1px 1px 2px;
-    }
   }
 
-  :global(.with-text-shadow) {
-    @media (prefers-color-scheme: dark) {
-      text-shadow: $color-black 1px 1px 2px;
-    }
+  :global([data-theme='dark'] h2 b, [data-theme='dark'] h3 b, [data-theme='dark'] h4 b, [data-theme='dark'] p b, [data-theme='dark'] p a) {
+    text-shadow: $color-black 1px 1px 2px;
+  }
+
+  :global([data-theme='dark'] .with-text-shadow) {
+    text-shadow: $color-black 1px 1px 2px;
   }
 
   :global(.with-toggle) {
@@ -102,18 +103,18 @@
     background: $color-neutral-42;
     border-radius: $space-xl;
     padding-left: $space-xl;
+  }
 
-    @media (prefers-color-scheme: dark) {
-      background: $color-neutral-150;
-    }
+  :global([data-theme='dark'] .with-toggle) {
+    background: $color-neutral-150;
   }
 
   :global(.with-toggle:hover) {
     background: $color-neutral-50;
+  }
 
-    @media (prefers-color-scheme: dark) {
-      background: $color-neutral-100;
-    }
+  :global([data-theme='dark'] .with-toggle:hover) {
+    background: $color-neutral-100;
   }
 
   :global(.with-toggle + *) {

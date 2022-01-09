@@ -2,7 +2,6 @@
   * to share code between svelte and nodejs
 * 13 vulnerabilities (7 moderate, 6 high)
 * cart call?
-* https://stackoverflow.com/questions/56300132/how-to-override-css-prefers-color-scheme-setting
 * niederländische special
 * add cherrio to parsePage and extract pageParsing (jsdom 24sekunden vs? )
 * notifications

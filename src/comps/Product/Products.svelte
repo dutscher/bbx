@@ -241,7 +241,8 @@
 <style lang="scss">
   @import '../../scss/variables';
 
-  .filter {
+  $selector: '.filter';
+  #{$selector} {
     font-size: ms(-1);
     color: $color-primary;
     cursor: default;
@@ -252,13 +253,12 @@
 
       &:hover {
         color: $color-primary-darker;
-
-        @media (prefers-color-scheme: dark) {
-          color: $color-white;
-        }
       }
-
     }
+  }
+
+  :global([data-theme='dark'] #{$selector} a:hover){
+    color: $color-white;
   }
 
   .warning {

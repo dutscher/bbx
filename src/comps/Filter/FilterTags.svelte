@@ -106,8 +106,8 @@
 
 <style lang="scss">
   @import '../../scss/variables';
-
-  .tag {
+  $selector: '.tag';
+  #{$selector} {
     padding: 0 0 0 $space-xl;
     margin: $space-xs;
     border: solid 1px $color-primary-darker;
@@ -148,11 +148,6 @@
       left: -($space-xl * 2.5);
       color: $color-primary-dark;
 
-      @media (prefers-color-scheme: dark) {
-        color: $color-primary;
-        text-shadow: $color-black 1px 1px 2px;
-      }
-
       &::after {
         width: ($space-xl * 2.5);
         text-align: center;
@@ -176,5 +171,10 @@
         color: $color-white;
       }
     }
+  }
+
+  :global([data-theme='dark'] #{$selector}__letter){
+    color: $color-primary;
+    text-shadow: $color-black 1px 1px 2px;
   }
 </style>

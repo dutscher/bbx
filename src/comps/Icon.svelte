@@ -78,14 +78,6 @@
 
       &#{$selector}--svg {
         font-size: ms(0);
-
-        @media (prefers-color-scheme: dark) {
-          color: $color-white;
-
-          &:hover {
-            color: $color-primary;
-          }
-        }
       }
     }
 
@@ -156,4 +148,11 @@
     }
   }
 
+  :global([data-theme='dark'] #{$selector}--arrow#{$selector}--svg){
+    color: $color-white;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
 </style>

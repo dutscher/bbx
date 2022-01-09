@@ -83,10 +83,6 @@
     font-size: ms(2);
     width: 100%;
 
-    @media (prefers-color-scheme: dark) {
-      background: $color-neutral-100;
-    }
-
     &::placeholder{
       color: $color-white;
     }
@@ -94,6 +90,10 @@
     @media (min-width: 720px) {
       width: 33vw;
     }
+  }
+
+  :global([data-theme='dark'] .search){
+    background: $color-neutral-100;
   }
 </style>
 

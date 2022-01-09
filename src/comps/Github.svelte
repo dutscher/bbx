@@ -11,7 +11,7 @@
 </a>
 <style>
     .github-corner {
-        position: absolute;
+        position: fixed;
         z-index: 1;
         right: 0;
         top: 0;
