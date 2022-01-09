@@ -73,6 +73,7 @@
 </script>
 
 <svg
+        class="darkmode"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
         height="24"
@@ -110,9 +111,9 @@
 </svg>
 
 <style lang="scss">
-  @import '../../scss/variables';
+  @import '../scss/variables';
 
-  svg {
+  .darkmode {
     position: fixed;
     z-index: 1337;
     right: $space-xl;
