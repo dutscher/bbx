@@ -59,7 +59,10 @@ const includeProducts = [
     103999, // Bergepanzer Büffel, BPz3, Bundeswehr
     104124, // SLT 50-2 Elefant, Bundeswehr
     104125, // Biber, Bundeswehr
-    104518, // FlaRakPz-Roland-II
+    104518, // FlaRakPz-Roland-II,
+    104597, // LKW 7t gl 6x6 Autokran 4
+    104519, // Kanonenjagdpanzer 4-5 ( KanJgPZ), Bundeswehr
+    104310, // Kampfhubschrauber-Tiger-Bundeswehr-Xingbao
 ];
 
 const isExistingProduct = (itemId) => parsedDataToday.items.some(obj => obj.id === itemId);
