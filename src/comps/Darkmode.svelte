@@ -29,6 +29,7 @@
     };
 
     let isDarkmode = false;
+    let isReady = false;
     let svgContainerProps = spring({transform: 0}, properties.springConfig);
     let maskedCircleProps = spring({cx: 0, cy: 0}, properties.springConfig);
     let centerCircleProps = spring({r: 0}, properties.springConfig);
@@ -65,6 +66,9 @@
         // dark theme preferred, set document with a `data-theme` attribute
         document.documentElement.setAttribute('data-theme', theme);
         localStore.set('theme', theme);
+        setTimeout(() => {
+            isReady = true;
+        }, 500)
     }
 
     onMount(() => {
@@ -73,7 +77,7 @@
 </script>
 
 <svg
-        class="darkmode"
+        class="darkmode {isReady ? 'is-ready' : ''}"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
         height="24"
@@ -84,21 +88,20 @@
         stroke-linejoin="round"
         stroke="currentColor"
         on:click={toggleDarkMode}
-        style="cursor:pointer;transform:rotate({$svgContainerProps.transform}deg)"
+        style="transform:rotate({$svgContainerProps.transform}deg)"
 >
     <mask id="myMask2">
         <rect x="0" y="0" width="100%" height="100%" fill="white"/>
-        <circle cx={$maskedCircleProps.cx} cy={$maskedCircleProps.cy} r="9" fill="black"/>
+        <circle cx={$maskedCircleProps.cx} cy={$maskedCircleProps.cy} r="9" fill="black"></circle>
     </mask>
-
     <circle
             cx="12"
             cy="12"
-            r={$centerCircleProps.r > 0 ? $centerCircleProps.r : 0}
             fill="white"
             mask="url(#myMask2)"
-    />
-    <g stroke="currentColor" style="opacity:{$linesProps.opacity}">
+            r={$centerCircleProps.r > 0 ? $centerCircleProps.r : 0}
+    ></circle>
+    <g stroke="currentColor" style="opacity:{$linesProps.opacity || 0}">
         <line x1="12" y1="1" x2="12" y2="3"/>
         <line x1="12" y1="21" x2="12" y2="23"/>
         <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
@@ -114,10 +117,18 @@
   @import '../scss/variables';
 
   .darkmode {
+    transition: opacity 1000ms ease-in-out;
+    will-change: opacity;
     position: fixed;
     z-index: 1337;
     right: $space-xl;
     bottom: $space-xl;
     user-select: none;
+    opacity: 0;
+    cursor: pointer;
+
+    &.is-ready {
+      opacity: 1 !important;
+    }
   }
 </style>
