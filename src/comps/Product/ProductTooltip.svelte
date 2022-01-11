@@ -18,6 +18,7 @@
     export let states: any;
     export let showTooltip: boolean = true;
     export let imageLoaded: boolean = false;
+    export let zoom: string = '';
 
     let data: any;
     let categories: any;
@@ -161,7 +162,7 @@
 
 <svelte:window bind:innerWidth={innerWidth}/>
 
-<div class="tooltip{showTooltip ? ' open' : ''}">
+<div class="tooltip{showTooltip ? ' open' : ''}" style="{!!zoom ? 'zoom:' + (parseFloat(zoom) + 200) + '%' : ''}">
     {#if showTooltip}
         <div class="tooltip__outer-wrap" style="{isMobile ? 'width:' + (wrapWidth) +'px; ' : ''}left: {leftAdjust}"
              bind:this={wrap}>

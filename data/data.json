@@ -273,6 +273,18 @@
       "img": "img/shop/subsections/elements_new/windscreens_and_fuselage.jpg"
     }
   ],
+  "netherland": {
+    "pieces": [
+      "/104904/niederl%C3%A4ndische-Hausfassade-Amstel-1",
+      "/104905/niederl%C3%A4ndische-Hausfassade-Amstel-2",
+      "/104914/niederl%C3%A4ndische-Hausfassade-Amstel-3",
+      "/104915/niederl%C3%A4ndische-Hausfassade-Amstel-4",
+      "/104916/niederl%C3%A4ndische-Hausfassade-Amstel-5",
+      "/104917/niederl%C3%A4ndische-Hausfassade-Amstel-6",
+      "/104918/niederl%C3%A4ndische-Hausfassade-Amstel-7",
+      "/104919/niederl%C3%A4ndische-Hausfassade-Amstel-8"
+    ]
+  },
   "manhattan": {
     "complete": "/103047/Manhattan-Suedspitze",
     "border": "/103046/Manhattan-Unit-18-Umrandung",

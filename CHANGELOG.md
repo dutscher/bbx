@@ -1,3 +1,5 @@
+* [11.01.2022]
+  * Add Netherland Easteregg
 * [08.01.2022]
   * Manhattan zoom bug solved and add tooltip to map https://bbx.watch/#tags=manhattan
 * [09.01.2022]

@@ -6,9 +6,10 @@
     import Changes from "./comps/Changes.svelte";
     import Filter from "./comps/Filter/Filter.svelte";
     import Manhattan from "./comps/Manhattan.svelte";
+    import Netherland from "./comps/Netherland.svelte";
     import Products from "./comps/Product/Products.svelte";
     import { loadMovieData, storedActiveSelection } from './stores';
-    import { ID_MANHATTAN, ID_MOVIE, UNLOADED } from "./_interfaces";
+    import { ID_MANHATTAN, ID_NETHERLAND, ID_MOVIE, UNLOADED } from "./_interfaces";
     import Icon from "./comps/Icon.svelte";
     import Notifications from "./comps/Notifications.svelte";
     import Github from "./comps/Github.svelte";
@@ -45,6 +46,9 @@
     <Filter/>
     {#if activeTagIds.includes(ID_MANHATTAN) && activeTagIds.length === 1}
         <Manhattan/>
+    {/if}
+    {#if activeTagIds.includes(ID_NETHERLAND) && activeTagIds.length === 1}
+        <Netherland/>
     {/if}
     <Products/>
 

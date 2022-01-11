@@ -64,7 +64,7 @@
             Obendrauf noch die passenden Anleitungen verfügbar (Zum herunterladen müsst ihr aber bei BB eingeloggt sein)<br/>
         </p>
         <p>
-            Aber Obacht: es gibt noch 3 Eastereggs, Könnt Ihr sie finden?<br/><br/>
+            Aber Obacht: es gibt noch 4 Eastereggs, Könnt Ihr sie finden?<br/><br/>
             Viel Spaß damit und Feedback bitte via Facebook oder E-Mail
         </p>
     </div>

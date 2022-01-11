@@ -1,5 +1,7 @@
 export const ID_MANHATTAN = 17;
 export const STR_MANHATTAN = 'Manhattan';
+export const ID_NETHERLAND = 57;
+export const STR_NETHERLAND = 'niederländische Hausfassade';
 export const ID_MOVIE = 28;
 export const ID_PARTS = 48;
 export const ID_STAR_TREK = 49;
