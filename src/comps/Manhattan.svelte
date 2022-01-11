@@ -24,7 +24,10 @@
         }
     });
 
-    $:zoom = `${(100 * (innerWidth / 750))}%`;
+    $: {
+        const minWidth = innerWidth < 750 ? innerWidth : 750
+        zoom = `${(100 * (minWidth / 750))}%`;
+    }
 
     const setActive = (piece) => {
         activeProductID = getProduct(piece).id;
@@ -116,10 +119,6 @@
   .pieces {
     position: relative;
     margin-bottom: $space-xl * 4;
-
-    @media (min-width: 750px) {
-      zoom: 1 !important;
-    }
 
     &__wrap {
       height: 700px;

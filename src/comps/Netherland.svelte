@@ -26,8 +26,10 @@
     });
 
     $:{
-        const maxWidth = innerWidth <= 1200 ? innerWidth : 750;
-        zoom = `${(100 * (maxWidth / 1680))}%`;
+        const maxWidth = innerWidth < 1200 ? innerWidth : 1200;
+        const imgWidth = 201 + 153 + 184 + 179 + 229 + 249 + 184 + 294;
+        zoom = `${(100 * (maxWidth / imgWidth))}%`;
+        console.log({innerWidth, maxWidth, imgWidth, zoom})
     }
 
     const setActive = (piece) => {
@@ -117,7 +119,8 @@
     position: relative;
 
     &__wrap {
-      width: 1680px;
+      width: 1673px;
+      height: 750px;
       position: relative;
       margin-bottom: $space-xl * 4;
     }

@@ -162,7 +162,8 @@
 
 <svelte:window bind:innerWidth={innerWidth}/>
 
-<div class="tooltip{showTooltip ? ' open' : ''}" style="{!!zoom ? 'zoom:' + (parseFloat(zoom) + 200) + '%' : ''}">
+<div class="tooltip{showTooltip ? ' open' : ''}"
+     Xstyle="{parseFloat(zoom) < 100 ? 'zoom:' + (parseFloat(zoom) + 200) + '%' : ''}">
     {#if showTooltip}
         <div class="tooltip__outer-wrap" style="{isMobile ? 'width:' + (wrapWidth) +'px; ' : ''}left: {leftAdjust}"
              bind:this={wrap}>

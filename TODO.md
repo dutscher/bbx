@@ -1,5 +1,6 @@
 * concat util code 'Chrome Silver' 3 times
   * to share code between svelte and nodejs
+* zoom tolltip bug
 * fetch bug with history
 * unit tests getTags
 * 13 vulnerabilities (7 moderate, 6 high)
