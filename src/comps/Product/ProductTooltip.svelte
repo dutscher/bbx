@@ -18,8 +18,8 @@
     export let states: any;
     export let showTooltip: boolean = true;
     export let imageLoaded: boolean = false;
-    export let zoom: string = '';
 
+    let element: any;
     let data: any;
     let categories: any;
     let tags: any;
@@ -153,6 +153,10 @@
         link.remove();
     }
 
+    const scrollIntoView = () => {
+        element.scrollIntoView({block: 'start', behavior: 'smooth'});
+    }
+
     $: {
         if (wrap) {
             handleLeftAdjust(wrap, showTooltip);
@@ -162,8 +166,7 @@
 
 <svelte:window bind:innerWidth={innerWidth}/>
 
-<div class="tooltip{showTooltip ? ' open' : ''}"
-     Xstyle="{parseFloat(zoom) < 100 ? 'zoom:' + (parseFloat(zoom) + 200) + '%' : ''}">
+<div class="tooltip{showTooltip ? ' open' : ''}" bind:this={element}>
     {#if showTooltip}
         <div class="tooltip__outer-wrap" style="{isMobile ? 'width:' + (wrapWidth) +'px; ' : ''}left: {leftAdjust}"
              bind:this={wrap}>
@@ -238,7 +241,7 @@
                         Zum Shop
                         <Icon modifier="cart"/>
                     </span><br/>
-                    <ProductImage {product} onLoad={() => {imageLoaded = true}}></ProductImage>
+                    <ProductImage {product} onLoad={() => {scrollIntoView();imageLoaded = true}}></ProductImage>
                 </a>
             </div>
         </div>
@@ -267,7 +270,7 @@
         font-size: ms(-2);
       }
 
-      z-index: 1337;
+      z-index: 2;
 
       .open & {
         display: block;

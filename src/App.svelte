@@ -179,7 +179,7 @@
       width: 65vw;
     }
 
-    padding-bottom: 150px;
+    padding-bottom: 300px;
     margin: 0 auto;
 
     .footer {

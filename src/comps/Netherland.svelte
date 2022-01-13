@@ -1,6 +1,4 @@
 <script lang="ts">
-    import ClickOutside from 'svelte-click-outside';
-    import Tooltip from './Product/ProductTooltip.svelte';
     import { storedProducts, storedGlobalData, storedActiveSelection } from '../stores';
     import {
         ID_STATE_ANNOUNCEMENT,
@@ -32,8 +30,18 @@
         console.log({innerWidth, maxWidth, imgWidth, zoom})
     }
 
-    const setActive = (piece) => {
+    const setActive = (event, piece) => {
+        event.stopPropagation();
         activeProductID = getProduct(piece).id;
+
+        storedActiveSelection.update(value => {
+            value.product = {
+                id: activeProductID,
+                type: 'products',
+            };
+            value.reason = 'click-on-zoom';
+            return value;
+        })
     }
 
     const getProduct = (piece) => {
@@ -71,19 +79,6 @@
         }
         return state;
     }
-
-    const onClickOutside = (piece) => {
-        if (activeProductID === getProduct(piece).id) {
-            storedActiveSelection.update(value => {
-                value.product = {
-                    id: 0,
-                    type: 'manhattan',
-                };
-                value.reason = 'click-outside';
-                return value;
-            })
-        }
-    }
 </script>
 
 <svelte:window bind:innerWidth={innerWidth}/>
@@ -94,18 +89,13 @@
         <div class="pieces" style="zoom:{zoom}">
             <div class="pieces__wrap flex">
                 {#each data.netherland.pieces as piece, i}
-                    <ClickOutside on:clickoutside={() => onClickOutside(piece)}>
-                        <div class="{`piece piece--${((i + 1) + '').padStart(2, '00')} ${getState(piece)}`}"
-                             on:click={() => {setActive(piece)}}
-                             data-nr={((i + 1) + '').padStart(2, '00')}>
-                            <img class="piece__img"
-                                 alt={piece}
-                                 src="./images/netherland/{((i + 1) + '').padStart(2, '00')}.png"/>
-                            <Tooltip product={getProduct(piece)}
-                                     showTooltip={activeProductID === getProduct(piece).id}
-                                     zoom={zoom}/>
-                        </div>
-                    </ClickOutside>
+                    <div class="{`piece piece--${((i + 1) + '').padStart(2, '00')} ${getState(piece)}`}"
+                         on:click={(event) => {setActive(event, piece)}}
+                         data-nr={((i + 1) + '').padStart(2, '00')}>
+                        <img class="piece__img"
+                             alt={piece}
+                             src="./images/netherland/{((i + 1) + '').padStart(2, '00')}.png"/>
+                    </div>
                 {/each}
             </div>
         </div>
@@ -116,6 +106,7 @@
   @import '../scss/variables';
 
   .pieces {
+    overflow: hidden;
     position: relative;
 
     &__wrap {

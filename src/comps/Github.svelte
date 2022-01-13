@@ -12,7 +12,7 @@
 <style>
     .github-corner {
         position: fixed;
-        z-index: 1;
+        z-index: 1337;
         right: 0;
         top: 0;
     }
