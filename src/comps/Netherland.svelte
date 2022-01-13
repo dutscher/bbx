@@ -24,7 +24,7 @@
     });
 
     $:{
-        const maxWidth = innerWidth < 1200 ? innerWidth : 1200;
+        const maxWidth = innerWidth < 1050 ? innerWidth : 1050;
         const imgWidth = 201 + 153 + 184 + 179 + 229 + 249 + 184 + 294;
         zoom = `${(100 * (maxWidth / imgWidth))}%`;
         console.log({innerWidth, maxWidth, imgWidth, zoom})
