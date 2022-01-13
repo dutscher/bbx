@@ -1,3 +1,5 @@
+* [13.01.2022]
+  * add scrollIntoView to Tooltip
 * [11.01.2022]
   * Add Netherland Easteregg
 * [08.01.2022]
