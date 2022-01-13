@@ -117,7 +117,6 @@
   @import '../scss/variables';
 
   .darkmode {
-    transition: opacity 1000ms ease-in-out;
     will-change: opacity;
     position: fixed;
     z-index: 1337;
@@ -129,6 +128,7 @@
 
     &.is-ready {
       opacity: 1 !important;
+      transition: opacity 1000ms ease-in-out;
     }
   }
 </style>
