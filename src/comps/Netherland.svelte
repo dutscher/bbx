@@ -24,10 +24,9 @@
     });
 
     $:{
-        const maxWidth = innerWidth < 1050 ? innerWidth : 1050;
-        const imgWidth = 201 + 153 + 184 + 179 + 229 + 249 + 184 + 294;
+        const maxWidth = innerWidth < 1050 ? innerWidth : innerWidth / 1.5;
+        const imgWidth = 201 + 153 + 184 + 179 + 229 + 249 + 184 + 294 + 100; // 100 extra pixel
         zoom = `${(100 * (maxWidth / imgWidth))}%`;
-        console.log({innerWidth, maxWidth, imgWidth, zoom})
     }
 
     const setActive = (event, piece) => {
