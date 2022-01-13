@@ -65,6 +65,7 @@
 
         // dark theme preferred, set document with a `data-theme` attribute
         document.documentElement.setAttribute('data-theme', theme);
+        document.documentElement.setAttribute('data-theme-ready', 'true');
         localStore.set('theme', theme);
         setTimeout(() => {
             isReady = true;
@@ -117,6 +118,7 @@
   @import '../scss/variables';
 
   .darkmode {
+    transition: opacity 1000ms ease-in-out;
     will-change: opacity;
     position: fixed;
     z-index: 1337;
@@ -128,7 +130,6 @@
 
     &.is-ready {
       opacity: 1 !important;
-      transition: opacity 1000ms ease-in-out;
     }
   }
 </style>
