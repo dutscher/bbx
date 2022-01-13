@@ -19,17 +19,16 @@
     export let showTooltip: boolean = true;
     export let imageLoaded: boolean = false;
 
-    let element: any;
     let data: any;
     let categories: any;
     let tags: any;
     let hearts: any;
     const spaceing: number = 16;
     let innerWidth: number;
+    let wrapElement: any;
     let wrapWidth: number;
     let isMobile: boolean = true;
     let leftAdjust: string;
-    let wrap: any;
 
     let timer;
 
@@ -42,7 +41,6 @@
     // /101/101857%20Das%20Schwarze%20Auge,%20Thowaler%20Drachenschiff,%20Otta%20(45MB).pdf
     // https://www.bluebrixx.com/data/files/manuals/103/103272%20Nimitz%20Teil%202%20(26MB).pdf
     const getInstLabel = (str) => {
-        console.log('getInstLabel',str)
         let strReturn = '';
         const defaultLabel = 'Download';
         const foundSize = str.match(/\((\d*MB)\)/);
@@ -154,22 +152,26 @@
     }
 
     const scrollIntoView = () => {
-        element.scrollIntoView({block: 'start', behavior: 'smooth'});
+        const {bottom} = wrapElement.getBoundingClientRect();
+
+        if (bottom > window.innerHeight) {
+            wrapElement.scrollIntoView({behavior: 'smooth'});
+        }
     }
 
     $: {
-        if (wrap) {
-            handleLeftAdjust(wrap, showTooltip);
+        if (wrapElement) {
+            handleLeftAdjust(wrapElement, showTooltip);
         }
     }
 </script>
 
 <svelte:window bind:innerWidth={innerWidth}/>
 
-<div class="tooltip{showTooltip ? ' open' : ''}" bind:this={element}>
+<div class="tooltip{showTooltip ? ' open' : ''}">
     {#if showTooltip}
         <div class="tooltip__outer-wrap" style="{isMobile ? 'width:' + (wrapWidth) +'px; ' : ''}left: {leftAdjust}"
-             bind:this={wrap}>
+             bind:this={wrapElement}>
             <div class="tooltip__wrap">
                 <div class="tooltip__close">
                     <Icon modifier="cross" svg="true" on:click={onClose}/>
@@ -241,7 +243,7 @@
                         Zum Shop
                         <Icon modifier="cart"/>
                     </span><br/>
-                    <ProductImage {product} onLoad={() => {scrollIntoView();imageLoaded = true}}></ProductImage>
+                    <ProductImage {product} onLoad={() => {imageLoaded = true;scrollIntoView();}}></ProductImage>
                 </a>
             </div>
         </div>
