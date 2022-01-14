@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { storedProducts, storedGlobalData, storedActiveSelection } from '../stores';
-    import { STR_BURG_BLAUSTEIN } from '../_interfaces';
+    import { storedProducts, storedGlobalData, storedActiveSelection, loadInstData } from '../stores';
+    import { STR_BURG_BLAUSTEIN, UNLOADED } from '../_interfaces';
     import { getEEProduct, getEEState } from '../utils';
 
     const type = STR_BURG_BLAUSTEIN;

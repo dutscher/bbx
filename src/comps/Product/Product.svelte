@@ -28,9 +28,10 @@
     let activeTagsIds: any;
     let dataLoaded: string;
     let showTooltip = false;
-    let isHeart = false;
-    let isNew = false;
-    let isHot = false;
+    let isHeart: boolean = false;
+    let isNew: boolean = false;
+    let isHot: boolean = false;
+    let isActive: boolean = false;
 
     storedActiveSelection.subscribe(store => {
         activeProduct = store.product;
@@ -45,9 +46,13 @@
     storedStates.subscribe(store => states = store);
     storedHearts.subscribe(store => hearts = store);
 
-    $:isActive = activeProduct && (activeProduct.id === product.id) && (type === activeProduct.type) || false;
-
     $: {
+        isActive = activeProduct && (activeProduct.id === product.id) && (type === activeProduct.type) || false;
+
+        if (dataLoaded === UNLOADED && isActive) {
+            loadInstData();
+        }
+
         // TODO: ab in den store
         const historyStates = Object.values(product.history);
         const lastHistory = historyStates[historyStates.length - 1];
@@ -62,10 +67,6 @@
     const onClick = () => {
         // toggle tooltip
         showTooltip = !showTooltip;
-        // load data if this is needed
-        if (dataLoaded === UNLOADED && showTooltip) {
-            loadInstData();
-        }
 
         // update store to close other tooltips
         storedActiveSelection.update(value => {

@@ -349,5 +349,9 @@
         color: $color-white;
       }
     }
+
+    .inst-link {
+      user-select: none;
+    }
   }
 </style>
