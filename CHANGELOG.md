@@ -1,3 +1,7 @@
+* [14.01.2022]
+  * switch from `#` hash to `?` search url's
+  * add to tooltip `1 Std. her` `2 Tage her` - time ago
+  * update inst.json
 * [13.01.2022]
   * add scrollIntoView to Tooltip
 * [11.01.2022]
