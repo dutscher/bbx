@@ -1,3 +1,5 @@
+import { ID_STATE_ANNOUNCEMENT, ID_STATE_AVAILABLE, ID_STATE_COMING_SOON, ID_STATE_UNAVAILABLE } from "./_interfaces";
+
 export function getUrlParam(variable) {
     // remove ? with substring
     let query = window.location.search.substring(1);
@@ -38,11 +40,12 @@ export function setUrlParams(param, array) {
     } else {
         allSearch[param] = array.join(',');
     }
-    let newHash = "";
+    let newUrl = "";
     Object.keys(allSearch).forEach(function (param, index) {
-        newHash += (index === 0 ? "" : "&") + param + "=" + allSearch[param];
+        newUrl += (index === 0 ? "" : "&") + param + "=" + allSearch[param];
     });
-    history.pushState("", "", newHash ? "?" + newHash : " ");
+
+    history.pushState("", "", newUrl ? "?" + newUrl : "/");
 }
 
 export const titleMatch = (tag, product) => {
@@ -136,4 +139,40 @@ export const getProductHref = (product) => {
     // "href": "/103464/Klassischer-schwarzer-LKW-mit-Trailer-BlueBrixx-Special",
     const urlSafeTitle = product.title.replace(/ /g, '-').replace(/,|(|)/g, '').replace(/ß/g, 'ss');
     return `/${product.id}/${urlSafeTitle}`;
+}
+
+// eastereggs
+export const getEEProduct = (products, piece) => {
+    let id = piece.match(/(\d{6})/);
+    let foundProduct;
+
+    products.map(product => {
+        if (product.id === parseInt(id)) {
+            foundProduct = product;
+        }
+    });
+
+    return foundProduct;
+}
+
+export const getEEState = (product) => {
+    let state = '';
+
+    if (product) {
+        switch (product.state.id) {
+            case ID_STATE_AVAILABLE:
+                state = 'blue available';
+                break;
+            case ID_STATE_UNAVAILABLE:
+                state = 'red';
+                break;
+            case ID_STATE_COMING_SOON:
+                state = 'green';
+                break;
+            case ID_STATE_ANNOUNCEMENT:
+                state = 'orange';
+                break;
+        }
+    }
+    return state;
 }

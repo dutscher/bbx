@@ -2,7 +2,7 @@
     import { onMount } from 'svelte';
     import { storedActiveSelection, storedTags } from '../../stores';
     import { getUrlParam, setUrlParams } from '../../utils';
-    import { ID_MANHATTAN, ID_MOVIE, ID_NETHERLAND, ID_PARTS } from "../../_interfaces";
+    import { ID_MANHATTAN, ID_MOVIE, ID_NETHERLAND, ID_PARTS, IDS_SPECIAL_TAGS } from "../../_interfaces";
 
     export let activeTagIds: any = [];
 
@@ -76,7 +76,7 @@
     const getClasses = (tag, isFirst, activeTagIds) => [
         'tag',
         activeTagIds.includes(tag.id) && 'active',
-        [ID_PARTS, ID_MANHATTAN, ID_MOVIE, ID_NETHERLAND].includes(tag.id) && 'highlight',
+        IDS_SPECIAL_TAGS.includes(tag.id) && 'highlight',
         isFirst && 'new-letter'
     ].filter(css => !!css).join(' ')
 </script>

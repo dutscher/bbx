@@ -6,12 +6,14 @@
         ID_STATE_COMING_SOON,
         ID_STATE_UNAVAILABLE, STR_MANHATTAN
     } from "../_interfaces";
+    import { getEEProduct, getEEState } from "../utils";
 
     const type = STR_MANHATTAN;
     let products: any;
     let data: any;
     let innerWidth;
     let zoom;
+    let pieces;
     let activeProductID = -1;
 
     storedProducts.subscribe(store => products = store);
@@ -26,11 +28,23 @@
         const imgWidth = 800;
         const minWidth = innerWidth < imgWidth ? innerWidth : imgWidth;
         zoom = `${(100 * (minWidth / imgWidth))}%`;
+
+        pieces = data.manhattan.pieces.map((piece, i) => {
+            const product = getEEProduct(products, piece);
+
+            return {
+                id: product.id,
+                nr: ((i + 1) + '').padStart(2, '00'),
+                title: product.title.replace(STR_MANHATTAN + ' ', ''),
+                state: getEEState(product),
+                isOutside: i >= 17,
+            }
+        })
     }
 
-    const setActive = (event, piece) => {
+    const setActive = (event, id) => {
         event.stopPropagation();
-        activeProductID = getProduct(piece).id;
+        activeProductID = id;
         storedActiveSelection.update(value => {
             value.product = {
                 id: activeProductID,
@@ -39,42 +53,6 @@
             value.reason = 'click-on-zoom';
             return value;
         })
-    }
-
-    const getProduct = (piece) => {
-        let id = piece.match(/(\d{6})/);
-        let foundProduct;
-
-        products.map(product => {
-            if (product.id === parseInt(id)) {
-                foundProduct = product;
-            }
-        });
-
-        return foundProduct;
-    }
-
-    const getState = (piece) => {
-        let product = getProduct(piece);
-        let state = '';
-
-        if (product) {
-            switch (product.state.id) {
-                case ID_STATE_AVAILABLE:
-                    state = 'blue available';
-                    break;
-                case ID_STATE_UNAVAILABLE:
-                    state = 'red';
-                    break;
-                case ID_STATE_COMING_SOON:
-                    state = 'green';
-                    break;
-                case ID_STATE_ANNOUNCEMENT:
-                    state = 'orange';
-                    break;
-            }
-        }
-        return state;
     }
 </script>
 
@@ -85,16 +63,17 @@
     {#if innerWidth}
         <div class="pieces" style="zoom:{zoom}">
             <div class="pieces__wrap">
-                {#each data.manhattan.pieces as piece, i}
-                    <div class="{`piece piece--${((i + 1) + '').padStart(2, '00')} ${getState(piece)}`}"
-                         on:click={(event) => {setActive(event, piece)}}
-                         data-nr={((i + 1) + '').padStart(2, '00')}>
-                        {#if i < 17}
+                {#each pieces as piece}
+                    <div class="{`piece piece--${piece.nr} ${piece.state}`}"
+                         on:click={(event) => {setActive(event, piece.id)}}
+                         data-nr={piece.nr}
+                         title={piece.title}>
+                        {#if !piece.isOutside}
                             <img class="piece__img"
-                                 alt={piece}
-                                 src="./images/manhattan/{((i + 1) + '').padStart(2, '00')}.png"/>
+                                 alt={piece.title}
+                                 src="./images/manhattan/{piece.nr}.png"/>
                         {:else}
-                            {getProduct(piece).title.replace(STR_MANHATTAN + ' ', '')}
+                            {piece.title}
                         {/if}
                     </div>
                 {/each}

@@ -3,12 +3,13 @@
     import Icon from '../Icon.svelte';
     import ClickOutside from 'svelte-click-outside';
     import {
+        ID_BURG_BLAUSTEIN,
         ID_MANHATTAN,
         ID_MOVIE, ID_NETHERLAND,
         ID_STAR_TREK,
         ID_STATE_ANNOUNCEMENT,
         ID_STATE_AVAILABLE,
-        ID_STATE_COMING_SOON, STR_MANHATTAN, STR_NETHERLAND,
+        ID_STATE_COMING_SOON, STR_MANHATTAN, STR_NETHERLAND, STR_BURG_BLAUSTEIN,
         STR_STAR_TREK,
         UNLOADED
     } from '../../_interfaces';
@@ -92,12 +93,17 @@
     }
 
     const getTitle = (product) => {
+        const isBurgBlaustein = activeTagsIds && activeTagsIds.includes(ID_BURG_BLAUSTEIN) && activeTagsIds.length === 1;
         const isNetherland = activeTagsIds && activeTagsIds.includes(ID_NETHERLAND) && activeTagsIds.length === 1;
         const isManhattan = activeTagsIds && activeTagsIds.includes(ID_MANHATTAN) && activeTagsIds.length === 1;
         const isMovieFilterOnly = activeTagsIds && activeTagsIds.includes(ID_MOVIE) && activeTagsIds.length === 1;
         const isStarTrekFilterOnly = activeTagsIds && activeTagsIds.includes(ID_STAR_TREK) && activeTagsIds.length === 1;
         const isStarTrek = !!product.title && product.title.includes(STR_STAR_TREK);
         let title = product.title;
+
+        if (isBurgBlaustein) {
+            title = title.replace(' für ' + STR_BURG_BLAUSTEIN, '')
+        }
 
         if (isNetherland) {
             title = title.replace(STR_NETHERLAND + ' ', '')

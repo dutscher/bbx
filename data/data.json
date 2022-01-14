@@ -273,6 +273,14 @@
       "img": "img/shop/subsections/elements_new/windscreens_and_fuselage.jpg"
     }
   ],
+  "blaustein": {
+    "pieces": [
+      "/102818/Burg-Blaustein",
+      "/103406/Bergfried-Erweiterung-fuer-Burg-Blaustein",
+      "/104185/Vorburg-Erweiterung-fuer-Burg-Blaustein",
+      "/104953/Saalbau-Erweiterung-fuer-Burg-Blaustein"
+    ]
+  },
   "netherland": {
     "pieces": [
       "/104904/niederl%C3%A4ndische-Hausfassade-Amstel-1",
