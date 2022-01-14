@@ -1,6 +1,11 @@
 export function getUrlParam(variable) {
     // remove ? with substring
-    const query = window.location.hash.substring(1);
+    let query = window.location.search.substring(1);
+    // fallback for old hash urls
+    const hash = window.location.hash.substring(1);
+    if (!!hash) {
+        query = hash;
+    }
     const vars = query.split('&');
     for (let i = 0; i < vars.length; i++) {
         const pair = vars[i].split('=');
@@ -37,7 +42,7 @@ export function setUrlParams(param, array) {
     Object.keys(allSearch).forEach(function (param, index) {
         newHash += (index === 0 ? "" : "&") + param + "=" + allSearch[param];
     });
-    history.pushState("", "", newHash ? "#" + newHash : " ");
+    history.pushState("", "", newHash ? "?" + newHash : " ");
 }
 
 export const titleMatch = (tag, product) => {
@@ -84,10 +89,17 @@ export function getHRDate(dateStr) {
     return `${day}.${month}.${year} ${hour}:${minute}`;
 }
 
+export const isDST = (d) => {
+    let jan = new Date(d.getFullYear(), 0, 1).getTimezoneOffset();
+    let jul = new Date(d.getFullYear(), 6, 1).getTimezoneOffset();
+    return Math.max(jan, jul) !== d.getTimezoneOffset();
+}
+
 export const getDateTime = (hrDate) => {
+    const isSummertime = isDST(new Date());
     const date = hrDate.split(' ');
     const dmy = date[0].split('.');
-    return `${dmy[2]}-${dmy[1]}-${dmy[0]}T${date[1]}:00+02:00`;
+    return `${dmy[2]}-${dmy[1]}-${dmy[0]}T${date[1]}:00+0${!isSummertime ? 1 : 2}:00`;
 }
 
 export function getLatestStateOfToday(product, hrCompareDate) {

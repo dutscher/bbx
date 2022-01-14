@@ -22,22 +22,39 @@
 
     storedStates.subscribe(value => states = value);
 
-    const calcDaysAgo = (product) => {
-        // 2021-10-07T08:51:00+02:00
-        const lastDate = new Date(product.stateDate);
+    const calcTimeAgo = (product) => {
+        const times = [
+            ['second', 1, 'Sek.'],
+            ['minute', 60, 'Min.'],
+            ['hour', 3600, 'Std.'],
+            ['day', 86400, 'Tag', 'e'],
+            ['week', 604800, 'Woche', 'n'],
+            ['month', 2592000, 'Mon.'],
+            ['year', 31536000, 'Jahr', 'e']
+        ];
+
         const today = new Date();
-        const diffTime = Math.abs(lastDate - today);
-        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-        return diffDays - 1;
+        const lastDate = new Date(product.stateDate);
+        let diff = Math.round((today - lastDate) / 1000)
+        for (let t = 0; t < times.length; t++) {
+            if (diff < times[t][1]) {
+                if (t == 0) {
+                    return 'jetzt';
+                } else {
+                    diff = Math.round(diff / times[t - 1][1])
+                    return diff + ' ' + times[t - 1][2] + (diff !== 1 && times[t - 1][3] ? times[t - 1][3] : '') + ' her';
+                }
+            }
+        }
     }
 
-    $: daysAgo = calcDaysAgo(product);
+    $: timeAgo = calcTimeAgo(product);
 </script>
 
 <div class="history">
     {#each splittedHistory.first as [date, stateId], i}
         {date} - {states.filter(state => stateId === state.id)[0].de}
-        {#if i === 0}({daysAgo} Tag{#if daysAgo !== 1}e {/if} her){/if}
+        {#if i === 0}({timeAgo}){/if}
         <br/>
     {/each}
     {#if splittedHistory.last}
@@ -59,6 +76,7 @@
 
   .history {
     user-select: none;
+
     a {
       color: $color-primary-lighter;
 
