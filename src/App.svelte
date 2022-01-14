@@ -39,6 +39,11 @@
 
 <main>
     <!--    <Notifications />-->
+
+    <div class="notice">
+        🚨 Bei uns gibts es die <a href="/?tags=burg-blaustein">Burg Blaustein Anleitungen</a> 🚨
+    </div>
+
     <Darkmode/>
     <Github/>
     <Welcome/>
@@ -75,6 +80,18 @@
 
 <style lang="scss">
   @import './scss/variables';
+
+  .notice {
+    font-weight: bold;
+    padding: $space-lg;
+    border-radius: $space-lg;
+    background: $color-white;
+    color: $color-primary;
+
+    a {
+      color: $color-primary-darker;
+    }
+  }
 
   :global(body) {
     font-family: $font-family;
