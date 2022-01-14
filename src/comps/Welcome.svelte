@@ -36,7 +36,7 @@
 
 <h1 class="with-toggle with-text-shadow" on:click={onClick}>
     <Icon modifier="arrow {!isVisible ? 'down' : 'up'}" svg/>
-    BBX Watcher
+    Bluebrixx Watcher
 
     <div class="fb-like" data-href="https://www.facebook.com/bbxwatcher" data-width="170px" data-layout="button_count"
          data-action="like" data-size="small" data-share="true"></div>

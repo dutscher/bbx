@@ -61,7 +61,7 @@
     }
 
     const getInstHref = (pdfLink) => {
-        if (pdfLink.contains('http')) {
+        if (pdfLink.includes('http')) {
             return pdfLink;
         }
         return data.instUrl + pdfLink;
