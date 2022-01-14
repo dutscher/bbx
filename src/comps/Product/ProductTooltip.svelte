@@ -60,6 +60,13 @@
         return strReturn;
     }
 
+    const getInstHref = (pdfLink) => {
+        if (pdfLink.contains('http')) {
+            return pdfLink;
+        }
+        return data.instUrl + pdfLink;
+    }
+
     const handleLeftAdjust = (node, showTooltip) => {
         const bounds = node.getBoundingClientRect();
         const mobileWidth = 320;
@@ -179,7 +186,8 @@
                 {#if product.title}
                     <div class="tooltip__title-wrap">
                         <strong class="tooltip__title">
-                            <Icon modifier="heart" svg="true" class="{hearts.includes(product.id) ? 'active' : ''}" title="Will ich haben"
+                            <Icon modifier="heart" svg="true" class="{hearts.includes(product.id) ? 'active' : ''}"
+                                  title="Will ich haben"
                                   on:click={clickHeart}/>
                             {product.title}
                         </strong>
@@ -219,13 +227,13 @@
                     <div class="tooltip__content tooltip__content--rows">
                         {#if Array.isArray(product.inst)}
                             {#each product.inst as inst}
-                                <a class="inst-link" target="_blank" href={data.instUrl + inst}>
+                                <a class="inst-link" target="_blank" href={getInstHref(inst)}>
                                     <Icon modifier="manual"/>
                                     {getInstLabel(inst)}
                                 </a>
                             {/each}
                         {:else}
-                            <a class="inst-link" target="_blank" href={data.instUrl + product.inst}>
+                            <a class="inst-link" target="_blank" href={getInstHref(product.inst)}>
                                 <Icon modifier="manual"/>
                                 {getInstLabel(product.inst)}
                             </a>
