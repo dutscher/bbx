@@ -8,7 +8,7 @@
         storedProducts,
         localStore, internetConnection, storedActiveSelection
     } from '../stores';
-    import { lsKeyWelcome } from "../_interfaces";
+    import { IDS_SPECIAL_TAGS, lsKeyWelcome } from "../_interfaces";
 
     let tags: number = 0;
     let products: number = 0;
@@ -64,7 +64,7 @@
             Obendrauf noch die passenden Anleitungen verfügbar (Zum herunterladen müsst ihr aber bei BB eingeloggt sein)<br/>
         </p>
         <p>
-            Aber Obacht: es gibt noch 4 Eastereggs, Könnt Ihr sie finden?<br/><br/>
+            Aber Obacht: es gibt noch {IDS_SPECIAL_TAGS.length} Eastereggs, Könnt Ihr sie finden?<br/><br/>
             Viel Spaß damit und Feedback bitte via Facebook oder E-Mail
         </p>
     </div>
