@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { AFF_LINK } from '../../_interfaces';
     import {
         storedGlobalData,
         storedCategories,
@@ -246,7 +247,7 @@
                     <ProductHistory {product}/>
                 </div>
                 <br/>
-                <a href={data.url + product.href + '?aff=wrhjxrxb'} target="_blank">
+                <a href={data.url + product.href + AFF_LINK} target="_blank">
                     <span>
                         Zum Shop
                         <Icon modifier="cart"/>

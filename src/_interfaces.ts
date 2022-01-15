@@ -1,3 +1,4 @@
+export const AFF_LINK = '?aff=wrhjxrxb'; // noppensteinnews
 export const ID_MANHATTAN = 17;
 export const STR_MANHATTAN = 'Manhattan';
 export const ID_NETHERLAND = 57;
