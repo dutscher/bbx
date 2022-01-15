@@ -39,10 +39,11 @@
 
 <main>
     <!--    <Notifications />-->
-
-    <div class="notice">
-        🚨 Bei uns gibts es die <a href="/?tags=burg-blaustein">Burg Blaustein Anleitungen</a> 🚨
-    </div>
+    <!--
+        <div class="notice">
+            🚨 Bei uns gibts es die <a href="/?tags=burg-blaustein">Burg Blaustein Anleitungen</a> 🚨
+        </div>
+    -->
 
     <Darkmode/>
     <Github/>
