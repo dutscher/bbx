@@ -246,7 +246,7 @@
                     <ProductHistory {product}/>
                 </div>
                 <br/>
-                <a href={data.url + product.href} target="_blank">
+                <a href={data.url + product.href + '?aff=wrhjxrxb'} target="_blank">
                     <span>
                         Zum Shop
                         <Icon modifier="cart"/>
@@ -259,7 +259,7 @@
 </div>
 
 <style lang="scss">
-  @import '../../scss/variables';
+  @import "../../scss/variables';
 
   .tooltip {
     position: relative;
