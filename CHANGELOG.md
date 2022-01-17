@@ -1,6 +1,7 @@
 * [17.01.2022]
   * add two movie names
   * change `parts` to `brickbar`
+  * add `american` products to `usa` tag
 * [15.01.2022]
   * podcast interview
 * [14.01.2022]

@@ -1,5 +1,7 @@
 * concat util code 'Chrome Silver' 3 times
   * to share code between svelte and nodejs
+* firefox zoom bug https://bbx.watch/?tags=burg-blaustein
+* filter for hot, new
 * fetch bug with history
 * history back not going
 * pdf download proxy
