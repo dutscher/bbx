@@ -132,7 +132,7 @@
         Auf Parts ({countParts}) umschalten
     </label>
     {#if state !== ID_STATE_AVAILABLE && !reverseSort}
-        <p><b>Was kommt wohlmöglich als nächstes:</b></p>
+        <p><b>Was kommt womöglich als nächstes:</b></p>
     {/if}
     <div>
         {#if isVisible}
