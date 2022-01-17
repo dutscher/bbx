@@ -1,7 +1,7 @@
 <script lang="ts">
     import { storedProducts, storedGlobalData, storedActiveSelection, loadInstData } from '../stores';
-    import { STR_BURG_BLAUSTEIN, UNLOADED } from '../_interfaces';
-    import { getEEProduct, getEEState } from '../utils';
+    import { STR_BURG_BLAUSTEIN } from '../_interfaces';
+    import { getEEProduct, getEEState, handlePrice } from '../utils';
 
     const type = STR_BURG_BLAUSTEIN;
     let products: any;
@@ -31,6 +31,9 @@
                 id: product.id,
                 nr: ((i + 1) + '').padStart(2, '00'),
                 title: product.title.replace(' für ' + STR_BURG_BLAUSTEIN, ''),
+                parts: product.parts,
+                price: product.price,
+                pricePerPart: product.pricePerPart,
                 state: getEEState(product),
             }
         })
@@ -63,7 +66,10 @@
                      src="./images/{'burg-blaustein'}.png"/>
                 {#each pieces as piece}
                     <div class="{`piece piece--${piece.nr} ${piece.state}`}"
-                         on:click={(event) => {setActive(event, piece.id)}} data-title={piece.title}>
+                         on:click={(event) => {setActive(event, piece.id)}}>
+                        {piece.title}
+                        <span>{piece.parts}
+                            {#if piece.price} - {handlePrice(piece)}{/if}</span>
                     </div>
                 {/each}
             </div>
@@ -87,20 +93,19 @@
 
     .piece {
       position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      background: rgba($color-primary, 0.75);
+      color: $color-white;
+      font-weight: bold;
+      padding: $space-md;
+      border-radius: $border-radius-xl;
 
-      &::after {
-        position: absolute;
-        content: attr(data-title);
+      span {
+        font-size: ms(-2);
         display: block;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 2;
-        background: rgba($color-primary, 0.75);
-        color: $color-white;
-        font-weight: bold;
-        padding: $space-md;
-        border-radius: $border-radius-xl;
       }
 
       &--01 {
@@ -143,27 +148,19 @@
     }
 
     &.blue {
-      &::after {
-        background: rgba($color-primary, 0.75);
-      }
+      background: rgba($color-primary, 0.75);
     }
 
     &.green {
-      &::after {
-        background: rgba($color-comingsoon, 0.75);
-      }
+      background: rgba($color-comingsoon, 0.75);
     }
 
     &.red {
-      &::after {
-        background: rgba($color-unavailable, 0.75);
-      }
+      background: rgba($color-unavailable, 0.75);
     }
 
     &.orange {
-      &::after {
-        background: rgba($color-annoucement, 0.75);
-      }
+      background: rgba($color-annoucement, 0.75);
     }
   }
 </style>

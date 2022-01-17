@@ -10,7 +10,7 @@
         lsKeyHeart,
         localStore,
     } from '../../stores';
-    import { jsVoid, setUrlParams } from "../../utils";
+    import { jsVoid, setUrlParams, handlePrice } from "../../utils";
     import Icon from '../Icon.svelte';
     import ProductHistory from "./ProductHistory.svelte";
     import ProductImage from "./ProductImage.svelte";
@@ -90,13 +90,6 @@
         } else {
             leftAdjust = '0px';
         }
-    }
-
-    const handlePrice = (product) => {
-        if (product.price > 0) {
-            return `${('' + product.price.toFixed(2)).replace('.', ',')}EUR (${product.pricePerPart.toFixed(2).replace('.', ',')} ct/Stein)`;
-        }
-        return '';
     }
 
     const getTagName = (tagID) => {

@@ -141,6 +141,13 @@ export const getProductHref = (product) => {
     return `/${product.id}/${urlSafeTitle}`;
 }
 
+export const handlePrice = (product) => {
+    if (product.price > 0) {
+        return `${('' + product.price.toFixed(2)).replace('.', ',')}EUR (${product.pricePerPart.toFixed(2).replace('.', ',')} ct/Stein)`;
+    }
+    return '';
+}
+
 // eastereggs
 export const getEEProduct = (products, piece) => {
     let id = piece.match(/(\d{6})/);
