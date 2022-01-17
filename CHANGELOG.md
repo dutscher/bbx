@@ -1,3 +1,8 @@
+* [17.01.2022]
+  * add two movie names
+  * change `parts` to `brickbar`
+* [15.01.2022]
+  * podcast interview
 * [14.01.2022]
   * switch from `#` hash to `?` search url's
   * add to tooltip `1 Std. her` or `2 Tage her` - time ago
