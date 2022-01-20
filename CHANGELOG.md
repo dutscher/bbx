@@ -1,3 +1,5 @@
+* [20.01.2022]
+  * add affiliate notice
 * [17.01.2022]
   * add two movie names
   * change `parts` to `brickbar`

@@ -242,7 +242,7 @@
                 <br/>
                 <a href={data.url + product.href + AFF_LINK} target="_blank">
                     <span>
-                        Zum Shop
+                        Zum Shop{!!AFF_LINK ? '*' : ''}
                         <Icon modifier="cart"/>
                     </span><br/>
                     <ProductImage {product} onLoad={() => {imageLoaded = true;scrollIntoView();}}></ProductImage>

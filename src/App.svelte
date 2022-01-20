@@ -10,7 +10,7 @@
     import Blaustein from "./comps/Blaustein.svelte";
     import Products from "./comps/Product/Products.svelte";
     import { loadMovieData, storedActiveSelection } from './stores';
-    import { ID_MANHATTAN, ID_NETHERLAND, ID_MOVIE, ID_BURG_BLAUSTEIN, UNLOADED } from "./_interfaces";
+    import { ID_MANHATTAN, ID_NETHERLAND, ID_MOVIE, ID_BURG_BLAUSTEIN, UNLOADED, AFF_LINK } from "./_interfaces";
     import Icon from "./comps/Icon.svelte";
     import Notifications from "./comps/Notifications.svelte";
     import Github from "./comps/Github.svelte";
@@ -76,6 +76,11 @@
         <span class="state state--orange"></span> = In Ankündigung
         <br/><br/>
         <strong>Stand:</strong> {lastCursor[0] && lastCursor[0].split('|')[1]}
+        {#if !!AFF_LINK}
+        <span class="small">
+            * Die ausgehenden Produktlinks sind Affiliate-Links. Wenn Ihr klickt und kauft, dann unterstütz Ihr dieses Projekt. Vielen Dank :)
+        </span>
+        {/if}
     </div>
 </main>
 
@@ -92,6 +97,10 @@
     a {
       color: $color-primary-darker;
     }
+  }
+
+  .small {
+    font-size: ms(-2);
   }
 
   :global(body) {

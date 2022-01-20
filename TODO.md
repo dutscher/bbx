@@ -2,6 +2,7 @@
   * to share code between svelte and nodejs
 * firefox zoom bug https://bbx.watch/?tags=burg-blaustein
 * filter for hot, new
+* add "Verfügbar" ago if not last
 * fetch bug with history
 * history back not going
 * pdf download proxy
