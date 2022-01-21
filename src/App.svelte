@@ -77,9 +77,9 @@
         <br/><br/>
         <strong>Stand:</strong> {lastCursor[0] && lastCursor[0].split('|')[1]}
         {#if !!AFF_LINK}
-        <span class="small">
+        <div class="small">
             * Die ausgehenden Produktlinks sind Affiliate-Links. Wenn Ihr klickt und kauft, dann unterstütz Ihr dieses Projekt. Vielen Dank :)
-        </span>
+        </div>
         {/if}
     </div>
 </main>
