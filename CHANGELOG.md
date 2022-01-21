@@ -1,3 +1,6 @@
+* [21.01.2022]
+  * prepare partner
+  * add newest tags for newest announced products
 * [20.01.2022]
   * add affiliate notice
 * [17.01.2022]

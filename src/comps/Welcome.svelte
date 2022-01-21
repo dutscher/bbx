@@ -1,6 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import Icon from "./Icon.svelte";
+    import Partner from "./Partner.svelte";
     import Imprint from "./Imprint.svelte";
     // app
     import {
@@ -69,6 +70,9 @@
         </p>
     </div>
     <div class="welcome__other">
+        <!--<Partner>
+            <a href="//www.noppensteinnews.de/"><img src="" alt="Noppensteinnews" /></a>
+        </Partner>-->
         <Imprint/>
     </div>
 </div>
