@@ -1,3 +1,5 @@
+* [24.01.2022]
+  * extract history to single file
 * [21.01.2022]
   * prepare partner
   * add newest tags for newest announced products
