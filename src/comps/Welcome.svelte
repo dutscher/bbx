@@ -75,8 +75,10 @@
     </div>
     <div class="welcome__other">
         <Partner>
-            <a href="//www.noppensteinnews.de/" title="Noppensteinnews"><img src="/images/partner/noppensteinnews.png" alt="Noppensteinnews" width="150" /></a>
             {@html kofi}
+
+            <a href="//www.noppensteinnews.de/" title="Noppensteinnews" target="_blank"><img src="/images/partner/noppensteinnews.png" alt="Noppensteinnews" width="150" /></a>
+
             <!--
             Paypal Kaffeekasse
             <form action="https://www.paypal.com/donate" method="post" target="_top">
