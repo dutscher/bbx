@@ -7,6 +7,7 @@ export const storedActiveSelection = writable({
         changes: UNLOADED,
         inst: UNLOADED,
         movie: UNLOADED,
+        history: UNLOADED,
     },
     lastCursor: []
 });

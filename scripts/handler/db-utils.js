@@ -5,11 +5,21 @@ import imagesJSON from '../../data/api/images.json';
 import imagesExtraJSON from '../../data/api/images.extra.json';
 
 const convertProductDB = async () => {
-    const changes = [];
+    let changes = [];
     let changeName = 'compare';
     const convertedDB = [];
     const update = -1;
+
+    if (update === 10) {
+        changes = {};
+    }
+
     products.map((product) => {
+        // 10. split history into own
+        if (update === 10) {
+            changes[product.id] = product.history;
+            delete product.history;
+        }
         // 9. double history entries
         if (update === 9) {
             let lastState = -1;
@@ -74,7 +84,7 @@ const convertProductDB = async () => {
         // return product;
     })
 
-    if (changes.length > 0) {
+    if (Array.isArray(changes) && changes.length > 0 || Object.keys(changes).length > 0) {
         console.log(changes.length);
 
         await handleCache(

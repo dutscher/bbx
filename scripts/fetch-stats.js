@@ -11,7 +11,7 @@ import {
     getCats
 } from './handler/utils.js';
 import { fetchChanges, fetchProductNames, fetchHistory } from './handler/api-changes.js';
-//import { convertProductDB } from './handler/db-utils.js';
+import { convertProductDB } from './handler/db-utils.js';
 import { IDs } from './handler/interfaces.js';
 import globalData from '../data/data.json';
 import { products, convertToReduce } from '../data/all-products.reducer.js';
@@ -350,7 +350,7 @@ const mergeChangesWithDB = async () => {
     startDate = moment(new Date());
 
     // write items
-    const orderedItems = parsedDataToday.items.sort((a, b) => {
+    let orderedProducts = parsedDataToday.items.sort((a, b) => {
         if (a.id < b.id) {
             return -1;
         }
@@ -360,6 +360,14 @@ const mergeChangesWithDB = async () => {
         return 0;
     }).map((product) => {
         return convertToReduce(product);
+    });
+
+    // exclude history
+    const productHistory = {};
+    orderedProducts = orderedProducts.map((product) => {
+        productHistory[product.id] = product.hi;
+        delete product.hi;
+        return product;
     });
 
     if (params.includes('--create-compare')) {
@@ -376,13 +384,24 @@ const mergeChangesWithDB = async () => {
         await handleCache(
             './data/',
             `all-products.compare.json`,
-            () => JSON.stringify(orderedItems, null, 2),
+            () => JSON.stringify(orderedProducts, null, 2),
+            true);
+
+        await handleCache(
+            './data/',
+            `all-products.history.compare.json`,
+            () => JSON.stringify(productHistory, null, 2),
             true);
     } else {
         await handleCache(
             './data/',
             `all-products.json`,
-            () => JSON.stringify(orderedItems, null, 2),
+            () => JSON.stringify(orderedProducts, null, 2),
+            true);
+        await handleCache(
+            './data/',
+            `all-products.history.json`,
+            () => JSON.stringify(productHistory, null, 2),
             true);
     }
 

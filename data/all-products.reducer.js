@@ -4,14 +4,7 @@ import productsJSON from './all-products.json';
 const products = [];
 
 productsJSON.map((product) => {
-    let state = -1;
-    let stateDate = -1;
-    if (product.hi) {
-        // use last state out of history
-        state = product.hi[Object.keys(product.hi).pop()]
-        stateDate = getDateTime(Object.keys(product.hi).pop());
-    }
-
+    // state and stateId see in history-data.ts
     products.push({
         title: product.ti,
         id: product.id,
@@ -20,8 +13,6 @@ productsJSON.map((product) => {
         partTags: product.pt,
         parts: product.pa,
         price: product.pr,
-        state,
-        stateDate,
         history: product.hi,
         image: product.im,
         imageExt: product.ie,

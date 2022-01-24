@@ -15,6 +15,7 @@ export { localStore } from './stores/local-storage';
 export { loadChanges } from './stores/api/changes';
 export { loadMovieData } from './stores/api/movie-data';
 export { loadInstData } from './stores/api/inst-data';
+export { loadHistoryData } from './stores/api/history-data';
 
 import initServiceWorkerSync from './stores/service-worker';
 

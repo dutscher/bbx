@@ -1,9 +1,10 @@
 import fs from 'fs-extra';
 
 const copy = {
-    './src/index.html':             './public/index.html',
-    './src/pwa/service-worker.js':  './public/service-worker.js',
-    './src/pwa/loader.js':          './public/pwa/loader.js',
+    './src/index.html': './public/index.html',
+    './src/pwa/service-worker.js': './public/service-worker.js',
+    './src/pwa/loader.js': './public/pwa/loader.js',
+    './data/all-products.history.json': './public/data/all-products.history.json',
 };
 const cacheBuster = (new Date().getTime());
 const argv = process.argv;
@@ -24,6 +25,12 @@ Object.entries(copy).map(([src, dest]) => {
         fileContent = fileContent
             // activate tracking scripts
             .replace(/Xsrc/g, 'src');
+
+        // reduce json
+        if (src.includes('.json')) {
+            const json = JSON.parse(fileContent);
+            fileContent = JSON.stringify(json);
+        }
     }
     // create dest dir and remove file from path to get dir name
     fs.mkdirsSync(dest.substring(0, dest.lastIndexOf("/")));
@@ -32,4 +39,4 @@ Object.entries(copy).map(([src, dest]) => {
     copiedFiles.push(dest);
 });
 
-console.log(`updated cache bust and tracking in ${copiedFiles} isProd:${isProd}` );
+console.log(`updated cache bust and tracking in ${copiedFiles} isProd:${isProd}`);

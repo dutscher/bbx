@@ -9,8 +9,8 @@
     import Netherland from "./comps/Netherland.svelte";
     import Blaustein from "./comps/Blaustein.svelte";
     import Products from "./comps/Product/Products.svelte";
-    import { loadMovieData, storedActiveSelection } from './stores';
-    import { ID_MANHATTAN, ID_NETHERLAND, ID_MOVIE, ID_BURG_BLAUSTEIN, UNLOADED, AFF_LINK } from "./_interfaces";
+    import { loadMovieData, loadHistoryData, storedActiveSelection } from './stores';
+    import { ID_MANHATTAN, ID_NETHERLAND, ID_MOVIE, ID_BURG_BLAUSTEIN, UNLOADED, AFF_LINK, LOADED } from "./_interfaces";
     import Icon from "./comps/Icon.svelte";
     import Notifications from "./comps/Notifications.svelte";
     import Github from "./comps/Github.svelte";
@@ -25,10 +25,14 @@
 
     let activeTagIds;
     let lastCursor;
+    let loadedData;
+
+    loadHistoryData()
 
     storedActiveSelection.subscribe(store => {
         activeTagIds = store.tags || [];
         lastCursor = store.lastCursor || [];
+        loadedData = store.loadedData;
 
         // load movie data
         if (store.loadedData.movie === UNLOADED && activeTagIds.includes(ID_MOVIE)) {
@@ -44,23 +48,25 @@
             🚨 Bei uns gibts es die <a href="/?tags=burg-blaustein">Burg Blaustein Anleitungen</a> 🚨
         </div>
     -->
-
     <Darkmode/>
     <Github/>
-    <Welcome/>
-    <Hearts/>
-    <Changes/>
-    <Filter/>
-    {#if activeTagIds.includes(ID_MANHATTAN) && activeTagIds.length === 1}
-        <Manhattan/>
+    {#if loadedData.history === LOADED}
+        <Welcome/>
+        <Hearts/>
+        <Changes/>
+        <Filter/>
+        {#if activeTagIds.includes(ID_MANHATTAN) && activeTagIds.length === 1}
+            <Manhattan/>
+        {/if}
+        {#if activeTagIds.includes(ID_NETHERLAND) && activeTagIds.length === 1}
+            <Netherland/>
+        {/if}
+        {#if activeTagIds.includes(ID_BURG_BLAUSTEIN) && activeTagIds.length === 1}
+            <Blaustein/>
+        {/if}
+        <Products/>
+
     {/if}
-    {#if activeTagIds.includes(ID_NETHERLAND) && activeTagIds.length === 1}
-        <Netherland/>
-    {/if}
-    {#if activeTagIds.includes(ID_BURG_BLAUSTEIN) && activeTagIds.length === 1}
-        <Blaustein/>
-    {/if}
-    <Products/>
 
     <div class="footer">
         <strong>Legende:</strong><br/>

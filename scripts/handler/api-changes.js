@@ -1,11 +1,19 @@
 import moment from 'moment';
 import { graphql, handleCache, getTags, mergeTags, getCats } from './utils.js';
 import { getHRDate, getDateTime } from './clean-utils.js';
-import states from '../../data/states.json';
 import { products, convertToReduce } from '../../data/all-products.reducer.js';
+import history from '../../data/all-products.history.json';
+import states from '../../data/states.json';
 import { IDs }from './interfaces.js';
 import lastCursors from '../../data/api-changes.last-cursors.json';
 import bricklinkColors from '../../data/bricklink-hex.json';
+
+const productsWithHistory = products.map((product) => {
+    product.history = history[product.id];
+    return {
+        ...product
+    }
+})
 
 // https://api.bbx.watch/api/graphql?query=%7BproductCategories(first%3A6193)%7BtotalCount%2Cedges%7Bnode%20%7B_id%2Cname%7D%7D%7D%7D
 const catsToParse = [
@@ -126,7 +134,7 @@ const fetchChanges = async (writeLastCursor = true) => {
 
     const handleChanges = (product) => {
         const productId = product['_id'];
-        const existingProduct = products.find((product) => product.id === productId);
+        const existingProduct = productsWithHistory.find((product) => product.id === productId);
         const parts = product.pcs;
         const price = product.price;
         let title = product.name;
@@ -195,7 +203,7 @@ const fetchChanges = async (writeLastCursor = true) => {
     const addToHistory = (productId, dateTime, statusId) => {
         // "19.06.2021 18:03": 1
         const hrDate = getHRDate(dateTime);
-        const existingProduct = products.find((product) => product.id === productId);
+        const existingProduct = productsWithHistory.find((product) => product.id === productId);
         const newStateId = states.api.indexOf(statusId);
 
         if (false && productId === 104122) {
@@ -238,7 +246,7 @@ const fetchChanges = async (writeLastCursor = true) => {
         const change = edge.node;
         const product = change.product;
         const productId = product['_id']; // "_id": 603721,
-        const existingProduct = products.find((product) => product.id === productId);
+        const existingProduct = productsWithHistory.find((product) => product.id === productId);
         let title = product.name;
         const titleHasAmount = title.includes('Stück');
         const category = product.category.edges[0].node;
@@ -345,7 +353,7 @@ const fetchProductNames = async () => {
     Array.from(edges).map(edge => {
         const product = edge.node;
         const productId = product['_id'];
-        const existingProduct = products.find(product => product.id === productId);
+        const existingProduct = productsWithHistory.find(product => product.id === productId);
 
         let title = product.name;
         const titleHasAmount = title.includes('Stück');
@@ -434,7 +442,7 @@ const fetchHistory = async () => {
     Array.from(edges).map(edge => {
         const change = edge.node;
         const productId = change.product['_id'];
-        const existingProduct = products.find(product => product.id === productId);
+        const existingProduct = productsWithHistory.find(product => product.id === productId);
         let stateId = states.api.indexOf(change.status['_id']);
         let hrDate = getHRDate(change.datetime);
 
@@ -455,7 +463,7 @@ const fetchHistory = async () => {
     });
     const orderedProducts = [];
     // get empty history shizzle
-    products.map((product) => {
+    productsWithHistory.map((product) => {
         // 1. use history
         // if (Object.keys(product.history).length === 0 && (product.id in histories)) {
         //     product.history = histories[product.id];
