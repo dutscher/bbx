@@ -1,6 +1,9 @@
 #!/bin/bash
 # https://manual.uberspace.de/daemons-cron/
-# 37 13 * * * /home/dutscher/bbx.willy-selma.de/scripts/cronjob-changes.sh > /home/dutscher/tmp/bbx.cron.log 2>&1
+# crontab -l
+# 0 8 * * * /scripts/cronjob-changes.sh > /tmp/bbx.cron.800.log 2>&1
+# 37 13 * * * /scripts/cronjob-changes.sh > /tmp/bbx.cron.1337.log 2>&1
+# 11 22 * * * /scripts/cronjob-changes.sh > /tmp/bbx.cron.2211.log 2>&1
 echo "commit change"
 cd /home/dutscher/bbx.willy-selma.de/scripts/
 # get latest repo changes

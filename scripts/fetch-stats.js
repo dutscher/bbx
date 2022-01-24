@@ -11,7 +11,7 @@ import {
     getCats
 } from './handler/utils.js';
 import { fetchChanges, fetchProductNames, fetchHistory } from './handler/api-changes.js';
-import { convertProductDB } from './handler/db-utils.js';
+//import { convertProductDB } from './handler/db-utils.js';
 import { IDs } from './handler/interfaces.js';
 import globalData from '../data/data.json';
 import { products, convertToReduce } from '../data/all-products.reducer.js';
