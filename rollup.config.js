@@ -4,7 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
-import assetsPreprocessor from 'svelte-assets-preprocessor'
+//import assetsPreprocessor from 'svelte-assets-preprocessor'
 import typescript from '@rollup/plugin-typescript';
 import css from 'rollup-plugin-css-only';
 import json from '@rollup/plugin-json';
@@ -69,7 +69,11 @@ export default {
         svelteSVG(),
         svelte({
             preprocess: [
-                assetsPreprocessor(),
+                // https://www.npmjs.com/package/svelte-assets-preprocessor
+                // assetsPreprocessor({
+                //     // only images
+                //     exclude: [ (attr) => !/\.(png|svg|jpg|gif)$/.test(attr) ]
+                // }),
                 sveltePreprocess({ sourceMap: !production }),
             ],
             compilerOptions: {

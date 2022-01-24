@@ -16,6 +16,7 @@
     let isVisible = true;
     let isOnline = false;
     let lastCursor;
+    let kofi;
 
     internetConnection.subscribe(store => isOnline = store.isOnline);
     storedTags.subscribe(store => tags = store.length);
@@ -32,6 +33,9 @@
         if (!lsValue) {
             isVisible = lsValue;
         }
+
+        kofiwidget2.init('Kaffeekasse', '#4c75b4', 'P5P48YJNR');
+        kofi = kofiwidget2.getHTML();
     })
 </script>
 
@@ -70,9 +74,18 @@
         </p>
     </div>
     <div class="welcome__other">
-        <!--<Partner>
-            <a href="//www.noppensteinnews.de/"><img src="" alt="Noppensteinnews" /></a>
-        </Partner>-->
+        <Partner>
+            <a href="//www.noppensteinnews.de/" title="Noppensteinnews"><img src="/images/partner/noppensteinnews.png" alt="Noppensteinnews" width="150" /></a>
+            {@html kofi}
+            <!--
+            Paypal Kaffeekasse
+            <form action="https://www.paypal.com/donate" method="post" target="_top">
+                <input type="hidden" name="hosted_button_id" value="SKL792JENYRM2" />
+                <input type="image" src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Spenden mit dem PayPal-Button" />
+                <img alt="" border="0" src="https://www.paypal.com/de_DE/i/scr/pixel.gif" width="1" height="1" />
+            </form>
+            -->
+        </Partner>
         <Imprint/>
     </div>
 </div>
