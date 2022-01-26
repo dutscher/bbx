@@ -8,7 +8,7 @@
         storedActiveSelection,
         storedHearts,
         lsKeyHeart,
-        localStore,
+        localStore, storedActiveProduct,
     } from '../../stores';
     import { jsVoid, setUrlParams, handlePrice } from "../../utils";
     import Icon from '../Icon.svelte';
@@ -117,7 +117,7 @@
 
     const onClose = (event) => {
         event.stopPropagation();
-        storedActiveSelection.update(store => {
+        storedActiveProduct.update(store => {
             store.product = {
                 id: 0,
                 type: 'Tooltip',

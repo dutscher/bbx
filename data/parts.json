@@ -1,17 +1,17 @@
 [
   [
     "Bars, Ladders and Fences",
-    "Stangen, Leiter und Zäune",
+    "Stangen, Leitern und Zäune",
     "bars_ladders_and_fences"
   ],
   [
     "Brackets",
-    "Umlenker",
+    "Richtungsumkehrer",
     "brackets"
   ],
   [
     "Bricks",
-    "Stein",
+    "Steine",
     "bricks"
   ],
   [
@@ -21,7 +21,7 @@
   ],
   [
     "Bricks Modified",
-    "Stein modifiziert",
+    "Steine modifiziert",
     "bricks_modified"
   ],
   [
@@ -46,7 +46,7 @@
   ],
   [
     "Minifig Accessories",
-    "Minifiguren Accessories",
+    "Minifiguren Zubehör",
     "minifig_accessories"
   ],
   [
@@ -82,7 +82,7 @@
   ],
   [
     "Plates Round and Dishes",
-    "Platten Rund",
+    "Platten rund und Geschirr",
     "plates_round_and_dishes"
   ],
   [
@@ -102,7 +102,7 @@
   ],
   [
     "String, Bands and Reels",
-    "Strippem, Bänder und Rollen",
+    "Schnur, Bänder und Rollen",
     "string_bands_and_reels"
   ],
   [
@@ -157,17 +157,17 @@
   ],
   [
     "Technic Steering, Suspension and Engine",
-    "Technik Steuerung, Suspension und Motor",
+    "Technik Steuerung, Suspension und Motoren",
     "technic_steering_suspension_and_engine"
   ],
   [
     "Tiles",
-    "Fliese",
+    "Fliesen",
     "tiles"
   ],
   [
     "Tiles Modified",
-    "Fliese modifziert",
+    "Fliesen modifziert",
     "tiles_modified"
   ],
   [
@@ -197,7 +197,7 @@
   ],
   [
     "Wheels and Tyres",
-    "Räder und Reifem",
+    "Räder und Reifen",
     "wheels_and_tyres"
   ],
   [

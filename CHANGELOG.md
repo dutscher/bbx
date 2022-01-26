@@ -1,3 +1,6 @@
+* [26.01.2022]
+  * switch in brickbar german title to english
+  * tags are better visile in darkmode now
 * [24.01.2022]
   * extract history to single file
 * [21.01.2022]

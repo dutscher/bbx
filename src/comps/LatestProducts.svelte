@@ -142,7 +142,7 @@
                         {#if month.year !== thisYear}&nbsp;{month.year}{/if})</h3>
                     <div class="flex flex--wrap">
                         {#each month.products as product (product.id)}
-                            <Product {product} type="latestProducts"/>
+                            <Product {product} type="latestproducts"/>
                         {/each}
                     </div>
                 {/if}

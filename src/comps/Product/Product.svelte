@@ -15,6 +15,7 @@
     } from '../../_interfaces';
     import { storedGlobalData, storedActiveSelection, storedStates, storedHearts, loadInstData } from '../../stores';
     import { getLatestStateOfToday } from "../../utils";
+    import { storedActiveProduct } from "../../stores/states";
 
     export let product: any;
     export let withoutTooltip: boolean = false;
@@ -34,14 +35,15 @@
     let isActive: boolean = false;
 
     storedActiveSelection.subscribe(store => {
-        activeProduct = store.product;
         activeTagsIds = store.tags;
         dataLoaded = store.loadedData.inst;
-
+    });
+    storedActiveProduct.subscribe(store => {
+        activeProduct = store.product;
         if (activeProduct && (activeProduct.id !== product.id && activeProduct.type === type || activeProduct.id === 0)) {
             showTooltip = false;
         }
-    });
+    })
     storedGlobalData.subscribe(store => data = store);
     storedStates.subscribe(store => states = store);
     storedHearts.subscribe(store => hearts = store);
@@ -69,27 +71,27 @@
         showTooltip = !showTooltip;
 
         // update store to close other tooltips
-        storedActiveSelection.update(value => {
+        storedActiveProduct.update(value => {
             value.product = {
                 id: showTooltip ? product.id : 0,
                 type,
             };
             value.reason = 'open-tooltip';
             return value;
-        })
+        });
     }
 
     const onClickOutside = () => {
         if (isActive) {
             showTooltip = false;
-            storedActiveSelection.update(value => {
+            storedActiveProduct.update(value => {
                 value.product = {
                     id: 0,
                     type,
                 };
                 value.reason = 'click-outside';
                 return value;
-            })
+            });
         }
     }
 
@@ -147,13 +149,14 @@
     <div class="product {handleStateColor(product)}"
          data-state={handleStateName(product)}>
         <span class="product__label" on:click={onClick}>
-            {#if isHeart && type !== 'hearts'}<Icon modifier="heart" svg="true" class="active"
-                                                    title="Will ich haben"/>{/if}
+            {#if isHeart && type !== 'hearts'}
+                <Icon modifier="heart" svg="true" class="active" title="Will ich haben"/>
+            {/if}
             {#if isNew && !isHeart}<Icon modifier="new" title="Neues Produkt"/>{/if}
             {#if isHot && !isHeart}<Icon modifier="flame" title="Beliebtes Produkt"/>{/if}
             {getTitle(product)}
             {#if type === 'products' && product.movieData && activeTagsIds.includes(ID_MOVIE)}
-            <span class="product__movie">{product.movieData}</span>
+                <span class="product__movie">{product.movieData}</span>
             {/if}
         </span>
         {#if !withoutTooltip}

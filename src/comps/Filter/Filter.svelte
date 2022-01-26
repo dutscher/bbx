@@ -18,13 +18,13 @@
     let activeSearchString: string = '';
     let isVisible = true;
 
-    storedActiveSelection.subscribe(value => {
-        activeTagIds = value.tags || [];
-        activePartIds = value.parts || [];
-        activePartTypeIds = value.partTypes || [];
-        activeColorIds = value.colors || [];
-        activeStateIds = value.states || [];
-        activeSearchString = value.search || '';
+    storedActiveSelection.subscribe(store => {
+        activeTagIds = store.tags;
+        activePartIds = store.parts;
+        activePartTypeIds = store.partTypes;
+        activeColorIds = store.colors;
+        activeStateIds = store.states;
+        activeSearchString = store.search;
     });
 
     const onClick = () => {

@@ -20,7 +20,7 @@ export function getUrlParam(variable) {
 
 export function getAllUrlParams() {
     // remove ? with substring
-    const query = window.location.hash.substring(1);
+    const query = window.location.search.substring(1);
     const vars = query ? query.split('&') : [];
     const obj = {};
     for (let i = 0; i < vars.length; i++) {
@@ -35,8 +35,17 @@ export function getAllUrlParams() {
 export function setUrlParams(param, array) {
     // compare the active params to querystring
     const allSearch = getAllUrlParams();
-    if (array.length === 0) {
-        delete allSearch[param]
+    // no array
+    if (!Array.isArray(array)) {
+        if (!!array) {
+            allSearch[param] = array;
+        } else {
+            delete allSearch[param];
+        }
+        // empty array
+    } else if (array.length === 0) {
+        delete allSearch[param];
+        // full array
     } else {
         allSearch[param] = array.join(',');
     }

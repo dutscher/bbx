@@ -1,7 +1,8 @@
 <script lang="ts">
+    import { onMount } from 'svelte';
     import Product from "./Product.svelte";
     import FilterSummary from "../Filter/FilterSummary.svelte";
-    import { titleMatch, jsVoid } from "../../utils";
+    import { titleMatch, jsVoid, setUrlParams, getUrlParam, getAllUrlParams } from "../../utils";
     import {
         storedProducts,
         storedFilteredProducts,
@@ -11,7 +12,8 @@
         storedPartTypes,
         storedStates,
         storedTags,
-        storedActiveSelection
+        storedActiveSelection,
+        storedActiveProduct,
     } from '../../stores';
 
     let activeTagIds: any = [];
@@ -30,7 +32,7 @@
     let tags: any;
     let sorting: string = '';
     let sortDirection: string = 'desc';
-
+    const urlParam = 'product';
     const chunks = 500;
 
     export let bbUrl: string;
@@ -42,24 +44,48 @@
         'ABC:title',
     ];
 
-    storedStates.subscribe(value => states = value);
-    storedProducts.subscribe(value => products = value);
-    storedParts.subscribe(value => parts = value);
-    storedPartTypes.subscribe(value => partTypes = value);
-    storedColors.subscribe(value => colors = value);
-    storedTags.subscribe(value => tags = value);
-    storedGlobalData.subscribe(value => {
-        bbUrl = value.url;
+    storedStates.subscribe(store => states = store);
+    storedProducts.subscribe(store => products = store);
+    storedParts.subscribe(store => parts = store);
+    storedPartTypes.subscribe(store => partTypes = store);
+    storedColors.subscribe(store => colors = store);
+    storedTags.subscribe(store => tags = store);
+    storedGlobalData.subscribe(store => bbUrl = store.url);
+    storedFilteredProducts.subscribe(store => filteredProducts = store);
+    storedActiveSelection.subscribe(store => {
+        activeTagIds = store.tags;
+        activePartIds = store.parts;
+        activePartTypeIds = store.partTypes;
+        activeColorIds = store.colors;
+        activeStateIds = store.states;
+        activeSearchString = store.search;
     });
-    storedFilteredProducts.subscribe(value => filteredProducts = value);
-    storedActiveSelection.subscribe(value => {
-        activeTagIds = value.tags || [];
-        activePartIds = value.parts || [];
-        activePartTypeIds = value.partTypes || [];
-        activeColorIds = value.colors || [];
-        activeStateIds = value.states || [];
-        activeSearchString = value.search || '';
-    });
+    storedActiveProduct.subscribe(store => {
+        console.log(store.reason)
+        // update url
+        if ((store.reason === 'open-tooltip' || store.reason === 'click-on-zoom') && store.product.id !== 0) {
+            setUrlParams(
+                urlParam,
+                store.product.id,
+            );
+        } else if (store.reason === 'click-outside' || store.reason === 'close-tooltip') {
+            setUrlParams(
+                urlParam,
+                '',
+            );
+        }
+    })
+
+    const getUrlParams = () => {
+        const allParams = getAllUrlParams();
+        const queryProductId = getUrlParam(urlParam);
+        if (Object.keys(allParams).length === 1 && !!queryProductId) {
+            storedActiveSelection.update(store => {
+                store.search = queryProductId;
+                return store;
+            });
+        }
+    }
 
     function sortItems(activeTagIds, activeColorIds, activeStateIds, activePartId, activePartTypeIds, products, sorting, sortDirection) {
         let raw = [];
@@ -206,6 +232,10 @@
         sorting = doReset && !isDifferentSort ? '' : type;
         sortDirection = doReset || isDifferentSort ? 'desc' : 'asc';
     }
+
+    onMount(() => {
+        getUrlParams();
+    });
 </script>
 
 <h2 class="">
@@ -257,7 +287,7 @@
     }
   }
 
-  :global([data-theme='dark'] #{$selector} a:hover){
+  :global([data-theme='dark'] #{$selector} a:hover) {
     color: $color-white !important;
   }
 

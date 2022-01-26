@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { storedProducts, storedGlobalData, storedActiveSelection, loadInstData } from '../stores';
+    import { storedProducts, storedGlobalData, storedActiveProduct, } from '../stores';
     import { STR_BURG_BLAUSTEIN } from '../_interfaces';
     import { getEEProduct, getEEState, handlePrice } from '../utils';
 
@@ -13,7 +13,7 @@
 
     storedProducts.subscribe(store => products = store);
     storedGlobalData.subscribe(store => data = store);
-    storedActiveSelection.subscribe(store => {
+    storedActiveProduct.subscribe(store => {
         if (store.product && (store.product.type !== type || store.product.id === 0)) {
             activeProductID = -1;
         }
@@ -43,13 +43,13 @@
         event.stopPropagation();
         activeProductID = id;
 
-        storedActiveSelection.update(value => {
-            value.product = {
+        storedActiveProduct.update(store => {
+            store.product = {
                 id: activeProductID,
                 type: 'products',
             };
-            value.reason = 'click-on-zoom';
-            return value;
+            store.reason = 'click-on-zoom';
+            return store;
         })
     }
 </script>

@@ -136,7 +136,7 @@
     <div class="flex flex--wrap">
         {#if isVisible}
             {#each sortedProducts as product (product.id)}
-                <Product {product} type="TodayChanges" todayChangesDate={hrCompareDate}/>
+                <Product {product} type="todaychanges" todayChangesDate={hrCompareDate}/>
             {/each}
         {/if}
     </div>

@@ -9,7 +9,22 @@ export const storedActiveSelection = writable({
         movie: UNLOADED,
         history: UNLOADED,
     },
-    lastCursor: []
+    lastCursor: [],
+    tags: [],
+    parts: [],
+    partTypes: [],
+    colors: [],
+    states: [],
+    search: '',
+    reason: 'default',
+});
+
+export const storedActiveProduct = writable({
+    product: {
+        id: 0,
+        type: '', // product-type todaychanges, hearts etc.
+    },
+    reason: 'default',
 });
 
 import statesJSON from '../../data/states.json';

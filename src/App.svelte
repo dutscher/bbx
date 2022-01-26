@@ -30,8 +30,8 @@
     loadHistoryData()
 
     storedActiveSelection.subscribe(store => {
-        activeTagIds = store.tags || [];
-        lastCursor = store.lastCursor || [];
+        activeTagIds = store.tags;
+        lastCursor = store.lastCursor;
         loadedData = store.loadedData;
 
         // load movie data

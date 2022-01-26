@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { storedProducts, storedGlobalData, storedActiveSelection } from '../stores';
+    import { storedProducts, storedGlobalData, storedActiveProduct } from '../stores';
     import {
         ID_STATE_ANNOUNCEMENT,
         ID_STATE_AVAILABLE,
@@ -18,7 +18,7 @@
 
     storedProducts.subscribe(store => products = store);
     storedGlobalData.subscribe(store => data = store);
-    storedActiveSelection.subscribe(store => {
+    storedActiveProduct.subscribe(store => {
         if (store.product && (store.product.type !== type || store.product.id === 0)) {
             activeProductID = -1;
         }
@@ -45,7 +45,7 @@
     const setActive = (event, id) => {
         event.stopPropagation();
         activeProductID = id;
-        storedActiveSelection.update(value => {
+        storedActiveProduct.update(value => {
             value.product = {
                 id: activeProductID,
                 type: 'products',
