@@ -50,8 +50,8 @@
     -->
     <Darkmode/>
     <Github/>
+    <Welcome/>
     {#if loadedData.history === LOADED}
-        <Welcome/>
         <Hearts/>
         <Changes/>
         <Filter/>

@@ -132,6 +132,8 @@
     margin: $space-xs;
     border: solid 1px $color-primary-darker;
     border-radius: $border-radius-xl;
+    background: $color-white;
+    color: $color-primary-dark;
     cursor: pointer;
     user-select: none;
     position: relative;

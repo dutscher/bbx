@@ -36,10 +36,10 @@
 
             if (withUrlUpdate) {
                 setUrlParams(
-                        urlParam,
-                        partTypes
-                                .filter(part => value[urlParam].includes(part.id))
-                                .map((part) => part.seoName));
+                    urlParam,
+                    partTypes
+                        .filter(part => value[urlParam].includes(part.id))
+                        .map((part) => part.seoName));
                 value.reason = 'part-type-clicked';
             } else {
                 value.reason = 'url-parsed';
@@ -61,23 +61,23 @@
         // get count of products
         sortedData = partTypes.map(part => {
             part.count =
-                    (filteredProducts && filteredProducts.withFilter.length > 0 ? filteredProducts.withFilter : products)
-                            .filter(product => product.tags.includes(ID_PARTS))
-                            .filter(product =>
-                                    titleMatch(part, product) > 0
-                            ).length;
+                (filteredProducts && filteredProducts.withFilter.length > 0 ? filteredProducts.withFilter : products)
+                    .filter(product => product.tags.includes(ID_PARTS))
+                    .filter(product =>
+                        titleMatch(part, product) > 0
+                    ).length;
             return part;
         })
-                // sort state
-                .sort((a, b) => {
-                    if (a.label < b.label) {
-                        return -1;
-                    }
-                    if (a.label > b.label) {
-                        return 1;
-                    }
-                    return 0;
-                });
+            // sort state
+            .sort((a, b) => {
+                if (a.label < b.label) {
+                    return -1;
+                }
+                if (a.label > b.label) {
+                    return 1;
+                }
+                return 0;
+            });
         return sortedData;
     }
 
@@ -98,35 +98,37 @@
 </div>
 
 <style lang="scss">
-    @import '../../scss/variables';
+  @import '../../scss/variables';
 
-    .part {
-        padding: 0 $space-xl;
-        margin: $space-xs;
-        border: solid 1px $color-primary-darker;
-        border-radius: $border-radius-xl;
-        cursor: pointer;
-        user-select: none;
-        position: relative;
-        font-size: ms(0);
+  .part {
+    padding: 0 $space-xl;
+    margin: $space-xs;
+    border: solid 1px $color-primary-darker;
+    border-radius: $border-radius-xl;
+    background: $color-white;
+    color: $color-primary-dark;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    font-size: ms(0);
 
-        @media (min-width: 750px) {
-            font-size: ms(-2);
-        }
-
-        &:focus, &:active, &.active {
-            background: $color-primary-darker;
-            color: $color-white;
-        }
-
-        &:hover {
-            background: $color-primary-dark;
-            color: $color-white;
-        }
-
-        &.disabled {
-            opacity: 0.1;
-            cursor: default;
-        }
+    @media (min-width: 750px) {
+      font-size: ms(-2);
     }
+
+    &:focus, &:active, &.active {
+      background: $color-primary-darker;
+      color: $color-white;
+    }
+
+    &:hover {
+      background: $color-primary-dark;
+      color: $color-white;
+    }
+
+    &.disabled {
+      opacity: 0.1;
+      cursor: default;
+    }
+  }
 </style>

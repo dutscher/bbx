@@ -4,6 +4,7 @@
 * filter for hot, new
 * add "Verfügbar" ago if not last
 * fetch bug with history
+* active product/tooltip in url
 * history back not going
 * pdf download proxy
 * unit tests getTags

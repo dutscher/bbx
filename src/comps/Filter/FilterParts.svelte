@@ -87,9 +87,9 @@
             <div class="part{activePartIds.includes(part.id) ? ' active': ''}{part.count === 0 ? ' disabled': ''}"
                  data-id={part.id}
                  on:click={() => clickItem(part, true)}
-                 title="{part.name} ({part.count})">
+                 title="{part.de} ({part.count})">
                 <img src="/images/parts/25/{part.seoName}.jpg" alt={part.de} />
-                {part.de}
+                {part.name}
             </div>
         {/each}
     </div>
@@ -107,6 +107,8 @@
     margin: $space-xs;
     border: solid 1px $color-primary-darker;
     border-radius: $border-radius-xl;
+    background: $color-white;
+    color: $color-primary-dark;
     cursor: pointer;
     user-select: none;
     position: relative;
@@ -118,6 +120,7 @@
 
     img {
       vertical-align: middle;
+      border-radius: $space-lg;
     }
 
     &:focus, &:active, &.active {
