@@ -8,6 +8,8 @@
 /scripts/*.secret*
 /public/index.html
 /public/service-worker.js
+/public/data/all-products.history.json
+/public/data/movie-data.json
 /public/pwa
 .DS_Store
 .idea/

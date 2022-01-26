@@ -111,7 +111,8 @@ export const getDateTime = (hrDate) => {
     const isSummertime = isDST(new Date());
     const date = hrDate.split(' ');
     const dmy = date[0].split('.');
-    return `${dmy[2]}-${dmy[1]}-${dmy[0]}T${date[1]}:00+0${!isSummertime ? 1 : 2}:00`;
+    const time = date[1] || '00:00';
+    return `${dmy[2]}-${dmy[1]}-${dmy[0]}T${time}:00+0${!isSummertime ? 1 : 2}:00`;
 }
 
 export function getLatestStateOfToday(product, hrCompareDate) {

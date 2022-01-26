@@ -13,8 +13,9 @@
         storedStates,
         storedTags,
         storedActiveSelection,
-        storedActiveProduct,
+        storedActiveProduct, localStore,
     } from '../../stores';
+    import { lsKeyChanges, lsKeyFilter, lsKeyWelcome } from "../../_interfaces";
 
     let activeTagIds: any = [];
     let activePartIds: any = [];
@@ -61,7 +62,6 @@
         activeSearchString = store.search;
     });
     storedActiveProduct.subscribe(store => {
-        console.log(store.reason)
         // update url
         if ((store.reason === 'open-tooltip' || store.reason === 'click-on-zoom') && store.product.id !== 0) {
             setUrlParams(
@@ -80,8 +80,22 @@
         const allParams = getAllUrlParams();
         const queryProductId = getUrlParam(urlParam);
         if (Object.keys(allParams).length === 1 && !!queryProductId) {
+            // close all toggles
+            localStore.set(lsKeyWelcome, false);
+            localStore.set(lsKeyChanges, false);
+            localStore.set(lsKeyFilter, false);
+            // update search for product
             storedActiveSelection.update(store => {
                 store.search = queryProductId;
+                return store;
+            });
+            // open tooltip
+            storedActiveProduct.update(store => {
+                store.product = {
+                    id: parseInt(queryProductId),
+                    type: 'products',
+                }
+                store.reason = 'url-init'
                 return store;
             });
         }
@@ -233,9 +247,12 @@
         sortDirection = doReset || isDifferentSort ? 'desc' : 'asc';
     }
 
+    // first to remove localstorage keys before onMount
+    getUrlParams();
+    // to update stores
     onMount(() => {
         getUrlParams();
-    });
+    })
 </script>
 
 <h2 class="">

@@ -5,6 +5,7 @@ const copy = {
     './src/pwa/service-worker.js': './public/service-worker.js',
     './src/pwa/loader.js': './public/pwa/loader.js',
     './data/all-products.history.json': './public/data/all-products.history.json',
+    './data/movie-names.json': './public/data/movie-names.json',
 };
 const cacheBuster = (new Date().getTime());
 const argv = process.argv;

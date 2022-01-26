@@ -1,3 +1,6 @@
+* [27.01.2022]
+  * add time ago into product history
+  * active product in url
 * [26.01.2022]
   * switch in brickbar german title to english
   * tags are better visile in darkmode now
