@@ -2,6 +2,7 @@ import endCursorsFromParse from '../../../data/api-changes.last-cursor.json'
 import { queryChanges } from '../../queries';
 import { getHRDate, getDateTime, graphql, getProductHref } from '../../utils';
 import { ID_PARTS, LOADED, LOADING } from '../../_interfaces';
+import { isBluebrixxProduct, updateProductData } from '../../../scripts/handler/interfaces';
 import { sortedProducts, storedProducts } from '../products';
 import { sortedStates, storedActiveSelection } from '../states';
 
@@ -41,9 +42,12 @@ const evalChanges = (edges: any) => {
     const newProducts = [];
     const newProductIds = [];
 
-    Array.from(edges)
-        .map((entry: any) => {
-            const product = entry.node.product;
+    Array.from(edges).map((edge:any) => {
+        const change = edge.node;
+        const product = change.product;
+        const category = product.category.edges[0].node;
+
+        if (isBluebrixxProduct(product, category)) {
             // product.id: 123456
             const id = product['_id'];
             // status.id: UNAVAILABLE
@@ -80,54 +84,34 @@ const evalChanges = (edges: any) => {
                 }
                 latestChangesIds.push(id);
                 latestChanges.push(found);
-                // new product
+
             } else if (!found && !newProductIds.includes(id)) {
-                const category = product.category.edges[0].node;
-                // category.edges[0].node.id
-                // -> 14 -> BlueBrixx-Special -> 0
-                // -> 19 -> BlueBrixx-Pro -> 1
-                const isSpecial = category['_id'] === 14;
-                const isPro = category['_id'] === 19;
-                // category.edges[0].node.name
-                // -> Nr.: => part
-                const isPart = category.name.includes('Nr.:') || product.name.includes('Stück');
-                const cats = [], tags = [];
-                if (isSpecial || isPro || isPart) {
-                    if (isSpecial) {
-                        cats.push(0);
-                        tags.push(0);
-                    }
-
-                    if (isPro) {
-                        cats.push(1);
-                        tags.push(1);
-                    }
-
-                    if (isPart) {
-                        cats.push(0);
-                        tags.push(0);
-                        tags.push(48);
-                    }
-                    newProductIds.push(id);
-                    newProducts.push(
-                        {
+                // complete new product
+                newProductIds.push(id);
+                newProducts.push(
+                    updateProductData({
                             title: product.name,
                             id,
-                            cats,
-                            tags,
+                            parts: product.pcs,
+                            price: product.price,
+                            cats: [],
+                            tags: [],
                             state,
                             stateDate,
-                            price: 0,
                             matchTo: product.name,
                             history: {
                                 [getHRDate(date)]: state.id
                             },
                             href: getProductHref({title: product.name, id}),
                         },
-                    );
-                }
+                        {
+                            catName: category.name,
+                            catId: category['_id'],
+                        })
+                );
             }
-        });
+        }
+    });
     // changeDate: "21.06.2021 12:52"
     const findHistoryOnSameDay = (changeDate, historyEntries) => {
         return Object.keys(historyEntries).some(entryDate => entryDate.includes(changeDate.split(' ')[0]))

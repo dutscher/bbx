@@ -1,3 +1,5 @@
+import moment from 'moment';
+import chalk from 'chalk';
 import sanitizeHtml from 'sanitize-html';
 import fetch from 'node-fetch';
 import fs from 'fs-extra';
@@ -7,7 +9,7 @@ import categories from '../../data/categories.json';
 import movienamesJSON from '../../data/movie-names.json';
 import { IDs } from './interfaces.js';
 
-const graphql = async (query) => {
+export const graphql = async (query) => {
     return await fetch('https://api.bbx.watch/api/graphql', {
         method: 'POST',
         headers: {
@@ -23,7 +25,7 @@ const graphql = async (query) => {
         .then((res) => res.data)
 }
 
-const reverseObject = (object) => {
+export const reverseObject = (object) => {
     const newObject = {};
     const keys = [];
 
@@ -39,12 +41,12 @@ const reverseObject = (object) => {
     return newObject;
 }
 
-const handleCache = async (dirName, fileName, contentFnc, forceWrite) => {
+export const handleCache = async (dirName, fileName, contentFnc, forceWrite) => {
     const filePath = `${dirName}${fileName}`.replace('?', 'QUEST');
     let content = '';
     fs.ensureDirSync(dirName);
     if (!fs.pathExistsSync(filePath) || forceWrite) {
-        console.log('write into cache', filePath)
+        console.log(chalk.yellow('write into cache:', filePath))
         content = await contentFnc();
         fs.writeFileSync(filePath, content, 'utf-8');
     } else {
@@ -54,11 +56,11 @@ const handleCache = async (dirName, fileName, contentFnc, forceWrite) => {
     return content;
 }
 
-const capitalizeFirstLetter = (string) => {
+export const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-const mergeArrays = (...arrays) => {
+export const mergeArrays = (...arrays) => {
     let jointArray = []
 
     arrays.forEach(array => {
@@ -74,11 +76,11 @@ const mergeArrays = (...arrays) => {
     return uniqueArray
 }
 
-const getText = (element) => {
+export const getText = (element) => {
     return sanitizeHtml(element.textContent).replace(/[\r\n\t]+/gm, '').trim().replace('  ', ' ').replace('&amp;', '&');
 }
 // pageUrls = https://www.bluebrixx.com/de/bluebrixxspecials/military_models = [bluebrixxspecials,military_models]
-const getTags = (pageUrls, title, cat, href, productId) => {
+export const getTags = (pageUrls, title, cat, href, productId) => {
     const found = [];
 
     if (false && productId === 101867) {
@@ -208,9 +210,9 @@ const getTags = (pageUrls, title, cat, href, productId) => {
     return found.sort(sortTags);
 };
 
-const sortTags = (a, b) => a - b;
+export const sortTags = (a, b) => a - b;
 
-const mergeTags = (existingTags, newTags, additionalTags) => {
+export const mergeTags = (existingTags, newTags, additionalTags) => {
     return mergeArrays(
         existingTags,
         newTags,
@@ -221,7 +223,7 @@ const mergeTags = (existingTags, newTags, additionalTags) => {
 // pageUrls = https://www.bluebrixx.com/de/part-packs/bars_ladders_and_fences = [part-packs, bars_ladders_and_fences]
 // title = 1X2 PLATE WITH 3 TEETH X 100, Reddish Brown
 // productId = 605358
-const getPartTags = (pageUrls, title, productId) => {
+export const getPartTags = (pageUrls, title, productId) => {
     const found = [];
     const partTag = pageUrls[pageUrls.length - 1];
     const partCats = ['chrome-packs', 'assortments', 'part-packs'];
@@ -238,12 +240,12 @@ const getPartTags = (pageUrls, title, productId) => {
         });
     }
     if (false && productId === 606490) {// 606469
-        console.log('getPartTags', {productId, found, pageUrls, partTag})
+        console.log('getPartTags', { productId, found, pageUrls, partTag })
     }
     return found.sort(sortTags);
 }
 
-const getCats = (url, cat) => {
+export const getCats = (url, cat) => {
     const found = [];
 
     if (categories.indexOf(cat) !== -1) {
@@ -265,16 +267,14 @@ const getCats = (url, cat) => {
     return found;
 }
 
-export {
-    graphql,
-    reverseObject,
-    handleCache,
-    capitalizeFirstLetter,
-    mergeArrays,
-    getText,
-    getTags,
-    sortTags,
-    mergeTags,
-    getPartTags,
-    getCats,
+export const printTime = (msg, startDate) => {
+    console.log(chalk.grey(msg + ':', moment(moment(new Date())).diff(startDate, 'milliseconds') + 'ms'));
+    // reset new
+    startDate = moment(new Date());
+    return startDate;
+}
+let debugCount = 1;
+export const debug = (...args) => {
+    console.log(chalk.red(JSON.stringify(args)));
+    debugCount++;
 }
