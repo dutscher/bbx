@@ -38,7 +38,7 @@
 
     onMount(() => {
         if (isOnline && loadedChanges === UNLOADED) {
-            loadChanges();
+            //loadChanges();
         }
 
         const lsValue = localStore.get(lsKeyChanges);

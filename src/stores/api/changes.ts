@@ -1,14 +1,14 @@
 import endCursorsFromParse from '../../../data/api-changes.last-cursor.json'
 import { queryChanges } from '../../queries';
-import { getHRDate, getDateTime, graphql, getProductHref } from '../../utils';
+import { graphql, getProductHref } from '../../utils';
 import { ID_PARTS, LOADED, LOADING } from '../../_interfaces';
 import { isBluebrixxProduct, updateProductData } from '../../../scripts/handler/interfaces';
 import { sortedProducts, storedProducts } from '../products';
 import { sortedStates, storedActiveSelection } from '../states';
 
-storedActiveSelection.update(value => {
-    value.lastCursor = endCursorsFromParse;
-    return value;
+storedActiveSelection.update(store => {
+    store.lastCursor = endCursorsFromParse;
+    return store;
 });
 
 // changes
@@ -16,10 +16,10 @@ let edges = [];
 export const loadChanges = async (endCursor?: string) => {
     // first call
     if (!endCursor) {
-        storedActiveSelection.update(value => {
-            value.loadedData.changes = LOADING;
-            value.lastCursor = endCursorsFromParse;
-            return value;
+        storedActiveSelection.update(store => {
+            store.loadedData.changes = LOADING;
+            store.lastCursor = endCursorsFromParse;
+            return store;
         });
     }
     const lastCursorFromJson = endCursorsFromParse[0].split('|')[0];
@@ -57,7 +57,7 @@ const evalChanges = (edges: any) => {
             // get product
             const found = sortedProducts.find((product) => product.id === id);
             const state = sortedStates.find((state) => state.api === status);
-            const stateDate = getDateTime(getHRDate(date));
+            const stateDate = new Date(date).getTime();
             // if exists in db and has another state
             if (found) {
                 const isPart = found.tags.includes(ID_PARTS);
@@ -70,7 +70,7 @@ const evalChanges = (edges: any) => {
                 if (found.state.id !== state.id) {
                     updates[id].state = state;
                     updates[id].stateDate = stateDate;
-                    updates[id].history[getHRDate(date)] = state.id;
+                    updates[id].history[stateDate] = state.id;
                 }
                 // title, price or pieces changes
                 if (product.name !== found.title && !isPart) {
@@ -100,7 +100,7 @@ const evalChanges = (edges: any) => {
                             stateDate,
                             matchTo: product.name,
                             history: {
-                                [getHRDate(date)]: state.id
+                                [stateDate]: state.id
                             },
                             href: getProductHref({title: product.name, id}),
                         },
@@ -153,9 +153,9 @@ const evalChanges = (edges: any) => {
             updatesForProducts = [...updatesForProducts, ...newProducts];
         }
 
-        storedActiveSelection.update(value => {
-            value.loadedData.changes = LOADED;
-            return value;
+        storedActiveSelection.update(store => {
+            store.loadedData.changes = LOADED;
+            return store;
         });
 
         //console.log('after store update')

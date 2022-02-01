@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { storedProducts, storedGlobalData, storedActiveProduct, } from '../stores';
-    import { STR_BURG_BLAUSTEIN } from '../_interfaces';
-    import { getEEProduct, getEEState, handlePrice } from '../utils';
+    import { storedProducts, storedGlobalData, storedActiveProduct, } from '../../stores';
+    import { STR_BURG_BLAUSTEIN } from '../../_interfaces';
+    import { getEEProduct, getEEState, handlePrice } from '../../utils';
 
     const type = STR_BURG_BLAUSTEIN;
     let products: any;
@@ -78,7 +78,7 @@
 </div>
 
 <style lang="scss">
-  @import '../scss/variables';
+  @import '../../scss/variables';
 
   .pieces {
     overflow: hidden;

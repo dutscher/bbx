@@ -11,10 +11,10 @@ import {
     printTime,
 } from './handler/utils.js';
 import { fetchChanges } from './handler/api-changes.js';
-//import { convertProductDB } from './handler/db-utils.js';
 import { includedProducts, ignoreProductsOnUrl, updateProductData } from './handler/interfaces.js';
 import globalData from '../data/data.json';
 import { products, convertToReduce } from '../data/all-products.reducer.js';
+import allProductHistory from '../data/all-products-history.json';
 import states from '../data/states.json';
 
 const { parseCategories, parsePartPacks } = globalData;
@@ -270,8 +270,6 @@ const mergeChangesWithDB = async () => {
 }
 
 (async () => {
-    //await convertProductDB(); return;
-
     let startDate = moment(new Date());
     allTimeChanges = await fetchChanges(false);
 
@@ -279,11 +277,18 @@ const mergeChangesWithDB = async () => {
 
     // XTODO1: take all bluebrixx edges an pack into history.file
     // XTODO2: update mergeChangesWithDB
-    // TODO: update app with new history timestamps
+    // XTODO: keep old changes for products with no history
+    // XTODO: update app with new history timestamps
+    // TODO: keep old history for new fetch
+    // TODO: add old announce history? entries
     // TODO3: repair live changes.ts
     // TODO4: repair parsePage with cheerio
-    // TODO: keep old changes for products with no history
     // TODO: parse cats for existing products
+
+    // readd existing history, which was done in svelte via ajax
+    products.map(product => {
+        product.history = allProductHistory[product.id];
+    });
 
     await mergeChangesWithDB();
 
@@ -330,7 +335,6 @@ const mergeChangesWithDB = async () => {
                 () => JSON.stringify(parsedDataToday.images, null, 2),
                 true);
         }
-
         // write compare file
         await handleCache(
             './data/',
@@ -340,7 +344,7 @@ const mergeChangesWithDB = async () => {
 
         await handleCache(
             './data/',
-            `all-products.history.compare.json`,
+            `all-products-history.compare.json`,
             () => JSON.stringify(productHistory, null, 2),
             true);
     } else {
@@ -351,7 +355,7 @@ const mergeChangesWithDB = async () => {
             true);
         await handleCache(
             './data/',
-            `all-products.history.json`,
+            `all-products-history.json`,
             () => JSON.stringify(productHistory, null, 2),
             true);
     }

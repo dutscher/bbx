@@ -1,6 +1,6 @@
 <script lang="ts">
     import { storedStates } from '../../stores';
-    import { getDateTime, jsVoid } from '../../utils';
+    import { jsVoid } from '../../utils';
     import { ID_STATE_AVAILABLE } from "../../_interfaces";
 
     export let product: any;
@@ -13,6 +13,16 @@
 
     storedStates.subscribe(value => states = value);
 
+    const getFormattedDate = (timestamp) => {
+        const date = new Date(timestamp);
+        const year = date.getFullYear();
+        const month = ((date.getMonth() + 1) + '').padStart(2, '00');
+        const day = (date.getDate() + '').padStart(2, '00');
+        const hours = (date.getHours() + '').padStart(2, '00');
+        const minutes = (date.getMinutes() + '').padStart(2, '00');
+        return `${day}.${month}.${year} ${hours}:${minutes}`;
+    }
+
     const getStateLabel = (stateId) => {
         return states.filter(state => stateId === state.id)[0].de;
     }
@@ -22,7 +32,7 @@
             return calcTimeAgo(product);
         }
         if (stateId === ID_STATE_AVAILABLE && prevDate) {
-            return `für ${getTimeDiff(getDateTime(prevDate[0]), getDateTime(date))}`;
+            return `für ${getTimeDiff(prevDate, date)}`;
         }
         return '';
     }
@@ -66,7 +76,7 @@
             const weeks = Math.round(days / 7);
             strReturn = weeks + ` Woche${weeks !== 1 ? 'n' : ''}`;
         } else {
-            strReturn = `${daysStr}${hrs > 0 ? ' ' + hrs + 'h' : ''}${mins > 0 ? mins + 'm' : ''}`;
+            strReturn = `${daysStr}${hrs > 0 ? ' ' + hrs + 'h' : ''}${mins > 0 && mins < 60 ? mins + 'm' : ''}`;
         }
 
         return strReturn;
@@ -74,12 +84,14 @@
 
     fullHistory = Object.entries(product.history).reverse();
     splittedHistory = {
-        first: fullHistory.map((entry, i) => {
+        first: fullHistory.map(([timestamp, stateId], i) => {
+            timestamp = parseInt(timestamp);
+            const compareDate = fullHistory[i - 1] ? parseInt(fullHistory[i - 1][0]) : 0;
             return {
-                date: entry[0],
-                stateId: entry[1],
-                label: getStateLabel(entry[1]),
-                ago: getStateAgo(entry[1], entry[0], fullHistory[i - 1], i)
+                formattedDate: getFormattedDate(timestamp),
+                stateId,
+                label: getStateLabel(stateId),
+                ago: getStateAgo(stateId, timestamp, compareDate, i),
             }
         }),
     }
@@ -92,7 +104,7 @@
 
 <div class="history">
     {#each splittedHistory.first as entry}
-        {entry.date} - {entry.label}{#if entry.ago} - <strong>{entry.ago}</strong>{/if}<br/>
+        {entry.formattedDate} - {entry.label}{#if entry.ago}&nbsp;<strong>{entry.ago}</strong>{/if}<br/>
     {/each}
     {#if splittedHistory.last}
         {#if !fullVisible}
@@ -102,7 +114,7 @@
             }} href={jsVoid}>... Alles anzeigen</a>
         {:else}
             {#each splittedHistory.last as entry}
-                {entry.date} - {entry.label}{#if entry.ago} - <strong>{entry.ago}</strong>{/if}<br/>
+                {entry.formattedDate} - {entry.label}{#if entry.ago}&nbsp;<strong>{entry.ago}</strong>{/if}<br/>
             {/each}
         {/if}
     {/if}

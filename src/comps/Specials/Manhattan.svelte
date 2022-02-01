@@ -1,12 +1,7 @@
 <script lang="ts">
-    import { storedProducts, storedGlobalData, storedActiveProduct } from '../stores';
-    import {
-        ID_STATE_ANNOUNCEMENT,
-        ID_STATE_AVAILABLE,
-        ID_STATE_COMING_SOON,
-        ID_STATE_UNAVAILABLE, STR_MANHATTAN
-    } from "../_interfaces";
-    import { getEEProduct, getEEState } from "../utils";
+    import { storedProducts, storedGlobalData, storedActiveProduct } from '../../stores';
+    import { STR_MANHATTAN } from "../../_interfaces";
+    import { getEEProduct, getEEState } from "../../utils";
 
     const type = STR_MANHATTAN;
     let products: any;
@@ -83,7 +78,7 @@
 </div>
 
 <style lang="scss">
-  @import '../scss/variables';
+  @import '../../scss/variables';
 
   .pieces {
     overflow: hidden;

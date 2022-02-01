@@ -115,16 +115,20 @@ export const getDateTime = (hrDate) => {
     return `${dmy[2]}-${dmy[1]}-${dmy[0]}T${time}:00+0${!isSummertime ? 1 : 2}:00`;
 }
 
-export function getLatestStateOfToday(product, hrCompareDate) {
-    let stateId = product.state.id;
+export function getLatestStateOfToday(product, compareDate) {
+    let lastStateId = product.state.id;
 
-    Object.entries(product.history).map((entry) => {
-        if (entry[0].startsWith(hrCompareDate)) {
-            stateId = entry[1];
+    Object.entries(product.history).map(([strTimestamp, stateId]) => {
+        const timestamp = parseInt(strTimestamp);
+        // @ts-ignore
+        const historyDay = new Date(timestamp).setHours(0, 0, 0, 0);
+        const compareDay = new Date(compareDate).setHours(0, 0, 0, 0);
+        if (historyDay === compareDay) {
+            lastStateId = stateId;
         }
     });
 
-    return stateId;
+    return lastStateId;
 }
 
 export const graphql = async (query) => {

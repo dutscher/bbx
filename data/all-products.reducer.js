@@ -1,7 +1,6 @@
-import { getDateTime } from '../scripts/handler/clean-utils.js';
 import productsJSON from './all-products.json';
 
-const products = [];
+export const products = [];
 
 productsJSON.map((product) => {
     // state and stateId see in history-data.ts
@@ -19,7 +18,7 @@ productsJSON.map((product) => {
     });
 })
 
-const convertToReduce = (product) => {
+export const convertToReduce = (product) => {
     const image = !!product.image ?
         { im: product.image } : {};
     const imageExt = !!product.imageExt || product.imageExt === 0 ?
@@ -40,8 +39,3 @@ const convertToReduce = (product) => {
         ...imageExt,
     }
 }
-
-export {
-    products,
-    convertToReduce,
-};

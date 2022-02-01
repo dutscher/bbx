@@ -1,7 +1,9 @@
 import { graphql, handleCache, debug } from './utils.js';
-import { getHRDate, getDateTime } from './clean-utils.js';
-import { products, convertToReduce } from '../../data/all-products.reducer.js';
-import history from '../../data/all-products.history.json';
+import chalk from 'chalk';
+import glob from 'glob';
+import fs from 'fs';
+import { getHRDate } from './clean-utils.js';
+import allProductHistory from '../../data/all-products-history.json';
 import states from '../../data/states.json';
 import {
     isBluebrixxProduct,
@@ -16,65 +18,70 @@ let chunk = 1;
 let chunkEdgesSize = 15000;
 
 const loadChanges = async (endCursor) => {
-    const edges = [...JSON.parse(await handleCache(
-        './data/api/',
-        `all-edges.1.15030.json`
-    )), ...JSON.parse(await handleCache(
-        './data/api/',
-        `all-edges.2.12660.json`
-    ))];
+    // get cached edges
+    const files = glob.sync('./data/api/edges/*.json');
+    let edges = [];
+    files.map(filePath => {
+        edges = [...edges, ...JSON.parse(fs.readFileSync(filePath, 'utf-8'))]
+    });
     return edges;
 
-    // const page = await graphql(`
-    //     {productChanges(
-    //         after: "${endCursor}"
-    //     ) {
-    //       pageInfo {
-    //         endCursor
-    //         hasNextPage
-    //       }
-    //       edges {
-    //         node {
-    //           datetime
-    //           status{_id}
-    //           product {
-    //             _id
-    //             name
-    //             lastchange
-    //             price
-    //             pcs
-    //             status {
-    //               _id
-    //             }
-    //             category(last: 10) {
-    //               edges {
-    //                 node {
-    //                   _id
-    //                   name
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         }
-    //       }
-    //     }}
-    // `);
-    //
-    // // get results from reverse
-    // if (page) {
-    //     edges = [...edges, ...page.productChanges.edges];
-    //
-    //     if (page.productChanges.pageInfo.hasNextPage) {
-    //         await loadChanges(page.productChanges.pageInfo.endCursor);
-    //     } else {
-    //         const lastNewCursor = page.productChanges.pageInfo.endCursor;
-    //         if (endCursor !== lastNewCursor) {
-    //             console.log('add lastNewCursor', { endCursor, lastNewCursor });
-    //             lastCursors.push(lastNewCursor + '|' + getHRDate() + '|' + edges.length);
-    //         }
-    //     }
-    // }
-    // return edges;
+    const page = await graphql(`
+        {productChanges(
+            after: "${endCursor}"
+        ) {
+          pageInfo {
+            endCursor
+            hasNextPage
+          }
+          edges {
+            node {
+              datetime
+              status{_id}
+              product {
+                _id
+                name
+                lastchange
+                price
+                pcs
+                status {
+                  _id
+                }
+                category(last: 10) {
+                  edges {
+                    node {
+                      _id
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }}
+    `);
+
+    // get results from reverse
+    if (page) {
+        edges = [...edges, ...page.productChanges.edges];
+
+        if (page.productChanges.pageInfo.hasNextPage) {
+            await loadChanges(page.productChanges.pageInfo.endCursor);
+        } else {
+            const lastNewCursor = page.productChanges.pageInfo.endCursor;
+            if (endCursor !== lastNewCursor) {
+                debug('add lastNewCursor', { endCursor, lastNewCursor });
+                lastCursors.push(lastNewCursor + '|' + getHRDate() + '|' + edges.length);
+
+                await handleCache(
+                    './data/api/edges/',
+                    `all-edges.3.${edges.length}.json`,
+                    () => JSON.stringify(edges, null, 2),
+                    true);
+            }
+        }
+    }
+    return edges;
 };
 
 // https://www.netlify.com/blog/2020/12/21/send-graphql-queries-with-the-fetch-api-without-using-apollo-urql-or-other-graphql-clients/
@@ -82,7 +89,7 @@ const fetchChanges = async (writeLastCursor = true) => {
     const lastCursor = lastCursors[lastCursors.length - 1];
     const edges = await loadChanges(lastCursor.split('|')[0]);
 
-    console.log('fetchChanges after loadChanges', lastCursor, '=', edges.length);
+    console.log(chalk.yellow('fetchChanges after loadChanges', lastCursor, '=', edges.length));
 
     const handleChanges = (product, category) => {
         const productId = product['_id'];
@@ -108,21 +115,40 @@ const fetchChanges = async (writeLastCursor = true) => {
         });
     }
 
-    const addToHistory = (productId, dateTime, statusId) => {
-        // "19.06.2021 18:03": 1
-        const hrDate = getHRDate(dateTime);
+    const addToHistory = (productId, dateTime, statusId, where) => {
         const timestamp = new Date(dateTime).getTime() / 1000;
-        const key = timestamp //;dateTime.replace('+00:00', '');
         const newStateId = states.api.indexOf(statusId);
 
-        if (false && productId === 100271) {
-            debug({ dateTime, statusId });
+        const lastProductStateId = allProductHistory[productId] ? allProductHistory[productId][Object.keys(allProductHistory[productId]).pop()] : -1;
+        const lastStateId = allTimeChanges[productId].history[Object.keys(allTimeChanges[productId].history).pop()];
+
+        if (false && productId === 104000) {
+            debug({ dateTime, lastProductStateId, lastStateId, newStateId, where });
         }
 
-        //const lastStateId = Object.values(allTimeChanges[productId].history).pop()
-        //if (lastStateId !== newStateId) {
-            allTimeChanges[productId].history[key] = newStateId;
-        //}
+        // add every change
+        allTimeChanges[productId].history[timestamp] = newStateId;
+    }
+
+    const cleanUpChange = (productId) => {
+        // sort timestamps
+        const sortObject = o => Object.keys(o).sort().reduce((r, k) => (r[k] = o[k], r), {})
+        allTimeChanges[productId].history = sortObject(allTimeChanges[productId].history);
+
+        // clean up double states
+        let lastState = -1;
+        let newHistory = {};
+        for (const [timestamp, state] of Object.entries(allTimeChanges[productId].history)) {
+            if (lastState !== state) {
+                lastState = state
+                newHistory[timestamp] = state;
+            }
+        }
+        allTimeChanges[productId].history = newHistory;
+
+        if (true && productId === 104000) {
+            debug({ newHistory });
+        }
     }
 
     Array.from(edges).map(edge => {
@@ -144,12 +170,11 @@ const fetchChanges = async (writeLastCursor = true) => {
             }
 
             // check last change
-            addToHistory(productId, change.datetime, change.status['_id']);
+            addToHistory(productId, change.datetime, change.status['_id'], 'change.datetime');
             // and the actual change
-            addToHistory(productId, product.lastchange, product.status['_id']);
-            // sort date times
-            const sortObject = o => Object.keys(o).sort().reduce((r, k) => (r[k] = o[k], r), {})
-            allTimeChanges[productId].history = sortObject(allTimeChanges[productId].history);
+            addToHistory(productId, product.lastchange, product.status['_id'], 'product.lastchange');
+            // sort timestamps and remove double states
+            cleanUpChange(productId);
         }
     })
 
