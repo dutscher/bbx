@@ -5,9 +5,9 @@
     import Hearts from "./comps/Hearts.svelte";
     import Changes from "./comps/Changes.svelte";
     import Filter from "./comps/Filter/Filter.svelte";
-    import Manhattan from "./comps/specials/Manhattan.svelte";
-    import Netherland from "./comps/specials/Netherland.svelte";
-    import Blaustein from "./comps/specials/Blaustein.svelte";
+    import Manhattan from "./comps/Specials/Manhattan.svelte";
+    import Netherland from "./comps/Specials/Netherland.svelte";
+    import Blaustein from "./comps/Specials/Blaustein.svelte";
     import Products from "./comps/Product/Products.svelte";
     import { loadMovieData, loadHistoryData, storedActiveSelection } from './stores';
     import { ID_MANHATTAN, ID_NETHERLAND, ID_MOVIE, ID_BURG_BLAUSTEIN, UNLOADED, AFF_LINK, LOADED } from "./_interfaces";
