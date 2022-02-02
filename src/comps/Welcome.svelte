@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import Icon from "./Icon.svelte";
-    import Partner from "./Partner.svelte";
+    import Advert from "./Advert.svelte";
     import Imprint from "./Imprint.svelte";
     // app
     import {
@@ -70,14 +70,17 @@
         </p>
         <p>
             Aber Obacht: es gibt noch {IDS_SPECIAL_TAGS.length} Eastereggs, Könnt Ihr sie finden?<br/><br/>
-            Viel Spaß damit und Feedback bitte via Facebook oder E-Mail
+            Viel Spaß damit und Feedback bitte via <a href="//www.facebook.com/bbxwatcher">Facebook</a> oder <a href="mailto:kontakt@bbx.watch">E-Mail</a>
         </p>
     </div>
     <div class="welcome__other">
-        <Partner>
+        <Advert title="Support, Partner und Presse">
             {@html kofi}
 
-            <a href="//www.noppensteinnews.de/" title="Noppensteinnews" target="_blank"><img src="/images/partner/noppensteinnews.png" alt="Noppensteinnews" width="150" /></a>
+            <a href="//www.noppensteinnews.de/" title="Noppensteinnews" target="_blank"><img src="/images/partner/noppensteinnews.png" alt="Noppensteinnews" width="150" /></a><br/>
+
+            <a href="//www.youtube.com/watch?v=jgKitU73Zhk" target="_blank">Youtube: Count of Bricks - Der BlueBrixx Watcher - Eine Webseite für Verfügbarkeiten - Was kann der "Watcher"?</a><br />
+            <a href="//www.noppensteinnews.de/2022/01/30/klemmbaustein-podcast-bluebrixx-watcher/" target="_blank">Noppensteinnews: Klemmbaustein Podcast Bluebrixx Watcher</a><br />
 
             <!--
             Paypal Kaffeekasse
@@ -87,7 +90,7 @@
                 <img alt="" border="0" src="https://www.paypal.com/de_DE/i/scr/pixel.gif" width="1" height="1" />
             </form>
             -->
-        </Partner>
+        </Advert>
         <Imprint/>
     </div>
 </div>

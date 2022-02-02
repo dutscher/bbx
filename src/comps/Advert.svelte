@@ -1,6 +1,7 @@
 <script>
     import Icon from "./Icon.svelte";
 
+    export let title = '';
     let isVisible = true
 
     const onClick = () => {
@@ -10,7 +11,7 @@
 
 <h2 class="with-toggle" on:click={onClick}>
     <Icon modifier="arrow {!isVisible ? 'down' : 'up'}" svg/>
-    Partner & Spende
+    {title}
 </h2>
 <div class="block{isVisible ? ' show' : ''} flex flex--vertical-center">
     <slot />

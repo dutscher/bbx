@@ -21,7 +21,7 @@
         44044 Dortmund<br>
     </p>
     <p><strong>Kontakt:</strong> <br>
-        E-Mail: <a href="mailto:kontakt@bbx.watch"> kontakt@bbx.watch</a>
+        E-Mail: <a href="mailto:kontakt@bbx.watch">kontakt@bbx.watch</a>
     </p>
     <p><strong>Haftungsausschluss: </strong><br><br><strong>Haftung für Links</strong><br><br>
         Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb
