@@ -8,7 +8,7 @@ import {
     getPartTags,
     mergeTags,
     getCats,
-    printTime,
+    printTime, debug,
 } from './handler/utils.js';
 import { fetchChanges } from './handler/api-changes.js';
 import { includedProducts, ignoreProductsOnUrl, updateProductData } from './handler/interfaces.js';
@@ -250,6 +250,8 @@ const mergeChangesWithDB = async () => {
                 ...changes.history,
             }
 
+            cleanUpHistoryChange(product);
+
             if (false && product.id === 100090) {
                 console.log(product, changes)
             }
@@ -269,9 +271,30 @@ const mergeChangesWithDB = async () => {
     );
 }
 
+const cleanUpHistoryChange = (product) => {
+    // sort timestamps
+    const sortObject = o => Object.keys(o).sort().reduce((r, k) => (r[k] = o[k], r), {})
+    product.history = sortObject(product.history);
+
+    // clean up double states
+    let lastState = -1;
+    let newHistory = {};
+    for (const [timestamp, state] of Object.entries(product.history)) {
+        if (lastState !== state) {
+            lastState = state
+            newHistory[timestamp] = state;
+        }
+    }
+    product.history = newHistory;
+
+    if (false && productId === 104000) {
+        debug({ newHistory });
+    }
+}
+
 (async () => {
     let startDate = moment(new Date());
-    allTimeChanges = await fetchChanges(false);
+    allTimeChanges = await fetchChanges(true);
 
     startDate = printTime('fetchChanges', startDate); // 1394ms
 
@@ -279,9 +302,9 @@ const mergeChangesWithDB = async () => {
     // XTODO2: update mergeChangesWithDB
     // XTODO: keep old changes for products with no history
     // XTODO: update app with new history timestamps
-    // TODO: keep old history for new fetch
+    // XTODO: keep old history for new fetch
     // TODO: add old announce history? entries
-    // TODO3: repair live changes.ts
+    // XTODO3: repair live changes.ts
     // TODO4: repair parsePage with cheerio
     // TODO: parse cats for existing products
 

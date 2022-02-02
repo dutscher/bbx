@@ -1,3 +1,8 @@
+* [02.02.2022]
+  * add new fetchnparse code
+  * solve many history issues
+  * add new tags `Elektro Komponenten` & `Brickbuild Bäume`, change `Gleise` to `Gleise und Deko`, thx @jgrajer
+  * fix some tag issues
 * [27.01.2022]
   * add time ago into product history
   * active product in url

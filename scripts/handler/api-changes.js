@@ -19,12 +19,12 @@ let chunkEdgesSize = 15000;
 
 const loadChanges = async (endCursor) => {
     // get cached edges
-    const files = glob.sync('./data/api/edges/*.json');
-    let edges = [];
-    files.map(filePath => {
-        edges = [...edges, ...JSON.parse(fs.readFileSync(filePath, 'utf-8'))]
-    });
-    return edges;
+    // const files = glob.sync('./data/api/edges/*.json');
+    // let edges = [];
+    // files.map(filePath => {
+    //     edges = [...edges, ...JSON.parse(fs.readFileSync(filePath, 'utf-8'))]
+    // });
+    // return edges;
 
     const page = await graphql(`
         {productChanges(
@@ -85,7 +85,7 @@ const loadChanges = async (endCursor) => {
 };
 
 // https://www.netlify.com/blog/2020/12/21/send-graphql-queries-with-the-fetch-api-without-using-apollo-urql-or-other-graphql-clients/
-const fetchChanges = async (writeLastCursor = true) => {
+export const fetchChanges = async (writeLastCursor = true) => {
     const lastCursor = lastCursors[lastCursors.length - 1];
     const edges = await loadChanges(lastCursor.split('|')[0]);
 
@@ -130,27 +130,6 @@ const fetchChanges = async (writeLastCursor = true) => {
         allTimeChanges[productId].history[timestamp] = newStateId;
     }
 
-    const cleanUpChange = (productId) => {
-        // sort timestamps
-        const sortObject = o => Object.keys(o).sort().reduce((r, k) => (r[k] = o[k], r), {})
-        allTimeChanges[productId].history = sortObject(allTimeChanges[productId].history);
-
-        // clean up double states
-        let lastState = -1;
-        let newHistory = {};
-        for (const [timestamp, state] of Object.entries(allTimeChanges[productId].history)) {
-            if (lastState !== state) {
-                lastState = state
-                newHistory[timestamp] = state;
-            }
-        }
-        allTimeChanges[productId].history = newHistory;
-
-        if (true && productId === 104000) {
-            debug({ newHistory });
-        }
-    }
-
     Array.from(edges).map(edge => {
         const change = edge.node;
         const product = change.product;
@@ -173,8 +152,6 @@ const fetchChanges = async (writeLastCursor = true) => {
             addToHistory(productId, change.datetime, change.status['_id'], 'change.datetime');
             // and the actual change
             addToHistory(productId, product.lastchange, product.status['_id'], 'product.lastchange');
-            // sort timestamps and remove double states
-            cleanUpChange(productId);
         }
     })
 
@@ -199,8 +176,4 @@ const fetchChanges = async (writeLastCursor = true) => {
         true);
 
     return allTimeChanges;
-}
-
-export {
-    fetchChanges,
 }
