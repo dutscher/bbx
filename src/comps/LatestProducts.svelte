@@ -85,7 +85,8 @@
                 year: actualYear,
                 label: nextLabel,
                 products: sortedProducts.filter((product) => {
-                    return product.stateDate.includes(`${actualYear}-${nextMonth.toString().padStart(2, '00')}-`)
+                    const historyDay = new Date(product.stateDate);
+                    return (historyDay.getMonth() + 1) === nextMonth && historyDay.getFullYear() === actualYear;
                 })
             });
 

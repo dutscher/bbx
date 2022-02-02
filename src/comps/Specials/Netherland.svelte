@@ -1,9 +1,9 @@
 <script lang="ts">
-    import { storedProducts, storedGlobalData, storedActiveProduct } from '../stores';
+    import { storedProducts, storedGlobalData, storedActiveProduct } from '../../stores';
     import {
         STR_NETHERLAND,
-    } from "../_interfaces";
-    import { getEEProduct, getEEState } from "../utils";
+    } from "../../_interfaces";
+    import { getEEProduct, getEEState } from "../../utils";
 
     const type = STR_NETHERLAND;
     let products: any;
@@ -76,7 +76,7 @@
 </div>
 
 <style lang="scss">
-  @import '../scss/variables';
+  @import '../../scss/variables';
 
   .pieces {
     overflow: hidden;

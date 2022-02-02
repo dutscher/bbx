@@ -53,7 +53,10 @@
   ],
   [
     "Oberleitung",
-    "Eisenbahndisplay"
+    "Eisenbahndisplay",
+    [
+      "Oberleitungswagen BR 711"
+    ]
   ],
   [
     "Gebäude",
@@ -84,6 +87,7 @@
     ]
   ],
   [
+    "Gleise und Deko",
     "Gleise",
     "Schienen",
     "Übergang",
@@ -102,7 +106,8 @@
     [
       "Schienenbus",
       "Schienendrehkran",
-      "Stickerbogen"
+      "Stickerbogen",
+      "Oberleitungswagen BR 711"
     ]
   ],
   [
@@ -121,6 +126,7 @@
   [
     "Lok Wagon",
     "Wagon",
+    "Waggon",
     "Wagen",
     "Personenwagen",
     "Transporter",
@@ -163,8 +169,6 @@
     "Eiche",
     "Das Schwarze Auge",
     [
-      "Weichenset",
-      "Doppelweiche",
       "Weiche"
     ]
   ],
@@ -204,11 +208,11 @@
     "Leaf",
     "Bamboo",
     [
-      "Weichenset",
       "Ausstellungsstück",
       "Ausstellungsstueck",
       "Animal",
-      "Horn"
+      "Horn",
+      "Weiche"
     ]
   ],
   [
@@ -243,6 +247,7 @@
   "Jahreszeiten",
   [
     "Diorama",
+    "Display",
     "Ruine",
     "Autobahnabschnitt",
     "Geschichte des Fliegens"
@@ -316,7 +321,10 @@
     "Truck",
     "Zugmaschine",
     "Tanklaster",
-    "Abschlepper"
+    "Abschlepper",
+    [
+      "Tyre"
+    ]
   ],
   [
     "Kran",
@@ -448,5 +456,33 @@
   [
     "Bundeswehr",
     "LKW 7t gl 6x6 Autokran 4"
+  ],
+  [
+    "Elektro Komponenten",
+    "Fernbedienung Generation 2",
+    "Empfänger mit Akku-Box Generation 2",
+    "Polumschalter",
+    "Licht-Einheit",
+    "Verlängerungskabel 25cm",
+    "Motor Servo",
+    "Motor Extra Large",
+    "Motor Large",
+    "Eisenbahnmotor",
+    "RC Empfänger mit Akku-Box 2.4 GHz",
+    "RC Fernbedienung 2.4 GHz mit Fahrstufen"
+  ],
+  [
+    "Brickbuild Bäume",
+    "24 Bäume",
+    "Tannen, 3er-Set",
+    "Fichten, 3er-Set",
+    "Kiefern, 3er-Set",
+    "Birken, 3er-Set",
+    "Buchen, 3er-Set",
+    "Eiche",
+    "Herbst Eiche",
+    [
+      "Weiche"
+    ]
   ]
 ]

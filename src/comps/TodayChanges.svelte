@@ -12,8 +12,8 @@
     let countParts = 0;
 
     let dayStr = '';
-    // 02.11.2021
-    let hrCompareDate: string = '';
+    // 2017-06-01
+    let compareDate: string = '';
     // 2017-06-01
     let selectedDate: string = '';
     let selectedDateMin: string = '2021-04-30';
@@ -47,10 +47,11 @@
         let month = ((now.getMonth() + 1) + '');
         let day = ((now.getDate()) + '');
 
-        // 02.11.2021
-        hrCompareDate = `${day.padStart(2, '00')}.${month.padStart(2, '00')}.${year}`;
+        // 2017-06-01
+        compareDate = `${year}-${month.padStart(2, '00')}-${day.padStart(2, '00')}`;
         // 2017-06-01
         selectedDate = `${year}-${month.padStart(2, '00')}-${day.padStart(2, '00')}`;
+
         dayStr = days[now.getDay()];
         // set today as max value
         if (useNow) {
@@ -59,11 +60,15 @@
     }
 
     const hasTodayHistory = (product) => {
-        const hasTodayChanges = Object.keys(product.history).some(key => key.startsWith(hrCompareDate));
+        const hasTodayChanges = Object.keys(product.history).some(timestamp => {
+            const historyDay = new Date(parseInt(timestamp)).setHours(0, 0, 0, 0);
+            const compareDay = new Date(compareDate).setHours(0, 0, 0, 0);
+            return (historyDay === compareDay);
+        });
         return hasTodayChanges;
     }
 
-    function sortProducts(products, showParts, hrCompareDate) {
+    function sortProducts(products, showParts, compareDate) {
         countParts = 0;
         let sortedData = [];
         // do filtering api changes
@@ -90,10 +95,10 @@
             })
             // sort state
             .sort((a, b) => {
-                if (getLatestStateOfToday(a, hrCompareDate) < getLatestStateOfToday(b, hrCompareDate)) {
+                if (getLatestStateOfToday(a, compareDate) < getLatestStateOfToday(b, compareDate)) {
                     return -1;
                 }
-                if (getLatestStateOfToday(a, hrCompareDate) > getLatestStateOfToday(b, hrCompareDate)) {
+                if (getLatestStateOfToday(a, compareDate) > getLatestStateOfToday(b, compareDate)) {
                     return 1;
                 }
                 return 0;
@@ -102,7 +107,7 @@
         return sortedData;
     }
 
-    $: sortedProducts = sortProducts(products, showParts, hrCompareDate);
+    $: sortedProducts = sortProducts(products, showParts, compareDate);
 </script>
 
 <!--
@@ -136,7 +141,7 @@
     <div class="flex flex--wrap">
         {#if isVisible}
             {#each sortedProducts as product (product.id)}
-                <Product {product} type="todaychanges" todayChangesDate={hrCompareDate}/>
+                <Product {product} type="todaychanges" todayChangesDate={compareDate}/>
             {/each}
         {/if}
     </div>

@@ -1,13 +1,14 @@
 import endCursorsFromParse from '../../../data/api-changes.last-cursor.json'
 import { queryChanges } from '../../queries';
-import { getHRDate, getDateTime, graphql, getProductHref } from '../../utils';
+import { graphql, getProductHref } from '../../utils';
 import { ID_PARTS, LOADED, LOADING } from '../../_interfaces';
+import { isBluebrixxProduct, updateProductData } from '../../../scripts/handler/interfaces';
 import { sortedProducts, storedProducts } from '../products';
 import { sortedStates, storedActiveSelection } from '../states';
 
-storedActiveSelection.update(value => {
-    value.lastCursor = endCursorsFromParse;
-    return value;
+storedActiveSelection.update(store => {
+    store.lastCursor = endCursorsFromParse;
+    return store;
 });
 
 // changes
@@ -15,10 +16,10 @@ let edges = [];
 export const loadChanges = async (endCursor?: string) => {
     // first call
     if (!endCursor) {
-        storedActiveSelection.update(value => {
-            value.loadedData.changes = LOADING;
-            value.lastCursor = endCursorsFromParse;
-            return value;
+        storedActiveSelection.update(store => {
+            store.loadedData.changes = LOADING;
+            store.lastCursor = endCursorsFromParse;
+            return store;
         });
     }
     const lastCursorFromJson = endCursorsFromParse[0].split('|')[0];
@@ -41,9 +42,12 @@ const evalChanges = (edges: any) => {
     const newProducts = [];
     const newProductIds = [];
 
-    Array.from(edges)
-        .map((entry: any) => {
-            const product = entry.node.product;
+    Array.from(edges).map((edge:any) => {
+        const change = edge.node;
+        const product = change.product;
+        const category = product.category.edges[0].node;
+
+        if (isBluebrixxProduct(product, category)) {
             // product.id: 123456
             const id = product['_id'];
             // status.id: UNAVAILABLE
@@ -53,7 +57,7 @@ const evalChanges = (edges: any) => {
             // get product
             const found = sortedProducts.find((product) => product.id === id);
             const state = sortedStates.find((state) => state.api === status);
-            const stateDate = getDateTime(getHRDate(date));
+            const stateDate = new Date(date).getTime();
             // if exists in db and has another state
             if (found) {
                 const isPart = found.tags.includes(ID_PARTS);
@@ -66,7 +70,7 @@ const evalChanges = (edges: any) => {
                 if (found.state.id !== state.id) {
                     updates[id].state = state;
                     updates[id].stateDate = stateDate;
-                    updates[id].history[getHRDate(date)] = state.id;
+                    updates[id].history[stateDate] = state.id;
                 }
                 // title, price or pieces changes
                 if (product.name !== found.title && !isPart) {
@@ -80,54 +84,34 @@ const evalChanges = (edges: any) => {
                 }
                 latestChangesIds.push(id);
                 latestChanges.push(found);
-                // new product
+
             } else if (!found && !newProductIds.includes(id)) {
-                const category = product.category.edges[0].node;
-                // category.edges[0].node.id
-                // -> 14 -> BlueBrixx-Special -> 0
-                // -> 19 -> BlueBrixx-Pro -> 1
-                const isSpecial = category['_id'] === 14;
-                const isPro = category['_id'] === 19;
-                // category.edges[0].node.name
-                // -> Nr.: => part
-                const isPart = category.name.includes('Nr.:') || product.name.includes('Stück');
-                const cats = [], tags = [];
-                if (isSpecial || isPro || isPart) {
-                    if (isSpecial) {
-                        cats.push(0);
-                        tags.push(0);
-                    }
-
-                    if (isPro) {
-                        cats.push(1);
-                        tags.push(1);
-                    }
-
-                    if (isPart) {
-                        cats.push(0);
-                        tags.push(0);
-                        tags.push(48);
-                    }
-                    newProductIds.push(id);
-                    newProducts.push(
-                        {
+                // complete new product
+                newProductIds.push(id);
+                newProducts.push(
+                    updateProductData({
                             title: product.name,
                             id,
-                            cats,
-                            tags,
+                            parts: product.pcs,
+                            price: product.price,
+                            cats: [],
+                            tags: [],
                             state,
                             stateDate,
-                            price: 0,
                             matchTo: product.name,
                             history: {
-                                [getHRDate(date)]: state.id
+                                [stateDate]: state.id
                             },
                             href: getProductHref({title: product.name, id}),
                         },
-                    );
-                }
+                        {
+                            catName: category.name,
+                            catId: category['_id'],
+                        })
+                );
             }
-        });
+        }
+    });
     // changeDate: "21.06.2021 12:52"
     const findHistoryOnSameDay = (changeDate, historyEntries) => {
         return Object.keys(historyEntries).some(entryDate => entryDate.includes(changeDate.split(' ')[0]))
@@ -169,9 +153,9 @@ const evalChanges = (edges: any) => {
             updatesForProducts = [...updatesForProducts, ...newProducts];
         }
 
-        storedActiveSelection.update(value => {
-            value.loadedData.changes = LOADED;
-            return value;
+        storedActiveSelection.update(store => {
+            store.loadedData.changes = LOADED;
+            return store;
         });
 
         //console.log('after store update')

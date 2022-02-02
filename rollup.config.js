@@ -4,6 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
+import copy from 'rollup-plugin-copy-watch';
 //import assetsPreprocessor from 'svelte-assets-preprocessor'
 import typescript from '@rollup/plugin-typescript';
 import css from 'rollup-plugin-css-only';
@@ -90,6 +91,15 @@ export default {
         }),
         replace({
             'process.env.NODE_ENV': JSON.stringify( production ? 'production' : 'development' )
+        }),
+        copy({
+            // the watch option is passed directly to Chokidar, so it can be a file,
+            // dir, array or glob(s)
+            watch: 'static',
+
+            targets: [
+                { src: './data/all-products-history.json', dest: './public/data/' },
+            ]
         }),
         // we'll extract any component CSS out into
         // a separate file - better for performance

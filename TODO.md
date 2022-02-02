@@ -1,8 +1,10 @@
 * concat util code 'Chrome Silver' 3 times
   * to share code between svelte and nodejs
+* tags https://docs.google.com/spreadsheets/d/1F9nSmhECfMLDXZvxSATWmhENrkiVortQgi5Jszga_Y4/edit?fbclid=IwAR0CWJxBV5w0AkdE3LEbirXDLcelkuX11ZVmxkm5ijeGN-As6L9NZqaWoYA#gid=0
+* fetch interval
 * firefox zoom bug https://bbx.watch/?tags=burg-blaustein
+* tooltip left edge case, small device
 * filter for hot, new
-* fetch bug with history
 * history back not going
 * pdf download proxy
 * unit tests getTags
@@ -14,7 +16,6 @@
   * settings and store in serviceworker
 * live api changes:
   * tags use cats-n-tags script
-  * same code as nodejs
   * notifications on live
 * bbx special 613 (https://www.bluebrixx.com/de/bluebrixxspecials?limit=613) vs 1299 (https://bbx.watch/#tags=special)
 

@@ -1,10 +1,13 @@
 import { products, convertToReduce } from '../../data/all-products.reducer.js';
 import { handleCache, sortTags } from './utils.js';
 import { IDs } from './interfaces.js';
+import { getDateTime } from "./clean-utils.js";
 import imagesJSON from '../../data/api/images.json';
 import imagesExtraJSON from '../../data/api/images.extra.json';
+import allHistory from '../../data/all-products-history.json';
+import allHistoryBackup from '../../data/api/all-products-history.backup.with.lost.history.json';
 
-const convertProductDB = async () => {
+export const convertProducts = async () => {
     let changes = [];
     let changeName = 'compare';
     const convertedDB = [];
@@ -101,8 +104,41 @@ const convertProductDB = async () => {
         true);
 }
 
-export {
-    convertProductDB,
+export const convertHistory = async () => {
+    Object.keys(allHistoryBackup).map(productId => {
+        if (!(productId in allHistory)) {
+            const oldHistory = allHistoryBackup[productId];
+            let newHistory = {};
+            Object.entries(oldHistory).map(([hrDate, stateId]) => {
+                const date = new Date(getDateTime(hrDate)).getTime() / 1000;
+                newHistory[date] = stateId;
+            });
+            allHistory[productId] = newHistory;
+        }
+    });
+
+    await handleCache(
+        './data/',
+        `all-products-history.compare.json`,
+        () => JSON.stringify(allHistory, null, 2),
+        true);
+}
+
+export const convertHistoryOfProduct = async () => {
+    const productId = 103406;
+    Object.entries(allHistory[productId]).map(([hrDate, stateId]) => {
+        if (hrDate.includes('.')) {
+            const date = new Date(getDateTime(hrDate)).getTime() / 1000;
+            delete allHistory[productId][hrDate];
+            allHistory[productId][date] = stateId;
+        }
+    });
+
+    await handleCache(
+        './data/',
+        `all-products-history.compare.json`,
+        () => JSON.stringify(allHistory, null, 2),
+        true);
 }
 
 /*

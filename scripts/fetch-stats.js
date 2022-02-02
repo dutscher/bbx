@@ -1,4 +1,3 @@
-//process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
 import fetch from 'node-fetch';
 import { JSDOM } from 'jsdom';
 import moment from 'moment';
@@ -8,15 +7,15 @@ import {
     getTags,
     getPartTags,
     mergeTags,
-    getCats
+    getCats,
+    printTime, debug,
 } from './handler/utils.js';
-import { fetchChanges, fetchProductNames, fetchHistory } from './handler/api-changes.js';
-//import { convertProductDB } from './handler/db-utils.js';
-import { IDs } from './handler/interfaces.js';
+import { fetchChanges } from './handler/api-changes.js';
+import { includedProducts, ignoreProductsOnUrl, updateProductData } from './handler/interfaces.js';
 import globalData from '../data/data.json';
 import { products, convertToReduce } from '../data/all-products.reducer.js';
+import allProductHistory from '../data/all-products-history.json';
 import states from '../data/states.json';
-import bricklinkColors from '../data/bricklink-hex.json';
 
 const { parseCategories, parsePartPacks } = globalData;
 const params = process.argv;
@@ -46,24 +45,6 @@ const productTags = {
     103827: [2],
     104119: [2]
 }
-const ignoreProducts = {
-    "https://www.bluebrixx.com/de/bluebrixxspecials/scifi": [
-        100249, // Regionalexpress DB Steuerwagen
-    ],
-    "https://www.bluebrixx.com/de/bluebrixx-pro": [
-        104647, // Mittelalterliche Stadt - Wassermühle
-    ]
-}
-const includeProducts = [
-    104123, // Mars II, Bundeswehr
-    103999, // Bergepanzer Büffel, BPz3, Bundeswehr
-    104124, // SLT 50-2 Elefant, Bundeswehr
-    104125, // Biber, Bundeswehr
-    104518, // FlaRakPz-Roland-II,
-    104597, // LKW 7t gl 6x6 Autokran 4
-    104519, // Kanonenjagdpanzer 4-5 ( KanJgPZ), Bundeswehr
-    104310, // Kampfhubschrauber-Tiger-Bundeswehr-Xingbao
-];
 
 const isExistingProduct = (itemId) => parsedDataToday.items.some(obj => obj.id === itemId);
 
@@ -86,6 +67,7 @@ const parsePage = async (url) => {
         `${urlDirs.join('.')}.${hour}`,
         async () => await fetch(fetchUrl).then(res => res.text())
     );
+    // TODO: add cheerio
     const dom = new JSDOM(cache);
     // // # trefferListe
     // // 1 - 24 von 113
@@ -105,7 +87,7 @@ const parsePage = async (url) => {
     //console.log(url, urlDirs, items.length)
 
     items.map(item => {
-        const category = item.querySelector('.label_announcement,.label_comingsoon,.label_unavailable')
+        const state = item.querySelector('.label_announcement,.label_comingsoon,.label_unavailable');
         const parts = item.querySelector('.label_parts');
         const price = item.querySelector('.regPrice');
         const title = getText(item.querySelector('.searchItemTitle'));
@@ -116,10 +98,10 @@ const parsePage = async (url) => {
         id = id.startsWith('00') ? id : parseInt(id);
 
         // skip if wrong categorized
-        if (url in ignoreProducts && ignoreProducts[url].includes(id)
+        if (url in ignoreProductsOnUrl && ignoreProductsOnUrl[url].includes(id)
             || (
                 !cat.includes('BlueBrixx') && !href.includes('/BPP')
-                && !includeProducts.includes(id)
+                && !includedProducts.includes(id)
             )) {
             //console.log('wrong bb product', url, cat, id);
             return;
@@ -129,7 +111,7 @@ const parsePage = async (url) => {
             console.log('debug 1', url, urlDirs, cat, id)
         }
 
-        const data = {
+        let data = {
             title,
             id,
             cats: getCats(url, cat),
@@ -137,7 +119,7 @@ const parsePage = async (url) => {
             partTags: getPartTags(urlDirs, title, id),
             parts: parts ? parseInt(getText(parts).replace(' PCS')) : 0,
             price: price ? parseFloat(getText(price).replace('*', '').replace(',', '.')) : 0,
-            state: category ? states.de.indexOf(getText(category)) : 0,
+            state: state ? states.de.indexOf(getText(state)) : 0,
             history: {},
         };
 
@@ -145,33 +127,9 @@ const parsePage = async (url) => {
             console.log('debug 2', url, data.tags)
         }
 
-        // add chrome color
-        if (data.cats.includes(IDs.ID_CAT_CHROME_PARTS)) {
-            data.title += ', Chrome Silver';
-        }
-        const catHasColor = cat.includes('Nr.:');
-        const catNameIsBricklinkColor = cat.replace('-', ' ') in bricklinkColors;
-        if (catHasColor) {
-            data.title += cat.replace(/(.*)Nr\..*/, ', $1');
-        }
-        if (catNameIsBricklinkColor) {
-            data.title += ', ' + cat.replace('-', ' ');
-        }
-
-        // 10x 20x
-        if (data.parts === 0 && data.title.includes('10x')) {
-            data.parts = 10;
-        }
-        if (data.parts === 0 && data.title.includes('20x')) {
-            data.parts = 20;
-        }
-        if (data.parts === 0 && (
-            data.title.includes('32x32')
-            || data.title.includes('without Minifigure')
-            || data.title.includes('Gutschein')
-        )) {
-            data.parts = 1;
-        }
+        data = updateProductData(data, {
+            catName: cat,
+        });
 
         // handle image
         parsedDataToday.images[id] = item.querySelector('img').getAttribute('src').replace(bbUrl, '');
@@ -190,10 +148,6 @@ const parsePage = async (url) => {
         // add changes from api
         if ((id in allTimeChanges) && Object.keys(allTimeChanges[id].history).length > 0) {
             data.history = allTimeChanges[id].history;
-        }
-
-        if (false && data.id === 104122) {
-            console.log(url, data, image)
         }
 
         // push to all
@@ -220,11 +174,6 @@ const parsePage = async (url) => {
                     (productTags[data.id] || []),
                 );
 
-                if (false && data.id === 609849) {
-                    console.log(itemExists, data)
-                    //console.log(parsedDataToday.items[itemIndexExists].tags)
-                }
-
                 parsedDataToday.items[itemIndexExists].partTags = data.partTags;
 
                 parsedDataToday.items[itemIndexExists].history = { ...itemExists.history, ...data.history };
@@ -248,9 +197,6 @@ const parsePage = async (url) => {
                 }
                 if (data.imageExt !== undefined) {
                     parsedDataToday.items[itemIndexExists].imageExt = data.imageExt;
-                }
-                if (false && data.id === 102593) {
-                    console.log(parsedDataToday.items[itemIndexExists], data)
                 }
             }
         }
@@ -304,6 +250,8 @@ const mergeChangesWithDB = async () => {
                 ...changes.history,
             }
 
+            cleanUpHistoryChange(product);
+
             if (false && product.id === 100090) {
                 console.log(product, changes)
             }
@@ -323,18 +271,51 @@ const mergeChangesWithDB = async () => {
     );
 }
 
+const cleanUpHistoryChange = (product) => {
+    // sort timestamps
+    const sortObject = o => Object.keys(o).sort().reduce((r, k) => (r[k] = o[k], r), {})
+    product.history = sortObject(product.history);
+
+    // clean up double states
+    let lastState = -1;
+    let newHistory = {};
+    for (const [timestamp, state] of Object.entries(product.history)) {
+        if (lastState !== state) {
+            lastState = state
+            newHistory[timestamp] = state;
+        }
+    }
+    product.history = newHistory;
+
+    if (false && productId === 104000) {
+        debug({ newHistory });
+    }
+}
+
 (async () => {
-    // await fetchProductNames(); return;
-    // await fetchHistory(); return;
-    //await convertProductDB(); return;
-
     let startDate = moment(new Date());
-
     allTimeChanges = await fetchChanges(true);
+
+    startDate = printTime('fetchChanges', startDate); // 1394ms
+
+    // XTODO1: take all bluebrixx edges an pack into history.file
+    // XTODO2: update mergeChangesWithDB
+    // XTODO: keep old changes for products with no history
+    // XTODO: update app with new history timestamps
+    // XTODO: keep old history for new fetch
+    // TODO: add old announce history? entries
+    // XTODO3: repair live changes.ts
+    // TODO4: repair parsePage with cheerio
+    // TODO: parse cats for existing products
+
+    // readd existing history, which was done in svelte via ajax
+    products.map(product => {
+        product.history = allProductHistory[product.id];
+    });
+
     await mergeChangesWithDB();
 
-    console.log('fetchChanges in milliseconds: ', moment(moment(new Date())).diff(startDate, 'milliseconds')) // 289
-    startDate = moment(new Date());
+    startDate = printTime('mergeChangesWithDB', startDate); // 289ms
 
     if (params.includes('--parse-pages')) {
         await Promise.all(parseCategories.map(async page => await parsePage(page)));
@@ -345,9 +326,7 @@ const mergeChangesWithDB = async () => {
         await Promise.all([...parseCategories, ...parsePartPacks].map(async page => await parsePage(page)));
     }
 
-    console.log('parsePages in milliseconds: ', moment(moment(new Date())).diff(startDate, 'milliseconds')) // 24700
-    console.log('parsePages in seconds: ', moment(moment(new Date())).diff(startDate, 'seconds')) // 24
-    startDate = moment(new Date());
+    startDate = printTime('parsePages', startDate); // 24sec
 
     // write items
     let orderedProducts = parsedDataToday.items.sort((a, b) => {
@@ -379,7 +358,6 @@ const mergeChangesWithDB = async () => {
                 () => JSON.stringify(parsedDataToday.images, null, 2),
                 true);
         }
-
         // write compare file
         await handleCache(
             './data/',
@@ -389,7 +367,7 @@ const mergeChangesWithDB = async () => {
 
         await handleCache(
             './data/',
-            `all-products.history.compare.json`,
+            `all-products-history.compare.json`,
             () => JSON.stringify(productHistory, null, 2),
             true);
     } else {
@@ -400,11 +378,10 @@ const mergeChangesWithDB = async () => {
             true);
         await handleCache(
             './data/',
-            `all-products.history.json`,
+            `all-products-history.json`,
             () => JSON.stringify(productHistory, null, 2),
             true);
     }
-
-    console.log('all done in milliseconds: ', moment(moment(new Date())).diff(startDate, 'milliseconds')) // 50
+    printTime('all done', startDate); // 50ms
 })();
 
