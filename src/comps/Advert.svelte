@@ -13,7 +13,7 @@
     <Icon modifier="arrow {!isVisible ? 'down' : 'up'}" svg/>
     {title}
 </h2>
-<div class="block{isVisible ? ' show' : ''} flex flex--vertical-center">
+<div class="block{isVisible ? ' show' : ''} flex flex--vertical-center flex--wrap">
     <slot />
 </div>
 

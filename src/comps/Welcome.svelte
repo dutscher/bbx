@@ -62,26 +62,26 @@
         <p>
             Wähle einen der <b>{tags} Tags</b> aus, suche nach einem von
             <b>{products} Bluebrixx Produkten</b> oder
-            wähle einen Verfügbarkeit Status.
-        </p>
+            wähle einen Verfügbarkeit Status.<br/>
         <p>
             Außerdem gibt es noch einen Status-Verlauf pro Produkt in der Detailansicht.<br/>
-            Obendrauf noch die passenden Anleitungen verfügbar (Zum herunterladen müsst ihr aber bei BB eingeloggt sein)<br/>
+            Obendrauf sind noch die passenden Anleitungen verfügbar (Zum herunterladen müsst ihr aber bei Bluebrixx registriert und eingeloggt sein.)<br/>
+            Als Special gibts noch {IDS_SPECIAL_TAGS.length} Filter/Tags mit besonderen Funktionen. Tip: siehe Grüne Badge Zahl.<br/>
         </p>
         <p>
-            Aber Obacht: es gibt noch {IDS_SPECIAL_TAGS.length} Eastereggs, Könnt Ihr sie finden?<br/><br/>
             Viel Spaß damit und Feedback bitte via <a href="//www.facebook.com/bbxwatcher">Facebook</a> oder <a href="mailto:kontakt@bbx.watch">E-Mail</a>
         </p>
     </div>
     <div class="welcome__other">
-        <Advert title="Support, Partner und Presse">
+        <Advert title="Support">
             {@html kofi}
 
-            <a href="//www.noppensteinnews.de/" title="Noppensteinnews" target="_blank"><img src="/images/partner/noppensteinnews.png" alt="Noppensteinnews" width="150" /></a><br/>
+            <a href="//www.noppensteinnews.de/" target="_blank" title="Partner: Noppensteinnews"><img src="/images/partner/noppensteinnews.png" alt="Noppensteinnews" width="150" /></a>
 
-            <a href="//www.youtube.com/watch?v=jgKitU73Zhk" target="_blank">Youtube: Count of Bricks - Der BlueBrixx Watcher - Eine Webseite für Verfügbarkeiten - Was kann der "Watcher"?</a><br />
-            <a href="//www.noppensteinnews.de/2022/01/30/klemmbaustein-podcast-bluebrixx-watcher/" target="_blank">Noppensteinnews: Klemmbaustein Podcast Bluebrixx Watcher</a><br />
-
+            <p>
+                <a href="//www.youtube.com/watch?v=jgKitU73Zhk" target="_blank">Youtube: Count of Bricks - Der BlueBrixx Watcher - Eine Webseite für Verfügbarkeiten - Was kann der "Watcher"?</a><br /><br />
+                <a href="//www.noppensteinnews.de/2022/01/30/klemmbaustein-podcast-bluebrixx-watcher/" target="_blank">Noppensteinnews: Klemmbaustein Podcast Bluebrixx Watcher</a><br />
+            </p>
             <!--
             Paypal Kaffeekasse
             <form action="https://www.paypal.com/donate" method="post" target="_top">

@@ -9,7 +9,10 @@ export const storedActiveSelection = writable({
         movie: UNLOADED,
         history: UNLOADED,
     },
-    lastCursor: [],
+    lastCursor: {
+        hash: '',
+        dateStr: '',
+    },
     tags: [],
     parts: [],
     partTypes: [],

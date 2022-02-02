@@ -22,7 +22,6 @@
     });
 
     setClient(client);
-    // TODO: set interval of new fetching
 
     let activeTagIds;
     let lastCursor;
@@ -82,7 +81,7 @@
         <span class="state state--red"></span> = Zurzeit Vergriffen
         <span class="state state--orange"></span> = In Ankündigung
         <br/><br/>
-        <strong>Stand:</strong> {lastCursor[0] && lastCursor[0].split('|')[1]}
+        <strong>Stand:</strong> {lastCursor.dateStr}
         {#if !!AFF_LINK}
         <div class="small">
             * Die ausgehenden Produktlinks sind Affiliate-Links. Wenn Ihr klickt und kauft, dann unterstütz Ihr dieses Projekt. Vielen Dank :)

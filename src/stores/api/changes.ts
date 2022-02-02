@@ -1,28 +1,37 @@
 import endCursorsFromParse from '../../../data/api-changes.last-cursor.json'
 import { queryChanges } from '../../queries';
-import { graphql, getProductHref } from '../../utils';
+import { graphql, getProductHref, getHRDate, getMinInMs } from '../../utils';
 import { ID_PARTS, LOADED, LOADING } from '../../_interfaces';
 import { isBluebrixxProduct, updateProductData } from '../../../scripts/handler/interfaces';
 import { sortedProducts, storedProducts } from '../products';
 import { sortedStates, storedActiveSelection } from '../states';
 
+// ["MzIyMTA=|02.02.2022 13:37|25"]
+const [lastCursorFromJson, lastCursorDate] = endCursorsFromParse[0].split('|');
+
+let timeout;
+let lastCursor;
+let edges = [];
+
+storedActiveSelection.subscribe(store => lastCursor = store.lastCursor);
+
 storedActiveSelection.update(store => {
-    store.lastCursor = endCursorsFromParse;
+    store.lastCursor = {
+        hash: lastCursorFromJson,
+        dateStr: lastCursorDate,
+    };
     return store;
 });
 
 // changes
-let edges = [];
 export const loadChanges = async (endCursor?: string) => {
     // first call
     if (!endCursor) {
         storedActiveSelection.update(store => {
             store.loadedData.changes = LOADING;
-            store.lastCursor = endCursorsFromParse;
             return store;
         });
     }
-    const lastCursorFromJson = endCursorsFromParse[0].split('|')[0];
     const firstPageChanges = await graphql(queryChanges(endCursor || lastCursorFromJson))
     // get results from reverse
     if (firstPageChanges) {
@@ -31,6 +40,14 @@ export const loadChanges = async (endCursor?: string) => {
             await loadChanges(firstPageChanges.productChanges.pageInfo.endCursor);
         } else {
             evalChanges(edges);
+
+            storedActiveSelection.update(store => {
+                store.lastCursor = {
+                    hash: firstPageChanges.productChanges.pageInfo.endCursor,
+                    dateStr: getHRDate(),
+                };
+                return store;
+            });
         }
     }
 };
@@ -42,7 +59,7 @@ const evalChanges = (edges: any) => {
     const newProducts = [];
     const newProductIds = [];
 
-    Array.from(edges).map((edge:any) => {
+    Array.from(edges).map((edge: any) => {
         const change = edge.node;
         const product = change.product;
         const category = product.category.edges[0].node;
@@ -158,7 +175,15 @@ const evalChanges = (edges: any) => {
             return store;
         });
 
-        //console.log('after store update')
         return updatesForProducts;
     });
+
+    if (timeout) {
+        clearTimeout(timeout);
+    }
+    timeout = setTimeout(() => {
+        // reset
+        edges = [];
+        loadChanges(lastCursor.hash);
+    }, getMinInMs(5));
 }

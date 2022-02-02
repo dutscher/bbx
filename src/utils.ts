@@ -91,8 +91,8 @@ export function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-export function getHRDate(dateStr) {
-    const now = new Date(dateStr);
+export function getHRDate(dateStr?) {
+    const now = !!dateStr ? new Date(dateStr) : new Date();
     const year = now.getFullYear();
     const month = ((now.getMonth() + 1) + '').padStart(2, '00');
     const day = ((now.getDate()) + '').padStart(2, '00');
@@ -196,4 +196,8 @@ export const getEEState = (product) => {
         }
     }
     return state;
+}
+
+export const getMinInMs = (minutes: number) => {
+    return minutes * 60 * 1000;
 }
