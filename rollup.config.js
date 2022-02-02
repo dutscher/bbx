@@ -92,15 +92,6 @@ export default {
         replace({
             'process.env.NODE_ENV': JSON.stringify( production ? 'production' : 'development' )
         }),
-        copy({
-            // the watch option is passed directly to Chokidar, so it can be a file,
-            // dir, array or glob(s)
-            watch: 'static',
-
-            targets: [
-                { src: './data/all-products-history.json', dest: './public/data/' },
-            ]
-        }),
         // we'll extract any component CSS out into
         // a separate file - better for performance
         css({ output: 'bundle.css' }),
@@ -117,6 +108,16 @@ export default {
         typescript({
             sourceMap: !production,
             inlineSources: !production
+        }),
+
+        !production && copy({
+            // the watch option is passed directly to Chokidar, so it can be a file,
+            // dir, array or glob(s)
+            watch: 'static',
+
+            targets: [
+                { src: './data/all-products-history.json', dest: './public/data/' },
+            ]
         }),
 
         // In dev mode, call `npm run start` once
