@@ -73,11 +73,11 @@ const loadChanges = async (endCursor) => {
                 debug('add lastNewCursor', { endCursor, lastNewCursor });
                 lastCursors.push(lastNewCursor + '|' + getHRDate() + '|' + edges.length);
 
-                await handleCache(
-                    './data/api/edges/',
-                    `all-edges.3.${edges.length}.json`,
-                    () => JSON.stringify(edges, null, 2),
-                    true);
+                // await handleCache(
+                //     './data/api/edges/',
+                //     `all-edges.3.${edges.length}.json`,
+                //     () => JSON.stringify(edges, null, 2),
+                //     true);
             }
         }
     }
@@ -169,11 +169,11 @@ export const fetchChanges = async (writeLastCursor = true) => {
             true);
     }
 
-    await handleCache(
-        './data/api/',
-        `all-time-changes.json`,
-        () => JSON.stringify(allTimeChanges, null, 2),
-        true);
+    // await handleCache(
+    //     './data/api/',
+    //     `all-time-changes.json`,
+    //     () => JSON.stringify(allTimeChanges, null, 2),
+    //     true);
 
     return allTimeChanges;
 }

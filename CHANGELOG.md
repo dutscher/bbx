@@ -1,3 +1,5 @@
+* [03.02.2022]
+  * add cherrio to parse pages, speed up 14sek to 2sek
 * [02.02.2022]
   * add new fetchnparse code
   * solve many history issues

@@ -2,7 +2,7 @@ import endCursorsFromParse from '../../../data/api-changes.last-cursor.json'
 import { queryChanges } from '../../queries';
 import { graphql, getProductHref, getHRDate, getMinInMs } from '../../utils';
 import { ID_PARTS, LOADED, LOADING } from '../../_interfaces';
-import { isBluebrixxProduct, updateProductData } from '../../../scripts/handler/interfaces';
+import { isBluebrixxProduct, updateProductData } from '../../../scripts/src/interfaces';
 import { sortedProducts, storedProducts } from '../products';
 import { sortedStates, storedActiveSelection } from '../states';
 

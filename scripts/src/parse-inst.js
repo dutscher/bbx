@@ -4,7 +4,7 @@ import glob from 'glob';
 import { JSDOM } from 'jsdom';
 // versus
 import cheerio from 'cheerio';
-import { handleCache, getText } from './handler/utils.js';
+import { handleCache, getTextOfElement, printTime } from './utils.js';
 
 const parsedInst = {};
 // get latest file
@@ -13,7 +13,6 @@ const instPath = glob.sync('./data/inst/*.html')
     .sort((a, b) => b.ctime - a.ctime)[0].name;
 
 const parseInstJSDOM = async () => {
-    const startDate = moment(new Date());
     const bbInstPath = 'https://www.bluebrixx.com/data/files/manuals';
     let content = fs.readFileSync(instPath, 'utf-8').replace(/(<style[\w\W]+style>)/g, '');
     const dom = new JSDOM(content);
@@ -31,7 +30,7 @@ const parseInstJSDOM = async () => {
         //
         if (id) {
             const itemID = id.getAttribute('data-itemno');
-            const isBB = getText(id).includes('BLUEBRIXX');
+            const isBB = getTextOfElement(id).includes('BLUEBRIXX');
             const manualsPdfs = [];
             manualLinks.map(link => {
                 // https://www.bluebrixx.com/data/files/manuals/101/101903_Kommunikationsmodul.pdf
@@ -77,9 +76,6 @@ const parseInstJSDOM = async () => {
     });
 
     console.log('parsedInst', Object.keys(parsedInst).length)
-    const endDate = moment(new Date());
-    const performance = moment(endDate).diff(startDate, 'milliseconds');
-    console.log('parseInstJSDOM in milliseconds: ', performance) // 935
 
     // write inst files
     await handleCache(
@@ -90,7 +86,6 @@ const parseInstJSDOM = async () => {
 }
 
 const parseInstCherrio = async () => {
-    const startDate = moment(new Date());
     const bbInstPath = 'https://www.bluebrixx.com/data/files/manuals';
     let content = fs.readFileSync(instPath, 'utf-8');
     const $ = cheerio.load(content);
@@ -108,7 +103,7 @@ const parseInstCherrio = async () => {
 
         if (id.length > 0) {
             const itemID = $(id).attr('data-itemno');
-            const isBB = getText(id).includes('BLUEBRIXX');
+            const isBB = getTextOfElement(id).includes('BLUEBRIXX');
             const manualsPdfs = [];
             manualLinks.map((index, link) => {
                 // https://www.bluebrixx.com/data/files/manuals/101/101903_Kommunikationsmodul.pdf
@@ -155,10 +150,6 @@ const parseInstCherrio = async () => {
 
     console.log('parsedInst', Object.keys(parsedInst).length)
 
-    const endDate = moment(new Date());
-    const performance = moment(endDate).diff(startDate, 'milliseconds');
-    console.log('parseInstCherrio in milliseconds: ', performance) // 314
-
     // write inst files
     await handleCache(
         './public/data/',
@@ -168,5 +159,10 @@ const parseInstCherrio = async () => {
 }
 
 (async () => {
-    await parseInstCherrio();
+    const startDate = moment(new Date());
+
+    await parseInstCherrio(); // 774ms
+    //await parseInstJSDOM(); // 2196ms
+
+    printTime('parseInst', startDate);
 })()

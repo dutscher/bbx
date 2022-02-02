@@ -1,4 +1,4 @@
-import { convertProducts, convertHistory, convertHistoryOfProduct } from './handler/convert-data.js';
+import { convertProducts, convertHistory, convertHistoryOfProduct } from './src/convert-data.js';
 
 const params = process.argv;
 

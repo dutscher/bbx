@@ -1,4 +1,5 @@
-import bricklinkColors from "../../data/bricklink-hex.json";
+import bricklinkColors from '../../data/bricklink-hex.json';
+import { mergeTags } from './utils.js';
 
 export const includedProducts = [
     104123, // Mars II, Bundeswehr
@@ -104,13 +105,14 @@ export const updateProductData = (product, change) => {
     const titleAdditionChrome = ', Chrome Silver';
     if (//product.cats.includes(IDs.ID_CAT_CHROME_PARTS)
         product.title.includes('Stück')
-        && !['gemischt', 'schienen', 'felsenset', 'busch', 'finger leaf', 'bamboo', 'limb']
+        && !['gemischt', 'schienen', 'gleise', 'felsenset', 'busch', 'finger leaf', 'bamboo', 'limb']
             .some(n => product.title.toLowerCase().includes(n))
-        && change.catId === IDs.ID_CAT_BLUEBRIXX_SPECIAL[1]
+        && (change.catId === IDs.ID_CAT_BLUEBRIXX_SPECIAL[1] || change.catName === 'BlueBrixx-Special')
         && !product.title.includes(titleAdditionChrome)) {
         product.title += titleAdditionChrome;
         product.cats.push(IDs.ID_CAT_CHROME_PARTS);
     }
+
     // "catName": "BlackNr.: 3828"
     // "title": "STEERING WHEEL Ø11 X 200, Black"
     const catHasColor = change.catName.includes('Nr.:');
@@ -140,6 +142,9 @@ export const updateProductData = (product, change) => {
     }
     // TODO: tags merge in svelte is a problem due json import in nodejs
     //product.tags = mergeTags(tags, getTags([], title, '', '', productId));
+    // remove doubles
+    product.cats = mergeTags(product.cats);
+    product.tags = mergeTags(product.tags);
 
     // 10x 20x
     if (product.parts === 0 && product.title.includes('10x')) {

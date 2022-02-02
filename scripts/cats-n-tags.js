@@ -1,8 +1,8 @@
 import { products, convertToReduce } from '../data/all-products.reducer.js';
 import tagsJSON from '../data/tags.json';
 import partsJSON from '../data/parts.json';
-import { handleCache, getTags, sortTags, getCats } from './handler/utils.js';
-import { IDs, specialsIDs } from './handler/interfaces.js';
+import { handleCache, getTags, sortTags, getCats } from './src/utils.js';
+import { IDs, specialsIDs } from './src/interfaces.js';
 
 // tagsJSON
 (async () => {

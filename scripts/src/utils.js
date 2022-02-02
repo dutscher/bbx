@@ -50,7 +50,7 @@ export const handleCache = async (dirName, fileName, contentFnc, forceWrite) => 
         content = await contentFnc();
         fs.writeFileSync(filePath, content, 'utf-8');
     } else {
-        //console.log('get out of cache', filePath)
+        //console.log(chalk.yellow('read cache:', filePath))
         content = fs.readFileSync(filePath, 'utf-8');
     }
     return content;
@@ -64,7 +64,7 @@ export const mergeArrays = (...arrays) => {
     let jointArray = []
 
     arrays.forEach(array => {
-        jointArray = [...jointArray, ...array]
+        jointArray = [...jointArray, ...array || []]
     })
     const uniqueArray = jointArray.reduce((newArray, item) => {
         if (newArray.includes(item)) {
@@ -76,9 +76,15 @@ export const mergeArrays = (...arrays) => {
     return uniqueArray
 }
 
-export const getText = (element) => {
-    return sanitizeHtml(element.textContent).replace(/[\r\n\t]+/gm, '').trim().replace('  ', ' ').replace('&amp;', '&');
+export const getTextOfElement = (element) => {
+    return getCleanText(sanitizeHtml(element.textContent));
 }
+
+export const getCleanText = (text) => {
+    return text.replace(/[\r\n\t]+/gm, '').trim().replace('  ', ' ').replace('&amp;', '&');
+}
+
+
 // pageUrls = https://www.bluebrixx.com/de/bluebrixxspecials/military_models = [bluebrixxspecials,military_models]
 export const getTags = (pageUrls, title, cat, href, productId) => {
     const found = [];
