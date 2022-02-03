@@ -1,7 +1,5 @@
 import { graphql, handleCache, debug } from './utils.js';
 import chalk from 'chalk';
-import glob from 'glob';
-import fs from 'fs';
 import { getHRDate } from './clean-utils.js';
 import allProductHistory from '../../data/all-products-history.json';
 import states from '../../data/states.json';

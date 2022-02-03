@@ -1,5 +1,5 @@
 import bricklinkColors from '../../data/bricklink-hex.json';
-import { mergeTags } from './utils.js';
+import { mergeTags } from './clean-utils.js';
 
 export const includedProducts = [
     104123, // Mars II, Bundeswehr

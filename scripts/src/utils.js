@@ -218,14 +218,6 @@ export const getTags = (pageUrls, title, cat, href, productId) => {
 
 export const sortTags = (a, b) => a - b;
 
-export const mergeTags = (existingTags, newTags, additionalTags) => {
-    return mergeArrays(
-        existingTags,
-        newTags,
-        (additionalTags || []),
-    ).sort(sortTags);
-}
-
 // pageUrls = https://www.bluebrixx.com/de/part-packs/bars_ladders_and_fences = [part-packs, bars_ladders_and_fences]
 // title = 1X2 PLATE WITH 3 TEETH X 100, Reddish Brown
 // productId = 605358
