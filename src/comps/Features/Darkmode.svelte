@@ -2,10 +2,9 @@
     // https://jfelix.info/blog/using-react-spring-to-animate-svg-icons-dark-mode-toggle
     // https://stackoverflow.com/questions/56300132/how-to-override-css-prefers-color-scheme-setting
     // https://svelte.dev/tutorial/spring
-
     import { onMount } from 'svelte';
     import { spring } from 'svelte/motion';
-    import { localStore } from '../stores';
+    import { localStore } from '../../stores';
 
     const properties = {
         dark: {
@@ -115,7 +114,7 @@
 </svg>
 
 <style lang="scss">
-  @import '../scss/variables';
+  @import '../../scss/variables';
 
   .darkmode {
     transition: opacity 1000ms ease-in-out;

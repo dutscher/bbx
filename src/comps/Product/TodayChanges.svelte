@@ -1,9 +1,9 @@
 <script lang="ts">
-    import Product from './Product/Product.svelte';
-    import Icon from './Icon.svelte';
-    import { storedProducts, storedStates } from '../stores';
-    import { getLatestStateOfToday } from "../utils";
-    import { ID_PARTS } from "../_interfaces";
+    import Product from './Product.svelte';
+    import Icon from '../Icon.svelte';
+    import { storedProducts, storedStates } from '../../stores';
+    import { getLatestStateOfToday } from "../../utils";
+    import { ID_PARTS } from "../../_interfaces";
 
     let products: any;
     let states: any;
@@ -148,7 +148,7 @@
 </div>
 
 <style lang="scss">
-  @import '../scss/variables';
+  @import '../../scss/variables';
 
   .with-toggle {
     span {

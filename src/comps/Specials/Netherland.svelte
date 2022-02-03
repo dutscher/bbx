@@ -8,7 +8,7 @@
     const type = STR_NETHERLAND;
     let products: any;
     let data: any;
-    let innerWidth;
+    let innerWidth = 0;
     let zoom;
     let pieces;
     let activeProductID = -1;
@@ -24,7 +24,7 @@
     $:{
         const maxWidth = innerWidth < 1050 ? innerWidth : innerWidth / 1.5;
         const imgWidth = 201 + 153 + 184 + 179 + 229 + 249 + 184 + 294 + 100; // 100 extra pixel
-        zoom = `${(100 * (maxWidth / imgWidth))}%`;
+        zoom = maxWidth / imgWidth;
 
         pieces = data.netherland.pieces.map((piece, i) => {
             const product = getEEProduct(products, piece);
@@ -58,7 +58,7 @@
 <div>
     <h2>{STR_NETHERLAND}</h2>
     {#if innerWidth}
-        <div class="pieces" style="zoom:{zoom}">
+        <div class="pieces" style="zoom:{zoom};-moz-transform:scale({zoom});">
             <div class="pieces__wrap flex">
                 {#each pieces as piece}
                     <div class="{`piece piece--${piece.nr} ${piece.state}`}"
@@ -79,8 +79,8 @@
   @import '../../scss/variables';
 
   .pieces {
-    overflow: hidden;
     position: relative;
+    -moz-transform-origin: left;
 
     &__wrap {
       width: 1673px;

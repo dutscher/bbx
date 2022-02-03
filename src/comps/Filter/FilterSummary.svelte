@@ -35,19 +35,28 @@
         // dont close .with-toggle
         event.preventDefault();
         event.stopPropagation();
-        storedActiveSelection.update(value => {
+
+        storedActiveSelection.update(store => {
             if (type === 'search' && type === 'search') {
-                value[type] = '';
+                store[type] = '';
             } else {
-                value[type] = value[type].filter(itemId => itemId !== id);
+                store[type] = store[type].filter(itemId => itemId !== id);
+            }
+
+            const restTags = tags
+                .filter(tag => store[type].includes(tag.id))
+
+            if (restTags.length === 0) {
+                store.reason = 'remove-all-filters';
             }
 
             setUrlParams(
                 type,
-                value[type],
-            )
+                restTags
+                    .map((tag) => tag.seoName),
+            );
 
-            return value;
+            return store;
         });
     };
 </script>

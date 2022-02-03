@@ -6,7 +6,7 @@
     const type = STR_BURG_BLAUSTEIN;
     let products: any;
     let data: any;
-    let innerWidth;
+    let innerWidth = 0;
     let zoom;
     let pieces;
     let activeProductID = -1;
@@ -22,8 +22,9 @@
     $:{
         const imgWidth = 750;
         const maxWidth = innerWidth < imgWidth ? innerWidth : 750;
-        zoom = `${(100 * (maxWidth / imgWidth))}%`;
+        zoom = maxWidth / (imgWidth + 64);
 
+        console.log({innerWidth, zoom})
         pieces = data.blaustein.pieces.map((piece, i) => {
             const product = getEEProduct(products, piece);
 
@@ -59,7 +60,7 @@
 <div>
     <h2>{STR_BURG_BLAUSTEIN}</h2>
     {#if innerWidth}
-        <div class="pieces" style="zoom:{zoom}">
+        <div class="pieces" style="zoom:{zoom};-moz-transform:scale({zoom});">
             <div class="pieces__wrap flex">
                 <img class="piece__img"
                      alt={STR_BURG_BLAUSTEIN}
@@ -81,8 +82,8 @@
   @import '../../scss/variables';
 
   .pieces {
-    overflow: hidden;
     position: relative;
+    -moz-transform-origin: left;
 
     &__wrap {
       width: 750px;

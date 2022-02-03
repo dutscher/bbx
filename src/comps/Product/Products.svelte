@@ -60,6 +60,13 @@
         activeColorIds = store.colors;
         activeStateIds = store.states;
         activeSearchString = store.search;
+
+        if (store.reason === 'remove-all-filters') {
+            setUrlParams(
+                urlParam,
+                '',
+            );
+        }
     });
     storedActiveProduct.subscribe(store => {
         // update url
@@ -242,9 +249,9 @@
 
     const sort = (type) => {
         const isDifferentSort = type !== sorting;
-        const doReset = sortDirection === 'asc';
+        const doReset = sortDirection === 'desc';
         sorting = doReset && !isDifferentSort ? '' : type;
-        sortDirection = doReset || isDifferentSort ? 'desc' : 'asc';
+        sortDirection = doReset || isDifferentSort ? 'asc' : 'desc';
     }
 
     // first to remove localstorage keys before onMount
@@ -261,7 +268,7 @@
     <FilterSummary {activeSearchString} {activeTagIds} {activeStateIds} {activeColorIds} {activePartIds}
                    {activePartTypeIds}/>
 
-    <div class="flex flex--inline flex--vertical-center filter with-text-shadow">
+    <div class="flex flex--inline flex--vertical-center flex--wrap filter with-text-shadow">
         <strong class="filter-headline">| Sortieren:</strong>
         {#each sorter as item}
             <a href={jsVoid} on:click={() => sort(item.split(':')[1])}>
@@ -306,6 +313,10 @@
 
   :global([data-theme='dark'] #{$selector} a:hover) {
     color: $color-white !important;
+  }
+
+  :global(.filter-headline) {
+    font-size: ms(1);
   }
 
   .warning {

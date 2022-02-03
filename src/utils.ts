@@ -157,7 +157,8 @@ export const getProductHref = (product) => {
 
 export const handlePrice = (product) => {
     if (product.price > 0) {
-        return `${('' + product.price.toFixed(2)).replace('.', ',')}EUR (${product.pricePerPart.toFixed(2).replace('.', ',')} ct/Stein)`;
+        const pricePerPart = product.price > 1 ? ` (${product.pricePerPart.toFixed(2).replace('.', ',')} ct/Stein)` : '';
+        return `${('' + product.price.toFixed(2)).replace('.', ',')}EUR${pricePerPart}`;
     }
     return '';
 }

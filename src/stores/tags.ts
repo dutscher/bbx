@@ -6,7 +6,12 @@ import tagsJSON from '../../data/tags.json';
 const sortedTags = tagsJSON.map((tag, i) => ({
     name: Array.isArray(tag) ? tag[0] : tag,
     // @ts-ignore TS2339
-    seoName: (Array.isArray(tag) ? tag[0] : tag).toLowerCase().replace('ä', 'ae').replace(' ', '-'),
+    seoName: (Array.isArray(tag) ? tag[0] : tag).toLowerCase()
+        .replace('ä', 'ae')
+        .replace('ö', 'oe')
+        .replace('ü', 'ue')
+        .replace('ß', 'ss')
+        .replace(/ /g, '-'),
     de: Array.isArray(tag) ? tag[0] : tag,
     id: i,
     count: rawProducts.filter(product => {

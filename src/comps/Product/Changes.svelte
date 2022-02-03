@@ -2,9 +2,9 @@
     import { onMount } from 'svelte';
     import TodayChanges from "./TodayChanges.svelte";
     import LatestProducts from "./LatestProducts.svelte";
-    import Icon from "./Icon.svelte";
+    import Icon from "../Icon.svelte";
     // app
-    import { LOADED, UNLOADED, lsKeyChanges } from '../_interfaces';
+    import { LOADED, UNLOADED, lsKeyChanges } from '../../_interfaces';
     import {
         storedActiveSelection,
         storedTags,
@@ -12,7 +12,7 @@
         loadChanges,
         localStore,
         internetConnection,
-    } from '../stores';
+    } from '../../stores';
 
     let loadedChanges;
     let tags: number = 0;
@@ -64,7 +64,7 @@
 </div>
 
 <style lang="scss">
-  @import '../scss/variables';
+  @import '../../scss/variables';
 
   .changes {
     display: none;

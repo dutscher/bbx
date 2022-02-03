@@ -1,3 +1,8 @@
+* [04.02.2022]
+  * fix firefox zoom bug for specials burgblaustein
+  * fix tooltip width on minimobile + other mobile fixxes
+  * extract footer
+  * fix some url bugs 
 * [03.02.2022]
   * add cherrio to parse pages, speed up 14sek to 2sek
 * [02.02.2022]

@@ -104,7 +104,9 @@
 
 <div class="history">
     {#each splittedHistory.first as entry}
-        {entry.formattedDate} - {entry.label}{#if entry.ago}&nbsp;<strong>{entry.ago}</strong>{/if}<br/>
+        <div>
+            <span class="date">{entry.formattedDate}</span> - {entry.label}{#if entry.ago}&nbsp;<strong>{entry.ago}</strong>{/if}
+        </div>
     {/each}
     {#if splittedHistory.last}
         {#if !fullVisible}
@@ -128,6 +130,14 @@
 
     :global(strong) {
       color: $color-white;
+    }
+
+    .date {
+      display: block;
+
+      @media (min-width: 400px) {
+        display: inline-block;
+      }
     }
 
     a {

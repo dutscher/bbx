@@ -25,7 +25,7 @@
     let tags: any;
     let hearts: any;
     const spaceing: number = 16;
-    let innerWidth: number;
+    let innerWidth = 0;
     let wrapElement: any;
     let wrapWidth: number;
     let isMobile: boolean = true;
@@ -68,8 +68,8 @@
         return data.instUrl + pdfLink;
     }
 
-    const handleLeftAdjust = (node, showTooltip) => {
-        const bounds = node.getBoundingClientRect();
+    const handleLeftAdjust = (wrapElement, showTooltip) => {
+        const bounds = wrapElement.getBoundingClientRect();
         const mobileWidth = 320;
         const rightEdge = Math.round(bounds.left + bounds.width);
         const rightEdgeWithSpace = rightEdge + (spaceing * 2);
@@ -78,11 +78,11 @@
         if (mobileWidth >= innerWidth) {
             isMobile = true;
             wrapWidth = innerWidth - spaceing;
-            maxLeft = bounds.left - (spaceing / 2);
+            maxLeft = Math.round(bounds.left - (spaceing / 2));
         } else {
             isMobile = false;
             wrapWidth = 0;
-            maxLeft = bounds.left + bounds.width - innerWidth + spaceing;
+            maxLeft = Math.round(bounds.left + bounds.width - innerWidth + spaceing);
         }
 
         if (rightEdgeWithSpace > innerWidth) {
@@ -197,22 +197,22 @@
                 {#if product.cats && product.cats.length > 0}
                     <strong>Kategorien:</strong>
                     <span class="tooltip__content">
-                {#each product.cats as categoryId,i}
-                    <span data-divider="{(i + 1) < product.cats.length && '/'}">
-                        {categories[categoryId]}
+                    {#each product.cats as categoryId,i}
+                        <span data-divider="{(i + 1) < product.cats.length && '/'}">
+                            {categories[categoryId]}
+                        </span>
+                    {/each}
+                    <br/>
                     </span>
-                {/each}
-                        <br/>
-                </span>
                 {/if}
                 {#if product.tags && product.tags.length > 0}
                     <strong>Tags:</strong>
                     <span class="tooltip__content tooltip__content--no-select tooltip__content--tags">
-                {#each product.tags as tagID,i}
-                    <a href={jsVoid} on:click={() => setActiveTag(tagID)}
-                       data-divider="{(i + 1) < product.tags.length && '/'}">{getTagName(tagID)}</a>
-                {/each}
-            </span>
+                        {#each product.tags as tagID,i}
+                            <a href={jsVoid} on:click={() => setActiveTag(tagID)}
+                               data-divider="{(i + 1) < product.tags.length && '/'}">{getTagName(tagID)}</a>
+                        {/each}
+                    </span>
                     <br/>
                 {/if}
                 {#if product.inst}
@@ -269,6 +269,7 @@
       left: 0;
       color: $color-white;
       font-size: ms(0);
+      overflow: hidden;
 
       @media (min-width: 750px) {
         font-size: ms(-2);
@@ -329,10 +330,6 @@
 
     [data-divider] {
       margin-right: $space-sm;
-
-      &::after {
-
-      }
     }
 
     a {

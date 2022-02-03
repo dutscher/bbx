@@ -82,7 +82,7 @@
 </script>
 
 <div class="flex">
-    <h4>Tags</h4>
+    <h4 class="tag-name">Tags</h4>
     <div class="flex flex--wrap bl">
         {#each sortedAbcTags as abc}
             {#each abc.sortedTags as tag, index}
@@ -104,6 +104,7 @@
 
 <style lang="scss">
   @import '../../scss/variables';
+
   $selector: '.tag';
   #{$selector} {
     padding: 0 0 0 $space-xl;

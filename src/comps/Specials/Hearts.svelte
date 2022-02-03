@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { storedProducts, storedHearts } from '../stores';
-    import Product from "./Product/Product.svelte";
-    import Icon from "./Icon.svelte";
+    import { storedProducts, storedHearts } from '../../stores';
+    import Product from "../Product/Product.svelte";
+    import Icon from "../Icon.svelte";
 
     let hearts: any;
     let products: any;
@@ -33,7 +33,7 @@
     let heartSummary = {price: 0, pricePerPart: 0, parts: 0};
 
     $: {
-        heartSummary = {price: 0, pricePerPart: 0, parts: 0};
+        heartSummary = {price: 0, parts: 0};
 
         heartItems.map(product => {
             if (!!product.price && !!product.parts) {
@@ -41,8 +41,6 @@
                 heartSummary.parts += product.parts;
             }
         });
-
-        heartSummary.pricePerPart = heartSummary.price && heartSummary.parts ? (heartSummary.price / heartSummary.parts) * 100 : 0;
     }
 </script>
 
@@ -59,15 +57,14 @@
         {#if heartItems.length > 1}
         <span class="summary"> =
             <strong>Listenpreis:</strong> {heartSummary.price.toFixed(2).replace('.', ',')} EUR /
-            <strong>Steine:</strong> {heartSummary.parts} /
-            <strong>Preis pro Stein:</strong> {heartSummary.pricePerPart.toFixed(2).replace('.', ',')} ct
+            <strong>Steine:</strong> {heartSummary.parts}
         </span>
         {/if}
     </div>
 </div>
 
 <style lang="scss">
-  @import '../scss/variables';
+  @import '../../scss/variables';
 
   .icon {
     position: relative;

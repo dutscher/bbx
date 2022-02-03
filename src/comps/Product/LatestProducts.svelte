@@ -1,8 +1,8 @@
 <script lang="ts">
-    import Product from './Product/Product.svelte';
-    import Icon from './Icon.svelte';
-    import { storedProducts, storedStates } from '../stores';
-    import { ID_PARTS, ID_STATE_AVAILABLE, ID_STATE_ANNOUNCEMENT, ID_STATE_COMING_SOON } from "../_interfaces";
+    import Product from './Product.svelte';
+    import Icon from '../Icon.svelte';
+    import { storedProducts, storedStates } from '../../stores';
+    import { ID_PARTS, ID_STATE_AVAILABLE, ID_STATE_ANNOUNCEMENT, ID_STATE_COMING_SOON } from "../../_interfaces";
 
     export let state: number = ID_STATE_ANNOUNCEMENT;
     export let title: string = '';
@@ -153,7 +153,7 @@
 </div>
 
 <style lang="scss">
-  @import '../scss/variables';
+  @import '../../scss/variables';
 
   .changes {
     display: none;

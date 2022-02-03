@@ -1,8 +1,8 @@
-* firefox zoom bug https://bbx.watch/?tags=burg-blaustein
-* tooltip left edge case, small device
 * filter for hot, new
+* multiple heart list
 * warenkorb noise ausblenden
 * history back not going
+* noppen an tags
 * changelog visualisieren
 * sapper server side
 * pdf download proxy

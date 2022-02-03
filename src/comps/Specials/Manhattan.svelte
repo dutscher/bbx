@@ -6,7 +6,7 @@
     const type = STR_MANHATTAN;
     let products: any;
     let data: any;
-    let innerWidth;
+    let innerWidth = 0;
     let zoom;
     let pieces;
     let activeProductID = -1;
@@ -22,7 +22,7 @@
     $: {
         const imgWidth = 800;
         const minWidth = innerWidth < imgWidth ? innerWidth : imgWidth;
-        zoom = `${(100 * (minWidth / imgWidth))}%`;
+        zoom = minWidth / imgWidth;
 
         pieces = data.manhattan.pieces.map((piece, i) => {
             const product = getEEProduct(products, piece);
@@ -56,7 +56,7 @@
 <div>
     <h2>{STR_MANHATTAN}</h2>
     {#if innerWidth}
-        <div class="pieces" style="zoom:{zoom}">
+        <div class="pieces" style="zoom:{zoom};-moz-transform:scale({zoom});">
             <div class="pieces__wrap">
                 {#each pieces as piece}
                     <div class="{`piece piece--${piece.nr} ${piece.state}`}"
@@ -81,9 +81,9 @@
   @import '../../scss/variables';
 
   .pieces {
-    overflow: hidden;
     position: relative;
     margin-bottom: $space-xl * 4;
+    -moz-transform-origin: left;
 
     &__wrap {
       height: 700px;
