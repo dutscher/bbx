@@ -11,5 +11,8 @@
 /public/data/all-products-history.json
 /public/data/movie-names.json
 /public/pwa
+dir-logs
+dir-bin
+dir-services
 .DS_Store
 .idea/
