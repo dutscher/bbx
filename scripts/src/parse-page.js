@@ -13,9 +13,9 @@ import {
     getTags,
     getTextOfElement,
     handleCache,
-    mergeTags,
     printTime
 } from './utils.js';
+import { mergeTags } from './clean-utils.js';
 import { ignoreProductsOnUrl, includedProducts, updateProductData } from './interfaces.js';
 import states from '../../data/states.json';
 import globalData from '../../data/data.json';
