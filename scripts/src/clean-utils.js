@@ -29,7 +29,7 @@ export const mergeArrays = (...arrays) => {
     let jointArray = []
 
     arrays.forEach(array => {
-        jointArray = [...jointArray, ...array]
+        jointArray = [...jointArray, ...array || []]
     })
     const uniqueArray = jointArray.reduce((newArray, item) => {
         if (newArray.includes(item)) {
