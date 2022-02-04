@@ -3,8 +3,9 @@
     import Product from "../Product/Product.svelte";
     import Icon from "../Icon.svelte";
 
-    let hearts: any;
-    let products: any;
+    let heartSummary = {price: 0, parts: 0};
+    let hearts = [];
+    let products = [];
 
     storedProducts.subscribe(store => products = store);
     storedHearts.subscribe(store => hearts = store);
@@ -29,8 +30,6 @@
             }
             return 0;
         });
-
-    let heartSummary = {price: 0, pricePerPart: 0, parts: 0};
 
     $: {
         heartSummary = {price: 0, parts: 0};

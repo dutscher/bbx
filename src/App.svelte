@@ -4,7 +4,7 @@
     import { ApolloClient, InMemoryCache } from "@apollo/client";
     import { setClient } from "svelte-apollo";
     import Welcome from "./comps/Welcome.svelte";
-    import Hearts from "./comps/Specials/Hearts.svelte";
+    import Hearts from "./comps/Features/Hearts.svelte";
     import Changes from "./comps/Product/Changes.svelte";
     import Filter from "./comps/Filter/Filter.svelte";
     import Manhattan from "./comps/Specials/Manhattan.svelte";

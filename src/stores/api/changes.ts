@@ -5,10 +5,14 @@ import { ID_PARTS, LOADED, LOADING } from '../../_interfaces';
 import { isBluebrixxProduct, updateProductData } from '../../../scripts/src/interfaces';
 import { sortedProducts, storedProducts } from '../products';
 import { sortedStates, storedActiveSelection } from '../states';
+import { internetConnection } from "../internet-connection";
+import { doNotify } from "./notifications";
 
 // ["MzIyMTA=|02.02.2022 13:37|25"]
 const [lastCursorFromJson, lastCursorDate] = endCursorsFromParse[0].split('|');
 
+let isOnline = false;
+let fetches = 0;
 let timeout;
 let lastCursor;
 let edges = [];
@@ -23,7 +27,26 @@ storedActiveSelection.update(store => {
     return store;
 });
 
-// changes
+const nextFetch = (gogogo: boolean = false) => {
+    if (timeout) {
+        clearTimeout(timeout);
+    }
+    if (gogogo) {
+        timeout = setTimeout(() => {
+            // reset
+            edges = [];
+            fetches++;
+            loadChanges(lastCursor.hash);
+        }, getMinInMs(5));
+    }
+}
+
+internetConnection.subscribe(store => {
+    isOnline = store.isOnline;
+
+    nextFetch(isOnline);
+});
+
 export const loadChanges = async (endCursor?: string) => {
     // first call
     if (!endCursor) {
@@ -129,10 +152,6 @@ const evalChanges = (edges: any) => {
             }
         }
     });
-    // changeDate: "21.06.2021 12:52"
-    const findHistoryOnSameDay = (changeDate, historyEntries) => {
-        return Object.keys(historyEntries).some(entryDate => entryDate.includes(changeDate.split(' ')[0]))
-    }
     // update store
     storedProducts.update((value: any) => {
         let updatesForProducts = value.map((product) => {
@@ -160,6 +179,8 @@ const evalChanges = (edges: any) => {
                     ...product.history,
                     ...updates[product.id].history
                 };
+
+                doNotify(product, fetches);
             }
             return product;
         });
@@ -178,12 +199,5 @@ const evalChanges = (edges: any) => {
         return updatesForProducts;
     });
 
-    if (timeout) {
-        clearTimeout(timeout);
-    }
-    timeout = setTimeout(() => {
-        // reset
-        edges = [];
-        loadChanges(lastCursor.hash);
-    }, getMinInMs(5));
+    nextFetch(true);
 }

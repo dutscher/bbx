@@ -3,6 +3,7 @@
   * fix tooltip width on minimobile + other mobile fixxes
   * extract footer
   * fix some url bugs 
+  * prepare notifications for heartlist changes
 * [03.02.2022]
   * add cherrio to parse pages, speed up 14sek to 2sek
 * [02.02.2022]
