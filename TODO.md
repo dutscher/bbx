@@ -8,8 +8,9 @@
 * pdf download proxy
 * unit tests getTags
 * notifications
+  * siehe notifications.ts
   * store empty maybe sw ask svelte and ping pong
-  * settings and store in serviceworker
+  * settings for ankündigung or available and store in serviceworker
 * live api changes:
   * tags use cats-n-tags script
   * notifications on live
