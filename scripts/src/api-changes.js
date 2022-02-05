@@ -1,6 +1,6 @@
 import { graphql, handleCache, debug } from './utils.js';
 import chalk from 'chalk';
-import { getHRDate } from './clean-utils.js';
+import { getHRDate, cleanUpHistoryChange as utilCleanUpHistoryChange, cleanUpHistoryChange } from './clean-utils.js';
 import allProductHistory from '../../data/all-products-history.json';
 import states from '../../data/states.json';
 import {
@@ -175,3 +175,5 @@ export const fetchChanges = async (writeLastCursor = true) => {
 
     return allTimeChanges;
 }
+
+export const cleanUpHistoryChange = utilCleanUpHistoryChange;

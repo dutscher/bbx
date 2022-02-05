@@ -12,7 +12,8 @@ export const doNotify = (product, fetchTries) => {
     // TODO: test test test
     // TODO: check permission shizzle
     // TODO: click with affliate
-    if (fetchTries === -1) {
+    // TODO: notifications only in service-worker
+    if (true && fetchTries === -1) {
         return;
     }
 

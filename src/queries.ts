@@ -24,6 +24,8 @@ export const queryChanges = (endCursor: string) => `
       }
       edges {
         node {
+          datetime
+          status{_id}
           product {
             _id
             name

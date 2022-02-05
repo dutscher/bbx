@@ -1,6 +1,6 @@
 import moment from 'moment';
-import { handleCache, printTime, debug } from './src/utils.js';
-import { fetchChanges } from './src/api-changes.js';
+import { handleCache, printTime } from './src/utils.js';
+import { fetchChanges, cleanUpHistoryChange } from './src/api-changes.js';
 import { parsePages, parsePagesNParts } from './src/parse-page.js';
 import { products, convertToReduce } from '../data/all-products.reducer.js';
 import allProductHistory from '../data/all-products-history.json';
@@ -79,27 +79,6 @@ const mergeChangesWithDB = async (allTimeChanges) => {
             }
         })
     );
-}
-
-const cleanUpHistoryChange = (product) => {
-    // sort timestamps
-    const sortObject = o => Object.keys(o).sort().reduce((r, k) => (r[k] = o[k], r), {})
-    product.history = sortObject(product.history);
-
-    // clean up double states
-    let lastState = -1;
-    let newHistory = {};
-    for (const [timestamp, state] of Object.entries(product.history)) {
-        if (lastState !== state) {
-            lastState = state
-            newHistory[timestamp] = state;
-        }
-    }
-    product.history = newHistory;
-
-    if (false && productId === 104000) {
-        debug({ newHistory });
-    }
 }
 
 (async () => {

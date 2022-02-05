@@ -50,3 +50,20 @@ export const mergeTags = (existingTags, newTags, additionalTags) => {
 }
 
 export const sortTags = (a, b) => a - b;
+
+export const cleanUpHistoryChange = (product) => {
+    // sort timestamps
+    const sortObject = o => Object.keys(o).sort().reduce((r, k) => (r[k] = o[k], r), {})
+    product.history = sortObject(product.history);
+
+    // clean up double states
+    let lastState = -1;
+    let newHistory = {};
+    for (const [timestamp, state] of Object.entries(product.history)) {
+        if (lastState !== state) {
+            lastState = state
+            newHistory[timestamp] = state;
+        }
+    }
+    product.history = newHistory;
+}

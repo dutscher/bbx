@@ -3,6 +3,7 @@ import { queryChanges } from '../../queries';
 import { graphql, getProductHref, getHRDate, getMinInMs } from '../../utils';
 import { ID_PARTS, LOADED, LOADING } from '../../_interfaces';
 import { isBluebrixxProduct, updateProductData } from '../../../scripts/src/interfaces';
+import { cleanUpHistoryChange } from '../../../scripts/src/clean-utils.js';
 import { sortedProducts, storedProducts } from '../products';
 import { sortedStates, storedActiveSelection } from '../states';
 import { internetConnection } from "../internet-connection";
@@ -90,42 +91,42 @@ const evalChanges = (edges: any) => {
         if (isBluebrixxProduct(product, category)) {
             // product.id: 123456
             const id = product['_id'];
-            // status.id: UNAVAILABLE
-            const status = product.status['_id'];
-            // lastchange: 2021-07-03T11:21:07+00:00
-            const date = product.lastchange;
             // get product
-            const found = sortedProducts.find((product) => product.id === id);
-            const state = sortedStates.find((state) => state.api === status);
-            const stateDate = new Date(date).getTime();
-            // if exists in db and has another state
-            if (found) {
-                const isPart = found.tags.includes(ID_PARTS);
-                if (!(id in updates)) {
-                    updates[id] = {
-                        history: {}
-                    }
-                }
-                // state change
-                if (found.state.id !== state.id) {
-                    updates[id].state = state;
-                    updates[id].stateDate = stateDate;
-                    updates[id].history[stateDate] = state.id;
-                }
-                // title, price or pieces changes
-                if (product.name !== found.title && !isPart) {
-                    updates[id].title = product.name;
-                }
-                if (product.pcs !== found.parts) {
-                    updates[id].parts = product.pcs;
-                }
-                if (product.price !== parseInt(found.price) && product.price !== null) {
-                    updates[id].price = product.price;
-                }
-                latestChangesIds.push(id);
-                latestChanges.push(found);
+            const existingProduct = sortedProducts.find((product) => product.id === id);
+            // lastchange: 2021-07-03T11:21:07+00:00
+            const timestampChange = new Date(change.datetime).getTime() / 1000;
+            const timestampProduct = new Date(product.lastchange).getTime() / 1000;
+            // status._id: UNAVAILABLE
+            const stateChange = sortedStates.find((state) => state.api === change.status['_id']);
+            const stateProduct = sortedStates.find((state) => state.api === product.status['_id']);
 
-            } else if (!found && !newProductIds.includes(id)) {
+            // if exists in db and has another state
+            if (existingProduct) {
+                updates[id] = updateProductData({
+                        title: product.name,
+                        id,
+                        parts: product.pcs,
+                        price: product.price,
+                        cats: [],
+                        tags: [],
+                        state: stateProduct,
+                        stateDate: timestampProduct,
+                        matchTo: product.name,
+                        history: {
+                            ...existingProduct.history,
+                            [timestampChange]: stateChange.id,
+                            [timestampProduct]: stateProduct.id,
+                        },
+                        href: getProductHref({title: product.name, id}),
+                    },
+                    {
+                        catName: category.name,
+                        catId: category['_id'],
+                    });
+
+                latestChangesIds.push(id);
+                latestChanges.push(existingProduct);
+            } else if (!existingProduct && !newProductIds.includes(id)) {
                 // complete new product
                 newProductIds.push(id);
                 newProducts.push(
@@ -136,11 +137,12 @@ const evalChanges = (edges: any) => {
                             price: product.price,
                             cats: [],
                             tags: [],
-                            state,
-                            stateDate,
+                            state: stateProduct,
+                            stateDate: timestampProduct,
                             matchTo: product.name,
                             history: {
-                                [stateDate]: state.id
+                                [timestampChange]: stateChange.id,
+                                [timestampProduct]: stateProduct.id,
                             },
                             href: getProductHref({title: product.name, id}),
                         },
@@ -179,6 +181,11 @@ const evalChanges = (edges: any) => {
                     ...product.history,
                     ...updates[product.id].history
                 };
+
+                cleanUpHistoryChange(product);
+
+                if (product.id === 103217)
+                    console.log(product, updates[product.id].history)
 
                 doNotify(product, fetches);
             }
