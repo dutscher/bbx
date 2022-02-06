@@ -37,7 +37,7 @@
         if (!isVisible) {
             isVisible = true;
         }
-        selectedDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+        selectedDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
     }
 
     $: {

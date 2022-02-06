@@ -1,5 +1,6 @@
 * filter for hot, new
 * multiple heart list
+* safari todoayChanges new Date() getDay()
 * warenkorb noise ausblenden
 * history back not going
 * noppen an tags
