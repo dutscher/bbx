@@ -24,33 +24,33 @@
     const clickItem = (item, withUrlUpdate?) => {
         if (item.count === 0) return;
 
-        storedActiveSelection.update(value => {
-            if (!(urlParam in value)) {
-                value[urlParam] = [];
+        storedActiveSelection.update(store => {
+            if (!(urlParam in store)) {
+                store[urlParam] = [];
             }
-            if (!value[urlParam].includes(item.id)) {
-                value[urlParam].push(item.id);
+            if (!store[urlParam].includes(item.id)) {
+                store[urlParam].push(item.id);
             } else {
-                value[urlParam] = value[urlParam].filter(itemId => itemId !== item.id);
+                store[urlParam] = store[urlParam].filter(itemId => itemId !== item.id);
             }
 
             if (withUrlUpdate) {
                 setUrlParams(
                     urlParam,
                     partTypes
-                        .filter(part => value[urlParam].includes(part.id))
+                        .filter(part => store[urlParam].includes(part.id))
                         .map((part) => part.seoName));
-                value.reason = 'part-type-clicked';
+                store.reason = 'part-type-clicked';
             } else {
-                value.reason = 'url-parsed';
+                store.reason = 'url-parsed';
             }
-            return value;
+            return store;
         });
     }
 
-    storedPartTypes.subscribe(value => partTypes = value);
-    storedProducts.subscribe(value => products = value);
-    storedFilteredProducts.subscribe(value => filteredProducts = value);
+    storedPartTypes.subscribe(store => partTypes = store);
+    storedProducts.subscribe(store => products = store);
+    storedFilteredProducts.subscribe(store => filteredProducts = store);
 
     onMount(() => {
         getUrlParams();

@@ -1,3 +1,5 @@
+* [07.02.2022]
+  * add partNr of bricklink/lego
 * [04.02.2022]
   * fix firefox zoom bug for specials burgblaustein
   * fix tooltip width on minimobile + other mobile fixxes

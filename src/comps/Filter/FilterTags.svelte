@@ -10,7 +10,7 @@
     const abc = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
     const urlParam = 'tags';
 
-    storedTags.subscribe(value => tags = value);
+    storedTags.subscribe(store => tags = store);
 
     const getUrlParams = () => {
         // ?tags=piraten

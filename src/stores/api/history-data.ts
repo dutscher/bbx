@@ -4,9 +4,9 @@ import { LOADED, LOADING } from "../../_interfaces";
 import { getDateTime } from "../../utils";
 
 export const loadHistoryData = async () => {
-    storedActiveSelection.update(value => {
-        value.loadedData.history = LOADING;
-        return value;
+    storedActiveSelection.update(store => {
+        store.loadedData.history = LOADING;
+        return store;
     });
     // @ts-ignore TS2339
     const data = await fetch(`/data/all-products-history.json?cb=${window.cacheBuster}`).then(res => res.json());
@@ -34,9 +34,9 @@ export const loadHistoryData = async () => {
             return product;
         });
 
-        storedActiveSelection.update(value => {
-            value.loadedData.history = LOADED;
-            return value;
+        storedActiveSelection.update(store => {
+            store.loadedData.history = LOADED;
+            return store;
         });
 
         return newStore;

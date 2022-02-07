@@ -15,22 +15,22 @@
     }
 
     const onInput = (withUrlUpdate?) => {
-        storedActiveSelection.update(value => {
-            if (!(urlParam in value)) {
-                value[urlParam] = activeSearchString;
+        storedActiveSelection.update(store => {
+            if (!(urlParam in store)) {
+                store[urlParam] = activeSearchString;
             }
-            value[urlParam] = activeSearchString;
+            store[urlParam] = activeSearchString;
 
             if (withUrlUpdate) {
                 setUrlParams(
                     urlParam,
                     !!activeSearchString ? [activeSearchString] : [],
                 )
-                value.reason = 'search-typed';
+                store.reason = 'search-typed';
             } else {
-                value.reason = 'url-parsed';
+                store.reason = 'url-parsed';
             }
-            return value;
+            return store;
         });
     }
 

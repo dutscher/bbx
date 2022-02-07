@@ -10,6 +10,7 @@ productsJSON.map((product) => {
         cats: product.ca,
         tags: product.tg,
         partTags: product.pt,
+        partNr: product.pn,
         parts: product.pa,
         price: product.pr,
         history: product.hi,
@@ -26,12 +27,16 @@ export const convertToReduce = (product) => {
     const partTags = Array.isArray(product.partTags) && product.partTags.length > 0 ?
         { pt: product.partTags } : {};
 
+    const partNr = !!product.partNr ?
+        { pn: product.partNr } : {};
+
     return {
         ti: product.title,
         id: product.id,
         ca: product.cats,
         tg: product.tags,
         ...partTags,
+        ...partNr,
         pa: product.parts,
         pr: product.price,
         hi: product.history,

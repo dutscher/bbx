@@ -189,8 +189,8 @@
                 {/if}
                 {#if product.movieData}<strong>{product.movieData}</strong><br/>{/if}
                 {#if product.id}<strong>ID:</strong> <span class="tooltip__content">{product.id}</span><br/>{/if}
-                {#if product.parts}<strong>Steine:</strong> <span
-                        class="tooltip__content">{product.parts}</span><br/>{/if}
+                {#if product.parts}<strong>Steine:</strong> <span class="tooltip__content">{product.parts}</span><br/>{/if}
+                {#if product.partNr}<strong>Teilnr:</strong> <a href="{data.instUrl}{product.partNr}}" target="_blank">{product.partNr}</a><br/>{/if}
                 {#if !!product.price}
                     <strong>Preis:</strong> <span class="tooltip__content">{handlePrice(product)}</span><br/>
                 {/if}

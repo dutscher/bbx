@@ -71,26 +71,26 @@
         showTooltip = !showTooltip;
 
         // update store to close other tooltips
-        storedActiveProduct.update(value => {
-            value.product = {
+        storedActiveProduct.update(store => {
+            store.product = {
                 id: showTooltip ? product.id : 0,
                 type,
             };
-            value.reason = 'open-tooltip';
-            return value;
+            store.reason = 'open-tooltip';
+            return store;
         });
     }
 
     const onClickOutside = () => {
         if (isActive) {
             showTooltip = false;
-            storedActiveProduct.update(value => {
-                value.product = {
+            storedActiveProduct.update(store => {
+                store.product = {
                     id: 0,
                     type,
                 };
-                value.reason = 'click-outside';
-                return value;
+                store.reason = 'click-outside';
+                return store;
             });
         }
     }

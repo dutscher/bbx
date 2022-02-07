@@ -20,8 +20,8 @@
     let selectedDateMax: string = '';
     const days = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
 
-    storedProducts.subscribe(value => products = value);
-    storedStates.subscribe(value => states = value);
+    storedProducts.subscribe(store => products = store);
+    storedStates.subscribe(store => states = store);
 
     const handleDate = (event, direction) => {
         event.stopPropagation();

@@ -25,28 +25,28 @@
     const clickItem = (item, withUrlUpdate?) => {
         if (item.count === 0) return;
 
-        storedActiveSelection.update(value => {
-            if (!(urlParam in value)) {
-                value[urlParam] = [];
+        storedActiveSelection.update(store => {
+            if (!(urlParam in store)) {
+                store[urlParam] = [];
             }
-            if (!value[urlParam].includes(item.id)) {
-                value[urlParam].push(item.id);
+            if (!store[urlParam].includes(item.id)) {
+                store[urlParam].push(item.id);
             } else {
-                value[urlParam] = value[urlParam].filter(itemId => itemId !== item.id);
+                store[urlParam] = store[urlParam].filter(itemId => itemId !== item.id);
             }
 
             if (withUrlUpdate) {
                 setUrlParams(
                         urlParam,
                         colors
-                                .filter(color => value[urlParam].includes(color.id))
+                                .filter(color => store[urlParam].includes(color.id))
                                 .map((color) => color.seoName));
-                value.reason = 'part-clicked';
+                store.reason = 'part-clicked';
             } else {
-                value.reason = 'url-parsed';
+                store.reason = 'url-parsed';
             }
 
-            return value;
+            return store;
         });
     }
 
@@ -88,9 +88,9 @@
         return sortedData;
     }
 
-    storedColors.subscribe(value => colors = value);
-    storedProducts.subscribe(value => products = value);
-    storedFilteredProducts.subscribe(value => filteredProducts = value);
+    storedColors.subscribe(store => colors = store);
+    storedProducts.subscribe(store => products = store);
+    storedFilteredProducts.subscribe(store => filteredProducts = store);
 
     onMount(() => {
         getUrlParams();

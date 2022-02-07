@@ -11,7 +11,7 @@
     let states: any;
     const historyChunks = 3;
 
-    storedStates.subscribe(value => states = value);
+    storedStates.subscribe(store => states = store);
 
     const getFormattedDate = (timestamp) => {
         const date = new Date(timestamp);

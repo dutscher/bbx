@@ -40,13 +40,13 @@
     const setActive = (event, id) => {
         event.stopPropagation();
         activeProductID = id;
-        storedActiveProduct.update(value => {
-            value.product = {
+        storedActiveProduct.update(store => {
+            store.product = {
                 id: activeProductID,
                 type: 'products',
             };
-            value.reason = 'click-on-zoom';
-            return value;
+            store.reason = 'click-on-zoom';
+            return store;
         })
     }
 </script>

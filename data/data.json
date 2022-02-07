@@ -1,6 +1,7 @@
 {
   "url": "https://www.bluebrixx.com/de",
   "instUrl": "https://www.bluebrixx.com/data/files/manuals",
+  "partNr": "https://www.bricklink.com/v2/catalog/catalogitem.page?P=",
   "parseCategories": [
     "https://www.bluebrixx.com/de/bluebrixxspecials",
     "https://www.bluebrixx.com/de/bluebrixxspecials/military_models",

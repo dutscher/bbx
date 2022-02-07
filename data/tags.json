@@ -1,5 +1,10 @@
 [
-  "Special",
+  [
+    "Special",
+    [
+      "technic-special"
+    ]
+  ],
   [
     "Pro",
     [
@@ -154,7 +159,8 @@
       "Feuerwehr",
       "Formel Wagen",
       "Abschleppwagen",
-      "Einsatzwagen"
+      "Einsatzwagen",
+      "waggon side"
     ]
   ],
   "Stickerbogen",

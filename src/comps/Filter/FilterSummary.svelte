@@ -23,11 +23,11 @@
     let states: any;
     let tags: any;
 
-    storedStates.subscribe(value => states = value);
-    storedParts.subscribe(value => parts = value);
-    storedPartTypes.subscribe(value => partTypes = value);
-    storedColors.subscribe(value => colors = value);
-    storedTags.subscribe(value => tags = value);
+    storedStates.subscribe(store => states = store);
+    storedParts.subscribe(store => parts = store);
+    storedPartTypes.subscribe(store => partTypes = store);
+    storedColors.subscribe(store => colors = store);
+    storedTags.subscribe(store => tags = store);
 
     $: invisible = !activeSearchString && activeTagIds.length === 0 && activeStateIds.length === 0 && activeColorIds.length === 0 && activePartIds.length === 0 && activePartTypeIds.length === 0
 

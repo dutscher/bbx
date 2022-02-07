@@ -1,6 +1,8 @@
 import bricklinkColors from '../../data/bricklink-hex.json';
 import { mergeTags } from './clean-utils.js';
 
+export const partNrDivider = 'Nr.: ';
+
 export const includedProducts = [
     104123, // Mars II, Bundeswehr
     103999, // Bergepanzer Büffel, BPz3, Bundeswehr
@@ -95,9 +97,9 @@ export const isBluebrixxProduct = (product, category) => {
 export const isBluebrixxPart = (product, category) => {
     const titleHasAmount = product.name.includes('Stück');
     const catName = category.name;
-    const catHasColor = catName.includes('Nr.:');
+    const isPartWithNr = catName.includes(partNrDivider);
     const catNameIsBricklinkColor = catName.replace('-', ' ') in bricklinkColors;
-    return catHasColor || titleHasAmount && catName.includes('BlueBrixx') || catNameIsBricklinkColor;
+    return isPartWithNr || titleHasAmount && catName.includes('BlueBrixx') || catNameIsBricklinkColor;
 }
 
 export const updateProductData = (product, change) => {
@@ -115,10 +117,13 @@ export const updateProductData = (product, change) => {
 
     // "catName": "BlackNr.: 3828"
     // "title": "STEERING WHEEL Ø11 X 200, Black"
-    const catHasColor = change.catName.includes('Nr.:');
-    const titleAdditionColor = change.catName.replace(/(.*)Nr\..*/, ', $1');
-    if (catHasColor && !product.title.includes(titleAdditionColor)) {
-        product.title += titleAdditionColor;
+    const isPartWithNr = change.catName.includes(partNrDivider);
+    if (isPartWithNr) {
+        const [color, nr] = change.catName.split(partNrDivider);
+        if (!!color) {
+            product.title += ', ' + color;
+        }
+        product.partNr = nr;
     }
 
     const titleAdditionBricklink = change.catName.replace('-', ' ');

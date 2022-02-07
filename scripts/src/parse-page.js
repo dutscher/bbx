@@ -92,8 +92,8 @@ const parsePageJSDOM = async (url) => {
             return;
         }
 
-        if (false && id === 600024) {
-            console.log('debug 1', url, urlDirs, cat, id)
+        if (true && id === 601792) {
+            debug({url, urlDirs, cat, id})
         }
 
         const data = updateProductData({
@@ -102,6 +102,7 @@ const parsePageJSDOM = async (url) => {
             cats: getCats(url, cat),
             tags: getTags(urlDirs, title, cat, href, id),
             partTags: getPartTags(urlDirs, title, id),
+            partNr: -1,
             parts: parts ? parseInt(getTextOfElement(parts).replace(' PCS')) : 0,
             price: price ? parseFloat(getTextOfElement(price).replace('*', '').replace(',', '.')) : 0,
             state: state ? states.de.indexOf(getTextOfElement(state)) : 0,
@@ -164,8 +165,10 @@ const parsePageCherrio = async (url) => {
             return;
         }
 
-        if (false && id === 104123) {
-            debug('cherio parse', url, urlDirs, cat, id, title, price);
+        if (false && id === 608085) {
+            debug('cherio parse', id, url, urlDirs, cat, title);
+            debug('getCats', getCats(url, cat), url, cat);
+            debug('getTags', getTags(urlDirs, title, cat, href, id), href);
         }
 
         const data = updateProductData({
@@ -229,6 +232,7 @@ const createProduct = (data) => {
             );
 
             parsedDataToday.items[itemIndexExists].partTags = data.partTags;
+            parsedDataToday.items[itemIndexExists].partNr = data.partNr;
 
             parsedDataToday.items[itemIndexExists].history = { ...itemExists.history, ...data.history };
 

@@ -3,16 +3,16 @@ import { storedActiveSelection } from '../states';
 import { LOADED, LOADING } from "../../_interfaces";
 
 export const loadMovieData = async () => {
-    storedActiveSelection.update(value => {
-        value.loadedData.movie = LOADING;
-        return value;
+    storedActiveSelection.update(store => {
+        store.loadedData.movie = LOADING;
+        return store;
     });
     // @ts-ignore TS2339
     const data = await fetch(`/data/movie-names.json?cb=${window.cacheBuster}`).then(res => res.json());
 
-    storedActiveSelection.update(value => {
-        value.loadedData.movie = LOADED;
-        return value;
+    storedActiveSelection.update(store => {
+        store.loadedData.movie = LOADED;
+        return store;
     });
 
     // {101005: "Blade Runner - Spinner Car", 101472: ... }
