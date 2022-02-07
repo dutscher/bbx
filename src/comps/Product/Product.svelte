@@ -1,7 +1,7 @@
 <script lang="ts">
-    import Tooltip from "./ProductTooltip.svelte";
-    import Icon from "../Icon.svelte";
-    import ClickOutside from "svelte-click-outside";
+    import Tooltip from './ProductTooltip.svelte';
+    import Icon from '../Icon.svelte';
+    import ClickOutside from 'svelte-click-outside';
     import {
         ID_BURG_BLAUSTEIN,
         ID_MANHATTAN,
@@ -16,15 +16,15 @@
         STR_BURG_BLAUSTEIN,
         STR_STAR_TREK,
         UNLOADED,
-    } from "../../_interfaces";
-    import { storedGlobalData, storedActiveSelection, storedStates, storedHearts, loadInstData } from "../../stores";
-    import { getLatestStateOfToday } from "../../utils";
-    import { storedActiveProduct } from "../../stores/states";
+    } from '../../_interfaces';
+    import { storedGlobalData, storedActiveSelection, storedStates, storedHearts, loadInstData } from '../../stores';
+    import { getLatestStateOfToday } from '../../utils';
+    import { storedActiveProduct } from '../../stores/states';
 
     export let product: any;
     export let withoutTooltip: boolean = false;
-    export let type: string = ""; // todayChanges
-    export let todayChangesDate: string = ""; // 08.10.2021
+    export let type: string = ''; // todayChanges
+    export let todayChangesDate: string = ''; // 08.10.2021
 
     let data: any;
     let states: any;
@@ -86,7 +86,7 @@
                 id: showTooltip ? product.id : 0,
                 type,
             };
-            value.reason = "open-tooltip";
+            value.reason = 'open-tooltip';
             return value;
         });
     };
@@ -99,7 +99,7 @@
                     id: 0,
                     type,
                 };
-                value.reason = "click-outside";
+                value.reason = 'click-outside';
                 return value;
             });
         }
@@ -117,19 +117,19 @@
         let title = product.title;
 
         if (isBurgBlaustein) {
-            title = title.replace(" für " + STR_BURG_BLAUSTEIN, "");
+            title = title.replace(' für ' + STR_BURG_BLAUSTEIN, '');
         }
 
         if (isNetherland) {
-            title = title.replace(STR_NETHERLAND + " ", "");
+            title = title.replace(STR_NETHERLAND + ' ', '');
         }
 
         if (isManhattan) {
-            title = title.replace(STR_MANHATTAN + " ", "");
+            title = title.replace(STR_MANHATTAN + ' ', '');
         }
 
         if (isStarTrek && (isMovieFilterOnly || isStarTrekFilterOnly)) {
-            title = title.replace(STR_STAR_TREK + " ", "");
+            title = title.replace(STR_STAR_TREK + ' ', '');
             product.movieData = STR_STAR_TREK;
         }
 
@@ -160,13 +160,13 @@
 <ClickOutside on:clickoutside={onClickOutside}>
     <div class="product {handleStateColor(product)}" data-state={handleStateName(product)}>
         <span class="product__label" on:click={onClick}>
-            {#if isHeart && type !== "hearts"}
+            {#if isHeart && type !== 'hearts'}
                 <Icon modifier="heart" svg="true" class="active" title="Will ich haben" />
             {/if}
             {#if isNew && !isHeart}<Icon modifier="new" title="Neues Produkt" />{/if}
             {#if isHot && !isHeart}<Icon modifier="flame" title="Beliebtes Produkt" />{/if}
             {getTitle(product)}
-            {#if type === "products" && product.movieData && activeTagsIds.includes(ID_MOVIE)}
+            {#if type === 'products' && product.movieData && activeTagsIds.includes(ID_MOVIE)}
                 <span class="product__movie">{product.movieData}</span>
             {/if}
         </span>
@@ -177,7 +177,7 @@
 </ClickOutside>
 
 <style lang="scss">
-    @import "../../scss/variables";
+    @import '../../scss/variables';
 
     .product {
         position: relative;

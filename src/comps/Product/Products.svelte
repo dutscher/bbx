@@ -1,8 +1,8 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import Product from "./Product.svelte";
-    import FilterSummary from "../Filter/FilterSummary.svelte";
-    import { titleMatch, jsVoid, setUrlParams, getUrlParam, getAllUrlParams } from "../../utils";
+    import { onMount } from 'svelte';
+    import Product from './Product.svelte';
+    import FilterSummary from '../Filter/FilterSummary.svelte';
+    import { titleMatch, jsVoid, setUrlParams, getUrlParam, getAllUrlParams } from '../../utils';
     import {
         storedProducts,
         storedFilteredProducts,
@@ -15,15 +15,15 @@
         storedActiveSelection,
         storedActiveProduct,
         localStore,
-    } from "../../stores";
-    import { lsKeyChanges, lsKeyFilter, lsKeyWelcome } from "../../_interfaces";
+    } from '../../stores';
+    import { lsKeyChanges, lsKeyFilter, lsKeyWelcome } from '../../_interfaces';
 
     let activeTagIds: any = [];
     let activePartIds: any = [];
     let activePartTypeIds: any = [];
     let activeColorIds: any = [];
     let activeStateIds: any = [];
-    let activeSearchString: string = "";
+    let activeSearchString: string = '';
     let filteredProducts: any = [];
 
     let parts: any;
@@ -32,14 +32,14 @@
     let products: any;
     let states: any;
     let tags: any;
-    let sorting: string = "";
-    let sortDirection: string = "desc";
-    const urlParam = "product";
+    let sorting: string = '';
+    let sortDirection: string = 'desc';
+    const urlParam = 'product';
     const chunks = 500;
 
     export let bbUrl: string;
 
-    const sorter = ["Teile:parts", "Preise:price", "PreisProTeil:pricePerPart", "ABC:title"];
+    const sorter = ['Teile:parts', 'Preise:price', 'PreisProTeil:pricePerPart', 'ABC:title'];
 
     storedStates.subscribe((store) => (states = store));
     storedProducts.subscribe((store) => (products = store));
@@ -57,16 +57,16 @@
         activeStateIds = store.states;
         activeSearchString = store.search;
 
-        if (store.reason === "remove-all-filters") {
-            setUrlParams(urlParam, "");
+        if (store.reason === 'remove-all-filters') {
+            setUrlParams(urlParam, '');
         }
     });
     storedActiveProduct.subscribe((store) => {
         // update url
-        if ((store.reason === "open-tooltip" || store.reason === "click-on-zoom") && store.product.id !== 0) {
+        if ((store.reason === 'open-tooltip' || store.reason === 'click-on-zoom') && store.product.id !== 0) {
             setUrlParams(urlParam, store.product.id);
-        } else if (store.reason === "click-outside" || store.reason === "close-tooltip") {
-            setUrlParams(urlParam, "");
+        } else if (store.reason === 'click-outside' || store.reason === 'close-tooltip') {
+            setUrlParams(urlParam, '');
         }
     });
 
@@ -87,9 +87,9 @@
             storedActiveProduct.update((store) => {
                 store.product = {
                     id: parseInt(queryProductId),
-                    type: "products",
+                    type: 'products',
                 };
-                store.reason = "url-init";
+                store.reason = 'url-init';
                 return store;
             });
         }
@@ -198,7 +198,7 @@
 
     function handleSort(withFilter) {
         // default sort
-        if (sorting === "") {
+        if (sorting === '') {
             // sort unit 01-17
             withFilter
                 .sort((a, b) => {
@@ -229,10 +229,10 @@
             withFilter = withFilter.sort((a, b) => {
                 let prev = a[sorting];
                 let next = b[sorting];
-                const isASC = sortDirection === "asc";
-                const isDESC = sortDirection === "desc";
+                const isASC = sortDirection === 'asc';
+                const isDESC = sortDirection === 'desc';
 
-                if (sorting === "title") {
+                if (sorting === 'title') {
                     prev = prev.toLowerCase();
                     next = next.toLowerCase();
                 }
@@ -263,9 +263,9 @@
 
     const sort = (type) => {
         const isDifferentSort = type !== sorting;
-        const doReset = sortDirection === "desc";
-        sorting = doReset && !isDifferentSort ? "" : type;
-        sortDirection = doReset || isDifferentSort ? "asc" : "desc";
+        const doReset = sortDirection === 'desc';
+        sorting = doReset && !isDifferentSort ? '' : type;
+        sortDirection = doReset || isDifferentSort ? 'asc' : 'desc';
     };
 
     // first to remove localstorage keys before onMount
@@ -291,10 +291,10 @@
     <div class="flex flex--inline flex--vertical-center flex--wrap filter with-text-shadow">
         <strong class="filter-headline">| Sortieren:</strong>
         {#each sorter as item}
-            <a href={jsVoid} on:click={() => sort(item.split(":")[1])}>
-                {item.split(":")[0]}
-                {#if sorting === item.split(":")[1]}
-                    {sortDirection === "asc" ? ">" : "<"}
+            <a href={jsVoid} on:click={() => sort(item.split(':')[1])}>
+                {item.split(':')[0]}
+                {#if sorting === item.split(':')[1]}
+                    {sortDirection === 'asc' ? '>' : '<'}
                 {/if}
             </a>
         {/each}
@@ -315,9 +315,9 @@
 </div>
 
 <style lang="scss">
-    @import "../../scss/variables";
+    @import '../../scss/variables';
 
-    $selector: ".filter";
+    $selector: '.filter';
     #{$selector} {
         font-size: ms(-1);
         color: $color-primary;
@@ -333,7 +333,7 @@
         }
     }
 
-    :global([data-theme="dark"] #{$selector} a:hover) {
+    :global([data-theme='dark'] #{$selector} a:hover) {
         color: $color-white !important;
     }
 

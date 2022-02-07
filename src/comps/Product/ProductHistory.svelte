@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { storedStates } from "../../stores";
-    import { jsVoid } from "../../utils";
-    import { ID_STATE_AVAILABLE } from "../../_interfaces";
+    import { storedStates } from '../../stores';
+    import { jsVoid } from '../../utils';
+    import { ID_STATE_AVAILABLE } from '../../_interfaces';
 
     export let product: any;
 
@@ -16,10 +16,10 @@
     const getFormattedDate = (timestamp) => {
         const date = new Date(timestamp);
         const year = date.getFullYear();
-        const month = (date.getMonth() + 1 + "").padStart(2, "00");
-        const day = (date.getDate() + "").padStart(2, "00");
-        const hours = (date.getHours() + "").padStart(2, "00");
-        const minutes = (date.getMinutes() + "").padStart(2, "00");
+        const month = (date.getMonth() + 1 + '').padStart(2, '00');
+        const day = (date.getDate() + '').padStart(2, '00');
+        const hours = (date.getHours() + '').padStart(2, '00');
+        const minutes = (date.getMinutes() + '').padStart(2, '00');
         return `${day}.${month}.${year} ${hours}:${minutes}`;
     };
 
@@ -34,18 +34,18 @@
         if (stateId === ID_STATE_AVAILABLE && prevDate) {
             return `für ${getTimeDiff(prevDate, date)}`;
         }
-        return "";
+        return '';
     };
 
     const calcTimeAgo = (product) => {
         const times = [
-            ["second", 1, "Sek."],
-            ["minute", 60, "Min."],
-            ["hour", 3600, "Std."],
-            ["day", 86400, "Tag", "e"],
-            ["week", 604800, "Woche", "n"],
-            ["month", 2592000, "Mon."],
-            ["year", 31536000, "Jahr", "e"],
+            ['second', 1, 'Sek.'],
+            ['minute', 60, 'Min.'],
+            ['hour', 3600, 'Std.'],
+            ['day', 86400, 'Tag', 'e'],
+            ['week', 604800, 'Woche', 'n'],
+            ['month', 2592000, 'Mon.'],
+            ['year', 31536000, 'Jahr', 'e'],
         ];
 
         const today = new Date();
@@ -54,11 +54,11 @@
         for (let t = 0; t < times.length; t++) {
             if (diff < times[t][1]) {
                 if (t == 0) {
-                    return "jetzt";
+                    return 'jetzt';
                 } else {
                     diff = Math.round(diff / times[t - 1][1]);
                     return (
-                        "seit " + diff + " " + times[t - 1][2] + (diff !== 1 && times[t - 1][3] ? times[t - 1][3] : "")
+                        'seit ' + diff + ' ' + times[t - 1][2] + (diff !== 1 && times[t - 1][3] ? times[t - 1][3] : '')
                     );
                 }
             }
@@ -71,14 +71,14 @@
         const days = Math.round(ms / 86400000); // days
         const hrs = Math.round((ms % 86400000) / 3600000); // hours
         const mins = Math.round(((ms % 86400000) % 3600000) / 60000); // minutes
-        let strReturn = "";
+        let strReturn = '';
 
-        let daysStr = days > 0 ? days + ` Tag${days !== 1 ? "e" : ""}` : "";
+        let daysStr = days > 0 ? days + ` Tag${days !== 1 ? 'e' : ''}` : '';
         if (days > 6) {
             const weeks = Math.round(days / 7);
-            strReturn = weeks + ` Woche${weeks !== 1 ? "n" : ""}`;
+            strReturn = weeks + ` Woche${weeks !== 1 ? 'n' : ''}`;
         } else {
-            strReturn = `${daysStr}${hrs > 0 ? " " + hrs + "h" : ""}${mins > 0 && mins < 60 ? mins + "m" : ""}`;
+            strReturn = `${daysStr}${hrs > 0 ? ' ' + hrs + 'h' : ''}${mins > 0 && mins < 60 ? mins + 'm' : ''}`;
         }
 
         return strReturn;
@@ -130,7 +130,7 @@
 </div>
 
 <style lang="scss">
-    @import "../../scss/variables";
+    @import '../../scss/variables';
 
     .history {
         user-select: none;

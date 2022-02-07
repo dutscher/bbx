@@ -1,16 +1,16 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import { storedActiveSelection, storedParts, storedProducts, storedFilteredProducts } from "../../stores";
-    import { getUrlParam, setUrlParams } from "../../utils";
+    import { onMount } from 'svelte';
+    import { storedActiveSelection, storedParts, storedProducts, storedFilteredProducts } from '../../stores';
+    import { getUrlParam, setUrlParams } from '../../utils';
 
     export let activePartIds: any = [];
     export let parts: any;
     export let products: any;
     export let filteredProducts: any = [];
 
-    const urlParam = "parts";
+    const urlParam = 'parts';
     const getUrlParams = () => {
-        const queryTags = getUrlParam(urlParam).split(",");
+        const queryTags = getUrlParam(urlParam).split(',');
         parts.map((part) => {
             queryTags.map((queryTag) => {
                 if (part.seoName === queryTag) {
@@ -38,9 +38,9 @@
                     urlParam,
                     parts.filter((part) => value[urlParam].includes(part.id)).map((part) => part.seoName)
                 );
-                value.reason = "part-clicked";
+                value.reason = 'part-clicked';
             } else {
-                value.reason = "url-parsed";
+                value.reason = 'url-parsed';
             }
             return value;
         });
@@ -98,7 +98,7 @@
 </div>
 
 <style lang="scss">
-    @import "../../scss/variables";
+    @import '../../scss/variables';
 
     .parts {
         margin-top: $space-md;

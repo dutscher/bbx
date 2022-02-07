@@ -1,20 +1,20 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import { storedActiveSelection, storedTags } from "../../stores";
-    import { getUrlParam, setUrlParams } from "../../utils";
-    import { ID_MANHATTAN, ID_MOVIE, ID_NETHERLAND, ID_PARTS, IDS_SPECIAL_TAGS } from "../../_interfaces";
+    import { onMount } from 'svelte';
+    import { storedActiveSelection, storedTags } from '../../stores';
+    import { getUrlParam, setUrlParams } from '../../utils';
+    import { ID_MANHATTAN, ID_MOVIE, ID_NETHERLAND, ID_PARTS, IDS_SPECIAL_TAGS } from '../../_interfaces';
 
     export let activeTagIds: any = [];
 
     let tags: any;
-    const abc = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
-    const urlParam = "tags";
+    const abc = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
+    const urlParam = 'tags';
 
     storedTags.subscribe((value) => (tags = value));
 
     const getUrlParams = () => {
         // ?tags=piraten
-        const queryTags = getUrlParam(urlParam).split(",");
+        const queryTags = getUrlParam(urlParam).split(',');
         tags.map((tag) => {
             queryTags.map((queryTag) => {
                 if (tag.seoName === queryTag) {
@@ -40,9 +40,9 @@
                     urlParam,
                     tags.filter((tag) => store[urlParam].includes(tag.id)).map((tag) => tag.seoName)
                 );
-                store.reason = "tag-clicked";
+                store.reason = 'tag-clicked';
             } else {
-                store.reason = "url-parsed";
+                store.reason = 'url-parsed';
             }
 
             return store;
@@ -74,13 +74,13 @@
 
     const getClasses = (tag, isFirst, activeTagIds) =>
         [
-            "tag",
-            activeTagIds.includes(tag.id) && "active",
-            IDS_SPECIAL_TAGS.includes(tag.id) && "highlight",
-            isFirst && "new-letter",
+            'tag',
+            activeTagIds.includes(tag.id) && 'active',
+            IDS_SPECIAL_TAGS.includes(tag.id) && 'highlight',
+            isFirst && 'new-letter',
         ]
             .filter((css) => !!css)
-            .join(" ");
+            .join(' ');
 </script>
 
 <div class="flex">
@@ -105,9 +105,9 @@
 </div>
 
 <style lang="scss">
-    @import "../../scss/variables";
+    @import '../../scss/variables';
 
-    $selector: ".tag";
+    $selector: '.tag';
     #{$selector} {
         padding: 0 0 0 $space-xl;
         margin: $space-xs;
@@ -177,7 +177,7 @@
         }
     }
 
-    :global([data-theme="dark"] #{$selector}__letter) {
+    :global([data-theme='dark'] #{$selector}__letter) {
         color: $color-primary;
         text-shadow: $color-black 1px 1px 2px;
     }

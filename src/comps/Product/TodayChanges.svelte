@@ -1,9 +1,9 @@
 <script lang="ts">
-    import Product from "./Product.svelte";
-    import Icon from "../Icon.svelte";
-    import { storedProducts, storedStates } from "../../stores";
-    import { getLatestStateOfToday } from "../../utils";
-    import { ID_PARTS } from "../../_interfaces";
+    import Product from './Product.svelte';
+    import Icon from '../Icon.svelte';
+    import { storedProducts, storedStates } from '../../stores';
+    import { getLatestStateOfToday } from '../../utils';
+    import { ID_PARTS } from '../../_interfaces';
 
     let products: any;
     let states: any;
@@ -11,14 +11,14 @@
     let showParts = false;
     let countParts = 0;
 
-    let dayStr = "";
+    let dayStr = '';
     // 2017-06-01
-    let compareDate: string = "";
+    let compareDate: string = '';
     // 2017-06-01
-    let selectedDate: string = "";
-    let selectedDateMin: string = "2021-04-30";
-    let selectedDateMax: string = "";
-    const days = ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"];
+    let selectedDate: string = '';
+    let selectedDateMin: string = '2021-04-30';
+    let selectedDateMax: string = '';
+    const days = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
 
     storedProducts.subscribe((value) => (products = value));
     storedStates.subscribe((value) => (states = value));
@@ -27,10 +27,10 @@
         event.stopPropagation();
         const date = new Date(selectedDate);
         let nextDate = new Date(selectedDate).getDate();
-        if (direction === "prev") {
+        if (direction === 'prev') {
             nextDate -= 1;
         }
-        if (direction === "next") {
+        if (direction === 'next') {
             nextDate += 1;
         }
         date.setDate(nextDate);
@@ -44,13 +44,13 @@
         const useNow = !!!selectedDate;
         const now = !useNow ? new Date(selectedDate) : new Date();
         let year = now.getFullYear();
-        let month = now.getMonth() + 1 + "";
-        let day = now.getDate() + "";
+        let month = now.getMonth() + 1 + '';
+        let day = now.getDate() + '';
 
         // 2017-06-01
-        compareDate = `${year}-${month.padStart(2, "00")}-${day.padStart(2, "00")}`;
+        compareDate = `${year}-${month.padStart(2, '00')}-${day.padStart(2, '00')}`;
         // 2017-06-01
-        selectedDate = `${year}-${month.padStart(2, "00")}-${day.padStart(2, "00")}`;
+        selectedDate = `${year}-${month.padStart(2, '00')}-${day.padStart(2, '00')}`;
 
         dayStr = days[now.getDay()];
         // set today as max value
@@ -125,7 +125,7 @@
     <Icon modifier="arrow {!isVisible ? 'down' : 'up'}" svg />
     Status vom
     <span>
-        <Icon svg="true" modifier="arrow left" on:click={(event) => handleDate(event, "prev")} />
+        <Icon svg="true" modifier="arrow left" on:click={(event) => handleDate(event, 'prev')} />
         <input
             type="date"
             min={selectedDateMin}
@@ -134,7 +134,7 @@
             on:click={(event) => event.stopPropagation()}
         />
         <span class="day-str">{dayStr}</span>
-        <Icon svg="true" modifier="arrow" on:click={(event) => handleDate(event, "next")} />
+        <Icon svg="true" modifier="arrow" on:click={(event) => handleDate(event, 'next')} />
         <b>({sortedProducts.length})</b>
     </span>
 </h2>
@@ -153,7 +153,7 @@
 </div>
 
 <style lang="scss">
-    @import "../../scss/variables";
+    @import '../../scss/variables';
 
     .with-toggle {
         span {

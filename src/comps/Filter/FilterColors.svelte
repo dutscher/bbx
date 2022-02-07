@@ -1,17 +1,17 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import { storedActiveSelection, storedColors, storedProducts, storedFilteredProducts } from "../../stores";
-    import { getUrlParam, setUrlParams, titleMatch } from "../../utils";
+    import { onMount } from 'svelte';
+    import { storedActiveSelection, storedColors, storedProducts, storedFilteredProducts } from '../../stores';
+    import { getUrlParam, setUrlParams, titleMatch } from '../../utils';
 
     export let colors: any;
     export let products: any;
     export let filteredProducts: any = [];
     export let activeColorIds: any = [];
 
-    const urlParam = "colors";
+    const urlParam = 'colors';
     const getUrlParams = () => {
         // ?tags=piraten
-        const queryTags = getUrlParam(urlParam).split(",");
+        const queryTags = getUrlParam(urlParam).split(',');
         //console.log('getUrlParams.queryTags', queryTags)
         colors.map((color) => {
             queryTags.map((queryTag) => {
@@ -40,9 +40,9 @@
                     urlParam,
                     colors.filter((color) => value[urlParam].includes(color.id)).map((color) => color.seoName)
                 );
-                value.reason = "part-clicked";
+                value.reason = 'part-clicked';
             } else {
-                value.reason = "url-parsed";
+                value.reason = 'url-parsed';
             }
 
             return value;
@@ -100,16 +100,16 @@
 
     const classNames = (color) => ({
         class: [
-            "color",
-            activeColorIds.includes(color.id) && "active",
-            color.id === 18 && "chrome",
-            color.id === 36 && "pearl-gray",
-            color.id === 51 && "pearl-gold",
-            color.countFiltered === 0 && "disabled",
-            color.name.toLowerCase().includes("trans") && "trans",
+            'color',
+            activeColorIds.includes(color.id) && 'active',
+            color.id === 18 && 'chrome',
+            color.id === 36 && 'pearl-gray',
+            color.id === 51 && 'pearl-gold',
+            color.countFiltered === 0 && 'disabled',
+            color.name.toLowerCase().includes('trans') && 'trans',
         ]
             .filter((css) => css !== false)
-            .join(" "),
+            .join(' '),
     });
 </script>
 
@@ -129,7 +129,7 @@
 </div>
 
 <style lang="scss">
-    @import "../../scss/variables";
+    @import '../../scss/variables';
 
     .color {
         padding: $space-xl;
@@ -146,7 +146,7 @@
             &::after {
                 position: absolute;
                 display: block;
-                content: "";
+                content: '';
                 padding: $space-xl + 0.25;
                 background: $color-primary-darker;
                 transform: translate(-50%, -50%);
@@ -156,15 +156,15 @@
         }
 
         &.chrome {
-            background-image: url("../images/chrome.jpg");
+            background-image: url('../images/chrome.jpg');
         }
 
         &.pearl-gray {
-            background-image: url("../images/pearl-gray.jpg");
+            background-image: url('../images/pearl-gray.jpg');
         }
 
         &.pearl-gold {
-            background-image: url("../images/pearl-gold.jpg");
+            background-image: url('../images/pearl-gold.jpg');
         }
 
         &.trans {

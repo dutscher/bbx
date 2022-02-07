@@ -1,11 +1,11 @@
 <script lang="ts">
-    import Product from "./Product.svelte";
-    import Icon from "../Icon.svelte";
-    import { storedProducts, storedStates } from "../../stores";
-    import { ID_PARTS, ID_STATE_AVAILABLE, ID_STATE_ANNOUNCEMENT, ID_STATE_COMING_SOON } from "../../_interfaces";
+    import Product from './Product.svelte';
+    import Icon from '../Icon.svelte';
+    import { storedProducts, storedStates } from '../../stores';
+    import { ID_PARTS, ID_STATE_AVAILABLE, ID_STATE_ANNOUNCEMENT, ID_STATE_COMING_SOON } from '../../_interfaces';
 
     export let state: number = ID_STATE_ANNOUNCEMENT;
-    export let title: string = "";
+    export let title: string = '';
 
     let products: any;
     let states: any;
@@ -15,20 +15,20 @@
     let showFirstRelease = false;
     let countParts = 0;
     const monthNames = [
-        "Januar",
-        "Februar",
-        "März",
-        "April",
-        "Mai",
-        "Juni",
-        "Juli",
-        "August",
-        "September",
-        "Oktober",
-        "November",
-        "Dezember",
+        'Januar',
+        'Februar',
+        'März',
+        'April',
+        'Mai',
+        'Juni',
+        'Juli',
+        'August',
+        'September',
+        'Oktober',
+        'November',
+        'Dezember',
     ];
-    const labels = ["Diesen Monat", "Letzten Monat", "vor X Monaten"];
+    const labels = ['Diesen Monat', 'Letzten Monat', 'vor X Monaten'];
     const thisYear = new Date().getFullYear();
 
     storedProducts.subscribe((store) => (products = store));
@@ -93,7 +93,7 @@
 
         for (let i = 0; i < maxMonths; i++) {
             const nextLabel =
-                i < labels.length - 1 ? labels[i] : (labels[labels.length - 1] + "").replace("X", i.toString());
+                i < labels.length - 1 ? labels[i] : (labels[labels.length - 1] + '').replace('X', i.toString());
 
             months.push({
                 id: nextMonth,
@@ -171,7 +171,7 @@
 </div>
 
 <style lang="scss">
-    @import "../../scss/variables";
+    @import '../../scss/variables';
 
     .changes {
         display: none;

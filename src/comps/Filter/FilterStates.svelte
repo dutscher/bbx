@@ -1,22 +1,22 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import { storedActiveSelection, storedStates, storedProducts, storedFilteredProducts } from "../../stores";
-    import { getUrlParam, setUrlParams } from "../../utils";
+    import { onMount } from 'svelte';
+    import { storedActiveSelection, storedStates, storedProducts, storedFilteredProducts } from '../../stores';
+    import { getUrlParam, setUrlParams } from '../../utils';
 
     export let activeStateIds: any = [];
     export let activeColorIds: any = [];
     export let activePartIds: any = [];
     export let activePartTypeIds: any = [];
-    export let activeSearchString: string = "";
+    export let activeSearchString: string = '';
 
     let filteredProducts: any = [];
     let states: any;
     let products: any;
 
-    const urlParam = "states";
+    const urlParam = 'states';
     const getUrlParams = () => {
         // ?tags=piraten
-        const queryTags = getUrlParam(urlParam).split(",");
+        const queryTags = getUrlParam(urlParam).split(',');
         states.map((state) => {
             queryTags.map((queryTag) => {
                 if (state.name === queryTag) {
@@ -44,9 +44,9 @@
                     urlParam,
                     states.filter((item) => value[urlParam].includes(item.id)).map((item) => item.name)
                 );
-                value.reason = "state-clicked";
+                value.reason = 'state-clicked';
             } else {
-                value.reason = "url-parsed";
+                value.reason = 'url-parsed';
             }
 
             return value;
@@ -101,9 +101,9 @@
     $: sortedItems = sortItems(filteredProducts);
 
     const getClasses = (state) =>
-        ["filter", activeStateIds.includes(state.id) && "active", state.count === 0 && "disabled", state.color]
+        ['filter', activeStateIds.includes(state.id) && 'active', state.count === 0 && 'disabled', state.color]
             .filter((css) => !!css)
-            .join(" ");
+            .join(' ');
 </script>
 
 <div class="flex">
@@ -118,7 +118,7 @@
 </div>
 
 <style lang="scss">
-    @import "../../scss/variables";
+    @import '../../scss/variables';
 
     .filter {
         padding: 0 0 0 $space-xl;

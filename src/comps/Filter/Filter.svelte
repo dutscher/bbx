@@ -1,21 +1,21 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import FilterTags from "./FilterTags.svelte";
-    import FilterColors from "./FilterColors.svelte";
-    import FilterParts from "./FilterParts.svelte";
-    import FilterPartTypes from "./FilterPartTypes.svelte";
-    import FilterStates from "./FilterStates.svelte";
-    import FilterSearch from "./FilterSearch.svelte";
-    import Icon from "../Icon.svelte";
-    import { ID_PARTS, lsKeyFilter } from "../../_interfaces";
-    import { localStore, storedActiveSelection } from "../../stores";
+    import { onMount } from 'svelte';
+    import FilterTags from './FilterTags.svelte';
+    import FilterColors from './FilterColors.svelte';
+    import FilterParts from './FilterParts.svelte';
+    import FilterPartTypes from './FilterPartTypes.svelte';
+    import FilterStates from './FilterStates.svelte';
+    import FilterSearch from './FilterSearch.svelte';
+    import Icon from '../Icon.svelte';
+    import { ID_PARTS, lsKeyFilter } from '../../_interfaces';
+    import { localStore, storedActiveSelection } from '../../stores';
 
     let activeTagIds: any = [];
     let activePartIds: any = [];
     let activePartTypeIds: any = [];
     let activeColorIds: any = [];
     let activeStateIds: any = [];
-    let activeSearchString: string = "";
+    let activeSearchString: string = '';
     let isVisible = true;
 
     storedActiveSelection.subscribe((store) => {
@@ -56,7 +56,7 @@
 </div>
 
 <style lang="scss">
-    @import "../../scss/variables";
+    @import '../../scss/variables';
 
     .flex {
         display: none;

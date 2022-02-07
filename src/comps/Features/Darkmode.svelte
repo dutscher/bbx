@@ -2,9 +2,9 @@
     // https://jfelix.info/blog/using-react-spring-to-animate-svg-icons-dark-mode-toggle
     // https://stackoverflow.com/questions/56300132/how-to-override-css-prefers-color-scheme-setting
     // https://svelte.dev/tutorial/spring
-    import { onMount } from "svelte";
-    import { spring } from "svelte/motion";
-    import { localStore } from "../../stores";
+    import { onMount } from 'svelte';
+    import { spring } from 'svelte/motion';
+    import { localStore } from '../../stores';
 
     const properties = {
         dark: {
@@ -41,11 +41,11 @@
 
     const initToggle = () => {
         // local storage is used to override OS theme settings
-        if (localStorage.getItem("theme")) {
-            if (localStorage.getItem("theme") === "dark") {
+        if (localStorage.getItem('theme')) {
+            if (localStorage.getItem('theme') === 'dark') {
                 isDarkmode = true;
             }
-        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
             // OS theme setting detected as dark
             isDarkmode = true;
         }
@@ -54,7 +54,7 @@
     };
 
     const updateToggle = () => {
-        const theme = isDarkmode ? "dark" : "light";
+        const theme = isDarkmode ? 'dark' : 'light';
         const { r, transform, cx, cy, opacity } = properties[theme];
 
         svgContainerProps.set({ transform });
@@ -63,9 +63,9 @@
         linesProps.set({ opacity });
 
         // dark theme preferred, set document with a `data-theme` attribute
-        document.documentElement.setAttribute("data-theme", theme);
-        document.documentElement.setAttribute("data-theme-ready", "true");
-        localStore.set("theme", theme);
+        document.documentElement.setAttribute('data-theme', theme);
+        document.documentElement.setAttribute('data-theme-ready', 'true');
+        localStore.set('theme', theme);
         setTimeout(() => {
             isReady = true;
         }, 500);
@@ -108,7 +108,7 @@
 </svg>
 
 <style lang="scss">
-    @import "../../scss/variables";
+    @import '../../scss/variables';
 
     .darkmode {
         transition: opacity 1000ms ease-in-out;

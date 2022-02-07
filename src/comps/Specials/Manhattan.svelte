@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { storedProducts, storedGlobalData, storedActiveProduct } from "../../stores";
-    import { STR_MANHATTAN } from "../../_interfaces";
-    import { getEEProduct, getEEState } from "../../utils";
+    import { storedProducts, storedGlobalData, storedActiveProduct } from '../../stores';
+    import { STR_MANHATTAN } from '../../_interfaces';
+    import { getEEProduct, getEEState } from '../../utils';
 
     const type = STR_MANHATTAN;
     let products: any;
@@ -29,8 +29,8 @@
 
             return {
                 id: product.id,
-                nr: (i + 1 + "").padStart(2, "00"),
-                title: product.title.replace(STR_MANHATTAN + " ", ""),
+                nr: (i + 1 + '').padStart(2, '00'),
+                title: product.title.replace(STR_MANHATTAN + ' ', ''),
                 state: getEEState(product),
                 isOutside: i >= 17,
             };
@@ -43,9 +43,9 @@
         storedActiveProduct.update((value) => {
             value.product = {
                 id: activeProductID,
-                type: "products",
+                type: 'products',
             };
-            value.reason = "click-on-zoom";
+            value.reason = 'click-on-zoom';
             return value;
         });
     };
@@ -80,7 +80,7 @@
 </div>
 
 <style lang="scss">
-    @import "../../scss/variables";
+    @import '../../scss/variables';
 
     .pieces {
         position: relative;
@@ -95,7 +95,7 @@
         }
     }
 
-    $selector: ".piece";
+    $selector: '.piece';
     #{$selector} {
         position: absolute;
         top: 0;

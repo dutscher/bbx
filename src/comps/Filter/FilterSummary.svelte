@@ -1,5 +1,5 @@
 <script lang="ts">
-    import FilterSummaryActive from "./FilterSummaryActive.svelte";
+    import FilterSummaryActive from './FilterSummaryActive.svelte';
     import {
         storedActiveSelection,
         storedColors,
@@ -7,10 +7,10 @@
         storedPartTypes,
         storedStates,
         storedTags,
-    } from "../../stores";
-    import { setUrlParams } from "../../utils";
+    } from '../../stores';
+    import { setUrlParams } from '../../utils';
 
-    export let activeSearchString: string = "";
+    export let activeSearchString: string = '';
     export let activeTagIds: any = [];
     export let activeStateIds: any = [];
     export let activeColorIds: any = [];
@@ -43,8 +43,8 @@
         event.stopPropagation();
 
         storedActiveSelection.update((store) => {
-            if (type === "search" && type === "search") {
-                store[type] = "";
+            if (type === 'search' && type === 'search') {
+                store[type] = '';
             } else {
                 store[type] = store[type].filter((itemId) => itemId !== id);
             }
@@ -52,7 +52,7 @@
             const restTags = tags.filter((tag) => store[type].includes(tag.id));
 
             if (restTags.length === 0) {
-                store.reason = "remove-all-filters";
+                store.reason = 'remove-all-filters';
             }
 
             setUrlParams(
@@ -72,44 +72,44 @@
             <FilterSummaryActive
                 label="Suche nach"
                 activStr={activeSearchString}
-                onClick={removeItem.bind(this, "search")}
+                onClick={removeItem.bind(this, 'search')}
             />
             <FilterSummaryActive
                 label="Tags"
                 activeIds={activeTagIds}
                 store={tags}
-                onClick={removeItem.bind(this, "tags")}
+                onClick={removeItem.bind(this, 'tags')}
             />
             <FilterSummaryActive
                 label="Status"
                 activeIds={activeStateIds}
                 store={states}
-                onClick={removeItem.bind(this, "states")}
+                onClick={removeItem.bind(this, 'states')}
             />
             <FilterSummaryActive
                 label="Farben"
                 activeIds={activeColorIds}
                 store={colors}
-                onClick={removeItem.bind(this, "colors")}
+                onClick={removeItem.bind(this, 'colors')}
             />
             <FilterSummaryActive
                 label="Parts"
                 activeIds={activePartIds}
                 store={parts}
-                onClick={removeItem.bind(this, "parts")}
+                onClick={removeItem.bind(this, 'parts')}
             />
             <FilterSummaryActive
                 label="Parttypen"
                 activeIds={activePartTypeIds}
                 store={partTypes}
-                onClick={removeItem.bind(this, "partTypes")}
+                onClick={removeItem.bind(this, 'partTypes')}
             />
         </div>
     </div>
 {/if}
 
 <style lang="scss">
-    @import "../../scss/variables";
+    @import '../../scss/variables';
 
     .filter-summary {
         position: relative;

@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { storedProducts, storedHearts } from "../../stores";
-    import Product from "../Product/Product.svelte";
-    import Icon from "../Icon.svelte";
+    import { storedProducts, storedHearts } from '../../stores';
+    import Product from '../Product/Product.svelte';
+    import Icon from '../Icon.svelte';
 
     let heartSummary = { price: 0, parts: 0 };
     let hearts = [];
@@ -57,7 +57,7 @@
             <span class="summary">
                 =
                 <strong>Listenpreis:</strong>
-                {heartSummary.price.toFixed(2).replace(".", ",")} EUR /
+                {heartSummary.price.toFixed(2).replace('.', ',')} EUR /
                 <strong>Steine:</strong>
                 {heartSummary.parts}
             </span>
@@ -66,7 +66,7 @@
 </div>
 
 <style lang="scss">
-    @import "../../scss/variables";
+    @import '../../scss/variables';
 
     .icon {
         position: relative;

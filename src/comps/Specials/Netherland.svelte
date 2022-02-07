@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { storedProducts, storedGlobalData, storedActiveProduct } from "../../stores";
-    import { STR_NETHERLAND } from "../../_interfaces";
-    import { getEEProduct, getEEState } from "../../utils";
+    import { storedProducts, storedGlobalData, storedActiveProduct } from '../../stores';
+    import { STR_NETHERLAND } from '../../_interfaces';
+    import { getEEProduct, getEEState } from '../../utils';
 
     const type = STR_NETHERLAND;
     let products: any;
@@ -29,8 +29,8 @@
 
             return {
                 id: product.id,
-                nr: (i + 1 + "").padStart(2, "00"),
-                title: product.title.replace(STR_NETHERLAND + " ", ""),
+                nr: (i + 1 + '').padStart(2, '00'),
+                title: product.title.replace(STR_NETHERLAND + ' ', ''),
                 state: getEEState(product),
             };
         });
@@ -43,9 +43,9 @@
         storedActiveProduct.update((store) => {
             store.product = {
                 id: activeProductID,
-                type: "products",
+                type: 'products',
             };
-            store.reason = "click-on-zoom";
+            store.reason = 'click-on-zoom';
             return store;
         });
     };
@@ -76,7 +76,7 @@
 </div>
 
 <style lang="scss">
-    @import "../../scss/variables";
+    @import '../../scss/variables';
 
     .pieces {
         position: relative;
@@ -90,7 +90,7 @@
         }
     }
 
-    $selector: ".piece";
+    $selector: '.piece';
     #{$selector} {
         display: block;
 

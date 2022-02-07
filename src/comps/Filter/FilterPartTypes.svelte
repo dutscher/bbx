@@ -1,17 +1,17 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import { storedActiveSelection, storedPartTypes, storedProducts, storedFilteredProducts } from "../../stores";
-    import { getUrlParam, setUrlParams, titleMatch } from "../../utils";
-    import { ID_PARTS } from "../../_interfaces";
+    import { onMount } from 'svelte';
+    import { storedActiveSelection, storedPartTypes, storedProducts, storedFilteredProducts } from '../../stores';
+    import { getUrlParam, setUrlParams, titleMatch } from '../../utils';
+    import { ID_PARTS } from '../../_interfaces';
 
     export let activePartTypeIds: any = [];
     export let partTypes: any;
     export let products: any;
     export let filteredProducts: any = [];
 
-    const urlParam = "partTypes";
+    const urlParam = 'partTypes';
     const getUrlParams = () => {
-        const queryTags = getUrlParam(urlParam).split(",");
+        const queryTags = getUrlParam(urlParam).split(',');
         partTypes.map((part) => {
             queryTags.map((queryTag) => {
                 if (part.seoName === queryTag) {
@@ -39,9 +39,9 @@
                     urlParam,
                     partTypes.filter((part) => value[urlParam].includes(part.id)).map((part) => part.seoName)
                 );
-                value.reason = "part-type-clicked";
+                value.reason = 'part-type-clicked';
             } else {
-                value.reason = "url-parsed";
+                value.reason = 'url-parsed';
             }
             return value;
         });
@@ -100,7 +100,7 @@
 </div>
 
 <style lang="scss">
-    @import "../../scss/variables";
+    @import '../../scss/variables';
 
     .part {
         padding: 0 $space-xl;

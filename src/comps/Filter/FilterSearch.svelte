@@ -1,11 +1,11 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import { storedActiveSelection } from "../../stores";
-    import { getUrlParam, setUrlParams } from "../../utils";
+    import { onMount } from 'svelte';
+    import { storedActiveSelection } from '../../stores';
+    import { getUrlParam, setUrlParams } from '../../utils';
 
-    export let activeSearchString: any = "";
+    export let activeSearchString: any = '';
 
-    const urlParam = "search";
+    const urlParam = 'search';
 
     const getUrlParams = () => {
         // ?tags=piraten
@@ -23,9 +23,9 @@
 
             if (withUrlUpdate) {
                 setUrlParams(urlParam, !!activeSearchString ? [activeSearchString] : []);
-                value.reason = "search-typed";
+                value.reason = 'search-typed';
             } else {
-                value.reason = "url-parsed";
+                value.reason = 'url-parsed';
             }
             return value;
         });
@@ -43,8 +43,8 @@
 
     const checkInput = (value) => {
         // reset value
-        if (value === "") {
-            activeSearchString = "";
+        if (value === '') {
+            activeSearchString = '';
             onInput(true);
         }
     };
@@ -72,7 +72,7 @@
 </div>
 
 <style lang="scss">
-    @import "../../scss/variables";
+    @import '../../scss/variables';
 
     .search {
         background: $color-primary-lighter;
@@ -92,7 +92,7 @@
         }
     }
 
-    :global([data-theme="dark"] .search) {
+    :global([data-theme='dark'] .search) {
         background: $color-neutral-100;
     }
 </style>

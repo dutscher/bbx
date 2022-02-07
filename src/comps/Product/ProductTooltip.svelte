@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { AFF_LINK } from "../../_interfaces";
+    import { AFF_LINK } from '../../_interfaces';
     import {
         storedGlobalData,
         storedCategories,
@@ -10,11 +10,11 @@
         lsKeyHeart,
         localStore,
         storedActiveProduct,
-    } from "../../stores";
-    import { jsVoid, setUrlParams, handlePrice } from "../../utils";
-    import Icon from "../Icon.svelte";
-    import ProductHistory from "./ProductHistory.svelte";
-    import ProductImage from "./ProductImage.svelte";
+    } from '../../stores';
+    import { jsVoid, setUrlParams, handlePrice } from '../../utils';
+    import Icon from '../Icon.svelte';
+    import ProductHistory from './ProductHistory.svelte';
+    import ProductImage from './ProductImage.svelte';
 
     export let product: any;
     export let states: any;
@@ -43,16 +43,16 @@
     // /101/101857%20Das%20Schwarze%20Auge,%20Thowaler%20Drachenschiff,%20Otta%20(45MB).pdf
     // https://www.bluebrixx.com/data/files/manuals/103/103272%20Nimitz%20Teil%202%20(26MB).pdf
     const getInstLabel = (str) => {
-        let strReturn = "";
-        const defaultLabel = "Download";
+        let strReturn = '';
+        const defaultLabel = 'Download';
         const foundSize = str.match(/\((\d*MB)\)/);
         const foundPart = str.match(/Teil(%20| )(\d{1})/);
         const foundUnit = str.match(/Unit (\d{1,2})/);
         if (foundSize || foundPart || foundUnit) {
             if (foundUnit) {
-                strReturn = "Unit " + foundUnit[1] + (foundSize ? " - " + foundSize[1] : "");
+                strReturn = 'Unit ' + foundUnit[1] + (foundSize ? ' - ' + foundSize[1] : '');
             } else if (foundPart) {
-                strReturn = "Teil " + foundPart[2] + (foundSize ? " - " + foundSize[1] : "");
+                strReturn = 'Teil ' + foundPart[2] + (foundSize ? ' - ' + foundSize[1] : '');
             } else {
                 strReturn = foundSize[1];
             }
@@ -63,7 +63,7 @@
     };
 
     const getInstHref = (pdfLink) => {
-        if (pdfLink.includes("http")) {
+        if (pdfLink.includes('http')) {
             return pdfLink;
         }
         return data.instUrl + pdfLink;
@@ -87,9 +87,9 @@
         }
 
         if (rightEdgeWithSpace > innerWidth) {
-            leftAdjust = "-" + maxLeft + "px";
+            leftAdjust = '-' + maxLeft + 'px';
         } else {
-            leftAdjust = "0px";
+            leftAdjust = '0px';
         }
     };
 
@@ -99,15 +99,15 @@
 
     const setActiveTag = (tagID) => {
         storedActiveSelection.update((store) => {
-            if (!("tags" in store)) {
+            if (!('tags' in store)) {
                 store.tags = [];
             }
             if (!store.tags.includes(tagID)) {
                 store.tags.push(tagID);
-                store.reason = "tooltip-tag-clicked";
+                store.reason = 'tooltip-tag-clicked';
 
                 setUrlParams(
-                    "tags",
+                    'tags',
                     tags.filter((tag) => store.tags.includes(tag.id)).map((tag) => tag.seoName)
                 );
             }
@@ -120,9 +120,9 @@
         storedActiveProduct.update((store) => {
             store.product = {
                 id: 0,
-                type: "Tooltip",
+                type: 'Tooltip',
             };
-            store.reason = "close-tooltip";
+            store.reason = 'close-tooltip';
             return store;
         });
     };
@@ -142,10 +142,10 @@
     };
 
     const setDownload = (downloadUrl, name) => {
-        const link = document.createElement("a");
+        const link = document.createElement('a');
         // If you don't know the name or want to use
         // the webserver default set name = ''
-        link.setAttribute("download", name);
+        link.setAttribute('download', name);
         link.href = downloadUrl;
         document.body.appendChild(link);
         link.click();
@@ -156,7 +156,7 @@
         const { bottom } = wrapElement.getBoundingClientRect();
 
         if (bottom > window.innerHeight) {
-            wrapElement.scrollIntoView({ behavior: "smooth" });
+            wrapElement.scrollIntoView({ behavior: 'smooth' });
         }
     };
 
@@ -186,7 +186,7 @@
                             <Icon
                                 modifier="heart"
                                 svg="true"
-                                class={hearts.includes(product.id) ? "active" : ""}
+                                class={hearts.includes(product.id) ? 'active' : ''}
                                 title="Will ich haben"
                                 on:click={clickHeart}
                             />
@@ -205,7 +205,7 @@
                     <strong>Kategorien:</strong>
                     <span class="tooltip__content">
                         {#each product.cats as categoryId, i}
-                            <span data-divider={i + 1 < product.cats.length && "/"}>
+                            <span data-divider={i + 1 < product.cats.length && '/'}>
                                 {categories[categoryId]}
                             </span>
                         {/each}
@@ -219,7 +219,7 @@
                             <a
                                 href={jsVoid}
                                 on:click={() => setActiveTag(tagID)}
-                                data-divider={i + 1 < product.tags.length && "/"}>{getTagName(tagID)}</a
+                                data-divider={i + 1 < product.tags.length && '/'}>{getTagName(tagID)}</a
                             >
                         {/each}
                     </span>
@@ -252,7 +252,7 @@
                 <br />
                 <a href={data.url + product.href + AFF_LINK} target="_blank">
                     <span>
-                        Zum Shop{!!AFF_LINK ? "*" : ""}
+                        Zum Shop{!!AFF_LINK ? '*' : ''}
                         <Icon modifier="cart" />
                     </span><br />
                     <ProductImage
@@ -269,7 +269,7 @@
 </div>
 
 <style lang="scss">
-    @import "../../scss/variables";
+    @import '../../scss/variables';
 
     .tooltip {
         position: relative;

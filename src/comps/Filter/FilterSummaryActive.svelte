@@ -1,8 +1,8 @@
 <script lang="ts">
-    import Icon from "../Icon.svelte";
+    import Icon from '../Icon.svelte';
 
-    export let label: string = "";
-    export let activStr: string = "";
+    export let label: string = '';
+    export let activStr: string = '';
     export let activeIds: any = [];
     export let store: any = [];
     export let onClick: any = () => {};
@@ -13,7 +13,7 @@
         <u>{label}:</u>&nbsp;
         {#if !!activStr}
             "{activStr}"
-            <Icon modifier="cross" on:click={(e) => onClick(e, "search")} />
+            <Icon modifier="cross" on:click={(e) => onClick(e, 'search')} />
         {:else if activeIds.length > 0}
             {#each activeIds as itemId}
                 <span class="filter__item">
@@ -26,7 +26,7 @@
 {/if}
 
 <style lang="scss">
-    @import "../../scss/variables";
+    @import '../../scss/variables';
 
     .filter {
         margin-right: $space-lg;
