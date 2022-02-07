@@ -20,7 +20,7 @@
                 }
             });
         });
-    }
+    };
 
     const clickItem = (item, withUrlUpdate?) => {
         if (item.count === 0) return;
@@ -37,10 +37,9 @@
 
             if (withUrlUpdate) {
                 setUrlParams(
-                        urlParam,
-                        colors
-                                .filter(color => store[urlParam].includes(color.id))
-                                .map((color) => color.seoName));
+                    urlParam,
+                    colors.filter(color => store[urlParam].includes(color.id)).map(color => color.seoName)
+                );
                 store.reason = 'part-clicked';
             } else {
                 store.reason = 'url-parsed';
@@ -48,49 +47,50 @@
 
             return store;
         });
-    }
+    };
 
     function sortItems() {
         let sortedData = [];
         // get count of products
-        sortedData = colors.map(color => {
-            const filtered =
-                    (filteredProducts && filteredProducts.withFilter.length > 0 ? filteredProducts.withFilter : products)
-                            // is a part
-                            .filter(product => product.tags.includes(48))
-                            .filter(product => titleMatch(color, product) > 0);
-
-            color.countFiltered = filtered.length;
-
-            color.count = products
+        sortedData = colors
+            .map(color => {
+                const filtered = (
+                    filteredProducts && filteredProducts.withFilter.length > 0 ? filteredProducts.withFilter : products
+                )
                     // is a part
                     .filter(product => product.tags.includes(48))
-                    .filter(product => titleMatch(color, product) > 0)
-                    .length;
+                    .filter(product => titleMatch(color, product) > 0);
 
-            if (color.countFiltered === 1) {
-                //console.log(filtered, color)
-            }
+                color.countFiltered = filtered.length;
 
-            return color;
-        })
-                .filter(color => color.count > 0)
-                // sort state
-                .sort((a, b) => {
-                    if (a.label < b.label) {
-                        return -1;
-                    }
-                    if (a.label > b.label) {
-                        return 1;
-                    }
-                    return 0;
-                });
+                color.count = products
+                    // is a part
+                    .filter(product => product.tags.includes(48))
+                    .filter(product => titleMatch(color, product) > 0).length;
+
+                if (color.countFiltered === 1) {
+                    //console.log(filtered, color)
+                }
+
+                return color;
+            })
+            .filter(color => color.count > 0)
+            // sort state
+            .sort((a, b) => {
+                if (a.label < b.label) {
+                    return -1;
+                }
+                if (a.label > b.label) {
+                    return 1;
+                }
+                return 0;
+            });
         return sortedData;
     }
 
-    storedColors.subscribe(store => colors = store);
-    storedProducts.subscribe(store => products = store);
-    storedFilteredProducts.subscribe(store => filteredProducts = store);
+    storedColors.subscribe(store => (colors = store));
+    storedProducts.subscribe(store => (products = store));
+    storedFilteredProducts.subscribe(store => (filteredProducts = store));
 
     onMount(() => {
         getUrlParams();
@@ -98,8 +98,8 @@
 
     $: sortedItems = sortItems(filteredProducts);
 
-    const classNames = (color) => ({
-        'class': [
+    const classNames = color => ({
+        class: [
             'color',
             activeColorIds.includes(color.id) && 'active',
             color.id === 18 && 'chrome',
@@ -107,18 +107,23 @@
             color.id === 51 && 'pearl-gold',
             color.countFiltered === 0 && 'disabled',
             color.name.toLowerCase().includes('trans') && 'trans',
-        ].filter(css => css !== false).join(' ')
+        ]
+            .filter(css => css !== false)
+            .join(' '),
     });
 </script>
+
 <div class="flex">
     <h4>Farben</h4>
     <div class="flex flex--wrap bl">
         {#each sortedItems as color (color.id)}
-            <div {...classNames(color)}
-                 data-id={color.id}
-                 on:click={() => clickItem(color, true)}
-                 title="{color.name}{color.de ? ' / '+ color.de : ''} ({color.countFiltered})"
-                 style="background-color:#{color.hex}"></div>
+            <div
+                {...classNames(color)}
+                data-id="{color.id}"
+                on:click="{() => clickItem(color, true)}"
+                title="{color.name}{color.de ? ' / ' + color.de : ''} ({color.countFiltered})"
+                style="background-color:#{color.hex}"
+            ></div>
         {/each}
     </div>
 </div>

@@ -18,7 +18,7 @@
                 }
             });
         });
-    }
+    };
 
     const clickItem = (item, withUrlUpdate?) => {
         if (item.count === 0) return;
@@ -36,20 +36,19 @@
             if (withUrlUpdate) {
                 setUrlParams(
                     urlParam,
-                    parts
-                        .filter(part => store[urlParam].includes(part.id))
-                        .map((part) => part.seoName));
+                    parts.filter(part => store[urlParam].includes(part.id)).map(part => part.seoName)
+                );
                 store.reason = 'part-clicked';
             } else {
                 store.reason = 'url-parsed';
             }
             return value;
         });
-    }
+    };
 
-    storedParts.subscribe(store => parts = store);
-    storedProducts.subscribe(store => products = store);
-    storedFilteredProducts.subscribe(store => filteredProducts = store);
+    storedParts.subscribe(store => (parts = store));
+    storedProducts.subscribe(store => (products = store));
+    storedFilteredProducts.subscribe(store => (filteredProducts = store));
 
     onMount(() => {
         getUrlParams();
@@ -58,13 +57,13 @@
     function sortItems() {
         let sortedData = [];
         // get count of products
-        sortedData = parts.map((part, partId) => {
-            part.count =
-                (filteredProducts && filteredProducts.withFilter.length > 0 ? filteredProducts.withFilter : products)
-                    .filter(product => product.partTags && product.partTags.includes(partId))
-                    .length;
-            return part;
-        })
+        sortedData = parts
+            .map((part, partId) => {
+                part.count = (
+                    filteredProducts && filteredProducts.withFilter.length > 0 ? filteredProducts.withFilter : products
+                ).filter(product => product.partTags && product.partTags.includes(partId)).length;
+                return part;
+            })
             // sort state
             .sort((a, b) => {
                 if (a.label < b.label) {
@@ -80,15 +79,18 @@
 
     $: sortedItems = sortItems(filteredProducts);
 </script>
+
 <div class="flex parts">
     <h4>Parts</h4>
     <div class="flex flex--wrap bl">
         {#each sortedItems as part (part.id)}
-            <div class="part{activePartIds.includes(part.id) ? ' active': ''}{part.count === 0 ? ' disabled': ''}"
-                 data-id={part.id}
-                 on:click={() => clickItem(part, true)}
-                 title="{part.de} ({part.count})">
-                <img src="/images/parts/25/{part.seoName}.jpg" alt={part.de} />
+            <div
+                class="part{activePartIds.includes(part.id) ? ' active' : ''}{part.count === 0 ? ' disabled' : ''}"
+                data-id="{part.id}"
+                on:click="{() => clickItem(part, true)}"
+                title="{part.de} ({part.count})"
+            >
+                <img src="/images/parts/25/{part.seoName}.jpg" alt="{part.de}" />
                 {part.name}
             </div>
         {/each}
@@ -96,46 +98,48 @@
 </div>
 
 <style lang="scss">
-  @import '../../scss/variables';
+    @import '../../scss/variables';
 
-  .parts {
-    margin-top: $space-md;
-  }
-
-  .part {
-    padding: 0 $space-xl;
-    margin: $space-xs;
-    border: solid 1px $color-primary-darker;
-    border-radius: $border-radius-xl;
-    background: $color-white;
-    color: $color-primary-dark;
-    cursor: pointer;
-    user-select: none;
-    position: relative;
-    font-size: ms(0);
-
-    @media (min-width: 750px) {
-      font-size: ms(-2);
+    .parts {
+        margin-top: $space-md;
     }
 
-    img {
-      vertical-align: middle;
-      border-radius: $space-lg;
-    }
+    .part {
+        padding: 0 $space-xl;
+        margin: $space-xs;
+        border: solid 1px $color-primary-darker;
+        border-radius: $border-radius-xl;
+        background: $color-white;
+        color: $color-primary-dark;
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+        font-size: ms(0);
 
-    &:focus, &:active, &.active {
-      background: $color-primary-darker;
-      color: $color-white;
-    }
+        @media (min-width: 750px) {
+            font-size: ms(-2);
+        }
 
-    &:hover {
-      background: $color-primary-dark;
-      color: $color-white;
-    }
+        img {
+            vertical-align: middle;
+            border-radius: $space-lg;
+        }
 
-    &.disabled {
-      opacity: 0.1;
-      cursor: default;
+        &:focus,
+        &:active,
+        &.active {
+            background: $color-primary-darker;
+            color: $color-white;
+        }
+
+        &:hover {
+            background: $color-primary-dark;
+            color: $color-white;
+        }
+
+        &.disabled {
+            opacity: 0.1;
+            cursor: default;
+        }
     }
-  }
 </style>

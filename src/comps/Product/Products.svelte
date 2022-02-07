@@ -1,8 +1,8 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import Product from "./Product.svelte";
-    import FilterSummary from "../Filter/FilterSummary.svelte";
-    import { titleMatch, jsVoid, setUrlParams, getUrlParam, getAllUrlParams } from "../../utils";
+    import Product from './Product.svelte';
+    import FilterSummary from '../Filter/FilterSummary.svelte';
+    import { titleMatch, jsVoid, setUrlParams, getUrlParam, getAllUrlParams } from '../../utils';
     import {
         storedProducts,
         storedFilteredProducts,
@@ -13,9 +13,10 @@
         storedStates,
         storedTags,
         storedActiveSelection,
-        storedActiveProduct, localStore,
+        storedActiveProduct,
+        localStore,
     } from '../../stores';
-    import { lsKeyChanges, lsKeyFilter, lsKeyWelcome } from "../../_interfaces";
+    import { lsKeyChanges, lsKeyFilter, lsKeyWelcome } from '../../_interfaces';
 
     let activeTagIds: any = [];
     let activePartIds: any = [];
@@ -38,21 +39,16 @@
 
     export let bbUrl: string;
 
-    const sorter = [
-        'Teile:parts',
-        'Preise:price',
-        'PreisProTeil:pricePerPart',
-        'ABC:title',
-    ];
+    const sorter = ['Teile:parts', 'Preise:price', 'PreisProTeil:pricePerPart', 'ABC:title'];
 
-    storedStates.subscribe(store => states = store);
-    storedProducts.subscribe(store => products = store);
-    storedParts.subscribe(store => parts = store);
-    storedPartTypes.subscribe(store => partTypes = store);
-    storedColors.subscribe(store => colors = store);
-    storedTags.subscribe(store => tags = store);
-    storedGlobalData.subscribe(store => bbUrl = store.url);
-    storedFilteredProducts.subscribe(store => filteredProducts = store);
+    storedStates.subscribe(store => (states = store));
+    storedProducts.subscribe(store => (products = store));
+    storedParts.subscribe(store => (parts = store));
+    storedPartTypes.subscribe(store => (partTypes = store));
+    storedColors.subscribe(store => (colors = store));
+    storedTags.subscribe(store => (tags = store));
+    storedGlobalData.subscribe(store => (bbUrl = store.url));
+    storedFilteredProducts.subscribe(store => (filteredProducts = store));
     storedActiveSelection.subscribe(store => {
         activeTagIds = store.tags;
         activePartIds = store.parts;
@@ -62,26 +58,17 @@
         activeSearchString = store.search;
 
         if (store.reason === 'remove-all-filters') {
-            setUrlParams(
-                urlParam,
-                '',
-            );
+            setUrlParams(urlParam, '');
         }
     });
     storedActiveProduct.subscribe(store => {
         // update url
         if ((store.reason === 'open-tooltip' || store.reason === 'click-on-zoom') && store.product.id !== 0) {
-            setUrlParams(
-                urlParam,
-                store.product.id,
-            );
+            setUrlParams(urlParam, store.product.id);
         } else if (store.reason === 'click-outside' || store.reason === 'close-tooltip') {
-            setUrlParams(
-                urlParam,
-                '',
-            );
+            setUrlParams(urlParam, '');
         }
-    })
+    });
 
     const getUrlParams = () => {
         const allParams = getAllUrlParams();
@@ -101,18 +88,34 @@
                 store.product = {
                     id: parseInt(queryProductId),
                     type: 'products',
-                }
-                store.reason = 'url-init'
+                };
+                store.reason = 'url-init';
                 return store;
             });
         }
-    }
+    };
 
-    function sortItems(activeTagIds, activeColorIds, activeStateIds, activePartId, activePartTypeIds, products, sorting, sortDirection) {
+    function sortItems(
+        activeTagIds,
+        activeColorIds,
+        activeStateIds,
+        activePartId,
+        activePartTypeIds,
+        products,
+        sorting,
+        sortDirection
+    ) {
         let raw = [];
         let withFilter = [];
 
-        if (!!activeSearchString || activeTagIds.length > 0 || activePartIds.length > 0 || activePartTypeIds.length > 0 || activeColorIds.length > 0 || activeStateIds.length > 0) {
+        if (
+            !!activeSearchString ||
+            activeTagIds.length > 0 ||
+            activePartIds.length > 0 ||
+            activePartTypeIds.length > 0 ||
+            activeColorIds.length > 0 ||
+            activeStateIds.length > 0
+        ) {
             raw = products
                 // filter products without cats
                 .filter(product => product.cats[0] !== -1)
@@ -124,18 +127,21 @@
                             countMatched++;
                         }
                     });
-                    return activeTagIds.length === 0 || activeTagIds.length > 0 && countMatched > 0
-                })
+                    return activeTagIds.length === 0 || (activeTagIds.length > 0 && countMatched > 0);
+                });
 
             withFilter = raw
                 // filter search
                 .filter(product => {
                     if (!!activeSearchString) {
                         let countMatched = 0;
-                        countMatched += titleMatch({
-                            matcher: [activeSearchString],
-                            ignores: [],
-                        }, product);
+                        countMatched += titleMatch(
+                            {
+                                matcher: [activeSearchString],
+                                ignores: [],
+                            },
+                            product
+                        );
                         return countMatched > 0;
                     } else return true;
                 })
@@ -177,7 +183,7 @@
                         }
                     });
                     return activeStateIds.length === 0 || countMatched > 0;
-                })
+                });
 
             withFilter = handleSort(withFilter);
         }
@@ -194,15 +200,16 @@
         // default sort
         if (sorting === '') {
             // sort unit 01-17
-            withFilter.sort((a, b) => {
-                if (a.title < b.title) {
-                    return -1;
-                }
-                if (a.title > b.title) {
-                    return 1;
-                }
-                return 0;
-            })
+            withFilter
+                .sort((a, b) => {
+                    if (a.title < b.title) {
+                        return -1;
+                    }
+                    if (a.title > b.title) {
+                        return 1;
+                    }
+                    return 0;
+                })
                 // sort state
                 .sort((a, b) => {
                     if (a.state.id < b.state.id) {
@@ -230,48 +237,61 @@
                     next = next.toLowerCase();
                 }
 
-                if (isASC && prev > next
-                    || isDESC && prev < next) {
+                if ((isASC && prev > next) || (isDESC && prev < next)) {
                     return -1;
                 }
-                if (isASC && prev < next
-                    || isDESC && prev > next) {
+                if ((isASC && prev < next) || (isDESC && prev > next)) {
                     return 1;
                 }
                 return 0;
-            })
+            });
         }
 
         return withFilter;
     }
 
-    $: sortedItems = sortItems(activeTagIds, activeColorIds, activeStateIds, activePartIds, activePartTypeIds, products, sorting, sortDirection);
+    $: sortedItems = sortItems(
+        activeTagIds,
+        activeColorIds,
+        activeStateIds,
+        activePartIds,
+        activePartTypeIds,
+        products,
+        sorting,
+        sortDirection
+    );
 
-    const sort = (type) => {
+    const sort = type => {
         const isDifferentSort = type !== sorting;
         const doReset = sortDirection === 'desc';
         sorting = doReset && !isDifferentSort ? '' : type;
         sortDirection = doReset || isDifferentSort ? 'asc' : 'desc';
-    }
+    };
 
     // first to remove localstorage keys before onMount
     getUrlParams();
     // to update stores
     onMount(() => {
         getUrlParams();
-    })
+    });
 </script>
 
 <h2 class="">
     Produkte <b>({filteredProducts.withFilter.length} / {products.length})</b>
 
-    <FilterSummary {activeSearchString} {activeTagIds} {activeStateIds} {activeColorIds} {activePartIds}
-                   {activePartTypeIds}/>
+    <FilterSummary
+        activeSearchString="{activeSearchString}"
+        activeTagIds="{activeTagIds}"
+        activeStateIds="{activeStateIds}"
+        activeColorIds="{activeColorIds}"
+        activePartIds="{activePartIds}"
+        activePartTypeIds="{activePartTypeIds}"
+    />
 
     <div class="flex flex--inline flex--vertical-center flex--wrap filter with-text-shadow">
         <strong class="filter-headline">| Sortieren:</strong>
         {#each sorter as item}
-            <a href={jsVoid} on:click={() => sort(item.split(':')[1])}>
+            <a href="{jsVoid}" on:click="{() => sort(item.split(':')[1])}">
                 {item.split(':')[0]}
                 {#if sorting === item.split(':')[1]}
                     {sortDirection === 'asc' ? '>' : '<'}
@@ -283,45 +303,47 @@
 
 <div class="flex flex--wrap">
     {#each sortedItems as product (product.id)}
-        <Product {product} type="products"/>
+        <Product product="{product}" type="products" />
     {/each}
 
     {#if filteredProducts.withFilter.length > chunks}
-        <span class="warning">Aus Performancegründen werden nur {chunks} von {filteredProducts.withFilter.length}
-            Produkte angezeigt</span>
+        <span class="warning"
+            >Aus Performancegründen werden nur {chunks} von {filteredProducts.withFilter.length}
+            Produkte angezeigt</span
+        >
     {/if}
 </div>
 
 <style lang="scss">
-  @import '../../scss/variables';
+    @import '../../scss/variables';
 
-  $selector: '.filter';
-  #{$selector} {
-    font-size: ms(-1);
-    color: $color-primary;
-    cursor: default;
+    $selector: '.filter';
+    #{$selector} {
+        font-size: ms(-1);
+        color: $color-primary;
+        cursor: default;
 
-    a {
-      margin-left: $space-sm;
-      color: inherit;
+        a {
+            margin-left: $space-sm;
+            color: inherit;
 
-      &:hover {
-        color: $color-primary-darker;
-      }
+            &:hover {
+                color: $color-primary-darker;
+            }
+        }
     }
-  }
 
-  :global([data-theme='dark'] #{$selector} a:hover) {
-    color: $color-white !important;
-  }
+    :global([data-theme='dark'] #{$selector} a:hover) {
+        color: $color-white !important;
+    }
 
-  :global(.filter-headline) {
-    font-size: ms(1);
-  }
+    :global(.filter-headline) {
+        font-size: ms(1);
+    }
 
-  .warning {
-    color: $color-unavailable;
-    font-weight: bold;
-    margin-top: $space-lg;
-  }
+    .warning {
+        color: $color-unavailable;
+        font-weight: bold;
+        margin-top: $space-lg;
+    }
 </style>

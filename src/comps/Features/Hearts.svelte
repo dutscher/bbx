@@ -1,14 +1,14 @@
 <script lang="ts">
     import { storedProducts, storedHearts } from '../../stores';
-    import Product from "../Product/Product.svelte";
-    import Icon from "../Icon.svelte";
+    import Product from '../Product/Product.svelte';
+    import Icon from '../Icon.svelte';
 
-    let heartSummary = {price: 0, parts: 0};
+    let heartSummary = { price: 0, parts: 0 };
     let hearts = [];
     let products = [];
 
-    storedProducts.subscribe(store => products = store);
-    storedHearts.subscribe(store => hearts = store);
+    storedProducts.subscribe(store => (products = store));
+    storedHearts.subscribe(store => (hearts = store));
 
     $: heartItems = hearts
         .map(pID => products.find(product => product.id === pID))
@@ -32,7 +32,7 @@
         });
 
     $: {
-        heartSummary = {price: 0, parts: 0};
+        heartSummary = { price: 0, parts: 0 };
 
         heartItems.map(product => {
             if (!!product.price && !!product.parts) {
@@ -46,32 +46,35 @@
 <div class="flex">
     {#if heartItems.length > 0}
         <span class="icon">
-            <Icon modifier="heart" svg="true" class="active" title="Will ich haben"/>
+            <Icon modifier="heart" svg="true" class="active" title="Will ich haben" />
         </span>
     {/if}
     <div class="flex flex--wrap">
         {#each heartItems as product (product.id)}
-            <Product {product} type="hearts"/>
+            <Product product="{product}" type="hearts" />
         {/each}
         {#if heartItems.length > 1}
-        <span class="summary"> =
-            <strong>Listenpreis:</strong> {heartSummary.price.toFixed(2).replace('.', ',')} EUR /
-            <strong>Steine:</strong> {heartSummary.parts}
-        </span>
+            <span class="summary">
+                =
+                <strong>Listenpreis:</strong>
+                {heartSummary.price.toFixed(2).replace('.', ',')} EUR /
+                <strong>Steine:</strong>
+                {heartSummary.parts}
+            </span>
         {/if}
     </div>
 </div>
 
 <style lang="scss">
-  @import '../../scss/variables';
+    @import '../../scss/variables';
 
-  .icon {
-    position: relative;
-    top: 2px;
-  }
+    .icon {
+        position: relative;
+        top: 2px;
+    }
 
-  .summary {
-    font-size: ms(-2);
-    line-height: 2;
-  }
+    .summary {
+        font-size: ms(-2);
+        line-height: 2;
+    }
 </style>

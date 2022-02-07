@@ -12,7 +12,7 @@
         const queryTags = getUrlParam(urlParam);
         activeSearchString = queryTags;
         onInput();
-    }
+    };
 
     const onInput = (withUrlUpdate?) => {
         storedActiveSelection.update(store => {
@@ -22,35 +22,32 @@
             store[urlParam] = activeSearchString;
 
             if (withUrlUpdate) {
-                setUrlParams(
-                    urlParam,
-                    !!activeSearchString ? [activeSearchString] : [],
-                )
+                setUrlParams(urlParam, !!activeSearchString ? [activeSearchString] : []);
                 store.reason = 'search-typed';
             } else {
                 store.reason = 'url-parsed';
             }
             return store;
         });
-    }
+    };
 
     let timer;
-    const debounce = (value) => {
+    const debounce = value => {
         clearTimeout(timer);
         timer = setTimeout(() => {
             // set value
             activeSearchString = value;
             onInput(true);
         }, 500);
-    }
+    };
 
-    const checkInput = (value) => {
+    const checkInput = value => {
         // reset value
         if (value === '') {
             activeSearchString = '';
             onInput(true);
         }
-    }
+    };
 
     onMount(() => {
         getUrlParams();
@@ -60,40 +57,42 @@
 <div class="flex flex--block">
     <h4>Suche</h4>
     <div class="flex flex--wrap bl">
-        <input class="search" type="search"
-               value={activeSearchString}
-               placeholder="Produktname oder ID"
-               on:input={({ target: { value } }) => checkInput(value)}
-               on:keyup={({ target: { value } }) => debounce(value)}
-               spellcheck="false"/>
+        <input
+            class="search"
+            type="search"
+            value="{activeSearchString}"
+            placeholder="Produktname oder ID"
+            on:input="{({ target: { value } }) => checkInput(value)}"
+            on:keyup="{({ target: { value } }) => debounce(value)}"
+            spellcheck="false"
+        />
         <!--               bind:value={activeSearchString}-->
         <!--               on:input={() => onInput(true)}-->
     </div>
 </div>
 
 <style lang="scss">
-  @import '../../scss/variables';
+    @import '../../scss/variables';
 
-  .search {
-    background: $color-primary-lighter;
-    border: solid 1px $color-primary-darker;
-    border-radius: $border-radius-lg;
-    color: $color-primary-darker;
-    padding: $space-md $space-lg;
-    font-size: ms(2);
-    width: 100%;
+    .search {
+        background: $color-primary-lighter;
+        border: solid 1px $color-primary-darker;
+        border-radius: $border-radius-lg;
+        color: $color-primary-darker;
+        padding: $space-md $space-lg;
+        font-size: ms(2);
+        width: 100%;
 
-    &::placeholder{
-      color: $color-white;
+        &::placeholder {
+            color: $color-white;
+        }
+
+        @media (min-width: 720px) {
+            width: 33vw;
+        }
     }
 
-    @media (min-width: 720px) {
-      width: 33vw;
+    :global([data-theme='dark'] .search) {
+        background: $color-neutral-100;
     }
-  }
-
-  :global([data-theme='dark'] .search){
-    background: $color-neutral-100;
-  }
 </style>
-
