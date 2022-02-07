@@ -28,7 +28,7 @@
 </script>
 
 {#if !isGranted}
-    <button class={isDenied ? 'is-denied' : ''} on:click={() => promptThePermission()}> Notify on Updates? </button>
+    <button class="{isDenied ? 'is-denied' : ''}" on:click="{() => promptThePermission()}"> Notify on Updates? </button>
 {/if}
 
 <style lang="scss">

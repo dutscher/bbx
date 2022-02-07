@@ -60,15 +60,15 @@
             <div class="pieces__wrap">
                 {#each pieces as piece}
                     <div
-                        class={`piece piece--${piece.nr} ${piece.state}`}
-                        on:click={(event) => {
+                        class="{`piece piece--${piece.nr} ${piece.state}`}"
+                        on:click="{(event) => {
                             setActive(event, piece.id);
-                        }}
-                        data-nr={piece.nr}
-                        title={piece.title}
+                        }}"
+                        data-nr="{piece.nr}"
+                        title="{piece.title}"
                     >
                         {#if !piece.isOutside}
-                            <img class="piece__img" alt={piece.title} src="./images/manhattan/{piece.nr}.png" />
+                            <img class="piece__img" alt="{piece.title}" src="./images/manhattan/{piece.nr}.png" />
                         {:else}
                             {piece.title}
                         {/if}

@@ -62,13 +62,13 @@
     {#if innerWidth}
         <div class="pieces" style="zoom:{zoom};-moz-transform:scale({zoom});">
             <div class="pieces__wrap flex">
-                <img class="piece__img" alt={STR_BURG_BLAUSTEIN} src="./images/{'burg-blaustein'}.png" />
+                <img class="piece__img" alt="{STR_BURG_BLAUSTEIN}" src="./images/{'burg-blaustein'}.png" />
                 {#each pieces as piece}
                     <div
-                        class={`piece piece--${piece.nr} ${piece.state}`}
-                        on:click={(event) => {
+                        class="{`piece piece--${piece.nr} ${piece.state}`}"
+                        on:click="{(event) => {
                             setActive(event, piece.id);
-                        }}
+                        }}"
                     >
                         {piece.title}
                         <span

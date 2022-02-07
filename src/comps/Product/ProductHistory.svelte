@@ -115,11 +115,11 @@
     {#if splittedHistory.last}
         {#if !fullVisible}
             <a
-                on:click={(e) => {
+                on:click="{(e) => {
                     e.stopPropagation();
                     fullVisible = true;
-                }}
-                href={jsVoid}>... Alles anzeigen</a
+                }}"
+                href="{jsVoid}">... Alles anzeigen</a
             >
         {:else}
             {#each splittedHistory.last as entry}

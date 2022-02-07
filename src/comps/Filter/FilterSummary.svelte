@@ -71,38 +71,38 @@
             <strong class="filter-headline">| Filter:&nbsp;</strong>
             <FilterSummaryActive
                 label="Suche nach"
-                activStr={activeSearchString}
-                onClick={removeItem.bind(this, 'search')}
+                activStr="{activeSearchString}"
+                onClick="{removeItem.bind(this, 'search')}"
             />
             <FilterSummaryActive
                 label="Tags"
-                activeIds={activeTagIds}
-                store={tags}
-                onClick={removeItem.bind(this, 'tags')}
+                activeIds="{activeTagIds}"
+                store="{tags}"
+                onClick="{removeItem.bind(this, 'tags')}"
             />
             <FilterSummaryActive
                 label="Status"
-                activeIds={activeStateIds}
-                store={states}
-                onClick={removeItem.bind(this, 'states')}
+                activeIds="{activeStateIds}"
+                store="{states}"
+                onClick="{removeItem.bind(this, 'states')}"
             />
             <FilterSummaryActive
                 label="Farben"
-                activeIds={activeColorIds}
-                store={colors}
-                onClick={removeItem.bind(this, 'colors')}
+                activeIds="{activeColorIds}"
+                store="{colors}"
+                onClick="{removeItem.bind(this, 'colors')}"
             />
             <FilterSummaryActive
                 label="Parts"
-                activeIds={activePartIds}
-                store={parts}
-                onClick={removeItem.bind(this, 'parts')}
+                activeIds="{activePartIds}"
+                store="{parts}"
+                onClick="{removeItem.bind(this, 'parts')}"
             />
             <FilterSummaryActive
                 label="Parttypen"
-                activeIds={activePartTypeIds}
-                store={partTypes}
-                onClick={removeItem.bind(this, 'partTypes')}
+                activeIds="{activePartTypeIds}"
+                store="{partTypes}"
+                onClick="{removeItem.bind(this, 'partTypes')}"
             />
         </div>
     </div>

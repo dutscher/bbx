@@ -126,7 +126,7 @@
     $: sortedMonths = sortMonths(sortedProducts, reverseSort);
 </script>
 
-<h2 class="with-toggle" on:click={() => (isVisible = !isVisible)}>
+<h2 class="with-toggle" on:click="{() => (isVisible = !isVisible)}">
     <Icon modifier="arrow {!isVisible ? 'down' : 'up'}" svg />
     {title}
     <b>({sortedProducts.length})</b>
@@ -134,18 +134,18 @@
 <div class="changes{isVisible ? ' show' : ''}">
     {#if state !== ID_STATE_ANNOUNCEMENT}
         <label class="with-text-shadow">
-            <input type="checkbox" bind:checked={showFirstRelease} />
+            <input type="checkbox" bind:checked="{showFirstRelease}" />
             Erstveröffentlichung
         </label>
     {/if}
     {#if state !== ID_STATE_AVAILABLE}
         <label class="with-text-shadow">
-            <input type="checkbox" bind:checked={reverseSort} />
+            <input type="checkbox" bind:checked="{reverseSort}" />
             Neuste zuerst
         </label>
     {/if}
     <label class="with-text-shadow">
-        <input type="checkbox" bind:checked={showParts} />
+        <input type="checkbox" bind:checked="{showParts}" />
         Auf Parts ({countParts}) umschalten
     </label>
     {#if state !== ID_STATE_AVAILABLE && !reverseSort}
@@ -161,7 +161,7 @@
                     </h3>
                     <div class="flex flex--wrap">
                         {#each month.products as product (product.id)}
-                            <Product {product} type="latestproducts" />
+                            <Product product="{product}" type="latestproducts" />
                         {/each}
                     </div>
                 {/if}

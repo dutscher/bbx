@@ -174,11 +174,11 @@
         <div
             class="tooltip__outer-wrap"
             style="{isMobile ? 'width:' + wrapWidth + 'px; ' : ''}left: {leftAdjust}"
-            bind:this={wrapElement}
+            bind:this="{wrapElement}"
         >
             <div class="tooltip__wrap">
                 <div class="tooltip__close">
-                    <Icon modifier="cross" svg="true" on:click={onClose} />
+                    <Icon modifier="cross" svg="true" on:click="{onClose}" />
                 </div>
                 {#if product.title}
                     <div class="tooltip__title-wrap">
@@ -186,9 +186,9 @@
                             <Icon
                                 modifier="heart"
                                 svg="true"
-                                class={hearts.includes(product.id) ? 'active' : ''}
+                                class="{hearts.includes(product.id) ? 'active' : ''}"
                                 title="Will ich haben"
-                                on:click={clickHeart}
+                                on:click="{clickHeart}"
                             />
                             {product.title}
                         </strong>
@@ -205,7 +205,7 @@
                     <strong>Kategorien:</strong>
                     <span class="tooltip__content">
                         {#each product.cats as categoryId, i}
-                            <span data-divider={i + 1 < product.cats.length && '/'}>
+                            <span data-divider="{i + 1 < product.cats.length && '/'}">
                                 {categories[categoryId]}
                             </span>
                         {/each}
@@ -217,9 +217,9 @@
                     <span class="tooltip__content tooltip__content--no-select tooltip__content--tags">
                         {#each product.tags as tagID, i}
                             <a
-                                href={jsVoid}
-                                on:click={() => setActiveTag(tagID)}
-                                data-divider={i + 1 < product.tags.length && '/'}>{getTagName(tagID)}</a
+                                href="{jsVoid}"
+                                on:click="{() => setActiveTag(tagID)}"
+                                data-divider="{i + 1 < product.tags.length && '/'}">{getTagName(tagID)}</a
                             >
                         {/each}
                     </span>
@@ -231,13 +231,13 @@
                     <div class="tooltip__content tooltip__content--rows">
                         {#if Array.isArray(product.inst)}
                             {#each product.inst as inst}
-                                <a class="inst-link" target="_blank" href={getInstHref(inst)}>
+                                <a class="inst-link" target="_blank" href="{getInstHref(inst)}">
                                     <Icon modifier="manual" />
                                     {getInstLabel(inst)}
                                 </a>
                             {/each}
                         {:else}
-                            <a class="inst-link" target="_blank" href={getInstHref(product.inst)}>
+                            <a class="inst-link" target="_blank" href="{getInstHref(product.inst)}">
                                 <Icon modifier="manual" />
                                 {getInstLabel(product.inst)}
                             </a>
@@ -247,20 +247,20 @@
                 <br />
                 <strong>Verlauf:</strong><br />
                 <div class="tooltip__content tooltip__content--rows">
-                    <ProductHistory {product} />
+                    <ProductHistory product="{product}" />
                 </div>
                 <br />
-                <a href={data.url + product.href + AFF_LINK} target="_blank">
+                <a href="{data.url + product.href + AFF_LINK}" target="_blank">
                     <span>
                         Zum Shop{!!AFF_LINK ? '*' : ''}
                         <Icon modifier="cart" />
                     </span><br />
                     <ProductImage
-                        {product}
-                        onLoad={() => {
+                        product="{product}"
+                        onLoad="{() => {
                             imageLoaded = true;
                             scrollIntoView();
-                        }}
+                        }}"
                     />
                 </a>
             </div>

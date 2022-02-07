@@ -40,19 +40,25 @@
     });
 </script>
 
-<h2 class="with-toggle" on:click={onClick}>
+<h2 class="with-toggle" on:click="{onClick}">
     <Icon modifier="arrow {!isVisible ? 'down' : 'up'}" svg />
     Filter
 </h2>
 <div class="flex flex--wrap{isVisible ? ' show' : ''} no-toggle-space">
-    <FilterTags {activeTagIds} />
-    <FilterStates {activeStateIds} {activeColorIds} {activePartIds} {activePartTypeIds} {activeSearchString} />
+    <FilterTags activeTagIds="{activeTagIds}" />
+    <FilterStates
+        activeStateIds="{activeStateIds}"
+        activeColorIds="{activeColorIds}"
+        activePartIds="{activePartIds}"
+        activePartTypeIds="{activePartTypeIds}"
+        activeSearchString="{activeSearchString}"
+    />
     {#if activeTagIds.includes(ID_PARTS) && activeTagIds.length === 1}
-        <FilterParts {activePartIds} />
-        <FilterColors {activeColorIds} />
-        <FilterPartTypes {activePartTypeIds} />
+        <FilterParts activePartIds="{activePartIds}" />
+        <FilterColors activeColorIds="{activeColorIds}" />
+        <FilterPartTypes activePartTypeIds="{activePartTypeIds}" />
     {/if}
-    <FilterSearch {activeSearchString} />
+    <FilterSearch activeSearchString="{activeSearchString}" />
 </div>
 
 <style lang="scss">

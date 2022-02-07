@@ -51,7 +51,7 @@
     {/if}
     <div class="flex flex--wrap">
         {#each heartItems as product (product.id)}
-            <Product {product} type="hearts" />
+            <Product product="{product}" type="hearts" />
         {/each}
         {#if heartItems.length > 1}
             <span class="summary">

@@ -280,18 +280,18 @@
     Produkte <b>({filteredProducts.withFilter.length} / {products.length})</b>
 
     <FilterSummary
-        {activeSearchString}
-        {activeTagIds}
-        {activeStateIds}
-        {activeColorIds}
-        {activePartIds}
-        {activePartTypeIds}
+        activeSearchString="{activeSearchString}"
+        activeTagIds="{activeTagIds}"
+        activeStateIds="{activeStateIds}"
+        activeColorIds="{activeColorIds}"
+        activePartIds="{activePartIds}"
+        activePartTypeIds="{activePartTypeIds}"
     />
 
     <div class="flex flex--inline flex--vertical-center flex--wrap filter with-text-shadow">
         <strong class="filter-headline">| Sortieren:</strong>
         {#each sorter as item}
-            <a href={jsVoid} on:click={() => sort(item.split(':')[1])}>
+            <a href="{jsVoid}" on:click="{() => sort(item.split(':')[1])}">
                 {item.split(':')[0]}
                 {#if sorting === item.split(':')[1]}
                     {sortDirection === 'asc' ? '>' : '<'}
@@ -303,7 +303,7 @@
 
 <div class="flex flex--wrap">
     {#each sortedItems as product (product.id)}
-        <Product {product} type="products" />
+        <Product product="{product}" type="products" />
     {/each}
 
     {#if filteredProducts.withFilter.length > chunks}

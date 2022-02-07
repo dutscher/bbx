@@ -60,14 +60,14 @@
             <div class="pieces__wrap flex">
                 {#each pieces as piece}
                     <div
-                        class={`piece piece--${piece.nr} ${piece.state}`}
-                        on:click={(event) => {
+                        class="{`piece piece--${piece.nr} ${piece.state}`}"
+                        on:click="{(event) => {
                             setActive(event, piece.id);
-                        }}
-                        title={piece.title}
-                        data-nr={piece.nr}
+                        }}"
+                        title="{piece.title}"
+                        data-nr="{piece.nr}"
                     >
-                        <img class="piece__img" alt={piece.title} src="./images/netherland/{piece.nr}.png" />
+                        <img class="piece__img" alt="{piece.title}" src="./images/netherland/{piece.nr}.png" />
                     </div>
                 {/each}
             </div>

@@ -89,8 +89,8 @@
         {#each sortedItems as part (part.id)}
             <div
                 class="part{activePartTypeIds.includes(part.id) ? ' active' : ''}{part.count === 0 ? ' disabled' : ''}"
-                data-id={part.id}
-                on:click={() => clickItem(part, true)}
+                data-id="{part.id}"
+                on:click="{() => clickItem(part, true)}"
                 title="{part.name} ({part.count})"
             >
                 {part.de}

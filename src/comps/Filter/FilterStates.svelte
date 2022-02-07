@@ -110,7 +110,7 @@
     <h4 class="tag-name">Status</h4>
     <div class="flex flex--wrap bl">
         {#each sortedItems as state (state.id)}
-            <div class={getClasses(state)} data-count={state.count} on:click={() => clickItem(state, true)}>
+            <div class="{getClasses(state)}" data-count="{state.count}" on:click="{() => clickItem(state, true)}">
                 {state.de}
             </div>
         {/each}

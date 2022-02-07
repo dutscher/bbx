@@ -119,11 +119,11 @@
         {#each sortedItems as color (color.id)}
             <div
                 {...classNames(color)}
-                data-id={color.id}
-                on:click={() => clickItem(color, true)}
+                data-id="{color.id}"
+                on:click="{() => clickItem(color, true)}"
                 title="{color.name}{color.de ? ' / ' + color.de : ''} ({color.countFiltered})"
                 style="background-color:#{color.hex}"
-            />
+            ></div>
         {/each}
     </div>
 </div>

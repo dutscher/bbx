@@ -48,18 +48,18 @@
     });
 </script>
 
-<h2 class="with-toggle" on:click={onClick}>
+<h2 class="with-toggle" on:click="{onClick}">
     <Icon modifier="arrow {!isVisible ? 'down' : 'up'}" svg />
     Änderungen
 </h2>
 <div class="changes{isVisible ? ' show' : ''}">
     {#if isOnline && loadedChanges !== LOADED}
-        <div class="loader" />
+        <div class="loader"></div>
     {:else}
         <TodayChanges />
-        <LatestProducts state={0} title="Verfügbar" />
-        <LatestProducts state={1} title="Bald erhältlich" />
-        <LatestProducts state={3} title="Ankündigungen" />
+        <LatestProducts state="{0}" title="Verfügbar" />
+        <LatestProducts state="{1}" title="Bald erhältlich" />
+        <LatestProducts state="{3}" title="Ankündigungen" />
     {/if}
 </div>
 

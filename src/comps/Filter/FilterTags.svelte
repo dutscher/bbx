@@ -89,13 +89,13 @@
         {#each sortedAbcTags as abc}
             {#each abc.sortedTags as tag, index}
                 <span
-                    class={getClasses(tag, index === 0, activeTagIds)}
-                    on:click={() => clickTag(tag, true)}
-                    data-id={tag.id}
-                    data-count={tag.count}
+                    class="{getClasses(tag, index === 0, activeTagIds)}"
+                    on:click="{() => clickTag(tag, true)}"
+                    data-id="{tag.id}"
+                    data-count="{tag.count}"
                 >
                     {#if index === 0}
-                        <span class="tag__letter" data-letter={abc.letter} />
+                        <span class="tag__letter" data-letter="{abc.letter}"></span>
                     {/if}
                     {tag.name}
                 </span>

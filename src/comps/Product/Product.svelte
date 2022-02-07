@@ -157,9 +157,9 @@
     };
 </script>
 
-<ClickOutside on:clickoutside={onClickOutside}>
-    <div class="product {handleStateColor(product)}" data-state={handleStateName(product)}>
-        <span class="product__label" on:click={onClick}>
+<ClickOutside on:clickoutside="{onClickOutside}">
+    <div class="product {handleStateColor(product)}" data-state="{handleStateName(product)}">
+        <span class="product__label" on:click="{onClick}">
             {#if isHeart && type !== 'hearts'}
                 <Icon modifier="heart" svg="true" class="active" title="Will ich haben" />
             {/if}
@@ -171,7 +171,7 @@
             {/if}
         </span>
         {#if !withoutTooltip}
-            <Tooltip {product} showTooltip={isActive} />
+            <Tooltip product="{product}" showTooltip="{isActive}" />
         {/if}
     </div>
 </ClickOutside>

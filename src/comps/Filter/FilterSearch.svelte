@@ -60,10 +60,10 @@
         <input
             class="search"
             type="search"
-            value={activeSearchString}
+            value="{activeSearchString}"
             placeholder="Produktname oder ID"
-            on:input={({ target: { value } }) => checkInput(value)}
-            on:keyup={({ target: { value } }) => debounce(value)}
+            on:input="{({ target: { value } }) => checkInput(value)}"
+            on:keyup="{({ target: { value } }) => debounce(value)}"
             spellcheck="false"
         />
         <!--               bind:value={activeSearchString}-->
