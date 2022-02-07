@@ -13,12 +13,12 @@
         <u>{label}:</u>&nbsp;
         {#if !!activStr}
             "{activStr}"
-            <Icon modifier="cross" on:click="{(e) => onClick(e, 'search')}" />
+            <Icon modifier="cross" on:click="{e => onClick(e, 'search')}" />
         {:else if activeIds.length > 0}
             {#each activeIds as itemId}
                 <span class="filter__item">
-                    {store.filter((item) => item.id === itemId)[0].de}
-                    <Icon modifier="cross" svg="true" on:click="{(e) => onClick(e, itemId)}" />
+                    {store.filter(item => item.id === itemId)[0].de}
+                    <Icon modifier="cross" svg="true" on:click="{e => onClick(e, itemId)}" />
                 </span>
             {/each}
         {/if}

@@ -41,15 +41,15 @@
 
     const sorter = ['Teile:parts', 'Preise:price', 'PreisProTeil:pricePerPart', 'ABC:title'];
 
-    storedStates.subscribe((store) => (states = store));
-    storedProducts.subscribe((store) => (products = store));
-    storedParts.subscribe((store) => (parts = store));
-    storedPartTypes.subscribe((store) => (partTypes = store));
-    storedColors.subscribe((store) => (colors = store));
-    storedTags.subscribe((store) => (tags = store));
-    storedGlobalData.subscribe((store) => (bbUrl = store.url));
-    storedFilteredProducts.subscribe((store) => (filteredProducts = store));
-    storedActiveSelection.subscribe((store) => {
+    storedStates.subscribe(store => (states = store));
+    storedProducts.subscribe(store => (products = store));
+    storedParts.subscribe(store => (parts = store));
+    storedPartTypes.subscribe(store => (partTypes = store));
+    storedColors.subscribe(store => (colors = store));
+    storedTags.subscribe(store => (tags = store));
+    storedGlobalData.subscribe(store => (bbUrl = store.url));
+    storedFilteredProducts.subscribe(store => (filteredProducts = store));
+    storedActiveSelection.subscribe(store => {
         activeTagIds = store.tags;
         activePartIds = store.parts;
         activePartTypeIds = store.partTypes;
@@ -61,7 +61,7 @@
             setUrlParams(urlParam, '');
         }
     });
-    storedActiveProduct.subscribe((store) => {
+    storedActiveProduct.subscribe(store => {
         // update url
         if ((store.reason === 'open-tooltip' || store.reason === 'click-on-zoom') && store.product.id !== 0) {
             setUrlParams(urlParam, store.product.id);
@@ -79,12 +79,12 @@
             localStore.set(lsKeyChanges, false);
             localStore.set(lsKeyFilter, false);
             // update search for product
-            storedActiveSelection.update((store) => {
+            storedActiveSelection.update(store => {
                 store.search = queryProductId;
                 return store;
             });
             // open tooltip
-            storedActiveProduct.update((store) => {
+            storedActiveProduct.update(store => {
                 store.product = {
                     id: parseInt(queryProductId),
                     type: 'products',
@@ -118,11 +118,11 @@
         ) {
             raw = products
                 // filter products without cats
-                .filter((product) => product.cats[0] !== -1)
+                .filter(product => product.cats[0] !== -1)
                 // filter only by tags
-                .filter((product) => {
+                .filter(product => {
                     let countMatched = 0;
-                    activeTagIds.map((tagId) => {
+                    activeTagIds.map(tagId => {
                         if (product.tags.includes(tagId)) {
                             countMatched++;
                         }
@@ -132,7 +132,7 @@
 
             withFilter = raw
                 // filter search
-                .filter((product) => {
+                .filter(product => {
                     if (!!activeSearchString) {
                         let countMatched = 0;
                         countMatched += titleMatch(
@@ -146,38 +146,38 @@
                     } else return true;
                 })
                 // filter parts
-                .filter((product) => {
+                .filter(product => {
                     let countMatched = 0;
                     if (product.partTags) {
-                        activePartIds.map((partId) => {
-                            const part = parts.find((part) => part.id === partId);
+                        activePartIds.map(partId => {
+                            const part = parts.find(part => part.id === partId);
                             countMatched += product.partTags.includes(part.id);
                         });
                     }
                     return activePartIds.length === 0 || countMatched > 0;
                 })
                 // filter parttypes
-                .filter((product) => {
+                .filter(product => {
                     let countMatched = 0;
-                    activePartTypeIds.map((partId) => {
-                        const part = partTypes.find((part) => part.id === partId);
+                    activePartTypeIds.map(partId => {
+                        const part = partTypes.find(part => part.id === partId);
                         countMatched += titleMatch(part, product);
                     });
                     return activePartTypeIds.length === 0 || countMatched > 0;
                 })
                 // filter colors
-                .filter((product) => {
+                .filter(product => {
                     let countMatched = 0;
-                    activeColorIds.map((colorId) => {
-                        const color = colors.find((color) => color.id === colorId);
+                    activeColorIds.map(colorId => {
+                        const color = colors.find(color => color.id === colorId);
                         countMatched += titleMatch(color, product);
                     });
                     return activeColorIds.length === 0 || countMatched > 0;
                 })
                 // filter states
-                .filter((product) => {
+                .filter(product => {
                     let countMatched = 0;
-                    activeStateIds.map((stateId) => {
+                    activeStateIds.map(stateId => {
                         if (product.state.id === stateId) {
                             countMatched++;
                         }
@@ -261,7 +261,7 @@
         sortDirection
     );
 
-    const sort = (type) => {
+    const sort = type => {
         const isDifferentSort = type !== sorting;
         const doReset = sortDirection === 'desc';
         sorting = doReset && !isDifferentSort ? '' : type;

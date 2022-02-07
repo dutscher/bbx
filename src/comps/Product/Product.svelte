@@ -38,11 +38,11 @@
     let isHot: boolean = false;
     let isActive: boolean = false;
 
-    storedActiveSelection.subscribe((store) => {
+    storedActiveSelection.subscribe(store => {
         activeTagsIds = store.tags;
         dataLoaded = store.loadedData.inst;
     });
-    storedActiveProduct.subscribe((store) => {
+    storedActiveProduct.subscribe(store => {
         activeProduct = store.product;
         if (
             activeProduct &&
@@ -51,9 +51,9 @@
             showTooltip = false;
         }
     });
-    storedGlobalData.subscribe((store) => (data = store));
-    storedStates.subscribe((store) => (states = store));
-    storedHearts.subscribe((store) => (hearts = store));
+    storedGlobalData.subscribe(store => (data = store));
+    storedStates.subscribe(store => (states = store));
+    storedHearts.subscribe(store => (hearts = store));
 
     $: {
         isActive = (activeProduct && activeProduct.id === product.id && type === activeProduct.type) || false;
@@ -72,7 +72,7 @@
             (lastHistory === ID_STATE_AVAILABLE &&
                 beforeLastHistory === ID_STATE_COMING_SOON &&
                 beforeBeforeLastHistory === ID_STATE_ANNOUNCEMENT);
-        isHot = historyStates.filter((state) => state === 0).length >= 3;
+        isHot = historyStates.filter(state => state === 0).length >= 3;
         isHeart = hearts.includes(product.id);
     }
 
@@ -81,7 +81,7 @@
         showTooltip = !showTooltip;
 
         // update store to close other tooltips
-        storedActiveProduct.update((value) => {
+        storedActiveProduct.update(value => {
             value.product = {
                 id: showTooltip ? product.id : 0,
                 type,
@@ -94,7 +94,7 @@
     const onClickOutside = () => {
         if (isActive) {
             showTooltip = false;
-            storedActiveProduct.update((value) => {
+            storedActiveProduct.update(value => {
                 value.product = {
                     id: 0,
                     type,
@@ -105,7 +105,7 @@
         }
     };
 
-    const getTitle = (product) => {
+    const getTitle = product => {
         const isBurgBlaustein =
             activeTagsIds && activeTagsIds.includes(ID_BURG_BLAUSTEIN) && activeTagsIds.length === 1;
         const isNetherland = activeTagsIds && activeTagsIds.includes(ID_NETHERLAND) && activeTagsIds.length === 1;
@@ -136,21 +136,21 @@
         return title;
     };
 
-    const handleStateName = (product) => {
+    const handleStateName = product => {
         let stateName = product.state.id > 0 ? product.state.de : null;
         if (!!todayChangesDate) {
             const stateId = getLatestStateOfToday(product, todayChangesDate);
-            const state = states.find((state) => state.id === stateId);
+            const state = states.find(state => state.id === stateId);
             stateName = stateId > 0 ? state.de : null;
         }
         return stateName;
     };
 
-    const handleStateColor = (product) => {
+    const handleStateColor = product => {
         let stateColor = product.state.color;
         if (!!todayChangesDate) {
             const stateId = getLatestStateOfToday(product, todayChangesDate);
-            const state = states.find((state) => state.id === stateId);
+            const state = states.find(state => state.id === stateId);
             stateColor = state.color;
         }
         return stateColor;

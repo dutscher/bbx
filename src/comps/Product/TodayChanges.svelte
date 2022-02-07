@@ -20,8 +20,8 @@
     let selectedDateMax: string = '';
     const days = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
 
-    storedProducts.subscribe((value) => (products = value));
-    storedStates.subscribe((value) => (states = value));
+    storedProducts.subscribe(value => (products = value));
+    storedStates.subscribe(value => (states = value));
 
     const handleDate = (event, direction) => {
         event.stopPropagation();
@@ -59,8 +59,8 @@
         }
     }
 
-    const hasTodayHistory = (product) => {
-        const hasTodayChanges = Object.keys(product.history).some((timestamp) => {
+    const hasTodayHistory = product => {
+        const hasTodayChanges = Object.keys(product.history).some(timestamp => {
             const historyDay = new Date(parseInt(timestamp)).setHours(0, 0, 0, 0);
             const compareDay = new Date(compareDate).setHours(0, 0, 0, 0);
             return historyDay === compareDay;
@@ -74,9 +74,9 @@
         // do filtering api changes
         sortedData = products
             // show only changes from today
-            .filter((product) => hasTodayHistory(product))
+            .filter(product => hasTodayHistory(product))
             // filter part changes
-            .filter((product) => {
+            .filter(product => {
                 const isPart = product.tags.includes(ID_PARTS);
                 if (isPart) {
                     countParts++;
@@ -125,16 +125,16 @@
     <Icon modifier="arrow {!isVisible ? 'down' : 'up'}" svg />
     Status vom
     <span>
-        <Icon svg="true" modifier="arrow left" on:click="{(event) => handleDate(event, 'prev')}" />
+        <Icon svg="true" modifier="arrow left" on:click="{event => handleDate(event, 'prev')}" />
         <input
             type="date"
             min="{selectedDateMin}"
             max="{selectedDateMax}"
             bind:value="{selectedDate}"
-            on:click="{(event) => event.stopPropagation()}"
+            on:click="{event => event.stopPropagation()}"
         />
         <span class="day-str">{dayStr}</span>
-        <Icon svg="true" modifier="arrow" on:click="{(event) => handleDate(event, 'next')}" />
+        <Icon svg="true" modifier="arrow" on:click="{event => handleDate(event, 'next')}" />
         <b>({sortedProducts.length})</b>
     </span>
 </h2>

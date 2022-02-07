@@ -17,8 +17,8 @@
     const getUrlParams = () => {
         // ?tags=piraten
         const queryTags = getUrlParam(urlParam).split(',');
-        states.map((state) => {
-            queryTags.map((queryTag) => {
+        states.map(state => {
+            queryTags.map(queryTag => {
                 if (state.name === queryTag) {
                     clickItem(state);
                 }
@@ -29,20 +29,20 @@
     const clickItem = (item, withUrlUpdate?) => {
         if (item.count === 0) return;
 
-        storedActiveSelection.update((value) => {
+        storedActiveSelection.update(value => {
             if (!(urlParam in value)) {
                 value[urlParam] = [];
             }
             if (!value[urlParam].includes(item.id)) {
                 value[urlParam].push(item.id);
             } else {
-                value[urlParam] = value[urlParam].filter((itemId) => itemId !== item.id);
+                value[urlParam] = value[urlParam].filter(itemId => itemId !== item.id);
             }
 
             if (withUrlUpdate) {
                 setUrlParams(
                     urlParam,
-                    states.filter((item) => value[urlParam].includes(item.id)).map((item) => item.name)
+                    states.filter(item => value[urlParam].includes(item.id)).map(item => item.name)
                 );
                 value.reason = 'state-clicked';
             } else {
@@ -53,9 +53,9 @@
         });
     };
 
-    storedStates.subscribe((value) => (states = value));
-    storedProducts.subscribe((value) => (products = value));
-    storedFilteredProducts.subscribe((value) => (filteredProducts = value));
+    storedStates.subscribe(value => (states = value));
+    storedProducts.subscribe(value => (products = value));
+    storedFilteredProducts.subscribe(value => (filteredProducts = value));
 
     onMount(() => {
         getUrlParams();
@@ -65,7 +65,7 @@
         let sortedData = [];
         // get count of products
         sortedData = states
-            .map((state) => {
+            .map(state => {
                 state.count = (
                     filteredProducts.withFilter && filteredProducts.withFilter.length > 0
                         ? !!activeSearchString ||
@@ -75,7 +75,7 @@
                             ? filteredProducts.withFilter
                             : filteredProducts.raw
                         : products
-                ).filter((product) => {
+                ).filter(product => {
                     if (product.state) {
                         return product.state.id === state.id;
                     } else {
@@ -100,9 +100,9 @@
 
     $: sortedItems = sortItems(filteredProducts);
 
-    const getClasses = (state) =>
+    const getClasses = state =>
         ['filter', activeStateIds.includes(state.id) && 'active', state.count === 0 && 'disabled', state.color]
-            .filter((css) => !!css)
+            .filter(css => !!css)
             .join(' ');
 </script>
 

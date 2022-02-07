@@ -11,9 +11,9 @@
     let states: any;
     const historyChunks = 3;
 
-    storedStates.subscribe((value) => (states = value));
+    storedStates.subscribe(value => (states = value));
 
-    const getFormattedDate = (timestamp) => {
+    const getFormattedDate = timestamp => {
         const date = new Date(timestamp);
         const year = date.getFullYear();
         const month = (date.getMonth() + 1 + '').padStart(2, '00');
@@ -23,8 +23,8 @@
         return `${day}.${month}.${year} ${hours}:${minutes}`;
     };
 
-    const getStateLabel = (stateId) => {
-        return states.filter((state) => stateId === state.id)[0].de;
+    const getStateLabel = stateId => {
+        return states.filter(state => stateId === state.id)[0].de;
     };
 
     const getStateAgo = (stateId, date, prevDate, index) => {
@@ -37,7 +37,7 @@
         return '';
     };
 
-    const calcTimeAgo = (product) => {
+    const calcTimeAgo = product => {
         const times = [
             ['second', 1, 'Sek.'],
             ['minute', 60, 'Min.'],
@@ -115,7 +115,7 @@
     {#if splittedHistory.last}
         {#if !fullVisible}
             <a
-                on:click="{(e) => {
+                on:click="{e => {
                     e.stopPropagation();
                     fullVisible = true;
                 }}"

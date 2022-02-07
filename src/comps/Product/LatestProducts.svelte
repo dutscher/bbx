@@ -31,8 +31,8 @@
     const labels = ['Diesen Monat', 'Letzten Monat', 'vor X Monaten'];
     const thisYear = new Date().getFullYear();
 
-    storedProducts.subscribe((store) => (products = store));
-    storedStates.subscribe((store) => (states = store));
+    storedProducts.subscribe(store => (products = store));
+    storedStates.subscribe(store => (states = store));
 
     function sortProducts(products, showParts, showFirstRelease) {
         countParts = 0;
@@ -40,7 +40,7 @@
         // do filtering api changes
         sortedData = products
             // show only products with same state
-            .filter((product) => {
+            .filter(product => {
                 if (showFirstRelease) {
                     // TODO: ab in den store
                     const historyStates = Object.values(product.history);
@@ -63,7 +63,7 @@
                 }
             })
             // filter part changes
-            .filter((product) => {
+            .filter(product => {
                 const isPart = product.tags.includes(ID_PARTS);
                 if (isPart) {
                     countParts++;
@@ -100,7 +100,7 @@
                 monthPad: monthNames[nextMonth - 1],
                 year: actualYear,
                 label: nextLabel,
-                products: sortedProducts.filter((product) => {
+                products: sortedProducts.filter(product => {
                     const historyDay = new Date(product.stateDate);
                     return historyDay.getMonth() + 1 === nextMonth && historyDay.getFullYear() === actualYear;
                 }),

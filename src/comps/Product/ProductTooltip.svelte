@@ -34,15 +34,15 @@
 
     let timer;
 
-    storedStates.subscribe((store) => (states = store));
-    storedGlobalData.subscribe((store) => (data = store));
-    storedCategories.subscribe((store) => (categories = store));
-    storedTags.subscribe((store) => (tags = store));
-    storedHearts.subscribe((store) => (hearts = store));
+    storedStates.subscribe(store => (states = store));
+    storedGlobalData.subscribe(store => (data = store));
+    storedCategories.subscribe(store => (categories = store));
+    storedTags.subscribe(store => (tags = store));
+    storedHearts.subscribe(store => (hearts = store));
 
     // /101/101857%20Das%20Schwarze%20Auge,%20Thowaler%20Drachenschiff,%20Otta%20(45MB).pdf
     // https://www.bluebrixx.com/data/files/manuals/103/103272%20Nimitz%20Teil%202%20(26MB).pdf
-    const getInstLabel = (str) => {
+    const getInstLabel = str => {
         let strReturn = '';
         const defaultLabel = 'Download';
         const foundSize = str.match(/\((\d*MB)\)/);
@@ -62,7 +62,7 @@
         return strReturn;
     };
 
-    const getInstHref = (pdfLink) => {
+    const getInstHref = pdfLink => {
         if (pdfLink.includes('http')) {
             return pdfLink;
         }
@@ -93,12 +93,12 @@
         }
     };
 
-    const getTagName = (tagID) => {
-        return tags.filter((tag) => tag.id === tagID).map((tag) => tag.name);
+    const getTagName = tagID => {
+        return tags.filter(tag => tag.id === tagID).map(tag => tag.name);
     };
 
-    const setActiveTag = (tagID) => {
-        storedActiveSelection.update((store) => {
+    const setActiveTag = tagID => {
+        storedActiveSelection.update(store => {
             if (!('tags' in store)) {
                 store.tags = [];
             }
@@ -108,16 +108,16 @@
 
                 setUrlParams(
                     'tags',
-                    tags.filter((tag) => store.tags.includes(tag.id)).map((tag) => tag.seoName)
+                    tags.filter(tag => store.tags.includes(tag.id)).map(tag => tag.seoName)
                 );
             }
             return store;
         });
     };
 
-    const onClose = (event) => {
+    const onClose = event => {
         event.stopPropagation();
-        storedActiveProduct.update((store) => {
+        storedActiveProduct.update(store => {
             store.product = {
                 id: 0,
                 type: 'Tooltip',
@@ -128,11 +128,11 @@
     };
 
     const clickHeart = () => {
-        storedHearts.update((store) => {
+        storedHearts.update(store => {
             if (!store.includes(product.id)) {
                 store.push(product.id);
             } else {
-                store = store.filter((pid) => pid !== product.id);
+                store = store.filter(pid => pid !== product.id);
             }
 
             localStore.set(lsKeyHeart, JSON.stringify(store));

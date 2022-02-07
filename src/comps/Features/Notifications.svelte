@@ -5,11 +5,11 @@
     const granted = 'granted';
     const denied = 'denied';
     const promptThePermission = () => {
-        Notification.requestPermission((permission) => {
+        Notification.requestPermission(permission => {
             isGranted = permission === granted;
             console.log(permission);
             if ('permissions' in navigator) {
-                navigator.permissions.query({ name: 'notifications' }).then((notificationPerm) => {
+                navigator.permissions.query({ name: 'notifications' }).then(notificationPerm => {
                     notificationPerm.onchange = () => {
                         console.log(notificationPerm.state);
                         isGranted = notificationPerm.state === granted;

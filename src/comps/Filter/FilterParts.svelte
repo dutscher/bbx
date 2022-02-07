@@ -11,8 +11,8 @@
     const urlParam = 'parts';
     const getUrlParams = () => {
         const queryTags = getUrlParam(urlParam).split(',');
-        parts.map((part) => {
-            queryTags.map((queryTag) => {
+        parts.map(part => {
+            queryTags.map(queryTag => {
                 if (part.seoName === queryTag) {
                     clickItem(part);
                 }
@@ -23,20 +23,20 @@
     const clickItem = (item, withUrlUpdate?) => {
         if (item.count === 0) return;
 
-        storedActiveSelection.update((value) => {
+        storedActiveSelection.update(value => {
             if (!(urlParam in value)) {
                 value[urlParam] = [];
             }
             if (!value[urlParam].includes(item.id)) {
                 value[urlParam].push(item.id);
             } else {
-                value[urlParam] = value[urlParam].filter((itemId) => itemId !== item.id);
+                value[urlParam] = value[urlParam].filter(itemId => itemId !== item.id);
             }
 
             if (withUrlUpdate) {
                 setUrlParams(
                     urlParam,
-                    parts.filter((part) => value[urlParam].includes(part.id)).map((part) => part.seoName)
+                    parts.filter(part => value[urlParam].includes(part.id)).map(part => part.seoName)
                 );
                 value.reason = 'part-clicked';
             } else {
@@ -46,9 +46,9 @@
         });
     };
 
-    storedParts.subscribe((value) => (parts = value));
-    storedProducts.subscribe((value) => (products = value));
-    storedFilteredProducts.subscribe((value) => (filteredProducts = value));
+    storedParts.subscribe(value => (parts = value));
+    storedProducts.subscribe(value => (products = value));
+    storedFilteredProducts.subscribe(value => (filteredProducts = value));
 
     onMount(() => {
         getUrlParams();
@@ -61,7 +61,7 @@
             .map((part, partId) => {
                 part.count = (
                     filteredProducts && filteredProducts.withFilter.length > 0 ? filteredProducts.withFilter : products
-                ).filter((product) => product.partTags && product.partTags.includes(partId)).length;
+                ).filter(product => product.partTags && product.partTags.includes(partId)).length;
                 return part;
             })
             // sort state

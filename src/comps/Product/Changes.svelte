@@ -20,16 +20,16 @@
     let isVisible = true;
     let isOnline = false;
 
-    internetConnection.subscribe((store) => {
+    internetConnection.subscribe(store => {
         isOnline = store.isOnline;
 
         if (isOnline && loadedChanges === UNLOADED) {
             loadChanges();
         }
     });
-    storedTags.subscribe((store) => (tags = store.length));
-    storedProducts.subscribe((store) => (products = store.length));
-    storedActiveSelection.subscribe((store) => (loadedChanges = store.loadedData.changes));
+    storedTags.subscribe(store => (tags = store.length));
+    storedProducts.subscribe(store => (products = store.length));
+    storedActiveSelection.subscribe(store => (loadedChanges = store.loadedData.changes));
 
     const onClick = () => {
         isVisible = !isVisible;

@@ -9,8 +9,8 @@
     let isOnline: boolean = false;
     let imageSrc: any;
 
-    storedImageExtension.subscribe((store) => (imageExtensions = store));
-    internetConnection.subscribe((store) => (isOnline = store.isOnline));
+    storedImageExtension.subscribe(store => (imageExtensions = store));
+    internetConnection.subscribe(store => (isOnline = store.isOnline));
 
     $: imageSrc = generateImageSrc(product, imageExtensions, overrideExtension);
 
@@ -30,8 +30,8 @@
         //console.log('generate handleError', imageExtension)
         overrideExtension = imageExtension !== 'jpg' ? 'jpg' : 'png';
 
-        storedProducts.update((storedProducts) => {
-            storedProducts.map((storedProduct) => {
+        storedProducts.update(storedProducts => {
+            storedProducts.map(storedProduct => {
                 if (storedProduct.id === product.id) {
                     storedProduct.imageExt = 0;
                 }

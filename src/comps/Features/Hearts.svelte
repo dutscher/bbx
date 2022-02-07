@@ -7,11 +7,11 @@
     let hearts = [];
     let products = [];
 
-    storedProducts.subscribe((store) => (products = store));
-    storedHearts.subscribe((store) => (hearts = store));
+    storedProducts.subscribe(store => (products = store));
+    storedHearts.subscribe(store => (hearts = store));
 
     $: heartItems = hearts
-        .map((pID) => products.find((product) => product.id === pID))
+        .map(pID => products.find(product => product.id === pID))
         .sort((a, b) => {
             if (a.title < b.title) {
                 return -1;
@@ -34,7 +34,7 @@
     $: {
         heartSummary = { price: 0, parts: 0 };
 
-        heartItems.map((product) => {
+        heartItems.map(product => {
             if (!!product.price && !!product.parts) {
                 heartSummary.price += product.price;
                 heartSummary.parts += product.parts;

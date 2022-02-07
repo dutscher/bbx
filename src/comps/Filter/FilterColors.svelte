@@ -13,8 +13,8 @@
         // ?tags=piraten
         const queryTags = getUrlParam(urlParam).split(',');
         //console.log('getUrlParams.queryTags', queryTags)
-        colors.map((color) => {
-            queryTags.map((queryTag) => {
+        colors.map(color => {
+            queryTags.map(queryTag => {
                 if (color.seoName === queryTag) {
                     clickItem(color);
                 }
@@ -25,20 +25,20 @@
     const clickItem = (item, withUrlUpdate?) => {
         if (item.count === 0) return;
 
-        storedActiveSelection.update((value) => {
+        storedActiveSelection.update(value => {
             if (!(urlParam in value)) {
                 value[urlParam] = [];
             }
             if (!value[urlParam].includes(item.id)) {
                 value[urlParam].push(item.id);
             } else {
-                value[urlParam] = value[urlParam].filter((itemId) => itemId !== item.id);
+                value[urlParam] = value[urlParam].filter(itemId => itemId !== item.id);
             }
 
             if (withUrlUpdate) {
                 setUrlParams(
                     urlParam,
-                    colors.filter((color) => value[urlParam].includes(color.id)).map((color) => color.seoName)
+                    colors.filter(color => value[urlParam].includes(color.id)).map(color => color.seoName)
                 );
                 value.reason = 'part-clicked';
             } else {
@@ -53,20 +53,20 @@
         let sortedData = [];
         // get count of products
         sortedData = colors
-            .map((color) => {
+            .map(color => {
                 const filtered = (
                     filteredProducts && filteredProducts.withFilter.length > 0 ? filteredProducts.withFilter : products
                 )
                     // is a part
-                    .filter((product) => product.tags.includes(48))
-                    .filter((product) => titleMatch(color, product) > 0);
+                    .filter(product => product.tags.includes(48))
+                    .filter(product => titleMatch(color, product) > 0);
 
                 color.countFiltered = filtered.length;
 
                 color.count = products
                     // is a part
-                    .filter((product) => product.tags.includes(48))
-                    .filter((product) => titleMatch(color, product) > 0).length;
+                    .filter(product => product.tags.includes(48))
+                    .filter(product => titleMatch(color, product) > 0).length;
 
                 if (color.countFiltered === 1) {
                     //console.log(filtered, color)
@@ -74,7 +74,7 @@
 
                 return color;
             })
-            .filter((color) => color.count > 0)
+            .filter(color => color.count > 0)
             // sort state
             .sort((a, b) => {
                 if (a.label < b.label) {
@@ -88,9 +88,9 @@
         return sortedData;
     }
 
-    storedColors.subscribe((value) => (colors = value));
-    storedProducts.subscribe((value) => (products = value));
-    storedFilteredProducts.subscribe((value) => (filteredProducts = value));
+    storedColors.subscribe(value => (colors = value));
+    storedProducts.subscribe(value => (products = value));
+    storedFilteredProducts.subscribe(value => (filteredProducts = value));
 
     onMount(() => {
         getUrlParams();
@@ -98,7 +98,7 @@
 
     $: sortedItems = sortItems(filteredProducts);
 
-    const classNames = (color) => ({
+    const classNames = color => ({
         class: [
             'color',
             activeColorIds.includes(color.id) && 'active',
@@ -108,7 +108,7 @@
             color.countFiltered === 0 && 'disabled',
             color.name.toLowerCase().includes('trans') && 'trans',
         ]
-            .filter((css) => css !== false)
+            .filter(css => css !== false)
             .join(' '),
     });
 </script>

@@ -15,7 +15,7 @@
     };
 
     const onInput = (withUrlUpdate?) => {
-        storedActiveSelection.update((value) => {
+        storedActiveSelection.update(value => {
             if (!(urlParam in value)) {
                 value[urlParam] = activeSearchString;
             }
@@ -32,7 +32,7 @@
     };
 
     let timer;
-    const debounce = (value) => {
+    const debounce = value => {
         clearTimeout(timer);
         timer = setTimeout(() => {
             // set value
@@ -41,7 +41,7 @@
         }, 500);
     };
 
-    const checkInput = (value) => {
+    const checkInput = value => {
         // reset value
         if (value === '') {
             activeSearchString = '';

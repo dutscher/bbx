@@ -18,7 +18,7 @@
     let activeSearchString: string = '';
     let isVisible = true;
 
-    storedActiveSelection.subscribe((store) => {
+    storedActiveSelection.subscribe(store => {
         activeTagIds = store.tags;
         activePartIds = store.parts;
         activePartTypeIds = store.partTypes;

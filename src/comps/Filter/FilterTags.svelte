@@ -10,13 +10,13 @@
     const abc = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
     const urlParam = 'tags';
 
-    storedTags.subscribe((value) => (tags = value));
+    storedTags.subscribe(value => (tags = value));
 
     const getUrlParams = () => {
         // ?tags=piraten
         const queryTags = getUrlParam(urlParam).split(',');
-        tags.map((tag) => {
-            queryTags.map((queryTag) => {
+        tags.map(tag => {
+            queryTags.map(queryTag => {
                 if (tag.seoName === queryTag) {
                     clickTag(tag);
                 }
@@ -25,20 +25,20 @@
     };
 
     const clickTag = (tag, withUrlUpdate?) => {
-        storedActiveSelection.update((store) => {
+        storedActiveSelection.update(store => {
             if (!(urlParam in store)) {
                 store[urlParam] = [];
             }
             if (!store[urlParam].includes(tag.id)) {
                 store[urlParam].push(tag.id);
             } else {
-                store[urlParam] = store[urlParam].filter((tagId) => tagId !== tag.id);
+                store[urlParam] = store[urlParam].filter(tagId => tagId !== tag.id);
             }
 
             if (withUrlUpdate) {
                 setUrlParams(
                     urlParam,
-                    tags.filter((tag) => store[urlParam].includes(tag.id)).map((tag) => tag.seoName)
+                    tags.filter(tag => store[urlParam].includes(tag.id)).map(tag => tag.seoName)
                 );
                 store.reason = 'tag-clicked';
             } else {
@@ -63,12 +63,12 @@
         return 0;
     });
 
-    const sortedAbcTags = abc.map((letter) => {
+    const sortedAbcTags = abc.map(letter => {
         return {
             letter,
             sortedTags: sortedTags
-                .filter((tag) => tag.count > 0)
-                .filter((tag) => tag.name.toUpperCase().startsWith(letter)),
+                .filter(tag => tag.count > 0)
+                .filter(tag => tag.name.toUpperCase().startsWith(letter)),
         };
     });
 
@@ -79,7 +79,7 @@
             IDS_SPECIAL_TAGS.includes(tag.id) && 'highlight',
             isFirst && 'new-letter',
         ]
-            .filter((css) => !!css)
+            .filter(css => !!css)
             .join(' ');
 </script>
 

@@ -11,9 +11,9 @@
     let pieces;
     let activeProductID = -1;
 
-    storedProducts.subscribe((store) => (products = store));
-    storedGlobalData.subscribe((store) => (data = store));
-    storedActiveProduct.subscribe((store) => {
+    storedProducts.subscribe(store => (products = store));
+    storedGlobalData.subscribe(store => (data = store));
+    storedActiveProduct.subscribe(store => {
         if (store.product && (store.product.type !== type || store.product.id === 0)) {
             activeProductID = -1;
         }
@@ -44,7 +44,7 @@
         event.stopPropagation();
         activeProductID = id;
 
-        storedActiveProduct.update((store) => {
+        storedActiveProduct.update(store => {
             store.product = {
                 id: activeProductID,
                 type: 'products',
@@ -66,7 +66,7 @@
                 {#each pieces as piece}
                     <div
                         class="{`piece piece--${piece.nr} ${piece.state}`}"
-                        on:click="{(event) => {
+                        on:click="{event => {
                             setActive(event, piece.id);
                         }}"
                     >

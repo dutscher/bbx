@@ -23,11 +23,11 @@
     let states: any;
     let tags: any;
 
-    storedStates.subscribe((value) => (states = value));
-    storedParts.subscribe((value) => (parts = value));
-    storedPartTypes.subscribe((value) => (partTypes = value));
-    storedColors.subscribe((value) => (colors = value));
-    storedTags.subscribe((value) => (tags = value));
+    storedStates.subscribe(value => (states = value));
+    storedParts.subscribe(value => (parts = value));
+    storedPartTypes.subscribe(value => (partTypes = value));
+    storedColors.subscribe(value => (colors = value));
+    storedTags.subscribe(value => (tags = value));
 
     $: invisible =
         !activeSearchString &&
@@ -42,14 +42,14 @@
         event.preventDefault();
         event.stopPropagation();
 
-        storedActiveSelection.update((store) => {
+        storedActiveSelection.update(store => {
             if (type === 'search' && type === 'search') {
                 store[type] = '';
             } else {
-                store[type] = store[type].filter((itemId) => itemId !== id);
+                store[type] = store[type].filter(itemId => itemId !== id);
             }
 
-            const restTags = tags.filter((tag) => store[type].includes(tag.id));
+            const restTags = tags.filter(tag => store[type].includes(tag.id));
 
             if (restTags.length === 0) {
                 store.reason = 'remove-all-filters';
@@ -57,7 +57,7 @@
 
             setUrlParams(
                 type,
-                restTags.map((tag) => tag.seoName)
+                restTags.map(tag => tag.seoName)
             );
 
             return store;

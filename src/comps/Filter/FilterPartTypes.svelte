@@ -12,8 +12,8 @@
     const urlParam = 'partTypes';
     const getUrlParams = () => {
         const queryTags = getUrlParam(urlParam).split(',');
-        partTypes.map((part) => {
-            queryTags.map((queryTag) => {
+        partTypes.map(part => {
+            queryTags.map(queryTag => {
                 if (part.seoName === queryTag) {
                     clickItem(part);
                 }
@@ -24,20 +24,20 @@
     const clickItem = (item, withUrlUpdate?) => {
         if (item.count === 0) return;
 
-        storedActiveSelection.update((value) => {
+        storedActiveSelection.update(value => {
             if (!(urlParam in value)) {
                 value[urlParam] = [];
             }
             if (!value[urlParam].includes(item.id)) {
                 value[urlParam].push(item.id);
             } else {
-                value[urlParam] = value[urlParam].filter((itemId) => itemId !== item.id);
+                value[urlParam] = value[urlParam].filter(itemId => itemId !== item.id);
             }
 
             if (withUrlUpdate) {
                 setUrlParams(
                     urlParam,
-                    partTypes.filter((part) => value[urlParam].includes(part.id)).map((part) => part.seoName)
+                    partTypes.filter(part => value[urlParam].includes(part.id)).map(part => part.seoName)
                 );
                 value.reason = 'part-type-clicked';
             } else {
@@ -47,9 +47,9 @@
         });
     };
 
-    storedPartTypes.subscribe((value) => (partTypes = value));
-    storedProducts.subscribe((value) => (products = value));
-    storedFilteredProducts.subscribe((value) => (filteredProducts = value));
+    storedPartTypes.subscribe(value => (partTypes = value));
+    storedProducts.subscribe(value => (products = value));
+    storedFilteredProducts.subscribe(value => (filteredProducts = value));
 
     onMount(() => {
         getUrlParams();
@@ -59,12 +59,12 @@
         let sortedData = [];
         // get count of products
         sortedData = partTypes
-            .map((part) => {
+            .map(part => {
                 part.count = (
                     filteredProducts && filteredProducts.withFilter.length > 0 ? filteredProducts.withFilter : products
                 )
-                    .filter((product) => product.tags.includes(ID_PARTS))
-                    .filter((product) => titleMatch(part, product) > 0).length;
+                    .filter(product => product.tags.includes(ID_PARTS))
+                    .filter(product => titleMatch(part, product) > 0).length;
                 return part;
             })
             // sort state
