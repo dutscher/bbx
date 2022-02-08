@@ -12,7 +12,6 @@
     const getUrlParams = () => {
         // ?tags=piraten
         const queryTags = getUrlParam(urlParam).split(',');
-        //console.log('getUrlParams.queryTags', queryTags)
         colors.map(color => {
             queryTags.map(queryTag => {
                 if (color.seoName === queryTag) {

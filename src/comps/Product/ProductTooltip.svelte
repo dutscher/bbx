@@ -188,9 +188,16 @@
                     </div>
                 {/if}
                 {#if product.movieData}<strong>{product.movieData}</strong><br/>{/if}
-                {#if product.id}<strong>ID:</strong> <span class="tooltip__content">{product.id}</span><br/>{/if}
+                {#if product.id}<strong>ID:</strong>
+                    <span class="tooltip__content">
+                        {product.id}
+                        {#if product.partNr} /
+                        <strong>BricklinkID: </strong>
+                        <a href="{data.partNr}{product.partNr}{product.partColor ? `#C=${product.partColor.id}` : ''}" target="_blank">{product.partNr}</a>
+                        {/if}
+                    </span><br/>
+                {/if}
                 {#if product.parts}<strong>Steine:</strong> <span class="tooltip__content">{product.parts}</span><br/>{/if}
-                {#if product.partNr}<strong>Teilnr:</strong> <a href="{data.instUrl}{product.partNr}}" target="_blank">{product.partNr}</a><br/>{/if}
                 {#if !!product.price}
                     <strong>Preis:</strong> <span class="tooltip__content">{handlePrice(product)}</span><br/>
                 {/if}
@@ -262,6 +269,15 @@
     width: 100%;
     white-space: nowrap;
 
+    a {
+      display: block;
+      color: $color-primary-lighter;
+
+      &:hover {
+        color: $color-white;
+      }
+    }
+
     &__outer-wrap {
       display: none;
       position: absolute;
@@ -313,6 +329,10 @@
       color: $color-primary-lighter;
       user-select: all;
 
+      a {
+        display: inline-block;
+      }
+
       &--rows {
         margin-left: $space-xs;
       }
@@ -330,15 +350,6 @@
 
     [data-divider] {
       margin-right: $space-sm;
-    }
-
-    a {
-      display: block;
-      color: $color-primary-lighter;
-
-      &:hover {
-        color: $color-white;
-      }
     }
 
     .inst-link {

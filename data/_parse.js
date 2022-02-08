@@ -22,7 +22,7 @@ Array.from($("table table table tr:not([bgcolor])"))
         colors.push(option)
     })
 
-colors.map(color => colorsparsed[color.querySelectorAll('font')[1].innerText.replace('&nbsp;', '').trim()] = color.querySelector('td[bgcolor]').getAttribute('bgcolor'))
+colors.map(color => colorsparsed[color.querySelectorAll('font')[1].innerText.replace('&nbsp;', '').trim()] = color.querySelector('td[bgcolor]').getAttribute('bgcolor') + '|' + color.querySelector('td:first-child font').innerText.replace('&nbsp;', '').trim())
 console.log(JSON.stringify(colorsparsed));
 
 // https://www.bluebrixx.com/de/part-packs?&available_only=1
