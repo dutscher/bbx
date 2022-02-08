@@ -1,34 +1,35 @@
 <script lang="ts">
-import Icon from './Icon.svelte';
-import { storedActiveSelection } from '../stores/states';
-import { AFF_LINK } from '../_interfaces';
+  import Icon from './Icon.svelte';
+  import { storedActiveSelection } from '../stores/states';
+  import { AFF_LINK } from '../_interfaces';
 
-let lastCursor;
+  let lastCursor;
 
-storedActiveSelection.subscribe(store => lastCursor = store.lastCursor);
+  storedActiveSelection.subscribe(store => (lastCursor = store.lastCursor));
 </script>
 
 <div class="footer">
-    <strong>Legende:</strong><br/>
-    <Icon modifier="new"/>
-    = Neues Produkt
-    <Icon modifier="flame"/>
-    = Beliebtes Produkt (mehr als 2 mal Verfügbar)
-    <Icon modifier="heart" svg="true" class="active"/>
-    = "Will Ich haben" Produkt<br/>
-    <span class="state state--blue"></span> = Verfügbar
-    <span class="state state--green"></span> = Bald erhältlich
-    <span class="state state--red"></span> = Zurzeit Vergriffen
-    <span class="state state--orange"></span> = In Ankündigung
-    <br/><br/>
-    <strong>Stand:</strong> {lastCursor.dateStr}
-    {#if !!AFF_LINK}
-        <div class="small">
-            * Die ausgehenden Produktlinks sind Affiliate-Links. Wenn Ihr klickt und kauft, dann unterstütz Ihr dieses Projekt. Vielen Dank :)
-        </div>
-    {/if}
+  <strong>Legende:</strong><br />
+  <Icon modifier="new" />
+  = Neues Produkt
+  <Icon modifier="flame" />
+  = Beliebtes Produkt (mehr als 2 mal Verfügbar)
+  <Icon modifier="heart" svg="true" class="active" />
+  = "Will Ich haben" Produkt<br />
+  <span class="state state--blue" /> = Verfügbar
+  <span class="state state--green" /> = Bald erhältlich
+  <span class="state state--red" /> = Zurzeit Vergriffen
+  <span class="state state--orange" /> = In Ankündigung
+  <br /><br />
+  <strong>Stand:</strong>
+  {lastCursor.dateStr}
+  {#if !!AFF_LINK}
+    <div class="small">
+      * Die ausgehenden Produktlinks sind Affiliate-Links. Wenn Ihr klickt und kauft, dann unterstütz Ihr dieses
+      Projekt. Vielen Dank :)
+    </div>
+  {/if}
 </div>
-
 
 <style lang="scss">
   @import '../scss/variables';

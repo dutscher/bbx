@@ -3,13 +3,13 @@ import { convertProducts, convertHistory, convertHistoryOfProduct } from './src/
 const params = process.argv;
 
 (async () => {
-    if (params.includes('--products')) {
-        await convertProducts();
-    }
-    if (params.includes('--history')) {
-        await convertHistory();
-    }
-    if (params.includes('--producthistory')) {
-        await convertHistoryOfProduct();
-    }
+  if (params.includes('--products')) {
+    await convertProducts();
+  }
+  if (params.includes('--history')) {
+    await convertHistory();
+  }
+  if (params.includes('--producthistory')) {
+    await convertHistoryOfProduct();
+  }
 })();

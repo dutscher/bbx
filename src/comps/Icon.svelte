@@ -1,30 +1,33 @@
 <script lang="ts">
-    export let modifier: string = '';
-    export let title: string = '';
-    let className = ''
-    export { className as class }
-    export let svg: boolean = false;
-    import Cross from "../../public/images/icon-cross.svg";
-    import Arrow from "../../public/images/icon-arrow.svg";
-    import Heart from "../../public/images/icon-heart.svg";
+  export let modifier: string = '';
+  export let title: string = '';
+  let className = '';
+  export { className as class };
+  export let svg: boolean = false;
+  import Cross from '../../public/images/icon-cross.svg';
+  import Arrow from '../../public/images/icon-arrow.svg';
+  import Heart from '../../public/images/icon-heart.svg';
 
-    $: modifierClasses = (modifier.split(' ').map(modifier => `icon--${modifier}`).join(' '));
+  $: modifierClasses = modifier
+    .split(' ')
+    .map(modifier => `icon--${modifier}`)
+    .join(' ');
 </script>
 
 {#if svg}
-    <span on:click class="icon icon--svg {modifierClasses}{!!className ? ' ' + className : ''}" {title}>
-        {#if modifier.includes('cross')}
-            <Cross width="1em" height="1em"/>
-        {/if}
-        {#if modifier.includes('arrow')}
-            <Arrow width="1em" height="1em"/>
-        {/if}
-        {#if modifier.includes('heart')}
-            <Heart width="1em" height="1em"/>
-        {/if}
-    </span>
+  <span on:click class="icon icon--svg {modifierClasses}{!!className ? ' ' + className : ''}" {title}>
+    {#if modifier.includes('cross')}
+      <Cross width="1em" height="1em" />
+    {/if}
+    {#if modifier.includes('arrow')}
+      <Arrow width="1em" height="1em" />
+    {/if}
+    {#if modifier.includes('heart')}
+      <Heart width="1em" height="1em" />
+    {/if}
+  </span>
 {:else}
-    <i on:click class="icon icon--bg {modifierClasses}{!!className ? ' ' + className : ''}" {title}></i>
+  <i on:click class="icon icon--bg {modifierClasses}{!!className ? ' ' + className : ''}" {title} />
 {/if}
 
 <style lang="scss">
@@ -124,7 +127,7 @@
   }
 
   :global(#{$selector}--svg svg) {
-      transition: transform ease-in-out 150ms;
+    transition: transform ease-in-out 150ms;
   }
 
   :global(#{$selector}--heart#{$selector}--svg path) {
@@ -137,18 +140,18 @@
   }
 
   :global(#{$selector}--heart#{$selector}--svg:not(.active):hover path) {
-    fill: #C4262F;
+    fill: #c4262f;
   }
 
   :global(#{$selector}--heart#{$selector}--svg.active) {
-    color: #C4262F;
+    color: #c4262f;
 
     &:hover {
       color: #780e14;
     }
   }
 
-  :global([data-theme='dark'] #{$selector}--arrow#{$selector}--svg){
+  :global([data-theme='dark'] #{$selector}--arrow#{$selector}--svg) {
     color: $color-white;
 
     &:hover {

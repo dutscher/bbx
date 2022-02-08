@@ -1,145 +1,129 @@
 import { products, convertToReduce } from '../../data/all-products.reducer.js';
 import { handleCache, sortTags } from './utils.js';
 import { IDs } from './interfaces.js';
-import { getDateTime } from "./clean-utils.js";
+import { getDateTime } from './clean-utils.js';
 import imagesJSON from '../../data/api/images.json';
 import imagesExtraJSON from '../../data/api/images.extra.json';
 import allHistory from '../../data/all-products-history.json';
 import allHistoryBackup from '../../data/api/all-products-history.backup.with.lost.history.json';
 
 export const convertProducts = async () => {
-    let changes = [];
-    let changeName = 'compare';
-    const convertedDB = [];
-    const update = -1;
+  let changes = [];
+  let changeName = 'compare';
+  const convertedDB = [];
+  const update = -1;
 
+  if (update === 10) {
+    changes = {};
+  }
+
+  products.map(product => {
+    // 10. split history into own
     if (update === 10) {
-        changes = {};
+      changes[product.id] = product.history;
+      delete product.history;
+    }
+    // 9. double history entries
+    if (update === 9) {
+      let lastState = -1;
+      let newHistory = {};
+      for (const [date, state] of Object.entries(product.history)) {
+        if (lastState !== state) {
+          lastState = state;
+          newHistory[date] = state;
+        }
+      }
+      product.history = newHistory;
+    }
+    // 8. pro products
+    if (update === 8 && product.tags.includes(IDs.ID_TAG_BLUEBRIXX_PRO)) {
+      changeName = 'bb-pro';
+      changes.push({ id: product.id, title: product.title });
+    }
+    // 7. deleted products?
+    if (update === 7 && !(product.id in imagesJSON) && !(product.id in imagesExtraJSON)) {
+      changes.push(convertToReduce(product));
+    }
+    // 6. sort tags
+    if (update === 6) {
+      product.tags = product.tags.sort(sortTags);
     }
 
-    products.map((product) => {
-        // 10. split history into own
-        if (update === 10) {
-            changes[product.id] = product.history;
-            delete product.history;
-        }
-        // 9. double history entries
-        if (update === 9) {
-            let lastState = -1;
-            let newHistory = {};
-            for (const [date, state] of Object.entries(product.history)) {
-                if (lastState !== state) {
-                    lastState = state
-                    newHistory[date] = state;
-                }
-            }
-            product.history = newHistory;
-        }
-        // 8. pro products
-        if (update === 8 && (
-            product.tags.includes(IDs.ID_TAG_BLUEBRIXX_PRO)
-        )) {
-            changeName = 'bb-pro';
-            changes.push({ id: product.id, title: product.title });
-        }
-        // 7. deleted products?
-        if (update === 7 && (
-            !(product.id in imagesJSON)
-            && !(product.id in imagesExtraJSON)
-        )) {
-            changes.push(convertToReduce(product));
-        }
-        // 6. sort tags
-        if (update === 6) {
-            product.tags = product.tags.sort(sortTags);
-        }
-
-        // 5. image and imageExt addition
-        if (update === 5 && product.id in imagesJSON) {
-            const image = imagesJSON[product.id];
-            //  "100090": "/img/items/100/100090/300/100090_1.jpg",
-            // default is _1
-            if (!image.includes('_1')) {
-                product.image = parseInt(image.replace(/.*_(\d).*/, '$1'));
-            }
-            // .png is default
-            // see image-extension.json
-            if (image.includes('\.jpg')) {
-                product.imageExt = 0;
-            }
-        }
-
-        // 4. remove special tags from pro category
-        if (update === 4 && product.cats.includes(1) && product.tags.includes(0)) {
-            product.tags = product.tags.filter((tag) => tag !== 0);
-        }
-
-        // 3. add Chrome Silver to title
-        if (update === 3 && product.cats.includes(IDs.ID_CAT_CHROME_PARTS)) {
-            product.title += ', Chrome Silver';
-        }
-
-        // 2. reduce json keys
-        convertedDB.push(convertToReduce(product));
-
-        // 1. reduce EUR from db
-        // product.price = parseFloat(('' + product.price).replace(' EUR', '').replace(',', '.'));
-        // return product;
-    })
-
-    if (Array.isArray(changes) && changes.length > 0 || Object.keys(changes).length > 0) {
-        console.log(changes.length);
-
-        await handleCache(
-            './data/api/convert/',
-            `all-products.${changeName}.json`,
-            () => JSON.stringify(changes, null, 2),
-            true);
+    // 5. image and imageExt addition
+    if (update === 5 && product.id in imagesJSON) {
+      const image = imagesJSON[product.id];
+      //  "100090": "/img/items/100/100090/300/100090_1.jpg",
+      // default is _1
+      if (!image.includes('_1')) {
+        product.image = parseInt(image.replace(/.*_(\d).*/, '$1'));
+      }
+      // .png is default
+      // see image-extension.json
+      if (image.includes('.jpg')) {
+        product.imageExt = 0;
+      }
     }
+
+    // 4. remove special tags from pro category
+    if (update === 4 && product.cats.includes(1) && product.tags.includes(0)) {
+      product.tags = product.tags.filter(tag => tag !== 0);
+    }
+
+    // 3. add Chrome Silver to title
+    if (update === 3 && product.cats.includes(IDs.ID_CAT_CHROME_PARTS)) {
+      product.title += ', Chrome Silver';
+    }
+
+    // 2. reduce json keys
+    convertedDB.push(convertToReduce(product));
+
+    // 1. reduce EUR from db
+    // product.price = parseFloat(('' + product.price).replace(' EUR', '').replace(',', '.'));
+    // return product;
+  });
+
+  if ((Array.isArray(changes) && changes.length > 0) || Object.keys(changes).length > 0) {
+    console.log(changes.length);
 
     await handleCache(
-        './data/',
-        `all-products.convert.compare.json`,
-        () => JSON.stringify(convertedDB, null, 2),
-        true);
-}
+      './data/api/convert/',
+      `all-products.${changeName}.json`,
+      () => JSON.stringify(changes, null, 2),
+      true
+    );
+  }
+
+  await handleCache('./data/', `all-products.convert.compare.json`, () => JSON.stringify(convertedDB, null, 2), true);
+};
 
 export const convertHistory = async () => {
-    Object.keys(allHistoryBackup).map(productId => {
-        if (!(productId in allHistory)) {
-            const oldHistory = allHistoryBackup[productId];
-            let newHistory = {};
-            Object.entries(oldHistory).map(([hrDate, stateId]) => {
-                const date = new Date(getDateTime(hrDate)).getTime() / 1000;
-                newHistory[date] = stateId;
-            });
-            allHistory[productId] = newHistory;
-        }
-    });
+  Object.keys(allHistoryBackup).map(productId => {
+    if (!(productId in allHistory)) {
+      const oldHistory = allHistoryBackup[productId];
+      let newHistory = {};
+      Object.entries(oldHistory).map(([hrDate, stateId]) => {
+        const date = new Date(getDateTime(hrDate)).getTime() / 1000;
+        newHistory[date] = stateId;
+      });
+      allHistory[productId] = newHistory;
+    }
+  });
 
-    await handleCache(
-        './data/',
-        `all-products-history.compare.json`,
-        () => JSON.stringify(allHistory, null, 2),
-        true);
-}
+  await handleCache('./data/', `all-products-history.compare.json`, () => JSON.stringify(allHistory, null, 2), true);
+};
 
 export const convertHistoryOfProduct = async () => {
-    const productId = 103406;
-    Object.entries(allHistory[productId]).map(([hrDate, stateId]) => {
-        if (hrDate.includes('.')) {
-            const date = new Date(getDateTime(hrDate)).getTime() / 1000;
-            delete allHistory[productId][hrDate];
-            allHistory[productId][date] = stateId;
-        }
-    });
+  const productId = 103406;
+  Object.entries(allHistory[productId]).map(([hrDate, stateId]) => {
+    if (hrDate.includes('.')) {
+      const date = new Date(getDateTime(hrDate)).getTime() / 1000;
+      delete allHistory[productId][hrDate];
+      allHistory[productId][date] = stateId;
+    }
+  });
 
-    await handleCache(
-        './data/',
-        `all-products-history.compare.json`,
-        () => JSON.stringify(allHistory, null, 2),
-        true);
-}
+  await handleCache('./data/', `all-products-history.compare.json`, () => JSON.stringify(allHistory, null, 2), true);
+};
 
 /*
 // https://www.bluebrixx.com/de/bluebrixx-pro?limit=63
