@@ -12,7 +12,10 @@ import gql from 'graphql-tag';
         -> products -> "id": 101857,
 */
 // TODO: get pagination after all!
-export const queryChangesGql = (endCursor: string) => gql`${queryChanges(endCursor)}`
+export const queryChangesGql = (endCursor: string) =>
+  gql`
+    ${queryChanges(endCursor)}
+  `;
 export const queryChanges = (endCursor: string) => `
 {
     productChanges(
