@@ -1,71 +1,71 @@
 <script lang="ts">
-    import { loadMovieData, loadHistoryData, storedActiveSelection } from './stores';
-    import { ID_MANHATTAN, ID_NETHERLAND, ID_MOVIE, ID_BURG_BLAUSTEIN, UNLOADED, LOADED } from "./_interfaces";
-    import { ApolloClient, InMemoryCache } from "@apollo/client";
-    import { setClient } from "svelte-apollo";
-    import Welcome from "./comps/Welcome.svelte";
-    import Hearts from "./comps/Features/Hearts.svelte";
-    import Changes from "./comps/Product/Changes.svelte";
-    import Filter from "./comps/Filter/Filter.svelte";
-    import Manhattan from "./comps/Specials/Manhattan.svelte";
-    import Netherland from "./comps/Specials/Netherland.svelte";
-    import Blaustein from "./comps/Specials/Blaustein.svelte";
-    import Products from "./comps/Product/Products.svelte";
-    import Notifications from "./comps/Features/Notifications.svelte";
-    import Github from "./comps/Features/Github.svelte";
-    import Darkmode from "./comps/Features/Darkmode.svelte";
-    import Footer from "./comps/Footer.svelte";
+  import { loadMovieData, loadHistoryData, storedActiveSelection } from './stores';
+  import { ID_MANHATTAN, ID_NETHERLAND, ID_MOVIE, ID_BURG_BLAUSTEIN, UNLOADED, LOADED } from './_interfaces';
+  import { ApolloClient, InMemoryCache } from '@apollo/client';
+  import { setClient } from 'svelte-apollo';
+  import Welcome from './comps/Welcome.svelte';
+  import Hearts from './comps/Features/Hearts.svelte';
+  import Changes from './comps/Product/Changes.svelte';
+  import Filter from './comps/Filter/Filter.svelte';
+  import Manhattan from './comps/Specials/Manhattan.svelte';
+  import Netherland from './comps/Specials/Netherland.svelte';
+  import Blaustein from './comps/Specials/Blaustein.svelte';
+  import Products from './comps/Product/Products.svelte';
+  import Notifications from './comps/Features/Notifications.svelte';
+  import Github from './comps/Features/Github.svelte';
+  import Darkmode from './comps/Features/Darkmode.svelte';
+  import Footer from './comps/Footer.svelte';
 
-    const client = new ApolloClient({
-        uri: 'https://api.bbx.watch/api/graphql',
-        cache: new InMemoryCache(),
-    });
+  const client = new ApolloClient({
+    uri: 'https://api.bbx.watch/api/graphql',
+    cache: new InMemoryCache(),
+  });
 
-    setClient(client);
+  setClient(client);
 
-    let activeTagIds;
-    let loadedData;
+  let activeTagIds;
+  let loadedData;
 
-    loadHistoryData()
+  loadHistoryData();
 
-    storedActiveSelection.subscribe(store => {
-        activeTagIds = store.tags;
-        loadedData = store.loadedData;
+  storedActiveSelection.subscribe(store => {
+    activeTagIds = store.tags;
+    loadedData = store.loadedData;
 
-        // load movie data
-        if (store.loadedData.movie === UNLOADED && activeTagIds.includes(ID_MOVIE)) {
-            loadMovieData();
-        }
-    });
+    // load movie data
+    if (store.loadedData.movie === UNLOADED && activeTagIds.includes(ID_MOVIE)) {
+      loadMovieData();
+    }
+  });
 </script>
 
 <main>
-    <!--    <Notifications />-->
-    <!--
+  <!--    <Notifications />-->
+  <!--
         <div class="notice">
             🚨 Bei uns gibts es die <a href="/?tags=burg-blaustein">Burg Blaustein Anleitungen</a> 🚨
         </div>
     -->
-    <Darkmode/>
-    <Github/>
-    <Welcome/>
-    {#if loadedData.history === LOADED}
-        <Hearts/>
-        <Changes/>
-        <Filter/>
-        {#if activeTagIds.includes(ID_MANHATTAN) && activeTagIds.length === 1}
-            <Manhattan/>
-        {/if}
-        {#if activeTagIds.includes(ID_NETHERLAND) && activeTagIds.length === 1}
-            <Netherland/>
-        {/if}
-        {#if activeTagIds.includes(ID_BURG_BLAUSTEIN) && activeTagIds.length === 1}
-            <Blaustein/>
-        {/if}
-        <Products/>
+  <Darkmode />
+  <Github />
+  <Welcome />
+  {#if loadedData.history === LOADED}
+    <Hearts />
+    <Changes />
+    <Filter />
+    {#if activeTagIds.includes(ID_MANHATTAN) && activeTagIds.length === 1}
+      <Manhattan />
     {/if}
+    {#if activeTagIds.includes(ID_NETHERLAND) && activeTagIds.length === 1}
+      <Netherland />
+    {/if}
+    {#if activeTagIds.includes(ID_BURG_BLAUSTEIN) && activeTagIds.length === 1}
+      <Blaustein />
+    {/if}
+    <Products />
+  {/if}
 
-    <Footer />
+  <Footer />
 </main>
 
 <style lang="scss">
@@ -123,7 +123,9 @@
     color: $color-primary;
   }
 
-  :global([data-theme='dark'] h2 b, [data-theme='dark'] h3 b, [data-theme='dark'] h4 b, [data-theme='dark'] p b, [data-theme='dark'] p a) {
+  :global([data-theme='dark'] h2 b, [data-theme='dark'] h3 b, [data-theme='dark'] h4 b, [data-theme='dark']
+      p
+      b, [data-theme='dark'] p a) {
     text-shadow: $color-black 1px 1px 2px;
   }
 
