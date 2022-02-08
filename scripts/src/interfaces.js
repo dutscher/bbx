@@ -24,6 +24,10 @@ export const ignoredProducts = [
     101990, // Gatling Gewehr - Mini Gun
 ];
 
+export const convertPartNr = {
+    3943: '3943b',
+}
+
 export const ignoreProductsOnUrl = {
     "https://www.bluebrixx.com/de/bluebrixxspecials/scifi": [
         100249, // Regionalexpress DB Steuerwagen
@@ -123,7 +127,7 @@ export const updateProductData = (product, change) => {
         if (!!color) {
             product.title += ', ' + color;
         }
-        product.partNr = nr;
+        product.partNr = nr in convertPartNr ? convertPartNr[nr] : nr;
     }
 
     const titleAdditionBricklink = change.catName.replace('-', ' ');
