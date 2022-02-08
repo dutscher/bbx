@@ -10,6 +10,7 @@
     "dev": "npm run build:copy && rollup -c -w",
     "start-by-rollup": "sirv public --no-clear",
     "validate": "svelte-check",
+    "prettier": "prettier --write {src,scripts}/{**/*,*}.{js,ts,jsx,tsx,svelte}",
     "--- update": "this is a divider",
     "fetch": "npm run exec ./scripts/fetch-stats.js",
     "fetch:compare": "npm run fetch -- -- --create-compare",
@@ -71,6 +72,8 @@
     "typescript": "^4.0.0",
     "sirv-cli": "^1.0.0",
     "yargs": "^17.3.0",
-    "chalk": "^5.0.0"
+    "chalk": "^5.0.0",
+    "prettier": "^2.5.1",
+    "prettier-plugin-svelte": "^2.6.0"
   }
 }
