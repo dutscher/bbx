@@ -1,7 +1,7 @@
 <script lang="ts">
   import { storedProducts, storedGlobalData, storedActiveProduct } from '../../stores';
   import { STR_BURG_BLAUSTEIN } from '../../_interfaces';
-  import { getEEProduct, getEEState, handlePrice } from '../../utils';
+  import { getEEProduct, getEEState, handlePrice, pad } from '../../utils';
 
   const type = STR_BURG_BLAUSTEIN;
   let products: any;
@@ -30,7 +30,7 @@
 
       return {
         id: product.id,
-        nr: (i + 1 + '').padStart(2, '00'),
+        nr: pad(i + 1),
         title: product.title.replace(' für ' + STR_BURG_BLAUSTEIN, ''),
         parts: product.parts,
         price: product.price,

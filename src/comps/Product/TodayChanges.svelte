@@ -2,7 +2,7 @@
   import Product from './Product.svelte';
   import Icon from '../Icon.svelte';
   import { storedProducts, storedStates } from '../../stores';
-  import { getLatestStateOfToday } from '../../utils';
+  import { getLatestStateOfToday, pad } from '../../utils';
   import { ID_PARTS } from '../../_interfaces';
 
   let products: any;
@@ -12,8 +12,6 @@
   let countParts = 0;
 
   let dayStr = '';
-  // 2017-06-01
-  let compareDate: string = '';
   // 2017-06-01
   let selectedDate: string = '';
   let selectedDateMin: string = '2021-04-30';
@@ -37,20 +35,18 @@
     if (!isVisible) {
       isVisible = true;
     }
-    selectedDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+    selectedDate = `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
   };
 
   $: {
-    const useNow = !!!selectedDate;
-    const now = !useNow ? new Date(selectedDate) : new Date();
+    const useNow = !selectedDate;
+    const now = useNow ? new Date() : new Date(selectedDate);
     let year = now.getFullYear();
-    let month = now.getMonth() + 1 + '';
-    let day = now.getDate() + '';
+    let month = now.getMonth() + 1;
+    let day = now.getDate();
 
     // 2017-06-01
-    compareDate = `${year}-${month.padStart(2, '00')}-${day.padStart(2, '00')}`;
-    // 2017-06-01
-    selectedDate = `${year}-${month.padStart(2, '00')}-${day.padStart(2, '00')}`;
+    selectedDate = `${year}-${pad(month)}-${pad(day)}`;
 
     dayStr = days[now.getDay()];
     // set today as max value
@@ -62,13 +58,13 @@
   const hasTodayHistory = product => {
     const hasTodayChanges = Object.keys(product.history).some(timestamp => {
       const historyDay = new Date(parseInt(timestamp)).setHours(0, 0, 0, 0);
-      const compareDay = new Date(compareDate).setHours(0, 0, 0, 0);
+      const compareDay = new Date(selectedDate).setHours(0, 0, 0, 0);
       return historyDay === compareDay;
     });
     return hasTodayChanges;
   };
 
-  function sortProducts(products, showParts, compareDate) {
+  function sortProducts(products, showParts, selectedDate) {
     countParts = 0;
     let sortedData = [];
     // do filtering api changes
@@ -95,10 +91,10 @@
       })
       // sort state
       .sort((a, b) => {
-        if (getLatestStateOfToday(a, compareDate) < getLatestStateOfToday(b, compareDate)) {
+        if (getLatestStateOfToday(a, selectedDate) < getLatestStateOfToday(b, selectedDate)) {
           return -1;
         }
-        if (getLatestStateOfToday(a, compareDate) > getLatestStateOfToday(b, compareDate)) {
+        if (getLatestStateOfToday(a, selectedDate) > getLatestStateOfToday(b, selectedDate)) {
           return 1;
         }
         return 0;
@@ -107,7 +103,7 @@
     return sortedData;
   }
 
-  $: sortedProducts = sortProducts(products, showParts, compareDate);
+  $: sortedProducts = sortProducts(products, showParts, selectedDate);
 </script>
 
 <!--
@@ -146,7 +142,7 @@
   <div class="flex flex--wrap">
     {#if isVisible}
       {#each sortedProducts as product (product.id)}
-        <Product {product} type="todaychanges" todayChangesDate={compareDate} />
+        <Product {product} type="todaychanges" todayChangesDate={selectedDate} />
       {/each}
     {/if}
   </div>

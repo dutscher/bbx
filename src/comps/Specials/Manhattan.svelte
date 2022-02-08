@@ -1,7 +1,7 @@
 <script lang="ts">
   import { storedProducts, storedGlobalData, storedActiveProduct } from '../../stores';
   import { STR_MANHATTAN } from '../../_interfaces';
-  import { getEEProduct, getEEState } from '../../utils';
+  import { getEEProduct, getEEState, pad } from '../../utils';
 
   const type = STR_MANHATTAN;
   let products: any;
@@ -29,7 +29,7 @@
 
       return {
         id: product.id,
-        nr: (i + 1 + '').padStart(2, '00'),
+        nr: pad(i + 1),
         title: product.title.replace(STR_MANHATTAN + ' ', ''),
         state: getEEState(product),
         isOutside: i >= 17,

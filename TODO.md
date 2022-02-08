@@ -1,13 +1,11 @@
 * filter for hot, new
 * multiple heart list
-* safari todoayChanges new Date() getDay()
 * warenkorb noise ausblenden
 * history back not going
 * noppen an tags
 * changelog visualisieren
 * sapper server side
 * pdf download proxy
-* unit tests getTags
 * notifications
   * siehe notifications.ts
   * store empty maybe sw ask svelte and ping pong

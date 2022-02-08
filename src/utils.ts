@@ -1,4 +1,16 @@
 import { ID_STATE_ANNOUNCEMENT, ID_STATE_AVAILABLE, ID_STATE_COMING_SOON, ID_STATE_UNAVAILABLE } from './_interfaces';
+import {
+  pad as pad_,
+  isDST as isDST_,
+  getHRDate as getHRDate_,
+  getDateTime as getDateTime_,
+} from '../scripts/src/clean-utils.js';
+
+// reexport
+export const pad = pad_;
+export const isDST = isDST_;
+export const getHRDate = getHRDate_;
+export const getDateTime = getDateTime_;
 
 export function getUrlParam(variable) {
   // remove ? with substring
@@ -88,30 +100,6 @@ export const titleMatch = (tag, product) => {
 export function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
-
-export function getHRDate(dateStr?) {
-  const now = !!dateStr ? new Date(dateStr) : new Date();
-  const year = now.getFullYear();
-  const month = (now.getMonth() + 1 + '').padStart(2, '00');
-  const day = (now.getDate() + '').padStart(2, '00');
-  const hour = (now.getHours() + '').padStart(2, '00');
-  const minute = (now.getMinutes() + '').padStart(2, '00');
-  return `${day}.${month}.${year} ${hour}:${minute}`;
-}
-
-export const isDST = d => {
-  let jan = new Date(d.getFullYear(), 0, 1).getTimezoneOffset();
-  let jul = new Date(d.getFullYear(), 6, 1).getTimezoneOffset();
-  return Math.max(jan, jul) !== d.getTimezoneOffset();
-};
-
-export const getDateTime = hrDate => {
-  const isSummertime = isDST(new Date());
-  const date = hrDate.split(' ');
-  const dmy = date[0].split('.');
-  const time = date[1] || '00:00';
-  return `${dmy[2]}-${dmy[1]}-${dmy[0]}T${time}:00+0${!isSummertime ? 1 : 2}:00`;
-};
 
 export function getLatestStateOfToday(product, compareDate) {
   let lastStateId = product.state.id;

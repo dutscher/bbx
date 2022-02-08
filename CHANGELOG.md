@@ -1,3 +1,6 @@
+* [08.02.2022]
+  * prettier implemantation
+  * fix safari datepicker
 * [07.02.2022]
   * add partNr of bricklink/lego
 * [04.02.2022]

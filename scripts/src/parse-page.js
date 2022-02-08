@@ -3,7 +3,6 @@ import moment from 'moment';
 import { JSDOM } from 'jsdom';
 // versus
 import cheerio from 'cheerio';
-
 import { products } from '../../data/all-products.reducer.js';
 import {
   debug,
@@ -15,7 +14,7 @@ import {
   handleCache,
   printTime,
 } from './utils.js';
-import { mergeTags } from './clean-utils.js';
+import { mergeTags, pad } from './clean-utils.js';
 import { ignoreProductsOnUrl, includedProducts, updateProductData } from './interfaces.js';
 import states from '../../data/states.json';
 import globalData from '../../data/data.json';
@@ -28,9 +27,9 @@ const today = new Date();
 const cacheDir = `./data/cache/`;
 // /202105/27/22
 const year = today.getFullYear();
-const month = (today.getMonth() + 1 + '').padStart(2, '00');
-const day = (today.getDate() + '').padStart(2, '00');
-const hour = (today.getHours() + '').padStart(2, '00'); // '01' //
+const month = pad(today.getMonth() + 1);
+const day = pad(today.getDate());
+const hour = pad(today.getHours());
 const todayCacheDir = `${cacheDir}${year}${month}/${day}/`;
 
 let allTimeChanges;

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { storedStates } from '../../stores';
-  import { jsVoid } from '../../utils';
+  import { jsVoid, pad } from '../../utils';
   import { ID_STATE_AVAILABLE } from '../../_interfaces';
 
   export let product: any;
@@ -16,10 +16,10 @@
   const getFormattedDate = timestamp => {
     const date = new Date(timestamp);
     const year = date.getFullYear();
-    const month = (date.getMonth() + 1 + '').padStart(2, '00');
-    const day = (date.getDate() + '').padStart(2, '00');
-    const hours = (date.getHours() + '').padStart(2, '00');
-    const minutes = (date.getMinutes() + '').padStart(2, '00');
+    const month = pad(date.getMonth() + 1);
+    const day = pad(date.getDate());
+    const hours = pad(date.getHours());
+    const minutes = pad(date.getMinutes());
     return `${day}.${month}.${year} ${hours}:${minutes}`;
   };
 
