@@ -1,81 +1,85 @@
 <script lang="ts">
-    import { storedProducts, storedGlobalData, storedActiveProduct, } from '../../stores';
-    import { STR_BURG_BLAUSTEIN } from '../../_interfaces';
-    import { getEEProduct, getEEState, handlePrice } from '../../utils';
+  import { storedProducts, storedGlobalData, storedActiveProduct } from '../../stores';
+  import { STR_BURG_BLAUSTEIN } from '../../_interfaces';
+  import { getEEProduct, getEEState, handlePrice } from '../../utils';
 
-    const type = STR_BURG_BLAUSTEIN;
-    let products: any;
-    let data: any;
-    let innerWidth = 0;
-    let zoom;
-    let pieces;
-    let activeProductID = -1;
+  const type = STR_BURG_BLAUSTEIN;
+  let products: any;
+  let data: any;
+  let innerWidth = 0;
+  let zoom;
+  let pieces;
+  let activeProductID = -1;
 
-    storedProducts.subscribe(store => products = store);
-    storedGlobalData.subscribe(store => data = store);
-    storedActiveProduct.subscribe(store => {
-        if (store.product && (store.product.type !== type || store.product.id === 0)) {
-            activeProductID = -1;
-        }
+  storedProducts.subscribe(store => (products = store));
+  storedGlobalData.subscribe(store => (data = store));
+  storedActiveProduct.subscribe(store => {
+    if (store.product && (store.product.type !== type || store.product.id === 0)) {
+      activeProductID = -1;
+    }
+  });
+
+  $: {
+    const imgWidth = 750;
+    const maxWidth = innerWidth < imgWidth ? innerWidth : 750;
+    zoom = maxWidth / (imgWidth + 64);
+
+    console.log({ innerWidth, zoom });
+    pieces = data.blaustein.pieces.map((piece, i) => {
+      const product = getEEProduct(products, piece);
+
+      return {
+        id: product.id,
+        nr: (i + 1 + '').padStart(2, '00'),
+        title: product.title.replace(' für ' + STR_BURG_BLAUSTEIN, ''),
+        parts: product.parts,
+        price: product.price,
+        pricePerPart: product.pricePerPart,
+        state: getEEState(product),
+      };
     });
+  }
 
-    $:{
-        const imgWidth = 750;
-        const maxWidth = innerWidth < imgWidth ? innerWidth : 750;
-        zoom = maxWidth / (imgWidth + 64);
+  const setActive = (event, id) => {
+    event.stopPropagation();
+    activeProductID = id;
 
-        console.log({innerWidth, zoom})
-        pieces = data.blaustein.pieces.map((piece, i) => {
-            const product = getEEProduct(products, piece);
-
-            return {
-                id: product.id,
-                nr: ((i + 1) + '').padStart(2, '00'),
-                title: product.title.replace(' für ' + STR_BURG_BLAUSTEIN, ''),
-                parts: product.parts,
-                price: product.price,
-                pricePerPart: product.pricePerPart,
-                state: getEEState(product),
-            }
-        })
-    }
-
-    const setActive = (event, id) => {
-        event.stopPropagation();
-        activeProductID = id;
-
-        storedActiveProduct.update(store => {
-            store.product = {
-                id: activeProductID,
-                type: 'products',
-            };
-            store.reason = 'click-on-zoom';
-            return store;
-        })
-    }
+    storedActiveProduct.update(store => {
+      store.product = {
+        id: activeProductID,
+        type: 'products',
+      };
+      store.reason = 'click-on-zoom';
+      return store;
+    });
+  };
 </script>
 
-<svelte:window bind:innerWidth={innerWidth}/>
+<svelte:window bind:innerWidth />
 
 <div>
-    <h2>{STR_BURG_BLAUSTEIN}</h2>
-    {#if innerWidth}
-        <div class="pieces" style="zoom:{zoom};-moz-transform:scale({zoom});">
-            <div class="pieces__wrap flex">
-                <img class="piece__img"
-                     alt={STR_BURG_BLAUSTEIN}
-                     src="./images/{'burg-blaustein'}.png"/>
-                {#each pieces as piece}
-                    <div class="{`piece piece--${piece.nr} ${piece.state}`}"
-                         on:click={(event) => {setActive(event, piece.id)}}>
-                        {piece.title}
-                        <span>{piece.parts}
-                            {#if piece.price} - {handlePrice(piece)}{/if}</span>
-                    </div>
-                {/each}
-            </div>
-        </div>
-    {/if}
+  <h2>{STR_BURG_BLAUSTEIN}</h2>
+  {#if innerWidth}
+    <div class="pieces" style="zoom:{zoom};-moz-transform:scale({zoom});">
+      <div class="pieces__wrap flex">
+        <img class="piece__img" alt={STR_BURG_BLAUSTEIN} src="./images/burg-blaustein.png" />
+        {#each pieces as piece}
+          <div
+            class="piece piece--{piece.nr} {piece.state}"
+            on:click={event => {
+              setActive(event, piece.id);
+            }}
+          >
+            {piece.title}
+            <span
+              >{piece.parts}
+              {#if piece.price} - {handlePrice(piece)}{/if}</span
+            >
+          </div>
+        {/each}
+      </div>
+    </div>
+  {/if}
 </div>
 
 <style lang="scss">
@@ -165,4 +169,3 @@
     }
   }
 </style>
-

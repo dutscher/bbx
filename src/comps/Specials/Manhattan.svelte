@@ -1,80 +1,82 @@
 <script lang="ts">
-    import { storedProducts, storedGlobalData, storedActiveProduct } from '../../stores';
-    import { STR_MANHATTAN } from "../../_interfaces";
-    import { getEEProduct, getEEState } from "../../utils";
+  import { storedProducts, storedGlobalData, storedActiveProduct } from '../../stores';
+  import { STR_MANHATTAN } from '../../_interfaces';
+  import { getEEProduct, getEEState } from '../../utils';
 
-    const type = STR_MANHATTAN;
-    let products: any;
-    let data: any;
-    let innerWidth = 0;
-    let zoom;
-    let pieces;
-    let activeProductID = -1;
+  const type = STR_MANHATTAN;
+  let products: any;
+  let data: any;
+  let innerWidth = 0;
+  let zoom;
+  let pieces;
+  let activeProductID = -1;
 
-    storedProducts.subscribe(store => products = store);
-    storedGlobalData.subscribe(store => data = store);
-    storedActiveProduct.subscribe(store => {
-        if (store.product && (store.product.type !== type || store.product.id === 0)) {
-            activeProductID = -1;
-        }
+  storedProducts.subscribe(store => (products = store));
+  storedGlobalData.subscribe(store => (data = store));
+  storedActiveProduct.subscribe(store => {
+    if (store.product && (store.product.type !== type || store.product.id === 0)) {
+      activeProductID = -1;
+    }
+  });
+
+  $: {
+    const imgWidth = 800;
+    const minWidth = innerWidth < imgWidth ? innerWidth : imgWidth;
+    zoom = minWidth / imgWidth;
+
+    pieces = data.manhattan.pieces.map((piece, i) => {
+      const product = getEEProduct(products, piece);
+
+      return {
+        id: product.id,
+        nr: (i + 1 + '').padStart(2, '00'),
+        title: product.title.replace(STR_MANHATTAN + ' ', ''),
+        state: getEEState(product),
+        isOutside: i >= 17,
+      };
     });
+  }
 
-    $: {
-        const imgWidth = 800;
-        const minWidth = innerWidth < imgWidth ? innerWidth : imgWidth;
-        zoom = minWidth / imgWidth;
-
-        pieces = data.manhattan.pieces.map((piece, i) => {
-            const product = getEEProduct(products, piece);
-
-            return {
-                id: product.id,
-                nr: ((i + 1) + '').padStart(2, '00'),
-                title: product.title.replace(STR_MANHATTAN + ' ', ''),
-                state: getEEState(product),
-                isOutside: i >= 17,
-            }
-        })
-    }
-
-    const setActive = (event, id) => {
-        event.stopPropagation();
-        activeProductID = id;
-        storedActiveProduct.update(store => {
-            store.product = {
-                id: activeProductID,
-                type: 'products',
-            };
-            store.reason = 'click-on-zoom';
-            return store;
-        })
-    }
+  const setActive = (event, id) => {
+    event.stopPropagation();
+    activeProductID = id;
+    storedActiveProduct.update(store => {
+      store.product = {
+        id: activeProductID,
+        type: 'products',
+      };
+      store.reason = 'click-on-zoom';
+      return store;
+    });
+  };
 </script>
 
-<svelte:window bind:innerWidth={innerWidth}/>
+<svelte:window bind:innerWidth />
 
 <div>
-    <h2>{STR_MANHATTAN}</h2>
-    {#if innerWidth}
-        <div class="pieces" style="zoom:{zoom};-moz-transform:scale({zoom});">
-            <div class="pieces__wrap">
-                {#each pieces as piece}
-                    <div class="{`piece piece--${piece.nr} ${piece.state}`}"
-                         on:click={(event) => {setActive(event, piece.id)}}
-                         data-nr={piece.nr}
-                         title={piece.title}>
-                        {#if !piece.isOutside}
-                            <img class="piece__img"
-                                 alt={piece.title}
-                                 src="./images/manhattan/{piece.nr}.png"/>
-                        {:else}
-                            {piece.title}
-                        {/if}
-                    </div>
-                {/each}
-            </div>
-        </div>
-    {/if}
+  <h2>{STR_MANHATTAN}</h2>
+  {#if innerWidth}
+    <div class="pieces" style="zoom:{zoom};-moz-transform:scale({zoom});">
+      <div class="pieces__wrap">
+        {#each pieces as piece}
+          <div
+            class="piece piece--{piece.nr} {piece.state}"
+            on:click={event => {
+              setActive(event, piece.id);
+            }}
+            data-nr={piece.nr}
+            title={piece.title}
+          >
+            {#if !piece.isOutside}
+              <img class="piece__img" alt={piece.title} src="./images/manhattan/{piece.nr}.png" />
+            {:else}
+              {piece.title}
+            {/if}
+          </div>
+        {/each}
+      </div>
+    </div>
+  {/if}
 </div>
 
 <style lang="scss">
@@ -284,4 +286,3 @@
     }
   }
 </style>
-

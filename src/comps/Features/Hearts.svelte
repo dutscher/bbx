@@ -1,65 +1,68 @@
 <script lang="ts">
-    import { storedProducts, storedHearts } from '../../stores';
-    import Product from "../Product/Product.svelte";
-    import Icon from "../Icon.svelte";
+  import { storedProducts, storedHearts } from '../../stores';
+  import Product from '../Product/Product.svelte';
+  import Icon from '../Icon.svelte';
 
-    let heartSummary = {price: 0, parts: 0};
-    let hearts = [];
-    let products = [];
+  let heartSummary = { price: 0, parts: 0 };
+  let hearts = [];
+  let products = [];
 
-    storedProducts.subscribe(store => products = store);
-    storedHearts.subscribe(store => hearts = store);
+  storedProducts.subscribe(store => (products = store));
+  storedHearts.subscribe(store => (hearts = store));
 
-    $: heartItems = hearts
-        .map(pID => products.find(product => product.id === pID))
-        .sort((a, b) => {
-            if (a.title < b.title) {
-                return -1;
-            }
-            if (a.title > b.title) {
-                return 1;
-            }
-            return 0;
-        })
-        .sort((a, b) => {
-            if (a.state.id < b.state.id) {
-                return -1;
-            }
-            if (a.state.id > b.state.id) {
-                return 1;
-            }
-            return 0;
-        });
+  $: heartItems = hearts
+    .map(pID => products.find(product => product.id === pID))
+    .sort((a, b) => {
+      if (a.title < b.title) {
+        return -1;
+      }
+      if (a.title > b.title) {
+        return 1;
+      }
+      return 0;
+    })
+    .sort((a, b) => {
+      if (a.state.id < b.state.id) {
+        return -1;
+      }
+      if (a.state.id > b.state.id) {
+        return 1;
+      }
+      return 0;
+    });
 
-    $: {
-        heartSummary = {price: 0, parts: 0};
+  $: {
+    heartSummary = { price: 0, parts: 0 };
 
-        heartItems.map(product => {
-            if (!!product.price && !!product.parts) {
-                heartSummary.price += product.price;
-                heartSummary.parts += product.parts;
-            }
-        });
-    }
+    heartItems.map(product => {
+      if (!!product.price && !!product.parts) {
+        heartSummary.price += product.price;
+        heartSummary.parts += product.parts;
+      }
+    });
+  }
 </script>
 
 <div class="flex">
-    {#if heartItems.length > 0}
-        <span class="icon">
-            <Icon modifier="heart" svg="true" class="active" title="Will ich haben"/>
-        </span>
+  {#if heartItems.length > 0}
+    <span class="icon">
+      <Icon modifier="heart" svg="true" class="active" title="Will ich haben" />
+    </span>
+  {/if}
+  <div class="flex flex--wrap">
+    {#each heartItems as product (product.id)}
+      <Product {product} type="hearts" />
+    {/each}
+    {#if heartItems.length > 1}
+      <span class="summary">
+        =
+        <strong>Listenpreis:</strong>
+        {heartSummary.price.toFixed(2).replace('.', ',')} EUR /
+        <strong>Steine:</strong>
+        {heartSummary.parts}
+      </span>
     {/if}
-    <div class="flex flex--wrap">
-        {#each heartItems as product (product.id)}
-            <Product {product} type="hearts"/>
-        {/each}
-        {#if heartItems.length > 1}
-        <span class="summary"> =
-            <strong>Listenpreis:</strong> {heartSummary.price.toFixed(2).replace('.', ',')} EUR /
-            <strong>Steine:</strong> {heartSummary.parts}
-        </span>
-        {/if}
-    </div>
+  </div>
 </div>
 
 <style lang="scss">
