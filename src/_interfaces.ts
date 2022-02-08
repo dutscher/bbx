@@ -26,8 +26,8 @@ export const lsKeyChanges = 'changesVisible';
 export const lsKeyFilter = 'filterVisible';
 
 export interface Tag {
-    id: number,
-    name: string,
+  id: number;
+  name: string;
 }
 // external data
 export const UNLOADED = 'unloaded';
