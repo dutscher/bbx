@@ -15,6 +15,7 @@
   import Github from './comps/Features/Github.svelte';
   import Darkmode from './comps/Features/Darkmode.svelte';
   import Footer from './comps/Footer.svelte';
+  import "beercss";
 
   const client = new ApolloClient({
     uri: 'https://api.bbx.watch/api/graphql',
