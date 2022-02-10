@@ -54,6 +54,9 @@
     : [];
 
   $: {
+    // reset
+    heartSummary = { price: 0, parts: 0 };
+    // calc again
     heartItems.map(product => {
       if (!!product.price && !!product.parts) {
         heartSummary.price += product.price;

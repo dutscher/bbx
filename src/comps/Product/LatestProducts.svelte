@@ -1,6 +1,6 @@
 <script lang="ts">
   import Product from './Product.svelte';
-  import Icon from '../Icon.svelte';
+  import Toggle from '../Toggle.svelte';
   import { storedProducts, storedStates } from '../../stores';
   import { ID_PARTS, ID_STATE_AVAILABLE, ID_STATE_ANNOUNCEMENT, ID_STATE_COMING_SOON } from '../../_interfaces';
 
@@ -9,10 +9,10 @@
 
   let products: any;
   let states: any;
-  let isVisible = false;
   let reverseSort = false;
   let showParts = false;
   let showFirstRelease = false;
+  let isVisible = false;
   let countParts = 0;
   const monthNames = [
     'Januar',
@@ -125,59 +125,52 @@
   $: sortedMonths = sortMonths(sortedProducts, reverseSort);
 </script>
 
-<h2 class="with-toggle" on:click={() => (isVisible = !isVisible)}>
-  <Icon modifier="arrow {!isVisible ? 'down' : 'up'}" svg />
-  {title}
-  <b>({sortedProducts.length})</b>
-</h2>
-<div class="changes{isVisible ? ' show' : ''}">
-  {#if state !== ID_STATE_ANNOUNCEMENT}
-    <label class="with-text-shadow">
-      <input type="checkbox" bind:checked={showFirstRelease} />
-      Erstveröffentlichung
-    </label>
-  {/if}
-  {#if state !== ID_STATE_AVAILABLE}
-    <label class="with-text-shadow">
-      <input type="checkbox" bind:checked={reverseSort} />
-      Neuste zuerst
-    </label>
-  {/if}
-  <label class="with-text-shadow">
-    <input type="checkbox" bind:checked={showParts} />
-    Auf Parts ({countParts}) umschalten
-  </label>
-  {#if state !== ID_STATE_AVAILABLE && !reverseSort}
-    <p><b>Was kommt womöglich als nächstes:</b></p>
-  {/if}
-  <div>
-    {#if isVisible}
-      {#each sortedMonths as month (month.id)}
-        {#if month.products.length > 0}
-          <h3>
-            {month.label} ({month.monthPad}{#if month.year !== thisYear}&nbsp;{month.year}{/if})
-          </h3>
-          <div class="flex flex--wrap">
-            {#each month.products as product (product.id)}
-              <Product {product} type="latestproducts" />
-            {/each}
-          </div>
-        {/if}
-      {/each}
+<Toggle {title} onVisibility={newVisiblity => (isVisible = newVisiblity)}>
+  <b slot="description">({sortedProducts.length})</b>
+
+  <div class="changes">
+    {#if state !== ID_STATE_ANNOUNCEMENT}
+      <label class="with-text-shadow">
+        <input type="checkbox" bind:checked={showFirstRelease} />
+        Erstveröffentlichung
+      </label>
     {/if}
+    {#if state !== ID_STATE_AVAILABLE}
+      <label class="with-text-shadow">
+        <input type="checkbox" bind:checked={reverseSort} />
+        Neuste zuerst
+      </label>
+    {/if}
+    <label class="with-text-shadow">
+      <input type="checkbox" bind:checked={showParts} />
+      Auf Parts ({countParts}) umschalten
+    </label>
+    {#if state !== ID_STATE_AVAILABLE && !reverseSort}
+      <p><b>Was kommt womöglich als nächstes:</b></p>
+    {/if}
+    <div>
+      {#if isVisible}
+        {#each sortedMonths as month (month.id)}
+          {#if month.products.length > 0}
+            <h3>
+              {month.label} ({month.monthPad}{#if month.year !== thisYear}&nbsp;{month.year}{/if})
+            </h3>
+            <div class="flex flex--wrap">
+              {#each month.products as product (product.id)}
+                <Product {product} type="latestproducts" />
+              {/each}
+            </div>
+          {/if}
+        {/each}
+      {/if}
+    </div>
   </div>
-</div>
+</Toggle>
 
 <style lang="scss">
   @import '../../scss/variables';
 
   .changes {
-    display: none;
-
-    &.show {
-      display: block;
-    }
-
     .new-month {
       display: block;
       flex-wrap: wrap;
