@@ -1,11 +1,3 @@
-* filter for hot, new
-* multiple heart list
-* warenkorb noise ausblenden
-* history back not going
-* noppen an tags
-* changelog visualisieren
-* sapper server side
-* pdf download proxy
 * notifications
   * siehe notifications.ts
   * store empty maybe sw ask svelte and ping pong
@@ -13,6 +5,16 @@
 * live api changes:
   * tags use cats-n-tags script
   * notifications on live
+* pdf download proxy -> weiterleitung auf external storage?
+  * email schreiben
+* typescript types
+* neues design
+* filter for hot, new
+* warenkorb noise ausblenden
+* history back not going
+* noppen an tags
+* changelog visualisieren
+* sapper server side
 * bbx special 613 (https://www.bluebrixx.com/de/bluebrixxspecials?limit=613) vs 1299 (https://bbx.watch/#tags=special)
 
 * planer: https://klemmbauer.de/bibliothek.html

@@ -8,7 +8,7 @@
     storedStates,
     storedTags,
   } from '../../stores';
-  import { setUrlParams } from '../../utils';
+  import { setUrlParams, stopClick } from '../../utils';
 
   export let activeSearchString: string = '';
   export let activeTagIds: any = [];
@@ -37,10 +37,8 @@
     activePartIds.length === 0 &&
     activePartTypeIds.length === 0;
 
-  const removeItem = (type, event, id) => {
-    // dont close .with-toggle
-    event.preventDefault();
-    event.stopPropagation();
+  const removeItem = (type, e, id) => {
+    stopClick(e);
 
     storedActiveSelection.update(store => {
       if (type === 'search' && type === 'search') {

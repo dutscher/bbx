@@ -188,3 +188,8 @@ export const getEEState = product => {
 export const getMinInMs = (minutes: number) => {
   return minutes * 60 * 1000;
 };
+
+export const stopClick = e => {
+  e.preventDefault();
+  e.stopPropagation();
+};

@@ -26,7 +26,9 @@
     "build:inst": "npm run exec ./scripts/src/parse-inst.js",
     "build:copy": "npm run exec ./scripts/build.js",
     "deploy": "npm run exec ./scripts/deploy.js",
-    "exec": "node --experimental-json-modules --no-warnings"
+    "exec": "node --experimental-json-modules --no-warnings",
+    "--- misc": "this is a divider",
+    "proxy:pdf": "node ./scripts/proxy.js"
   },
   "dependencies": {
     "@apollo/client": "^3.5.6",
@@ -74,6 +76,8 @@
     "yargs": "^17.3.0",
     "chalk": "^5.0.0",
     "prettier": "^2.5.1",
-    "prettier-plugin-svelte": "^2.6.0"
+    "prettier-plugin-svelte": "^2.6.0",
+    "express": "^4.17.2",
+    "http-proxy-middleware": "^2.0.3"
   }
 }

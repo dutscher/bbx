@@ -6,15 +6,13 @@
     storedTags,
     storedStates,
     storedActiveSelection,
-    storedHearts,
-    lsKeyHeart,
-    localStore,
     storedActiveProduct,
   } from '../../stores';
   import { jsVoid, setUrlParams, handlePrice } from '../../utils';
   import Icon from '../Icon.svelte';
   import ProductHistory from './ProductHistory.svelte';
   import ProductImage from './ProductImage.svelte';
+  import ProductHearts from './ProductHearts.svelte';
 
   export let product: any;
   export let states: any;
@@ -24,7 +22,7 @@
   let data: any;
   let categories: any;
   let tags: any;
-  let hearts: any;
+
   const spaceing: number = 16;
   let innerWidth = 0;
   let wrapElement: any;
@@ -38,7 +36,6 @@
   storedGlobalData.subscribe(store => (data = store));
   storedCategories.subscribe(store => (categories = store));
   storedTags.subscribe(store => (tags = store));
-  storedHearts.subscribe(store => (hearts = store));
 
   // /101/101857%20Das%20Schwarze%20Auge,%20Thowaler%20Drachenschiff,%20Otta%20(45MB).pdf
   // https://www.bluebrixx.com/data/files/manuals/103/103272%20Nimitz%20Teil%202%20(26MB).pdf
@@ -127,20 +124,6 @@
     });
   };
 
-  const clickHeart = () => {
-    storedHearts.update(store => {
-      if (!store.includes(product.id)) {
-        store.push(product.id);
-      } else {
-        store = store.filter(pid => pid !== product.id);
-      }
-
-      localStore.set(lsKeyHeart, JSON.stringify(store));
-
-      return store;
-    });
-  };
-
   const setDownload = (downloadUrl, name) => {
     const link = document.createElement('a');
     // If you don't know the name or want to use
@@ -183,13 +166,7 @@
         {#if product.title}
           <div class="tooltip__title-wrap">
             <strong class="tooltip__title">
-              <Icon
-                modifier="heart"
-                svg="true"
-                class={hearts.includes(product.id) ? 'active' : ''}
-                title="Will ich haben"
-                on:click={clickHeart}
-              />
+              <ProductHearts {product} />
               {product.title}
             </strong>
           </div>
