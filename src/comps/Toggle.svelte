@@ -19,7 +19,7 @@
     if (!alwaysopen) {
       isVisible = !isVisible;
       localStore.visibility(title, isVisible);
-      onVisibility(isVisible); //V4Y
+      onVisibility(isVisible); // V4IY
     }
   };
 
@@ -76,7 +76,8 @@
       }
     }
 
-    :global(& .with-toggle + *) {
+    :global(.with-toggle:first-child),
+    :global(.with-toggle + *) {
       padding-left: $space-xl * 2.5;
     }
 
