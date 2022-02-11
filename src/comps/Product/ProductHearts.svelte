@@ -37,7 +37,7 @@
       if (!store[listName].i.includes(product.id)) {
         store[listName].i.push(product.id);
       } else {
-        store[listName] = store[listName].i.filter(pid => pid !== product.id);
+        store[listName].i = store[listName].i.filter(pid => pid !== product.id);
       }
 
       localStore.set(lsKeyHeart, JSON.stringify(store));
