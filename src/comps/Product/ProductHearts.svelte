@@ -34,7 +34,7 @@
         store[listName] = { t: listName, i: [] };
       }
 
-      if (!store[listName].includes(product.id)) {
+      if (!store[listName].i.includes(product.id)) {
         store[listName].i.push(product.id);
       } else {
         store[listName] = store[listName].i.filter(pid => pid !== product.id);
