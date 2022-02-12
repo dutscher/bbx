@@ -101,17 +101,18 @@
   $: sortedItems = sortItems(filteredProducts);
 
   const getClasses = state =>
-    ['filter', activeStateIds.includes(state.id) && 'active', state.count === 0 && 'disabled', state.color]
+    ['chip small', activeStateIds.includes(state.id) && 'active', state.count === 0 && 'disabled', state.color]
       .filter(css => !!css)
       .join(' ');
 </script>
 
 <div class="flex">
   <h4 class="tag-name">Status</h4>
-  <div class="flex flex--wrap bl">
+  <div class="flex flex--gap flex--wrap bl">
     {#each sortedItems as state (state.id)}
       <div class={getClasses(state)} data-count={state.count} on:click={() => clickItem(state, true)}>
-        {state.de}
+        <span class="chip_state">{state.count}</span>
+        <p>{state.de}</p>
       </div>
     {/each}
   </div>
@@ -120,59 +121,19 @@
 <style lang="scss">
   @import '../../scss/variables';
 
-  .filter {
-    padding: 0 0 0 $space-xl;
-    margin: $space-xs;
-    border: solid 1px $color-primary-darker;
-    border-radius: $border-radius-xl;
-    background: $color-white;
-    color: $color-primary-dark;
+  .chip {
     cursor: pointer;
     user-select: none;
-    position: relative;
-    font-size: ms(0);
-
-    @media (min-width: 750px) {
-      font-size: ms(-2);
-    }
-
-    &:hover {
-      background: $color-primary-darker;
-    }
+    gap: 10px;
 
     &:hover,
     &.active {
-      background: $color-primary-darker;
-      color: $color-white;
+      outline: 2px solid $color-primary-darker;
     }
 
     &.disabled {
       opacity: 0.1;
       cursor: default;
-    }
-
-    &::after {
-      content: attr(data-count);
-      display: inline-block;
-      padding: $space-xs $space-md;
-      margin-left: 0;
-      border-radius: $border-radius-xl;
-      border: 1px solid $color-white;
-      background: $color-primary;
-      color: $color-white;
-      position: relative;
-    }
-
-    &.green::after {
-      background: $color-comingsoon;
-    }
-
-    &.red::after {
-      background: $color-unavailable;
-    }
-
-    &.orange::after {
-      background: $color-annoucement;
     }
   }
 </style>

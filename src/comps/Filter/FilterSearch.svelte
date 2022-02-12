@@ -56,7 +56,7 @@
 
 <div class="flex flex--block">
   <h4>Suche</h4>
-  <div class="flex flex--wrap bl">
+  <div class="field border">
     <input
       class="search"
       type="search"
@@ -72,27 +72,9 @@
 </div>
 
 <style lang="scss">
-  @import '../../scss/variables';
-
   .search {
-    background: $color-primary-lighter;
-    border: solid 1px $color-primary-darker;
-    border-radius: $border-radius-lg;
-    color: $color-primary-darker;
-    padding: $space-md $space-lg;
-    font-size: ms(2);
-    width: 100%;
-
-    &::placeholder {
-      color: $color-white;
-    }
-
     @media (min-width: 720px) {
       width: 33vw;
     }
-  }
-
-  :global([data-theme='dark'] .search) {
-    background: $color-neutral-100;
   }
 </style>

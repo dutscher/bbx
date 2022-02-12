@@ -153,8 +153,8 @@
 </script>
 
 <ClickOutside on:clickoutside={onClickOutside}>
-  <div class="product {handleStateColor(product)}" data-state={handleStateName(product)}>
-    <span class="product__label" on:click={onClick}>
+  <div class="product" data-state={handleStateName(product)}>
+    <span class="chip small {handleStateColor(product)}" on:click={onClick}>
       {#if isHeart && type !== 'hearts'}
         <Icon modifier="heart" svg="true" class="active" title="Will ich haben" />
       {/if}
@@ -175,20 +175,8 @@
   @import '../../scss/variables';
 
   .product {
-    position: relative;
-    margin: $space-xs;
-    text-decoration: none;
-    color: $color-white;
-    background: $color-primary;
-    padding: 0 $space-lg;
-    border-radius: $space-xl;
-    font-size: ms(2);
     user-select: none;
     cursor: pointer;
-
-    @media (min-width: 750px) {
-      font-size: ms(0);
-    }
 
     &__label {
       display: block;
@@ -203,22 +191,6 @@
       @media (min-width: 750px) {
         font-size: ms(-3);
       }
-    }
-
-    &.green {
-      background: $color-comingsoon;
-    }
-
-    &.red {
-      background: $color-unavailable;
-    }
-
-    &.orange {
-      background: $color-annoucement;
-    }
-
-    &:hover {
-      background: $color-primary-darker;
     }
   }
 </style>

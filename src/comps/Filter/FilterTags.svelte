@@ -72,7 +72,7 @@
 
   const getClasses = (tag, isFirst, activeTagIds) =>
     [
-      'tag',
+      'chip small',
       activeTagIds.includes(tag.id) && 'active',
       IDS_SPECIAL_TAGS.includes(tag.id) && 'highlight',
       isFirst && 'new-letter',
@@ -83,19 +83,21 @@
 
 <div class="flex">
   <h4 class="tag-name">Tags</h4>
-  <div class="flex flex--wrap bl">
+  <div class="flex flex--gap flex--wrap bl">
     {#each sortedAbcTags as abc}
       {#each abc.sortedTags as tag, index}
+        {#if index === 0}
+          <a class="chip small brown2 brown-text">
+            {abc.letter}
+          </a>
+        {/if}
         <span
           class={getClasses(tag, index === 0, activeTagIds)}
           on:click={() => clickTag(tag, true)}
           data-id={tag.id}
-          data-count={tag.count}
         >
-          {#if index === 0}
-            <span class="tag__letter" data-letter={abc.letter} />
-          {/if}
           {tag.name}
+          <span class="chip_state">{tag.count}</span>
         </span>
       {/each}
     {/each}
@@ -105,78 +107,19 @@
 <style lang="scss">
   @import '../../scss/variables';
 
-  $selector: '.tag';
-  #{$selector} {
-    padding: 0 0 0 $space-xl;
-    margin: $space-xs;
-    border: solid 1px $color-primary-darker;
-    border-radius: $border-radius-xl;
-    background: $color-white;
-    color: $color-primary-dark;
+  .chip {
     cursor: pointer;
     user-select: none;
-    position: relative;
-    font-size: ms(0);
-
-    @media (min-width: 750px) {
-      font-size: ms(-2);
-    }
-
-    &.active {
-      background: $color-primary-darker;
-      color: $color-white;
-    }
+    gap: 10px;
 
     &:hover,
-    &:active {
-      background: $color-primary;
-      color: $color-white;
+    &.active {
+      outline: 2px solid $color-primary-darker;
     }
 
-    &::after {
-      content: attr(data-count);
-      display: inline-block;
-      padding: $space-xs $space-md;
-      margin-left: 0;
-      border-radius: $border-radius-xl;
-      border: 1px solid $color-white;
-      background: $color-primary-dark;
-      color: $color-white;
-      position: relative;
+    &.disabled {
+      opacity: 0.1;
+      cursor: default;
     }
-
-    &__letter {
-      position: absolute;
-      left: -($space-xl * 2.5);
-      color: $color-primary-dark;
-
-      &::after {
-        width: ($space-xl * 2.5);
-        text-align: center;
-        position: relative;
-        display: inline-block;
-        content: attr(data-letter);
-        font-weight: bold;
-        font-size: ms(2);
-        border-radius: $border-radius-xl;
-        line-height: 19px;
-      }
-    }
-
-    &.new-letter {
-      margin-left: $space-xl * 2.5;
-    }
-
-    &.highlight {
-      &::after {
-        background: $color-highlight-darker;
-        color: $color-white;
-      }
-    }
-  }
-
-  :global([data-theme='dark'] #{$selector}__letter) {
-    color: $color-primary;
-    text-shadow: $color-black 1px 1px 2px;
   }
 </style>

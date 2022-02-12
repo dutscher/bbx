@@ -163,6 +163,10 @@
     display: flex;
   }
 
+  :global(.flex--gap) {
+    row-gap: 8rem;
+  }
+
   :global(.flex--wrap) {
     flex-wrap: wrap;
     flex: 1;

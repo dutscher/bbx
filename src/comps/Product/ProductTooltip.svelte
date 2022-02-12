@@ -169,7 +169,7 @@
 
 <svelte:window bind:innerWidth />
 
-<div class="tooltip{showTooltip ? ' open' : ''}">
+<div class="product_tooltip{showTooltip ? ' open' : ''}">
   {#if showTooltip}
     <div
       class="tooltip__outer-wrap"
@@ -280,12 +280,11 @@
 <style lang="scss">
   @import '../../scss/variables';
 
-  .tooltip {
-    position: relative;
-    height: 1px;
-    display: block;
-    width: 100%;
+  .product_tooltip {
     white-space: nowrap;
+  }
+
+  .tooltip {
 
     a {
       display: block;

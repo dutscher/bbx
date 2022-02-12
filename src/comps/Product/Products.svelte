@@ -301,7 +301,7 @@
   </div>
 </h2>
 
-<div class="flex flex--wrap">
+<div class="flex flex--gap flex--wrap">
   {#each sortedItems as product (product.id)}
     <Product {product} type="products" />
   {/each}
