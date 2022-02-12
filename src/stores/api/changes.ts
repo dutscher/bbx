@@ -7,7 +7,7 @@ import { cleanUpHistoryChange } from '../../../scripts/src/clean-utils.js';
 import { sortedProducts, storedProducts } from '../products';
 import { sortedStates, storedActiveSelection } from '../states';
 import { internetConnection } from '../internet-connection';
-import { doNotify } from './notifications';
+import { doNotify } from '../notifications';
 
 // ["MzIyMTA=|02.02.2022 13:37|25"]
 const [lastCursorFromJson, lastCursorDate] = endCursorsFromParse[0].split('|');
@@ -94,8 +94,8 @@ const evalChanges = (edges: any) => {
       // get product
       const existingProduct = sortedProducts.find(product => product.id === id);
       // lastchange: 2021-07-03T11:21:07+00:00
-      const timestampChange = new Date(change.datetime).getTime() / 1000;
-      const timestampProduct = new Date(product.lastchange).getTime() / 1000;
+      const timestampChange = new Date(change.datetime).getTime();
+      const timestampProduct = new Date(product.lastchange).getTime();
       // status._id: UNAVAILABLE
       const stateChange = sortedStates.find(state => state.api === change.status['_id']);
       const stateProduct = sortedStates.find(state => state.api === product.status['_id']);
@@ -188,7 +188,7 @@ const evalChanges = (edges: any) => {
 
         cleanUpHistoryChange(product);
 
-        if (product.id === 103217) console.log(product, updates[product.id].history);
+        if (false && product.id === 103209) console.log(product, updates[product.id].history);
 
         doNotify(product, fetches);
       }

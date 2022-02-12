@@ -1,39 +1,62 @@
 <script lang="ts">
-  import { storedProducts, storedHearts } from '../../stores';
+  import { storedProducts, storedHearts, localStore, lsKeyHeart } from '../../stores';
+  import Toggle from '../Toggle.svelte';
   import Product from '../Product/Product.svelte';
   import Icon from '../Icon.svelte';
+  import { stopClick } from '../../utils';
 
+  export let list = 'default';
   let heartSummary = { price: 0, parts: 0 };
+  let title = '';
   let hearts = [];
   let products = [];
 
   storedProducts.subscribe(store => (products = store));
-  storedHearts.subscribe(store => (hearts = store));
+  storedHearts.subscribe(store => {
+    title = store[list].t;
+    hearts = store[list].i;
+  });
+
+  const clickDeleteList = e => {
+    stopClick(e);
+
+    const choice = confirm(`"${title}" wirklich löschen?`);
+    if (choice) {
+      storedHearts.update(store => {
+        delete store[list];
+        localStore.set(lsKeyHeart, JSON.stringify(store));
+        return store;
+      });
+    }
+  };
 
   $: heartItems = hearts
-    .map(pID => products.find(product => product.id === pID))
-    .sort((a, b) => {
-      if (a.title < b.title) {
-        return -1;
-      }
-      if (a.title > b.title) {
-        return 1;
-      }
-      return 0;
-    })
-    .sort((a, b) => {
-      if (a.state.id < b.state.id) {
-        return -1;
-      }
-      if (a.state.id > b.state.id) {
-        return 1;
-      }
-      return 0;
-    });
+    ? hearts
+        .map(pID => products.find(product => product.id === pID))
+        .sort((a, b) => {
+          if (a.title < b.title) {
+            return -1;
+          }
+          if (a.title > b.title) {
+            return 1;
+          }
+          return 0;
+        })
+        .sort((a, b) => {
+          if (a.state.id < b.state.id) {
+            return -1;
+          }
+          if (a.state.id > b.state.id) {
+            return 1;
+          }
+          return 0;
+        })
+    : [];
 
   $: {
+    // reset
     heartSummary = { price: 0, parts: 0 };
-
+    // calc again
     heartItems.map(product => {
       if (!!product.price && !!product.parts) {
         heartSummary.price += product.price;
@@ -43,19 +66,14 @@
   }
 </script>
 
-<div class="flex">
-  {#if heartItems.length > 0}
-    <span class="icon">
-      <Icon modifier="heart" svg="true" class="active" title="Will ich haben" />
-    </span>
-  {/if}
-  <div class="flex flex--wrap">
-    {#each heartItems as product (product.id)}
-      <Product {product} type="hearts" />
-    {/each}
+<Toggle {title} alwaysopen={list === 'default'}>
+  <div slot="icon">
+    <Icon modifier="heart" svg="true" class="active" title="Will ich haben" />
+  </div>
+  <div slot="description">
     {#if heartItems.length > 1}
       <span class="summary">
-        =
+        {heartItems.length} Set´s =
         <strong>Listenpreis:</strong>
         {heartSummary.price.toFixed(2).replace('.', ',')} EUR /
         <strong>Steine:</strong>
@@ -63,18 +81,22 @@
       </span>
     {/if}
   </div>
-</div>
+  <div slot="right">
+    {#if list !== 'default'}
+      <Icon modifier="delete" svg="true" title="Lösche Liste" on:click={clickDeleteList} />
+    {/if}
+  </div>
+  <!--slot-->
+  {#each heartItems as product (product.id)}
+    <Product {product} type="hearts-{list}" />
+  {/each}
+</Toggle>
 
 <style lang="scss">
   @import '../../scss/variables';
 
-  .icon {
-    position: relative;
-    top: 2px;
-  }
-
   .summary {
     font-size: ms(-2);
-    line-height: 2;
+    vertical-align: middle;
   }
 </style>

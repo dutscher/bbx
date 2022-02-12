@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { loadMovieData, loadHistoryData, storedActiveSelection } from './stores';
+  import { loadMovieData, loadHistoryData, storedActiveSelection, storedHearts } from './stores';
   import { ID_MANHATTAN, ID_NETHERLAND, ID_MOVIE, ID_BURG_BLAUSTEIN, UNLOADED, LOADED } from './_interfaces';
   import { ApolloClient, InMemoryCache } from '@apollo/client';
   import { setClient } from 'svelte-apollo';
@@ -26,6 +26,7 @@
 
   let activeTagIds;
   let loadedData;
+  let hearts;
 
   loadHistoryData();
 
@@ -38,10 +39,12 @@
       loadMovieData();
     }
   });
+
+  storedHearts.subscribe(store => (hearts = store));
 </script>
 
 <main>
-  <!--    <Notifications />-->
+  <Notifications />
   <!--
         <div class="notice">
             🚨 Bei uns gibts es die <a href="/?tags=burg-blaustein">Burg Blaustein Anleitungen</a> 🚨
@@ -51,7 +54,9 @@
   <Github />
   <Welcome />
   {#if loadedData.history === LOADED}
-    <Hearts />
+    {#each Object.keys(hearts) as list}
+      <Hearts {list} />
+    {/each}
     <Changes />
     <Filter />
     {#if activeTagIds.includes(ID_MANHATTAN) && activeTagIds.length === 1}
@@ -132,31 +137,6 @@
 
   :global([data-theme='dark'] .with-text-shadow) {
     text-shadow: $color-black 1px 1px 2px;
-  }
-
-  :global(.with-toggle) {
-    cursor: pointer;
-    user-select: none;
-    background: $color-neutral-42;
-    border-radius: $space-xl;
-    padding-left: $space-xl;
-  }
-
-  :global([data-theme='dark'] .with-toggle) {
-    background: $color-neutral-150;
-  }
-
-  :global(.with-toggle:hover) {
-    background: $color-neutral-50;
-  }
-
-  :global([data-theme='dark'] .with-toggle:hover) {
-    background: $color-neutral-100;
-  }
-
-  :global(.with-toggle + *) {
-    padding-left: $space-xl * 2.5;
-    padding-bottom: $space-xl * 2.5;
   }
 
   :global(.flex) {

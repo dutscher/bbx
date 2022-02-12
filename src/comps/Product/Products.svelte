@@ -16,7 +16,6 @@
     storedActiveProduct,
     localStore,
   } from '../../stores';
-  import { lsKeyChanges, lsKeyFilter, lsKeyWelcome } from '../../_interfaces';
 
   let activeTagIds: any = [];
   let activePartIds: any = [];
@@ -75,9 +74,7 @@
     const queryProductId = getUrlParam(urlParam);
     if (Object.keys(allParams).length === 1 && !!queryProductId) {
       // close all toggles
-      localStore.set(lsKeyWelcome, false);
-      localStore.set(lsKeyChanges, false);
-      localStore.set(lsKeyFilter, false);
+      localStore.visibility('reset');
       // update search for product
       storedActiveSelection.update(store => {
         store.search = queryProductId;

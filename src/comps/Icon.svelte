@@ -7,6 +7,8 @@
   import Cross from '../../public/images/icon-cross.svg';
   import Arrow from '../../public/images/icon-arrow.svg';
   import Heart from '../../public/images/icon-heart.svg';
+  import Edit from '../../public/images/icon-edit.svg';
+  import Delete from '../../public/images/icon-delete.svg';
 
   $: modifierClasses = modifier
     .split(' ')
@@ -24,6 +26,12 @@
     {/if}
     {#if modifier.includes('heart')}
       <Heart width="1em" height="1em" />
+    {/if}
+    {#if modifier.includes('edit')}
+      <Edit width="1em" height="1em" />
+    {/if}
+    {#if modifier.includes('delete')}
+      <Delete width="1em" height="1em" />
     {/if}
   </span>
 {:else}
@@ -64,6 +72,14 @@
 
     &--flame::after {
       background-image: url('../images/icon-flame.svg');
+    }
+
+    &--edit::after {
+      background-image: url('../images/icon-edit.svg');
+    }
+
+    &--delete::after {
+      background-image: url('../images/icon-delete.svg');
     }
 
     &--arrow {

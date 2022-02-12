@@ -15,7 +15,7 @@
   <Icon modifier="flame" />
   = Beliebtes Produkt (mehr als 2 mal Verfügbar)
   <Icon modifier="heart" svg="true" class="active" />
-  = "Will Ich haben" Produkt<br />
+  = Merkliste<br />
   <span class="state state--blue" /> = Verfügbar
   <span class="state state--green" /> = Bald erhältlich
   <span class="state state--red" /> = Zurzeit Vergriffen

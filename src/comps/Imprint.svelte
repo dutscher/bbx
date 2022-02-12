@@ -1,18 +1,8 @@
 <script>
-  import Icon from './Icon.svelte';
-
-  let isVisible = false;
-
-  const onClick = () => {
-    isVisible = !isVisible;
-  };
+  import Toggle from './Toggle.svelte';
 </script>
 
-<h2 class="with-toggle" on:click={onClick}>
-  <Icon modifier="arrow {!isVisible ? 'down' : 'up'}" svg />
-  Impressum
-</h2>
-<div class="imprint{isVisible ? ' show' : ''}">
+<Toggle title="Impressum">
   <p>Angaben gemäß § 5 TMG</p>
   <p>
     Willy Woitas<br />
@@ -53,16 +43,4 @@
     etwa durch Spam-Mails, vor.<br />
   </p>
   <br />
-</div>
-
-<style lang="scss">
-  @import '../scss/variables';
-
-  .imprint {
-    display: none;
-
-    &.show {
-      display: block;
-    }
-  }
-</style>
+</Toggle>

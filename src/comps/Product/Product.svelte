@@ -29,6 +29,7 @@
   let data: any;
   let states: any;
   let hearts: any;
+  let heartLists: any;
   let activeProduct: any;
   let activeTagsIds: any;
   let dataLoaded: string;
@@ -50,7 +51,10 @@
   });
   storedGlobalData.subscribe(store => (data = store));
   storedStates.subscribe(store => (states = store));
-  storedHearts.subscribe(store => (hearts = store));
+  storedHearts.subscribe(store => {
+    hearts = store;
+    heartLists = Object.keys(hearts);
+  });
 
   $: {
     isActive = (activeProduct && activeProduct.id === product.id && type === activeProduct.type) || false;
@@ -70,7 +74,7 @@
         beforeLastHistory === ID_STATE_COMING_SOON &&
         beforeBeforeLastHistory === ID_STATE_ANNOUNCEMENT);
     isHot = historyStates.filter(state => state === 0).length >= 3;
-    isHeart = hearts.includes(product.id);
+    isHeart = heartLists.find(list => hearts[list].i.includes(product.id));
   }
 
   const onClick = () => {
@@ -153,10 +157,10 @@
 </script>
 
 <ClickOutside on:clickoutside={onClickOutside}>
-  <div class="product" data-state={handleStateName(product)}>
-    <span class="chip small {handleStateColor(product)}" on:click={onClick}>
-      {#if isHeart && type !== 'hearts'}
-        <Icon modifier="heart" svg="true" class="active" title="Will ich haben" />
+  <div class="product {handleStateColor(product)}" data-state={handleStateName(product)}>
+    <span class="product__label" on:click={onClick}>
+      {#if isHeart && !type.startsWith('hearts')}
+        <Icon modifier="heart" svg="true" class="active" title="Merkliste" />
       {/if}
       {#if isNew && !isHeart}<Icon modifier="new" title="Neues Produkt" />{/if}
       {#if isHot && !isHeart}<Icon modifier="flame" title="Beliebtes Produkt" />{/if}

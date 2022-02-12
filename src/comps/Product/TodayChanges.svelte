@@ -1,8 +1,9 @@
 <script lang="ts">
   import Product from './Product.svelte';
   import Icon from '../Icon.svelte';
+  import Toggle from '../Toggle.svelte';
   import { storedProducts, storedStates } from '../../stores';
-  import { getLatestStateOfToday, pad } from '../../utils';
+  import { getLatestStateOfToday, pad, stopClick } from '../../utils';
   import { ID_PARTS } from '../../_interfaces';
 
   let products: any;
@@ -21,8 +22,9 @@
   storedProducts.subscribe(store => (products = store));
   storedStates.subscribe(store => (states = store));
 
-  const handleDate = (event, direction) => {
-    event.stopPropagation();
+  const handleDate = (e, direction) => {
+    stopClick(e);
+
     const date = new Date(selectedDate);
     let nextDate = new Date(selectedDate).getDate();
     if (direction === 'prev') {
@@ -117,51 +119,49 @@
     {/each}
 {/if}
 -->
-<h2 class="with-toggle" on:click={() => (isVisible = !isVisible)}>
-  <Icon modifier="arrow {!isVisible ? 'down' : 'up'}" svg />
-  Status vom
-  <span>
-    <Icon svg="true" modifier="arrow left" on:click={event => handleDate(event, 'prev')} />
-    <input
-      type="date"
-      min={selectedDateMin}
-      max={selectedDateMax}
-      bind:value={selectedDate}
-      on:click={event => event.stopPropagation()}
-    />
-    <span class="day-str">{dayStr}</span>
-    <Icon svg="true" modifier="arrow" on:click={event => handleDate(event, 'next')} />
-    <b>({sortedProducts.length})</b>
-  </span>
-</h2>
-<div class="changes{isVisible ? ' show' : ''}">
-  <label>
-    <input type="checkbox" bind:checked={showParts} />
-    Auf Parts ({countParts}) umschalten
-  </label>
-  <div class="flex flex--wrap">
-    {#if isVisible}
-      {#each sortedProducts as product (product.id)}
-        <Product {product} type="todaychanges" todayChangesDate={selectedDate} />
-      {/each}
-    {/if}
+<Toggle title="Status vom" open>
+  <div slot="description">
+    <span class="datepicker">
+      <Icon svg="true" modifier="arrow left" on:click={event => handleDate(event, 'prev')} />
+      <input
+        type="date"
+        min={selectedDateMin}
+        max={selectedDateMax}
+        bind:value={selectedDate}
+        on:click={event => event.stopPropagation()}
+      />
+      <span class="day-str">{dayStr}</span>
+      <Icon svg="true" modifier="arrow" on:click={event => handleDate(event, 'next')} />
+      <b>({sortedProducts.length})</b>
+    </span>
   </div>
-</div>
+  <div class="changes">
+    <label>
+      <input type="checkbox" bind:checked={showParts} />
+      Auf Parts ({countParts}) umschalten
+    </label>
+    <div class="flex flex--wrap">
+      {#if isVisible}
+        {#each sortedProducts as product (product.id)}
+          <Product {product} type="todaychanges" todayChangesDate={selectedDate} />
+        {/each}
+      {/if}
+    </div>
+  </div>
+</Toggle>
 
 <style lang="scss">
   @import '../../scss/variables';
 
-  .with-toggle {
-    span {
-      :global(.icon) {
-        font-size: ms(1);
-        vertical-align: middle;
-      }
+  .datepicker {
+    :global(.icon) {
+      font-size: ms(1);
+      vertical-align: middle;
+    }
 
-      @media (max-width: 600px) {
-        display: block;
-        padding-left: $space-xl * 2;
-      }
+    @media (max-width: 600px) {
+      display: block;
+      padding-left: $space-xl * 2;
     }
 
     input {
@@ -179,12 +179,7 @@
   }
 
   .changes {
-    display: none;
     margin-bottom: $space-xl;
-
-    &.show {
-      display: block;
-    }
 
     label {
       user-select: none;
