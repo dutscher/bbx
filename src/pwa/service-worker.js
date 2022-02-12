@@ -1,5 +1,6 @@
 const pre = '[ServiceWorker]';
-// notification and product store
+// store svelte data
+// TODO: store showed notification with id and timestamp
 const store = {};
 // Update cache names any time any of the cached files change.
 // Add list of files to cache here.
@@ -92,7 +93,10 @@ function notificationSendable(productID, notificationBody) {
   // TODO: check notification settings
   // is product in store
   console.log(pre, 'notificationSendable', store);
-  if (store.products.some(product => product.id === productID) || notificationBody.includes('NEU ')) {
+  if (
+    ('products' in store && store.products.some(product => product.id === productID)) ||
+    notificationBody.includes('NEU ')
+  ) {
     return true;
   }
 
@@ -121,18 +125,38 @@ async function sendMessage(productID, title, notificationData) {
   });
 }
 
+const showNotification = data => {
+  let title = 'BBX Watcher';
+  let body = data ? ('text' in data ? data.text() : data.body) : '';
+  const [msg, url] = body.split(';');
+  let tag = data.tag || 'bbx-notify-push-tag';
+  let icon = '/ico/apple-icon-120x120.png';
+  // Katze weiß + streckend : state: BUYABLE => UNAVAILABLE;  https://www.bluebrixx.com/de//102046/.html
+  const matches = /\/(\d+)\//.exec(body);
+  let productID = matches ? parseInt(matches[1]) : -1;
+  console.log(pre, 'showNotification', { title, msg, tag, icon, data });
+  if (notificationSendable(productID, body)) {
+    self.registration.showNotification(title, {
+      body: msg,
+      icon,
+      vibrate: [500, 100, 500],
+      data: url.trim() + store.AFF_LINK,
+    });
+  }
+};
+
 self.addEventListener('message', event => {
   //const client = evt.source;
   //client.postMessage(`Pong: ${ evt.data }`);
-  // console.log(pre, 'message', event.data)
+  console.log(pre, 'message', event.data);
 
   switch (event.data.type) {
-    case 'update-products': {
-      store.products = event.data.store;
-    }
-    case 'update-notification-settings': {
-      store.notifications = event.data.store;
-    }
+    case 'update-store':
+      store[event.data.key] = event.data.store;
+      break;
+    case 'send-notify':
+      showNotification(event.data.data);
+      break;
   }
 });
 
@@ -151,17 +175,7 @@ self.addEventListener('push', function (event) {
   event.waitUntil(
     //getEndpoint()
     Promise.resolve().then(async function (endpoint) {
-      let title = 'BBX Watcher';
-      let body = event.data && event.data.text();
-      let tag = 'bbx-push-tag';
-      let icon = '/ico/apple-icon-120x120.png';
-      // Katze weiß + streckend : state: BUYABLE => UNAVAILABLE;  https://www.bluebrixx.com/de//102046/.html
-      const matches = /\/(\d+)\//.exec(body);
-      let productID = matches ? parseInt(matches[1]) : -1;
-      console.log(pre, 'showNotification', { title, body, tag, icon });
-      if (notificationSendable(productID, body)) {
-        self.registration.showNotification(title, { body, icon, vibrate: [500, 100, 500] });
-      }
+      showNotification(event.data);
     })
   );
 });
@@ -170,18 +184,18 @@ self.addEventListener('notificationclick', function (event) {
   console.log(pre, 'notificationclick', event.notification);
   //For root applications: just change "'./'" to "'/'"
   //Very important having the last forward slash on "new URL('./', location)..."
-  const rootUrl = 'https://bbx.watch/#notification';
+  const rootUrl = 'https://bbx.watch';
   event.notification.close();
   event.waitUntil(
     clients.matchAll().then(matchedClients => {
-      for (let client of matchedClients) {
-        if (client.url.indexOf(rootUrl) >= 0) {
-          return client.focus();
-        }
-      }
+      // for (let client of matchedClients) {
+      //   if (client.url.indexOf(rootUrl) >= 0) {
+      //     return client.focus();
+      //   }
+      // }
 
-      return clients.openWindow(rootUrl).then(function (client) {
-        client.focus();
+      return clients.openWindow(event.notification.data).then(function (client) {
+        if (client !== null) client.focus();
       });
     })
   );

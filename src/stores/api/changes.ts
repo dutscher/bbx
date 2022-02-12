@@ -7,7 +7,7 @@ import { cleanUpHistoryChange } from '../../../scripts/src/clean-utils.js';
 import { sortedProducts, storedProducts } from '../products';
 import { sortedStates, storedActiveSelection } from '../states';
 import { internetConnection } from '../internet-connection';
-import { doNotify } from './notifications';
+import { doNotify } from '../notifications';
 
 // ["MzIyMTA=|02.02.2022 13:37|25"]
 const [lastCursorFromJson, lastCursorDate] = endCursorsFromParse[0].split('|');

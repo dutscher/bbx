@@ -1,9 +1,29 @@
 // listen to messages from service worker
 import { storedProducts } from './products';
+import { storedHearts } from './hearts';
+import { AFF_LINK } from '../_interfaces';
+import { storedPermissions } from './notifications';
 
-export default () => {
+export const serviceWorkerNotify = data => {
+  storedPermissions.subscribe(store => {
+    if (store.isGranted) {
+      if (navigator && 'serviceWorker' in navigator) {
+        const pre = '[svelte-to-service-worker--notify]';
+        navigator.serviceWorker.ready.then(registration => {
+          if (registration.active) {
+            console.log(pre, 'sw ready', data);
+            registration.active.postMessage({ type: 'send-notify', data });
+          }
+        });
+      }
+    }
+  });
+};
+
+export const serviceWorkerSvelteSyncer = () => {
   if (navigator && 'serviceWorker' in navigator) {
-    const pre = '[svelte-to-service-worker]';
+    const pre = '[svelte-to-service-worker--store]';
+
     navigator.serviceWorker.addEventListener('message', event => {
       console.log(pre, 'message', event);
       const eventData = event.data;
@@ -12,16 +32,24 @@ export default () => {
 
     navigator.serviceWorker.ready.then(registration => {
       if (registration.active) {
-        // TODO: notifications settings
-        // product ids -> open bluebrixx
-        // new products -> open bluebrixx
-        // parts -> open bluebrixx
-        // all notifications -> open bluebrixx
-        //console.log(pre, 'sw ready for message')
+        console.log(pre, 'sw ready');
+
+        registration.active.postMessage({ type: 'update-store', key: 'AFF_LINK', store: AFF_LINK });
+
+        storedHearts.subscribe(store => {
+          registration.active.postMessage({ type: 'update-store', key: 'hearts', store });
+        });
+
         storedProducts.subscribe(store => {
-          //console.log(pre, 'send store message')
+          // console.log(pre, 'send store message')
           // TODO: reduce product infos id, title, tags,
-          registration.active.postMessage({ type: 'update-products', store });
+
+          store = store.map(product => ({
+            id: product.id,
+            title: product.title,
+          }));
+
+          registration.active.postMessage({ type: 'update-store', key: 'products', store });
         });
       }
     });

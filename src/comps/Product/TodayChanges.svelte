@@ -119,7 +119,7 @@
     {/each}
 {/if}
 -->
-<Toggle title="Status vom">
+<Toggle title="Status vom" open>
   <div slot="description">
     <span class="datepicker">
       <Icon svg="true" modifier="arrow left" on:click={event => handleDate(event, 'prev')} />

@@ -51,10 +51,6 @@
   storedProducts.subscribe(store => (products = store));
   storedFilteredProducts.subscribe(store => (filteredProducts = store));
 
-  onMount(() => {
-    getUrlParams();
-  });
-
   function sortItems() {
     let sortedData = [];
     // get count of products
@@ -81,6 +77,10 @@
   }
 
   $: sortedItems = sortItems(filteredProducts);
+
+  onMount(() => {
+    getUrlParams();
+  });
 </script>
 
 <div class="flex">

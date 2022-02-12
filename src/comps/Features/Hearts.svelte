@@ -20,7 +20,7 @@
   const clickDeleteList = e => {
     stopClick(e);
 
-    const choice = confirm(`"${list}" wirklich löschen?`);
+    const choice = confirm(`"${title}" wirklich löschen?`);
     if (choice) {
       storedHearts.update(store => {
         delete store[list];

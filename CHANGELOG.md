@@ -1,3 +1,5 @@
+* [12.02.2022]
+  * prepare notifications
 * [10.02.2022]
   * multiple heartlist
 * [08.02.2022]
