@@ -121,6 +121,19 @@
     transition: background 250ms ease-in-out;
   }
 
+  :global(h1) {
+    font-size: 50rem !important;
+  }
+  :global(h2) {
+    font-size: 30rem !important;
+  }
+  :global(h3) {
+    font-size: 20rem !important;
+  }
+  :global(h4) {
+    font-size: 15rem !important;
+  }
+
   :global(h1, h2, h3) {
     margin: $space-lg 0;
   }
