@@ -140,7 +140,7 @@
       <input type="checkbox" bind:checked={showParts} />
       Auf Parts ({countParts}) umschalten
     </label>
-    <div class="flex flex--wrap">
+    <div class="flex flex--gap flex--wrap">
       {#if isVisible}
         {#each sortedProducts as product (product.id)}
           <Product {product} type="todaychanges" todayChangesDate={selectedDate} />

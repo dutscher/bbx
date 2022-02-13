@@ -155,7 +155,7 @@
             <h3>
               {month.label} ({month.monthPad}{#if month.year !== thisYear}&nbsp;{month.year}{/if})
             </h3>
-            <div class="flex flex--wrap">
+            <div class="flex flex--gap flex--wrap">
               {#each month.products as product (product.id)}
                 <Product {product} type="latestproducts" />
               {/each}

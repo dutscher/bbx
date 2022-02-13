@@ -157,8 +157,8 @@
 </script>
 
 <ClickOutside on:clickoutside={onClickOutside}>
-  <div class="product {handleStateColor(product)}" data-state={handleStateName(product)}>
-    <span class="product__label" on:click={onClick}>
+  <div class="product" data-state={handleStateName(product)}>
+    <span class="chip small {handleStateColor(product)}" on:click={onClick}>
       {#if isHeart && !type.startsWith('hearts')}
         <Icon modifier="heart" svg="true" class="active" title="Merkliste" />
       {/if}
