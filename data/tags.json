@@ -119,7 +119,8 @@
   ],
   [
     "Signale",
-    "Signal"
+    "Signal",
+    ["Signalman"]
   ],
   [
     "Lok",
@@ -431,6 +432,7 @@
     "part-packs",
     "gemischt",
     "Gun",
+    "Vest",
     [
       "Ausstellungsstück",
       "Mittelstück",

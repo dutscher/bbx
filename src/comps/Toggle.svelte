@@ -43,7 +43,7 @@
       <slot name="right" />
     </div>
   </Heading>
-  <div class="block{isVisible ? ' show' : ''} flex flex--vertical-center flex--wrap{noPad ? ' no-toggle-space' : ''}">
+  <div class="block{isVisible ? ' show' : ''}{noPad ? ' no-toggle-space' : ''}">
     <slot />
   </div>
 </div>
@@ -76,11 +76,6 @@
       }
     }
 
-    :global(.with-toggle:first-child),
-    :global(.with-toggle + *) {
-      padding-left: $space-xl * 2.5;
-    }
-
     :global([slot]) {
       display: inline-block;
     }
@@ -93,9 +88,10 @@
 
   .block {
     display: none;
+    padding-left: $space-xl * 2.5;
 
     &.show {
-      display: flex;
+      display: block;
     }
 
     &.no-toggle-space {

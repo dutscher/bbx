@@ -7,7 +7,8 @@
     "buildNdeploy": "npm run build && npm run deploy",
     "buildFastNDeploy": "npm run build:copy -- -- --prod && npm run deploy",
     "--- dev": "this is a divider",
-    "dev": "npm run build:copy && rollup -c -w",
+    "dev": "run-p build:copy watch:copy dev:svelte",
+    "dev:svelte": "rollup -c -w",
     "start-by-rollup": "sirv public --no-clear",
     "validate": "svelte-check",
     "prettier": "prettier --write {src,scripts}/{**/*,*}.{js,ts,jsx,tsx,svelte}",
@@ -25,6 +26,7 @@
     "build": "rollup -c && npm run build:copy -- -- --prod",
     "build:inst": "npm run exec ./scripts/src/parse-inst.js",
     "build:copy": "npm run exec ./scripts/build.js",
+    "watch:copy": "chokidar \"./src/index.html\" \"./src/pwa/*.js\" -c \"npm run build:copy\"",
     "deploy": "npm run exec ./scripts/deploy.js",
     "exec": "node --experimental-json-modules --no-warnings",
     "--- misc": "this is a divider",
@@ -78,6 +80,8 @@
     "prettier": "^2.5.1",
     "prettier-plugin-svelte": "^2.6.0",
     "express": "^4.17.2",
-    "http-proxy-middleware": "^2.0.3"
+    "http-proxy-middleware": "^2.0.3",
+    "npm-run-all": "^4.1.5",
+    "chokidar-cli": "^3.0.0"
   }
 }

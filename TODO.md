@@ -1,14 +1,10 @@
-* notifications
-  * siehe notifications.ts
-  * store empty maybe sw ask svelte and ping pong
-  * settings for ankündigung or available and store in serviceworker
 * live api changes:
   * tags use cats-n-tags script
-  * notifications on live
 * pdf download proxy -> weiterleitung auf external storage?
   * email schreiben
 * typescript types
 * neues design
+* navigationbar
 * filter for hot, new
 * warenkorb noise ausblenden
 * history back not going

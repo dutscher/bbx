@@ -87,9 +87,11 @@
     {/if}
   </div>
   <!--slot-->
-  {#each heartItems as product (product.id)}
-    <Product {product} type="hearts-{list}" />
-  {/each}
+  <div class="flex flex--wrap">
+    {#each heartItems as product (product.id)}
+      <Product {product} type="hearts-{list}" />
+    {/each}
+  </div>
 </Toggle>
 
 <style lang="scss">
