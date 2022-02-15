@@ -2,7 +2,7 @@
 import { storedProducts } from './products';
 import { storedHearts } from './hearts';
 import { AFF_LINK } from '../_interfaces';
-import { storedPermissions } from './notifications';
+import { storedPermissions } from '../stores';
 
 export const serviceWorkerNotify = data => {
   storedPermissions.subscribe(store => {
@@ -25,7 +25,7 @@ export const serviceWorkerSvelteSyncer = () => {
     const pre = '[svelte-to-service-worker--store]';
 
     navigator.serviceWorker.addEventListener('message', event => {
-      console.log(pre, 'message', event);
+      //console.log(pre, 'message', event);
       const eventData = event.data;
       new Notification(eventData.title, eventData.notificationData);
     });
@@ -41,8 +41,7 @@ export const serviceWorkerSvelteSyncer = () => {
         });
 
         storedProducts.subscribe(store => {
-          // console.log(pre, 'send store message')
-          // TODO: reduce product infos id, title, tags,
+          //console.log(pre, 'send store message')
 
           store = store.map(product => ({
             id: product.id,
