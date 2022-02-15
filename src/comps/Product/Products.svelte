@@ -32,13 +32,14 @@
   let states: any;
   let tags: any;
   let sorting: string = '';
+  let sortTitle: string = '';
   let sortDirection: string = 'desc';
   const urlParam = 'product';
   const chunks = 500;
 
   export let bbUrl: string;
 
-  const sorter = ['Teile:parts', 'Preise:price', 'PreisProTeil:pricePerPart', 'ABC:title'];
+  const sorter = ['Teile:parts', 'Preise:price', 'PreisProTeil:pricePerPart', 'ABC:title', '1111:parts'];
 
   storedStates.subscribe(store => (states = store));
   storedProducts.subscribe(store => (products = store));
@@ -220,6 +221,10 @@
     }
 
     if (!!sorting) {
+      if (sortTitle === '1111') {
+        withFilter = withFilter.filter(product => product.parts <= 1111);
+      }
+
       // sort by
       // asc > aufsteigend 123
       // desc < absteigend 321
@@ -258,10 +263,12 @@
     sortDirection
   );
 
-  const sort = type => {
+  const sort = sortRaw => {
+    const [potentialSortTitle, type] = sortRaw.split(':');
     const isDifferentSort = type !== sorting;
     const doReset = sortDirection === 'desc';
     sorting = doReset && !isDifferentSort ? '' : type;
+    sortTitle = doReset && !isDifferentSort ? '' : potentialSortTitle;
     sortDirection = doReset || isDifferentSort ? 'asc' : 'desc';
   };
 
@@ -288,7 +295,7 @@
   <div class="flex flex--inline flex--vertical-center flex--wrap filter with-text-shadow">
     <strong class="filter-headline">| Sortieren:</strong>
     {#each sorter as item}
-      <a href={jsVoid} on:click={() => sort(item.split(':')[1])}>
+      <a href={jsVoid} on:click={() => sort(item)}>
         {item.split(':')[0]}
         {#if sorting === item.split(':')[1]}
           {sortDirection === 'asc' ? '>' : '<'}

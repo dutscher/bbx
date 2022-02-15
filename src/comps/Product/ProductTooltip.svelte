@@ -214,7 +214,7 @@
         {#if product.inst}
           <br />
           <strong>Anleitung:</strong><br />
-          <div class="tooltip__content tooltip__content--rows">
+          <div class="tooltip__content tooltip__content--rows flex flex--wrap">
             {#if Array.isArray(product.inst)}
               {#each product.inst as inst}
                 <a class="inst-link" target="_blank" href={getInstHref(inst)}>
@@ -349,6 +349,7 @@
 
     .inst-link {
       user-select: none;
+      margin-right: $space-lg;
     }
   }
 </style>
