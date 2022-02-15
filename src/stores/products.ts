@@ -21,8 +21,21 @@ export const sortedProducts = products.map(product => {
       .replace(/bluebrixx/, '');
   // PLATE 1X1 X 200, Trans-Neon Green
   if (product.title.includes(',')) {
-    const [title, potenialColor] = product.title.split(', ');
-    const findColor = colors.find(color => color.name === potenialColor);
+    // 200 Teile, Roof Slopes, gemischt, Rot;
+    const potenialColor = product.title
+      .toLowerCase()
+      .replace(' (10x)', '')
+      .replace('desert beige', 'beige')
+      .replace('grey', 'gray')
+      .replace('met. grey', 'pearl dark gray')
+      .replace('met.gray', 'pearl dark gray')
+      .split(', ')
+      .at(-1);
+    const findColor = colors.find(
+      color => color.name.toLowerCase() === potenialColor || color.de.toLowerCase() === potenialColor
+    );
+    //titleMatch(color, product);
+
     if (findColor) {
       product.partColor = findColor;
     }
