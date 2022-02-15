@@ -9,8 +9,8 @@ const granted = 'granted';
 const denied = 'denied';
 
 export const storedPermissions = writable({
-  isGranted: Notification.permission === granted,
-  isDenied: Notification.permission === denied,
+  isGranted: Notification ? Notification.permission === granted : false,
+  isDenied: Notification ? Notification.permission === denied : false,
 });
 
 export const promptThePermission = () => {
