@@ -2,7 +2,9 @@
   import { loadMovieData, loadHistoryData, storedActiveSelection, storedHearts } from './stores';
   import { ID_MANHATTAN, ID_NETHERLAND, ID_MOVIE, ID_BURG_BLAUSTEIN, UNLOADED, LOADED } from './_interfaces';
   import { ApolloClient, InMemoryCache } from '@apollo/client';
+  import { onMount } from 'svelte';
   import { setClient } from 'svelte-apollo';
+  import "beercss";
   import Welcome from './comps/Welcome.svelte';
   import Imprint from './comps/Imprint.svelte';
   import Support from './comps/Support.svelte';
@@ -17,11 +19,15 @@
   import Github from './comps/Features/Github.svelte';
   import Darkmode from './comps/Features/Darkmode.svelte';
   import Footer from './comps/Footer.svelte';
-  import "beercss";
 
   const client = new ApolloClient({
     uri: 'https://api.bbx.watch/api/graphql',
     cache: new InMemoryCache(),
+  });
+
+  // js
+  onMount(() => {
+    ui();
   });
 
   setClient(client);
@@ -54,27 +60,45 @@
     -->
   <Darkmode />
   <Github />
-  <Welcome />
+
+  <div class="menu m l top no-space">
+    <a data-ui="#tab1_"><i>home</i>BBX.watch</a>
+    <a data-ui="#tab2_"><i>inventory_2</i>Produkte</a>
+    <a data-ui="#tab3_"><i>track_changes</i>Änderungen</a>
+    <a data-ui="#tab4_"><i>favorite</i>Merkliste</a>
+  </div>
+
   {#if loadedData.history === LOADED}
-    {#each Object.keys(hearts) as list}
-      <Hearts {list} />
-    {/each}
-    <Changes />
-    <Filter />
-    {#if activeTagIds.includes(ID_MANHATTAN) && activeTagIds.length === 1}
-      <Manhattan />
-    {/if}
-    {#if activeTagIds.includes(ID_NETHERLAND) && activeTagIds.length === 1}
-      <Netherland />
-    {/if}
-    {#if activeTagIds.includes(ID_BURG_BLAUSTEIN) && activeTagIds.length === 1}
-      <Blaustein />
-    {/if}
-    <Products />
+    <div class="container max">
+      <div id="tab1_" class="page padding active">
+        <Welcome />
+        <Support />
+        <Imprint />
+      </div>
+      <div id="tab2_" class="page padding">
+        <Filter />
+        {#if activeTagIds.includes(ID_MANHATTAN) && activeTagIds.length === 1}
+          <Manhattan />
+        {/if}
+        {#if activeTagIds.includes(ID_NETHERLAND) && activeTagIds.length === 1}
+          <Netherland />
+        {/if}
+        {#if activeTagIds.includes(ID_BURG_BLAUSTEIN) && activeTagIds.length === 1}
+          <Blaustein />
+        {/if}
+        <Products />
+      </div>
+      <div id="tab3_" class="page padding">
+        <Changes />
+      </div>
+      <div id="tab4_" class="page padding">
+        {#each Object.keys(hearts) as list}
+          <Hearts {list} />
+        {/each}
+      </div>
+    </div>
   {/if}
 
-  <Support />
-  <Imprint />
   <Footer />
 </main>
 

@@ -5,7 +5,6 @@
   // app
   import { LOADED, UNLOADED } from '../../_interfaces';
   import { storedActiveSelection, storedTags, storedProducts, loadChanges, internetConnection } from '../../stores';
-  import Toggle from '../Toggle.svelte';
 
   let loadedChanges;
   let tags: number = 0;
@@ -30,7 +29,7 @@
   });
 </script>
 
-<Toggle title="Änderungen">
+<div title="Änderungen">
   {#if isOnline && loadedChanges !== LOADED}
     <div class="loader" />
   {:else}
@@ -41,7 +40,7 @@
       <LatestProducts state={3} title="Ankündigungen" />
     </div>
   {/if}
-</Toggle>
+</div>
 
 <style lang="scss">
   @import '../../scss/variables';
