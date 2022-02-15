@@ -4,6 +4,8 @@
   import { ApolloClient, InMemoryCache } from '@apollo/client';
   import { setClient } from 'svelte-apollo';
   import Welcome from './comps/Welcome.svelte';
+  import Imprint from './comps/Imprint.svelte';
+  import Support from './comps/Support.svelte';
   import Hearts from './comps/Features/Hearts.svelte';
   import Changes from './comps/Product/Changes.svelte';
   import Filter from './comps/Filter/Filter.svelte';
@@ -71,6 +73,8 @@
     <Products />
   {/if}
 
+  <Support />
+  <Imprint />
   <Footer />
 </main>
 
