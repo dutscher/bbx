@@ -31,7 +31,6 @@
 <div>
   <h1>Bluebrixx Watcher</h1>
   <div
-    slot="description"
     class="fb-like"
     data-href="https://www.facebook.com/bbxwatcher"
     data-width="170px"
