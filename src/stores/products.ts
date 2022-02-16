@@ -22,7 +22,7 @@ export const sortedProducts = products.map(product => {
   // PLATE 1X1 X 200, Trans-Neon Green
   if (product.title.includes(',')) {
     // 200 Teile, Roof Slopes, gemischt, Rot;
-    const potenialColor = product.title
+    let potenialColor = product.title
       .toLowerCase()
       .replace(' (10x)', '')
       .replace('desert beige', 'beige')
@@ -30,7 +30,9 @@ export const sortedProducts = products.map(product => {
       .replace('met. grey', 'pearl dark gray')
       .replace('met.gray', 'pearl dark gray')
       .split(', ')
-      .at(-1);
+      // get last element
+      .slice(-1)
+      .pop();
     const findColor = colors.find(
       color => color.name.toLowerCase() === potenialColor || color.de.toLowerCase() === potenialColor
     );
