@@ -19,6 +19,7 @@
     "fetch:parse-pages-n-parts": "npm run fetch -- -- --parse-pages-n-parts --create-compare",
     "cat-n-tags": "npm run exec ./scripts/cats-n-tags.js",
     "parse-parts": "npm run exec ./scripts/src/parse-parts.js",
+    "parse-part-nr": "npm run exec ./scripts/src/part-nr.js",
     "convert:products": "npm run exec ./scripts/convert.js -- --products",
     "convert:history": "npm run exec ./scripts/convert.js -- --history",
     "convert:producthistory": "npm run exec ./scripts/convert.js -- --producthistory",

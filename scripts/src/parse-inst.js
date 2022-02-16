@@ -148,7 +148,7 @@ const parseInstCherrio = async () => {
   console.log('parsedInst', Object.keys(parsedInst).length);
 
   // write inst files
-  await handleCache('./public/data/', `inst.json`, () => JSON.stringify(parsedInst, null, 2), true);
+  await handleCache('./public/data/', 'inst.json', () => JSON.stringify(parsedInst, null, 2), true);
 };
 
 (async () => {
