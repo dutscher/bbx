@@ -65,6 +65,11 @@
     // dark theme preferred, set document with a `data-theme` attribute
     document.documentElement.setAttribute('data-theme', theme);
     document.documentElement.setAttribute('data-theme-ready', 'true');
+    if (isDarkmode)
+      document.body.classList.add("is-dark");
+    else
+      document.body.classList.remove("is-dark");
+
     localStore.set('theme', theme);
     setTimeout(() => {
       isReady = true;
