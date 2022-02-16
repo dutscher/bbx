@@ -11,7 +11,7 @@ import css from 'rollup-plugin-css-only';
 import json from '@rollup/plugin-json';
 import url from '@rollup/plugin-url'
 import { svelteSVG } from 'rollup-plugin-svelte-svg';
-import replace from 'rollup-plugin-replace';
+import replace from '@rollup/plugin-replace';
 
 const production = !process.env.ROLLUP_WATCH;
 

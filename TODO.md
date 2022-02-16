@@ -3,6 +3,7 @@
 * pdf download proxy -> weiterleitung auf external storage?
   * email schreiben
 * typescript types
+  * same interfaces node + svelte
 * neues design
 * navigationbar
 * filter for hot, new
@@ -12,25 +13,14 @@
 * changelog visualisieren
 * sapper server side
 * bbx special 613 (https://www.bluebrixx.com/de/bluebrixxspecials?limit=613) vs 1299 (https://bbx.watch/#tags=special)
-
 * planer: https://klemmbauer.de/bibliothek.html
 * cart call?
   * push to cart: GET: https://www.bluebrixx.com/views/addtocart.php?itemno=103897
 * page watcher: https://www.facebook.com/groups/435441033546028/posts/1147355199021271/
   * https://github.com/RoBrDev/BBAC
 
-// great refactoring:
-// TODO: add old announce history? entries
 
-npm WARN deprecated har-validator@5.1.5: this library is no longer supported
-npm WARN deprecated rollup-plugin-replace@2.2.0: This module has moved and is now available at @rollup/plugin-replace. Please update your dependencies. This version is no longer maintained.
-npm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
-npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
-npm WARN deprecated tar@2.2.2: This version of tar is no longer supported, and will not receive security updates. Please upgrade asap.
-
-run `npm fund` for details
-* 13 vulnerabilities (7 moderate, 6 high)
-* -> 18 vulnerabilities (8 moderate, 10 high)
+* 17 vulnerabilities (10 moderate, 7 high)
   npm audit
   npm audit fix
   npm audit fix --force

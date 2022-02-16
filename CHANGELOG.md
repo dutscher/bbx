@@ -1,3 +1,5 @@
+* [17.02.2022]
+  * solved great history refactoring
 * [16.02.2022]
   * new partNr for many products
 * [12.02.2022]

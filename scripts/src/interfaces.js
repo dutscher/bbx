@@ -79,6 +79,12 @@ export const specialsIDs = [
   IDs.ID_TAG_LANDMASCHIENEN,
   IDs.ID_TAG_CITY,
 ];
+
+export const ID_STATE_AVAILABLE = 0;
+export const ID_STATE_COMING_SOON = 1;
+export const ID_STATE_UNAVAILABLE = 2;
+export const ID_STATE_ANNOUNCEMENT = 3;
+
 // https://api.bbx.watch/api/graphql?query=%7BproductCategories(first%3A6193)%7BtotalCount%2Cedges%7Bnode%20%7B_id%2Cname%7D%7D%7D%7D
 export const bluebrixxOnlyCatIDs = [
   IDs.ID_CAT_BLUEBRIXX[1],

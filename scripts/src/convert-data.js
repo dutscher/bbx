@@ -1,6 +1,6 @@
 import { products, convertToReduce } from '../../data/all-products.reducer.js';
 import { handleCache, sortTags } from './utils.js';
-import { IDs } from './interfaces.js';
+import { IDs, ID_STATE_ANNOUNCEMENT } from './interfaces.js';
 import { getDateTime } from './clean-utils.js';
 import imagesJSON from '../../data/api/images.json';
 import imagesExtraJSON from '../../data/api/images.extra.json';
@@ -98,8 +98,10 @@ export const convertProducts = async () => {
 
 export const convertHistory = async () => {
   Object.keys(allHistoryBackup).map(productId => {
-    if (!(productId in allHistory)) {
-      const oldHistory = allHistoryBackup[productId];
+    //if (!(productId in allHistory)) {
+    const oldHistory = allHistoryBackup[productId];
+
+    if (Object.values(oldHistory)[0] === ID_STATE_ANNOUNCEMENT) {
       let newHistory = {};
       Object.entries(oldHistory).map(([hrDate, stateId]) => {
         const date = new Date(getDateTime(hrDate)).getTime() / 1000;
@@ -107,6 +109,7 @@ export const convertHistory = async () => {
       });
       allHistory[productId] = newHistory;
     }
+    //}
   });
 
   await handleCache(
