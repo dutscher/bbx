@@ -66,39 +66,38 @@
   }
 </script>
 
-<Toggle {title} alwaysopen={list === 'default'}>
-  <div slot="icon">
-    <Icon modifier="heart" svg="true" class="active" title="Will ich haben" />
-  </div>
-  <div slot="description">
-    {#if heartItems.length > 1}
-      <span class="summary">
-        {heartItems.length} Set´s =
-        <strong>Listenpreis:</strong>
-        {heartSummary.price.toFixed(2).replace('.', ',')} EUR /
-        <strong>Steine:</strong>
-        {heartSummary.parts}
-      </span>
-    {/if}
-  </div>
-  <div slot="right">
-    {#if list !== 'default'}
-      <Icon modifier="delete" svg="true" title="Lösche Liste" on:click={clickDeleteList} />
-    {/if}
-  </div>
-  <!--slot-->
-  <div class="flex flex--wrap">
+<details class="card" alwaysopen={list === 'default'}>
+  <summary class="none margin">
+    <div class="row no-wrap middle-align">
+      <div class="col min">
+        <Icon modifier="heart" svg="true" class="active" title="Will ich haben" />
+      </div>
+      <div class="col">
+        <div>{title}</div>
+        <div class="small-text">
+          {#if heartItems.length > 1}
+            <span class="summary">
+              {heartItems.length} Set´s =
+              <strong>Listenpreis:</strong>
+              {heartSummary.price.toFixed(2).replace('.', ',')} EUR /
+              <strong>Steine:</strong>
+              {heartSummary.parts}
+            </span>
+          {/if}
+        </div>
+      </div>
+      <div class="col min">
+        <Icon modifier="delete" svg="true" title="Lösche Liste" on:click={clickDeleteList} />
+      </div>
+    </div>
+  </summary>
+  <div class="flex flex--gap flex--wrap">
     {#each heartItems as product (product.id)}
       <Product {product} type="hearts-{list}" />
     {/each}
   </div>
-</Toggle>
+</details>
 
 <style lang="scss">
   @import '../../scss/variables';
-
-  .summary {
-    font-size: ms(-2);
-    vertical-align: middle;
-  }
 </style>

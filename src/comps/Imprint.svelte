@@ -1,8 +1,8 @@
 <script>
-  import Toggle from './Toggle.svelte';
 </script>
 
-<Toggle title="Impressum">
+<div>
+  <h2>Impressum</h2>
   <p>Angaben gemäß § 5 TMG</p>
   <p>
     Willy Woitas<br />
@@ -43,4 +43,4 @@
     etwa durch Spam-Mails, vor.<br />
   </p>
   <br />
-</Toggle>
+</div>

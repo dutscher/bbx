@@ -106,12 +106,6 @@
   @import './scss/variables';
 
   main {
-    @media (min-width: 1024px) {
-      width: 65vw;
-    }
-
-    padding: 0 $space-lg 300px $space-lg;
-    margin: 0 auto;
   }
 
   .notice {

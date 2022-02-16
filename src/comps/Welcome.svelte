@@ -1,6 +1,5 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import Toggle from './Toggle.svelte';
   // app
   import { storedTags, storedProducts, localStore, internetConnection, storedActiveSelection } from '../stores';
   import { IDS_SPECIAL_TAGS, lsKeyWelcome } from '../_interfaces';
@@ -29,7 +28,8 @@
   });
 </script>
 
-<Toggle title="Bluebrixx Watcher" class="with-text-shadow" headlineTag={1}>
+<div>
+  <h1>Bluebrixx Watcher</h1>
   <div
     slot="description"
     class="fb-like"
@@ -72,10 +72,11 @@
       </p>
     </div>
   </div>
-</Toggle>
+</div>
 
 <style lang="scss">
   @import '../scss/variables';
+
   .fb-like {
     display: inline-block;
     height: 30px;
