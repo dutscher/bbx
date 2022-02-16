@@ -1,7 +1,6 @@
 import { writable } from 'svelte/store';
 import { storedHearts } from './hearts';
 import { storedGlobalData } from './global-data';
-import { serviceWorkerNotify } from './service-worker';
 
 // @ts-ignore TS2339: Property 'mozNotification' does not exist on type 'Window & typeof globalThis'.
 const Notification = window.Notification || window.mozNotification || window.webkitNotification;
@@ -58,4 +57,20 @@ export const doNotify = (product, fetchTries) => {
       tag: 'bbx-notify-graphql-tag',
     });
   }
+};
+
+export const serviceWorkerNotify = data => {
+  storedPermissions.subscribe(store => {
+    if (store.isGranted) {
+      if (navigator && 'serviceWorker' in navigator) {
+        const pre = '[svelte-to-service-worker--notify]';
+        navigator.serviceWorker.ready.then(registration => {
+          if (registration.active) {
+            console.log(pre, 'sw ready', data);
+            registration.active.postMessage({ type: 'send-notify', data });
+          }
+        });
+      }
+    }
+  });
 };

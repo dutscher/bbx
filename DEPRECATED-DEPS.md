@@ -23,3 +23,9 @@ npm WARN deprecated tar@2.2.2: This version of tar is no longer supported, and w
 `-- node-sass@4.14.1
 `-- node-gyp@3.8.0
 `-- tar@2.2.2
+
+* 17 vulnerabilities (10 moderate, 7 high)
+  -> 7 moderate severity vulnerabilities
+  npm audit
+  npm audit fix
+  npm audit fix --force
