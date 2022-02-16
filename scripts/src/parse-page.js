@@ -14,7 +14,7 @@ import {
   handleCache,
   printTime,
 } from './utils.js';
-import { mergeTags, pad } from './clean-utils.js';
+import { mergeTags, pad, cleanUpHistoryChanges } from './clean-utils.js';
 import { ignoreProductsOnUrl, includedProducts, updateProductData } from './interfaces.js';
 import states from '../../data/states.json';
 import globalData from '../../data/data.json';
@@ -235,6 +235,7 @@ const createProduct = data => {
       parsedDataToday.items[itemIndexExists].partNr = data.partNr;
 
       parsedDataToday.items[itemIndexExists].history = { ...itemExists.history, ...data.history };
+      cleanUpHistoryChanges(parsedDataToday.items[itemIndexExists]);
 
       // add stage changes if api has no changes for this product
       if (itemExists.state !== data.state) {

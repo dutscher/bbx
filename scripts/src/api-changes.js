@@ -1,6 +1,6 @@
 import { graphql, handleCache, debug } from './utils.js';
 import chalk from 'chalk';
-import { getHRDate, cleanUpHistoryChange as utilCleanUpHistoryChange } from './clean-utils.js';
+import { getHRDate, cleanUpHistoryChanges as utilCleanUpHistoryChanges } from './clean-utils.js';
 import allProductHistory from '../../data/all-products-history.json';
 import states from '../../data/states.json';
 import { isBluebrixxProduct, updateProductData } from './interfaces.js';
@@ -175,4 +175,4 @@ export const fetchChanges = async (writeLastCursor = true) => {
   return allTimeChanges;
 };
 
-export const cleanUpHistoryChange = utilCleanUpHistoryChange;
+export const cleanUpHistoryChanges = utilCleanUpHistoryChanges;

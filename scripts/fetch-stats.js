@@ -1,6 +1,6 @@
 import moment from 'moment';
 import { handleCache, printTime } from './src/utils.js';
-import { fetchChanges, cleanUpHistoryChange } from './src/api-changes.js';
+import { fetchChanges, cleanUpHistoryChanges } from './src/api-changes.js';
 import { parsePages, parsePagesNParts } from './src/parse-page.js';
 import { products, convertToReduce } from '../data/all-products.reducer.js';
 import allProductHistory from '../data/all-products-history.json';
@@ -61,7 +61,7 @@ const mergeChangesWithDB = async allTimeChanges => {
         ...changes.history,
       };
 
-      cleanUpHistoryChange(product);
+      cleanUpHistoryChanges(product);
 
       if (false && product.id === 100090) {
         console.log(product, changes);

@@ -1,3 +1,5 @@
+* [16.02.2022]
+  * new partNr for many products
 * [12.02.2022]
   * prepare notifications
 * [10.02.2022]

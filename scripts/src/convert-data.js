@@ -109,7 +109,12 @@ export const convertHistory = async () => {
     }
   });
 
-  await handleCache('./data/', `all-products-history.compare.json`, () => JSON.stringify(allHistory, null, 2), true);
+  await handleCache(
+    './data/',
+    `all-products-history.convert.compare.json`,
+    () => JSON.stringify(allHistory, null, 2),
+    true
+  );
 };
 
 export const convertHistoryOfProduct = async () => {
@@ -122,7 +127,12 @@ export const convertHistoryOfProduct = async () => {
     }
   });
 
-  await handleCache('./data/', `all-products-history.compare.json`, () => JSON.stringify(allHistory, null, 2), true);
+  await handleCache(
+    './data/',
+    `all-products-history.convert.compare.json`,
+    () => JSON.stringify(allHistory, null, 2),
+    true
+  );
 };
 
 /*

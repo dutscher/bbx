@@ -20,15 +20,7 @@
   * https://github.com/RoBrDev/BBAC
 
 // great refactoring:
-// XTODO1: take all bluebrixx edges an pack into history.file
-// XTODO2: update mergeChangesWithDB
-// XTODO: keep old changes for products with no history
-// XTODO: update app with new history timestamps
-// XTODO: keep old history for new fetch
 // TODO: add old announce history? entries
-// XTODO3: repair live changes.ts
-// XTODO4: repair parsePage with cheerio
-// TODO: parse cats for existing products
 
 npm WARN deprecated har-validator@5.1.5: this library is no longer supported
 npm WARN deprecated rollup-plugin-replace@2.2.0: This module has moved and is now available at @rollup/plugin-replace. Please update your dependencies. This version is no longer maintained.

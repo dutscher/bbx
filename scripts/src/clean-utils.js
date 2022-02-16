@@ -49,7 +49,7 @@ export const mergeTags = (existingTags, newTags, additionalTags) => {
 
 export const sortTags = (a, b) => a - b;
 
-export const cleanUpHistoryChange = product => {
+export const cleanUpHistoryChanges = product => {
   // sort timestamps
   const sortObject = o =>
     Object.keys(o)

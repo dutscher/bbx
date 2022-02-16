@@ -177,19 +177,26 @@ export const updateProductData = (product, change) => {
   product.tags = mergeTags(product.tags);
 
   // 10x 20x
-  if (product.parts === 0 && product.title.includes('10x')) {
-    product.parts = 10;
-  }
-  if (product.parts === 0 && product.title.includes('20x')) {
-    product.parts = 20;
-  }
-  if (
-    product.parts === 0 &&
-    (product.title.includes('32x32') ||
+  if (product.parts === 0) {
+    if (product.title.includes('10x')) {
+      product.parts = 10;
+    }
+    if (product.title.includes('20x')) {
+      product.parts = 20;
+    }
+    if (product.title.includes('40 Stück')) {
+      product.parts = 40;
+    }
+    if (product.title.includes('X 200')) {
+      product.parts = 200;
+    }
+    if (
+      product.title.includes('32x32') ||
       product.title.includes('without Minifigure') ||
-      product.title.includes('Gutschein'))
-  ) {
-    product.parts = 1;
+      product.title.includes('Gutschein')
+    ) {
+      product.parts = 1;
+    }
   }
 
   return product;
