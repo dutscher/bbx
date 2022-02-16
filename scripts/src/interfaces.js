@@ -1,4 +1,5 @@
 import bricklinkColors from '../../data/bricklink-hex.json';
+import partNrs from '../../data/parts/nr.json';
 import { mergeTags } from './clean-utils.js';
 
 export const partNrDivider = 'Nr.: ';
@@ -131,6 +132,23 @@ export const updateProductData = (product, change) => {
       product.title += ', ' + color;
     }
     product.partNr = nr in convertPartNr ? convertPartNr[nr] : nr;
+  }
+  // search for partNr in title ""90195": "WALL 1X2X2 W. BOWED SLIT"," => "ti": "WALL 1X2X2 W. BOWED SLIT, Chrome Silver",
+  if (!('partNr' in product)) {
+    Object.entries(partNrs).map(([partNr, partName]) => {
+      if (
+        product.title
+          .replace(/(\d)x(\d) Stein, /g, 'BRICK $1X$2, ')
+          .replace(/(\d)x(\d) Plate, /g, 'PLATE $1X$2, ')
+          .replace(/Plate (\d)x(\d), /g, 'PLATE $1X$2, ')
+          .replace('BUSCH, ', 'BUSH, ')
+          .replace('FINGER LEAF, ', 'Plant Leaves 6 x 5 Swordleaf with Clip, ')
+          .replace('Sandbags ', 'MINI SACK W. 3.2 SHAFT ')
+          .includes(partName)
+      ) {
+        product.partNr = partNr;
+      }
+    });
   }
 
   const titleAdditionBricklink = change.catName.replace('-', ' ');

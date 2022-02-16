@@ -3,6 +3,7 @@
   import Product from './Product.svelte';
   import FilterSummary from '../Filter/FilterSummary.svelte';
   import { titleMatch, jsVoid, setUrlParams, getUrlParam, getAllUrlParams } from '../../utils';
+  import { ID_PARTS } from '../../_interfaces';
   import {
     storedProducts,
     storedFilteredProducts,
@@ -93,7 +94,7 @@
     }
   };
 
-  function sortItems(
+  const sortItems = (
     activeTagIds,
     activeColorIds,
     activeStateIds,
@@ -102,7 +103,7 @@
     products,
     sorting,
     sortDirection
-  ) {
+  ) => {
     let raw = [];
     let withFilter = [];
 
@@ -183,7 +184,7 @@
           return activeStateIds.length === 0 || countMatched > 0;
         });
 
-      withFilter = handleSort(withFilter);
+      withFilter = handleProductSort(withFilter);
     }
 
     storedFilteredProducts.update(() => ({
@@ -192,9 +193,9 @@
     }));
 
     return withFilter.slice(0, chunks);
-  }
+  };
 
-  function handleSort(withFilter) {
+  const handleProductSort = withFilter => {
     // default sort
     if (sorting === '') {
       // sort unit 01-17
@@ -250,7 +251,7 @@
     }
 
     return withFilter;
-  }
+  };
 
   $: sortedItems = sortItems(
     activeTagIds,
@@ -263,13 +264,44 @@
     sortDirection
   );
 
-  const sort = sortRaw => {
+  const clickSort = sortRaw => {
     const [potentialSortTitle, type] = sortRaw.split(':');
     const isDifferentSort = type !== sorting;
     const doReset = sortDirection === 'desc';
     sorting = doReset && !isDifferentSort ? '' : type;
     sortTitle = doReset && !isDifferentSort ? '' : potentialSortTitle;
     sortDirection = doReset || isDifferentSort ? 'asc' : 'desc';
+  };
+
+  const exportCSV = () => {
+    const divider = ';';
+    let exportString =
+      ['ID', 'Hersteller', 'Artikelnummer', 'Artikelbezeichnung', 'Farbe', 'Menge', 'Preis'].join(divider) + '\n';
+    /*
+    ID: 607425
+    Hersteller NR: BPP3943b-black
+    Artikelnummer: 3943b
+    Artikelbezeichng: ROCKET STEP 4X4X2 X 15
+    Farbe: Black
+    Menge (VPE?): 15
+    Preis: 5,95 €
+  */
+    filteredProducts.raw
+      //.reverse()
+      //.slice(0, 50)
+      .map(product => {
+        const newLine = [
+          product.id,
+          '',
+          product.partNr,
+          product.title,
+          product.partColor ? product.partColor.name : '',
+          product.parts,
+          product.price,
+        ];
+        exportString += newLine.join(divider) + '\n';
+      });
+    console.log(exportString);
   };
 
   // first to remove localstorage keys before onMount
@@ -295,13 +327,18 @@
   <div class="flex flex--inline flex--vertical-center flex--wrap filter with-text-shadow">
     <strong class="filter-headline">| Sortieren:</strong>
     {#each sorter as item}
-      <a href={jsVoid} on:click={() => sort(item)}>
+      <a href={jsVoid} on:click={() => clickSort(item)}>
         {item.split(':')[0]}
         {#if sorting === item.split(':')[1]}
           {sortDirection === 'asc' ? '>' : '<'}
         {/if}
       </a>
     {/each}
+
+    {#if activeTagIds.includes(ID_PARTS)}
+      <strong class="filter-headline">&nbsp;| CSV export:</strong>
+      <a href={jsVoid} on:click={() => exportCSV()}>Do IT</a>
+    {/if}
   </div>
 </h2>
 

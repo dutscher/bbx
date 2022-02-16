@@ -21,8 +21,49 @@ export const sortedProducts = products.map(product => {
       .replace(/bluebrixx/, '');
   // PLATE 1X1 X 200, Trans-Neon Green
   if (product.title.includes(',')) {
-    const [title, potenialColor] = product.title.split(', ');
-    const findColor = colors.find(color => color.name === potenialColor);
+    // 200 Teile, Roof Slopes, gemischt, Rot;
+    let potenialColor = product.title
+      .toLowerCase()
+      .replace(' (without minifigure)', '')
+      .replace(' (10x)', '')
+      .replace(' (5 x)', '')
+      .replace(', 20x', '')
+      .replace(' (old)', '')
+      .replace(' (tan)', '')
+      .replace(' (light bluish gray)', '')
+      .replace(' (dark bluish gray)', '')
+      .replace(' (dark tan)', '')
+      .replace(' (reddish brown)', '')
+      .replace(' (dark brown)', '')
+      .replace(' (dark green)', '')
+      .replace(' (dark red)', '')
+      .replace(' (trans clear)', '')
+      .replace(/-/g, ' ')
+      .replace(', desert beige', ', tan')
+      .replace(', sand beige', ', tan')
+      .replace(', braun', ', reddish brown')
+      .replace(', brown', ', reddish brown')
+      .replace(', gold', ', pearl gold')
+      .replace(', silver', ', flat silver')
+      .replace(', dark gray', ', pearl dark gray')
+      .replace(', met.gray', ', pearl dark gray')
+      .replace(', met. grey', ', pearl dark gray')
+      .replace(', dark bluish grey', ', pearl dark gray')
+      .replace(', dunkelgrau', ', dark bluish gray')
+      .replace(', hellgrau', ', light bluish gray')
+      .replace(', grau', ', light bluish gray')
+      .replace(', weiss', ', white')
+      .replace(', light green', ', bright green')
+      .split(', ')
+      // get last element
+      .slice(-1)
+      .pop();
+
+    const findColor = colors.find(
+      color => color.name.toLowerCase() === potenialColor || color.de.toLowerCase() === potenialColor
+    );
+    //titleMatch(color, product);
+
     if (findColor) {
       product.partColor = findColor;
     }
