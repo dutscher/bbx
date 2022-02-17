@@ -68,23 +68,23 @@
       &.alwaysopen {
         cursor: default;
       }
+
+      :global [data-theme='dark'] & {
+        background: $color-neutral-150;
+
+        &:hover {
+          background: $color-neutral-100;
+        }
+      }
     }
 
-    :global([slot]) {
+    :global [slot] {
       display: inline-block;
     }
 
-    :global([slot='right']) {
+    :global [slot='right'] {
       float: right;
       padding-right: $space-lg;
-    }
-  }
-
-  :global([data-theme='dark'] #{$selector}__handle) {
-    background: $color-neutral-150;
-
-    &:hover {
-      background: $color-neutral-100;
     }
   }
 

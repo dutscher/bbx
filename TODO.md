@@ -1,4 +1,3 @@
-* datepicker change no future
 * live api changes
   * tags use cats-n-tags script
   * ios pwa notifications

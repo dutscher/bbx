@@ -122,44 +122,44 @@
 
     &--left {
       &::after,
-      :global(&#{$selector}--svg svg) {
+      :global &#{$selector}--svg svg {
         transform: rotate(180deg);
       }
     }
 
     &--down {
       &::after,
-      :global(&#{$selector}--svg svg) {
+      :global &#{$selector}--svg svg {
         transform: rotate(90deg);
       }
     }
 
     &--up {
       &::after,
-      :global(&#{$selector}--svg svg) {
+      :global &#{$selector}--svg svg {
         transform: rotate(-90deg);
       }
     }
   }
 
-  :global(#{$selector}--svg svg) {
+  :global #{$selector}--svg svg {
     transition: transform ease-in-out 150ms;
   }
 
-  :global(#{$selector}--heart#{$selector}--svg path) {
+  :global #{$selector}--heart#{$selector}--svg path {
     stroke-width: 5px;
     stroke: $color-white;
   }
 
-  :global(#{$selector}--heart#{$selector}--svg:not(.active) path) {
+  :global #{$selector}--heart#{$selector}--svg:not(.active) path {
     fill: none;
   }
 
-  :global(#{$selector}--heart#{$selector}--svg:not(.active):hover path) {
+  :global #{$selector}--heart#{$selector}--svg:not(.active):hover path {
     fill: #c4262f;
   }
 
-  :global(#{$selector}--heart#{$selector}--svg.active) {
+  :global #{$selector}--heart#{$selector}--svg.active {
     color: #c4262f;
 
     &:hover {
@@ -167,7 +167,7 @@
     }
   }
 
-  :global([data-theme='dark'] #{$selector}--arrow#{$selector}--svg) {
+  :global [data-theme='dark'] #{$selector}--arrow#{$selector}--svg {
     color: $color-white;
 
     &:hover {

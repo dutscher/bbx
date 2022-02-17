@@ -9,9 +9,9 @@
   let products: any;
   let states: any;
   let isVisible = true;
+  let isToday = false;
   let showParts = false;
   let countParts = 0;
-
   let dayStr = '';
   // 2017-06-01
   let selectedDate: string = '';
@@ -40,23 +40,6 @@
     selectedDate = `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
   };
 
-  $: {
-    const useNow = !selectedDate;
-    const now = useNow ? new Date() : new Date(selectedDate);
-    let year = now.getFullYear();
-    let month = now.getMonth() + 1;
-    let day = now.getDate();
-
-    // 2017-06-01
-    selectedDate = `${year}-${pad(month)}-${pad(day)}`;
-
-    dayStr = days[now.getDay()];
-    // set today as max value
-    if (useNow) {
-      selectedDateMax = selectedDate;
-    }
-  }
-
   const hasTodayHistory = product => {
     const hasTodayChanges = Object.keys(product.history).some(timestamp => {
       const historyDay = new Date(parseInt(timestamp)).setHours(0, 0, 0, 0);
@@ -66,7 +49,7 @@
     return hasTodayChanges;
   };
 
-  function sortProducts(products, showParts, selectedDate) {
+  const sortProducts = (products, showParts, selectedDate) => {
     countParts = 0;
     let sortedData = [];
     // do filtering api changes
@@ -103,6 +86,25 @@
       });
 
     return sortedData;
+  };
+
+  $: {
+    const useNow = !selectedDate;
+    const now = useNow ? new Date() : new Date(selectedDate);
+    const today = new Date().setHours(0, 0, 0, 0);
+    const compareDay = now.setHours(0, 0, 0, 0);
+    let year = now.getFullYear();
+    let month = now.getMonth() + 1;
+    let day = now.getDate();
+
+    // 2017-06-01
+    isToday = today === compareDay;
+    selectedDate = `${year}-${pad(month)}-${pad(day)}`;
+    dayStr = days[now.getDay()];
+    // set today as max value
+    if (useNow) {
+      selectedDateMax = selectedDate;
+    }
   }
 
   $: sortedProducts = sortProducts(products, showParts, selectedDate);
@@ -131,7 +133,9 @@
         on:click={event => event.stopPropagation()}
       />
       <span class="day-str">{dayStr}</span>
-      <Icon svg="true" modifier="arrow" on:click={event => handleDate(event, 'next')} />
+      {#if !isToday}
+        <Icon svg="true" modifier="arrow" on:click={event => handleDate(event, 'next')} />
+      {/if}
       <b>({sortedProducts.length})</b>
     </span>
   </div>
@@ -154,7 +158,7 @@
   @import '../../scss/variables';
 
   .datepicker {
-    :global(.icon) {
+    :global .icon {
       font-size: ms(1);
       vertical-align: middle;
     }

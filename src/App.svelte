@@ -101,7 +101,7 @@
     font-size: ms(-2);
   }
 
-  :global(body) {
+  :global body {
     font-family: $font-family;
     font-size: $base-font-size;
     overflow-y: scroll;
@@ -111,12 +111,12 @@
   }
 
   // test darkmode https://stackoverflow.com/questions/57606960/how-can-i-emulate-prefers-color-scheme-media-query-in-chrome
-  :global([data-theme='dark'] body) {
+  :global [data-theme='dark'] body {
     background: $color-neutral-200;
     color: $color-white;
   }
 
-  :global([data-theme-ready='true'] body) {
+  :global [data-theme-ready='true'] body {
     transition: background 250ms ease-in-out;
   }
 
