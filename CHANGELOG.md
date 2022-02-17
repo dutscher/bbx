@@ -1,3 +1,11 @@
+* [17.02.2022]
+  * solved great history refactoring
+  * remove deprecated dependencies
+  * update the inst.json
+  * fix dart-sass changes
+  * no future arrow right vor today changes
+* [16.02.2022]
+  * new partNr for many products
 * [12.02.2022]
   * prepare notifications
 * [10.02.2022]

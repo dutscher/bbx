@@ -145,7 +145,7 @@ const parseInstCherrio = async () => {
     }
   });
 
-  console.log('parsedInst', Object.keys(parsedInst).length);
+  console.log('parsedInst.length:', Object.keys(parsedInst).length);
 
   // write inst files
   await handleCache('./public/data/', 'inst.json', () => JSON.stringify(parsedInst, null, 2), true);
@@ -157,5 +157,5 @@ const parseInstCherrio = async () => {
   await parseInstCherrio(); // 774ms
   //await parseInstJSDOM(); // 2196ms
 
-  printTime('parseInst', startDate);
+  printTime('parseInst', startDate); //  364ms
 })();

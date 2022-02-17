@@ -2,23 +2,6 @@
 import { storedProducts } from './products';
 import { storedHearts } from './hearts';
 import { AFF_LINK } from '../_interfaces';
-import { storedPermissions } from '../stores';
-
-export const serviceWorkerNotify = data => {
-  storedPermissions.subscribe(store => {
-    if (store.isGranted) {
-      if (navigator && 'serviceWorker' in navigator) {
-        const pre = '[svelte-to-service-worker--notify]';
-        navigator.serviceWorker.ready.then(registration => {
-          if (registration.active) {
-            console.log(pre, 'sw ready', data);
-            registration.active.postMessage({ type: 'send-notify', data });
-          }
-        });
-      }
-    }
-  });
-};
 
 export const serviceWorkerSvelteSyncer = () => {
   if (navigator && 'serviceWorker' in navigator) {

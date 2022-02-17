@@ -3,7 +3,7 @@ import { queryChanges } from '../../queries';
 import { graphql, getProductHref, getHRDate, getMinInMs } from '../../utils';
 import { ID_PARTS, LOADED, LOADING } from '../../_interfaces';
 import { isBluebrixxProduct, updateProductData } from '../../../scripts/src/interfaces';
-import { cleanUpHistoryChange } from '../../../scripts/src/clean-utils.js';
+import { cleanUpHistoryChanges } from '../../../scripts/src/clean-utils.js';
 import { sortedProducts, storedProducts } from '../products';
 import { sortedStates, storedActiveSelection } from '../states';
 import { internetConnection } from '../internet-connection';
@@ -186,7 +186,7 @@ const evalChanges = (edges: any) => {
           ...updates[product.id].history,
         };
 
-        cleanUpHistoryChange(product);
+        cleanUpHistoryChanges(product);
 
         if (false && product.id === 103209) console.log(product, updates[product.id].history);
 

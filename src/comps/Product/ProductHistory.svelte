@@ -132,7 +132,7 @@
   .history {
     user-select: none;
 
-    :global(strong) {
+    :global strong {
       color: $color-white;
     }
 

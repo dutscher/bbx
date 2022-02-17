@@ -1,44 +1,34 @@
-* live api changes:
+* live api changes
   * tags use cats-n-tags script
+  * ios pwa notifications
 * pdf download proxy -> weiterleitung auf external storage?
   * email schreiben
 * typescript types
+  * same interfaces node + svelte
+  * Argument type (store: any) => void is not assignable to parameter type PushSubscriptionOptionsInit | undefined
+* split cache
+  * bb resources
+  * app reources
+* verical images to high
+* scroll to of tooltip with more padding top  
+* cypress tests
 * neues design
 * navigationbar
 * filter for hot, new
 * warenkorb noise ausblenden
 * history back not going
 * noppen an tags
+* share merkliste über mehrere geräte
 * changelog visualisieren
 * sapper server side
 * bbx special 613 (https://www.bluebrixx.com/de/bluebrixxspecials?limit=613) vs 1299 (https://bbx.watch/#tags=special)
-
 * planer: https://klemmbauer.de/bibliothek.html
 * cart call?
   * push to cart: GET: https://www.bluebrixx.com/views/addtocart.php?itemno=103897
 * page watcher: https://www.facebook.com/groups/435441033546028/posts/1147355199021271/
   * https://github.com/RoBrDev/BBAC
+* (node:18656) [DEP0148] DeprecationWarning: Use of deprecated folder mapping "./" in the "exports" field module resolution of the package at C:\www\repos\dutscher\bbx\node_modules\tslib\package.json.
+  Update this package.json to use a subpath pattern like "./*".
+  (Use `node --trace-deprecation ...` to show where the warning was created)
+  https://github.com/postcss/postcss/issues/1455
 
-// great refactoring:
-// XTODO1: take all bluebrixx edges an pack into history.file
-// XTODO2: update mergeChangesWithDB
-// XTODO: keep old changes for products with no history
-// XTODO: update app with new history timestamps
-// XTODO: keep old history for new fetch
-// TODO: add old announce history? entries
-// XTODO3: repair live changes.ts
-// XTODO4: repair parsePage with cheerio
-// TODO: parse cats for existing products
-
-npm WARN deprecated har-validator@5.1.5: this library is no longer supported
-npm WARN deprecated rollup-plugin-replace@2.2.0: This module has moved and is now available at @rollup/plugin-replace. Please update your dependencies. This version is no longer maintained.
-npm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
-npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
-npm WARN deprecated tar@2.2.2: This version of tar is no longer supported, and will not receive security updates. Please upgrade asap.
-
-run `npm fund` for details
-* 13 vulnerabilities (7 moderate, 6 high)
-* -> 18 vulnerabilities (8 moderate, 10 high)
-  npm audit
-  npm audit fix
-  npm audit fix --force

@@ -378,7 +378,7 @@
     color: $color-white !important;
   }
 
-  :global(.filter-headline) {
+  :global .filter-headline {
     font-size: ms(1);
   }
 
