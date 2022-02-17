@@ -50,31 +50,30 @@
   };
 
   onMount(() => {
+    ui();
     getUrlParams();
   });
 </script>
 
-<div class="flex flex--block">
-  <h4>Suche</h4>
-  <div class="field border">
-    <input
-      class="search"
-      type="search"
-      value={activeSearchString}
-      placeholder="Produktname oder ID"
-      on:input={({ target: { value } }) => checkInput(value)}
-      on:keyup={({ target: { value } }) => debounce(value)}
-      spellcheck="false"
-    />
-    <!--               bind:value={activeSearchString}-->
-    <!--               on:input={() => onInput(true)}-->
+<div class="row">
+  <div class="col s12">
+    <div class="field label prefix border">
+      <i>search</i>
+      <input
+        class="search"
+        type="search"
+        value={activeSearchString}
+        on:input={({ target: { value } }) => checkInput(value)}
+        on:keyup={({ target: { value } }) => debounce(value)}
+        spellcheck="false"
+      />
+      <!--               bind:value={activeSearchString}-->
+      <!--               on:input={() => onInput(true)}-->
+      <label>Suche</label>
+      <span class="helper">Produktname oder ID</span>
+    </div>
   </div>
 </div>
 
 <style lang="scss">
-  .search {
-    @media (min-width: 720px) {
-      width: 33vw;
-    }
-  }
 </style>
