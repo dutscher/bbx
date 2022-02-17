@@ -67,7 +67,7 @@
 </script>
 
 <details class="card" alwaysopen={list === 'default'}>
-  <summary class="none margin">
+  <summary class="none small-margin">
     <div class="row no-wrap middle-align">
       <div class="col min">
         <Icon modifier="heart" svg="true" class="active" title="Will ich haben" />

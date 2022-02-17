@@ -106,8 +106,8 @@
       .join(' ');
 </script>
 
-<div class="flex">
-  <h4 class="tag-name">Status</h4>
+<details class="card" open>
+  <summary class="small-margin">Status</summary>
   <div class="flex flex--gap flex--wrap bl">
     {#each sortedItems as state (state.id)}
       <div class={getClasses(state)} data-count={state.count} on:click={() => clickItem(state, true)}>
@@ -116,7 +116,7 @@
       </div>
     {/each}
   </div>
-</div>
+</details>
 
 <style lang="scss">
   @import '../../scss/variables';

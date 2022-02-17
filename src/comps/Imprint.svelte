@@ -2,7 +2,7 @@
 </script>
 
 <details class="card">
-  <summary class="">
+  <summary class="small-margin">
     Impressum
   </summary>
   <p>Angaben gemäß § 5 TMG</p>

@@ -7,7 +7,6 @@
   import FilterSearch from './FilterSearch.svelte';
   import { ID_PARTS } from '../../_interfaces';
   import { storedActiveSelection } from '../../stores';
-  import Toggle from '../Toggle.svelte';
 
   let activeTagIds: any = [];
   let activePartIds: any = [];
@@ -26,13 +25,12 @@
   });
 </script>
 
-<Toggle title="Filter" noPad>
-  <FilterTags {activeTagIds} />
-  <FilterStates {activeStateIds} {activeColorIds} {activePartIds} {activePartTypeIds} {activeSearchString} />
-  {#if activeTagIds.includes(ID_PARTS) && activeTagIds.length === 1}
-    <FilterParts {activePartIds} />
-    <FilterColors {activeColorIds} />
-    <FilterPartTypes {activePartTypeIds} />
-  {/if}
-  <FilterSearch {activeSearchString} />
-</Toggle>
+<FilterSearch {activeSearchString} />
+<FilterStates {activeStateIds} {activeColorIds} {activePartIds} {activePartTypeIds} {activeSearchString} />
+<FilterTags {activeTagIds} />
+
+{#if activeTagIds.includes(ID_PARTS) && activeTagIds.length === 1}
+  <FilterParts {activePartIds} />
+  <FilterColors {activeColorIds} />
+  <FilterPartTypes {activePartTypeIds} />
+{/if}

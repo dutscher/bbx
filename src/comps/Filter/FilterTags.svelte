@@ -81,8 +81,8 @@
       .join(' ');
 </script>
 
-<div class="flex">
-  <h4 class="tag-name">Tags</h4>
+<details class="card">
+  <summary class="small-margin">Tags</summary>
   <div class="flex flex--gap flex--wrap bl">
     {#each sortedAbcTags as abc}
       {#each abc.sortedTags as tag, index}
@@ -102,7 +102,7 @@
       {/each}
     {/each}
   </div>
-</div>
+</details>
 
 <style lang="scss">
   @import '../../scss/variables';
