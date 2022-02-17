@@ -52,6 +52,13 @@
 </script>
 
 <main>
+  <nav class="menu top">
+    <a data-ui="#tab1_"><i>home</i>BBX.watch</a>
+    <a data-ui="#tab2_"><i>inventory_2</i>Produkte</a>
+    <a data-ui="#tab3_"><i>track_changes</i>Änderungen</a>
+    <a data-ui="#tab4_"><i>favorite</i>Merkliste</a>
+  </nav>
+
   <Notifications />
   <!--
         <div class="notice">
@@ -61,12 +68,6 @@
   <Darkmode />
   <Github />
 
-  <div class="menu m l top no-space">
-    <a data-ui="#tab1_"><i>home</i>BBX.watch</a>
-    <a data-ui="#tab2_"><i>inventory_2</i>Produkte</a>
-    <a data-ui="#tab3_"><i>track_changes</i>Änderungen</a>
-    <a data-ui="#tab4_"><i>favorite</i>Merkliste</a>
-  </div>
 
   {#if loadedData.history === LOADED}
     <div class="container max">
@@ -103,6 +104,7 @@
 
 <style lang="scss">
   @import './scss/variables';
+  @import url(https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined&display=swap);
 
   main {
   }
