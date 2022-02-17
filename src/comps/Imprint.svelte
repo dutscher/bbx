@@ -1,8 +1,10 @@
 <script>
 </script>
 
-<div>
-  <h2>Impressum</h2>
+<details class="card">
+  <summary class="">
+    Impressum
+  </summary>
   <p>Angaben gemäß § 5 TMG</p>
   <p>
     Willy Woitas<br />
@@ -42,5 +44,4 @@
     der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen,
     etwa durch Spam-Mails, vor.<br />
   </p>
-  <br />
-</div>
+</details>
