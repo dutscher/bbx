@@ -1,5 +1,7 @@
 * [17.02.2022]
   * solved great history refactoring
+  * remove deprecated dependencies
+  * update the inst.json
 * [16.02.2022]
   * new partNr for many products
 * [12.02.2022]
