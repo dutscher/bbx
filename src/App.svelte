@@ -18,7 +18,7 @@
   import Notifications from './comps/Features/Notifications.svelte';
   import Github from './comps/Features/Github.svelte';
   import Darkmode from './comps/Features/Darkmode.svelte';
-  import Footer from './comps/Footer.svelte';
+  import Legend from './comps/Legend.svelte';
 
   const client = new ApolloClient({
     uri: 'https://api.bbx.watch/api/graphql',
@@ -87,6 +87,7 @@
           <Blaustein />
         {/if}
         <Products />
+        <Legend />
       </div>
       <div id="tab3_" class="page padding">
         <Changes />
@@ -98,8 +99,6 @@
       </div>
     </div>
   {/if}
-
-  <Footer />
 </main>
 
 <style lang="scss">

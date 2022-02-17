@@ -8,7 +8,7 @@
   storedActiveSelection.subscribe(store => (lastCursor = store.lastCursor));
 </script>
 
-<div class="footer">
+<div class="legend">
   <strong>Legende:</strong><br />
   <Icon modifier="new" />
   = Neues Produkt
@@ -34,7 +34,7 @@
 <style lang="scss">
   @import '../scss/variables';
 
-  .footer {
+  .legend {
     padding-top: 50px;
     font-size: ms(-1);
   }
