@@ -51,7 +51,9 @@
 <style lang="scss">
   @import '../scss/variables';
 
-  .with-toggle {
+  $selector: '.with-toggle';
+
+  #{$selector} {
     &__handle {
       cursor: pointer;
       user-select: none;
@@ -61,14 +63,6 @@
 
       &:hover {
         background: $color-neutral-50;
-      }
-
-      :global([data-theme='dark'] &) {
-        background: $color-neutral-150;
-      }
-
-      :global([data-theme='dark'] &:hover) {
-        background: $color-neutral-100;
       }
 
       &.alwaysopen {
@@ -83,6 +77,14 @@
     :global([slot='right']) {
       float: right;
       padding-right: $space-lg;
+    }
+  }
+
+  :global([data-theme='dark'] #{$selector}__handle) {
+    background: $color-neutral-150;
+
+    &:hover {
+      background: $color-neutral-100;
     }
   }
 

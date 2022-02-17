@@ -3,6 +3,7 @@
   import Toggle from '../Toggle.svelte';
   import { storedProducts, storedStates } from '../../stores';
   import { ID_PARTS, ID_STATE_AVAILABLE, ID_STATE_ANNOUNCEMENT, ID_STATE_COMING_SOON } from '../../_interfaces';
+  import Icon from '../Icon.svelte';
 
   export let state: number = ID_STATE_ANNOUNCEMENT;
   export let title: string = '';
@@ -132,6 +133,7 @@
     {#if state !== ID_STATE_ANNOUNCEMENT}
       <label class="with-text-shadow">
         <input type="checkbox" bind:checked={showFirstRelease} />
+        <Icon modifier="new" />
         Erstveröffentlichung
       </label>
     {/if}
@@ -140,11 +142,11 @@
         <input type="checkbox" bind:checked={reverseSort} />
         Neuste zuerst
       </label>
+      <label class="with-text-shadow">
+        <input type="checkbox" bind:checked={showParts} />
+        Auf Parts ({countParts}) umschalten
+      </label>
     {/if}
-    <label class="with-text-shadow">
-      <input type="checkbox" bind:checked={showParts} />
-      Auf Parts ({countParts}) umschalten
-    </label>
     {#if state !== ID_STATE_AVAILABLE && !reverseSort}
       <p><b>Was kommt womöglich als nächstes:</b></p>
     {/if}

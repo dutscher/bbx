@@ -1,3 +1,4 @@
+* datepicker change no future
 * live api changes
   * tags use cats-n-tags script
   * ios pwa notifications
@@ -9,6 +10,8 @@
 * split cache
   * bb resources
   * app reources
+* verical images to high
+* scroll to of tooltip with more padding top  
 * cypress tests
 * neues design
 * navigationbar
