@@ -14,6 +14,8 @@ export const includedProducts = [
   104519, // Kanonenjagdpanzer 4-5 ( KanJgPZ), Bundeswehr
   104310, // Kampfhubschrauber-Tiger-Bundeswehr-Xingbao
   604840, // Metal pins for Buffer Unit X 50
+  101887, // BBX Schloss-Neuschwanstein
+  102873, // XBA-05002-Schloss-Neuschwanstein-Xingbao
 ];
 
 export const ignoredProducts = [

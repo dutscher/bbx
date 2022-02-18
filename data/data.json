@@ -22,7 +22,8 @@
     "https://www.bluebrixx.com/de/chrome-packs",
     "https://www.bluebrixx.com/de/bluebrixxaccessories",
     "https://www.bluebrixx.com/de/gift_vouchers",
-    "https://www.bluebrixx.com/de/items?q=Bundeswehr"
+    "https://www.bluebrixx.com/de/items?q=Bundeswehr",
+    "https://www.bluebrixx.com/de/items?q=neuschwanstein"
   ],
   "parsePartPacks": [
     "https://www.bluebrixx.com/de/part-packs/bars_ladders_and_fences",

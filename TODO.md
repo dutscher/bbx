@@ -1,4 +1,8 @@
 next todos:
+* wo ist neuschwanstein 101887 ?
+  * war weg wegen mini trophy
+  * get all history of neuschwanstein
+  * xingbao product
 * live api changes
   * tags use cats-n-tags script
   * ios pwa notifications

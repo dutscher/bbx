@@ -3432,6 +3432,22 @@
     "ie": 0
   },
   {
+    "ti": "Schloss Neuschwanstein",
+    "id": 101887,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0,
+      2,
+      20,
+      27
+    ],
+    "pa": 7436,
+    "pr": 229.95,
+    "ie": 0
+  },
+  {
     "ti": "Main Base Mars - Raumbasis",
     "id": 101891,
     "ca": [
@@ -5619,6 +5635,20 @@
     "pa": 1009,
     "pr": 44.95,
     "im": 2,
+    "ie": 0
+  },
+  {
+    "ti": "Schloss Neuschwanstein",
+    "id": 102873,
+    "ca": [
+      4
+    ],
+    "tg": [
+      20,
+      27
+    ],
+    "pa": 7437,
+    "pr": 249.95,
     "ie": 0
   },
   {
