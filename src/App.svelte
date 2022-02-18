@@ -5,6 +5,7 @@
   import { onMount } from 'svelte';
   import { setClient } from 'svelte-apollo';
   import "beercss";
+  import Changelog from '../CHANGELOG.md';
   import Welcome from './comps/Welcome.svelte';
   import Imprint from './comps/Imprint.svelte';
   import Support from './comps/Support.svelte';
@@ -74,6 +75,12 @@
       <div id="tab1_" class="page padding active">
         <Welcome />
         <Support />
+        <details class="card">
+          <summary>
+            Changelog
+          </summary>
+          <Changelog />
+        </details>
         <Imprint />
       </div>
       <div id="tab2_" class="page padding">
