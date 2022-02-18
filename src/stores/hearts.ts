@@ -16,4 +16,10 @@ if (lsStore) {
     lsStore = localStore.get(lsKey);
   }
 }
-export const storedHearts = writable(lsStore || { [defaultList]: { t: 'Merkliste', i: [] } });
+
+const { subscribe, set, update } = writable(lsStore || { [defaultList]: { t: 'Merkliste', i: [] } });
+export const storedHearts = {
+  subscribe,
+  set,
+  update,
+};

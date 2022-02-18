@@ -4,6 +4,10 @@
   "exclude": ["node_modules/*", "__sapper__/*", "public/*"],
   "compilerOptions": {
     "moduleResolution": "node",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "lib": [
+      "es2017",
+      "dom"
+    ]
   }
 }

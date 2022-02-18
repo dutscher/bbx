@@ -2,7 +2,7 @@ import { writable } from 'svelte/store';
 import { UNLOADED } from '../_interfaces';
 import { capitalizeFirstLetter } from '../utils';
 
-export const storedActiveSelection = writable({
+const storedActiveSelectionWritable = writable({
   loadedData: {
     changes: UNLOADED,
     inst: UNLOADED,
@@ -21,14 +21,24 @@ export const storedActiveSelection = writable({
   search: '',
   reason: 'default',
 });
+export const storedActiveSelection = {
+  subscribe: storedActiveSelectionWritable.subscribe,
+  set: storedActiveSelectionWritable.set,
+  update: storedActiveSelectionWritable.update,
+};
 
-export const storedActiveProduct = writable({
+const storedActiveProductWritable = writable({
   product: {
     id: 0,
     type: '', // product-type todaychanges, hearts etc.
   },
   reason: 'default',
 });
+export const storedActiveProduct = {
+  subscribe: storedActiveProductWritable.subscribe,
+  set: storedActiveProductWritable.set,
+  update: storedActiveProductWritable.update,
+};
 
 import statesJSON from '../../data/states.json';
 
@@ -41,5 +51,9 @@ export const sortedStates = statesJSON.en.map((state, i) => {
     api: statesJSON.api[i],
   };
 });
-export const storedStates = writable({});
-storedStates.set(sortedStates);
+const storedStatesWritable = writable(sortedStates);
+export const storedStates = {
+  subscribe: storedStatesWritable.subscribe,
+  set: storedStatesWritable.set,
+  update: storedStatesWritable.update,
+};

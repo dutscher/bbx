@@ -151,6 +151,10 @@
     display: inline-flex;
   }
 
+  :global(.flex--gap) {
+    gap: $space-lg;
+  }
+
   :global(.flex--vertical-center) {
     align-items: center;
   }

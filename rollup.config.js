@@ -12,6 +12,7 @@ import json from '@rollup/plugin-json';
 import url from '@rollup/plugin-url';
 import { svelteSVG } from 'rollup-plugin-svelte-svg';
 import replace from '@rollup/plugin-replace';
+import { markdown } from 'svelte-preprocess-markdown';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -69,12 +70,15 @@ export default {
     }),
     svelteSVG(),
     svelte({
+      extensions: ['.svelte', '.md'],
+      // 3. add markdown preprocessor
       preprocess: [
         // https://www.npmjs.com/package/svelte-assets-preprocessor
         // assetsPreprocessor({
         //     // only images
         //     exclude: [ (attr) => !/\.(png|svg|jpg|gif)$/.test(attr) ]
         // }),
+        markdown(),
         sveltePreprocess({ sourceMap: !production }),
       ],
       compilerOptions: {

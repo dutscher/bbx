@@ -2,12 +2,24 @@ import { writable } from 'svelte/store';
 import { products } from '../../data/all-products.reducer';
 import { getProductHref } from '../utils';
 import { storedColors } from './colors';
+import { ID_PARTS } from '../_interfaces';
 
 let colors;
 storedColors.subscribe(store => (colors = store));
 
-export const storedFilteredProducts = writable([]);
-export const storedProducts = writable([]);
+const storedFilteredProductsWriteable = writable([]);
+export const storedFilteredProducts = {
+  subscribe: storedFilteredProductsWriteable.subscribe,
+  set: storedFilteredProductsWriteable.set,
+  update: storedFilteredProductsWriteable.update,
+};
+
+const storedProductsWriteable = writable([]);
+export const storedProducts = {
+  subscribe: storedProductsWriteable.subscribe,
+  set: storedProductsWriteable.set,
+  update: storedProductsWriteable.update,
+};
 export const sortedProducts = products.map(product => {
   product.title = product.title.replace(/Unit (\d{1}) /, 'Unit 0$1 ').replace('&amp;', ' & ');
   product.pricePerPart = product.price && product.parts ? (product.price / product.parts) * 100 : 0;
@@ -68,7 +80,11 @@ export const sortedProducts = products.map(product => {
       product.partColor = findColor;
     }
   }
-
+  // flags
+  product.isPart = product.tags.includes(ID_PARTS);
+  // changed in history-data.ts
+  product.isNew = false;
+  product.isHot = false;
   return product;
 });
 storedProducts.set(sortedProducts);

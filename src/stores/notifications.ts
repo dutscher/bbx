@@ -7,10 +7,15 @@ const Notification = window.Notification || window.mozNotification || window.web
 const granted = 'granted';
 const denied = 'denied';
 
-export const storedPermissions = writable({
+const { subscribe, set, update } = writable({
   isGranted: Notification ? Notification.permission === granted : false,
   isDenied: Notification ? Notification.permission === denied : false,
 });
+export const storedPermissions = {
+  subscribe,
+  set,
+  update,
+};
 
 export const promptThePermission = () => {
   Notification.requestPermission(permission => {

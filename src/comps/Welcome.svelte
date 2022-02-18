@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import Changelog from '../../CHANGELOG.md';
   import Icon from './Icon.svelte';
   import Toggle from './Toggle.svelte';
   import Imprint from './Imprint.svelte';
@@ -77,8 +78,9 @@
         <a href="mailto:kontakt@bbx.watch">E-Mail</a>
       </p>
     </div>
+
     <Toggle title="Support" open>
-      <div>
+      <div class="flex flex--wrap flex--vertical-center flex--gap">
         {@html kofi}
 
         <a href="//www.noppensteinnews.de/" target="_blank" title="Partner: Noppensteinnews"
@@ -104,7 +106,12 @@
             -->
       </div>
     </Toggle>
+
     <Imprint />
+
+    <Toggle title="Changelog">
+      <Changelog />
+    </Toggle>
   </div>
 </Toggle>
 

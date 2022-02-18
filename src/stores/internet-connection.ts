@@ -1,6 +1,11 @@
 import { writable } from 'svelte/store';
 
-export const internetConnection = writable({ isOnline: window.navigator.onLine });
+const { subscribe, set, update } = writable({ isOnline: window.navigator.onLine });
+export const internetConnection = {
+  subscribe,
+  set,
+  update,
+};
 
-window.addEventListener('online', () => internetConnection.set({ isOnline: true }));
-window.addEventListener('offline', () => internetConnection.set({ isOnline: false }));
+window.addEventListener('online', () => set({ isOnline: true }));
+window.addEventListener('offline', () => set({ isOnline: false }));

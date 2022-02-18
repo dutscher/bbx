@@ -25,8 +25,9 @@
 
   onMount(() => {
     const lsValue = localStore.visibility(title);
-    if (!lsValue || open || alwaysopen) {
+    if (lsValue !== null || open || alwaysopen) {
       isVisible = lsValue || open || alwaysopen;
+      onVisibility(isVisible); // V4IY
     }
   });
 </script>

@@ -1,8 +1,7 @@
 import { writable } from 'svelte/store';
 import { rawProducts } from './products';
-
 import tagsJSON from '../../data/tags.json';
-// sort tags
+
 const sortedTags = tagsJSON.map((tag, i) => ({
   name: Array.isArray(tag) ? tag[0] : tag,
   seoName: (Array.isArray(tag) ? tag[0] : tag)
@@ -22,5 +21,9 @@ const sortedTags = tagsJSON.map((tag, i) => ({
   }).length,
 }));
 
-export const storedTags = writable([]);
-storedTags.set(sortedTags);
+const { subscribe, set, update } = writable(sortedTags);
+export const storedTags = {
+  subscribe,
+  set,
+  update,
+};
