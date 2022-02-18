@@ -108,6 +108,7 @@ const evalChanges = (edges: any) => {
             id,
             parts: product.pcs,
             price: product.price,
+            pricePerPart: product.price && product.parts ? (product.price / product.parts) * 100 : 0,
             cats: [],
             tags: [],
             state: stateProduct,
@@ -138,6 +139,7 @@ const evalChanges = (edges: any) => {
               id,
               parts: product.pcs,
               price: product.price,
+              pricePerPart: product.price && product.parts ? (product.price / product.parts) * 100 : 0,
               cats: [],
               tags: [],
               state: stateProduct,
@@ -178,7 +180,7 @@ const evalChanges = (edges: any) => {
         }
         if ('price' in productUpdates) {
           product.price = productUpdates.price;
-          product.pricePerPart = product.price && product.parts ? (product.price / product.parts) * 100 : 0;
+          product.pricePerPart = productUpdates.pricePerPart;
         }
         // history: "21.06.2021 12:52": 1
         product.history = {
@@ -197,7 +199,7 @@ const evalChanges = (edges: any) => {
 
     // add new products
     if (newProducts.length > 0) {
-      //console.log(newProducts)
+      // console.log(newProducts)
       updatesForProducts = [...updatesForProducts, ...newProducts];
     }
 
