@@ -324,7 +324,7 @@
     {activePartTypeIds}
   />
 
-  <div class="flex flex--inline flex--vertical-center flex--wrap filter with-text-shadow">
+  <div class="flex flex--gap flex--inline flex--vertical-center flex--wrap filter with-text-shadow">
     <strong class="filter-headline">| Sortieren:</strong>
     {#each sorter as item}
       <a href={jsVoid} on:click={() => clickSort(item)}>

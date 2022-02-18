@@ -72,7 +72,7 @@
 
   const getClasses = (tag, isFirst, activeTagIds) =>
     [
-      'chip small',
+      'chip secondary small',
       activeTagIds.includes(tag.id) && 'active',
       IDS_SPECIAL_TAGS.includes(tag.id) && 'highlight',
       isFirst && 'new-letter',
@@ -86,16 +86,16 @@
   <div class="flex flex--gap flex--wrap bl">
     {#each sortedAbcTags as abc}
       {#each abc.sortedTags as tag, index}
-        {#if index === 0}
-          <a class="chip small brown2 brown-text">
-            {abc.letter}
-          </a>
-        {/if}
         <span
           class={getClasses(tag, index === 0, activeTagIds)}
           on:click={() => clickTag(tag, true)}
           data-id={tag.id}
         >
+          {#if index === 0}
+            <div class="chip__letter">
+              <p class="tertiary">{abc.letter}</p>
+            </div>
+          {/if}
           {tag.name}
           <span class="chip_state">{tag.count}</span>
         </span>
@@ -120,6 +120,43 @@
     &.disabled {
       opacity: 0.1;
       cursor: default;
+    }
+
+    &__letter {
+      border: 2rem solid transparent;
+      box-sizing: border-box;
+      object-fit: cover;
+      object-position: center;
+      width: 32rem;
+      height: 100%;
+      border-radius: 8rem;
+      margin-left: -16rem;
+
+      p {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        border-radius: 8rem;
+        background-color: var(--secondary);
+        text-align: center;
+        line-height: 25rem;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          border-radius: inherit;
+          width: 100%;
+          height: 100%;
+          background-position: center;
+          background-image: radial-gradient(circle,rgba(255,255,255,.4) 1%,transparent 1%);
+          opacity: 0;
+          transition: none;
+          will-change: background-size;
+        }
+      }
     }
   }
 </style>
