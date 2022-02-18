@@ -8,6 +8,7 @@
   import Changelog from '../CHANGELOG.md';
   import Welcome from './comps/Welcome.svelte';
   import Imprint from './comps/Imprint.svelte';
+  import News from './comps/News.svelte';
   import Support from './comps/Support.svelte';
   import Hearts from './comps/Features/Hearts.svelte';
   import Changes from './comps/Product/Changes.svelte';
@@ -75,6 +76,7 @@
       <div id="tab1_" class="page padding active">
         <Welcome />
         <Support />
+        <News />
         <details class="card">
           <summary>
             Changelog
