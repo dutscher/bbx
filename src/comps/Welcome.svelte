@@ -1,5 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import Changelog from '../../CHANGELOG.md';
+  import Toggle from './Toggle.svelte';
   // app
   import { storedTags, storedProducts, localStore, internetConnection, storedActiveSelection } from '../stores';
   import { IDS_SPECIAL_TAGS, lsKeyWelcome } from '../_interfaces';
@@ -70,6 +72,9 @@
         <a href="mailto:kontakt@bbx.watch">E-Mail</a>
       </p>
     </div>
+    <Toggle title="Changelog">
+      <Changelog />
+    </Toggle>
   </div>
 </div>
 

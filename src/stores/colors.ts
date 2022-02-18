@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
 import colorsJSON from '../../data/bricklink-colors.json';
 import bricklinkColors from '../../data/bricklink-hex.json';
-// sort colors
+
 const sortedColors = colorsJSON.map(color => {
   const name = Array.isArray(color) ? color[0].toString() : color;
   const bricklinkName = name
@@ -23,5 +23,9 @@ const sortedColors = colorsJSON.map(color => {
     id,
   };
 });
-export const storedColors = writable([]);
-storedColors.set(sortedColors);
+const { subscribe, set, update } = writable(sortedColors);
+export const storedColors = {
+  subscribe,
+  set,
+  update,
+};

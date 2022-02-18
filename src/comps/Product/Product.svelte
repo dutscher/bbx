@@ -34,9 +34,7 @@
   let activeTagsIds: any;
   let dataLoaded: string;
   let showTooltip = false;
-  let isHeart: boolean = false;
-  let isNew: boolean = false;
-  let isHot: boolean = false;
+  let isHeart: boolean;
   let isActive: boolean = false;
 
   storedActiveSelection.subscribe(store => {
@@ -55,27 +53,6 @@
     hearts = store;
     heartLists = Object.keys(hearts);
   });
-
-  $: {
-    isActive = (activeProduct && activeProduct.id === product.id && type === activeProduct.type) || false;
-
-    if (dataLoaded === UNLOADED && isActive) {
-      loadInstData();
-    }
-
-    // TODO: ab in den store
-    const historyStates = Object.values(product.history);
-    const lastHistory = historyStates[historyStates.length - 1];
-    const beforeLastHistory = historyStates[historyStates.length - 2];
-    const beforeBeforeLastHistory = historyStates[historyStates.length - 3];
-    isNew =
-      (lastHistory === ID_STATE_AVAILABLE && beforeLastHistory === ID_STATE_ANNOUNCEMENT) ||
-      (lastHistory === ID_STATE_AVAILABLE &&
-        beforeLastHistory === ID_STATE_COMING_SOON &&
-        beforeBeforeLastHistory === ID_STATE_ANNOUNCEMENT);
-    isHot = historyStates.filter(state => state === 0).length >= 3;
-    isHeart = heartLists.find(list => hearts[list].i.includes(product.id));
-  }
 
   const onClick = () => {
     // toggle tooltip
@@ -154,6 +131,16 @@
     }
     return stateColor;
   };
+
+  $: {
+    isActive = (activeProduct && activeProduct.id === product.id && type === activeProduct.type) || false;
+
+    if (dataLoaded === UNLOADED && isActive) {
+      loadInstData();
+    }
+
+    isHeart = heartLists.find(list => hearts[list].i.includes(product.id));
+  }
 </script>
 
 <ClickOutside on:clickoutside={onClickOutside}>
@@ -162,8 +149,8 @@
       {#if isHeart && !type.startsWith('hearts')}
         <Icon modifier="heart" svg="true" class="active" title="Merkliste" />
       {/if}
-      {#if isNew && !isHeart}<Icon modifier="new" title="Neues Produkt" />{/if}
-      {#if isHot && !isHeart}<Icon modifier="flame" title="Beliebtes Produkt" />{/if}
+      {#if (product.isNew || product.isNewSoon) && !isHeart}<Icon modifier="new" title="Neues Produkt" />{/if}
+      {#if product.isHot && !isHeart}<Icon modifier="flame" title="Beliebtes Produkt" />{/if}
       {getTitle(product)}
       {#if type === 'products' && product.movieData && activeTagsIds.includes(ID_MOVIE)}
         <span class="product__movie">{product.movieData}</span>

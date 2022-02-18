@@ -1,3 +1,6 @@
+* [18.02.2022]
+  * store refactoring
+  * product flags isNew, isHot, isNewSoon now in store
 * [17.02.2022]
   * solved great history refactoring
   * remove deprecated dependencies

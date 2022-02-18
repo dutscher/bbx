@@ -17,7 +17,8 @@ export const localStore = {
       localStore.set(lsKey, '{}');
     } else {
       if (set === undefined) {
-        return store[key] || null;
+        const visibilityBool = store[key];
+        return typeof visibilityBool === 'boolean' ? store[key] : false;
       } else {
         store[key] = set;
         localStore.set(lsKey, JSON.stringify(store));

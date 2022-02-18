@@ -1,6 +1,6 @@
 import { storedProducts } from '../products';
 import { sortedStates, storedActiveSelection } from '../states';
-import { LOADED, LOADING } from '../../_interfaces';
+import { ID_STATE_ANNOUNCEMENT, ID_STATE_AVAILABLE, ID_STATE_COMING_SOON, LOADED, LOADING } from '../../_interfaces';
 import { getDateTime } from '../../utils';
 
 export const loadHistoryData = async () => {
@@ -30,6 +30,21 @@ export const loadHistoryData = async () => {
       // set state object on product
       const state = sortedStates.find(state => state.id === product.state);
       product.state = state;
+
+      // flags
+      const historyStates = Object.values(product.history);
+      const lastHistory = historyStates[historyStates.length - 1];
+      const beforeLastHistory = historyStates[historyStates.length - 2];
+      const beforeBeforeLastHistory = historyStates[historyStates.length - 3];
+
+      product.isNewSoon = lastHistory === ID_STATE_COMING_SOON && beforeLastHistory === ID_STATE_ANNOUNCEMENT;
+      product.isNew =
+        (lastHistory === ID_STATE_AVAILABLE && beforeLastHistory === ID_STATE_ANNOUNCEMENT) ||
+        (lastHistory === ID_STATE_AVAILABLE &&
+          beforeLastHistory === ID_STATE_COMING_SOON &&
+          beforeBeforeLastHistory === ID_STATE_ANNOUNCEMENT);
+      product.isHot = historyStates.filter(state => state === ID_STATE_AVAILABLE).length >= 3;
+
       // new products with history is ready
       return product;
     });

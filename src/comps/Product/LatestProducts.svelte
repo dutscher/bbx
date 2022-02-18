@@ -2,13 +2,15 @@
   import Product from './Product.svelte';
   import Toggle from '../Toggle.svelte';
   import { storedProducts, storedStates } from '../../stores';
-  import { ID_PARTS, ID_STATE_AVAILABLE, ID_STATE_ANNOUNCEMENT, ID_STATE_COMING_SOON } from '../../_interfaces';
+  import { ID_STATE_AVAILABLE, ID_STATE_ANNOUNCEMENT, ID_STATE_COMING_SOON } from '../../_interfaces';
   import Icon from '../Icon.svelte';
 
   export let state: number = ID_STATE_ANNOUNCEMENT;
   export let title: string = '';
 
   let products: any;
+  let sortedProducts: any;
+  let sortedMonths: any;
   let states: any;
   let reverseSort = false;
   let showParts = false;
@@ -35,7 +37,7 @@
   storedProducts.subscribe(store => (products = store));
   storedStates.subscribe(store => (states = store));
 
-  function sortProducts(products, showParts, showFirstRelease) {
+  const sortProducts = (products, showParts, showFirstRelease) => {
     countParts = 0;
     let sortedData = [];
     // do filtering api changes
@@ -43,21 +45,10 @@
       // show only products with same state
       .filter(product => {
         if (showFirstRelease) {
-          // TODO: ab in den store
-          const historyStates = Object.values(product.history);
-          const lastState = historyStates[historyStates.length - 1];
-          const lastBeforeState = historyStates[historyStates.length - 2];
-
           if (state === ID_STATE_COMING_SOON) {
-            return lastState === ID_STATE_COMING_SOON && lastBeforeState === ID_STATE_ANNOUNCEMENT;
+            return product.isNewSoon;
           } else if (state === ID_STATE_AVAILABLE) {
-            const lastBeforeBeforeState = historyStates[historyStates.length - 3];
-            return (
-              (lastState === ID_STATE_AVAILABLE &&
-                lastBeforeState === ID_STATE_COMING_SOON &&
-                lastBeforeBeforeState === ID_STATE_ANNOUNCEMENT) ||
-              (lastState === ID_STATE_AVAILABLE && lastBeforeState === ID_STATE_ANNOUNCEMENT)
-            );
+            return product.isNew;
           }
         } else {
           return product.state.id === state;
@@ -65,11 +56,10 @@
       })
       // filter part changes
       .filter(product => {
-        const isPart = product.tags.includes(ID_PARTS);
-        if (isPart) {
+        if (product.isPart) {
           countParts++;
         }
-        return (!showParts && !isPart) || (showParts && isPart);
+        return (!showParts && !product.isPart) || (showParts && product.isPart);
       })
       // sort by highest date
       .sort((a, b) => {
@@ -83,9 +73,9 @@
       });
 
     return sortedData;
-  }
+  };
 
-  function sortMonths(sortedProducts, reverseSort) {
+  const sortMonths = (sortedProducts, reverseSort) => {
     const maxMonths = 12;
     const months = [];
     let actualMonth = new Date().getMonth() + 1;
@@ -119,14 +109,15 @@
     }
 
     return months;
+  };
+
+  $: {
+    sortedProducts = sortProducts(products, showParts, showFirstRelease);
+    sortedMonths = sortMonths(sortedProducts, reverseSort);
   }
-
-  $: sortedProducts = sortProducts(products, showParts, showFirstRelease);
-
-  $: sortedMonths = sortMonths(sortedProducts, reverseSort);
 </script>
 
-<Toggle {title} onVisibility={newVisiblity => (isVisible = newVisiblity)}>
+<Toggle {title} onVisibility={newVisibility => (isVisible = newVisibility)}>
   <b slot="description">({sortedProducts.length})</b>
 
   <div class="changes">

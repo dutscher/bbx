@@ -1,5 +1,4 @@
 import { writable } from 'svelte/store';
-
 import partsJSON from '../../data/parts.json';
 import partTypesJSON from '../../data/parts-types.json';
 
@@ -15,8 +14,13 @@ const sortedParts = partsJSON.map((part, i) => {
     id: i,
   };
 });
-export const storedParts = writable({});
-storedParts.set(sortedParts);
+
+const storedPartsWritable = writable(sortedParts);
+export const storedParts = {
+  subscribe: storedPartsWritable.subscribe,
+  set: storedPartsWritable.set,
+  update: storedPartsWritable.update,
+};
 
 const sortedPartTypes = partTypesJSON.map((part, i) => {
   const name = Array.isArray(part) ? part[0].toString() : part;
@@ -30,5 +34,10 @@ const sortedPartTypes = partTypesJSON.map((part, i) => {
     id: i,
   };
 });
-export const storedPartTypes = writable({});
-storedPartTypes.set(sortedPartTypes);
+
+const storedPartTypesWritable = writable(sortedPartTypes);
+export const storedPartTypes = {
+  subscribe: storedPartTypesWritable.subscribe,
+  set: storedPartTypesWritable.set,
+  update: storedPartTypesWritable.update,
+};

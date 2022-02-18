@@ -1,6 +1,9 @@
 import { writable } from 'svelte/store';
-
 import imageExtensionJSON from '../../data/image-extension.json';
 
-export const storedImageExtension = writable({});
-storedImageExtension.set(imageExtensionJSON);
+const { subscribe, set, update } = writable(imageExtensionJSON);
+export const storedImageExtension = {
+  subscribe,
+  set,
+  update,
+};
