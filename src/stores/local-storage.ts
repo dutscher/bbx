@@ -18,7 +18,7 @@ export const localStore = {
     } else {
       if (set === undefined) {
         const visibilityBool = store[key];
-        return typeof visibilityBool === 'boolean' ? store[key] : null;
+        return typeof visibilityBool === 'boolean' ? store[key] : false;
       } else {
         store[key] = set;
         localStore.set(lsKey, JSON.stringify(store));

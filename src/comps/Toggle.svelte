@@ -13,7 +13,7 @@
   export { className as class };
   export let onVisibility = () => {};
 
-  let isVisible = true;
+  let isVisible = false;
 
   const onClick = () => {
     if (!alwaysopen) {
@@ -25,7 +25,7 @@
 
   onMount(() => {
     const lsValue = localStore.visibility(title);
-    if (lsValue !== null || open || alwaysopen) {
+    if (lsValue || open || alwaysopen) {
       isVisible = lsValue || open || alwaysopen;
       onVisibility(isVisible); // V4IY
     }
