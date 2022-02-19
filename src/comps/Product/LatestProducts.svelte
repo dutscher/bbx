@@ -1,6 +1,5 @@
 <script lang="ts">
   import Product from './Product.svelte';
-  import Toggle from '../Toggle.svelte';
   import { storedProducts, storedStates } from '../../stores';
   import { ID_STATE_AVAILABLE, ID_STATE_ANNOUNCEMENT, ID_STATE_COMING_SOON } from '../../_interfaces';
   import Icon from '../Icon.svelte';
@@ -117,9 +116,10 @@
   }
 </script>
 
-<Toggle {title} onVisibility={newVisibility => (isVisible = newVisibility)}>
-  <b slot="description">({sortedProducts.length})</b>
-
+<details class="card" onVisibility={newVisibility => (isVisible = newVisibility)}>
+  <summary>
+    <span>{title}<b>({sortedProducts.length})</b></span>
+  </summary>
   <div class="changes">
     {#if state !== ID_STATE_ANNOUNCEMENT}
       <label class="with-text-shadow">
@@ -142,12 +142,12 @@
       <p><b>Was kommt womöglich als nächstes:</b></p>
     {/if}
     <div>
-      {#if isVisible}
+      <!--{#if isVisible}-->
         {#each sortedMonths as month (month.id)}
           {#if month.products.length > 0}
-            <h3>
+            <h4>
               {month.label} ({month.monthPad}{#if month.year !== thisYear}&nbsp;{month.year}{/if})
-            </h3>
+            </h4>
             <div class="flex flex--gap flex--wrap">
               {#each month.products as product (product.id)}
                 <Product {product} type="latestproducts" />
@@ -155,10 +155,10 @@
             </div>
           {/if}
         {/each}
-      {/if}
+      <!--{/if}-->
     </div>
   </div>
-</Toggle>
+</details>
 
 <style lang="scss">
   @import '../../scss/variables';

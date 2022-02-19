@@ -1,8 +1,8 @@
 <script>
   import { onMount } from 'svelte';
-  import Icon from './Icon.svelte';
-  import { localStore } from '../stores/local-storage';
-  import Heading from './Heading.svelte';
+  import Icon from '../Icon.svelte';
+  import { localStore } from '../../stores/local-storage.js';
+  import Heading from '../Heading.svelte';
 
   export let title = '';
   export let open = false;
@@ -50,7 +50,7 @@
 </div>
 
 <style lang="scss">
-  @import '../scss/variables';
+  @import '../../scss/variables';
 
   $selector: '.with-toggle';
 

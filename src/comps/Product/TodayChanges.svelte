@@ -1,7 +1,6 @@
 <script lang="ts">
   import Product from './Product.svelte';
   import Icon from '../Icon.svelte';
-  import Toggle from '../Toggle.svelte';
   import { storedProducts, storedStates } from '../../stores';
   import { getLatestStateOfToday, pad, stopClick } from '../../utils';
   import { ID_PARTS } from '../../_interfaces';
@@ -121,8 +120,8 @@
     {/each}
 {/if}
 -->
-<Toggle title="Status vom" open>
-  <div slot="description">
+<details class="card" open>
+  <summary>Status vom
     <span class="datepicker">
       <Icon svg="true" modifier="arrow left" on:click={event => handleDate(event, 'prev')} />
       <input
@@ -138,7 +137,7 @@
       {/if}
       <b>({sortedProducts.length})</b>
     </span>
-  </div>
+  </summary>
   <div class="changes">
     <label>
       <input type="checkbox" bind:checked={showParts} />
@@ -152,7 +151,7 @@
       {/if}
     </div>
   </div>
-</Toggle>
+</details>
 
 <style lang="scss">
   @import '../../scss/variables';
