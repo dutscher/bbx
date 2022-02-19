@@ -3,6 +3,7 @@
   import { storedActiveSelection, storedTags } from '../../stores';
   import { getUrlParam, setUrlParams } from '../../utils';
   import { ID_MANHATTAN, ID_MOVIE, ID_NETHERLAND, ID_PARTS, IDS_SPECIAL_TAGS } from '../../_interfaces';
+  import ChipLetter from "../Atoms/ChipLetter.svelte";
 
   export let activeTagIds: any = [];
 
@@ -92,9 +93,7 @@
           data-id={tag.id}
         >
           {#if index === 0}
-            <div class="chip__letter">
-              <p class="tertiary">{abc.letter}</p>
-            </div>
+            <ChipLetter letter="{abc.letter}" color="blue" />
           {/if}
           {tag.name}
           <span class="chip_state">{tag.count}</span>
@@ -120,43 +119,6 @@
     &.disabled {
       opacity: 0.1;
       cursor: default;
-    }
-
-    &__letter {
-      border: 2rem solid transparent;
-      box-sizing: border-box;
-      object-fit: cover;
-      object-position: center;
-      width: 32rem;
-      height: 100%;
-      border-radius: 8rem;
-      margin-left: -16rem;
-
-      p {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        border-radius: 8rem;
-        background-color: var(--secondary);
-        text-align: center;
-        line-height: 25rem;
-
-        &::after {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          z-index: 1;
-          border-radius: inherit;
-          width: 100%;
-          height: 100%;
-          background-position: center;
-          background-image: radial-gradient(circle,rgba(255,255,255,.4) 1%,transparent 1%);
-          opacity: 0;
-          transition: none;
-          will-change: background-size;
-        }
-      }
     }
   }
 </style>

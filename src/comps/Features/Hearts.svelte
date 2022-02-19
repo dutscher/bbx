@@ -1,6 +1,5 @@
 <script lang="ts">
   import { storedProducts, storedHearts, localStore, lsKeyHeart } from '../../stores';
-  import Toggle from '../Toggle.svelte';
   import Product from '../Product/Product.svelte';
   import Icon from '../Icon.svelte';
   import { stopClick } from '../../utils';

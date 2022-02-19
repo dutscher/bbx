@@ -40,7 +40,6 @@
       <LatestProducts state={1} title="Bald erhältlich" />
       <LatestProducts state={3} title="Ankündigungen" />
     </div>
-
   {/if}
 
   <Legend />
