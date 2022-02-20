@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import LatestProducts from './LatestProducts.svelte';
+  import TodayChanges from './TodayChanges.svelte';
   // app
   import { LOADED, UNLOADED } from '../../_interfaces';
   import { storedActiveSelection, storedTags, storedProducts, loadChanges, internetConnection } from '../../stores';
@@ -29,17 +29,14 @@
   });
 </script>
 
-<div title="Verfügbarkeit">
+<div title="Archiv">
   {#if isOnline && loadedChanges !== LOADED}
     <div class="loader" />
   {:else}
     <div class="changes">
-      <LatestProducts state={0} title="Verfügbar" />
-      <LatestProducts state={1} title="Bald erhältlich" />
-      <LatestProducts state={3} title="Ankündigungen" />
+      <TodayChanges />
     </div>
   {/if}
-
   <Legend />
 </div>
 

@@ -12,6 +12,7 @@
   import Support from './comps/Support.svelte';
   import Hearts from './comps/Features/Hearts.svelte';
   import Changes from './comps/Product/Changes.svelte';
+  import History from './comps/Product/History.svelte';
   import Filter from './comps/Filter/Filter.svelte';
   import Manhattan from './comps/Specials/Manhattan.svelte';
   import Netherland from './comps/Specials/Netherland.svelte';
@@ -57,8 +58,9 @@
   <nav class="menu top">
     <a data-ui="#tab1_"><i>home</i>BBX.watch</a>
     <a data-ui="#tab2_"><i>inventory_2</i>Produkte</a>
-    <a data-ui="#tab3_"><i>track_changes</i>Änderungen</a>
-    <a data-ui="#tab4_"><i>favorite</i>Merkliste</a>
+    <a data-ui="#tab3_"><i>track_changes</i>Verfügbarkeit</a>
+    <a data-ui="#tab4_"><i>schedule</i>Archiv</a>
+    <a data-ui="#tab5_"><i>favorite</i>Merkliste</a>
   </nav>
 
   <Notifications />
@@ -103,6 +105,9 @@
         <Changes />
       </div>
       <div id="tab4_" class="page padding">
+        <History />
+      </div>
+      <div id="tab5_" class="page padding">
         {#each Object.keys(hearts) as list}
           <Hearts {list} />
         {/each}
