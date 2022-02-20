@@ -120,35 +120,35 @@
     {/each}
 {/if}
 -->
- Status vom
-    <span class="datepicker">
-      <Icon svg="true" modifier="arrow left" on:click={event => handleDate(event, 'prev')} />
-      <input
-        type="date"
-        min={selectedDateMin}
-        max={selectedDateMax}
-        bind:value={selectedDate}
-        on:click={event => event.stopPropagation()}
-      />
-      <span class="day-str">{dayStr}</span>
-      {#if !isToday}
-        <Icon svg="true" modifier="arrow" on:click={event => handleDate(event, 'next')} />
-      {/if}
-      <b>({sortedProducts.length})</b>
-    </span>
-  <div class="changes">
-    <label>
-      <input type="checkbox" bind:checked={showParts} />
-      Auf Parts ({countParts}) umschalten
-    </label>
-    <div class="flex flex--gap flex--wrap">
-      {#if isVisible}
-        {#each sortedProducts as product (product.id)}
-          <Product {product} type="todaychanges" todayChangesDate={selectedDate} />
-        {/each}
-      {/if}
-    </div>
+Status vom
+<span class="datepicker">
+  <Icon svg="true" modifier="arrow left" on:click={event => handleDate(event, 'prev')} />
+  <input
+    type="date"
+    min={selectedDateMin}
+    max={selectedDateMax}
+    bind:value={selectedDate}
+    on:click={event => event.stopPropagation()}
+  />
+  <span class="day-str">{dayStr}</span>
+  {#if !isToday}
+    <Icon svg="true" modifier="arrow" on:click={event => handleDate(event, 'next')} />
+  {/if}
+  <b>({sortedProducts.length})</b>
+</span>
+<div class="changes">
+  <label>
+    <input type="checkbox" bind:checked={showParts} />
+    Auf Parts ({countParts}) umschalten
+  </label>
+  <div class="flex flex--gap flex--wrap">
+    {#if isVisible}
+      {#each sortedProducts as product (product.id)}
+        <Product {product} type="todaychanges" todayChangesDate={selectedDate} />
+      {/each}
+    {/if}
   </div>
+</div>
 
 <style lang="scss">
   @import '../../scss/variables';
@@ -169,6 +169,7 @@
       font-family: inherit;
       position: relative;
       top: -2px;
+      color: $color-black;
     }
 
     .day-str {

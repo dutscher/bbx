@@ -114,7 +114,7 @@
 
 <div class="flex">
   <h4>Farben</h4>
-  <div class="flex flex--wrap bl">
+  <div class="flex flex--wrap">
     {#each sortedItems as color (color.id)}
       <div
         {...classNames(color)}

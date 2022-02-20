@@ -65,10 +65,8 @@
     // dark theme preferred, set document with a `data-theme` attribute
     document.documentElement.setAttribute('data-theme', theme);
     document.documentElement.setAttribute('data-theme-ready', 'true');
-    if (isDarkmode)
-      document.body.classList.add("is-dark");
-    else
-      document.body.classList.remove("is-dark");
+    if (isDarkmode) document.body.classList.add('is-dark');
+    else document.body.classList.remove('is-dark');
 
     localStore.set('theme', theme);
     setTimeout(() => {
@@ -120,7 +118,7 @@
     will-change: opacity;
     position: fixed;
     z-index: 1337;
-    right: $space-xl;
+    left: $space-xl;
     bottom: $space-xl;
     user-select: none;
     opacity: 0;

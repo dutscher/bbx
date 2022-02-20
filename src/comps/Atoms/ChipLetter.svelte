@@ -1,6 +1,6 @@
 <script>
   export let letter = '';
-  export let color = "tertiary";
+  export let color = 'tertiary';
 </script>
 
 <div class="chip__letter">
@@ -23,13 +23,13 @@
       width: 100%;
       height: 100%;
       margin: 0;
-      border-radius: 6rem;
+      border-radius: 100%;
       background-color: var(--secondary);
       text-align: center;
       line-height: 25rem;
 
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         left: 0;
@@ -38,7 +38,7 @@
         width: 100%;
         height: 100%;
         background-position: center;
-        background-image: radial-gradient(circle,rgba(255,255,255,.4) 1%,transparent 1%);
+        background-image: radial-gradient(circle, rgba(255, 255, 255, 0.4) 1%, transparent 1%);
         opacity: 0;
         transition: none;
         will-change: background-size;

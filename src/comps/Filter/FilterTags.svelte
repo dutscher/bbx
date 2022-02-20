@@ -3,7 +3,7 @@
   import { storedActiveSelection, storedTags } from '../../stores';
   import { getUrlParam, setUrlParams } from '../../utils';
   import { ID_MANHATTAN, ID_MOVIE, ID_NETHERLAND, ID_PARTS, IDS_SPECIAL_TAGS } from '../../_interfaces';
-  import ChipLetter from "../Atoms/ChipLetter.svelte";
+  import ChipLetter from '../Atoms/ChipLetter.svelte';
 
   export let activeTagIds: any = [];
 
@@ -73,7 +73,7 @@
 
   const getClasses = (tag, isFirst, activeTagIds) =>
     [
-      'chip secondary small',
+      'chip secondary small round no-margin',
       activeTagIds.includes(tag.id) && 'active',
       IDS_SPECIAL_TAGS.includes(tag.id) && 'highlight',
       isFirst && 'new-letter',
@@ -84,16 +84,12 @@
 
 <details class="card">
   <summary class="small-margin">Tags</summary>
-  <div class="flex flex--gap flex--wrap bl">
+  <div class="flex flex--gap flex--wrap">
     {#each sortedAbcTags as abc}
       {#each abc.sortedTags as tag, index}
-        <span
-          class={getClasses(tag, index === 0, activeTagIds)}
-          on:click={() => clickTag(tag, true)}
-          data-id={tag.id}
-        >
+        <span class={getClasses(tag, index === 0, activeTagIds)} on:click={() => clickTag(tag, true)} data-id={tag.id}>
           {#if index === 0}
-            <ChipLetter letter="{abc.letter}" color="blue" />
+            <ChipLetter letter={abc.letter} color="blue" />
           {/if}
           {tag.name}
           <span class="chip_state">{tag.count}</span>

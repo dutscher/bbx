@@ -82,7 +82,7 @@
 
 <div class="flex parts">
   <h4>Parts</h4>
-  <div class="flex flex--wrap bl">
+  <div class="flex flex--wrap">
     {#each sortedItems as part (part.id)}
       <div
         class="part{activePartIds.includes(part.id) ? ' active' : ''}{part.count === 0 ? ' disabled' : ''}"

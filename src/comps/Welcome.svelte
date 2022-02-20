@@ -65,6 +65,10 @@
     display: inline-block;
     height: 30px;
     width: 170px;
+
+    :global iframe {
+      width: 170px !important;
+    }
   }
 
   .warning {

@@ -1,30 +1,66 @@
 <script lang="ts">
 </script>
 
-<div>
+<div class="news">
   <h2>News</h2>
-  <a href="//www.noppensteinnews.de/" target="_blank" title="Partner: Noppensteinnews"
-  ><img src="/images/partner/noppensteinnews.png" alt="Noppensteinnews" width="150"/></a
-  >
-  <p>
-    <a href="//www.youtube.com/watch?v=jgKitU73Zhk" target="_blank"
-    >Youtube: Count of Bricks - Der BlueBrixx Watcher - Eine Webseite für Verfügbarkeiten - Was kann der
-      "Watcher"?</a
-    ><br/><br/>
-    <a href="//www.noppensteinnews.de/2022/01/30/klemmbaustein-podcast-bluebrixx-watcher/" target="_blank"
-    >Noppensteinnews: Klemmbaustein Podcast Bluebrixx Watcher</a
-    ><br/>
-  </p>
-  <!--
-      Paypal Kaffeekasse
-      <form action="https://www.paypal.com/donate" method="post" target="_top">
-          <input type="hidden" name="hosted_button_id" value="SKL792JENYRM2" />
-          <input type="image" src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Spenden mit dem PayPal-Button" />
-          <img alt="" border="0" src="https://www.paypal.com/de_DE/i/scr/pixel.gif" width="1" height="1" />
-      </form>
-      -->
+  <div>
+    <a href="//www.noppensteinnews.de/2022/01/30/klemmbaustein-podcast-bluebrixx-watcher/" target="_blank">
+      Noppensteinnews: Klemmbaustein Podcast Bluebrixx Watcher
+    </a>
+    <iframe
+      class="iframe--podcast"
+      frameborder="0"
+      title="Noppensteinnews: Klemmbaustein Podcast Bluebrixx Watcher"
+      src="https://www.podcaster.de/webplayer/?id=show~eu4w2y~klemmbaustein-podcast-noppensteinnews~pod-17eb3227cb56870a92bfc2763&v=1645344640"
+    />
+
+    <a href="//www.youtube.com/watch?v=jgKitU73Zhk" target="_blank">
+      Youtube: Count of Bricks - Der BlueBrixx Watcher - Eine Webseite für Verfügbarkeiten - Was kann der "Watcher"?
+    </a>
+    <div class="iframe--youtube">
+      <iframe
+        frameborder="0"
+        title="Youtube: Count of Bricks - Der BlueBrixx Watcher - Eine Webseite für Verfügbarkeiten - Was kann der
+              Watcher?"
+        src="https://www.youtube.com/embed/jgKitU73Zhk"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      />
+    </div>
+  </div>
 </div>
 
 <style lang="scss">
   @import '../scss/variables';
+
+  .news {
+    a {
+      color: $color-primary;
+    }
+  }
+  .iframe--youtube {
+    padding: $space-xl * 3;
+    iframe {
+      width: 100%;
+      @media (min-width: 470px) {
+        height: 380px;
+      }
+    }
+  }
+  .iframe--podcast {
+    width: 100%;
+    height: 450px;
+    @media (min-width: 470px) {
+      height: 380px;
+    }
+    @media (min-width: 720px) {
+      height: 240px;
+    }
+    @media (min-width: 1024px) {
+      height: 360px;
+    }
+    @media (min-width: 1060px) {
+      height: 240px;
+    }
+  }
 </style>

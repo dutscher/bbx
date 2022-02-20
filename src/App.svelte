@@ -1,11 +1,12 @@
 <script lang="ts">
-  import { loadMovieData, loadHistoryData, storedActiveSelection, storedHearts } from './stores';
-  import { ID_MANHATTAN, ID_NETHERLAND, ID_MOVIE, ID_BURG_BLAUSTEIN, UNLOADED, LOADED } from './_interfaces';
+  import 'beercss';
   import { ApolloClient, InMemoryCache } from '@apollo/client';
   import { onMount } from 'svelte';
   import { setClient } from 'svelte-apollo';
-  import "beercss";
-  import Changelog from '../CHANGELOG.md';
+  import { jsVoid } from './utils';
+  import { loadMovieData, loadHistoryData, storedActiveSelection, storedHearts } from './stores';
+  import { ID_MANHATTAN, ID_NETHERLAND, ID_MOVIE, ID_BURG_BLAUSTEIN, UNLOADED, LOADED } from './_interfaces';
+  import Changelog from './comps/Changelog.svelte';
   import Welcome from './comps/Welcome.svelte';
   import Imprint from './comps/Imprint.svelte';
   import News from './comps/News.svelte';
@@ -56,11 +57,11 @@
 
 <main>
   <nav class="menu top">
-    <a data-ui="#tab1_"><i>home</i>BBX.watch</a>
-    <a data-ui="#tab2_"><i>inventory_2</i>Produkte</a>
-    <a data-ui="#tab3_"><i>track_changes</i>Verfügbarkeit</a>
-    <a data-ui="#tab4_"><i>schedule</i>Archiv</a>
-    <a data-ui="#tab5_"><i>favorite</i>Merkliste</a>
+    <a data-ui="#tab1_" href={jsVoid}><i>home</i>Home</a>
+    <a data-ui="#tab2_" href={jsVoid}><i>inventory_2</i>Produkte</a>
+    <a data-ui="#tab3_" href={jsVoid}><i>track_changes</i>Änderungen</a>
+    <a data-ui="#tab4_" href={jsVoid}><i>schedule</i>Heute</a>
+    <a data-ui="#tab5_" href={jsVoid}><i>favorite</i>Merkliste</a>
   </nav>
 
   <Notifications />
@@ -72,19 +73,13 @@
   <Darkmode />
   <Github />
 
-
   {#if loadedData.history === LOADED}
     <div class="container max">
-      <div id="tab1_" class="page padding active">
+      <div id="tab1_" class="page padding">
         <Welcome />
         <Support />
         <News />
-        <details class="card">
-          <summary>
-            Changelog
-          </summary>
-          <Changelog />
-        </details>
+        <Changelog />
         <Imprint />
       </div>
       <div id="tab2_" class="page padding">
@@ -104,7 +99,7 @@
       <div id="tab3_" class="page padding">
         <Changes />
       </div>
-      <div id="tab4_" class="page padding">
+      <div id="tab4_" class="page padding active">
         <History />
       </div>
       <div id="tab5_" class="page padding">
@@ -118,10 +113,7 @@
 
 <style lang="scss">
   @import './scss/variables';
-  @import url(https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined&display=swap);
-
-  main {
-  }
+  @import url('https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined&display=swap');
 
   .notice {
     font-weight: bold;
@@ -222,19 +214,6 @@
     width: 60px;
     align-self: center;
     text-align: right;
-  }
-
-  :global(.flex.bl) {
-    position: relative;
-  }
-
-  :global(.flex.bl::after) {
-    position: absolute;
-    content: '';
-    left: -$space-sm;
-    top: $space-sm;
-    bottom: $space-sm;
-    border-left: solid 1px $color-primary;
   }
 
   :global(h4.tag-name) {

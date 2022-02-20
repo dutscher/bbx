@@ -101,14 +101,19 @@
   $: sortedItems = sortItems(filteredProducts);
 
   const getClasses = state =>
-    ['chip small', activeStateIds.includes(state.id) && 'active', state.count === 0 && 'disabled', state.color]
+    [
+      'chip small round no-margin',
+      activeStateIds.includes(state.id) && 'active',
+      state.count === 0 && 'disabled',
+      state.color,
+    ]
       .filter(css => !!css)
       .join(' ');
 </script>
 
 <details class="card" open>
   <summary class="small-margin">Status</summary>
-  <div class="flex flex--gap flex--wrap bl">
+  <div class="flex flex--gap flex--wrap">
     {#each sortedItems as state (state.id)}
       <div class={getClasses(state)} data-count={state.count} on:click={() => clickItem(state, true)}>
         <span class="chip_state">{state.count}</span>
