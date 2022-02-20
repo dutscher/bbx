@@ -120,8 +120,7 @@
     {/each}
 {/if}
 -->
-<details class="card" open>
-  <summary>Status vom
+ Status vom
     <span class="datepicker">
       <Icon svg="true" modifier="arrow left" on:click={event => handleDate(event, 'prev')} />
       <input
@@ -137,7 +136,6 @@
       {/if}
       <b>({sortedProducts.length})</b>
     </span>
-  </summary>
   <div class="changes">
     <label>
       <input type="checkbox" bind:checked={showParts} />
@@ -151,7 +149,6 @@
       {/if}
     </div>
   </div>
-</details>
 
 <style lang="scss">
   @import '../../scss/variables';

@@ -46,3 +46,6 @@ misc:
 * planer: https://klemmbauer.de/bibliothek.html
 * page watcher: https://www.facebook.com/groups/435441033546028/posts/1147355199021271/
   * https://github.com/RoBrDev/BBAC
+
+* info wonach sortiert ist in verfügbarkeit
+* 
