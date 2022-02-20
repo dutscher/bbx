@@ -1,16 +1,16 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import Changelog from '../../CHANGELOG.md';
-  import Icon from './Icon.svelte';
+  import Changelog from '../../public/CHANGELOG.md';
   import Toggle from './Toggle.svelte';
   import Imprint from './Imprint.svelte';
   // app
-  import { storedTags, storedProducts, localStore, internetConnection, storedActiveSelection } from '../stores';
-  import { IDS_SPECIAL_TAGS, lsKeyWelcome } from '../_interfaces';
+  import { storedTags, storedProducts, internetConnection, storedActiveSelection } from '../stores';
+  import { IDS_SPECIAL_TAGS } from '../_interfaces';
 
+  let changelogUL;
   let tags: number = 0;
   let products: number = 0;
-  let isVisible = true;
+  let isVisible = false;
   let isOnline = false;
   let lastCursor;
   let kofi;
@@ -20,17 +20,7 @@
   storedProducts.subscribe(store => (products = store.length));
   storedActiveSelection.subscribe(store => (lastCursor = store.lastCursor));
 
-  const onClick = () => {
-    isVisible = !isVisible;
-    localStore.visibility(lsKeyWelcome, isVisible);
-  };
-
   onMount(() => {
-    const lsValue = localStore.visibility(lsKeyWelcome);
-    if (!lsValue) {
-      isVisible = lsValue;
-    }
-
     kofiwidget2.init('Kaffeekasse', '#4c75b4', 'P5P48YJNR');
     kofi = kofiwidget2.getHTML();
   });
@@ -79,23 +69,12 @@
       </p>
     </div>
 
-    <Toggle title="Support" open>
+    <Imprint />
+
+    <Toggle title="Support & Partner" open>
       <div class="flex flex--wrap flex--vertical-center flex--gap">
         {@html kofi}
 
-        <a href="//www.noppensteinnews.de/" target="_blank" title="Partner: Noppensteinnews"
-          ><img src="/images/partner/noppensteinnews.png" alt="Noppensteinnews" width="150" /></a
-        >
-
-        <p>
-          <a href="//www.youtube.com/watch?v=jgKitU73Zhk" target="_blank"
-            >Youtube: Count of Bricks - Der BlueBrixx Watcher - Eine Webseite für Verfügbarkeiten - Was kann der
-            "Watcher"?</a
-          ><br /><br />
-          <a href="//www.noppensteinnews.de/2022/01/30/klemmbaustein-podcast-bluebrixx-watcher/" target="_blank"
-            >Noppensteinnews: Klemmbaustein Podcast Bluebrixx Watcher</a
-          ><br />
-        </p>
         <!--
             Paypal Kaffeekasse
             <form action="https://www.paypal.com/donate" method="post" target="_top">
@@ -104,23 +83,109 @@
                 <img alt="" border="0" src="https://www.paypal.com/de_DE/i/scr/pixel.gif" width="1" height="1" />
             </form>
             -->
+
+        <a href="//www.noppensteinnews.de/" target="_blank" title="Partner: Noppensteinnews">
+          <img src="/images/partner/noppensteinnews.png" alt="Noppensteinnews" width="150" />
+        </a>
       </div>
     </Toggle>
 
-    <Imprint />
+    <Toggle title="News (2)" onVisibility={newVisibility => (isVisible = newVisibility)}>
+      {#if isVisible}
+        <div class="news">
+          <a
+            href="//www.noppensteinnews.de/2022/01/30/klemmbaustein-podcast-bluebrixx-watcher/"
+            target="_blank"
+            class="with-text-shadow"
+          >
+            Noppensteinnews: Klemmbaustein Podcast Bluebrixx Watcher
+          </a>
+          <iframe
+            class="iframe--podcast"
+            frameborder="0"
+            title="Noppensteinnews: Klemmbaustein Podcast Bluebrixx Watcher"
+            src="https://www.podcaster.de/webplayer/?id=show~eu4w2y~klemmbaustein-podcast-noppensteinnews~pod-17eb3227cb56870a92bfc2763&v=1645344640"
+          />
+
+          <a href="//www.youtube.com/watch?v=jgKitU73Zhk" target="_blank" class="with-text-shadow">
+            Youtube: Count of Bricks - Der BlueBrixx Watcher - Eine Webseite für Verfügbarkeiten - Was kann der
+            "Watcher"?
+          </a>
+          <div class="iframe--youtube">
+            <iframe
+              frameborder="0"
+              title="Youtube: Count of Bricks - Der BlueBrixx Watcher - Eine Webseite für Verfügbarkeiten - Was kann der
+              Watcher?"
+              src="https://www.youtube.com/embed/jgKitU73Zhk"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            />
+          </div>
+        </div>
+      {/if}
+    </Toggle>
 
     <Toggle title="Changelog">
-      <Changelog />
+      <div class="changelog">
+        <Changelog />
+        <a href="https://github.com/dutscher/bbx/blob/master/CHANGELOG.md" class="with-text-shadow" target="_blank">
+          Die komplette Übersicht gibts hier >
+        </a>
+      </div>
     </Toggle>
   </div>
 </Toggle>
 
 <style lang="scss">
   @import '../scss/variables';
+
   .fb-like {
     display: inline-block;
     height: 30px;
     width: 170px;
+
+    :global iframe {
+      width: 170px;
+    }
+  }
+
+  .news {
+    a {
+      color: $color-primary;
+    }
+  }
+
+  .iframe--youtube {
+    padding: $space-xl * 3;
+
+    iframe {
+      width: 100%;
+
+      @media (min-width: 470px) {
+        height: 380px;
+      }
+    }
+  }
+
+  .iframe--podcast {
+    width: 100%;
+    height: 450px;
+
+    @media (min-width: 470px) {
+      height: 380px;
+    }
+
+    @media (min-width: 720px) {
+      height: 240px;
+    }
+
+    @media (min-width: 1024px) {
+      height: 360px;
+    }
+
+    @media (min-width: 1060px) {
+      height: 240px;
+    }
   }
 
   .warning {
@@ -130,5 +195,12 @@
     background: $color-warning;
     border-radius: $space-md;
     padding: $space-md $space-lg;
+  }
+
+  .changelog {
+    :global a,
+    :global p {
+      color: $color-primary;
+    }
   }
 </style>

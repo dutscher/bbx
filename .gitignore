@@ -6,6 +6,7 @@
 /data/api
 /data/*.compare.json
 /scripts/*.secret*
+/public/CHANGELOG.md
 /public/index.html
 /public/service-worker.js
 /public/data/all-products-history.json
