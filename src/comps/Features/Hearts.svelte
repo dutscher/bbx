@@ -65,7 +65,7 @@
   }
 </script>
 
-<details class="card" alwaysopen={list === 'default'}>
+<details class="card" open={list === 'default'}>
   <summary class="none small-margin">
     <div class="row no-wrap middle-align">
       <div class="col min">

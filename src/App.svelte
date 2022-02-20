@@ -29,8 +29,8 @@
     cache: new InMemoryCache(),
   });
 
-  // js
   onMount(() => {
+    // beercss
     ui();
   });
 
@@ -57,11 +57,11 @@
 
 <main>
   <nav class="menu top">
-    <a data-ui="#tab1_" href={jsVoid}><i>home</i>Home</a>
-    <a data-ui="#tab2_" href={jsVoid}><i>inventory_2</i>Produkte</a>
-    <a data-ui="#tab3_" href={jsVoid}><i>track_changes</i>Änderungen</a>
-    <a data-ui="#tab4_" href={jsVoid}><i>schedule</i>Heute</a>
-    <a data-ui="#tab5_" href={jsVoid}><i>favorite</i>Merkliste</a>
+    <a data-ui="#tab--welcome" href={jsVoid}><i>home</i>Home</a>
+    <a data-ui="#tab--hearts" href={jsVoid}><i>favorite</i>Merkliste</a>
+    <a data-ui="#tab--products" href={jsVoid}><i>shopping_cart</i>Produkte</a>
+    <a data-ui="#tab--changes" href={jsVoid}><i>inventory_2</i>Status</a>
+    <a data-ui="#tab--history" href={jsVoid}><i>schedule</i>Aktuelles</a>
   </nav>
 
   <Notifications />
@@ -75,14 +75,19 @@
 
   {#if loadedData.history === LOADED}
     <div class="container max">
-      <div id="tab1_" class="page padding">
+      <div id="tab--welcome" class="page padding">
         <Welcome />
         <Support />
         <News />
         <Changelog />
         <Imprint />
       </div>
-      <div id="tab2_" class="page padding">
+      <div id="tab--hearts" class="page padding">
+        {#each Object.keys(hearts) as list}
+          <Hearts {list} />
+        {/each}
+      </div>
+      <div id="tab--products" class="page padding">
         <Filter />
         {#if activeTagIds.includes(ID_MANHATTAN) && activeTagIds.length === 1}
           <Manhattan />
@@ -96,16 +101,11 @@
         <Products />
         <Legend />
       </div>
-      <div id="tab3_" class="page padding">
+      <div id="tab--changes" class="page padding">
         <Changes />
       </div>
-      <div id="tab4_" class="page padding active">
+      <div id="tab--history" class="page padding active">
         <History />
-      </div>
-      <div id="tab5_" class="page padding">
-        {#each Object.keys(hearts) as list}
-          <Hearts {list} />
-        {/each}
       </div>
     </div>
   {/if}
