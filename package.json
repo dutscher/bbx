@@ -24,7 +24,7 @@
     "convert:history": "npm run exec ./scripts/convert.js -- --history",
     "convert:producthistory": "npm run exec ./scripts/convert.js -- --producthistory",
     "--- deploy": "this is a divider",
-    "build": "rollup -c && npm run build:copy -- -- --prod",
+    "build": "npm run build:copy -- -- --prod && rollup -c",
     "build:inst": "npm run exec ./scripts/src/parse-inst.js",
     "build:copy": "npm run exec ./scripts/build.js",
     "watch:copy": "chokidar \"./src/index.html\" \"./src/pwa/*.js\" \"./CHANGELOG.md\" -c \"npm run build:copy\"",
