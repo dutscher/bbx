@@ -44,7 +44,7 @@
 
 <!--TODO: is image in service worker cache -->
 {#if isOnline}
-  <img src={imageSrc} on:error={handleError} on:load={onLoad} alt="Produkt Bild" width="100%" />
+  <img class="responsive small top-round" src={imageSrc} on:error={handleError} on:load={onLoad} alt="Produkt Bild" width="100%" />
 {/if}
 
 <style lang="scss">

@@ -154,28 +154,32 @@
 
 <div class="product_tooltip{showTooltip ? ' open' : ''}">
   {#if showTooltip}
-    <div
-      class="tooltip__outer-wrap"
-      style="{isMobile ? 'width:' + wrapWidth + 'px; ' : ''}left: {leftAdjust}"
-      bind:this={wrapElement}
-    >
-      <div class="tooltip__wrap">
-        <div class="tooltip__close">
-          <Icon modifier="cross" svg="true" on:click={onClose} />
-        </div>
-        {#if product.title}
-          <div class="tooltip__title-wrap">
-            <strong class="tooltip__title">
-              <ProductHearts {product} />
-              {product.title}
-            </strong>
-          </div>
-        {/if}
-        {#if product.movieData}<strong>{product.movieData}</strong><br />{/if}
-        {#if product.id}<strong>ID:</strong>
-          <span class="tooltip__content">
+    <article class="no-padding border round"
+      bind:this={wrapElement}>
+      <ProductImage
+        {product}
+        onLoad={() => {
+              imageLoaded = true;
+              scrollIntoView();
+            }}
+      />
+      <div class="padding">
+        <h5 class="no-margin">
+          {#if product.title}
+            <div class="tooltip__title-wrap">
+              <strong class="tooltip__title">
+                <ProductHearts {product}/>
+                {product.title}
+              </strong>
+            </div>
+          {/if}
+        </h5>
+        <div>
+          {#if product.movieData}<strong>{product.movieData}</strong><br/>{/if}
+          {#if product.id}<strong>ID:</strong>
+            <span class="tooltip__content">
             {product.id}
-            {#if product.partNr}
+              {#if product.partNr}
               /
               <strong>BricklinkID: </strong>
               <a
@@ -183,74 +187,70 @@
                 target="_blank">{product.partNr}</a
               >
             {/if}
-          </span><br />
-        {/if}
-        {#if product.parts}<strong>Steine:</strong> <span class="tooltip__content">{product.parts}</span><br />{/if}
-        {#if !!product.price}
-          <strong>Preis:</strong> <span class="tooltip__content">{handlePrice(product)}</span><br />
-        {/if}
-        {#if product.cats && product.cats.length > 0}
-          <strong>Kategorien:</strong>
-          <span class="tooltip__content">
+          </span><br/>
+          {/if}
+          {#if product.parts}<strong>Steine:</strong> <span class="tooltip__content">{product.parts}</span><br/>{/if}
+          {#if !!product.price}
+            <strong>Preis:</strong> <span class="tooltip__content">{handlePrice(product)}</span><br/>
+          {/if}
+          {#if product.cats && product.cats.length > 0}
+            <strong>Kategorien:</strong>
+            <span class="tooltip__content">
             {#each product.cats as categoryId, i}
               <span data-divider={i + 1 < product.cats.length && '/'}>
                 {categories[categoryId]}
               </span>
             {/each}
-            <br />
+              <br/>
           </span>
-        {/if}
-        {#if product.tags && product.tags.length > 0}
-          <strong>Tags:</strong>
-          <span class="tooltip__content tooltip__content--no-select tooltip__content--tags">
-            {#each product.tags as tagID, i}
-              <a href={jsVoid} on:click={() => setActiveTag(tagID)} data-divider={i + 1 < product.tags.length && '/'}
-                >{getTagName(tagID)}</a
-              >
-            {/each}
-          </span>
-          <br />
-        {/if}
-        {#if product.inst}
-          <br />
-          <strong>Anleitung:</strong><br />
-          <div class="tooltip__content tooltip__content--rows flex flex--wrap">
-            {#if Array.isArray(product.inst)}
-              {#each product.inst as inst}
-                <a class="inst-link" target="_blank" href={getInstHref(inst)}>
-                  <Icon modifier="manual" />
-                  {getInstLabel(inst)}
+          {/if}
+          {#if product.tags && product.tags.length > 0}
+            <strong>Tags:</strong>
+            <span class="tooltip__content tooltip__content--no-select tooltip__content--tags">
+                {#each product.tags as tagID, i}
+                  <a href={jsVoid} on:click={() => setActiveTag(tagID)}
+                     data-divider={i + 1 < product.tags.length && '/'}
+                  >{getTagName(tagID)}</a
+                  >
+                {/each}
+              </span>
+            <br/>
+          {/if}
+          {#if product.inst}
+            <br/>
+            <strong>Anleitung:</strong><br/>
+            <div class="tooltip__content tooltip__content--rows flex flex--wrap">
+              {#if Array.isArray(product.inst)}
+                {#each product.inst as inst}
+                  <a class="inst-link" target="_blank" href={getInstHref(inst)}>
+                    <Icon modifier="manual"/>
+                    {getInstLabel(inst)}
+                  </a>
+                {/each}
+              {:else}
+                <a class="inst-link" target="_blank" href={getInstHref(product.inst)}>
+                  <Icon modifier="manual"/>
+                  {getInstLabel(product.inst)}
                 </a>
-              {/each}
-            {:else}
-              <a class="inst-link" target="_blank" href={getInstHref(product.inst)}>
-                <Icon modifier="manual" />
-                {getInstLabel(product.inst)}
-              </a>
-            {/if}
+              {/if}
+            </div>
+          {/if}
+          <br/>
+          <strong>Verlauf:</strong><br/>
+          <div class="tooltip__content tooltip__content--rows">
+            <ProductHistory {product}/>
           </div>
-        {/if}
-        <br />
-        <strong>Verlauf:</strong><br />
-        <div class="tooltip__content tooltip__content--rows">
-          <ProductHistory {product} />
         </div>
-        <br />
-        <a href={data.url + product.href + AFF_LINK} target="_blank">
-          <span>
-            Zum Shop{!!AFF_LINK ? '*' : ''}
-            <Icon modifier="cart" />
-          </span><br />
-          <ProductImage
-            {product}
-            onLoad={() => {
-              imageLoaded = true;
-              scrollIntoView();
-            }}
-          />
-        </a>
+        <nav>
+          <a href={data.url + product.href + AFF_LINK} target="_blank">
+              <span>
+                Zum Shop{!!AFF_LINK ? '*' : ''}
+                <Icon modifier="cart"/>
+              </span>
+          </a>
+        </nav>
       </div>
-    </div>
+    </article>
   {/if}
 </div>
 
@@ -258,7 +258,13 @@
   @import '../../scss/variables';
 
   .product_tooltip {
+    position: absolute;
     white-space: nowrap;
+    z-index: 1;
+
+    article {
+      background-color: var(--secondary-container);
+    }
   }
 
   .tooltip {
