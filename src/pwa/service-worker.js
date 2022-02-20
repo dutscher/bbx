@@ -1,10 +1,12 @@
 const pre = '[ServiceWorker]';
 const debug = 'notification'.split(','); // message,install,activate,caching,push
 // store svelte data
+
 const store = {};
 // Update cache names any time any of the cached files change.
 // Add list of files to cache here.
 const CACHE_NAME = 'cacheBuster-v1';
+
 const IGNORE_REQUESTS = [
   'matomo.bbx.watch',
   'api.bbx.watch',
@@ -42,7 +44,7 @@ const log = (...args) => {
 };
 
 self.addEventListener('install', e => {
-  log('install');
+  log('install', CACHE_NAME);
 
   e.waitUntil(
     (async () => {
@@ -55,14 +57,14 @@ self.addEventListener('install', e => {
 });
 
 self.addEventListener('activate', evt => {
-  log('activate');
+  log('activate', CACHE_NAME);
   // Remove previous cached data from disk.
   evt.waitUntil(
     caches.keys().then(keyList => {
       return Promise.all(
         keyList.map(key => {
           if (key !== CACHE_NAME) {
-            log('Removing old cache', key);
+            log('activate,Removing old cache', key);
             return caches.delete(key);
           }
         })
@@ -74,17 +76,18 @@ self.addEventListener('activate', evt => {
 });
 
 self.addEventListener('fetch', e => {
+  log('fetch ', CACHE_NAME);
   e.respondWith(
     (async () => {
       const r = await caches.match(e.request);
-      // log(`Fetching resource: ${e.request.url}`);
+      log(`fetch,Fetching resource: ${e.request.url}`);
       if (r) {
         return r;
       }
       const response = await fetch(e.request);
       if (!IGNORE_REQUESTS.some(request => e.request.url.includes(request))) {
         const cache = await caches.open(CACHE_NAME);
-        log(`Caching new resource: ${e.request.url}`);
+        log(`fetch,Caching new resource: ${e.request.url}`);
         cache.put(e.request, response.clone());
       }
       return response;

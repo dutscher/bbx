@@ -1,12 +1,9 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  // app
-  import { storedTags, storedProducts, localStore, internetConnection, storedActiveSelection } from '../stores';
-  import { IDS_SPECIAL_TAGS, lsKeyWelcome } from '../_interfaces';
+  import { storedTags, storedProducts, internetConnection, storedActiveSelection } from '../stores';
+  import { IDS_SPECIAL_TAGS } from '../_interfaces';
 
   let tags: number = 0;
   let products: number = 0;
-  let isVisible = true;
   let isOnline = false;
   let lastCursor;
 
@@ -14,18 +11,6 @@
   storedTags.subscribe(store => (tags = store.length));
   storedProducts.subscribe(store => (products = store.length));
   storedActiveSelection.subscribe(store => (lastCursor = store.lastCursor));
-
-  const onClick = () => {
-    isVisible = !isVisible;
-    localStore.visibility(lsKeyWelcome, isVisible);
-  };
-
-  onMount(() => {
-    const lsValue = localStore.visibility(lsKeyWelcome);
-    if (!lsValue) {
-      isVisible = lsValue;
-    }
-  });
 </script>
 
 <div>

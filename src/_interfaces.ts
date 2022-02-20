@@ -20,13 +20,7 @@ export const ID_STATE_COMING_SOON = 1;
 export const ID_STATE_UNAVAILABLE = 2;
 export const ID_STATE_ANNOUNCEMENT = 3;
 export const IDS_SPECIAL_TAGS = [ID_PARTS, ID_MANHATTAN, ID_MOVIE, ID_NETHERLAND, ID_BURG_BLAUSTEIN];
-// Localstorage
-export const lsKeyWelcome = 'welcome';
 
-export interface Tag {
-  id: number;
-  name: string;
-}
 // external data
 export const UNLOADED = 'unloaded';
 export const LOADING = 'loading';

@@ -1,0 +1,18 @@
+// shorten the changelog md
+    new Changelog({
+      target: {
+        insertBefore: ul => {
+          setTimeout(() => {
+            let n = 0;
+            let html = '';
+            for (const node of ul.childNodes.values()) {
+              if (3 > n && node.outerHTML) {
+                html += node.outerHTML;
+                n++;
+              }
+            }
+            changelogUL = `<ul>${html}</ul>`;
+          }, 25);
+        },
+      },
+    });
