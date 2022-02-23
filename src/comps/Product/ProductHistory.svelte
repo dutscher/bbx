@@ -105,8 +105,15 @@
 <div class="history">
   {#each splittedHistory.first as entry}
     <div>
-      <span class="date">{entry.formattedDate}</span> - {entry.label}{#if entry.ago}&nbsp;<strong>{entry.ago}</strong
-        >{/if}
+      <span class="date">
+        {entry.formattedDate}
+      </span>
+      - <span>{entry.label}</span>
+      {#if entry.ago}&nbsp;
+        <b>
+          {entry.ago}
+        </b>
+      {/if}
     </div>
   {/each}
   {#if splittedHistory.last}
@@ -116,11 +123,14 @@
           e.stopPropagation();
           fullVisible = true;
         }}
-        href={jsVoid}>... Alles anzeigen</a
+        href={jsVoid}
+        class="link"
       >
+        ... Alles anzeigen
+      </a>
     {:else}
       {#each splittedHistory.last as entry}
-        {entry.formattedDate} - {entry.label}{#if entry.ago}&nbsp;<strong>{entry.ago}</strong>{/if}<br />
+        {entry.formattedDate} - {entry.label}{#if entry.ago}&nbsp;<b>{entry.ago}</b>{/if}<br />
       {/each}
     {/if}
   {/if}
@@ -132,23 +142,11 @@
   .history {
     user-select: none;
 
-    :global strong {
-      color: $color-white;
-    }
-
     .date {
       display: block;
 
       @media (min-width: 400px) {
         display: inline-block;
-      }
-    }
-
-    a {
-      color: $color-primary-lighter;
-
-      &:hover {
-        color: $color-white;
       }
     }
   }

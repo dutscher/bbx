@@ -56,27 +56,23 @@
   });
 </script>
 
-<div class="row">
-  <div class="col s12">
-    <article>
-      <h2>Suche</h2>
-      <div class="field label prefix border">
-        <i>search</i>
-        <input
-          class="search"
-          type="search"
-          value={activeSearchString}
-          on:input={({ target: { value } }) => checkInput(value)}
-          on:keyup={({ target: { value } }) => debounce(value)}
-          spellcheck="false"
-        />
-        <!--               bind:value={activeSearchString}-->
-        <!--               on:input={() => onInput(true)}-->
-        <label>Produktname oder ID</label>
-      </div>
-    </article>
+<article>
+  <div class="field label prefix border no-margin">
+    <i>search</i>
+    <input
+      class="search"
+      type="search"
+      value={activeSearchString}
+      on:input={({ target: { value } }) => checkInput(value)}
+      on:keyup={({ target: { value } }) => debounce(value)}
+      spellcheck="false"
+    />
+    <!--               bind:value={activeSearchString}-->
+    <!--               on:input={() => onInput(true)}-->
+    <label>Produktname oder ID</label>
   </div>
-</div>
+</article>
+<br />
 
 <style lang="scss">
 </style>

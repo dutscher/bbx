@@ -43,7 +43,6 @@
     "@rollup/plugin-url": "^6.0.0",
     "@tsconfig/svelte": "^1.0.0",
     "beercss": "^2.0.13",
-    "material-dynamic-colors": "^0.0.9",
     "chalk": "^5.0.0",
     "cheerio": "^1.0.0-rc.10",
     "chokidar-cli": "^3.0.0",

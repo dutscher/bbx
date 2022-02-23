@@ -29,35 +29,13 @@
   });
 </script>
 
-<div>
-  {#if isOnline && loadedChanges !== LOADED}
-    <div class="loader" />
-  {:else}
-    <div class="changes">
-      <TodayChanges />
-    </div>
-  {/if}
-  <Legend />
-</div>
+{#if isOnline && loadedChanges !== LOADED}
+  <div class="loader" />
+{:else}
+  <TodayChanges />
+{/if}
+<Legend />
 
 <style lang="scss">
   @import '../../scss/variables';
-
-  .loader {
-    height: 50px;
-    width: 50px;
-    background-image: url('../images/spinner.svg');
-    background-size: contain;
-    animation: spin 4s linear infinite;
-  }
-
-  .changes {
-    width: 100%;
-  }
-
-  @keyframes spin {
-    100% {
-      transform: rotate(360deg);
-    }
-  }
 </style>

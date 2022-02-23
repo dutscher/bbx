@@ -33,5 +33,5 @@
 </div>
 
 <style lang="scss">
-  @import '../scss/variables';
+  @import '../../scss/variables';
 </style>

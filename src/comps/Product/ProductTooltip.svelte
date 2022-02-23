@@ -152,101 +152,105 @@
 
 <svelte:window bind:innerWidth />
 
-<div class="product_tooltip{showTooltip ? ' open' : ''}">
+<div class="product-tooltip{showTooltip ? ' open' : ''}">
   {#if showTooltip}
-    <article class="no-padding border round"
-      bind:this={wrapElement}>
+    <article class="no-padding border bottom-round right-round" bind:this={wrapElement}>
       <ProductImage
         {product}
         onLoad={() => {
-              imageLoaded = true;
-              scrollIntoView();
-            }}
+          imageLoaded = true;
+          scrollIntoView();
+        }}
       />
-      <div class="padding">
+      <div class="small-padding">
         <h5 class="no-margin">
           {#if product.title}
             <div class="tooltip__title-wrap">
-              <strong class="tooltip__title">
-                <ProductHearts {product}/>
+              <b class="tooltip__title">
+                <ProductHearts {product} />
                 {product.title}
-              </strong>
+              </b>
             </div>
           {/if}
         </h5>
         <div>
-          {#if product.movieData}<strong>{product.movieData}</strong><br/>{/if}
-          {#if product.id}<strong>ID:</strong>
+          {#if product.movieData}<b>{product.movieData}</b><br />{/if}
+          {#if product.id}<b>ID:</b>
             <span class="tooltip__content">
-            {product.id}
+              {product.id}
               {#if product.partNr}
-              /
-              <strong>BricklinkID: </strong>
-              <a
-                href="{data.partNr}{product.partNr}{product.partColor ? `#C=${product.partColor.id}` : ''}"
-                target="_blank">{product.partNr}</a
-              >
-            {/if}
-          </span><br/>
+                /
+                <b>BricklinkID: </b>
+                <a
+                  href="{data.partNr}{product.partNr}{product.partColor ? `#C=${product.partColor.id}` : ''}"
+                  target="_blank"
+                  class="link"
+                >
+                  {product.partNr}
+                </a>
+              {/if}
+            </span><br />
           {/if}
-          {#if product.parts}<strong>Steine:</strong> <span class="tooltip__content">{product.parts}</span><br/>{/if}
+          {#if product.parts}<b>Steine:</b> <span class="tooltip__content">{product.parts}</span><br />{/if}
           {#if !!product.price}
-            <strong>Preis:</strong> <span class="tooltip__content">{handlePrice(product)}</span><br/>
+            <b>Preis:</b> <span class="tooltip__content">{handlePrice(product)}</span><br />
           {/if}
           {#if product.cats && product.cats.length > 0}
-            <strong>Kategorien:</strong>
+            <b>Kategorien:</b>
             <span class="tooltip__content">
-            {#each product.cats as categoryId, i}
-              <span data-divider={i + 1 < product.cats.length && '/'}>
-                {categories[categoryId]}
-              </span>
-            {/each}
-              <br/>
-          </span>
+              {#each product.cats as categoryId, i}
+                <span data-divider={i + 1 < product.cats.length && '/'}>
+                  {categories[categoryId]}
+                </span>
+              {/each}
+              <br />
+            </span>
           {/if}
           {#if product.tags && product.tags.length > 0}
-            <strong>Tags:</strong>
+            <b>Tags:</b>
             <span class="tooltip__content tooltip__content--no-select tooltip__content--tags">
-                {#each product.tags as tagID, i}
-                  <a href={jsVoid} on:click={() => setActiveTag(tagID)}
-                     data-divider={i + 1 < product.tags.length && '/'}
-                  >{getTagName(tagID)}</a
-                  >
-                {/each}
-              </span>
-            <br/>
+              {#each product.tags as tagID, i}
+                <a
+                  href={jsVoid}
+                  class="link"
+                  on:click={() => setActiveTag(tagID)}
+                  data-divider={i + 1 < product.tags.length && '/'}
+                >
+                  {getTagName(tagID)}
+                </a>
+              {/each}
+            </span>
+            <br />
           {/if}
           {#if product.inst}
-            <br/>
-            <strong>Anleitung:</strong><br/>
+            <br />
+            <b>Anleitung:</b><br />
             <div class="tooltip__content tooltip__content--rows flex flex--wrap">
               {#if Array.isArray(product.inst)}
                 {#each product.inst as inst}
-                  <a class="inst-link" target="_blank" href={getInstHref(inst)}>
-                    <Icon modifier="manual"/>
+                  <a class="inst-link link" target="_blank" href={getInstHref(inst)}>
+                    <Icon modifier="manual" />
                     {getInstLabel(inst)}
                   </a>
                 {/each}
               {:else}
-                <a class="inst-link" target="_blank" href={getInstHref(product.inst)}>
-                  <Icon modifier="manual"/>
+                <a class="inst-link link" target="_blank" href={getInstHref(product.inst)}>
+                  <Icon modifier="manual" />
                   {getInstLabel(product.inst)}
                 </a>
               {/if}
             </div>
           {/if}
-          <br/>
-          <strong>Verlauf:</strong><br/>
+          <br />
+          <b>Verlauf:</b><br />
           <div class="tooltip__content tooltip__content--rows">
-            <ProductHistory {product}/>
+            <ProductHistory {product} />
           </div>
         </div>
         <nav>
-          <a href={data.url + product.href + AFF_LINK} target="_blank">
-              <span>
-                Zum Shop{!!AFF_LINK ? '*' : ''}
-                <Icon modifier="cart"/>
-              </span>
+          <a href={data.url + product.href + AFF_LINK} target="_blank" class="link large-text bold">
+            Zum Shop{!!AFF_LINK ? '*' : ''}
+            <Icon modifier="cart" />
           </a>
         </nav>
       </div>
@@ -257,25 +261,19 @@
 <style lang="scss">
   @import '../../scss/variables';
 
-  .product_tooltip {
+  .product-tooltip {
     position: absolute;
     white-space: nowrap;
     z-index: 1;
 
     article {
-      background-color: var(--secondary-container);
+      background-color: var(--surface-variant);
     }
   }
 
   .tooltip {
-
     a {
       display: block;
-      color: $color-primary-lighter;
-
-      &:hover {
-        color: $color-white;
-      }
     }
 
     &__outer-wrap {
@@ -283,7 +281,6 @@
       position: absolute;
       top: -2px;
       left: 0;
-      color: $color-white;
       font-size: ms(0);
       overflow: hidden;
 
@@ -326,11 +323,11 @@
     }
 
     &__content {
-      color: $color-primary-lighter;
       user-select: all;
 
       a {
         display: inline-block;
+        margin-right: $space-xl;
       }
 
       &--rows {

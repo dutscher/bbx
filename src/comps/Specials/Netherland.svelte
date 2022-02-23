@@ -60,7 +60,7 @@
       <div class="pieces__wrap flex">
         {#each pieces as piece}
           <div
-            class="piece piece--{piece.nr} {piece.state}"
+            class="piece piece--{piece.nr}"
             on:click={event => {
               setActive(event, piece.id);
             }}

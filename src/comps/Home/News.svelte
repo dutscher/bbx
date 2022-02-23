@@ -1,11 +1,23 @@
 <script lang="ts">
+  let toggle = false;
+
+  const clickNews = () => {
+    toggle = !toggle;
+  };
+
+  $: isVisible = toggle;
 </script>
 
-<details class="card news">
+<details class="card small-padding" on:click={clickNews}>
   <summary>News (2)</summary>
   <div>
-    {#if false}
-      <a href="//www.noppensteinnews.de/2022/01/30/klemmbaustein-podcast-bluebrixx-watcher/" target="_blank">
+    {#if isVisible}
+      <br />
+      <a
+        href="//www.noppensteinnews.de/2022/01/30/klemmbaustein-podcast-bluebrixx-watcher/"
+        target="_blank"
+        class="link medium-text"
+      >
         Noppensteinnews: Klemmbaustein Podcast Bluebrixx Watcher
       </a>
       <iframe
@@ -15,7 +27,7 @@
         src="https://www.podcaster.de/webplayer/?id=show~eu4w2y~klemmbaustein-podcast-noppensteinnews~pod-17eb3227cb56870a92bfc2763&v=1645344640"
       />
 
-      <a href="//www.youtube.com/watch?v=jgKitU73Zhk" target="_blank">
+      <a href="//www.youtube.com/watch?v=jgKitU73Zhk" target="_blank" class="link medium-text">
         Youtube: Count of Bricks - Der BlueBrixx Watcher - Eine Webseite für Verfügbarkeiten - Was kann der "Watcher"?
       </a>
       <div class="iframe--youtube">
@@ -33,13 +45,7 @@
 </details>
 
 <style lang="scss">
-  @import '../scss/variables';
-
-  .news {
-    a {
-      color: $color-primary;
-    }
-  }
+  @import '../../scss/variables';
 
   .iframe--youtube {
     padding: $space-xl * 3;

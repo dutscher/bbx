@@ -2,40 +2,24 @@ beer css:
 * logo?
 * navi bottom?
 * schöneres theme
-  * material-dynamic-colors not going https://github.com/beercss/beercss/blob/main/docs/SETTINGS.md#dynamic-theme
-  * x lila icons zu blau wie github
   * komische rem's?
-* x page höhe nicht stacked?
 * home
   * tags & produkte klickbar zu produkte page
-  * X support partner mittig
-  * news loaded on visible
-  * card toggle ganzflächig
 * merkliste
-  * X title bold
-  * X description mittig
   * default soll nicht schließbar sein
   * edit?
-  * x delete icon
-  * container overflow?
 * produkte
-  * reset knopf
-  * tags
-    * x chip letter github blau
-    * produkte headline plus details, filter & sortieren mobil kaputt
+  * brickbar
+  * special breite, tablet zoom calc not good
+  * reset knopf, lineheight
+  * chips
+    * icons herz auf rot
+    * abstand zum text
   * produkt tooltip
     * bild hochkant? abgeschnitten
-    * merklisten herz 
-    * text farbe (light)
-    * linheight stimmt nicht
-    * links haben keinen abstand
-* status 
-  * nix zufinden
-* aktuelles
-  * X datepicker in card
-  * tooltip overflow vom container
-  * X checkbox vertical align to text
-  
+    * merklisten herz (dark)
+      * springt
+      * icons
 
 next todos:
 * wo ist neuschwanstein 101887 ?
@@ -57,8 +41,6 @@ next todos:
 * verical images to high ?product=102628
 * scroll to of tooltip with more padding top  
 * cypress tests
-* neues design
-* navigationbar
 * warenkorb noise ausblenden
 * history back not going
 * noppen an tags

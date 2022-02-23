@@ -6,11 +6,11 @@
   import { jsVoid } from './utils';
   import { loadMovieData, loadHistoryData, storedActiveSelection, storedHearts, localStore } from './stores';
   import { ID_MANHATTAN, ID_NETHERLAND, ID_MOVIE, ID_BURG_BLAUSTEIN, UNLOADED, LOADED } from './_interfaces';
-  import Changelog from './comps/Changelog.svelte';
-  import Welcome from './comps/Welcome.svelte';
-  import Imprint from './comps/Imprint.svelte';
-  import News from './comps/News.svelte';
-  import Support from './comps/Support.svelte';
+  import Welcome from './comps/Home/Welcome.svelte';
+  import Support from './comps/Home/Support.svelte';
+  import News from './comps/Home/News.svelte';
+  import Changelog from './comps/Home/Changelog.svelte';
+  import Imprint from './comps/Home/Imprint.svelte';
   import Hearts from './comps/Features/Hearts.svelte';
   import Changes from './comps/Product/Changes.svelte';
   import History from './comps/Product/History.svelte';
@@ -23,6 +23,7 @@
   import Github from './comps/Features/Github.svelte';
   import Darkmode from './comps/Features/Darkmode.svelte';
   import Legend from './comps/Legend.svelte';
+  import Page from './comps/Page.svelte';
 
   let activeTagIds;
   let loadedData;
@@ -91,48 +92,41 @@
   <Github />
 
   {#if loadedData.history === LOADED}
-    <div class="page padding {isActive('welcome', activePage)}">
-      <div class="container max">
-        <Welcome />
-        <Support />
-        <News />
-        <Changelog />
-        <Imprint />
-      </div>
-    </div>
-    <div class="page padding {isActive('hearts', activePage)}">
-      <div class="container max">
-        {#each Object.keys(hearts) as list}
-          <Hearts {list} />
-        {/each}
-      </div>
-    </div>
-    <div class="page padding {isActive('products', activePage)}">
-      <div class="container max">
-        <Filter />
-        {#if activeTagIds.includes(ID_MANHATTAN) && activeTagIds.length === 1}
-          <Manhattan />
-        {/if}
-        {#if activeTagIds.includes(ID_NETHERLAND) && activeTagIds.length === 1}
-          <Netherland />
-        {/if}
-        {#if activeTagIds.includes(ID_BURG_BLAUSTEIN) && activeTagIds.length === 1}
-          <Blaustein />
-        {/if}
-        <Products />
-        <Legend />
-      </div>
-    </div>
-    <div class="page padding {isActive('changes', activePage)}">
-      <div class="container max">
-        <Changes />
-      </div>
-    </div>
-    <div class="page padding {isActive('history', activePage)}">
-      <div class="container max">
-        <History />
-      </div>
-    </div>
+    <Page name="welcome" {activePage} {isActive}>
+      <Welcome />
+      <Support />
+      <News />
+      <Changelog />
+      <Imprint />
+    </Page>
+    <Page name="hearts" {activePage} {isActive}>
+      {#each Object.keys(hearts) as list}
+        <Hearts {list} />
+      {/each}
+    </Page>
+    <Page name="products" {activePage} {isActive}>
+      <Filter />
+      {#if activeTagIds.includes(ID_MANHATTAN) && activeTagIds.length === 1}
+        <br />
+        <Manhattan />
+      {/if}
+      {#if activeTagIds.includes(ID_NETHERLAND) && activeTagIds.length === 1}
+        <br />
+        <Netherland />
+      {/if}
+      {#if activeTagIds.includes(ID_BURG_BLAUSTEIN) && activeTagIds.length === 1}
+        <br />
+        <Blaustein />
+      {/if}
+      <Products />
+      <Legend />
+    </Page>
+    <Page name="changes" {activePage} {isActive}>
+      <Changes />
+    </Page>
+    <Page name="history" {activePage} {isActive}>
+      <History />
+    </Page>
   {/if}
 </main>
 
@@ -158,7 +152,7 @@
     }
   }
 
-  .page:not(.active) {
+  :global .page:not(.active) {
     display: none;
   }
 
@@ -180,6 +174,11 @@
     &.is-dark {
       --primary: rgb(189, 215, 255);
     }
+  }
+
+  // Override beer.css
+  :global .container {
+    overflow-x: inherit !important;
   }
 
   // test darkmode https://stackoverflow.com/questions/57606960/how-can-i-emulate-prefers-color-scheme-media-query-in-chrome

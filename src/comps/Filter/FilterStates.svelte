@@ -111,8 +111,8 @@
       .join(' ');
 </script>
 
-<details class="card" open>
-  <summary class="small-margin">Status</summary>
+<details class="card small-padding" nopen>
+  <summary>Status</summary>
   <div class="flex flex--gap flex--wrap">
     {#each sortedItems as state (state.id)}
       <div class={getClasses(state)} data-count={state.count} on:click={() => clickItem(state, true)}>

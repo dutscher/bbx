@@ -121,27 +121,24 @@
 {/if}
 -->
 
-<div class="row">
-  <div class="col s12">
-    <article>
-      <h2>Aktuelles vom {dayStr}</h2>
-      <span class="datepicker">
-        <Icon svg="true" modifier="arrow left" on:click={event => handleDate(event, 'prev')} />
-        {#if !isToday}
-          <Icon svg="true" modifier="arrow" on:click={event => handleDate(event, 'next')} />
-        {/if}
-        <input
-          type="date"
-          min={selectedDateMin}
-          max={selectedDateMax}
-          bind:value={selectedDate}
-          on:click={event => event.stopPropagation()}
-        />
-        <b class="large-text bold">({sortedProducts.length})</b>
-      </span>
-    </article>
-  </div>
-</div>
+<article>
+  <h2>vom {dayStr}</h2>
+  <span class="datepicker">
+    <Icon svg="true" modifier="arrow left" on:click={event => handleDate(event, 'prev')} />
+    {#if !isToday}
+      <Icon svg="true" modifier="arrow" on:click={event => handleDate(event, 'next')} />
+    {/if}
+    <input
+      type="date"
+      min={selectedDateMin}
+      max={selectedDateMax}
+      bind:value={selectedDate}
+      on:click={event => event.stopPropagation()}
+    />
+    <b class="large-text bold">({sortedProducts.length})</b>
+  </span>
+</article>
+
 <div class="changes">
   <div class="field middle-align">
     <nav class="wrap">

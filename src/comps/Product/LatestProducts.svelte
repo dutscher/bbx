@@ -47,7 +47,7 @@
           if (state === ID_STATE_COMING_SOON) {
             return product.isNewSoon;
           } else if (state === ID_STATE_AVAILABLE) {
-            return product.isNew;
+            return product.isNew && product.state.id === state;
           }
         } else {
           return product.state.id === state;
@@ -116,9 +116,9 @@
   }
 </script>
 
-<details class="card" onVisibility={newVisibility => (isVisible = newVisibility)}>
+<details class="card small-padding" onVisibility={newVisibility => (isVisible = newVisibility)}>
   <summary>
-    <span>{title} <b>({sortedProducts.length})</b></span>
+    {title} <b>({sortedProducts.length})</b>
   </summary>
 
   <div class="changes">
@@ -149,7 +149,7 @@
       <p class="bold">Was kommt womöglich als nächstes:</p>
     {/if}
     {#if state === ID_STATE_AVAILABLE}
-      <p class="small-text">Produkte sind nach Datum sortiert</p>
+      <p class="small-text bold">Die Produkte sind nach Veröffentlichungsdatum sortiert</p>
     {/if}
     <div>
       {#each sortedMonths as month (month.id)}

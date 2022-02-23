@@ -4,7 +4,7 @@
   // app
   import { LOADED, UNLOADED } from '../../_interfaces';
   import { storedActiveSelection, storedTags, storedProducts, loadChanges, internetConnection } from '../../stores';
-  import Legend from "../Legend.svelte";
+  import Legend from '../Legend.svelte';
 
   let loadedChanges;
   let tags: number = 0;
@@ -29,38 +29,15 @@
   });
 </script>
 
-<div title="Verfügbarkeit">
-  {#if isOnline && loadedChanges !== LOADED}
-    <div class="loader" />
-  {:else}
-    <div class="changes">
-      <LatestProducts state={0} title="Verfügbar" />
-      <LatestProducts state={1} title="Bald erhältlich" />
-      <LatestProducts state={3} title="Ankündigungen" />
-    </div>
-  {/if}
-
-  <Legend />
-</div>
+{#if isOnline && loadedChanges !== LOADED}
+  <div class="loader" />
+{:else}
+  <LatestProducts state={0} title="Verfügbar" />
+  <LatestProducts state={1} title="Bald erhältlich" />
+  <LatestProducts state={3} title="Ankündigungen" />
+{/if}
+<Legend />
 
 <style lang="scss">
   @import '../../scss/variables';
-
-  .loader {
-    height: 50px;
-    width: 50px;
-    background-image: url('../images/spinner.svg');
-    background-size: contain;
-    animation: spin 4s linear infinite;
-  }
-
-  .changes {
-    width: 100%;
-  }
-
-  @keyframes spin {
-    100% {
-      transform: rotate(360deg);
-    }
-  }
 </style>

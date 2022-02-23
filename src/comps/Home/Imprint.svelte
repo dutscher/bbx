@@ -1,8 +1,5 @@
-<script>
-</script>
-
-<details class="card">
-  <summary> Impressum </summary>
+<details class="card small-padding">
+  <summary>Impressum</summary>
   <p>Angaben gemäß § 5 TMG</p>
   <p>
     Willy Woitas<br />

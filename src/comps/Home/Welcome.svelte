@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { storedTags, storedProducts, internetConnection, storedActiveSelection } from '../stores';
-  import { IDS_SPECIAL_TAGS } from '../_interfaces';
+  import { storedTags, storedProducts, internetConnection, storedActiveSelection } from '../../stores';
+  import { IDS_SPECIAL_TAGS } from '../../_interfaces';
 
   let tags: number = 0;
   let products: number = 0;
@@ -59,7 +59,7 @@
 </div>
 
 <style lang="scss">
-  @import '../scss/variables';
+  @import '../../scss/variables';
 
   .fb-like {
     display: inline-block;

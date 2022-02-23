@@ -185,7 +185,7 @@
     margin-right: $space-lg;
   }
 
-  :global .hearts.active .icon--heart path {
+  :global .hearts .icon--heart path {
     stroke: $color-black;
   }
 </style>

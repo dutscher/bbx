@@ -1,8 +1,8 @@
 <script>
-  import Changelog from '../../public/CHANGELOG.md';
+  import Changelog from '../../../public/CHANGELOG.md';
 </script>
 
-<details class="card">
+<details class="card small-padding">
   <summary>Changelog</summary>
   <Changelog />
   <a href="https://github.com/dutscher/bbx/blob/master/CHANGELOG.md" target="_blank" class="link">
@@ -11,8 +11,6 @@
 </details>
 
 <style lang="scss">
-  @import '../scss/variables';
-
   .card {
     :global a,
     :global p {

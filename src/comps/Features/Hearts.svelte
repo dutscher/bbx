@@ -68,7 +68,7 @@
   <summary class="none small-margin">
     <div class="row no-wrap middle-align">
       <div class="col min">
-        <i>favorite</i>
+        <i class="red-text">favorite</i>
         <div class="tooltip">Will ich haben</div>
       </div>
       <div class="col">
