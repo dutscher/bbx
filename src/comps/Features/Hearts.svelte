@@ -1,7 +1,6 @@
 <script lang="ts">
   import { storedProducts, storedHearts, localStore, lsKeyHeart } from '../../stores';
   import Product from '../Product/Product.svelte';
-  import Icon from '../Icon.svelte';
   import { stopClick } from '../../utils';
 
   export let list = 'default';
@@ -69,10 +68,11 @@
   <summary class="none small-margin">
     <div class="row no-wrap middle-align">
       <div class="col min">
-        <Icon modifier="heart" svg="true" class="active" title="Will ich haben" />
+        <i>favorite</i>
+        <div class="tooltip">Will ich haben</div>
       </div>
       <div class="col">
-        <h3>{title}</h3>
+        <span class="large-text">{title}</span>
         <div class="small-text">
           {#if heartItems.length > 1}
             {heartItems.length} Set´s =
@@ -84,7 +84,8 @@
         </div>
       </div>
       <div class="col min">
-        <Icon modifier="delete" svg="true" title="Lösche Liste" on:click={clickDeleteList} />
+        <i on:click={clickDeleteList}>delete</i>
+        <div class="tooltip">Lösche Liste</div>
       </div>
     </div>
   </summary>

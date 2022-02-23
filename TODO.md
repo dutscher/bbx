@@ -16,11 +16,11 @@ beer css:
   X description mittig
   * default soll nicht schließbar sein
   * edit?
-  * delete icon
+  x delete icon
   * container overflow?
 * produkte
   * tags
-    * chip letter github blau
+    x chip letter github blau
     * produkte headline plus details, filter & sortieren mobil kaputt
   * produkt tooltip
     * bild hochkant? abgeschnitten

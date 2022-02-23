@@ -1,6 +1,6 @@
 <script>
   export let letter = '';
-  export let color = 'tertiary';
+  export let color = 'primary';
 </script>
 
 <div class="chip__letter">
@@ -24,9 +24,8 @@
       height: 100%;
       margin: 0;
       border-radius: 100%;
-      background-color: var(--secondary);
       text-align: center;
-      line-height: 25rem;
+      line-height: 28rem;
 
       &::after {
         content: '';

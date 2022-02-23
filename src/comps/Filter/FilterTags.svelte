@@ -89,7 +89,7 @@
       {#each abc.sortedTags as tag, index}
         <span class={getClasses(tag, index === 0, activeTagIds)} on:click={() => clickTag(tag, true)} data-id={tag.id}>
           {#if index === 0}
-            <ChipLetter letter={abc.letter} color="blue" />
+            <ChipLetter letter={abc.letter} />
           {/if}
           {tag.name}
           <span class="chip_state">{tag.count}</span>
