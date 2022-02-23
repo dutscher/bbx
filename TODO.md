@@ -3,7 +3,7 @@ beer css:
 * navi bottom?
 * schöneres theme
   * material-dynamic-colors not going https://github.com/beercss/beercss/blob/main/docs/SETTINGS.md#dynamic-theme
-  * lila icons zu blau wie github
+  x lila icons zu blau wie github
   * komische rem's?
 * page höhe nicht stacked?
 * home

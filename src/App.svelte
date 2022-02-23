@@ -86,7 +86,7 @@
         <div class="notice">
             🚨 Bei uns gibts es die <a href="/?tags=burg-blaustein">Burg Blaustein Anleitungen</a> 🚨
         </div>
-    -->
+  -->
   <Darkmode />
   <Github />
 
@@ -169,6 +169,13 @@
     margin: 0;
     // chrome blue touch highlight
     -webkit-tap-highlight-color: transparent;
+
+    // Override beer.css root variables
+    --primary: rgb(76, 117, 180);
+
+    &.is-dark {
+      --primary: rgb(189, 215, 255);
+    }
   }
 
   // test darkmode https://stackoverflow.com/questions/57606960/how-can-i-emulate-prefers-color-scheme-media-query-in-chrome
