@@ -1,14 +1,18 @@
 beer css:
 * logo?
 * navi bottom?
-* schöneres theme
-  * komische rem's?
+  * tabs in url
+* legende sticky?
+* altes scss raus hauen
+  * vars + colors
 * home
   * tags & produkte klickbar zu produkte page
 * merkliste
   * default soll nicht schließbar sein
   * edit?
 * produkte
+  * status & tags in tabs
+    * onlick schließt das expand
   * brickbar
   * special breite, tablet zoom calc not good
   * reset knopf, lineheight
@@ -20,6 +24,8 @@ beer css:
     * merklisten herz (dark)
       * springt
       * icons
+* status
+  * die drei in tabs aufteilen?
 
 next todos:
 * wo ist neuschwanstein 101887 ?
