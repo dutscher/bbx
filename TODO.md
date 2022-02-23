@@ -1,3 +1,36 @@
+beer css:
+* schöneres theme
+  * material-dynamic-colors not going https://github.com/beercss/beercss/blob/main/docs/SETTINGS.md#dynamic-theme
+  * lila icons zu blau wie github
+* page höhe nicht stacked?
+* home
+  * tags & produkte klickbar zu produkte page
+  * support partner mittig
+  * news loaded on visible
+  * card toggle ganzflächig
+* merkliste
+  * title bold
+  * description mittig
+  * default nicht schließbar
+  * edit?
+  * delete icon
+  * container overflow?
+* produkte
+  * tags
+    * chip letter github blau
+    * produkte headline plus details, filter & sortieren mobil kaputt
+  * produkt tooltip
+    * bild hochkant? abgeschnitten
+    * merklisten herz 
+    * text farbe (light)
+    * linheight stimmt nicht
+    * links haben keinen abstand
+* status 
+  * nix zufinden
+* aktuelles
+  * tooltip overlfow vom container
+  
+
 next todos:
 * wo ist neuschwanstein 101887 ?
   * war weg wegen mini trophy

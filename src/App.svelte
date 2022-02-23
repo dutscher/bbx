@@ -1,5 +1,6 @@
 <script lang="ts">
   import 'beercss';
+  import { onMount } from 'svelte';
   import { ApolloClient, InMemoryCache } from '@apollo/client';
   import { setClient } from 'svelte-apollo';
   import { jsVoid } from './utils';
@@ -64,6 +65,10 @@
   };
 
   $: activePage = nextPage || defaultPage;
+
+  onMount(() => {
+    ui('theme', { from: '#ffd700', mode: 'dark' });
+  });
 </script>
 
 <main>

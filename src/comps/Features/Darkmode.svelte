@@ -118,7 +118,7 @@
     will-change: opacity;
     position: fixed;
     z-index: 1337;
-    left: $space-xl;
+    right: $space-xl;
     bottom: $space-xl;
     user-select: none;
     opacity: 0;

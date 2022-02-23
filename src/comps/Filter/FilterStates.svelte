@@ -129,7 +129,6 @@
   .chip {
     cursor: pointer;
     user-select: none;
-    gap: 10px;
 
     &:hover,
     &.active {
@@ -137,7 +136,7 @@
     }
 
     &.disabled {
-      opacity: 0.1;
+      opacity: 0.2;
       cursor: default;
     }
   }
