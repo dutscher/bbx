@@ -5,7 +5,7 @@ beer css:
   * material-dynamic-colors not going https://github.com/beercss/beercss/blob/main/docs/SETTINGS.md#dynamic-theme
   x lila icons zu blau wie github
   * komische rem's?
-* page höhe nicht stacked?
+x page höhe nicht stacked?
 * home
   * tags & produkte klickbar zu produkte page
   X support partner mittig

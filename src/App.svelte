@@ -158,6 +158,10 @@
     }
   }
 
+  .page:not(.active) {
+    display: none;
+  }
+
   .small {
     font-size: ms(-2);
   }
