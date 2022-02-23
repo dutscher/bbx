@@ -19,6 +19,7 @@ x page höhe nicht stacked?
   x delete icon
   * container overflow?
 * produkte
+  * reset knopf
   * tags
     x chip letter github blau
     * produkte headline plus details, filter & sortieren mobil kaputt

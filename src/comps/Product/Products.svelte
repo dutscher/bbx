@@ -312,35 +312,33 @@
   });
 </script>
 
-<h2 class="">
-  Produkte <b>({filteredProducts.withFilter.length} / {products.length})</b>
+<h2>Produkte <b>({filteredProducts.withFilter.length} / {products.length})</b></h2>
 
-  <FilterSummary
-    {activeSearchString}
-    {activeTagIds}
-    {activeStateIds}
-    {activeColorIds}
-    {activePartIds}
-    {activePartTypeIds}
-  />
+<FilterSummary
+  {activeSearchString}
+  {activeTagIds}
+  {activeStateIds}
+  {activeColorIds}
+  {activePartIds}
+  {activePartTypeIds}
+/>
 
-  <div class="flex flex--gap flex--inline flex--vertical-center flex--wrap filter with-text-shadow">
-    <strong class="filter-headline">| Sortieren:</strong>
-    {#each sorter as item}
-      <a href={jsVoid} on:click={() => clickSort(item)}>
-        {item.split(':')[0]}
-        {#if sorting === item.split(':')[1]}
-          {sortDirection === 'asc' ? '>' : '<'}
-        {/if}
-      </a>
-    {/each}
+<div class="flex flex--gap flex--inline flex--vertical-center flex--wrap filter with-text-shadow">
+  <strong class="filter-headline">| Sortieren:</strong>
+  {#each sorter as item}
+    <a href={jsVoid} on:click={() => clickSort(item)}>
+      {item.split(':')[0]}
+      {#if sorting === item.split(':')[1]}
+        {sortDirection === 'asc' ? '>' : '<'}
+      {/if}
+    </a>
+  {/each}
 
-    {#if activeTagIds.includes(ID_PARTS)}
-      <strong class="filter-headline">&nbsp;| CSV export:</strong>
-      <a href={jsVoid} on:click={() => exportCSV()}>Do IT</a>
-    {/if}
-  </div>
-</h2>
+  {#if activeTagIds.includes(ID_PARTS)}
+    <strong class="filter-headline">&nbsp;| CSV export:</strong>
+    <a href={jsVoid} on:click={() => exportCSV()}>Do IT</a>
+  {/if}
+</div>
 
 <div class="flex flex--gap flex--wrap">
   {#each sortedItems as product (product.id)}
