@@ -72,16 +72,14 @@
         <Icon modifier="heart" svg="true" class="active" title="Will ich haben" />
       </div>
       <div class="col">
-        <div>{title}</div>
+        <h3>{title}</h3>
         <div class="small-text">
           {#if heartItems.length > 1}
-            <span class="summary">
-              {heartItems.length} Set´s =
-              <strong>Listenpreis:</strong>
-              {heartSummary.price.toFixed(2).replace('.', ',')} EUR /
-              <strong>Steine:</strong>
-              {heartSummary.parts}
-            </span>
+            {heartItems.length} Set´s =
+            <b>Listenpreis:</b>
+            {heartSummary.price.toFixed(2).replace('.', ',')} EUR /
+            <b>Steine:</b>
+            {heartSummary.parts}
           {/if}
         </div>
       </div>

@@ -5,7 +5,7 @@
 <details class="card">
   <summary>Changelog</summary>
   <Changelog />
-  <a href="https://github.com/dutscher/bbx/blob/master/CHANGELOG.md" target="_blank">
+  <a href="https://github.com/dutscher/bbx/blob/master/CHANGELOG.md" target="_blank" class="link">
     Die komplette Übersicht gibts hier >
   </a>
 </details>
@@ -16,7 +16,7 @@
   .card {
     :global a,
     :global p {
-      color: $color-primary;
+      color: var(--primary);
     }
   }
 </style>

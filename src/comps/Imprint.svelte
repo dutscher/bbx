@@ -2,9 +2,7 @@
 </script>
 
 <details class="card">
-  <summary>
-    Impressum
-  </summary>
+  <summary> Impressum </summary>
   <p>Angaben gemäß § 5 TMG</p>
   <p>
     Willy Woitas<br />
@@ -14,7 +12,7 @@
   </p>
   <p>
     <strong>Kontakt:</strong> <br />
-    E-Mail: <a href="mailto:kontakt@bbx.watch">kontakt@bbx.watch</a>
+    E-Mail: <a href="mailto:kontakt@bbx.watch" class="link">kontakt@bbx.watch</a>
   </p>
   <p>
     <strong>Haftungsausschluss: </strong><br /><br /><strong>Haftung für Links</strong><br /><br />

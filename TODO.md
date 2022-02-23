@@ -1,17 +1,20 @@
 beer css:
+* logo?
+* navi bottom?
 * schöneres theme
   * material-dynamic-colors not going https://github.com/beercss/beercss/blob/main/docs/SETTINGS.md#dynamic-theme
   * lila icons zu blau wie github
+  * komische rem's?
 * page höhe nicht stacked?
 * home
   * tags & produkte klickbar zu produkte page
-  * support partner mittig
+  X support partner mittig
   * news loaded on visible
   * card toggle ganzflächig
 * merkliste
-  * title bold
-  * description mittig
-  * default nicht schließbar
+  X title bold
+  X description mittig
+  * default soll nicht schließbar sein
   * edit?
   * delete icon
   * container overflow?
@@ -28,7 +31,9 @@ beer css:
 * status 
   * nix zufinden
 * aktuelles
-  * tooltip overlfow vom container
+  X datepicker in card
+  * tooltip overflow vom container
+  X checkbox vertical align to text
   
 
 next todos:
@@ -79,6 +84,3 @@ misc:
 * planer: https://klemmbauer.de/bibliothek.html
 * page watcher: https://www.facebook.com/groups/435441033546028/posts/1147355199021271/
   * https://github.com/RoBrDev/BBAC
-
-* info wonach sortiert ist in verfügbarkeit
-* 

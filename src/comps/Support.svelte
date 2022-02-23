@@ -11,9 +11,12 @@
 
 <div>
   <h2>Support & Partner</h2>
-  {@html kofi}
-
-  <!--
+  <div class="row no-wrap middle-align">
+    <div class="col">
+      {@html kofi}
+    </div>
+    <div class="col">
+      <!--
             Paypal Kaffeekasse
             <form action="https://www.paypal.com/donate" method="post" target="_top">
                 <input type="hidden" name="hosted_button_id" value="SKL792JENYRM2" />
@@ -22,9 +25,11 @@
             </form>
             -->
 
-  <a href="//www.noppensteinnews.de/" target="_blank" title="Partner: Noppensteinnews">
-    <img src="/images/partner/noppensteinnews.png" alt="Noppensteinnews" width="150" />
-  </a>
+      <a href="//www.noppensteinnews.de/" target="_blank" title="Partner: Noppensteinnews">
+        <img src="/images/partner/noppensteinnews.png" alt="Noppensteinnews" width="150" />
+      </a>
+    </div>
+  </div>
 </div>
 
 <style lang="scss">

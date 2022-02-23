@@ -120,34 +120,43 @@
   <summary>
     <span>{title} <b>({sortedProducts.length})</b></span>
   </summary>
+
   <div class="changes">
-    {#if state !== ID_STATE_ANNOUNCEMENT}
-      <label class="with-text-shadow">
-        <input type="checkbox" bind:checked={showFirstRelease} />
-        <Icon modifier="new" />
-        Erstveröffentlichung
-      </label>
-    {/if}
-    {#if state !== ID_STATE_AVAILABLE}
-      <label class="with-text-shadow">
-        <input type="checkbox" bind:checked={reverseSort} />
-        Neuste zuerst
-      </label>
-      <label class="with-text-shadow">
-        <input type="checkbox" bind:checked={showParts} />
-        Auf Parts ({countParts}) umschalten
-      </label>
-    {/if}
+    <div class="field middle-align">
+      <nav class="wrap">
+        {#if state !== ID_STATE_ANNOUNCEMENT}
+          <label class="checkbox">
+            <input type="checkbox" bind:checked={showFirstRelease} />
+            <span>
+              <Icon modifier="new" />
+              Erstveröffentlichung
+            </span>
+          </label>
+        {/if}
+        {#if state !== ID_STATE_AVAILABLE}
+          <label class="checkbox">
+            <input type="checkbox" bind:checked={reverseSort} />
+            <span>Neuste zuerst</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" bind:checked={showParts} />
+            <span>Parts ({countParts})</span>
+          </label>
+        {/if}
+      </nav>
+    </div>
     {#if state !== ID_STATE_AVAILABLE && !reverseSort}
-      <p><b>Was kommt womöglich als nächstes:</b></p>
+      <p class="bold">Was kommt womöglich als nächstes:</p>
+    {/if}
+    {#if state === ID_STATE_AVAILABLE}
+      <p class="small-text">Produkte sind nach Datum sortiert</p>
     {/if}
     <div>
-      <!--{#if isVisible}-->
       {#each sortedMonths as month (month.id)}
         {#if month.products.length > 0}
-          <h4>
+          <h6>
             {month.label} ({month.monthPad}{#if month.year !== thisYear}&nbsp;{month.year}{/if})
-          </h4>
+          </h6>
           <div class="flex flex--gap flex--wrap">
             {#each month.products as product (product.id)}
               <Product {product} type="latestproducts" />
@@ -155,7 +164,6 @@
           </div>
         {/if}
       {/each}
-      <!--{/if}-->
     </div>
   </div>
 </details>

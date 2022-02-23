@@ -40,8 +40,8 @@
       </p>
       <p />
       <p>
-        Wähle einen der <b>{tags} Tags</b> aus, suche nach einem von
-        <b>{products} Bluebrixx Produkten</b> oder wähle einen Verfügbarkeit Status.<br />
+        Wähle einen der <b class="link">{tags} Tags</b> aus, suche nach einem von
+        <b class="link">{products} Bluebrixx Produkten</b> oder wähle einen Verfügbarkeit Status.<br />
       </p>
       <p>
         Außerdem gibt es noch einen Status-Verlauf pro Produkt in der Detailansicht.<br />
@@ -51,8 +51,8 @@
         />
       </p>
       <p>
-        Viel Spaß damit und Feedback bitte via <a href="//www.facebook.com/bbxwatcher">Facebook</a> oder
-        <a href="mailto:kontakt@bbx.watch">E-Mail</a>
+        Viel Spaß damit und Feedback bitte via <a href="//www.facebook.com/bbxwatcher" class="link">Facebook</a> oder
+        <a href="mailto:kontakt@bbx.watch" class="link">E-Mail</a>
       </p>
     </div>
   </div>

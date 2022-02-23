@@ -198,20 +198,6 @@
     margin: $space-lg 0;
   }
 
-  :global(h2 b, h3 b, h4 b, p b, p a) {
-    color: $color-primary;
-  }
-
-  :global([data-theme='dark'] h2 b, [data-theme='dark'] h3 b, [data-theme='dark'] h4 b, [data-theme='dark']
-      p
-      b, [data-theme='dark'] p a) {
-    text-shadow: $color-black 1px 1px 2px;
-  }
-
-  :global([data-theme='dark'] .with-text-shadow) {
-    text-shadow: $color-black 1px 1px 2px;
-  }
-
   :global(.flex) {
     display: flex;
   }

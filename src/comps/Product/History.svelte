@@ -4,7 +4,7 @@
   // app
   import { LOADED, UNLOADED } from '../../_interfaces';
   import { storedActiveSelection, storedTags, storedProducts, loadChanges, internetConnection } from '../../stores';
-  import Legend from "../Legend.svelte";
+  import Legend from '../Legend.svelte';
 
   let loadedChanges;
   let tags: number = 0;
@@ -29,7 +29,7 @@
   });
 </script>
 
-<div title="Archiv">
+<div>
   {#if isOnline && loadedChanges !== LOADED}
     <div class="loader" />
   {:else}
