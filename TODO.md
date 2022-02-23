@@ -3,25 +3,25 @@ beer css:
 * navi bottom?
 * schöneres theme
   * material-dynamic-colors not going https://github.com/beercss/beercss/blob/main/docs/SETTINGS.md#dynamic-theme
-  x lila icons zu blau wie github
+  * x lila icons zu blau wie github
   * komische rem's?
-x page höhe nicht stacked?
+* x page höhe nicht stacked?
 * home
   * tags & produkte klickbar zu produkte page
-  X support partner mittig
+  * X support partner mittig
   * news loaded on visible
   * card toggle ganzflächig
 * merkliste
-  X title bold
-  X description mittig
+  * X title bold
+  * X description mittig
   * default soll nicht schließbar sein
   * edit?
-  x delete icon
+  * x delete icon
   * container overflow?
 * produkte
   * reset knopf
   * tags
-    x chip letter github blau
+    * x chip letter github blau
     * produkte headline plus details, filter & sortieren mobil kaputt
   * produkt tooltip
     * bild hochkant? abgeschnitten
@@ -32,9 +32,9 @@ x page höhe nicht stacked?
 * status 
   * nix zufinden
 * aktuelles
-  X datepicker in card
+  * X datepicker in card
   * tooltip overflow vom container
-  X checkbox vertical align to text
+  * X checkbox vertical align to text
   
 
 next todos:
