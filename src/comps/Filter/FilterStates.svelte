@@ -102,7 +102,7 @@
 
   const getClasses = state =>
     [
-      'chip small round no-margin',
+      'chip small round no-margin white-text',
       activeStateIds.includes(state.id) && 'active',
       state.count === 0 && 'disabled',
       state.color,
@@ -116,8 +116,8 @@
   <div class="flex flex--gap flex--wrap">
     {#each sortedItems as state (state.id)}
       <div class={getClasses(state)} data-count={state.count} on:click={() => clickItem(state, true)}>
-        <span class="chip_state">{state.count}</span>
         <p>{state.de}</p>
+        <span class="chip_state">{state.count}</span>
       </div>
     {/each}
   </div>

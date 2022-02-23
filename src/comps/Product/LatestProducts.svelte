@@ -118,7 +118,7 @@
 
 <details class="card" onVisibility={newVisibility => (isVisible = newVisibility)}>
   <summary>
-    <span>{title}<b>({sortedProducts.length})</b></span>
+    <span>{title} <b>({sortedProducts.length})</b></span>
   </summary>
   <div class="changes">
     {#if state !== ID_STATE_ANNOUNCEMENT}
@@ -143,18 +143,18 @@
     {/if}
     <div>
       <!--{#if isVisible}-->
-        {#each sortedMonths as month (month.id)}
-          {#if month.products.length > 0}
-            <h4>
-              {month.label} ({month.monthPad}{#if month.year !== thisYear}&nbsp;{month.year}{/if})
-            </h4>
-            <div class="flex flex--gap flex--wrap">
-              {#each month.products as product (product.id)}
-                <Product {product} type="latestproducts" />
-              {/each}
-            </div>
-          {/if}
-        {/each}
+      {#each sortedMonths as month (month.id)}
+        {#if month.products.length > 0}
+          <h4>
+            {month.label} ({month.monthPad}{#if month.year !== thisYear}&nbsp;{month.year}{/if})
+          </h4>
+          <div class="flex flex--gap flex--wrap">
+            {#each month.products as product (product.id)}
+              <Product {product} type="latestproducts" />
+            {/each}
+          </div>
+        {/if}
+      {/each}
       <!--{/if}-->
     </div>
   </div>

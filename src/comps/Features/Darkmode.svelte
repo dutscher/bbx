@@ -41,8 +41,8 @@
 
   const initToggle = () => {
     // local storage is used to override OS theme settings
-    if (localStorage.getItem('theme')) {
-      if (localStorage.getItem('theme') === 'dark') {
+    if (localStore.getRaw('theme')) {
+      if (localStore.getRaw('theme') === 'dark') {
         isDarkmode = true;
       }
     } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {

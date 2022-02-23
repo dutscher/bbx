@@ -2,6 +2,9 @@ export const localStore = {
   set: (key: string, value?: any) => {
     return localStorage.setItem(key, value);
   },
+  getRaw: (key: string) => {
+    return localStorage.getItem(key);
+  },
   get: (key: string, defaultShizzle?: any) => {
     const lsShizzle = localStorage.getItem(key);
     return JSON.parse(lsShizzle);

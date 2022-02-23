@@ -1,10 +1,9 @@
 <script lang="ts">
   import 'beercss';
   import { ApolloClient, InMemoryCache } from '@apollo/client';
-  import { onMount } from 'svelte';
   import { setClient } from 'svelte-apollo';
   import { jsVoid } from './utils';
-  import { loadMovieData, loadHistoryData, storedActiveSelection, storedHearts } from './stores';
+  import { loadMovieData, loadHistoryData, storedActiveSelection, storedHearts, localStore } from './stores';
   import { ID_MANHATTAN, ID_NETHERLAND, ID_MOVIE, ID_BURG_BLAUSTEIN, UNLOADED, LOADED } from './_interfaces';
   import Changelog from './comps/Changelog.svelte';
   import Welcome from './comps/Welcome.svelte';
@@ -24,23 +23,19 @@
   import Darkmode from './comps/Features/Darkmode.svelte';
   import Legend from './comps/Legend.svelte';
 
-  const client = new ApolloClient({
-    uri: 'https://api.bbx.watch/api/graphql',
-    cache: new InMemoryCache(),
-  });
-
-  onMount(() => {
-    // beercss
-    ui();
-  });
-
-  setClient(client);
-
   let activeTagIds;
   let loadedData;
   let hearts;
-
-  loadHistoryData();
+  const pages = [
+    { short: 'welcome', icon: 'home', title: 'Home' },
+    { short: 'hearts', icon: 'favorite', title: 'Merkliste' },
+    { short: 'products', icon: 'shopping_cart', title: 'Produkte' },
+    { short: 'changes', icon: 'inventory_2', title: 'Status' },
+    { short: 'history', icon: 'schedule', title: 'Aktuelles' },
+  ];
+  const lsKey = 'pageSettings';
+  const defaultPage = localStore.getRaw(lsKey) || 'welcome';
+  let nextPage;
 
   storedActiveSelection.subscribe(store => {
     activeTagIds = store.tags;
@@ -51,17 +46,34 @@
       loadMovieData();
     }
   });
-
   storedHearts.subscribe(store => (hearts = store));
+
+  const client = new ApolloClient({
+    uri: 'https://api.bbx.watch/api/graphql',
+    cache: new InMemoryCache(),
+  });
+  setClient(client);
+
+  loadHistoryData();
+
+  const isActive = page => (page === activePage ? 'active' : '');
+
+  const clickTab = page => {
+    nextPage = page;
+    localStore.set(lsKey, page);
+  };
+
+  $: activePage = nextPage || defaultPage;
 </script>
 
 <main>
-  <nav class="menu top">
-    <a data-ui="#tab--welcome" href={jsVoid}><i>home</i>Home</a>
-    <a data-ui="#tab--hearts" href={jsVoid}><i>favorite</i>Merkliste</a>
-    <a data-ui="#tab--products" href={jsVoid}><i>shopping_cart</i>Produkte</a>
-    <a data-ui="#tab--changes" href={jsVoid}><i>inventory_2</i>Status</a>
-    <a data-ui="#tab--history" href={jsVoid}><i>schedule</i>Aktuelles</a>
+  <nav class="menu top" data-avite={activePage}>
+    {#each pages as page}
+      <a class={isActive(page.short, activePage)} href={jsVoid} on:click={() => clickTab(page.short)}>
+        <i>{page.icon}</i>
+        {page.title}
+      </a>
+    {/each}
   </nav>
 
   <Notifications />
@@ -74,20 +86,24 @@
   <Github />
 
   {#if loadedData.history === LOADED}
-    <div class="container max">
-      <div id="tab--welcome" class="page padding">
+    <div class="page padding {isActive('welcome', activePage)}">
+      <div class="container max">
         <Welcome />
         <Support />
         <News />
         <Changelog />
         <Imprint />
       </div>
-      <div id="tab--hearts" class="page padding">
+    </div>
+    <div class="page padding {isActive('hearts', activePage)}">
+      <div class="container max">
         {#each Object.keys(hearts) as list}
           <Hearts {list} />
         {/each}
       </div>
-      <div id="tab--products" class="page padding">
+    </div>
+    <div class="page padding {isActive('products', activePage)}">
+      <div class="container max">
         <Filter />
         {#if activeTagIds.includes(ID_MANHATTAN) && activeTagIds.length === 1}
           <Manhattan />
@@ -101,10 +117,14 @@
         <Products />
         <Legend />
       </div>
-      <div id="tab--changes" class="page padding">
+    </div>
+    <div class="page padding {isActive('changes', activePage)}">
+      <div class="container max">
         <Changes />
       </div>
-      <div id="tab--history" class="page padding active">
+    </div>
+    <div class="page padding {isActive('history', activePage)}">
+      <div class="container max">
         <History />
       </div>
     </div>
@@ -114,6 +134,12 @@
 <style lang="scss">
   @import './scss/variables';
   @import url('https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined&display=swap');
+
+  :global html,
+  :global body,
+  main {
+    height: 100%;
+  }
 
   .notice {
     font-weight: bold;

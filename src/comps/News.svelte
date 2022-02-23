@@ -1,34 +1,36 @@
 <script lang="ts">
 </script>
 
-<div class="news">
-  <h2>News</h2>
+<details class="card news">
+  <summary>News (2)</summary>
   <div>
-    <a href="//www.noppensteinnews.de/2022/01/30/klemmbaustein-podcast-bluebrixx-watcher/" target="_blank">
-      Noppensteinnews: Klemmbaustein Podcast Bluebrixx Watcher
-    </a>
-    <iframe
-      class="iframe--podcast"
-      frameborder="0"
-      title="Noppensteinnews: Klemmbaustein Podcast Bluebrixx Watcher"
-      src="https://www.podcaster.de/webplayer/?id=show~eu4w2y~klemmbaustein-podcast-noppensteinnews~pod-17eb3227cb56870a92bfc2763&v=1645344640"
-    />
-
-    <a href="//www.youtube.com/watch?v=jgKitU73Zhk" target="_blank">
-      Youtube: Count of Bricks - Der BlueBrixx Watcher - Eine Webseite für Verfügbarkeiten - Was kann der "Watcher"?
-    </a>
-    <div class="iframe--youtube">
+    {#if false}
+      <a href="//www.noppensteinnews.de/2022/01/30/klemmbaustein-podcast-bluebrixx-watcher/" target="_blank">
+        Noppensteinnews: Klemmbaustein Podcast Bluebrixx Watcher
+      </a>
       <iframe
+        class="iframe--podcast"
         frameborder="0"
-        title="Youtube: Count of Bricks - Der BlueBrixx Watcher - Eine Webseite für Verfügbarkeiten - Was kann der
-              Watcher?"
-        src="https://www.youtube.com/embed/jgKitU73Zhk"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
+        title="Noppensteinnews: Klemmbaustein Podcast Bluebrixx Watcher"
+        src="https://www.podcaster.de/webplayer/?id=show~eu4w2y~klemmbaustein-podcast-noppensteinnews~pod-17eb3227cb56870a92bfc2763&v=1645344640"
       />
-    </div>
+
+      <a href="//www.youtube.com/watch?v=jgKitU73Zhk" target="_blank">
+        Youtube: Count of Bricks - Der BlueBrixx Watcher - Eine Webseite für Verfügbarkeiten - Was kann der "Watcher"?
+      </a>
+      <div class="iframe--youtube">
+        <iframe
+          frameborder="0"
+          title="Youtube: Count of Bricks - Der BlueBrixx Watcher - Eine Webseite für Verfügbarkeiten - Was kann der
+              Watcher?"
+          src="https://www.youtube.com/embed/jgKitU73Zhk"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        />
+      </div>
+    {/if}
   </div>
-</div>
+</details>
 
 <style lang="scss">
   @import '../scss/variables';
