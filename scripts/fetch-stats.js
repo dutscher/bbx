@@ -1,4 +1,5 @@
 import moment from 'moment';
+import fetch from 'node-fetch';
 import { handleCache, printTime } from './src/utils.js';
 import { fetchChanges, cleanUpHistoryChanges } from './src/api-changes.js';
 import { parsePages, parsePagesNParts } from './src/parse-page.js';

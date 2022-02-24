@@ -90,13 +90,13 @@
         log('init service worker');
         const sw = navigator.serviceWorker.register('./service-worker.js?cb=' + window.cacheBuster);
 
-        let refreshing;
-        navigator.serviceWorker.addEventListener('controllerchange', () => {
-          if (refreshing) return;
-          refreshing = true;
-          log('new service worker and cache');
-          window.location.reload();
-        });
+        // let refreshing;
+        // navigator.serviceWorker.addEventListener('controllerchange', () => {
+        //   if (refreshing) return;
+        //   refreshing = true;
+        //   log('new service worker and cache');
+        //   window.location.reload();
+        // });
 
         // listen to messages
         // navigator.serviceWorker.addEventListener('message', (event) => {
