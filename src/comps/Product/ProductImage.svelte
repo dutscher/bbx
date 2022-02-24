@@ -57,5 +57,6 @@
 <style lang="scss">
   img {
     display: block;
+    border-radius: 0 24rem 0 0;
   }
 </style>
