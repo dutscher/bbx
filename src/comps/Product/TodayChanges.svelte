@@ -122,12 +122,15 @@
 -->
 
 <article>
-  <h2>vom {dayStr}</h2>
-  <span class="datepicker">
+  <h2 class="headline">
+    vom
     <Icon svg="true" modifier="arrow left" on:click={event => handleDate(event, 'prev')} />
+    <span>{dayStr}</span>
     {#if !isToday}
       <Icon svg="true" modifier="arrow" on:click={event => handleDate(event, 'next')} />
     {/if}
+  </h2>
+  <span class="datepicker">
     <input
       type="date"
       min={selectedDateMin}
@@ -161,12 +164,22 @@
 <style lang="scss">
   @import '../../scss/variables';
 
-  .datepicker {
+  .headline {
+    user-select: none;
+
+    span {
+      width: 45rem;
+      text-align: center;
+    }
+
     :global .icon {
       font-size: ms(1);
       vertical-align: middle;
+      margin: 0 $space-xl;
     }
+  }
 
+  .datepicker {
     @media (max-width: 600px) {
       display: block;
       padding-left: $space-xl * 2;

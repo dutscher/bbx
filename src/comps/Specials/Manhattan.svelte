@@ -68,7 +68,7 @@
             title={piece.title}
           >
             {#if !piece.isOutside}
-              <img class="piece__img" alt={piece.title} src="./images/manhattan/{piece.nr}.png" />
+              <img class="piece__img" alt={piece.title} src="./images/specials/manhattan/{piece.nr}.png" />
             {:else}
               {piece.title}
             {/if}

@@ -20,6 +20,7 @@ const storedActiveSelectionWritable = writable({
   states: [],
   search: '',
   reason: 'default',
+  page: '',
 });
 export const storedActiveSelection = {
   subscribe: storedActiveSelectionWritable.subscribe,

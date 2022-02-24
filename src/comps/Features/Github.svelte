@@ -27,9 +27,9 @@
 <style>
   .github-corner svg {
     position: fixed;
-    z-index: 1337;
+    z-index: -1;
     right: 0;
-    top: 0;
+    top: 64rem;
   }
   .github-corner svg:hover .octo-arm {
     animation: octocat-wave 560ms ease-in-out;

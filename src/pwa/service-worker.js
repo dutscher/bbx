@@ -32,9 +32,8 @@ const FILES_TO_CACHE = [
   './images/icon-heart.svg',
   './images/icon-manual.svg',
   './images/icon-new.svg',
-  './images/pearl-gold.jpg',
-  './images/pearl-gray.jpg',
-  './images/spinner.svg',
+  './images/color-pearl-gold.jpg',
+  './images/color-pearl-gray.jpg',
 ];
 
 const log = (...args) => {

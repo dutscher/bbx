@@ -1,6 +1,7 @@
 <script lang="ts">
   import { storedTags, storedProducts, internetConnection, storedActiveSelection } from '../../stores';
   import { IDS_SPECIAL_TAGS } from '../../_interfaces';
+  import { jsVoid } from '../../utils';
 
   let tags: number = 0;
   let products: number = 0;
@@ -11,6 +12,16 @@
   storedTags.subscribe(store => (tags = store.length));
   storedProducts.subscribe(store => (products = store.length));
   storedActiveSelection.subscribe(store => (lastCursor = store.lastCursor));
+
+  const open = (page, showTags = false) => {
+    storedActiveSelection.update(store => {
+      store.page = page;
+      if (showTags) {
+        store.reason = 'show-tags';
+      }
+      return store;
+    });
+  };
 </script>
 
 <div>
@@ -40,8 +51,10 @@
       </p>
       <p />
       <p>
-        Wähle einen der <b class="link">{tags} Tags</b> aus, suche nach einem von
-        <b class="link">{products} Bluebrixx Produkten</b> oder wähle einen Verfügbarkeit Status.<br />
+        Wähle einen der <a class="link bold" href={jsVoid} on:click={() => open('products', true)}>{tags} Tags</a> aus,
+        suche nach einem von
+        <a class="link bold" href={jsVoid} on:click={() => open('products')}>{products} Bluebrixx Produkten</a> oder
+        wähle einen Verfügbarkeit Status.<br />
       </p>
       <p>
         Außerdem gibt es noch einen Status-Verlauf pro Produkt in der Detailansicht.<br />

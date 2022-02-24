@@ -1,15 +1,13 @@
 beer css:
-* logo?
+* vercel deployment for development?
 * navi bottom?
   * tabs in url
+  * einstiegs urls migration ?tags=mittelalter,star-trek -> soll produkte öffnen
 * legende sticky?
 * altes scss raus hauen
   * vars + colors
-* home
-  * tags & produkte klickbar zu produkte page
 * merkliste
-  * default soll nicht schließbar sein
-  * edit?
+  * edit name
 * produkte
   * status & tags in tabs
     * onlick schließt das expand
@@ -20,12 +18,16 @@ beer css:
     * icons herz auf rot
     * abstand zum text
   * produkt tooltip
+    * rechter bildrand kollision mal wieder kaputt
     * bild hochkant? abgeschnitten
     * merklisten herz (dark)
       * springt
       * icons
 * status
   * die drei in tabs aufteilen?
+
+
+
 
 next todos:
 * wo ist neuschwanstein 101887 ?

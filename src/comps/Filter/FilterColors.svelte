@@ -155,15 +155,15 @@
     }
 
     &.chrome {
-      background-image: url('../images/chrome.jpg');
+      background-image: url('../images/color-chrome.jpg');
     }
 
     &.pearl-gray {
-      background-image: url('../images/pearl-gray.jpg');
+      background-image: url('../images/color-pearl-gray.jpg');
     }
 
     &.pearl-gold {
-      background-image: url('../images/pearl-gold.jpg');
+      background-image: url('../images/color-pearl-gold.jpg');
     }
 
     &.trans {

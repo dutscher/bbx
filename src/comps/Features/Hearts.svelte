@@ -51,6 +51,12 @@
         })
     : [];
 
+  const handleClick = event => {
+    if (list === 'default') {
+      stopClick(event);
+    }
+  };
+
   $: {
     // reset
     heartSummary = { price: 0, parts: 0 };
@@ -64,7 +70,7 @@
   }
 </script>
 
-<details class="card" open={list === 'default'}>
+<details class="card" open={list === 'default'} on:click={handleClick}>
   <summary class="none small-margin">
     <div class="row no-wrap middle-align">
       <div class="col min">

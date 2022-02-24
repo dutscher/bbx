@@ -1,17 +1,30 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { storedActiveSelection, storedTags } from '../../stores';
-  import { getUrlParam, setUrlParams } from '../../utils';
+  import { getUrlParam, setUrlParams, stopClick } from '../../utils';
   import { IDS_SPECIAL_TAGS } from '../../_interfaces';
   import ChipLetter from '../Atoms/ChipLetter.svelte';
 
   export let activeTagIds: any = [];
 
   let tags: any;
+  let isOpen = false;
   const abc = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
   const urlParam = 'tags';
 
   storedTags.subscribe(store => (tags = store));
+
+  storedActiveSelection.subscribe(store => {
+    console.log(store.page, store.reason);
+    if (store.page === 'products' && store.reason === 'show-tags') {
+      isOpen = true;
+      // remove reason
+      storedActiveSelection.update(store => {
+        store.reason = '';
+        return store;
+      });
+    }
+  });
 
   const getUrlParams = () => {
     // ?tags=piraten
@@ -50,10 +63,6 @@
     });
   };
 
-  onMount(() => {
-    getUrlParams();
-  });
-
   const sortedTags = tags.sort((a, b) => {
     if (a.name < b.name) {
       return -1;
@@ -80,9 +89,20 @@
     ]
       .filter(css => !!css)
       .join(' ');
+
+  const clickToggle = event => {
+    stopClick(event);
+    isOpen = !isOpen;
+  };
+
+  $: openAttribute = isOpen;
+
+  onMount(() => {
+    getUrlParams();
+  });
 </script>
 
-<details class="card small-padding">
+<details class="card small-padding" open={openAttribute} on:click={clickToggle}>
   <summary>Tags</summary>
   <div class="flex flex--gap flex--wrap">
     {#each sortedAbcTags as abc}

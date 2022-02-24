@@ -62,7 +62,7 @@
   {#if innerWidth}
     <div class="pieces" style="zoom:{zoom};-moz-transform:scale({zoom});">
       <div class="pieces__wrap flex">
-        <img class="piece__img" alt={STR_BURG_BLAUSTEIN} src="./images/burg-blaustein.png" />
+        <img class="piece__img" alt={STR_BURG_BLAUSTEIN} src="./images/specials/burg-blaustein.png" />
         {#each pieces as piece}
           <div
             class="piece piece--{piece.nr} {piece.state}"

@@ -322,6 +322,7 @@
   {activePartIds}
   {activePartTypeIds}
 />
+
 {#if filteredProducts.withFilter.length > 0}
   <div class="flex flex--gap flex--inline flex--vertical-center flex--wrap filter">
     <b class="filter-headline">| Sortieren:</b>

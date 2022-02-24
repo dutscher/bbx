@@ -67,7 +67,7 @@
             title={piece.title}
             data-nr={piece.nr}
           >
-            <img class="piece__img" alt={piece.title} src="./images/netherland/{piece.nr}.png" />
+            <img class="piece__img" alt={piece.title} src="./images/specials/netherland/{piece.nr}.png" />
           </div>
         {/each}
       </div>

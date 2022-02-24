@@ -1,6 +1,5 @@
 <script lang="ts">
   import 'beercss';
-  import { onMount } from 'svelte';
   import { ApolloClient, InMemoryCache } from '@apollo/client';
   import { setClient } from 'svelte-apollo';
   import { jsVoid } from './utils';
@@ -31,8 +30,8 @@
   const pages = [
     { short: 'welcome', icon: 'home', title: 'Home' },
     { short: 'hearts', icon: 'favorite', title: 'Merkliste' },
-    { short: 'products', icon: 'shopping_cart', title: 'Produkte' },
-    { short: 'changes', icon: 'inventory_2', title: 'Status' },
+    { short: 'products', icon: 'category', title: 'Produkte' },
+    { short: 'changes', icon: 'star_rate', title: 'Status' },
     { short: 'history', icon: 'schedule', title: 'Aktuelles' },
   ];
   const lsKey = 'pageSettings';
@@ -42,6 +41,10 @@
   storedActiveSelection.subscribe(store => {
     activeTagIds = store.tags;
     loadedData = store.loadedData;
+
+    if (!!store.page) {
+      nextPage = store.page;
+    }
 
     // load movie data
     if (store.loadedData.movie === UNLOADED && activeTagIds.includes(ID_MOVIE)) {
@@ -66,21 +69,22 @@
   };
 
   $: activePage = nextPage || defaultPage;
-
-  onMount(() => {
-    ui('theme', { from: '#ffd700', mode: 'dark' });
-  });
 </script>
 
 <main>
   <nav class="menu top" data-avite={activePage}>
     {#each pages as page}
       <a class={isActive(page.short, activePage)} href={jsVoid} on:click={() => clickTab(page.short)}>
-        <i>{page.icon}</i>
+        {#if page.icon === 'home'}
+          <img src="./images/logo.png" alt="Logo" />
+        {:else}
+          <i>{page.icon}</i>
+        {/if}
         {page.title}
       </a>
     {/each}
   </nav>
+  <Github />
 
   <Notifications />
   <!--
@@ -89,7 +93,6 @@
         </div>
   -->
   <Darkmode />
-  <Github />
 
   {#if loadedData.history === LOADED}
     <Page name="welcome" {activePage} {isActive}>
@@ -132,6 +135,7 @@
 
 <style lang="scss">
   @import './scss/variables';
+  // https://fonts.google.com/icons
   @import url('https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined&display=swap');
 
   :global html,
