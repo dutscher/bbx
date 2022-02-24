@@ -62,9 +62,7 @@
     centerCircleProps.set({ r });
     linesProps.set({ opacity });
 
-    // dark theme preferred, set document with a `data-theme` attribute
-    document.documentElement.setAttribute('data-theme', theme);
-    document.documentElement.setAttribute('data-theme-ready', 'true');
+    // dark theme preferred, set body with a `is-dark` class
     if (isDarkmode) document.body.classList.add('is-dark');
     else document.body.classList.remove('is-dark');
 

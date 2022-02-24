@@ -185,16 +185,6 @@
     overflow-x: inherit !important;
   }
 
-  // test darkmode https://stackoverflow.com/questions/57606960/how-can-i-emulate-prefers-color-scheme-media-query-in-chrome
-  :global [data-theme='dark'] body {
-    background: $color-neutral-200;
-    color: $color-white;
-  }
-
-  :global [data-theme-ready='true'] body {
-    transition: background 250ms ease-in-out;
-  }
-
   :global(h1) {
     font-size: 50rem !important;
   }
@@ -207,7 +197,6 @@
   :global(h4) {
     font-size: 15rem !important;
   }
-
   :global(h1, h2, h3) {
     margin: $space-lg 0;
   }
@@ -235,25 +224,5 @@
 
   :global(.flex--block) {
     width: 100%;
-  }
-
-  :global(.flex h4) {
-    position: relative;
-    margin: 0 $space-sm 0 0;
-    padding: 0 $space-md 0 0;
-    line-height: 1;
-    width: 60px;
-    align-self: center;
-    text-align: right;
-  }
-
-  :global(h4.tag-name) {
-    transform: rotate(-90deg);
-    width: 20px;
-
-    @media (min-width: 400px) {
-      transform: rotate(0);
-      width: 60px;
-    }
   }
 </style>

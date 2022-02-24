@@ -374,10 +374,6 @@
     }
   }
 
-  :global([data-theme='dark'] #{$selector} a:hover) {
-    color: $color-white !important;
-  }
-
   :global .filter-headline {
     font-size: ms(1);
   }

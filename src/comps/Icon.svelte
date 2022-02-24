@@ -166,12 +166,4 @@
       color: #780e14;
     }
   }
-
-  :global [data-theme='dark'] #{$selector}--arrow#{$selector}--svg {
-    color: $color-white;
-
-    &:hover {
-      color: $color-primary;
-    }
-  }
 </style>
