@@ -58,5 +58,7 @@
   img {
     display: block;
     border-radius: 0 24rem 0 0;
+    object-fit: contain;
+    background: #fff;
   }
 </style>

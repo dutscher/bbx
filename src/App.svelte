@@ -4,7 +4,15 @@
   import { setClient } from 'svelte-apollo';
   import { jsVoid } from './utils';
   import { loadMovieData, loadHistoryData, storedActiveSelection, storedHearts, localStore } from './stores';
-  import { ID_MANHATTAN, ID_NETHERLAND, ID_MOVIE, ID_BURG_BLAUSTEIN, UNLOADED, LOADED } from './_interfaces';
+  import {
+    ID_MANHATTAN,
+    ID_NETHERLAND,
+    ID_MOVIE,
+    ID_BURG_BLAUSTEIN,
+    UNLOADED,
+    LOADED,
+    lsPageSettingsKey,
+  } from './_interfaces';
   import Welcome from './comps/Home/Welcome.svelte';
   import Support from './comps/Home/Support.svelte';
   import News from './comps/Home/News.svelte';
@@ -24,9 +32,10 @@
   import Legend from './comps/Legend.svelte';
   import Page from './comps/Page.svelte';
 
-  let activeTagIds;
-  let loadedData;
-  let hearts;
+  let activePage: any;
+  let activeTagIds: any;
+  let loadedData: any;
+  let hearts: any;
   const pages = [
     { short: 'welcome', icon: 'home', title: 'Home' },
     { short: 'hearts', icon: 'favorite', title: 'Merkliste' },
@@ -34,9 +43,8 @@
     { short: 'changes', icon: 'star_rate', title: 'Status' },
     { short: 'history', icon: 'schedule', title: 'Aktuelles' },
   ];
-  const lsKey = 'pageSettings';
-  const defaultPage = localStore.getRaw(lsKey) || 'welcome';
-  let nextPage;
+  const defaultPage = localStore.getRaw(lsPageSettingsKey) || 'welcome';
+  let nextPage: any;
 
   storedActiveSelection.subscribe(store => {
     activeTagIds = store.tags;
@@ -65,7 +73,7 @@
 
   const clickTab = page => {
     nextPage = page;
-    localStore.set(lsKey, page);
+    localStore.set(lsPageSettingsKey, page);
   };
 
   $: activePage = nextPage || defaultPage;

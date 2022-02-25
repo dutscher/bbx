@@ -1,29 +1,18 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { storedActiveSelection, storedTags } from '../../stores';
-  import { getUrlParam, setUrlParams, stopClick } from '../../utils';
-  import { IDS_SPECIAL_TAGS } from '../../_interfaces';
   import ChipLetter from '../Atoms/ChipLetter.svelte';
+  import { storedActiveSelection, storedTags } from '../../stores';
+  import { getUrlParam, setUrlParams, ess } from '../../utils';
+  import { IDS_SPECIAL_TAGS } from '../../_interfaces';
 
   export let activeTagIds: any = [];
+  export let isVisible: boolean = false;
 
   let tags: any;
-  let isOpen = false;
   const abc = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
   const urlParam = 'tags';
 
   storedTags.subscribe(store => (tags = store));
-
-  storedActiveSelection.subscribe(store => {
-    if (store.page === 'products' && store.reason === 'show-tags') {
-      isOpen = true;
-      // remove reason
-      storedActiveSelection.update(store => {
-        store.reason = '';
-        return store;
-      });
-    }
-  });
 
   const getUrlParams = () => {
     // ?tags=piraten
@@ -79,34 +68,25 @@
     };
   });
 
-  const getClasses = (tag, isFirst, activeTagIds) =>
-    [
-      'chip small round no-margin',
-      activeTagIds.includes(tag.id) && 'active',
-      IDS_SPECIAL_TAGS.includes(tag.id) ? 'grey7' : 'secondary',
-      isFirst && 'new-letter',
-    ]
-      .filter(css => !!css)
-      .join(' ');
-
-  const clickToggle = event => {
-    stopClick(event);
-    isOpen = !isOpen;
-  };
-
-  $: openAttribute = isOpen;
-
   onMount(() => {
     getUrlParams();
   });
 </script>
 
-<details class="card small-padding" open={openAttribute} on:click={clickToggle}>
-  <summary>Tags</summary>
+{#if isVisible}
   <div class="flex flex--gap flex--wrap">
     {#each sortedAbcTags as abc}
       {#each abc.sortedTags as tag, index}
-        <span class={getClasses(tag, index === 0, activeTagIds)} on:click={() => clickTag(tag, true)} data-id={tag.id}>
+        <span
+          class={ess([
+            'chip small round no-margin',
+            activeTagIds.includes(tag.id) && 'active',
+            IDS_SPECIAL_TAGS.includes(tag.id) ? 'grey7' : 'secondary',
+            index === 0 && 'new-letter',
+          ])}
+          on:click={() => clickTag(tag, true)}
+          data-id={tag.id}
+        >
           {#if index === 0}
             <ChipLetter letter={abc.letter} />&nbsp;
           {/if}
@@ -116,7 +96,7 @@
       {/each}
     {/each}
   </div>
-</details>
+{/if}
 
 <style lang="scss">
   @import '../../scss/variables';

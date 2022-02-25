@@ -76,7 +76,9 @@
       // close all toggles
       localStore.visibility('reset');
       // update search for product
+      // open page
       storedActiveSelection.update(store => {
+        store.page = 'products';
         store.search = queryProductId;
         return store;
       });

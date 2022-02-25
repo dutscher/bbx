@@ -7,16 +7,11 @@ beer css:
 * altes scss raus hauen
   * vars + colors
 * produkte
-  * status & tags in tabs
-    * onlick schließt das expand
   * brickbar
-  * reset knopf, lineheight
   * produkt tooltip
     * rechter bildrand kollision mal wieder kaputt
-    * bild hochkant? abgeschnitten
     * merklisten
       * dark icons
-
 
 
 next todos:
@@ -36,7 +31,6 @@ next todos:
   * app reources
 * sort in url
 * filter for hot, new
-* verical images to high ?product=102628
 * scroll to of tooltip with more padding top  
 * cypress tests
 * warenkorb noise ausblenden

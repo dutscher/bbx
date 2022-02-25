@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { storedActiveSelection } from '../../stores';
   import { getUrlParam, setUrlParams } from '../../utils';
+  import { beerui } from '../../beerui';
 
   export let activeSearchString: any = '';
 
@@ -12,6 +13,7 @@
     const queryTags = getUrlParam(urlParam);
     activeSearchString = queryTags;
     onInput();
+    beerui();
   };
 
   const onInput = (withUrlUpdate?) => {
@@ -66,11 +68,8 @@
       on:keyup={({ target: { value } }) => debounce(value)}
       spellcheck="false"
     />
-    <label for="search">Produktname oder ID</label>
+    <label for="search">Suche nach Produkt oder ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
   </div>
-  <script>
-    ui();
-  </script>
 </article>
 <br />
 

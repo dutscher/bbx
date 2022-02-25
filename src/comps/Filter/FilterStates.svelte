@@ -8,6 +8,7 @@
   export let activePartIds: any = [];
   export let activePartTypeIds: any = [];
   export let activeSearchString: string = '';
+  export let isVisible: boolean = false;
 
   let sortedItems: any = [];
   let filteredProducts: any = [];
@@ -102,8 +103,7 @@
   });
 </script>
 
-<details class="card small-padding" nopen>
-  <summary>Status</summary>
+{#if isVisible}
   <div class="flex flex--gap flex--wrap">
     {#each sortedItems as state (state.id)}
       <div
@@ -121,7 +121,7 @@
       </div>
     {/each}
   </div>
-</details>
+{/if}
 
 <style lang="scss">
   @import '../../scss/variables';

@@ -12,13 +12,13 @@
   <span class="filter">
     <u>{label}:</u>&nbsp;
     {#if !!activStr}
-      "{activStr}"
-      <Icon modifier="cross" svg="true" on:click={e => onClick(e, 'search')} />
+      <span>"{activStr}"</span>
+      <i class="small" on:click={e => onClick(e, 'search')}>delete</i>
     {:else if activeIds.length > 0}
       {#each activeIds as itemId}
         <span class="filter__item link">
-          {store.filter(item => item.id === itemId)[0].de}
-          <Icon modifier="cross" svg="true" on:click={e => onClick(e, itemId)} />
+          <span>{store.filter(item => item.id === itemId)[0].de}</span>
+          <i class="small" on:click={e => onClick(e, itemId)}>delete</i>
         </span>
       {/each}
     {/if}
@@ -30,9 +30,13 @@
 
   .filter {
     margin-right: $space-lg;
-  }
 
-  .filter__item:not(:last-child) {
-    margin-right: $space-md;
+    &__item:not(:last-child) {
+      margin-right: $space-md;
+    }
+
+    i {
+      cursor: pointer;
+    }
   }
 </style>

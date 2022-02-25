@@ -25,3 +25,5 @@ export const IDS_SPECIAL_TAGS = [ID_PARTS, ID_MANHATTAN, ID_MOVIE, ID_NETHERLAND
 export const UNLOADED = 'unloaded';
 export const LOADING = 'loading';
 export const LOADED = 'loaded';
+
+export const lsPageSettingsKey = 'pageSettings';
