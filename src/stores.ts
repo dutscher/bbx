@@ -8,7 +8,7 @@ export { storedParts, storedPartTypes } from './stores/parts';
 export { storedImageExtension } from './stores/image-extension';
 export { storedHearts, lsKey as lsKeyHeart } from './stores/hearts';
 export { internetConnection } from './stores/internet-connection';
-export { storedFilteredProducts, storedProducts, sortedProducts } from './stores/products';
+export { storedProductsSorting, storedFilteredProducts, storedProducts, sortedProducts } from './stores/products';
 export { storedPermissions, promptThePermission } from './stores/notifications';
 
 export { localStore } from './stores/local-storage';

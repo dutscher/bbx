@@ -1,14 +1,19 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { storedActiveSelection, storedParts, storedProducts, storedFilteredProducts } from '../../stores';
-  import { getUrlParam, setUrlParams } from '../../utils';
+  import { getUrlParam, setUrlParams, ess } from '../../utils';
 
   export let activePartIds: any = [];
   export let parts: any;
   export let products: any;
   export let filteredProducts: any = [];
-
+  let sortedItems: any = [];
   const urlParam = 'parts';
+
+  storedParts.subscribe(store => (parts = store));
+  storedProducts.subscribe(store => (products = store));
+  storedFilteredProducts.subscribe(store => (filteredProducts = store));
+
   const getUrlParams = () => {
     const queryTags = getUrlParam(urlParam).split(',');
     parts.map(part => {
@@ -42,19 +47,11 @@
       } else {
         store.reason = 'url-parsed';
       }
-      return value;
+      return store;
     });
   };
 
-  storedParts.subscribe(store => (parts = store));
-  storedProducts.subscribe(store => (products = store));
-  storedFilteredProducts.subscribe(store => (filteredProducts = store));
-
-  onMount(() => {
-    getUrlParams();
-  });
-
-  function sortItems() {
+  const sortItems = filteredProducts => {
     let sortedData = [];
     // get count of products
     sortedData = parts
@@ -75,9 +72,13 @@
         return 0;
       });
     return sortedData;
-  }
+  };
 
   $: sortedItems = sortItems(filteredProducts);
+
+  onMount(() => {
+    getUrlParams();
+  });
 </script>
 
 <div class="flex parts">
@@ -85,7 +86,7 @@
   <div class="flex flex--wrap">
     {#each sortedItems as part (part.id)}
       <div
-        class="part{activePartIds.includes(part.id) ? ' active' : ''}{part.count === 0 ? ' disabled' : ''}"
+        class={ess(['part', activePartIds.includes(part.id) && 'active', part.count === 0 && 'disabled'])}
         data-id={part.id}
         on:click={() => clickItem(part, true)}
         title="{part.de} ({part.count})"

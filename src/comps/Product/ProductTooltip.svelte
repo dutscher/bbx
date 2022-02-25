@@ -264,7 +264,7 @@
   .product-tooltip {
     position: absolute;
     white-space: nowrap;
-    z-index: 1;
+    z-index: 2;
 
     article {
       background-color: var(--surface-variant);

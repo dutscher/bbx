@@ -147,10 +147,14 @@
   <div class="product" data-state={handleStateName(product)}>
     <span class="chip small round no-margin white-text {handleStateColor(product)}" on:click={onClick}>
       {#if isHeart && !type.startsWith('hearts')}
-        <Icon modifier="heart" svg="true" class="active" title="Merkliste" />
+        <i class="red-text">favorite</i>&nbsp;
       {/if}
-      {#if (product.isNew || product.isNewSoon) && !isHeart}<Icon modifier="new" title="Neues Produkt" />{/if}
-      {#if product.isHot && !isHeart}<Icon modifier="flame" title="Beliebtes Produkt" />{/if}
+      {#if (product.isNew || product.isNewSoon) && !isHeart}
+        <i class="yellow-text">star</i>&nbsp;
+      {/if}
+      {#if product.isHot && !isHeart}
+        <i class="orange-text">local_fire_department</i>&nbsp;
+      {/if}
       {getTitle(product)}
       {#if type === 'products' && product.movieData && activeTagsIds.includes(ID_MOVIE)}
         <span class="product__movie">{product.movieData}</span>

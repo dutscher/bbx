@@ -16,7 +16,7 @@
   export let activeColorIds: any = [];
   export let activePartIds: any = [];
   export let activePartTypeIds: any = [];
-
+  let invisible: any;
   let parts: any;
   let partTypes: any;
   let colors: any;
@@ -66,7 +66,7 @@
 {#if !invisible}
   <div class="flex flex--inline filter-summary  with-text-shadow">
     <div class="flex flex--wrap flex--vertical-center filter-summary__wrap">
-      <strong class="filter-headline">| Filter:&nbsp;</strong>
+      <b>Filter:&nbsp;</b>
       <FilterSummaryActive label="Suche nach" activStr={activeSearchString} onClick={removeItem.bind(this, 'search')} />
       <FilterSummaryActive label="Tags" activeIds={activeTagIds} store={tags} onClick={removeItem.bind(this, 'tags')} />
       <FilterSummaryActive
@@ -105,8 +105,6 @@
 
     &__wrap {
       font-size: ms(-1);
-      font-weight: bold;
-      color: $color-primary;
     }
   }
 </style>

@@ -1,14 +1,19 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { storedActiveSelection, storedColors, storedProducts, storedFilteredProducts } from '../../stores';
-  import { getUrlParam, setUrlParams, titleMatch } from '../../utils';
+  import { getUrlParam, setUrlParams, titleMatch, ess } from '../../utils';
 
   export let colors: any;
   export let products: any;
   export let filteredProducts: any = [];
   export let activeColorIds: any = [];
-
+  let sortedItems: any = [];
   const urlParam = 'colors';
+
+  storedColors.subscribe(store => (colors = store));
+  storedProducts.subscribe(store => (products = store));
+  storedFilteredProducts.subscribe(store => (filteredProducts = store));
+
   const getUrlParams = () => {
     // ?tags=piraten
     const queryTags = getUrlParam(urlParam).split(',');
@@ -48,7 +53,7 @@
     });
   };
 
-  function sortItems() {
+  const sortItems = filteredProducts => {
     let sortedData = [];
     // get count of products
     sortedData = colors
@@ -85,30 +90,12 @@
         return 0;
       });
     return sortedData;
-  }
-
-  storedColors.subscribe(store => (colors = store));
-  storedProducts.subscribe(store => (products = store));
-  storedFilteredProducts.subscribe(store => (filteredProducts = store));
-
-  onMount(() => {
-    getUrlParams();
-  });
+  };
 
   $: sortedItems = sortItems(filteredProducts);
 
-  const classNames = color => ({
-    class: [
-      'color',
-      activeColorIds.includes(color.id) && 'active',
-      color.id === 18 && 'chrome',
-      color.id === 36 && 'pearl-gray',
-      color.id === 51 && 'pearl-gold',
-      color.countFiltered === 0 && 'disabled',
-      color.name.toLowerCase().includes('trans') && 'trans',
-    ]
-      .filter(css => css !== false)
-      .join(' '),
+  onMount(() => {
+    getUrlParams();
   });
 </script>
 
@@ -117,7 +104,15 @@
   <div class="flex flex--wrap">
     {#each sortedItems as color (color.id)}
       <div
-        {...classNames(color)}
+        class={ess([
+          'color',
+          activeColorIds.includes(color.id) && 'active',
+          color.id === 18 && 'chrome',
+          color.id === 36 && 'pearl-gray',
+          color.id === 51 && 'pearl-gold',
+          color.countFiltered === 0 && 'disabled',
+          color.name.toLowerCase().includes('trans') && 'trans',
+        ])}
         data-id={color.id}
         on:click={() => clickItem(color, true)}
         title="{color.name}{color.de ? ' / ' + color.de : ''} ({color.countFiltered})"

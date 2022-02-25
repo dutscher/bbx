@@ -9,6 +9,8 @@
   export let products: any;
   export let filteredProducts: any = [];
 
+  let sortedItems: any;
+
   const urlParam = 'partTypes';
   const getUrlParams = () => {
     const queryTags = getUrlParam(urlParam).split(',');
@@ -51,7 +53,7 @@
   storedProducts.subscribe(store => (products = store));
   storedFilteredProducts.subscribe(store => (filteredProducts = store));
 
-  function sortItems() {
+  function sortItems(filteredProducts) {
     let sortedData = [];
     // get count of products
     sortedData = partTypes

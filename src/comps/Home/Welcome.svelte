@@ -39,7 +39,7 @@
     {#if !isOnline}
       <span class="warning">
         Deine Internet Verbindung ist weg aber du kannst den Watcher weiterhin nutzen.<br />
-        <strong>Letzter Stand:</strong>
+        <b>Letzter Stand:</b>
         {lastCursor[0] && lastCursor[0].split('|')[1]}
       </span>
     {/if}

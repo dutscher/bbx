@@ -2,9 +2,10 @@
   import { onMount } from 'svelte';
   import Product from './Product.svelte';
   import FilterSummary from '../Filter/FilterSummary.svelte';
-  import { titleMatch, jsVoid, setUrlParams, getUrlParam, getAllUrlParams } from '../../utils';
-  import { ID_PARTS } from '../../_interfaces';
+  import ProductSorter from '../Product/ProductSorter.svelte';
+  import { titleMatch, setUrlParams, getUrlParam, getAllUrlParams } from '../../utils';
   import {
+    storedProductsSorting,
     storedProducts,
     storedFilteredProducts,
     storedGlobalData,
@@ -17,6 +18,8 @@
     storedActiveProduct,
     localStore,
   } from '../../stores';
+
+  export let bbUrl: string;
 
   let activeTagIds: any = [];
   let activePartIds: any = [];
@@ -32,17 +35,12 @@
   let products: any;
   let states: any;
   let tags: any;
-  let sorting: string = '';
-  let sortTitle: string = '';
-  let sortDirection: string = 'desc';
+  let sorting: any;
   const urlParam = 'product';
   const chunks = 500;
 
-  export let bbUrl: string;
-
-  const sorter = ['Teile:parts', 'Preise:price', 'PreisProTeil:pricePerPart', 'ABC:title', '1111:parts'];
-
   storedStates.subscribe(store => (states = store));
+  storedProductsSorting.subscribe(store => (sorting = store));
   storedProducts.subscribe(store => (products = store));
   storedParts.subscribe(store => (parts = store));
   storedPartTypes.subscribe(store => (partTypes = store));
@@ -101,8 +99,7 @@
     activePartId,
     activePartTypeIds,
     products,
-    sorting,
-    sortDirection
+    sorting
   ) => {
     let raw = [];
     let withFilter = [];
@@ -197,7 +194,7 @@
 
   const handleProductSort = withFilter => {
     // default sort
-    if (sorting === '') {
+    if (sorting.sorting === '') {
       // sort unit 01-17
       withFilter
         .sort((a, b) => {
@@ -221,8 +218,8 @@
         });
     }
 
-    if (!!sorting) {
-      if (sortTitle === '1111') {
+    if (!!sorting.sorting) {
+      if (sorting.sortTitle === '1111') {
         withFilter = withFilter.filter(product => product.parts <= 1111);
       }
 
@@ -230,12 +227,12 @@
       // asc > aufsteigend 123
       // desc < absteigend 321
       withFilter = withFilter.sort((a, b) => {
-        let prev = a[sorting];
-        let next = b[sorting];
-        const isASC = sortDirection === 'asc';
-        const isDESC = sortDirection === 'desc';
+        let prev = a[sorting.sorting];
+        let next = b[sorting.sorting];
+        const isASC = sorting.sortDirection === 'asc';
+        const isDESC = sorting.sortDirection === 'desc';
 
-        if (sorting === 'title') {
+        if (sorting.sorting === 'title') {
           prev = prev.toLowerCase();
           next = next.toLowerCase();
         }
@@ -260,49 +257,8 @@
     activePartIds,
     activePartTypeIds,
     products,
-    sorting,
-    sortDirection
+    sorting
   );
-
-  const clickSort = sortRaw => {
-    const [potentialSortTitle, type] = sortRaw.split(':');
-    const isDifferentSort = type !== sorting;
-    const doReset = sortDirection === 'desc';
-    sorting = doReset && !isDifferentSort ? '' : type;
-    sortTitle = doReset && !isDifferentSort ? '' : potentialSortTitle;
-    sortDirection = doReset || isDifferentSort ? 'asc' : 'desc';
-  };
-
-  const exportCSV = () => {
-    const divider = ';';
-    let exportString =
-      ['ID', 'Hersteller', 'Artikelnummer', 'Artikelbezeichnung', 'Farbe', 'Menge', 'Preis'].join(divider) + '\n';
-    /*
-    ID: 607425
-    Hersteller NR: BPP3943b-black
-    Artikelnummer: 3943b
-    Artikelbezeichng: ROCKET STEP 4X4X2 X 15
-    Farbe: Black
-    Menge (VPE?): 15
-    Preis: 5,95 €
-  */
-    filteredProducts.raw
-      //.reverse()
-      //.slice(0, 50)
-      .map(product => {
-        const newLine = [
-          product.id,
-          '',
-          product.partNr,
-          product.title,
-          product.partColor ? product.partColor.name : '',
-          product.parts,
-          product.price,
-        ];
-        exportString += newLine.join(divider) + '\n';
-      });
-    console.log(exportString);
-  };
 
   // first to remove localstorage keys before onMount
   getUrlParams();
@@ -323,24 +279,7 @@
   {activePartTypeIds}
 />
 
-{#if filteredProducts.withFilter.length > 0}
-  <div class="flex flex--gap flex--inline flex--vertical-center flex--wrap filter">
-    <b class="filter-headline">| Sortieren:</b>
-    {#each sorter as item}
-      <a href={jsVoid} on:click={() => clickSort(item)}>
-        {item.split(':')[0]}
-        {#if sorting === item.split(':')[1]}
-          {sortDirection === 'asc' ? '>' : '<'}
-        {/if}
-      </a>
-    {/each}
-
-    {#if activeTagIds.includes(ID_PARTS)}
-      <b class="filter-headline">&nbsp;| CSV export:</b>
-      <a href={jsVoid} on:click={() => exportCSV()}>Do IT</a>
-    {/if}
-  </div>
-{/if}
+<ProductSorter {filteredProducts} {activeTagIds} />
 
 <div class="flex flex--gap flex--wrap">
   {#each sortedItems as product (product.id)}
@@ -348,7 +287,7 @@
   {/each}
 
   {#if filteredProducts.withFilter.length > chunks}
-    <span class="warning"
+    <span class="warning red-text bold"
       >Aus Performancegründen werden nur {chunks} von {filteredProducts.withFilter.length}
       Produkte angezeigt</span
     >
@@ -358,29 +297,7 @@
 <style lang="scss">
   @import '../../scss/variables';
 
-  $selector: '.filter';
-  #{$selector} {
-    font-size: ms(-1);
-    color: $color-primary;
-    cursor: default;
-
-    a {
-      margin-left: $space-sm;
-      color: inherit;
-
-      &:hover {
-        color: $color-primary-darker;
-      }
-    }
-  }
-
-  :global .filter-headline {
-    font-size: ms(1);
-  }
-
   .warning {
-    color: $color-unavailable;
-    font-weight: bold;
     margin-top: $space-lg;
   }
 </style>

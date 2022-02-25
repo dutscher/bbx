@@ -6,6 +6,7 @@
 
   export let state: number = ID_STATE_ANNOUNCEMENT;
   export let title: string = '';
+  export let onCounterAvailable: any = () => {};
 
   let products: any;
   let sortedProducts: any;
@@ -14,7 +15,7 @@
   let reverseSort = false;
   let showParts = false;
   let showFirstRelease = false;
-  let isVisible = false;
+  export let isVisible = false;
   let countParts = 0;
   const monthNames = [
     'Januar',
@@ -113,14 +114,12 @@
   $: {
     sortedProducts = sortProducts(products, showParts, showFirstRelease);
     sortedMonths = sortMonths(sortedProducts, reverseSort);
+
+    onCounterAvailable(state, sortedProducts.length);
   }
 </script>
 
-<details class="card small-padding" onVisibility={newVisibility => (isVisible = newVisibility)}>
-  <summary>
-    {title} <b>({sortedProducts.length})</b>
-  </summary>
-
+{#if isVisible}
   <div class="changes">
     <div class="field middle-align">
       <nav class="wrap">
@@ -140,16 +139,13 @@
           </label>
           <label class="checkbox">
             <input type="checkbox" bind:checked={showParts} />
-            <span>Parts ({countParts})</span>
+            <span>Parts<span class="badge round">{countParts}</span></span>
           </label>
         {/if}
       </nav>
     </div>
     {#if state !== ID_STATE_AVAILABLE && !reverseSort}
       <p class="bold">Was kommt womöglich als nächstes:</p>
-    {/if}
-    {#if state === ID_STATE_AVAILABLE}
-      <p class="small-text bold">Die Produkte sind nach Veröffentlichungsdatum sortiert</p>
     {/if}
     <div>
       {#each sortedMonths as month (month.id)}
@@ -166,7 +162,7 @@
       {/each}
     </div>
   </div>
-</details>
+{/if}
 
 <style lang="scss">
   @import '../../scss/variables';

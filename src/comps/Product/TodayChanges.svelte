@@ -9,9 +9,12 @@
   let states: any;
   let isVisible = true;
   let isToday = false;
+  let showSets = true;
   let showParts = false;
+  let countSets = 0;
   let countParts = 0;
   let dayStr = '';
+  let sortedProducts: any;
   // 2017-06-01
   let selectedDate: string = '';
   let selectedDateMin: string = '2021-04-30';
@@ -48,7 +51,8 @@
     return hasTodayChanges;
   };
 
-  const sortProducts = (products, showParts, selectedDate) => {
+  const sortProducts = (products, showParts, showSets, selectedDate) => {
+    countSets = 0;
     countParts = 0;
     let sortedData = [];
     // do filtering api changes
@@ -60,8 +64,10 @@
         const isPart = product.tags.includes(ID_PARTS);
         if (isPart) {
           countParts++;
+        } else {
+          countSets++;
         }
-        return (!showParts && !isPart) || (showParts && isPart);
+        return (showSets && !isPart) || (showParts && isPart);
       })
       // sort by name
       .sort((a, b) => {
@@ -106,7 +112,7 @@
     }
   }
 
-  $: sortedProducts = sortProducts(products, showParts, selectedDate);
+  $: sortedProducts = sortProducts(products, showParts, showSets, selectedDate);
 </script>
 
 <!--
@@ -138,7 +144,6 @@
       bind:value={selectedDate}
       on:click={event => event.stopPropagation()}
     />
-    <b class="large-text bold">({sortedProducts.length})</b>
   </span>
 </article>
 
@@ -146,8 +151,12 @@
   <div class="field middle-align">
     <nav class="wrap">
       <label class="checkbox">
+        <input type="checkbox" bind:checked={showSets} />
+        <span>Sets<span class="badge round">{countSets}</span></span>
+      </label>
+      <label class="checkbox">
         <input type="checkbox" bind:checked={showParts} />
-        <span>Parts ({countParts})</span>
+        <span>Parts<span class="badge round">{countParts}</span></span>
       </label>
     </nav>
   </div>

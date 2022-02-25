@@ -16,7 +16,7 @@
       <Icon modifier="cross" svg="true" on:click={e => onClick(e, 'search')} />
     {:else if activeIds.length > 0}
       {#each activeIds as itemId}
-        <span class="filter__item">
+        <span class="filter__item link">
           {store.filter(item => item.id === itemId)[0].de}
           <Icon modifier="cross" svg="true" on:click={e => onClick(e, itemId)} />
         </span>

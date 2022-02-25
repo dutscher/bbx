@@ -15,7 +15,6 @@
   storedTags.subscribe(store => (tags = store));
 
   storedActiveSelection.subscribe(store => {
-    console.log(store.page, store.reason);
     if (store.page === 'products' && store.reason === 'show-tags') {
       isOpen = true;
       // remove reason

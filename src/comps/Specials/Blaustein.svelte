@@ -55,10 +55,8 @@
   };
 </script>
 
-<svelte:window bind:innerWidth />
-
 <div>
-  <h2>{STR_BURG_BLAUSTEIN}</h2>
+  <h2 bind:clientWidth={innerWidth}>{STR_BURG_BLAUSTEIN}</h2>
   {#if innerWidth}
     <div class="pieces" style="zoom:{zoom};-moz-transform:scale({zoom});">
       <div class="pieces__wrap flex">

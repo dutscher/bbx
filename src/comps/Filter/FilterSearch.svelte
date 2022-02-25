@@ -50,8 +50,6 @@
   };
 
   onMount(() => {
-    // beercss for input field
-    ui();
     getUrlParams();
   });
 </script>
@@ -60,6 +58,7 @@
   <div class="field label prefix border no-margin">
     <i>search</i>
     <input
+      id="search"
       class="search"
       type="search"
       value={activeSearchString}
@@ -67,10 +66,11 @@
       on:keyup={({ target: { value } }) => debounce(value)}
       spellcheck="false"
     />
-    <!--               bind:value={activeSearchString}-->
-    <!--               on:input={() => onInput(true)}-->
-    <label>Produktname oder ID</label>
+    <label for="search">Produktname oder ID</label>
   </div>
+  <script>
+    ui();
+  </script>
 </article>
 <br />
 

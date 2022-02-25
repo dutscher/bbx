@@ -9,19 +9,16 @@
 </script>
 
 <div class="legend">
-  <strong>Legende:</strong><br />
-  <Icon modifier="new" />
-  = Neues Produkt
-  <Icon modifier="flame" />
-  = Beliebtes Produkt (mehr als 2 mal Verfügbar)
-  <Icon modifier="heart" svg="true" class="active" />
-  = Merkliste<br />
+  <b>Legende:</b><br />
+  <i class="yellow-text">star</i> = Neues Produkt
+  <i class="orange-text">local_fire_department</i> = Beliebtes Produkt
+  <i class="red-text">favorite</i> = Merkliste<br />
   <span class="state state--blue" /> = Verfügbar
   <span class="state state--green" /> = Bald erhältlich
   <span class="state state--red" /> = Zurzeit Vergriffen
   <span class="state state--orange" /> = In Ankündigung
   <br /><br />
-  <strong>Stand:</strong>
+  <b>Stand:</b>
   {lastCursor.dateStr}
   {#if !!AFF_LINK}
     <div class="small">
@@ -40,7 +37,7 @@
   }
 
   .state {
-    padding: $space-lg;
+    padding: 8rem;
     border-radius: 100%;
     background: $color-primary;
     font-size: 0;

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { storedActiveSelection, storedStates, storedProducts, storedFilteredProducts } from '../../stores';
-  import { getUrlParam, setUrlParams } from '../../utils';
+  import { getUrlParam, setUrlParams, ess } from '../../utils';
 
   export let activeStateIds: any = [];
   export let activeColorIds: any = [];
@@ -9,6 +9,7 @@
   export let activePartTypeIds: any = [];
   export let activeSearchString: string = '';
 
+  let sortedItems: any = [];
   let filteredProducts: any = [];
   let states: any;
   let products: any;
@@ -57,11 +58,7 @@
   storedProducts.subscribe(store => (products = store));
   storedFilteredProducts.subscribe(store => (filteredProducts = store));
 
-  onMount(() => {
-    getUrlParams();
-  });
-
-  function sortItems(filteredProducts) {
+  const sortItems = filteredProducts => {
     let sortedData = [];
     // get count of products
     sortedData = states
@@ -96,26 +93,29 @@
         return 0;
       });
     return sortedData;
-  }
+  };
 
   $: sortedItems = sortItems(filteredProducts);
 
-  const getClasses = state =>
-    [
-      'chip small round no-margin white-text',
-      activeStateIds.includes(state.id) && 'active',
-      state.count === 0 && 'disabled',
-      state.color,
-    ]
-      .filter(css => !!css)
-      .join(' ');
+  onMount(() => {
+    getUrlParams();
+  });
 </script>
 
 <details class="card small-padding" nopen>
   <summary>Status</summary>
   <div class="flex flex--gap flex--wrap">
     {#each sortedItems as state (state.id)}
-      <div class={getClasses(state)} data-count={state.count} on:click={() => clickItem(state, true)}>
+      <div
+        class={ess([
+          'chip small round no-margin white-text', // beercss
+          activeStateIds.includes(state.id) && 'active',
+          state.count === 0 && 'disabled',
+          state.color,
+        ])}
+        data-count={state.count}
+        on:click={() => clickItem(state, true)}
+      >
         <p>{state.de}</p>
         <span class="chip_state">{state.count}</span>
       </div>

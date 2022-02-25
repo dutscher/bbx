@@ -12,19 +12,12 @@ beer css:
   * status & tags in tabs
     * onlick schließt das expand
   * brickbar
-  * special breite, tablet zoom calc not good
   * reset knopf, lineheight
-  * chips
-    * icons herz auf rot
-    * abstand zum text
   * produkt tooltip
     * rechter bildrand kollision mal wieder kaputt
     * bild hochkant? abgeschnitten
-    * merklisten herz (dark)
-      * springt
-      * icons
-* status
-  * die drei in tabs aufteilen?
+    * merklisten
+      * dark icons
 
 
 
