@@ -6,8 +6,6 @@ beer css:
 * legende sticky?
 * altes scss raus hauen
   * vars + colors
-* merkliste
-  * edit name
 * produkte
   * status & tags in tabs
     * onlick schließt das expand
@@ -18,7 +16,6 @@ beer css:
     * bild hochkant? abgeschnitten
     * merklisten
       * dark icons
-
 
 
 

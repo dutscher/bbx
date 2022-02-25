@@ -4,10 +4,14 @@
   import { stopClick } from '../../utils';
 
   export let list = 'default';
-  let heartSummary = { price: 0, parts: 0 };
-  let title = '';
-  let hearts = [];
-  let products = [];
+  let heartItems: any;
+  let heartSummary: any = { price: 0, parts: 0 };
+  let title: string = '';
+  let hearts: any = [];
+  let products: any = [];
+  let isEdit: boolean = false;
+  let editTitle: string = '';
+  let input: any;
 
   storedProducts.subscribe(store => (products = store));
   storedHearts.subscribe(store => {
@@ -23,6 +27,40 @@
       storedHearts.update(store => {
         delete store[list];
         localStore.set(lsKeyHeart, JSON.stringify(store));
+        return store;
+      });
+    }
+  };
+
+  const onClick = event => {
+    if (list === 'default') {
+      stopClick(event);
+    }
+  };
+
+  const clickEdit = () => {
+    isEdit = true;
+    editTitle = title;
+
+    setTimeout(() => {
+      input.focus();
+      input.select();
+    }, 50);
+  };
+
+  const onKeyDown = e => {
+    if (e.key === 'Escape') {
+      isEdit = false;
+    }
+  };
+
+  const onKeyPress = e => {
+    if (e.key === 'Enter') {
+      storedHearts.update(store => {
+        store[list].t = editTitle;
+        localStore.set(lsKeyHeart, JSON.stringify(store));
+
+        isEdit = false;
         return store;
       });
     }
@@ -51,12 +89,6 @@
         })
     : [];
 
-  const handleClick = event => {
-    if (list === 'default') {
-      stopClick(event);
-    }
-  };
-
   $: {
     // reset
     heartSummary = { price: 0, parts: 0 };
@@ -70,18 +102,23 @@
   }
 </script>
 
-<details class="card" open={list === 'default'} on:click={handleClick}>
+<details class="card" open={list === 'default'} on:click={onClick}>
   <summary class="none small-margin">
     <div class="row no-wrap middle-align">
       <div class="col min">
         <i class="red-text">favorite</i>
-        <div class="tooltip">Will ich haben</div>
       </div>
       <div class="col">
-        <span class="large-text">{title}</span>
+        {#if !isEdit}
+          <span class="large-text">
+            {title}
+          </span>
+        {:else}
+          <input type="text" bind:this={input} on:keydown={onKeyDown} on:keypress={onKeyPress} bind:value={editTitle} />
+        {/if}
         <div class="small-text">
           {#if heartItems.length > 1}
-            {heartItems.length} Set´s =
+            <b>{heartItems.length}</b> Set´s =
             <b>Listenpreis:</b>
             {heartSummary.price.toFixed(2).replace('.', ',')} EUR /
             <b>Steine:</b>
@@ -90,9 +127,15 @@
         </div>
       </div>
       <div class="col min">
-        <i on:click={clickDeleteList}>delete</i>
-        <div class="tooltip">Lösche Liste</div>
+        <i on:click={clickEdit}>edit</i>
+        <div class="tooltip">Editiere Liste</div>
       </div>
+      {#if list !== 'default'}
+        <div class="col min">
+          <i on:click={clickDeleteList}>delete</i>
+          <div class="tooltip">Lösche Liste</div>
+        </div>
+      {/if}
     </div>
   </summary>
   <div class="flex flex--gap flex--wrap">

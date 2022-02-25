@@ -34,6 +34,9 @@
   });
 
   const clickTab = tabId => {
+    if (activeTab === tabId) {
+      tabId = undefined;
+    }
     activeTab = tabId;
   };
 

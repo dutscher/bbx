@@ -83,8 +83,14 @@
     });
   };
 
+  const onKeyDown = e => {
+    if (e.key === 'Escape') {
+      newValue = '';
+    }
+  };
+
   const onKeyPress = (e, listName) => {
-    if (e.charCode === 13) {
+    if (e.key === 'Enter') {
       if (!!listName) handleEditList();
       else handleNewList();
     }
@@ -131,7 +137,13 @@
             <i on:click={e => clickEditList(e, listName, hearts[listName].t)}>edit</i>
             <span>{hearts[listName].t}</span>
           {:else}
-            <input type="text" bind:this={input} on:keypress={e => onKeyPress(e, listName)} bind:value={editValue} />
+            <input
+              type="text"
+              bind:this={input}
+              on:keydown={onKeyDown}
+              on:keypress={e => onKeyPress(e, listName)}
+              bind:value={editValue}
+            />
           {/if}
         </div>
       {/each}
