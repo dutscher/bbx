@@ -9,6 +9,7 @@ beer css:
   * brickbar
   * produkte mit langen text namen? /?tags=mittelalter,star-trek -> mobile 3 zeilig
   * produkt tooltip
+    * zubreit ?product=690057
     * rechter bildrand kollision mal wieder kaputt
     * merklisten
       * dark icons
