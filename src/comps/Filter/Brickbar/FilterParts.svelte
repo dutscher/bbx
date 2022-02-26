@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { storedActiveSelection, storedParts, storedProducts, storedFilteredProducts } from '../../stores';
-  import { getUrlParam, setUrlParams, ess } from '../../utils';
+  import { storedActiveSelection, storedParts, storedProducts, storedFilteredProducts } from '../../../stores';
+  import { getUrlParam, setUrlParams, ess } from '../../../utils';
 
   export let activePartIds: any = [];
   export let parts: any;
@@ -81,66 +81,46 @@
   });
 </script>
 
-<div class="flex parts">
+<div class="flex">
   <h4>Parts</h4>
-  <div class="flex flex--wrap">
+  <div class="flex flex--wrap flex--gap">
     {#each sortedItems as part (part.id)}
-      <div
-        class={ess(['part', activePartIds.includes(part.id) && 'active', part.count === 0 && 'disabled'])}
+      <a
+        class={ess([
+          'chip border small no-margin round',
+          activePartIds.includes(part.id) && 'active',
+          part.count === 0 && 'disabled',
+        ])}
         data-id={part.id}
         on:click={() => clickItem(part, true)}
-        title="{part.de} ({part.count})"
+        title={part.de}
       >
         <img src="/images/parts/25/{part.seoName}.jpg" alt={part.de} />
-        {part.name}
-      </div>
+        <span class="badge round">{part.count}</span>
+        <span>{part.name}</span>
+      </a>
     {/each}
   </div>
 </div>
 
 <style lang="scss">
-  @import '../../scss/variables';
+  @import '../../../scss/variables';
 
-  .parts {
-    margin-top: $space-md;
+  h4 {
+    width: 64rem;
   }
 
-  .part {
-    padding: 0 $space-xl;
-    margin: $space-xs;
-    border: solid 1px $color-primary-darker;
-    border-radius: $border-radius-xl;
-    background: $color-white;
-    color: $color-primary-dark;
-    cursor: pointer;
-    user-select: none;
-    position: relative;
-    font-size: ms(0);
-
-    @media (min-width: 750px) {
-      font-size: ms(-2);
+  .chip {
+    .badge {
+      display: none;
     }
 
-    img {
-      vertical-align: middle;
-      border-radius: $space-lg;
-    }
-
-    &:focus,
+    &.active,
     &:active,
-    &.active {
-      background: $color-primary-darker;
-      color: $color-white;
-    }
-
     &:hover {
-      background: $color-primary-dark;
-      color: $color-white;
-    }
-
-    &.disabled {
-      opacity: 0.1;
-      cursor: default;
+      .badge {
+        display: inline-flex;
+      }
     }
   }
 </style>

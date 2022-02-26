@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { storedActiveSelection, storedColors, storedProducts, storedFilteredProducts } from '../../stores';
-  import { getUrlParam, setUrlParams, titleMatch, ess } from '../../utils';
+  import { storedActiveSelection, storedColors, storedProducts, storedFilteredProducts } from '../../../stores';
+  import { getUrlParam, setUrlParams, titleMatch, ess } from '../../../utils';
 
   export let colors: any;
   export let products: any;
@@ -79,12 +79,51 @@
         return color;
       })
       .filter(color => color.count > 0)
-      // sort state
+      // sort alphabet
       .sort((a, b) => {
-        if (a.label < b.label) {
+        if (a.name < b.name) {
           return -1;
         }
-        if (a.label > b.label) {
+        if (a.name > b.name) {
+          return 1;
+        }
+        return 0;
+      })
+      // sort color type
+      .sort((a, b) => {
+        const cleanName = name =>
+          name
+            .toLowerCase()
+            .replace('white', 'black1')
+            .replace('trans clear', 'black1')
+            .replace('dark bluish gray', 'black1')
+            .replace('light bluish gray', 'black1')
+            .replace('lavender', 'purple1')
+            .replace('azure', 'blue1')
+            .replace('lime', 'green1')
+            .replace('magenta', 'red1')
+            .replace('flesh', 'red2')
+            .replace('brown', 'red3')
+            .replace('sand ', '')
+            .replace('bright ', '')
+            .replace('dark ', '')
+            .replace('light ', '')
+            .replace('trans ', '')
+            .replace('neon ', '')
+            .replace('medium ', '')
+            .replace('yellowish ', '')
+            .replace('reddish ', '')
+            .replace('olive ', '')
+            .replace('flat silver', 'zzz')
+            .replace('pearl gold', 'zzz')
+            .replace('pearl gray', 'zzz')
+            .replace('chrome silver', 'zzz');
+        const clearAName = cleanName(a.name);
+        const clearBName = cleanName(b.name);
+        if (clearAName < clearBName) {
+          return -1;
+        }
+        if (clearAName > clearBName) {
           return 1;
         }
         return 0;
@@ -107,26 +146,32 @@
         class={ess([
           'color',
           activeColorIds.includes(color.id) && 'active',
-          color.id === 18 && 'chrome',
-          color.id === 36 && 'pearl-gray',
-          color.id === 51 && 'pearl-gold',
+          color.id === '22' && 'chrome',
+          color.id === '77' && 'pearl-gray',
+          color.id === '115' && 'pearl-gold',
           color.countFiltered === 0 && 'disabled',
           color.name.toLowerCase().includes('trans') && 'trans',
         ])}
         data-id={color.id}
         on:click={() => clickItem(color, true)}
-        title="{color.name}{color.de ? ' / ' + color.de : ''} ({color.countFiltered})"
+        title="{color.name}{color.de ? ' / ' + color.de : ''}"
         style="background-color:#{color.hex}"
-      />
+      >
+        <span class="badge round">{color.countFiltered}</span>
+      </div>
     {/each}
   </div>
 </div>
 
 <style lang="scss">
-  @import '../../scss/variables';
+  @import '../../../scss/variables';
+
+  h4 {
+    width: 64rem;
+  }
 
   .color {
-    padding: $space-xl;
+    padding: 16rem;
     margin: $space-xs;
     border: solid 1px $color-primary-darker;
     border-radius: 100%;
@@ -172,6 +217,18 @@
     &.disabled {
       opacity: 0.1;
       cursor: pointer;
+    }
+
+    .badge {
+      display: none;
+    }
+
+    &.active,
+    &:active,
+    &:hover {
+      .badge {
+        display: inline-flex;
+      }
     }
   }
 </style>

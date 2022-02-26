@@ -1,8 +1,8 @@
 <script lang="ts">
   import FilterTags from './FilterTags.svelte';
-  import FilterColors from './FilterColors.svelte';
-  import FilterParts from './FilterParts.svelte';
-  import FilterPartTypes from './FilterPartTypes.svelte';
+  import FilterColors from './Brickbar/FilterColors.svelte';
+  import FilterParts from './Brickbar/FilterParts.svelte';
+  import FilterPartTypes from './Brickbar/FilterPartTypes.svelte';
   import FilterStates from './FilterStates.svelte';
   import FilterSearch from './FilterSearch.svelte';
   import { ID_PARTS, lsPageSettingsKey } from '../../_interfaces';
@@ -90,6 +90,7 @@
 </div>
 
 {#if activeTagIds.includes(ID_PARTS) && activeTagIds.length === 1}
+  <h2>Brickbar</h2>
   <FilterParts {activePartIds} />
   <FilterColors {activeColorIds} />
   <FilterPartTypes {activePartTypeIds} />

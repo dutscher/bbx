@@ -2,11 +2,9 @@ beer css:
 * vercel deployment for development?
 * navi bottom?
   * tabs in url
-* legende sticky?
 * altes scss raus hauen
-  * vars + colors
+  * vars + colors + components
 * produkte
-  * brickbar
   * produkte mit langen text namen? /?tags=mittelalter,star-trek -> mobile 3 zeilig
   * produkt tooltip
     * zubreit ?product=690057
@@ -16,6 +14,7 @@ beer css:
 
 
 next todos:
+* typescript shortcut import pfade
 * wo ist neuschwanstein 101887 ?
   * war weg wegen mini trophy
   * get all history of neuschwanstein

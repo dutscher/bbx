@@ -79,9 +79,7 @@
         <span
           class={ess([
             'chip small round no-margin',
-            activeTagIds.includes(tag.id) && 'active',
-            IDS_SPECIAL_TAGS.includes(tag.id) ? 'tertiary' : 'secondary',
-            index === 0 && 'new-letter',
+            activeTagIds.includes(tag.id) ? 'primary' : IDS_SPECIAL_TAGS.includes(tag.id) ? 'tertiary' : 'secondary',
           ])}
           on:click={() => clickTag(tag, true)}
           data-id={tag.id}
@@ -104,9 +102,8 @@
     cursor: pointer;
     user-select: none;
 
-    &:hover,
-    &.active {
-      outline: 2px solid $color-primary-darker;
+    &:hover {
+      background: var(--secondary);
     }
 
     &.disabled {
