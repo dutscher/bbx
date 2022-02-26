@@ -2,7 +2,6 @@ beer css:
 * vercel deployment for development?
 * navi bottom?
   * tabs in url
-  * einstiegs urls migration ?tags=mittelalter,star-trek -> soll produkte öffnen
 * legende sticky?
 * altes scss raus hauen
   * vars + colors

@@ -29,8 +29,13 @@
     activeStateIds = store.states;
     activeSearchString = store.search;
 
-    if (store.page === 'products' && store.reason === 'show-tags') {
-      newTab = 'tags';
+    if (store.page === 'products' && (store.reason === 'show-tags' || store.reason === 'init-tags-url')) {
+      if (store.reason === 'show-tags') {
+        newTab = 'tags';
+      }
+      if (store.reason === 'init-tags-url') {
+        newTab = '';
+      }
       localStore.set(lsPageSettingsKey, store.page);
       // remove reason
       storedActiveSelection.update(store => {
@@ -62,7 +67,7 @@
     >
       {#if tab.name === 'states' && activeStateIds.length > 0}
         <span class="badge round">{activeStateIds.length}</span>
-      {:else if activeTagIds.length > 0}
+      {:else if tab.name === 'tags' && activeTagIds.length > 0}
         <span class="badge round">{activeTagIds.length}</span>
       {/if}
       {tab.title}

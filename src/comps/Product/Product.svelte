@@ -36,6 +36,7 @@
   let showTooltip = false;
   let isHeart: boolean;
   let isActive: boolean = false;
+  let stateColor: string = '';
 
   storedActiveSelection.subscribe(store => {
     activeTagsIds = store.tags;
@@ -140,14 +141,16 @@
     }
 
     isHeart = heartLists.find(list => hearts[list].i.includes(product.id));
+
+    stateColor = handleStateColor(product);
   }
 </script>
 
 <ClickOutside on:clickoutside={onClickOutside}>
   <div class="product" data-state={handleStateName(product)}>
-    <span class="chip small round no-margin white-text {handleStateColor(product)}" on:click={onClick}>
+    <span class="chip small round no-margin white-text {stateColor}" on:click={onClick}>
       {#if isHeart && !type.startsWith('hearts')}
-        <i class="red-text">favorite</i>&nbsp;
+        <i class={stateColor === 'red' ? 'orange-text' : 'red-text'}>favorite</i>&nbsp;
       {/if}
       {#if (product.isNew || product.isNewSoon) && !isHeart}
         <i class="yellow-text">star</i>&nbsp;

@@ -1,8 +1,9 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import 'beercss';
   import { ApolloClient, InMemoryCache } from '@apollo/client';
   import { setClient } from 'svelte-apollo';
-  import { jsVoid } from './utils';
+  import { getUrlParam, jsVoid } from './utils';
   import { loadMovieData, loadHistoryData, storedActiveSelection, storedHearts, localStore } from './stores';
   import {
     ID_MANHATTAN,
@@ -12,6 +13,7 @@
     UNLOADED,
     LOADED,
     lsPageSettingsKey,
+    urlKeyTags,
   } from './_interfaces';
   import Welcome from './comps/Home/Welcome.svelte';
   import Support from './comps/Home/Support.svelte';
@@ -77,6 +79,17 @@
   };
 
   $: activePage = nextPage || defaultPage;
+
+  onMount(() => {
+    // ?tags=mittelalter,star-trek -> product page
+    if (!!getUrlParam(urlKeyTags)) {
+      storedActiveSelection.update(store => {
+        store.page = 'products';
+        store.reason = 'init-tags-url';
+        return store;
+      });
+    }
+  });
 </script>
 
 <main>

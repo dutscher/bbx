@@ -3,20 +3,19 @@
   import ChipLetter from '../Atoms/ChipLetter.svelte';
   import { storedActiveSelection, storedTags } from '../../stores';
   import { getUrlParam, setUrlParams, ess } from '../../utils';
-  import { IDS_SPECIAL_TAGS } from '../../_interfaces';
+  import { IDS_SPECIAL_TAGS, urlKeyTags } from '../../_interfaces';
 
   export let activeTagIds: any = [];
   export let isVisible: boolean = false;
 
   let tags: any;
   const abc = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
-  const urlParam = 'tags';
 
   storedTags.subscribe(store => (tags = store));
 
   const getUrlParams = () => {
     // ?tags=piraten
-    const queryTags = getUrlParam(urlParam).split(',');
+    const queryTags = getUrlParam(urlKeyTags).split(',');
     tags.map(tag => {
       queryTags.map(queryTag => {
         if (tag.seoName === queryTag) {
@@ -28,19 +27,19 @@
 
   const clickTag = (tag, withUrlUpdate?) => {
     storedActiveSelection.update(store => {
-      if (!(urlParam in store)) {
-        store[urlParam] = [];
+      if (!(urlKeyTags in store)) {
+        store[urlKeyTags] = [];
       }
-      if (!store[urlParam].includes(tag.id)) {
-        store[urlParam].push(tag.id);
+      if (!store[urlKeyTags].includes(tag.id)) {
+        store[urlKeyTags].push(tag.id);
       } else {
-        store[urlParam] = store[urlParam].filter(tagId => tagId !== tag.id);
+        store[urlKeyTags] = store[urlKeyTags].filter(tagId => tagId !== tag.id);
       }
 
       if (withUrlUpdate) {
         setUrlParams(
-          urlParam,
-          tags.filter(tag => store[urlParam].includes(tag.id)).map(tag => tag.seoName)
+          urlKeyTags,
+          tags.filter(tag => store[urlKeyTags].includes(tag.id)).map(tag => tag.seoName)
         );
         store.reason = 'tag-clicked';
       } else {
@@ -81,7 +80,7 @@
           class={ess([
             'chip small round no-margin',
             activeTagIds.includes(tag.id) && 'active',
-            IDS_SPECIAL_TAGS.includes(tag.id) ? 'grey7' : 'secondary',
+            IDS_SPECIAL_TAGS.includes(tag.id) ? 'tertiary' : 'secondary',
             index === 0 && 'new-letter',
           ])}
           on:click={() => clickTag(tag, true)}

@@ -27,3 +27,4 @@ export const LOADING = 'loading';
 export const LOADED = 'loaded';
 
 export const lsPageSettingsKey = 'pageSettings';
+export const urlKeyTags = 'tags';

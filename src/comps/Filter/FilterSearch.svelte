@@ -9,11 +9,10 @@
   const urlParam = 'search';
 
   const getUrlParams = () => {
-    // ?tags=piraten
+    // ?search=piraten
     const queryTags = getUrlParam(urlParam);
     activeSearchString = queryTags;
     onInput();
-    beerui();
   };
 
   const onInput = (withUrlUpdate?) => {
@@ -53,6 +52,9 @@
 
   onMount(() => {
     getUrlParams();
+    setTimeout(() => {
+      beerui();
+    }, 50);
   });
 </script>
 
@@ -71,7 +73,3 @@
     <label for="search">Suche nach Produkt oder ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
   </div>
 </article>
-<br />
-
-<style lang="scss">
-</style>
