@@ -7,6 +7,7 @@ beer css:
   * vars + colors
 * produkte
   * brickbar
+  * produkte mit langen text namen? /?tags=mittelalter,star-trek -> mobile 3 zeilig
   * produkt tooltip
     * rechter bildrand kollision mal wieder kaputt
     * merklisten

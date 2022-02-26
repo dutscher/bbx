@@ -155,13 +155,23 @@
 <div class="product-tooltip{showTooltip ? ' open' : ''}">
   {#if showTooltip}
     <article class="no-padding border bottom-round right-round" bind:this={wrapElement}>
-      <ProductImage
-        {product}
-        onLoad={() => {
-          imageLoaded = true;
-          scrollIntoView();
-        }}
-      />
+      <div>
+        <a
+          href={data.url + product.href + AFF_LINK}
+          target="_blank"
+          class="link large-text bold absolute right bottom small-margin shop-link"
+        >
+          <Icon modifier="cart" />
+          Zum Shop{!!AFF_LINK ? '*' : ''}
+        </a>
+        <ProductImage
+          {product}
+          onLoad={() => {
+            imageLoaded = true;
+            scrollIntoView();
+          }}
+        />
+      </div>
       <div class="small-padding">
         <h5 class="no-margin">
           {#if product.title}
@@ -247,12 +257,6 @@
             <ProductHistory {product} />
           </div>
         </div>
-        <nav>
-          <a href={data.url + product.href + AFF_LINK} target="_blank" class="link large-text bold">
-            Zum Shop{!!AFF_LINK ? '*' : ''}
-            <Icon modifier="cart" />
-          </a>
-        </nav>
       </div>
     </article>
   {/if}
@@ -268,6 +272,10 @@
 
     article {
       background-color: var(--surface-variant);
+    }
+
+    .shop-link {
+      z-index: 1;
     }
   }
 
