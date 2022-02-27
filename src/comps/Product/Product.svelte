@@ -1,6 +1,5 @@
 <script lang="ts">
   import Tooltip from './ProductTooltip.svelte';
-  import Icon from '../Icon.svelte';
   import ClickOutside from 'svelte-click-outside';
   import {
     ID_BURG_BLAUSTEIN,
@@ -8,9 +7,6 @@
     ID_MOVIE,
     ID_NETHERLAND,
     ID_STAR_TREK,
-    ID_STATE_ANNOUNCEMENT,
-    ID_STATE_AVAILABLE,
-    ID_STATE_COMING_SOON,
     STR_MANHATTAN,
     STR_NETHERLAND,
     STR_BURG_BLAUSTEIN,
@@ -18,7 +14,7 @@
     UNLOADED,
   } from '../../_interfaces';
   import { storedGlobalData, storedActiveSelection, storedStates, storedHearts, loadInstData } from '../../stores';
-  import { getLatestStateOfToday } from '../../utils';
+  import { getLatestStateOfToday, ess } from '../../utils';
   import { storedActiveProduct } from '../../stores/states';
 
   export let product: any;
@@ -37,6 +33,7 @@
   let isHeart: boolean;
   let isActive: boolean = false;
   let stateColor: string = '';
+  let productTitle: string = '';
 
   storedActiveSelection.subscribe(store => {
     activeTagsIds = store.tags;
@@ -143,12 +140,15 @@
     isHeart = heartLists.find(list => hearts[list].i.includes(product.id));
 
     stateColor = handleStateColor(product);
+
+    productTitle = getTitle(product);
   }
 </script>
 
 <ClickOutside on:clickoutside={onClickOutside}>
   <div class="product" data-state={handleStateName(product)}>
-    <span class="chip small round no-margin white-text {stateColor}" on:click={onClick}>
+    <!--TODO: productTitle.length > 25 && 'large'-->
+    <span class={ess(['chip small round no-margin white-text', stateColor])} on:click={onClick}>
       {#if isHeart && !type.startsWith('hearts')}
         <i class={stateColor === 'red' ? 'orange-text' : 'red-text'}>favorite</i>&nbsp;
       {/if}
@@ -158,7 +158,7 @@
       {#if product.isHot && !isHeart}
         <i class="orange-text">local_fire_department</i>&nbsp;
       {/if}
-      {getTitle(product)}
+      {productTitle}
       {#if type === 'products' && product.movieData && activeTagsIds.includes(ID_MOVIE)}
         <span class="product__movie">{product.movieData}</span>
       {/if}

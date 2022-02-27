@@ -45,7 +45,7 @@
 <!--TODO: is image in service worker cache -->
 {#if isOnline}
   <img
-    class="responsive small no-round"
+    class="responsive small top-round"
     src={imageSrc}
     on:error={handleError}
     on:load={onLoad}
@@ -57,7 +57,6 @@
 <style lang="scss">
   img {
     display: block;
-    border-radius: 0 24rem 0 0;
     object-fit: contain;
     background: #fff;
   }

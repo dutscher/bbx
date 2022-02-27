@@ -5,13 +5,12 @@ beer css:
 * altes scss raus hauen
   * vars + colors + components
 * produkte
-  * produkte mit langen text namen? /?tags=mittelalter,star-trek -> mobile 3 zeilig
+  * produkte mit langen text namen? 
+    siehe TODO in Product.svelte
+    /?tags=mittelalter,star-trek -> mobile 3 zeilig
   * produkt tooltip
-    * zubreit ?product=690057
     * rechter bildrand kollision mal wieder kaputt
-    * merklisten
-      * dark icons
-
+    * scrollto
 
 next todos:
 * typescript shortcut import pfade

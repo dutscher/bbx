@@ -129,12 +129,12 @@
         <div class="hearts__list">
           <i
             on:click={() => clickHandleList(listName)}
-            class={hearts[listName].i.includes(product.id) ? 'red-text' : ''}
+            class={hearts[listName].i.includes(product.id) ? 'red-text' : 'black-text'}
           >
             {hearts[listName].i.includes(product.id) ? 'favorite' : 'favorite_border'}
           </i>
           {#if editList !== listName}
-            <i on:click={e => clickEditList(e, listName, hearts[listName].t)}>edit</i>
+            <i on:click={e => clickEditList(e, listName, hearts[listName].t)} class="black-text">edit</i>
             <span>{hearts[listName].t}</span>
           {:else}
             <input
@@ -148,7 +148,7 @@
         </div>
       {/each}
       <div class="hearts__list hearts__list--new">
-        <i>add</i>
+        <i class="black-text">add</i>
         <input type="text" placeholder="Neue Liste" on:keypress={onKeyPress} bind:value={newValue} />
       </div>
     </div>

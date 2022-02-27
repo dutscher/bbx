@@ -84,9 +84,9 @@
     }
 
     if (rightEdgeWithSpace > innerWidth) {
-      leftAdjust = '-' + maxLeft + 'px';
+      leftAdjust = '-' + maxLeft + 'rem';
     } else {
-      leftAdjust = '0px';
+      leftAdjust = '0rem';
     }
   };
 
@@ -112,30 +112,9 @@
     });
   };
 
-  const onClose = event => {
-    event.stopPropagation();
-    storedActiveProduct.update(store => {
-      store.product = {
-        id: 0,
-        type: 'Tooltip',
-      };
-      store.reason = 'close-tooltip';
-      return store;
-    });
-  };
-
-  const setDownload = (downloadUrl, name) => {
-    const link = document.createElement('a');
-    // If you don't know the name or want to use
-    // the webserver default set name = ''
-    link.setAttribute('download', name);
-    link.href = downloadUrl;
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-  };
-
   const scrollIntoView = () => {
+    // TODO: mind header and padding top
+    return;
     const { bottom } = wrapElement.getBoundingClientRect();
 
     if (bottom > window.innerHeight) {
@@ -154,7 +133,11 @@
 
 <div class="product-tooltip{showTooltip ? ' open' : ''}">
   {#if showTooltip}
-    <article class="no-padding border bottom-round right-round" bind:this={wrapElement}>
+    <article
+      class="no-padding border round"
+      bind:this={wrapElement}
+      style="{isMobile ? 'width:' + wrapWidth + 'rem; ' : ''}left:{leftAdjust}"
+    >
       <div>
         <a
           href={data.url + product.href + AFF_LINK}
@@ -206,18 +189,18 @@
             <b>Preis:</b> <span class="tooltip__content">{handlePrice(product)}</span><br />
           {/if}
           {#if product.cats && product.cats.length > 0}
-            <b>Kategorien:</b>
-            <span class="tooltip__content">
+            <b class="tooltip__content--top">Kategorien:</b>
+            <span class="tooltip__content  tooltip__content--cats">
               {#each product.cats as categoryId, i}
                 <span data-divider={i + 1 < product.cats.length && '/'}>
                   {categories[categoryId]}
                 </span>
               {/each}
-              <br />
             </span>
+            <br />
           {/if}
           {#if product.tags && product.tags.length > 0}
-            <b>Tags:</b>
+            <b class="tooltip__content--top">Tags:</b>
             <span class="tooltip__content tooltip__content--no-select tooltip__content--tags">
               {#each product.tags as tagID, i}
                 <a
@@ -277,13 +260,13 @@
     .shop-link {
       z-index: 1;
     }
+
+    [data-divider] {
+      margin-right: 8rem;
+    }
   }
 
   .tooltip {
-    a {
-      display: block;
-    }
-
     &__outer-wrap {
       display: none;
       position: absolute;
@@ -351,15 +334,16 @@
         display: inline-flex;
         flex-wrap: wrap;
       }
-    }
 
-    [data-divider] {
-      margin-right: $space-sm;
-    }
+      &--cats {
+        max-width: 190px;
+        display: inline-flex;
+        flex-wrap: wrap;
+      }
 
-    .inst-link {
-      user-select: none;
-      margin-right: $space-lg;
+      &--top {
+        vertical-align: top;
+      }
     }
   }
 </style>
