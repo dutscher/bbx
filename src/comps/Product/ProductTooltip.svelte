@@ -23,7 +23,7 @@
   let categories: any;
   let tags: any;
 
-  const spaceing: number = 16;
+  const spaceing: number = 32;
   let innerWidth = 0;
   let wrapElement: any;
   let wrapWidth: number;
@@ -113,12 +113,11 @@
   };
 
   const scrollIntoView = () => {
-    // TODO: mind header and padding top
-    return;
-    const { bottom } = wrapElement.getBoundingClientRect();
-
+    const { bottom, height } = wrapElement.getBoundingClientRect();
     if (bottom > window.innerHeight) {
-      wrapElement.scrollIntoView({ behavior: 'smooth' });
+      const header = 64;
+      const newTop = window.pageYOffset + height - header;
+      window.scrollTo({ top: newTop, left: 0, behavior: 'smooth' });
     }
   };
 

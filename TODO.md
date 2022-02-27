@@ -8,9 +8,6 @@ beer css:
   * produkte mit langen text namen? 
     siehe TODO in Product.svelte
     /?tags=mittelalter,star-trek -> mobile 3 zeilig
-  * produkt tooltip
-    * rechter bildrand kollision mal wieder kaputt
-    * scrollto
 
 next todos:
 * typescript shortcut import pfade
@@ -30,7 +27,6 @@ next todos:
   * app reources
 * sort in url
 * filter for hot, new
-* scroll to of tooltip with more padding top  
 * cypress tests
 * warenkorb noise ausblenden
 * history back not going
