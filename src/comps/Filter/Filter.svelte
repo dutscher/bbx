@@ -65,12 +65,14 @@
       class={ess(tab.name === activeTab && 'active')}
       on:click={() => clickTab(tab.name)}
     >
-      {#if tab.name === 'states' && activeStateIds.length > 0}
-        <span class="badge round">{activeStateIds.length}</span>
-      {:else if tab.name === 'tags' && activeTagIds.length > 0}
-        <span class="badge round">{activeTagIds.length}</span>
-      {/if}
-      {tab.title}
+      <span>
+        {tab.title}
+        {#if tab.name === 'states' && activeStateIds.length > 0}
+          <span class="badge round">{activeStateIds.length}</span>
+        {:else if tab.name === 'tags' && activeTagIds.length > 0}
+          <span class="badge round">{activeTagIds.length}</span>
+        {/if}
+      </span>
     </a>
   {/each}
 </div>

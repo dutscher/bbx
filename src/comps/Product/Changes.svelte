@@ -67,8 +67,10 @@
         class={ess(tab.name === activeTab && 'active')}
         on:click={() => clickTab(tab.name)}
       >
-        <span class="badge round">{tab.count}</span>
-        {tab.title}
+        <span>
+          {tab.title}
+          <span class="badge round">{tab.count}</span>
+        </span>
       </a>
     {/each}
   </div>
