@@ -114,7 +114,9 @@
             {title}
           </span>
         {:else}
-          <input type="text" bind:this={input} on:keydown={onKeyDown} on:keypress={onKeyPress} bind:value={editTitle} />
+          <div class="field border small">
+            <input type="text" bind:this={input} on:keydown={onKeyDown} on:keypress={onKeyPress} bind:value={editTitle} />
+          </div>
         {/if}
         <div class="small-text">
           {#if heartItems.length > 1}
