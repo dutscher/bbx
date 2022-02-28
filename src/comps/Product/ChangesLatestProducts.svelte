@@ -2,7 +2,6 @@
   import Product from './Product.svelte';
   import { storedProducts, storedStates } from '../../stores';
   import { ID_STATE_AVAILABLE, ID_STATE_ANNOUNCEMENT, ID_STATE_COMING_SOON } from '../../_interfaces';
-  import Icon from '../Icon.svelte';
 
   export let state: number = ID_STATE_ANNOUNCEMENT;
   export let title: string = '';
@@ -127,7 +126,7 @@
           <label class="checkbox">
             <input type="checkbox" bind:checked={showFirstRelease} />
             <span>
-              <Icon modifier="new" />
+              <i class="yellow-text">star</i>
               Erstveröffentlichung
             </span>
           </label>

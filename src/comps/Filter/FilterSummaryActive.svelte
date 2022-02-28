@@ -1,6 +1,4 @@
 <script lang="ts">
-  import Icon from '../Icon.svelte';
-
   export let label: string = '';
   export let activStr: string = '';
   export let activeIds: any = [];

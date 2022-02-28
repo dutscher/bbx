@@ -25,13 +25,6 @@ const FILES_TO_CACHE = [
   './data/inst.json?cb=1626458022163',
   './build/bundle.js?cb=1626458022163',
   './build/bundle.css?cb=1626458022163',
-  './images/icon-arrow.svg',
-  './images/icon-cart.svg',
-  './images/icon-cross.svg',
-  './images/icon-flame.svg',
-  './images/icon-heart.svg',
-  './images/icon-manual.svg',
-  './images/icon-new.svg',
   './images/color-pearl-gold.jpg',
   './images/color-pearl-gray.jpg',
 ];

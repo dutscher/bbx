@@ -9,7 +9,6 @@
     storedActiveProduct,
   } from '../../stores';
   import { jsVoid, setUrlParams, handlePrice } from '../../utils';
-  import Icon from '../Icon.svelte';
   import ProductHistory from './ProductHistory.svelte';
   import ProductImage from './ProductImage.svelte';
   import ProductHearts from './ProductHearts.svelte';
@@ -143,7 +142,7 @@
           target="_blank"
           class="link large-text bold absolute right bottom small-margin shop-link"
         >
-          <Icon modifier="cart" />
+          <i class="blue-text">shopping_cart</i>
           Zum Shop{!!AFF_LINK ? '*' : ''}
         </a>
         <ProductImage
@@ -221,13 +220,13 @@
               {#if Array.isArray(product.inst)}
                 {#each product.inst as inst}
                   <a class="inst-link link" target="_blank" href={getInstHref(inst)}>
-                    <Icon modifier="manual" />
+                    <i>article</i>
                     {getInstLabel(inst)}
                   </a>
                 {/each}
               {:else}
                 <a class="inst-link link" target="_blank" href={getInstHref(product.inst)}>
-                  <Icon modifier="manual" />
+                  <i>article</i>
                   {getInstLabel(product.inst)}
                 </a>
               {/if}

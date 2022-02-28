@@ -1,6 +1,5 @@
 <script lang="ts">
   import Product from './Product.svelte';
-  import Icon from '../Icon.svelte';
   import { storedProducts, storedStates } from '../../stores';
   import { getLatestStateOfToday, pad, stopClick } from '../../utils';
   import { ID_PARTS } from '../../_interfaces';
@@ -128,13 +127,10 @@
 -->
 
 <article>
-  <h2 class="headline">
-    vom
-    <Icon svg="true" modifier="arrow left" on:click={event => handleDate(event, 'prev')} />
+  <h2 class="headline">Änderungen vom
+    <i on:click={event => handleDate(event, 'prev')}>arrow_back_ios</i>
     <span>{dayStr}</span>
-    {#if !isToday}
-      <Icon svg="true" modifier="arrow" on:click={event => handleDate(event, 'next')} />
-    {/if}
+    <i class="{!isToday ? 'no-opacity' : 'opacity'}" on:click={event => handleDate(event, 'next')}>arrow_forward_ios</i>
   </h2>
   <span class="datepicker">
     <input
