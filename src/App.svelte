@@ -97,7 +97,7 @@
     {#each pages as page}
       <a class={isActive(page.short, activePage)} href={jsVoid} on:click={() => clickTab(page.short)}>
         {#if page.icon === 'home'}
-          <img src="./images/logo.png" alt="Logo" />
+          <img class="logo" src="./images/logo.png" alt="Logo" />
         {:else}
           <i>{page.icon}</i>
         {/if}
@@ -163,6 +163,10 @@
   :global body,
   main {
     height: 100%;
+  }
+
+  .logo {
+    padding: 4rem;
   }
 
   .notice {
