@@ -56,7 +56,7 @@
 </script>
 
 {#if isOnline && loadedChanges !== LOADED}
-  <div class="loader" />
+  <div class="loader center" />
 {:else}
   <p class="small-text">Die Produkte sind nach neustem Veröffentlichungsdatum sortiert</p>
   <div class="tabs">

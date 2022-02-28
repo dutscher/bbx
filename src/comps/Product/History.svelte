@@ -30,7 +30,7 @@
 </script>
 
 {#if isOnline && loadedChanges !== LOADED}
-  <div class="loader" />
+  <div class="loader center" />
 {:else}
   <TodayChanges />
 {/if}
