@@ -29,11 +29,13 @@
     activeStateIds = store.states;
     activeSearchString = store.search;
 
-    if (store.page === 'products' && (store.reason === 'show-tags' || store.reason === 'init-tags-url')) {
+    const reasons = ['init-tags-url', 'show-tags', 'tooltip-tag-clicked'];
+
+    if (store.page === 'products' && reasons.includes(store.reason)) {
       if (store.reason === 'show-tags') {
         newTab = 'tags';
       }
-      if (store.reason === 'init-tags-url') {
+      if (store.reason === 'init-tags-url' || store.reason === 'tooltip-tag-clicked') {
         newTab = '';
       }
       localStore.set(lsPageSettingsKey, store.page);

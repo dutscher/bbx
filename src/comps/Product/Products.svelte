@@ -28,6 +28,7 @@
   let activeStateIds: any = [];
   let activeSearchString: string = '';
   let filteredProducts: any = [];
+  let sortedItems: any = [];
 
   let parts: any;
   let partTypes: any;

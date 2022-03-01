@@ -1,13 +1,10 @@
 beer css:
-* vercel deployment for development?
-* navi bottom?
-  * tabs in url
 * altes scss raus hauen
   * vars + colors + components
 * produkte
-  * produkte mit langen text namen? 
-    siehe TODO in Product.svelte
-    /?tags=mittelalter,star-trek -> mobile 3 zeilig
+  * modal mit mehr images
+  * youtube videos
+  * teileliste pdf
 
 next todos:
 * typescript shortcut import pfade

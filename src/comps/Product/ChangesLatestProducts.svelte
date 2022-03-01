@@ -4,7 +4,6 @@
   import { ID_STATE_AVAILABLE, ID_STATE_ANNOUNCEMENT, ID_STATE_COMING_SOON } from '../../_interfaces';
 
   export let state: number = ID_STATE_ANNOUNCEMENT;
-  export let title: string = '';
   export let onCounterAvailable: any = () => {};
 
   let products: any;

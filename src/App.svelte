@@ -3,7 +3,7 @@
   import 'beercss';
   import { ApolloClient, InMemoryCache } from '@apollo/client';
   import { setClient } from 'svelte-apollo';
-  import { getUrlParam, jsVoid } from './utils';
+  import { getUrlParam, jsVoid, setUrlParams } from './utils';
   import { loadMovieData, loadHistoryData, storedActiveSelection, storedHearts, localStore } from './stores';
   import {
     ID_MANHATTAN,
@@ -39,13 +39,13 @@
   let loadedData: any;
   let hearts: any;
   const pages = [
-    { short: 'welcome', icon: 'home', title: 'Home' },
+    { short: 'home', icon: 'home', title: 'Home' },
     { short: 'hearts', icon: 'favorite', title: 'Merkliste' },
     { short: 'products', icon: 'category', title: 'Produkte' },
     { short: 'changes', icon: 'star_rate', title: 'Status' },
     { short: 'history', icon: 'schedule', title: 'Aktuelles' },
   ];
-  const defaultPage = localStore.getRaw(lsPageSettingsKey) || 'welcome';
+  const defaultPage = localStore.getRaw(lsPageSettingsKey) || 'home';
   let nextPage: any;
 
   storedActiveSelection.subscribe(store => {
@@ -54,6 +54,8 @@
 
     if (!!store.page) {
       nextPage = store.page;
+      setUrlParams('page', store.page);
+      localStore.set(lsPageSettingsKey, store.page);
     }
 
     // load movie data
@@ -74,8 +76,11 @@
   const isActive = page => (page === activePage ? 'active' : '');
 
   const clickTab = page => {
-    nextPage = page;
-    localStore.set(lsPageSettingsKey, page);
+    storedActiveSelection.update(store => {
+      store.page = page;
+      store.reason = 'click-navigation';
+      return store;
+    });
   };
 
   $: activePage = nextPage || defaultPage;
@@ -116,7 +121,7 @@
   <Darkmode />
 
   {#if loadedData.history === LOADED}
-    <Page name="welcome" {activePage} {isActive}>
+    <Page name="home" {activePage} {isActive}>
       <Welcome />
       <Support />
       <News />
@@ -166,7 +171,18 @@
   }
 
   .logo {
+    height: 24rem;
     padding: 4rem;
+    margin: 0 12rem 4rem 12rem;
+    display: inline-block;
+    transition: var(--speed1) padding linear;
+    border-radius: 32rem;
+
+    :global .active & {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      padding: 4rem 16rem;
+    }
   }
 
   .notice {

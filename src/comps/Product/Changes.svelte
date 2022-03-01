@@ -13,9 +13,9 @@
   let isOnline = false;
   let activeTab: string = 'available';
   const tabsStore = writable([
-    { id: 0, name: 'available', title: 'Verfügbar', count: 0 },
-    { id: 1, name: 'coming_soon', title: 'Bald erhältlich', count: 0 },
-    { id: 3, name: 'announcement', title: 'Ankündigungen', count: 0 },
+    { id: 0, name: 'available', color: 'blue', title: 'Verfügbar', count: 0 },
+    { id: 1, name: 'coming_soon', color: 'green', title: 'Bald erhältlich', count: 0 },
+    { id: 3, name: 'announcement', color: 'orange', title: 'Ankündigungen', count: 0 },
   ]);
   let tabs = [];
 
@@ -68,7 +68,11 @@
         on:click={() => clickTab(tab.name)}
       >
         <span>
-          {tab.title}
+          <span class="s">
+            <i class="{tab.color}-text">fiber_manual_record</i>
+            <div class="tooltip bottom">{tab.title}</div>
+          </span>
+          <span class="m l">{tab.title}</span>
           <span class="badge round">{tab.count}</span>
         </span>
       </a>

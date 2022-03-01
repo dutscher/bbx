@@ -147,16 +147,15 @@
 
 <ClickOutside on:clickoutside={onClickOutside}>
   <div class="product" data-state={handleStateName(product)}>
-    <!--TODO: productTitle.length > 25 && 'large'-->
-    <span class={ess(['chip small round no-margin white-text', stateColor])} on:click={onClick}>
+    <span class={ess(['chip large round no-margin white-text', stateColor])} on:click={onClick}>
       {#if isHeart && !type.startsWith('hearts')}
-        <i class={stateColor === 'red' ? 'orange-text' : 'red-text'}>favorite</i>&nbsp;
+        <i class={stateColor === 'red' ? 'orange-text' : 'red-text'}>favorite</i>
       {/if}
       {#if (product.isNew || product.isNewSoon) && !isHeart}
-        <i class="yellow-text">star</i>&nbsp;
+        <i class="yellow-text">star</i>
       {/if}
       {#if product.isHot && !isHeart}
-        <i class="orange-text">local_fire_department</i>&nbsp;
+        <i class="orange-text">local_fire_department</i>
       {/if}
       {productTitle}
       {#if type === 'products' && product.movieData && activeTagsIds.includes(ID_MOVIE)}
@@ -175,6 +174,11 @@
   .product {
     user-select: none;
     cursor: pointer;
+
+    i {
+      overflow: inherit;
+      margin-right: 4rem;
+    }
 
     &__label {
       display: block;

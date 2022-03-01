@@ -127,10 +127,13 @@
 -->
 
 <article>
-  <h2 class="headline">Änderungen vom
-    <i on:click={event => handleDate(event, 'prev')}>arrow_back_ios</i>
-    <span>{dayStr}</span>
-    <i class="{!isToday ? 'no-opacity' : 'opacity'}" on:click={event => handleDate(event, 'next')}>arrow_forward_ios</i>
+  <h2 class="headline">
+    <span>vom</span>
+    <i class="prev-day" on:click={event => handleDate(event, 'prev')}>arrow_back_ios</i>
+    <span class="day-str">{dayStr}</span>
+    {#if !isToday}
+      <i on:click={event => handleDate(event, 'next')}>arrow_forward_ios</i>
+    {/if}
   </h2>
   <span class="datepicker">
     <input
@@ -172,15 +175,22 @@
   .headline {
     user-select: none;
 
-    span {
+    span.day-str {
       width: 45rem;
       text-align: center;
     }
 
-    :global .icon {
-      font-size: ms(1);
-      vertical-align: middle;
-      margin: 0 $space-xl;
+    i {
+      margin: 0 0 0 8rem;
+
+      &.prev-day {
+        margin: 0 0 0 16rem;
+      }
+
+      &:hover {
+        color: var(--primary);
+        cursor: pointer;
+      }
     }
   }
 

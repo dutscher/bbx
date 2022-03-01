@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { storedActiveSelection, storedPartTypes, storedProducts, storedFilteredProducts } from '../../../stores';
-  import { getUrlParam, setUrlParams, titleMatch, ess } from '../../../utils';
+  import { getUrlParam, setUrlParams, titleMatch, ess, jsVoid } from '../../../utils';
   import { ID_PARTS } from '../../../_interfaces';
 
   export let activePartTypeIds: any = [];
@@ -98,6 +98,7 @@
         data-id={part.id}
         on:click={() => clickItem(part, true)}
         title={part.name}
+        href={jsVoid}
       >
         <span class="badge round">{part.count}</span>
         <span>

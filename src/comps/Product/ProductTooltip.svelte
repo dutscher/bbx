@@ -101,6 +101,7 @@
       if (!store.tags.includes(tagID)) {
         store.tags.push(tagID);
         store.reason = 'tooltip-tag-clicked';
+        store.page = 'products';
 
         setUrlParams(
           'tags',
@@ -142,7 +143,7 @@
           target="_blank"
           class="link large-text bold absolute right bottom small-margin shop-link"
         >
-          <i class="blue-text">shopping_cart</i>
+          <i>shopping_cart</i>
           Zum Shop{!!AFF_LINK ? '*' : ''}
         </a>
         <ProductImage
@@ -250,6 +251,12 @@
     position: absolute;
     white-space: nowrap;
     z-index: 2;
+
+    .link {
+      i {
+        color: var(--primary);
+      }
+    }
 
     article {
       background-color: var(--surface-variant);

@@ -79,7 +79,7 @@
         <span
           class={ess([
             'chip small round no-margin',
-            activeTagIds.includes(tag.id) ? 'primary' : IDS_SPECIAL_TAGS.includes(tag.id) ? 'tertiary' : 'secondary',
+            activeTagIds.includes(tag.id) ? 'red' : IDS_SPECIAL_TAGS.includes(tag.id) ? 'tertiary' : 'secondary',
           ])}
           on:click={() => clickTag(tag, true)}
           data-id={tag.id}
