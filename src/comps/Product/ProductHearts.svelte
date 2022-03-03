@@ -166,6 +166,7 @@
   .hearts {
     position: relative;
     display: inline-block;
+    line-height: 26rem;
 
     &__flyout {
       color: $color-black;

@@ -148,16 +148,18 @@
 <ClickOutside on:clickoutside={onClickOutside}>
   <div class="product" data-state={handleStateName(product)}>
     <span class={ess(['chip large round no-margin white-text', stateColor])} on:click={onClick}>
-      {#if isHeart && !type.startsWith('hearts')}
-        <i class={stateColor === 'red' ? 'orange-text' : 'red-text'}>favorite</i>
-      {/if}
-      {#if (product.isNew || product.isNewSoon) && !isHeart}
-        <i class="yellow-text">star</i>
-      {/if}
-      {#if product.isHot && !isHeart}
-        <i class="orange-text">local_fire_department</i>
-      {/if}
-      {productTitle}
+      <span>
+        {#if isHeart && !type.startsWith('hearts')}
+          <i class={stateColor === 'red' ? 'orange-text' : 'red-text'}>favorite</i>
+        {/if}
+        {#if (product.isNew || product.isNewSoon) && !isHeart}
+          <i class="yellow-text">star</i>
+        {/if}
+        {#if product.isHot && !isHeart}
+          <i class="orange-text">local_fire_department</i>
+        {/if}
+        {productTitle}
+      </span>
       {#if type === 'products' && product.movieData && activeTagsIds.includes(ID_MOVIE)}
         <span class="product__movie">{product.movieData}</span>
       {/if}
@@ -180,15 +182,17 @@
       margin-right: 4rem;
     }
 
-    &__label {
-      display: block;
+    .chip {
+      flex-direction: column;
     }
 
     &__movie {
+      align-self: flex-end;
       display: block;
       font-size: ms(-1);
       position: relative;
       top: -3px;
+      margin-left: 0 !important;
 
       @media (min-width: 750px) {
         font-size: ms(-3);

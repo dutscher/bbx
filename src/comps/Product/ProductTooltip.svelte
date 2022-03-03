@@ -1,14 +1,8 @@
 <script lang="ts">
   import { AFF_LINK } from '../../_interfaces';
-  import {
-    storedGlobalData,
-    storedCategories,
-    storedTags,
-    storedStates,
-    storedActiveSelection,
-    storedActiveProduct,
-  } from '../../stores';
+  import { storedGlobalData, storedCategories, storedTags, storedStates, storedActiveSelection } from '../../stores';
   import { jsVoid, setUrlParams, handlePrice } from '../../utils';
+  import { loadProductData } from '../../stores';
   import ProductHistory from './ProductHistory.svelte';
   import ProductImage from './ProductImage.svelte';
   import ProductHearts from './ProductHearts.svelte';
@@ -123,6 +117,9 @@
 
   $: {
     if (wrapElement) {
+      if (showTooltip) {
+        loadProductData(product);
+      }
       handleLeftAdjust(wrapElement, showTooltip);
     }
   }
@@ -138,14 +135,16 @@
       style="{isMobile ? 'width:' + wrapWidth + 'rem; ' : ''}left:{leftAdjust}"
     >
       <div>
-        <a
-          href={data.url + product.href + AFF_LINK}
-          target="_blank"
-          class="link large-text bold absolute right bottom small-margin shop-link"
-        >
-          <i>shopping_cart</i>
-          Zum Shop{!!AFF_LINK ? '*' : ''}
-        </a>
+        {#if imageLoaded}
+          <a
+            href={data.url + product.href + AFF_LINK}
+            target="_blank"
+            class="link large-text bold absolute right bottom small-margin shop-link"
+          >
+            <i>shopping_cart</i>
+            Zum Shop{!!AFF_LINK ? '*' : ''}
+          </a>
+        {/if}
         <ProductImage
           {product}
           onLoad={() => {
@@ -187,6 +186,8 @@
           {#if !!product.price}
             <b>Preis:</b> <span class="tooltip__content">{handlePrice(product)}</span><br />
           {/if}
+          {#if product.designer}<b>Designer:</b> <span class="tooltip__content">{product.designer}</span><br />{/if}
+          {#if product.size}<b>Maße:</b> <span class="tooltip__content">{product.size}</span><br />{/if}
           {#if product.cats && product.cats.length > 0}
             <b class="tooltip__content--top">Kategorien:</b>
             <span class="tooltip__content  tooltip__content--cats">
@@ -264,6 +265,7 @@
 
     .shop-link {
       z-index: 1;
+      text-shadow: 0 0 5px #ffffff;
     }
 
     [data-divider] {
@@ -306,6 +308,7 @@
       font-size: ms(1);
       display: block;
       margin-bottom: $space-xs;
+      line-height: 18rem;
     }
 
     &__title-wrap {

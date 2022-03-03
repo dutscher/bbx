@@ -13,14 +13,14 @@
 
 <div>
   <h2>Support & Partner</h2>
-  <div class="row small-space">
+  <div class="row small-space middle-align">
     <div class="col s12 m6">
       <div class="center-align">
         {@html kofi}
       </div>
     </div>
     <div class="col s12 m6">
-      <div class="center-align">
+      <div class="center-align middle-align">
         <!--
             Paypal Kaffeekasse
             <form action="https://www.paypal.com/donate" method="post" target="_top">

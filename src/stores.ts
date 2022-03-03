@@ -17,6 +17,7 @@ export { loadChanges } from './stores/api/changes';
 export { loadMovieData } from './stores/api/movie-data';
 export { loadInstData } from './stores/api/inst-data';
 export { loadHistoryData } from './stores/api/history-data';
+export { loadProductData } from './stores/api/product-data';
 
 import { serviceWorkerSvelteSyncer } from './stores/service-worker';
 

@@ -1,4 +1,10 @@
-import { ID_STATE_ANNOUNCEMENT, ID_STATE_AVAILABLE, ID_STATE_COMING_SOON, ID_STATE_UNAVAILABLE } from './_interfaces';
+import {
+  API,
+  ID_STATE_ANNOUNCEMENT,
+  ID_STATE_AVAILABLE,
+  ID_STATE_COMING_SOON,
+  ID_STATE_UNAVAILABLE,
+} from './_interfaces';
 import {
   pad as pad_,
   isDST as isDST_,
@@ -118,7 +124,7 @@ export function getLatestStateOfToday(product, compareDate) {
 }
 
 export const graphql = async query => {
-  return await fetch('https://api.bbx.watch/api/graphql', {
+  return await fetch(`${API}/api/graphql`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
