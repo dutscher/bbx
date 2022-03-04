@@ -189,7 +189,8 @@
   [
     "Western",
     "Sheriffs",
-    "General Store"
+    "General Store",
+    "Indianer"
   ],
   [
     "Fachwerk",
@@ -473,7 +474,10 @@
   ],
   [
     "Elektro Komponenten",
+    "Empfänger",
+    "Fernbedienung",
     "Fernbedienung Generation 2",
+    "Fernbedienung mit Fahrstufen Generation 2",
     "Empfänger mit Akku-Box Generation 2",
     "Polumschalter",
     "Licht-Einheit",
