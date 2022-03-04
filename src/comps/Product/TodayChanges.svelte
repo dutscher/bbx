@@ -3,6 +3,8 @@
   import { storedProducts, storedStates } from '../../stores';
   import { getLatestStateOfToday, pad, stopClick } from '../../utils';
   import { ID_PARTS } from '../../_interfaces';
+  import {onMount} from "svelte";
+  import {beerui} from "../../beerui";
 
   let products: any;
   let states: any;
@@ -19,6 +21,10 @@
   let selectedDateMin: string = '2021-04-30';
   let selectedDateMax: string = '';
   const days = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+
+  onMount(() => {
+    beerui();
+  });
 
   storedProducts.subscribe(store => (products = store));
   storedStates.subscribe(store => (states = store));
@@ -128,14 +134,14 @@
 
 <article>
   <h2 class="headline">
-    <span>vom</span>
+    <span>Status vom</span>
     <i class="prev-day" on:click={event => handleDate(event, 'prev')}>arrow_back_ios</i>
     <span class="day-str">{dayStr}</span>
     {#if !isToday}
       <i on:click={event => handleDate(event, 'next')}>arrow_forward_ios</i>
     {/if}
   </h2>
-  <span class="datepicker">
+  <div class="field suffix border">
     <input
       type="date"
       min={selectedDateMin}
@@ -143,10 +149,11 @@
       bind:value={selectedDate}
       on:click={event => event.stopPropagation()}
     />
-  </span>
+    <i>today</i>
+  </div>
 </article>
 
-<div class="changes">
+<article class="changes border">
   <div class="field middle-align">
     <nav class="wrap">
       <label class="checkbox">
@@ -167,7 +174,7 @@
       {/each}
     {/if}
   </div>
-</div>
+</article>
 
 <style lang="scss">
   @import '../../scss/variables';
@@ -191,29 +198,6 @@
         color: var(--primary);
         cursor: pointer;
       }
-    }
-  }
-
-  .datepicker {
-    @media (max-width: 600px) {
-      display: block;
-      padding-left: $space-xl * 2;
-    }
-
-    input {
-      vertical-align: middle;
-      font-family: inherit;
-      position: relative;
-      color: $color-black;
-    }
-  }
-
-  .changes {
-    margin-bottom: $space-xl;
-
-    label {
-      user-select: none;
-      cursor: pointer;
     }
   }
 </style>
