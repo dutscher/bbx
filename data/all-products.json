@@ -9873,6 +9873,84 @@
     "ie": 0
   },
   {
+    "ti": "Star Trek Romulan D´deridex Warbird",
+    "id": 104559,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 266,
+    "pr": 0,
+    "ie": 0
+  },
+  {
+    "ti": "Star Trek USS Reliant NCC-1864",
+    "id": 104561,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 137,
+    "pr": 0,
+    "ie": 0
+  },
+  {
+    "ti": "Star Trek USS Enterprise NCC-1701-A",
+    "id": 104562,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 106,
+    "pr": 0,
+    "ie": 0
+  },
+  {
+    "ti": "Star Trek Klingon K´Tinga Schlachtkreuzer",
+    "id": 104565,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 259,
+    "pr": 0,
+    "ie": 0
+  },
+  {
+    "ti": "Star Trek Earth Spacedock",
+    "id": 104566,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 124,
+    "pr": 0,
+    "ie": 0
+  },
+  {
+    "ti": "Star Trek USS Defiant NX-74205",
+    "id": 104567,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 238,
+    "pr": 0,
+    "ie": 0
+  },
+  {
     "ti": "Lokomotive BR 146 weiß rot",
     "id": 104594,
     "ca": [
