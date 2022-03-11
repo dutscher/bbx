@@ -132,7 +132,7 @@
 
     &:hover,
     &.active {
-      outline: 2px solid $color-primary-darker;
+      outline: 2px solid var(--on-surface);
     }
 
     &.disabled {

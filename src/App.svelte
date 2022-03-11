@@ -206,7 +206,6 @@
   }
 
   :global body {
-    font-family: $font-family;
     font-size: $base-font-size;
     overflow-y: scroll;
     margin: 0;

@@ -161,22 +161,3 @@
     </div>
   </div>
 {/if}
-
-<style lang="scss">
-  @import '../../scss/variables';
-
-  .changes {
-    .new-month {
-      display: block;
-      flex-wrap: wrap;
-    }
-
-    margin-bottom: $space-xl;
-
-    label {
-      user-select: none;
-      cursor: pointer;
-      color: $color-primary-light;
-    }
-  }
-</style>

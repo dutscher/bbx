@@ -294,14 +294,6 @@
       }
     }
 
-    &__wrap {
-      background: $color-primary;
-      box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
-      padding: $space-md;
-      border-radius: $border-radius;
-      min-width: 250px;
-    }
-
     // break headline which is longer as tooltip
     &__title {
       white-space: normal;
