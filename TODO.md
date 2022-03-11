@@ -6,6 +6,9 @@ beer css:
   * youtube videos
   * teileliste pdf
 
+ui todos:
+* reset-all filter button
+
 next todos:
 * typescript shortcut import pfade
 * wo ist neuschwanstein 101887 ?
