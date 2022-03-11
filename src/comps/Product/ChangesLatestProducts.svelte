@@ -133,7 +133,7 @@
         {#if state !== ID_STATE_AVAILABLE}
           <label class="checkbox">
             <input type="checkbox" bind:checked={reverseSort} />
-            <span>Neuste zuerst</span>
+            <span>Neueste zuerst</span>
           </label>
           <label class="checkbox">
             <input type="checkbox" bind:checked={showParts} />
