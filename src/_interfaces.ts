@@ -1,13 +1,11 @@
-/*
- Die ausgehenden Links "Zum Shop" von jedem Produkt sind mit einen Affiliate Link versehen.
- Mit einem Klick und anschließendem Kauf unterstütz du dieses Projekt.
-
- Wir selbst dürfen noch kein Partner von Bluebrixx sein daher bekommt temporär noppensteinnews die Provision.
- Dies ist der Fall weil ich zu Gast im Podcast über dieses Projekt sprechen durfte.
- https://noppensteinnews.de/2022/01/30/klemmbaustein-podcast-bluebrixx-watcher/
- */
-export const AFF_LINK = '?aff=wrhjxrxb';
-
+// Die ausgehenden Links "Zum Shop" von jedem Produkt sind mit einen Affiliate Link versehen.
+// Mit einem Klick und anschließendem Kauf unterstütz du dieses Projekt.
+// Wir selbst dürfen noch kein Partner von Bluebrixx sein daher bekommt temporär noppensteinnews die Provision.
+// Dies ist der Fall weil ich zu Gast im Podcast über dieses Projekt sprechen durfte
+//
+// Ihr könnt trotzdem noch hier rüber https://www.bluebrixx.com/?aff=wrhjxrxb noppensteinnews supporten ;)
+// Mir wurde es untersagt den Code hier einzubinden.
+export const AFF_LINK = ''; //'?aff=wrhjxrxb';
 // ID Stuff
 export const ID_MANHATTAN = 17;
 export const STR_MANHATTAN = 'Manhattan';
