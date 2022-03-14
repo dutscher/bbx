@@ -24,7 +24,7 @@
     "Fire_Rescue",
     "Seagrave",
     "Pierce",
-    "Spartan",
+    "Spartan ERV Pumper",
     "Technisches Hilfswerk",
     "Rettungswagen",
     [
@@ -120,7 +120,9 @@
   [
     "Signale",
     "Signal",
-    ["Signalman"]
+    [
+      "Signalman"
+    ]
   ],
   [
     "Lok",
@@ -264,10 +266,11 @@
     "Display",
     "Ruine",
     "Autobahnabschnitt",
-    "Geschichte des Fliegens"
+    "Geschichte des Fliegens",
+    "Der Hai-Angriff"
   ],
   [
-    "Micro",
+    "Micro Scale",
     "Le Mont",
     "Reichstag",
     "Neuschwanstein",
@@ -275,7 +278,8 @@
     "Messeturm",
     "Commerzbank",
     "Talmberg",
-    "Hamburger"
+    "Hamburger",
+    "Forum Romanum"
   ],
   [
     "Film Modelle",
@@ -425,7 +429,10 @@
     "Strand Abschnitt"
   ],
   "Rheingold",
-  "8w",
+  [
+    "8w",
+    "Netz Instandhaltung BR 701"
+  ],
   [
     "Brickbar",
     "Stück",
@@ -450,7 +457,9 @@
   ],
   [
     "Schiffe",
-    "ships"
+    "ships",
+    "Gorch Forck",
+    "Galeone"
   ],
   [
     "Sontiges",
@@ -503,5 +512,9 @@
     [
       "Weiche"
     ]
+  ],
+  [
+    "Helme",
+    "Helm"
   ]
 ]

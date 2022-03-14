@@ -4,6 +4,8 @@
     * youtube videos
     * more images
     * part list
+  * add new tags to new announced products  
+  * removed affiliate code from nsn
   
 * [20.02.2022]
   * service worker caching optimzied
