@@ -2,7 +2,7 @@
 // Mit einem Klick und anschließendem Kauf unterstütz du dieses Projekt.
 // Wir selbst düfen noch kein Partner von Bluebrixx sein daher bekommt temporär noppensteinnews die Provision.
 // Die ist der Fall weil ich zu Gast im Podcast über dieses Projekt sprechen durfte
-export const AFF_LINK = '?aff=wrhjxrxb';
+export const AFF_LINK = ''; //'?aff=wrhjxrxb';
 // ID Stuff
 export const ID_MANHATTAN = 17;
 export const STR_MANHATTAN = 'Manhattan';

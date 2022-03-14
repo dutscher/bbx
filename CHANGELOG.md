@@ -1,3 +1,10 @@
+* [21.02. - 14.03.2022]
+  * new design with beercss
+  * new api integrated
+    * youtube videos
+    * more images
+    * part list
+  
 * [20.02.2022]
   * service worker caching optimzied
   * new news toggle with iframes
