@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import ChipLetter from '../Atoms/ChipLetter.svelte';
+  import ChipLetter from './ChipLetter.svelte';
   import { storedActiveSelection, storedTags } from '../../stores';
   import { getUrlParam, setUrlParams, ess } from '../../utils';
   import { IDS_SPECIAL_TAGS, urlKeyTags } from '../../_interfaces';

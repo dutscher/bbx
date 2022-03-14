@@ -73,7 +73,11 @@
   const getUrlParams = () => {
     const allParams = getAllUrlParams();
     const queryProductId = getUrlParam(urlParam);
-    if (Object.keys(allParams).length === 1 && !!queryProductId) {
+    if (
+      !Object.keys(allParams).includes('search') &&
+      Object.keys(allParams).some(param => ['page', 'product'].includes(param)) &&
+      !!queryProductId
+    ) {
       // close all toggles
       localStore.visibility('reset');
       // update search for product

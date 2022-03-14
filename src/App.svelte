@@ -178,7 +178,8 @@
     transition: var(--speed1) padding linear;
     border-radius: 32rem;
 
-    :global .active & {
+    :global .active &,
+    &:hover {
       background-color: var(--primary);
       color: var(--on-primary);
       padding: 4rem 16rem;

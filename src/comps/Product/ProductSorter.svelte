@@ -59,7 +59,7 @@
 
 {#if filteredProducts.withFilter.length > 0}
   <div class="flex flex--gap flex--inline flex--vertical-center flex--wrap filter">
-    <b>Sortieren:</b>
+    <b>| Sortieren:</b>
     {#each sorter as item}
       <a href={jsVoid} class="link" on:click={() => clickSort(item)}>
         {item.split(':')[0]}

@@ -134,17 +134,15 @@
       bind:this={wrapElement}
       style="{isMobile ? 'width:' + wrapWidth + 'rem; ' : ''}left:{leftAdjust}"
     >
-      <div>
-        {#if imageLoaded}
-          <a
-            href={data.url + product.href + AFF_LINK}
-            target="_blank"
-            class="link large-text bold absolute right bottom small-margin shop-link"
-          >
-            <i>shopping_cart</i>
-            Zum Shop{!!AFF_LINK ? '*' : ''}
-          </a>
-        {/if}
+      <div class="top">
+        <a
+          href={data.url + product.href + AFF_LINK}
+          target="_blank"
+          class="link large-text bold absolute right bottom small-margin shop-link white-text"
+        >
+          <i>shopping_cart</i>
+          Zum Shop{!!AFF_LINK ? '*' : ''}
+        </a>
         <ProductImage
           {product}
           onLoad={() => {
@@ -190,7 +188,7 @@
           {#if product.size}<b>Maße:</b> <span class="tooltip__content">{product.size}</span><br />{/if}
           {#if product.cats && product.cats.length > 0}
             <b class="tooltip__content--top">Kategorien:</b>
-            <span class="tooltip__content  tooltip__content--cats">
+            <span class="tooltip__content tooltip__content--cats">
               {#each product.cats as categoryId, i}
                 <span data-divider={i + 1 < product.cats.length && '/'}>
                   {categories[categoryId]}
@@ -249,9 +247,15 @@
   @import '../../scss/variables';
 
   .product-tooltip {
+    cursor: default;
     position: absolute;
     white-space: nowrap;
     z-index: 2;
+
+    .top {
+      height: 130rem;
+      overflow: hidden;
+    }
 
     .link {
       i {
@@ -265,7 +269,23 @@
 
     .shop-link {
       z-index: 1;
-      text-shadow: 0 0 5px #ffffff;
+
+      i {
+        color: var(--white-text);
+      }
+
+      &:before {
+        content: '';
+        background: transparent;
+        background: linear-gradient(0, rgb(99, 98, 98) 0%, rgba(255, 255, 255, 0) 80%);
+        position: absolute;
+        z-index: -1;
+        left: -200rem;
+        right: -100rem;
+        top: -30rem;
+        bottom: -40rem;
+        transform: rotate(345deg);
+      }
     }
 
     [data-divider] {
@@ -274,24 +294,8 @@
   }
 
   .tooltip {
-    &__outer-wrap {
-      display: none;
-      position: absolute;
-      top: -2px;
-      left: 0;
-      font-size: ms(0);
-      overflow: hidden;
-
-      @media (min-width: 750px) {
-        font-size: ms(-2);
-      }
-
-      z-index: 2;
-
-      .open & {
-        display: block;
-        padding-bottom: $space-xl;
-      }
+    &__title-wrap {
+      padding-right: $space-lg * 2.5;
     }
 
     // break headline which is longer as tooltip
@@ -301,16 +305,6 @@
       display: block;
       margin-bottom: $space-xs;
       line-height: 18rem;
-    }
-
-    &__title-wrap {
-      padding-right: $space-lg * 2.5;
-    }
-
-    &__close {
-      position: absolute;
-      right: $space-sm;
-      top: $space-sm;
     }
 
     &__content {

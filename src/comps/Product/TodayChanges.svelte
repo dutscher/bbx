@@ -3,8 +3,8 @@
   import { storedProducts, storedStates } from '../../stores';
   import { getLatestStateOfToday, pad, stopClick } from '../../utils';
   import { ID_PARTS } from '../../_interfaces';
-  import {onMount} from "svelte";
-  import {beerui} from "../../beerui";
+  import { onMount } from 'svelte';
+  import { beerui } from '../../beerui';
 
   let products: any;
   let states: any;
@@ -199,5 +199,9 @@
         cursor: pointer;
       }
     }
+  }
+
+  .field {
+    width: 250rem;
   }
 </style>

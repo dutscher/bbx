@@ -70,6 +70,6 @@
       on:keyup={({ target: { value } }) => debounce(value)}
       spellcheck="false"
     />
-    <label for="search">Suche nach Produkt oder ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <label for="search">Suche nach Produkt oder ID</label>
   </div>
 </article>
