@@ -1,5 +1,6 @@
 /node_modules/
 /public/build/
+/data/partlist
 /data/cache
 /data/fetch
 /data/inst

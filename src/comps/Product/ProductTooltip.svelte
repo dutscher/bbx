@@ -7,7 +7,7 @@
     storedActiveSelection,
     loadProductData,
   } from '../../stores';
-  import { jsVoid, setUrlParams, handlePrice } from '../../utils';
+  import { jsVoid, setUrlParams, handlePrice, ess } from '../../utils';
   import ProductHistory from './ProductHistory.svelte';
   import ProductStage from './ProductStage.svelte';
   import ProductHearts from './ProductHearts.svelte';
@@ -15,13 +15,13 @@
   export let product: any;
   export let states: any;
   export let showTooltip: boolean = true;
-  export let stageLoaded: boolean = false;
 
   let data: any;
+
   let categories: any;
   let tags: any;
-
   const spaceing: number = 32;
+
   let innerWidth = 0;
   let wrapElement: any;
   let wrapWidth: number;
@@ -135,7 +135,7 @@
 
 <svelte:window bind:innerWidth />
 
-<div class="product-tooltip{showTooltip ? ' open' : ''}">
+<div class={ess('product-tooltip absolute', showTooltip && 'open')}>
   {#if showTooltip}
     <article
       class="no-padding border round"
@@ -146,7 +146,6 @@
         <ProductStage
           {product}
           onLoad={() => {
-            stageLoaded = true;
             scrollIntoView();
           }}
         />
@@ -251,11 +250,6 @@
     position: absolute;
     white-space: nowrap;
     z-index: 2;
-
-    .top {
-      height: 150rem;
-      overflow: hidden;
-    }
 
     .link {
       i {

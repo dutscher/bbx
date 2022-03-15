@@ -11,16 +11,16 @@
     <u>{label}:</u>&nbsp;
     {#if !!activStr}
       <span class="filter__item link" on:click={e => onClick(e, 'search')}>
-        <i class="small" on:click={e => onClick(e, 'search')}>delete</i>
+        <i class="small primary-text" on:click={e => onClick(e, 'search')}>delete</i>
         <span>"{activStr}"</span>
-        <div class="tooltip">Lösche Suche</div>
+        <div class="tooltip bottom small-margin">lösche "{activStr}"</div>
       </span>
     {:else if activeIds.length > 0}
       {#each activeIds as itemId}
         <span class="filter__item link" on:click={e => onClick(e, itemId)}>
-          <i class="small">delete</i>
+          <i class="small primary-text">delete</i>
           <span>{store.filter(item => item.id === itemId)[0].de}</span>
-          <div class="tooltip">Lösche Filter</div>
+          <div class="tooltip bottom small-margin">lösche Filter</div>
         </span>
       {/each}
     {/if}
@@ -32,10 +32,6 @@
 
   .filter {
     margin-left: $space-lg;
-
-    &__item {
-      cursor: pointer;
-    }
 
     &__item:not(:last-child) {
       margin-right: $space-md;

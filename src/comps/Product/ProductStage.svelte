@@ -1,7 +1,7 @@
 <script lang="ts">
   import { AFF_LINK } from '../../_interfaces';
   import { internetConnection, storedGlobalData } from '../../stores';
-  import { ess } from '../../utils';
+  import { ess, stopClick } from '../../utils';
 
   export let product: any;
   export let onLoad = () => {};
@@ -9,6 +9,7 @@
   let isOnline: boolean = false;
   let data: any;
 
+  let imageLoaded: boolean = false;
   let imageSrc: string = '';
   let imageIndex = 0;
   let images: any;
@@ -20,22 +21,33 @@
 
   const setIndex = index => {
     videoVisible = false;
+    imageLoaded = false;
     imageIndex = index;
   };
 
-  const goBack = () => {
-    if (imageIndex >= 0) {
+  const goBack = e => {
+    stopClick(e);
+    if (imageIndex > 0) {
+      imageLoaded = false;
       imageIndex--;
     }
   };
 
-  const goFurther = () => {
-    if (imageIndex < images.length) {
+  const goFurther = e => {
+    stopClick(e);
+    if (imageIndex < images.length - 1) {
+      imageLoaded = false;
       imageIndex++;
     }
   };
 
+  const onImageLoaded = () => {
+    imageLoaded = true;
+    onLoad();
+  };
+
   const showVideo = () => {
+    imageLoaded = true;
     videoVisible = !videoVisible;
   };
 
@@ -50,12 +62,34 @@
   }
 </script>
 
+<div class="stage">
+  {#if isOnline && !!imageSrc}
+    {#if !imageLoaded}
+      <a class="absolute front loader medium small-margin" />
+    {/if}
+
+    {#if !videoVisible}
+      <img class="top-round" src={imageSrc} on:load={() => onImageLoaded()} alt={product.title} width="100%" />
+    {:else}
+      <iframe
+        class="top-round"
+        width="100%"
+        src={video}
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      />
+    {/if}
+  {/if}
+</div>
+
 {#if isOnline && !!imageSrc}
-  <div class={ess('navi absolute bottom front center small-margin small-text bold', videoVisible && 'video-active')}>
-    <span on:click={() => goBack()}>
+  <div class="navi flex flex--horizontal-center front small-margin small-text bold">
+    <span on:click={goBack}>
       <i class={ess((imageIndex === 0 || videoVisible) && 'disable')}>arrow_back_ios</i>
       {#if !videoVisible}
-        <div class="tooltip top">Vorheriges Bild</div>
+        <div class="tooltip bottom small-margin">Vorheriges Bild</div>
       {/if}
     </span>
 
@@ -66,41 +100,31 @@
     {/each}
 
     {#if video}
-      <span on:click={() => showVideo()}>
+      <span on:click={showVideo}>
         <i class={ess(videoVisible && 'active')}>{videoVisible ? 'cancel' : 'play_circle'}</i>
-        <div class="tooltip top">Youtube Video {videoVisible ? 'schließen' : 'öffnen'}</div>
+        <div class="tooltip bottom small-margin">Youtube Video {videoVisible ? 'schließen' : 'öffnen'}</div>
       </span>
     {/if}
 
     <a href={data.url + product.href + AFF_LINK} target="_blank">
       <i>shopping_cart</i>
-      <div class="tooltip top">Zum Shop{!!AFF_LINK ? '*' : ''}</div>
+      <div class="tooltip bottom small-margin">Zum Shop{!!AFF_LINK ? '*' : ''}</div>
     </a>
 
-    <span on:click={() => goFurther()}>
+    <span on:click={goFurther}>
       <i class={ess((imageIndex === images.length - 1 || videoVisible) && 'disable')}>arrow_forward_ios</i>
       {#if !videoVisible}
-        <div class="tooltip top">Nächstes Bild</div>
+        <div class="tooltip bottom small-margin">Nächstes Bild</div>
       {/if}
     </span>
   </div>
-
-  {#if !videoVisible}
-    <img class="top-round" src={imageSrc} on:load={() => onLoad('img')} alt={product.title} width="100%" />
-  {:else}
-    <iframe
-      class="top-round"
-      width="100%"
-      src={video}
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-    />
-  {/if}
 {/if}
 
 <style lang="scss">
+  .stage {
+    height: 150rem;
+  }
+
   img,
   iframe {
     display: block;
@@ -110,8 +134,8 @@
   }
 
   i {
+    color: var(--on-surface-variant);
     cursor: pointer;
-    color: var(--surface);
     width: auto;
 
     &.active,
@@ -124,21 +148,6 @@
       opacity: 0.2;
       pointer-events: none;
       cursor: default;
-    }
-  }
-
-  .navi:not(.video-active) {
-    &:before {
-      content: '';
-      background: transparent;
-      background: linear-gradient(0, rgb(99, 98, 98) 0%, rgba(255, 255, 255, 0) 80%);
-      position: absolute;
-      z-index: -1;
-      left: -300rem;
-      right: -100rem;
-      top: -30rem;
-      bottom: -40rem;
-      //transform: rotate(345deg);
     }
   }
 </style>

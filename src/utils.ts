@@ -159,7 +159,6 @@ export const handlePrice = product => {
 };
 
 export const ess = (...args) => {
-  console.log(args);
   return args.filter(css => !!css).join(' ');
 };
 

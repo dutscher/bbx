@@ -263,6 +263,10 @@
     align-items: center;
   }
 
+  :global(.flex--horizontal-center) {
+    justify-content: center;
+  }
+
   :global(.flex--block) {
     width: 100%;
   }

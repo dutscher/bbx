@@ -10,13 +10,34 @@
 <div class="legend">
   <h6>Legende:</h6>
   <div>
-    <i class="yellow-text">star</i> = Neues Produkt
-    <i class="orange-text">local_fire_department</i> = Beliebtes Produkt
-    <i class="red-text">favorite</i> = Merkliste
-    <i class="blue-text">fiber_manual_record</i> = Verfügbar
-    <i class="green-text">fiber_manual_record</i> = Bald erhältlich
-    <i class="red-text">fiber_manual_record</i> = Zurzeit Vergriffen
-    <i class="orange-text">fiber_manual_record</i> = In Ankündigung
+    <span>
+      <i class="yellow-text">star</i>
+      <div class="tooltip bottom small-margin">Neues Produkt</div>
+    </span>
+    <span>
+      <i class="orange-text">local_fire_department</i>
+      <div class="tooltip bottom small-margin">Beliebtes Produkt</div>
+    </span>
+    <span>
+      <i class="red-text">favorite</i>
+      <div class="tooltip bottom small-margin">Merkliste</div>
+    </span>
+    <span>
+      <i class="blue-text">fiber_manual_record</i>
+      <div class="tooltip bottom small-margin">Verfügbar</div>
+    </span>
+    <span>
+      <i class="green-text">fiber_manual_record</i>
+      <div class="tooltip bottom small-margin">Bald erhältlich</div>
+    </span>
+    <span>
+      <i class="red-text">fiber_manual_record</i>
+      <div class="tooltip bottom small-margin">Zurzeit Vergriffen</div>
+    </span>
+    <span>
+      <i class="orange-text">fiber_manual_record</i>
+      <div class="tooltip bottom small-margin">In Ankündigung</div>
+    </span>
   </div>
   <p><b>Stand:</b> {lastCursor.dateStr}</p>
 
@@ -34,5 +55,9 @@
   .legend {
     padding-top: 50px;
     font-size: ms(-1);
+
+    span {
+      cursor: pointer;
+    }
   }
 </style>

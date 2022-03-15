@@ -79,9 +79,9 @@
     <div class="flex flex--wrap flex--vertical-center filter-summary__wrap">
       <b>Filter:</b>&nbsp;
       <a href={jsVoid} on:click={e => removeItem('all', e)} class="link">
-        <i class="small">delete</i>
-        <span>Alle löschen</span>
-        <div class="tooltip">Lösche alle Filter</div>
+        <i class="small primary-text">delete</i>
+        <span>Zurücksetzen</span>
+        <div class="tooltip bottom small-margin">Lösche alle Filter</div>
       </a>
       <FilterSummaryActive label="Suche nach" activStr={activeSearchString} onClick={removeItem.bind(this, 'search')} />
       <FilterSummaryActive label="Tags" activeIds={activeTagIds} store={tags} onClick={removeItem.bind(this, 'tags')} />
@@ -112,3 +112,15 @@
     </div>
   </div>
 {/if}
+
+<style lang="scss">
+  @import '../../scss/variables';
+
+  :global .filter-summary__wrap .link {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+</style>
