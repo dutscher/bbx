@@ -249,6 +249,7 @@
     cursor: default;
     position: absolute;
     white-space: nowrap;
+    padding-bottom: 32rem;
     z-index: 2;
 
     .link {
