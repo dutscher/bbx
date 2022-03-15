@@ -143,15 +143,15 @@
   <div class="flex flex--wrap">
     {#each sortedItems as color (color.id)}
       <div
-        class={ess([
+        class={ess(
           'color',
           activeColorIds.includes(color.id) && 'active',
           color.id === '22' && 'chrome',
           color.id === '77' && 'pearl-gray',
           color.id === '115' && 'pearl-gold',
           color.countFiltered === 0 && 'disabled',
-          color.name.toLowerCase().includes('trans') && 'trans',
-        ])}
+          color.name.toLowerCase().includes('trans') && 'trans'
+        )}
         data-id={color.id}
         on:click={() => clickItem(color, true)}
         title="{color.name}{color.de ? ' / ' + color.de : ''}"

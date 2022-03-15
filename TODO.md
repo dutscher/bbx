@@ -2,8 +2,6 @@ beer css:
 * altes scss raus hauen
   * vars + colors + components
 * produkte
-  * modal mit mehr images
-  * youtube videos
   * teileliste pdf
 
 next todos:

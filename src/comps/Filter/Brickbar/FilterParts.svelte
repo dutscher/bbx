@@ -86,11 +86,11 @@
   <div class="flex flex--wrap flex--gap">
     {#each sortedItems as part (part.id)}
       <a
-        class={ess([
+        class={ess(
           'chip border small no-margin round',
           activePartIds.includes(part.id) && 'active',
-          part.count === 0 && 'disabled',
-        ])}
+          part.count === 0 && 'disabled'
+        )}
         data-id={part.id}
         on:click={() => clickItem(part, true)}
         title={part.de}

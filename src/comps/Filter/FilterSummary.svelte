@@ -79,8 +79,8 @@
     <div class="flex flex--wrap flex--vertical-center filter-summary__wrap">
       <b>Filter:</b>&nbsp;
       <a href={jsVoid} on:click={e => removeItem('all', e)} class="link">
-        <span>Alle löschen</span>
         <i class="small">delete</i>
+        <span>Alle löschen</span>
         <div class="tooltip">Lösche alle Filter</div>
       </a>
       <FilterSummaryActive label="Suche nach" activStr={activeSearchString} onClick={removeItem.bind(this, 'search')} />

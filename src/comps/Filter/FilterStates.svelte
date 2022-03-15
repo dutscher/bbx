@@ -107,12 +107,12 @@
   <div class="flex flex--gap flex--wrap">
     {#each sortedItems as state (state.id)}
       <div
-        class={ess([
+        class={ess(
           'chip small round no-margin white-text', // beercss
           activeStateIds.includes(state.id) && 'active',
           state.count === 0 && 'disabled',
-          state.color,
-        ])}
+          state.color
+        )}
         data-count={state.count}
         on:click={() => clickItem(state, true)}
       >

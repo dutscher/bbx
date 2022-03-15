@@ -147,7 +147,7 @@
 
 <ClickOutside on:clickoutside={onClickOutside}>
   <div class="product" data-state={handleStateName(product)}>
-    <span class={ess(['chip large round no-margin white-text', stateColor])} on:click={onClick}>
+    <span class={ess('chip large round no-margin white-text', stateColor)} on:click={onClick}>
       <span>
         {#if isHeart && !type.startsWith('hearts')}
           <i class={stateColor === 'red' ? 'orange-text' : 'red-text'}>favorite</i>

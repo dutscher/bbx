@@ -79,7 +79,7 @@
   {/each}
 </div>
 
-<div id="states" class={ess(['page padding', activeTab === 'states' && 'active'])}>
+<div id="states" class={ess('page padding', activeTab === 'states' && 'active')}>
   <FilterStates
     {activeStateIds}
     {activeColorIds}
@@ -89,7 +89,7 @@
     isVisible={activeTab === 'states'}
   />
 </div>
-<div id="tags" class={ess(['page padding', activeTab === 'tags' && 'active'])}>
+<div id="tags" class={ess('page padding', activeTab === 'tags' && 'active')}>
   <FilterTags {activeTagIds} isVisible={activeTab === 'tags'} />
 </div>
 

@@ -158,11 +158,9 @@ export const handlePrice = product => {
   return '';
 };
 
-export const ess = array => {
-  if (!Array.isArray(array)) {
-    array = [array];
-  }
-  return array.filter(css => !!css).join(' ');
+export const ess = (...args) => {
+  console.log(args);
+  return args.filter(css => !!css).join(' ');
 };
 
 // eastereggs

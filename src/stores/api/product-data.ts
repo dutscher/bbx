@@ -25,7 +25,9 @@ export const loadProductData = async product => {
             images.push(API + media.link);
           }
           if (media.type === 'YOUTUBE') {
-            product.video = media.link;
+            // https://www.youtube.com/watch?v=t4437DdnbGk
+            // => https://www.youtube.com/embed/t4437DdnbGk
+            product.video = media.link.replace('/watch?v=', '/embed/');
           }
         });
         if (images.length > 0) {

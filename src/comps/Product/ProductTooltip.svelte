@@ -1,16 +1,21 @@
 <script lang="ts">
-  import { AFF_LINK } from '../../_interfaces';
-  import { storedGlobalData, storedCategories, storedTags, storedStates, storedActiveSelection } from '../../stores';
+  import {
+    storedGlobalData,
+    storedCategories,
+    storedTags,
+    storedStates,
+    storedActiveSelection,
+    loadProductData,
+  } from '../../stores';
   import { jsVoid, setUrlParams, handlePrice } from '../../utils';
-  import { loadProductData } from '../../stores';
   import ProductHistory from './ProductHistory.svelte';
-  import ProductImage from './ProductImage.svelte';
+  import ProductStage from './ProductStage.svelte';
   import ProductHearts from './ProductHearts.svelte';
 
   export let product: any;
   export let states: any;
   export let showTooltip: boolean = true;
-  export let imageLoaded: boolean = false;
+  export let stageLoaded: boolean = false;
 
   let data: any;
   let categories: any;
@@ -52,11 +57,14 @@
     return strReturn;
   };
 
-  const getInstHref = pdfLink => {
+  const openInstHref = pdfLink => {
+    let url;
     if (pdfLink.includes('http')) {
-      return pdfLink;
+      url = pdfLink;
+    } else {
+      url = data.instUrl + pdfLink;
     }
-    return data.instUrl + pdfLink;
+    window.open(url);
   };
 
   const handleLeftAdjust = (wrapElement, showTooltip) => {
@@ -135,18 +143,10 @@
       style="{isMobile ? 'width:' + wrapWidth + 'rem; ' : ''}left:{leftAdjust}"
     >
       <div class="top">
-        <a
-          href={data.url + product.href + AFF_LINK}
-          target="_blank"
-          class="link large-text bold absolute right bottom small-margin shop-link white-text"
-        >
-          <i>shopping_cart</i>
-          Zum Shop{!!AFF_LINK ? '*' : ''}
-        </a>
-        <ProductImage
+        <ProductStage
           {product}
           onLoad={() => {
-            imageLoaded = true;
+            stageLoaded = true;
             scrollIntoView();
           }}
         />
@@ -219,14 +219,14 @@
             <div class="tooltip__content tooltip__content--rows flex flex--wrap">
               {#if Array.isArray(product.inst)}
                 {#each product.inst as inst}
-                  <a class="inst-link link" target="_blank" href={getInstHref(inst)}>
-                    <i>article</i>
+                  <a class="inst-link link" target="_blank" href="https://www.bluebrixx.com/de/inst#{product.id}">
+                    <i on:click={() => openInstHref(inst)}>article</i>
                     {getInstLabel(inst)}
                   </a>
                 {/each}
               {:else}
-                <a class="inst-link link" target="_blank" href={getInstHref(product.inst)}>
-                  <i>article</i>
+                <a class="inst-link link" target="_blank" href="https://www.bluebrixx.com/de/inst#{product.id}">
+                  <i on:click={() => openInstHref(product.inst)}>article</i>
                   {getInstLabel(product.inst)}
                 </a>
               {/if}
@@ -253,7 +253,7 @@
     z-index: 2;
 
     .top {
-      height: 130rem;
+      height: 150rem;
       overflow: hidden;
     }
 
@@ -263,29 +263,14 @@
       }
     }
 
-    article {
-      background-color: var(--surface-variant);
+    .inst-link {
+      i {
+        cursor: default;
+      }
     }
 
-    .shop-link {
-      z-index: 1;
-
-      i {
-        color: var(--white-text);
-      }
-
-      &:before {
-        content: '';
-        background: transparent;
-        background: linear-gradient(0, rgb(99, 98, 98) 0%, rgba(255, 255, 255, 0) 80%);
-        position: absolute;
-        z-index: -1;
-        left: -200rem;
-        right: -100rem;
-        top: -30rem;
-        bottom: -40rem;
-        transform: rotate(345deg);
-      }
+    article {
+      background-color: var(--surface-variant);
     }
 
     [data-divider] {

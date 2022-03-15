@@ -79,7 +79,7 @@
     {/each}
   </div>
   {#each tabs as tab}
-    <div id="available" class={ess(['page padding', activeTab === tab.name && 'active'])}>
+    <div id="available" class={ess('page padding', activeTab === tab.name && 'active')}>
       <LatestProducts state={tab.id} isVisible={activeTab === tab.name} onCounterAvailable={updateCounter} />
     </div>
   {/each}

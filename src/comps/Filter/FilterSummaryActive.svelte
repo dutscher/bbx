@@ -11,15 +11,15 @@
     <u>{label}:</u>&nbsp;
     {#if !!activStr}
       <span class="filter__item link" on:click={e => onClick(e, 'search')}>
-        <span>"{activStr}"</span>
         <i class="small" on:click={e => onClick(e, 'search')}>delete</i>
+        <span>"{activStr}"</span>
         <div class="tooltip">Lösche Suche</div>
       </span>
     {:else if activeIds.length > 0}
       {#each activeIds as itemId}
         <span class="filter__item link" on:click={e => onClick(e, itemId)}>
-          <span>{store.filter(item => item.id === itemId)[0].de}</span>
           <i class="small">delete</i>
+          <span>{store.filter(item => item.id === itemId)[0].de}</span>
           <div class="tooltip">Lösche Filter</div>
         </span>
       {/each}
