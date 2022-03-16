@@ -23,6 +23,7 @@ const convertParams = {
   product: 'p',
   tags: 't',
   search: 'q',
+  states: 'e',
 };
 
 export function getUrlParam(variable) {
