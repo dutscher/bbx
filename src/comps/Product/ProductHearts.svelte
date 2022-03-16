@@ -141,19 +141,23 @@
             <i on:click={e => clickEditList(e, listName, hearts[listName].t)}>edit</i>
             <span>{hearts[listName].t}</span>
           {:else}
-            <input
-              type="text"
-              bind:this={input}
-              on:keydown={onKeyDown}
-              on:keypress={e => onKeyPress(e, listName)}
-              bind:value={editValue}
-            />
+            <div class="field small">
+              <input
+                type="text"
+                bind:this={input}
+                on:keydown={onKeyDown}
+                on:keypress={e => onKeyPress(e, listName)}
+                bind:value={editValue}
+              />
+            </div>
           {/if}
         </div>
       {/each}
       <div class="hearts__list hearts__list--new">
         <i>add</i>
-        <input type="text" placeholder="Neue Liste" on:keypress={onKeyPress} bind:value={newValue} />
+        <div class="field small">
+          <input type="text" placeholder="Neue Liste" on:keypress={onKeyPress} bind:value={newValue} />
+        </div>
       </div>
     </div>
   </ClickOutside>
