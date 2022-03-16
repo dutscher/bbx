@@ -2,7 +2,7 @@
   import ProductHearts from './ProductHearts.svelte';
   import { AFF_LINK } from '../../_interfaces';
   import { internetConnection, storedGlobalData } from '../../stores';
-  import { ess, stopClick, jsVoid } from '../../utils';
+  import { ess, stopClick } from '../../utils';
 
   export let product: any;
   export let onLoad = () => {};
@@ -66,7 +66,7 @@
 <div class="stage">
   {#if isOnline && !!imageSrc}
     {#if !imageLoaded}
-      <a href={jsVoid} class="absolute front loader medium small-margin" />
+      <div class="absolute front loader medium small-margin" />
     {/if}
 
     {#if !videoVisible}
