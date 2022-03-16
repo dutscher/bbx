@@ -63,7 +63,7 @@
   }
 </script>
 
-<div class="stage">
+<div class="stage center-align middle-align">
   {#if isOnline && !!imageSrc}
     {#if !imageLoaded}
       <div class="absolute front loader medium small-margin" />
