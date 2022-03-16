@@ -298,10 +298,9 @@
   });
 </script>
 
-<h2>{filteredProducts.withFilter.length} / {products.length}</h2>
-
 <div class="field middle-align">
-  <nav class="wrap">
+  <h2>{filteredProducts.withFilter.length} / {products.length}</h2>
+  <nav class="wrap small-margin">
     <label class="checkbox">
       <input type="checkbox" bind:checked={showSets} />
       <span>Sets<span class="badge round">{countSets}</span></span>
