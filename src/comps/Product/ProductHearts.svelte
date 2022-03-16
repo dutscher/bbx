@@ -90,6 +90,8 @@
   const onKeyDown = e => {
     if (e.key === 'Escape') {
       newValue = '';
+      editList = '';
+      editValue = '';
     }
   };
 
@@ -133,27 +135,37 @@
         <div class="hearts__list">
           <i
             on:click={() => clickHandleList(listName)}
-            class={hearts[listName].i.includes(product.id) ? 'red-text' : 'black-text'}
+            class={hearts[listName].i.includes(product.id) ? 'red-text' : ''}
           >
             {hearts[listName].i.includes(product.id) ? 'favorite' : 'favorite_border'}
           </i>
           {#if editList !== listName}
-            <i on:click={e => clickEditList(e, listName, hearts[listName].t)} class="black-text">edit</i>
+            <i on:click={e => clickEditList(e, listName, hearts[listName].t)}>edit</i>
             <span>{hearts[listName].t}</span>
           {:else}
-            <input
-              type="text"
-              bind:this={input}
-              on:keydown={onKeyDown}
-              on:keypress={e => onKeyPress(e, listName)}
-              bind:value={editValue}
-            />
+            <div class="field small no-margin">
+              <input
+                type="text"
+                bind:this={input}
+                on:keydown={onKeyDown}
+                on:keypress={e => onKeyPress(e, listName)}
+                bind:value={editValue}
+              />
+            </div>
           {/if}
         </div>
       {/each}
       <div class="hearts__list hearts__list--new">
-        <i class="black-text">add</i>
-        <input type="text" placeholder="Neue Liste" on:keypress={onKeyPress} bind:value={newValue} />
+        <i>add</i>
+        <div class="field small no-margin">
+          <input
+            type="text"
+            placeholder="Neue Liste"
+            on:keypress={onKeyPress}
+            on:keydown={onKeyDown}
+            bind:value={newValue}
+          />
+        </div>
       </div>
     </div>
   </ClickOutside>
@@ -196,10 +208,15 @@
         flex: 1;
       }
 
+      .field.small {
+        height: 25rem;
+      }
+
       input {
         width: 100rem;
         border: solid 1rem var(--on-surface-variant);
         border-radius: 4rem;
+        padding: 0 5rem;
         flex: 1;
       }
     }

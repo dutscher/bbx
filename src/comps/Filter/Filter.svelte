@@ -30,9 +30,12 @@
     activeStateIds = store.states;
     activeSearchString = store.search;
 
-    const reasons = ['init-tags-url', 'show-tags', 'tooltip-tag-clicked'];
+    const reasons = ['init-tags-url', 'show-states', 'show-tags', 'tooltip-tag-clicked'];
 
     if (store.site === 'products' && reasons.includes(store.reason)) {
+      if (store.reason === 'show-states') {
+        newTab = 'states';
+      }
       if (store.reason === 'show-tags') {
         newTab = 'tags';
       }

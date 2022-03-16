@@ -26,6 +26,17 @@ const convertParams = {
   states: 'e',
 };
 
+export function convertOldParams() {
+  const oldParams = getAllUrlParams(false);
+  Object.entries(oldParams).map(([longParam, value]) => {
+    if (longParam in convertParams) {
+      setUrlParams(longParam, []);
+      // @ts-ignore TS2339: Property 'split' does not exist on type 'unknown'.
+      setUrlParams(convertParams[longParam], value.split(','));
+    }
+  });
+}
+
 export function getUrlParam(variable) {
   // remove ? with substring
   let query = window.location.search.substring(1);
@@ -75,6 +86,7 @@ export function setUrlParams(param, array) {
     }
     // empty array
   } else if (array.length === 0) {
+    delete allSearch[param];
     delete allSearch[useConverted];
     // full array
   } else {

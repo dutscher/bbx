@@ -3,7 +3,7 @@
   import 'beercss';
   import { ApolloClient, InMemoryCache } from '@apollo/client';
   import { setClient } from 'svelte-apollo';
-  import { getUrlParam, jsVoid, setUrlParams } from './utils';
+  import { convertOldParams, getUrlParam, jsVoid, setUrlParams } from './utils';
   import { loadMovieData, loadHistoryData, storedActiveSelection, storedHearts, localStore } from './stores';
   import {
     ID_MANHATTAN,
@@ -86,7 +86,9 @@
   $: activeSite = nextSite || defaultSite;
 
   onMount(() => {
-    // ?tags=mittelalter,star-trek -> product page
+    // ?tags=mittelalter,star-trek -> ?t=mittelalter,star-trek
+    convertOldParams();
+    // ?t=mittelalter,star-trek -> product page
     if (!!getUrlParam(urlKeyTags)) {
       storedActiveSelection.update(store => {
         store.site = 'products';
@@ -229,15 +231,19 @@
   :global(h1) {
     font-size: 50rem !important;
   }
+
   :global(h2) {
     font-size: 30rem !important;
   }
+
   :global(h3) {
     font-size: 20rem !important;
   }
+
   :global(h4) {
     font-size: 15rem !important;
   }
+
   :global(h1, h2, h3) {
     margin: $space-lg 0;
   }

@@ -26,6 +26,7 @@
   let wrapWidth: number;
   let isMobile: boolean = true;
   let leftAdjust: string;
+  let leftAdjustInt: number = 0;
 
   let timer;
 
@@ -66,26 +67,29 @@
     window.open(url);
   };
 
-  const handleLeftAdjust = (wrapElement, showTooltip) => {
-    const bounds = wrapElement.getBoundingClientRect();
+  const handleLeftAdjust = () => {
+    const { left, width } = wrapElement.getBoundingClientRect();
     const mobileWidth = 320;
-    const rightEdge = Math.round(bounds.left + bounds.width);
+    const leftEdge = left + leftAdjustInt;
+    const rightEdge = Math.round(leftEdge + width);
     const rightEdgeWithSpace = rightEdge + spaceing * 2;
     let maxLeft;
 
     if (mobileWidth >= innerWidth) {
       isMobile = true;
       wrapWidth = innerWidth - spaceing;
-      maxLeft = Math.round(bounds.left - spaceing / 2);
+      maxLeft = Math.round(leftEdge - spaceing / 2);
     } else {
       isMobile = false;
       wrapWidth = 0;
-      maxLeft = Math.round(bounds.left + bounds.width - innerWidth + spaceing);
+      maxLeft = Math.round(rightEdgeWithSpace - innerWidth);
     }
 
     if (rightEdgeWithSpace > innerWidth) {
+      leftAdjustInt = maxLeft;
       leftAdjust = '-' + maxLeft + 'rem';
     } else {
+      leftAdjustInt = 0;
       leftAdjust = '0rem';
     }
   };
@@ -125,22 +129,21 @@
   $: {
     if (wrapElement) {
       if (showTooltip) {
+        handleLeftAdjust();
         loadProductData(product);
       }
-      handleLeftAdjust(wrapElement, showTooltip);
     }
   }
 </script>
 
 <svelte:window bind:innerWidth />
 
-<div class={ess('product-tooltip absolute', showTooltip && 'open')}>
+<div
+  class={ess('product-tooltip absolute', showTooltip && 'open')}
+  style="{isMobile ? 'width:' + wrapWidth + 'rem; ' : ''}left:{leftAdjust}"
+>
   {#if showTooltip}
-    <article
-      class="no-padding border round"
-      bind:this={wrapElement}
-      style="{isMobile ? 'width:' + wrapWidth + 'rem; ' : ''}left:{leftAdjust}"
-    >
+    <article class="no-padding border round" bind:this={wrapElement}>
       <div class="top">
         <ProductStage
           {product}
