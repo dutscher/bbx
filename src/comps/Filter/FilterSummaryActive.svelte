@@ -1,6 +1,4 @@
 <script lang="ts">
-  import Icon from '../Icon.svelte';
-
   export let label: string = '';
   export let activStr: string = '';
   export let activeIds: any = [];
@@ -12,13 +10,17 @@
   <span class="filter">
     <u>{label}:</u>&nbsp;
     {#if !!activStr}
-      "{activStr}"
-      <Icon modifier="cross" svg="true" on:click={e => onClick(e, 'search')} />
+      <span class="filter__item link" on:click={e => onClick(e, 'search')}>
+        <i class="small link">delete</i>
+        <span>"{activStr}"</span>
+        <div class="tooltip bottom small-margin">lösche "{activStr}"</div>
+      </span>
     {:else if activeIds.length > 0}
       {#each activeIds as itemId}
-        <span class="filter__item">
-          {store.filter(item => item.id === itemId)[0].de}
-          <Icon modifier="cross" svg="true" on:click={e => onClick(e, itemId)} />
+        <span class="filter__item link" on:click={e => onClick(e, itemId)}>
+          <i class="small link">delete</i>
+          <span>{store.filter(item => item.id === itemId)[0].de}</span>
+          <div class="tooltip bottom small-margin">lösche Filter</div>
         </span>
       {/each}
     {/if}
@@ -29,10 +31,10 @@
   @import '../../scss/variables';
 
   .filter {
-    margin-right: $space-lg;
-  }
+    margin-left: $space-lg;
 
-  .filter__item:not(:last-child) {
-    margin-right: $space-md;
+    &__item:not(:last-child) {
+      margin-right: $space-md;
+    }
   }
 </style>

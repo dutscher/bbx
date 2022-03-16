@@ -41,8 +41,8 @@
 
   const initToggle = () => {
     // local storage is used to override OS theme settings
-    if (localStorage.getItem('theme')) {
-      if (localStorage.getItem('theme') === 'dark') {
+    if (localStore.getRaw('theme')) {
+      if (localStore.getRaw('theme') === 'dark') {
         isDarkmode = true;
       }
     } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -62,9 +62,10 @@
     centerCircleProps.set({ r });
     linesProps.set({ opacity });
 
-    // dark theme preferred, set document with a `data-theme` attribute
-    document.documentElement.setAttribute('data-theme', theme);
-    document.documentElement.setAttribute('data-theme-ready', 'true');
+    // dark theme preferred, set body with a `is-dark` class
+    if (isDarkmode) document.body.classList.add('is-dark');
+    else document.body.classList.remove('is-dark');
+
     localStore.set('theme', theme);
     setTimeout(() => {
       isReady = true;
@@ -115,8 +116,8 @@
     will-change: opacity;
     position: fixed;
     z-index: 1337;
-    right: $space-xl;
-    bottom: $space-xl;
+    right: 16rem;
+    bottom: 16rem;
     user-select: none;
     opacity: 0;
     cursor: pointer;

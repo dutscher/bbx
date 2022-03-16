@@ -1,5 +1,4 @@
 import moment from 'moment';
-import fetch from 'node-fetch';
 import { handleCache, printTime } from './src/utils.js';
 import { fetchChanges, cleanUpHistoryChanges } from './src/api-changes.js';
 import { parsePages, parsePagesNParts } from './src/parse-page.js';
@@ -10,77 +9,51 @@ const params = process.argv;
 // self parsed
 let parsedDataToday = {
   items: products,
-  images: {},
 };
 let allTimeChanges = {};
 
-const parseImageExtension = async product => {
-  const defaultExt = 'png';
-  const image = `${product.id}_1.${defaultExt}`;
-  // "/img/items/100/100300/300/100300_2.jpg"
-  // //www.bluebrixx.com/img/items/104/104701/150/104701_1.png
-  const url = `https://www.bluebrixx.com/img/items/${('' + product.id).substr(0, 3)}/${product.id}/150/${image}`;
-  const res = await fetch(url);
+const mergeChangesWithDB = allTimeChanges => {
+  Object.entries(allTimeChanges).map(productChange => {
+    const productId = parseInt(productChange[0]);
+    const changes = productChange[1];
+    let isNewProduct = false;
 
-  if (res.status === 404) {
-    console.log('jpg for', url);
-    return 0; // jpg
-  }
+    let product = parsedDataToday.items.find(product => product.id === productId);
+    // new product
+    if (!product) {
+      product = {};
+      isNewProduct = true;
+    }
 
-  // imageExtensions
-  return -1; // png
-};
+    product.id = productId;
+    product.title = changes.title;
+    product.state = changes.state;
+    if (changes.parts !== null) {
+      product.parts = changes.parts;
+    }
+    product.price = changes.price;
+    // TODO: parse cats for existing products
+    //product.cats = changes.cats;
+    //product.tags = changes.tags;
+    // history
+    product.history = {
+      ...product.history,
+      ...changes.history,
+    };
 
-const mergeChangesWithDB = async allTimeChanges => {
-  await Promise.all(
-    // due fetch for image is that async
-    Object.entries(allTimeChanges).map(async productChange => {
-      const productId = parseInt(productChange[0]);
-      const changes = productChange[1];
-      let isNewProduct = false;
+    cleanUpHistoryChanges(product);
 
-      let product = parsedDataToday.items.find(product => product.id === productId);
-      // new product
-      if (!product) {
-        product = {};
-        isNewProduct = true;
-      }
+    if (false && product.id === 100090) {
+      console.log(product, changes);
+    }
 
-      product.id = productId;
-      product.title = changes.title;
-      product.state = changes.state;
-      if (changes.parts !== null) {
-        product.parts = changes.parts;
-      }
-      product.price = changes.price;
-      // TODO: parse cats for existing products
-      //product.cats = changes.cats;
-      //product.tags = changes.tags;
-      // history
-      product.history = {
-        ...product.history,
-        ...changes.history,
-      };
+    if (isNewProduct) {
+      product.cats = changes.cats;
+      product.tags = changes.tags;
 
-      cleanUpHistoryChanges(product);
-
-      if (false && product.id === 100090) {
-        console.log(product, changes);
-      }
-
-      if (isNewProduct) {
-        product.cats = changes.cats;
-        product.tags = changes.tags;
-        // parse correct image extension
-        const imageExtension = await parseImageExtension(product);
-        if (imageExtension !== -1) {
-          product.imageExt = imageExtension;
-        }
-
-        parsedDataToday.items.push(product);
-      }
-    })
-  );
+      parsedDataToday.items.push(product);
+    }
+  });
 };
 
 (async () => {
@@ -94,7 +67,7 @@ const mergeChangesWithDB = async allTimeChanges => {
     product.history = allProductHistory[product.id];
   });
 
-  await mergeChangesWithDB(allTimeChanges);
+  mergeChangesWithDB(allTimeChanges);
 
   startDate = printTime('mergeChangesWithDB', startDate); // 289ms
 
@@ -130,15 +103,6 @@ const mergeChangesWithDB = async allTimeChanges => {
   });
 
   if (params.includes('--create-compare')) {
-    // write images files
-    if (Object.keys(parsedDataToday.images).length > 0) {
-      await handleCache(
-        './data/api/',
-        `images.compare.json`,
-        () => JSON.stringify(parsedDataToday.images, null, 2),
-        true
-      );
-    }
     // write compare file
     await handleCache('./data/', `all-products.compare.json`, () => JSON.stringify(orderedProducts, null, 2), true);
 

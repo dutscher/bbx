@@ -24,7 +24,13 @@ export const ID_STATE_UNAVAILABLE = 2;
 export const ID_STATE_ANNOUNCEMENT = 3;
 export const IDS_SPECIAL_TAGS = [ID_PARTS, ID_MANHATTAN, ID_MOVIE, ID_NETHERLAND, ID_BURG_BLAUSTEIN];
 
+// api
+export const API = 'https://api.bbx.watch';
+
 // external data
 export const UNLOADED = 'unloaded';
 export const LOADING = 'loading';
 export const LOADED = 'loaded';
+
+export const lsSiteSettingsKey = 'siteSettings';
+export const urlKeyTags = 'tags';

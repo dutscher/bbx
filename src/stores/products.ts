@@ -7,6 +7,13 @@ import { ID_PARTS } from '../_interfaces';
 let colors;
 storedColors.subscribe(store => (colors = store));
 
+const storedProductsSortingWriteable = writable({ sorting: '', sortTitle: '', sortDirection: 'desc' });
+export const storedProductsSorting = {
+  subscribe: storedProductsSortingWriteable.subscribe,
+  set: storedProductsSortingWriteable.set,
+  update: storedProductsSortingWriteable.update,
+};
+
 const storedFilteredProductsWriteable = writable([]);
 export const storedFilteredProducts = {
   subscribe: storedFilteredProductsWriteable.subscribe,

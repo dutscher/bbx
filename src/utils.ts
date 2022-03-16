@@ -1,4 +1,10 @@
-import { ID_STATE_ANNOUNCEMENT, ID_STATE_AVAILABLE, ID_STATE_COMING_SOON, ID_STATE_UNAVAILABLE } from './_interfaces';
+import {
+  API,
+  ID_STATE_ANNOUNCEMENT,
+  ID_STATE_AVAILABLE,
+  ID_STATE_COMING_SOON,
+  ID_STATE_UNAVAILABLE,
+} from './_interfaces';
 import {
   pad as pad_,
   isDST as isDST_,
@@ -12,6 +18,14 @@ export const isDST = isDST_;
 export const getHRDate = getHRDate_;
 export const getDateTime = getDateTime_;
 
+const convertParams = {
+  site: 's',
+  product: 'p',
+  tags: 't',
+  search: 'q',
+  states: 'e',
+};
+
 export function getUrlParam(variable) {
   // remove ? with substring
   let query = window.location.search.substring(1);
@@ -23,22 +37,26 @@ export function getUrlParam(variable) {
   const vars = query.split('&');
   for (let i = 0; i < vars.length; i++) {
     const pair = vars[i].split('=');
-    if (decodeURIComponent(pair[0]) === variable) {
+    const useConverted = variable in convertParams ? convertParams[variable] : variable;
+    if (decodeURIComponent(pair[0]) === useConverted) {
       return decodeURIComponent(pair[1]);
     }
   }
   return '';
 }
 
-export function getAllUrlParams() {
+export function getAllUrlParams(converted: boolean = true) {
   // remove ? with substring
   const query = window.location.search.substring(1);
   const vars = query ? query.split('&') : [];
+  const convertedValues = Object.values(convertParams);
   const obj = {};
   for (let i = 0; i < vars.length; i++) {
-    const pair = vars[i].split('=');
-    if (decodeURIComponent(pair[0])) {
-      obj[pair[0]] = decodeURIComponent(pair[1]);
+    const [key, value] = vars[i].split('=');
+    const indexConverted = converted ? convertedValues.indexOf(key) : key;
+    const useConverted = indexConverted > -1 ? Object.keys(convertParams)[indexConverted] : key;
+    if (decodeURIComponent(useConverted)) {
+      obj[useConverted] = decodeURIComponent(value);
     }
   }
   return obj;
@@ -46,20 +64,21 @@ export function getAllUrlParams() {
 
 export function setUrlParams(param, array) {
   // compare the active params to querystring
-  const allSearch = getAllUrlParams();
+  const allSearch = getAllUrlParams(false);
+  const useConverted = param in convertParams ? convertParams[param] : param;
   // no array
   if (!Array.isArray(array)) {
     if (!!array) {
-      allSearch[param] = array;
+      allSearch[useConverted] = array;
     } else {
-      delete allSearch[param];
+      delete allSearch[useConverted];
     }
     // empty array
   } else if (array.length === 0) {
-    delete allSearch[param];
+    delete allSearch[useConverted];
     // full array
   } else {
-    allSearch[param] = array.join(',');
+    allSearch[useConverted] = array.join(',');
   }
   let newUrl = '';
   Object.keys(allSearch).forEach(function (param, index) {
@@ -118,7 +137,7 @@ export function getLatestStateOfToday(product, compareDate) {
 }
 
 export const graphql = async query => {
-  return await fetch('https://api.bbx.watch/api/graphql', {
+  return await fetch(`${API}/api/graphql`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -143,10 +162,17 @@ export const getProductHref = product => {
 
 export const handlePrice = product => {
   if (product.price > 0) {
-    const pricePerPart = product.parts > 1 && product.pricePerPart ? ` (${product.pricePerPart.toFixed(2).replace('.', ',')} ct/Stein)` : '';
+    const pricePerPart =
+      product.parts > 1 && product.pricePerPart
+        ? ` (${product.pricePerPart.toFixed(2).replace('.', ',')} ct/Stein)`
+        : '';
     return `${('' + product.price.toFixed(2)).replace('.', ',')}EUR${pricePerPart}`;
   }
   return '';
+};
+
+export const ess = (...args) => {
+  return args.filter(css => !!css).join(' ');
 };
 
 // eastereggs

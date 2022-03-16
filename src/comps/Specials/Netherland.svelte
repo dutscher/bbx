@@ -51,23 +51,21 @@
   };
 </script>
 
-<svelte:window bind:innerWidth />
-
 <div>
-  <h2>{STR_NETHERLAND}</h2>
+  <h2 bind:clientWidth={innerWidth}>{STR_NETHERLAND}</h2>
   {#if innerWidth}
     <div class="pieces" style="zoom:{zoom};-moz-transform:scale({zoom});">
       <div class="pieces__wrap flex">
         {#each pieces as piece}
           <div
-            class="piece piece--{piece.nr} {piece.state}"
+            class="piece piece--{piece.nr}"
             on:click={event => {
               setActive(event, piece.id);
             }}
             title={piece.title}
             data-nr={piece.nr}
           >
-            <img class="piece__img" alt={piece.title} src="./images/netherland/{piece.nr}.png" />
+            <img class="piece__img" alt={piece.title} src="./images/specials/netherland/{piece.nr}.png" />
           </div>
         {/each}
       </div>

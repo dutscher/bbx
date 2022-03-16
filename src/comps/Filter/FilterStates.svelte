@@ -1,14 +1,16 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { storedActiveSelection, storedStates, storedProducts, storedFilteredProducts } from '../../stores';
-  import { getUrlParam, setUrlParams } from '../../utils';
+  import { getUrlParam, setUrlParams, ess } from '../../utils';
 
   export let activeStateIds: any = [];
   export let activeColorIds: any = [];
   export let activePartIds: any = [];
   export let activePartTypeIds: any = [];
   export let activeSearchString: string = '';
+  export let isVisible: boolean = false;
 
+  let sortedItems: any = [];
   let filteredProducts: any = [];
   let states: any;
   let products: any;
@@ -57,11 +59,7 @@
   storedProducts.subscribe(store => (products = store));
   storedFilteredProducts.subscribe(store => (filteredProducts = store));
 
-  onMount(() => {
-    getUrlParams();
-  });
-
-  function sortItems(filteredProducts) {
+  const sortItems = filteredProducts => {
     let sortedData = [];
     // get count of products
     sortedData = states
@@ -96,83 +94,50 @@
         return 0;
       });
     return sortedData;
-  }
+  };
 
   $: sortedItems = sortItems(filteredProducts);
 
-  const getClasses = state =>
-    ['filter', activeStateIds.includes(state.id) && 'active', state.count === 0 && 'disabled', state.color]
-      .filter(css => !!css)
-      .join(' ');
+  onMount(() => {
+    getUrlParams();
+  });
 </script>
 
-<div class="flex">
-  <h4 class="tag-name">Status</h4>
-  <div class="flex flex--wrap bl">
+{#if isVisible}
+  <div class="flex flex--gap flex--wrap">
     {#each sortedItems as state (state.id)}
-      <div class={getClasses(state)} data-count={state.count} on:click={() => clickItem(state, true)}>
-        {state.de}
+      <div
+        class={ess(
+          'chip small round no-margin white-text', // beercss
+          activeStateIds.includes(state.id) && 'active',
+          state.count === 0 && 'disabled',
+          state.color
+        )}
+        data-count={state.count}
+        on:click={() => clickItem(state, true)}
+      >
+        <p>{state.de}</p>
+        <span class="chip_state">{state.count}</span>
       </div>
     {/each}
   </div>
-</div>
+{/if}
 
 <style lang="scss">
   @import '../../scss/variables';
 
-  .filter {
-    padding: 0 0 0 $space-xl;
-    margin: $space-xs;
-    border: solid 1px $color-primary-darker;
-    border-radius: $border-radius-xl;
-    background: $color-white;
-    color: $color-primary-dark;
+  .chip {
     cursor: pointer;
     user-select: none;
-    position: relative;
-    font-size: ms(0);
-
-    @media (min-width: 750px) {
-      font-size: ms(-2);
-    }
-
-    &:hover {
-      background: $color-primary-darker;
-    }
 
     &:hover,
     &.active {
-      background: $color-primary-darker;
-      color: $color-white;
+      outline: 2px solid var(--on-surface);
     }
 
     &.disabled {
-      opacity: 0.1;
+      opacity: 0.2;
       cursor: default;
-    }
-
-    &::after {
-      content: attr(data-count);
-      display: inline-block;
-      padding: $space-xs $space-md;
-      margin-left: 0;
-      border-radius: $border-radius-xl;
-      border: 1px solid $color-white;
-      background: $color-primary;
-      color: $color-white;
-      position: relative;
-    }
-
-    &.green::after {
-      background: $color-comingsoon;
-    }
-
-    &.red::after {
-      background: $color-unavailable;
-    }
-
-    &.orange::after {
-      background: $color-annoucement;
     }
   }
 </style>

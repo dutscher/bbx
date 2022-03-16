@@ -84,8 +84,8 @@ const parseInstJSDOM = async () => {
 
 const parseInstCherrio = async () => {
   const bbInstPath = 'https://www.bluebrixx.com/data/files/manuals';
-  let content = fs.readFileSync(instPath, 'utf-8');
-  const $ = cheerio.load(content);
+  let cache = fs.readFileSync(instPath, 'utf-8');
+  const $ = cheerio.load(cache);
   const items = $('table.inst tbody tr');
   // fix bugs in /inst page
   // first is the correct id and the second the wrong in pdf name

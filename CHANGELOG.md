@@ -1,9 +1,12 @@
+* [16.03.2022]
+  * new beer design
+
 * [21.02. - 14.03.2022]
   * new design with beercss
   * new api integrated
     * youtube videos
     * more images
-    * part list
+    * prepare part list
   * add new tags to new announced products  
   * removed affiliate code from nsn
   

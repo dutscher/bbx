@@ -2,8 +2,6 @@ import { products, convertToReduce } from '../../data/all-products.reducer.js';
 import { handleCache, sortTags } from './utils.js';
 import { IDs, ID_STATE_ANNOUNCEMENT } from './interfaces.js';
 import { getDateTime } from './clean-utils.js';
-import imagesJSON from '../../data/api/images.json';
-import imagesExtraJSON from '../../data/api/images.extra.json';
 import allHistory from '../../data/all-products-history.json';
 import allHistoryBackup from '../../data/api/all-products-history.backup.with.lost.history.json';
 
@@ -41,28 +39,28 @@ export const convertProducts = async () => {
       changes.push({ id: product.id, title: product.title });
     }
     // 7. deleted products?
-    if (update === 7 && !(product.id in imagesJSON) && !(product.id in imagesExtraJSON)) {
-      changes.push(convertToReduce(product));
-    }
+    // if (update === 7 && !(product.id in imagesJSON) && !(product.id in imagesExtraJSON)) {
+    //   changes.push(convertToReduce(product));
+    // }
     // 6. sort tags
     if (update === 6) {
       product.tags = product.tags.sort(sortTags);
     }
 
     // 5. image and imageExt addition
-    if (update === 5 && product.id in imagesJSON) {
-      const image = imagesJSON[product.id];
-      //  "100090": "/img/items/100/100090/300/100090_1.jpg",
-      // default is _1
-      if (!image.includes('_1')) {
-        product.image = parseInt(image.replace(/.*_(\d).*/, '$1'));
-      }
-      // .png is default
-      // see image-extension.json
-      if (image.includes('.jpg')) {
-        product.imageExt = 0;
-      }
-    }
+    // if (update === 5 && product.id in imagesJSON) {
+    //   const image = imagesJSON[product.id];
+    //   //  "100090": "/img/items/100/100090/300/100090_1.jpg",
+    //   // default is _1
+    //   if (!image.includes('_1')) {
+    //     product.image = parseInt(image.replace(/.*_(\d).*/, '$1'));
+    //   }
+    //   // .png is default
+    //   // see image-extension.json
+    //   if (image.includes('.jpg')) {
+    //     product.imageExt = 0;
+    //   }
+    // }
 
     // 4. remove special tags from pro category
     if (update === 4 && product.cats.includes(1) && product.tags.includes(0)) {

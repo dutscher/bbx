@@ -1,12 +1,10 @@
 <script lang="ts">
   import Product from './Product.svelte';
-  import Toggle from '../Toggle.svelte';
   import { storedProducts, storedStates } from '../../stores';
   import { ID_STATE_AVAILABLE, ID_STATE_ANNOUNCEMENT, ID_STATE_COMING_SOON } from '../../_interfaces';
-  import Icon from '../Icon.svelte';
 
   export let state: number = ID_STATE_ANNOUNCEMENT;
-  export let title: string = '';
+  export let onCounterAvailable: any = () => {};
 
   let products: any;
   let sortedProducts: any;
@@ -15,7 +13,7 @@
   let reverseSort = false;
   let showParts = false;
   let showFirstRelease = false;
-  let isVisible = false;
+  export let isVisible = false;
   let countParts = 0;
   const monthNames = [
     'Januar',
@@ -48,7 +46,7 @@
           if (state === ID_STATE_COMING_SOON) {
             return product.isNewSoon;
           } else if (state === ID_STATE_AVAILABLE) {
-            return product.isNew;
+            return product.isNew && product.state.id === state;
           }
         } else {
           return product.state.id === state;
@@ -114,67 +112,52 @@
   $: {
     sortedProducts = sortProducts(products, showParts, showFirstRelease);
     sortedMonths = sortMonths(sortedProducts, reverseSort);
+
+    onCounterAvailable(state, sortedProducts.length);
   }
 </script>
 
-<Toggle {title} onVisibility={newVisibility => (isVisible = newVisibility)}>
-  <b slot="description">({sortedProducts.length})</b>
-
+{#if isVisible}
   <div class="changes">
-    {#if state !== ID_STATE_ANNOUNCEMENT}
-      <label class="with-text-shadow">
-        <input type="checkbox" bind:checked={showFirstRelease} />
-        <Icon modifier="new" />
-        Erstveröffentlichung
-      </label>
-    {/if}
-    {#if state !== ID_STATE_AVAILABLE}
-      <label class="with-text-shadow">
-        <input type="checkbox" bind:checked={reverseSort} />
-        Neuste zuerst
-      </label>
-      <label class="with-text-shadow">
-        <input type="checkbox" bind:checked={showParts} />
-        Auf Parts ({countParts}) umschalten
-      </label>
-    {/if}
+    <div class="field middle-align">
+      <nav class="wrap">
+        {#if state !== ID_STATE_ANNOUNCEMENT}
+          <label class="checkbox">
+            <input type="checkbox" bind:checked={showFirstRelease} />
+            <span>
+              <i class="yellow-text">star</i>
+              Erstveröffentlichung
+            </span>
+          </label>
+        {/if}
+        {#if state !== ID_STATE_AVAILABLE}
+          <label class="checkbox">
+            <input type="checkbox" bind:checked={reverseSort} />
+            <span>Neueste zuerst</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" bind:checked={showParts} />
+            <span>Parts<span class="badge round">{countParts}</span></span>
+          </label>
+        {/if}
+      </nav>
+    </div>
     {#if state !== ID_STATE_AVAILABLE && !reverseSort}
-      <p><b>Was kommt womöglich als nächstes:</b></p>
+      <p class="bold">Was kommt womöglich als nächstes:</p>
     {/if}
     <div>
-      {#if isVisible}
-        {#each sortedMonths as month (month.id)}
-          {#if month.products.length > 0}
-            <h3>
-              {month.label} ({month.monthPad}{#if month.year !== thisYear}&nbsp;{month.year}{/if})
-            </h3>
-            <div class="flex flex--wrap">
-              {#each month.products as product (product.id)}
-                <Product {product} type="latestproducts" />
-              {/each}
-            </div>
-          {/if}
-        {/each}
-      {/if}
+      {#each sortedMonths as month (month.id)}
+        {#if month.products.length > 0}
+          <h6>
+            {month.label} ({month.monthPad}{#if month.year !== thisYear}&nbsp;{month.year}{/if})
+          </h6>
+          <div class="flex flex--gap flex--wrap">
+            {#each month.products as product (product.id)}
+              <Product {product} type="latestproducts" />
+            {/each}
+          </div>
+        {/if}
+      {/each}
     </div>
   </div>
-</Toggle>
-
-<style lang="scss">
-  @import '../../scss/variables';
-
-  .changes {
-    .new-month {
-      display: block;
-      flex-wrap: wrap;
-    }
-
-    margin-bottom: $space-xl;
-
-    label {
-      user-select: none;
-      cursor: pointer;
-      color: $color-primary-light;
-    }
-  }
-</style>
+{/if}

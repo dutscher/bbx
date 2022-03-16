@@ -51,16 +51,14 @@
   };
 </script>
 
-<svelte:window bind:innerWidth />
-
 <div>
-  <h2>{STR_MANHATTAN}</h2>
+  <h2 bind:clientWidth={innerWidth}>{STR_MANHATTAN}</h2>
   {#if innerWidth}
     <div class="pieces" style="zoom:{zoom};-moz-transform:scale({zoom});">
       <div class="pieces__wrap">
         {#each pieces as piece}
           <div
-            class="piece piece--{piece.nr} {piece.state}"
+            class="piece piece--{piece.nr} state--{piece.state}"
             on:click={event => {
               setActive(event, piece.id);
             }}
@@ -68,7 +66,7 @@
             title={piece.title}
           >
             {#if !piece.isOutside}
-              <img class="piece__img" alt={piece.title} src="./images/manhattan/{piece.nr}.png" />
+              <img class="piece__img" alt={piece.title} src="./images/specials/manhattan/{piece.nr}.png" />
             {:else}
               {piece.title}
             {/if}
@@ -118,8 +116,8 @@
       background: rgba($color-primary, 0.75);
       color: $color-white;
       font-weight: bold;
-      padding: $space-md;
-      border-radius: $border-radius-xl;
+      padding: 6rem;
+      border-radius: 16rem;
     }
 
     &.available {
@@ -138,25 +136,25 @@
       }
     }
 
-    &.blue {
+    &.state--blue {
       &::after {
         background: rgba($color-primary, 0.75);
       }
     }
 
-    &.green {
+    &.state--green {
       &::after {
         background: rgba($color-comingsoon, 0.75);
       }
     }
 
-    &.red {
+    &.state--red {
       &::after {
         background: rgba($color-unavailable, 0.75);
       }
     }
 
-    &.orange {
+    &.state--orange {
       &::after {
         background: rgba($color-annoucement, 0.75);
       }

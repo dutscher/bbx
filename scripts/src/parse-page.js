@@ -36,7 +36,6 @@ let allTimeChanges;
 
 let parsedDataToday = {
   items: products,
-  images: {},
 };
 
 const isExistingProduct = itemId => parsedDataToday.items.some(obj => obj.id === itemId);
@@ -79,7 +78,6 @@ const parsePageJSDOM = async url => {
     const href = item.querySelector('a').getAttribute('href').replace(bbUrl, '');
     let id = href.match(/([\d]{6,7})/)[1];
     id = id.startsWith('00') ? id : parseInt(id);
-    parsedDataToday.images[id] = item.querySelector('img').getAttribute('src').replace(bbUrl, '');
 
     // skip if wrong categorized
     if (
@@ -154,7 +152,6 @@ const parsePageCherrio = async url => {
     const href = $($(item).find('a')).attr('href').replace(bbUrl, '');
     let id = href.match(/([\d]{6,7})/)[1];
     id = id.startsWith('00') ? id : parseInt(id);
-    parsedDataToday.images[id] = $($(item).find('img')).attr('src').replace(bbUrl, '');
 
     // skip if wrong categorized
     if (
@@ -193,19 +190,6 @@ const parsePageCherrio = async url => {
 };
 
 const createProduct = data => {
-  // handle image
-  const image = parsedDataToday.images[data.id];
-  //  "100090": "/img/items/100/100090/300/100090_1.jpg",
-  // default is _1
-  if (!image.includes('_1')) {
-    data.image = parseInt(image.replace(/.*_(\d).*/, '$1'));
-  }
-  // .png is default
-  // see image-extension.json
-  if (image.includes('.jpg')) {
-    data.imageExt = 0;
-  }
-
   // add changes from api
   if (data.id in allTimeChanges && Object.keys(allTimeChanges[data.id].history).length > 0) {
     data.history = allTimeChanges[data.id].history;
@@ -246,13 +230,6 @@ const createProduct = data => {
       parsedDataToday.items[itemIndexExists].title = data.title;
       parsedDataToday.items[itemIndexExists].parts = data.parts;
       parsedDataToday.items[itemIndexExists].price = data.price;
-
-      if (data.image) {
-        parsedDataToday.items[itemIndexExists].image = data.image;
-      }
-      if (data.imageExt !== undefined) {
-        parsedDataToday.items[itemIndexExists].imageExt = data.imageExt;
-      }
     }
   }
 };

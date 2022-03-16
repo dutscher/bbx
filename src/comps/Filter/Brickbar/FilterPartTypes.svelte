@@ -1,13 +1,15 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { storedActiveSelection, storedPartTypes, storedProducts, storedFilteredProducts } from '../../stores';
-  import { getUrlParam, setUrlParams, titleMatch } from '../../utils';
-  import { ID_PARTS } from '../../_interfaces';
+  import { storedActiveSelection, storedPartTypes, storedProducts, storedFilteredProducts } from '../../../stores';
+  import { getUrlParam, setUrlParams, titleMatch, ess, jsVoid } from '../../../utils';
+  import { ID_PARTS } from '../../../_interfaces';
 
   export let activePartTypeIds: any = [];
   export let partTypes: any;
   export let products: any;
   export let filteredProducts: any = [];
+
+  let sortedItems: any;
 
   const urlParam = 'partTypes';
   const getUrlParams = () => {
@@ -51,7 +53,7 @@
   storedProducts.subscribe(store => (products = store));
   storedFilteredProducts.subscribe(store => (filteredProducts = store));
 
-  function sortItems() {
+  function sortItems(filteredProducts) {
     let sortedData = [];
     // get count of products
     sortedData = partTypes
@@ -85,54 +87,46 @@
 
 <div class="flex">
   <h4>Typen</h4>
-  <div class="flex flex--wrap bl">
+  <div class="flex flex--wrap flex--gap">
     {#each sortedItems as part (part.id)}
-      <div
-        class="part{activePartTypeIds.includes(part.id) ? ' active' : ''}{part.count === 0 ? ' disabled' : ''}"
+      <a
+        class={ess(
+          'chip border small no-margin round',
+          activePartTypeIds.includes(part.id) && 'active',
+          part.count === 0 && 'disabled'
+        )}
         data-id={part.id}
         on:click={() => clickItem(part, true)}
-        title="{part.name} ({part.count})"
+        title={part.name}
+        href={jsVoid}
       >
-        {part.de}
-      </div>
+        <span class="badge round">{part.count}</span>
+        <span>
+          {part.de}
+        </span>
+      </a>
     {/each}
   </div>
 </div>
 
 <style lang="scss">
-  @import '../../scss/variables';
+  @import '../../../scss/variables';
 
-  .part {
-    padding: 0 $space-xl;
-    margin: $space-xs;
-    border: solid 1px $color-primary-darker;
-    border-radius: $border-radius-xl;
-    background: $color-white;
-    color: $color-primary-dark;
-    cursor: pointer;
-    user-select: none;
-    position: relative;
-    font-size: ms(0);
+  h4 {
+    width: 64rem;
+  }
 
-    @media (min-width: 750px) {
-      font-size: ms(-2);
+  .chip {
+    .badge {
+      display: none;
     }
 
-    &:focus,
+    &.active,
     &:active,
-    &.active {
-      background: $color-primary-darker;
-      color: $color-white;
-    }
-
     &:hover {
-      background: $color-primary-dark;
-      color: $color-white;
-    }
-
-    &.disabled {
-      opacity: 0.1;
-      cursor: default;
+      .badge {
+        display: inline-flex;
+      }
     }
   }
 </style>

@@ -1,6 +1,5 @@
 <script lang="ts">
   import Tooltip from './ProductTooltip.svelte';
-  import Icon from '../Icon.svelte';
   import ClickOutside from 'svelte-click-outside';
   import {
     ID_BURG_BLAUSTEIN,
@@ -8,9 +7,6 @@
     ID_MOVIE,
     ID_NETHERLAND,
     ID_STAR_TREK,
-    ID_STATE_ANNOUNCEMENT,
-    ID_STATE_AVAILABLE,
-    ID_STATE_COMING_SOON,
     STR_MANHATTAN,
     STR_NETHERLAND,
     STR_BURG_BLAUSTEIN,
@@ -18,7 +14,7 @@
     UNLOADED,
   } from '../../_interfaces';
   import { storedGlobalData, storedActiveSelection, storedStates, storedHearts, loadInstData } from '../../stores';
-  import { getLatestStateOfToday } from '../../utils';
+  import { getLatestStateOfToday, ess } from '../../utils';
   import { storedActiveProduct } from '../../stores/states';
 
   export let product: any;
@@ -36,6 +32,8 @@
   let showTooltip = false;
   let isHeart: boolean;
   let isActive: boolean = false;
+  let stateColor: string = '';
+  let productTitle: string = '';
 
   storedActiveSelection.subscribe(store => {
     activeTagsIds = store.tags;
@@ -140,18 +138,28 @@
     }
 
     isHeart = heartLists.find(list => hearts[list].i.includes(product.id));
+
+    stateColor = handleStateColor(product);
+
+    productTitle = getTitle(product);
   }
 </script>
 
 <ClickOutside on:clickoutside={onClickOutside}>
-  <div class="product {handleStateColor(product)}" data-state={handleStateName(product)}>
-    <span class="product__label" on:click={onClick}>
-      {#if isHeart && !type.startsWith('hearts')}
-        <Icon modifier="heart" svg="true" class="active" title="Merkliste" />
-      {/if}
-      {#if (product.isNew || product.isNewSoon) && !isHeart}<Icon modifier="new" title="Neues Produkt" />{/if}
-      {#if product.isHot && !isHeart}<Icon modifier="flame" title="Beliebtes Produkt" />{/if}
-      {getTitle(product)}
+  <div class="product" data-state={handleStateName(product)}>
+    <span class={ess('chip large round no-margin white-text', stateColor)} on:click={onClick}>
+      <span>
+        {#if isHeart && !type.startsWith('hearts')}
+          <i class={stateColor === 'red' ? 'orange-text' : 'red-text'}>favorite</i>
+        {/if}
+        {#if (product.isNew || product.isNewSoon) && !isHeart}
+          <i class="yellow-text">star</i>
+        {/if}
+        {#if product.isHot && !isHeart}
+          <i class="orange-text">local_fire_department</i>
+        {/if}
+        {productTitle}
+      </span>
       {#if type === 'products' && product.movieData && activeTagsIds.includes(ID_MOVIE)}
         <span class="product__movie">{product.movieData}</span>
       {/if}
@@ -166,50 +174,29 @@
   @import '../../scss/variables';
 
   .product {
-    position: relative;
-    margin: $space-xs;
-    text-decoration: none;
-    color: $color-white;
-    background: $color-primary;
-    padding: 0 $space-lg;
-    border-radius: $space-xl;
-    font-size: ms(2);
     user-select: none;
     cursor: pointer;
 
-    @media (min-width: 750px) {
-      font-size: ms(0);
+    i {
+      overflow: inherit;
+      margin-right: 4rem;
     }
 
-    &__label {
-      display: block;
+    .chip {
+      flex-direction: column;
     }
 
     &__movie {
+      align-self: flex-end;
       display: block;
       font-size: ms(-1);
       position: relative;
       top: -3px;
+      margin-left: 0 !important;
 
       @media (min-width: 750px) {
         font-size: ms(-3);
       }
-    }
-
-    &.green {
-      background: $color-comingsoon;
-    }
-
-    &.red {
-      background: $color-unavailable;
-    }
-
-    &.orange {
-      background: $color-annoucement;
-    }
-
-    &:hover {
-      background: $color-primary-darker;
     }
   }
 </style>

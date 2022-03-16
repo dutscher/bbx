@@ -1,5 +1,3 @@
-import type { Writable as SvelteWritable } from 'svelte/store';
-
 export interface BBXProduct {
   id: number;
   title: string;
@@ -17,5 +15,4 @@ export enum Filter {
   ACTIVE = 'active',
   COMPLETED = 'completed',
 }
-
 */

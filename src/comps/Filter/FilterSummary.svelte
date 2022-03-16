@@ -8,7 +8,7 @@
     storedStates,
     storedTags,
   } from '../../stores';
-  import { setUrlParams, stopClick } from '../../utils';
+  import { setUrlParams, stopClick, jsVoid } from '../../utils';
 
   export let activeSearchString: string = '';
   export let activeTagIds: any = [];
@@ -16,7 +16,7 @@
   export let activeColorIds: any = [];
   export let activePartIds: any = [];
   export let activePartTypeIds: any = [];
-
+  let invisible: any;
   let parts: any;
   let partTypes: any;
   let colors: any;
@@ -40,23 +40,34 @@
   const removeItem = (type, e, id) => {
     stopClick(e);
 
+    let restTags;
+
     storedActiveSelection.update(store => {
-      if (type === 'search' && type === 'search') {
-        store[type] = '';
+      if (type === 'all') {
+        const types = ['search', 'tags', 'states', 'colors', 'parts', 'partTypes'];
+        types.map(type => {
+          const value = type === 'search' ? '' : [];
+          store[type] = value;
+          setUrlParams(type, value);
+        });
       } else {
-        store[type] = store[type].filter(itemId => itemId !== id);
+        if (type === 'search') {
+          store[type] = '';
+        } else {
+          store[type] = store[type].filter(itemId => itemId !== id);
+        }
+
+        restTags = tags.filter(tag => store[type].includes(tag.id));
+
+        if (restTags.length === 0) {
+          store.reason = 'remove-all-filters';
+        }
+
+        setUrlParams(
+          type,
+          restTags.map(tag => tag.seoName)
+        );
       }
-
-      const restTags = tags.filter(tag => store[type].includes(tag.id));
-
-      if (restTags.length === 0) {
-        store.reason = 'remove-all-filters';
-      }
-
-      setUrlParams(
-        type,
-        restTags.map(tag => tag.seoName)
-      );
 
       return store;
     });
@@ -66,7 +77,12 @@
 {#if !invisible}
   <div class="flex flex--inline filter-summary  with-text-shadow">
     <div class="flex flex--wrap flex--vertical-center filter-summary__wrap">
-      <strong class="filter-headline">| Filter:&nbsp;</strong>
+      <b>Filter:</b>&nbsp;
+      <a href={jsVoid} on:click={e => removeItem('all', e)} class="link">
+        <i class="small link">delete</i>
+        <span>Zurücksetzen</span>
+        <div class="tooltip bottom small-margin">Lösche alle Filter</div>
+      </a>
       <FilterSummaryActive label="Suche nach" activStr={activeSearchString} onClick={removeItem.bind(this, 'search')} />
       <FilterSummaryActive label="Tags" activeIds={activeTagIds} store={tags} onClick={removeItem.bind(this, 'tags')} />
       <FilterSummaryActive
@@ -100,13 +116,11 @@
 <style lang="scss">
   @import '../../scss/variables';
 
-  .filter-summary {
-    position: relative;
+  :global .filter-summary__wrap .link {
+    cursor: pointer;
 
-    &__wrap {
-      font-size: ms(-1);
-      font-weight: bold;
-      color: $color-primary;
+    &:hover {
+      text-decoration: underline;
     }
   }
 </style>

@@ -8,7 +8,7 @@ export { storedParts, storedPartTypes } from './stores/parts';
 export { storedImageExtension } from './stores/image-extension';
 export { storedHearts, lsKey as lsKeyHeart } from './stores/hearts';
 export { internetConnection } from './stores/internet-connection';
-export { storedFilteredProducts, storedProducts, sortedProducts } from './stores/products';
+export { storedProductsSorting, storedFilteredProducts, storedProducts, sortedProducts } from './stores/products';
 export { storedPermissions, promptThePermission } from './stores/notifications';
 
 export { localStore } from './stores/local-storage';
@@ -17,6 +17,7 @@ export { loadChanges } from './stores/api/changes';
 export { loadMovieData } from './stores/api/movie-data';
 export { loadInstData } from './stores/api/inst-data';
 export { loadHistoryData } from './stores/api/history-data';
+export { loadProductData } from './stores/api/product-data';
 
 import { serviceWorkerSvelteSyncer } from './stores/service-worker';
 

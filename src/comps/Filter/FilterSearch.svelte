@@ -2,13 +2,14 @@
   import { onMount } from 'svelte';
   import { storedActiveSelection } from '../../stores';
   import { getUrlParam, setUrlParams } from '../../utils';
+  import { beerui } from '../../beerui';
 
   export let activeSearchString: any = '';
 
   const urlParam = 'search';
 
   const getUrlParams = () => {
-    // ?tags=piraten
+    // ?search=piraten
     const queryTags = getUrlParam(urlParam);
     activeSearchString = queryTags;
     onInput();
@@ -51,48 +52,24 @@
 
   onMount(() => {
     getUrlParams();
+    setTimeout(() => {
+      beerui();
+    }, 50);
   });
 </script>
 
-<div class="flex flex--block">
-  <h4>Suche</h4>
-  <div class="flex flex--wrap bl">
+<article>
+  <div class="field label prefix border no-margin">
+    <i>search</i>
     <input
+      id="search"
       class="search"
       type="search"
       value={activeSearchString}
-      placeholder="Produktname oder ID"
       on:input={({ target: { value } }) => checkInput(value)}
       on:keyup={({ target: { value } }) => debounce(value)}
       spellcheck="false"
     />
-    <!--               bind:value={activeSearchString}-->
-    <!--               on:input={() => onInput(true)}-->
+    <label for="search">Suche nach Produkt oder ID</label>
   </div>
-</div>
-
-<style lang="scss">
-  @import '../../scss/variables';
-
-  .search {
-    background: $color-primary-lighter;
-    border: solid 1px $color-primary-darker;
-    border-radius: $border-radius-lg;
-    color: $color-primary-darker;
-    padding: $space-md $space-lg;
-    font-size: ms(2);
-    width: 100%;
-
-    &::placeholder {
-      color: $color-white;
-    }
-
-    @media (min-width: 720px) {
-      width: 33vw;
-    }
-  }
-
-  :global([data-theme='dark'] .search) {
-    background: $color-neutral-100;
-  }
-</style>
+</article>

@@ -82,10 +82,12 @@ export const getTextOfElement = element => {
 
 export const getCleanText = text => {
   return text
-    .replace(/[\r\n\t]+/gm, '')
-    .trim()
-    .replace('  ', ' ')
-    .replace('&amp;', '&');
+    ? text
+        .replace(/[\r\n\t]+/gm, '')
+        .trim()
+        .replace('  ', ' ')
+        .replace('&amp;', '&')
+    : '';
 };
 
 // pageUrls = https://www.bluebrixx.com/de/bluebrixxspecials/military_models = [bluebrixxspecials,military_models]

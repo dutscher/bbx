@@ -24,7 +24,6 @@
     const maxWidth = innerWidth < imgWidth ? innerWidth : 750;
     zoom = maxWidth / (imgWidth + 64);
 
-    console.log({ innerWidth, zoom });
     pieces = data.blaustein.pieces.map((piece, i) => {
       const product = getEEProduct(products, piece);
 
@@ -55,26 +54,24 @@
   };
 </script>
 
-<svelte:window bind:innerWidth />
-
 <div>
-  <h2>{STR_BURG_BLAUSTEIN}</h2>
+  <h2 bind:clientWidth={innerWidth}>{STR_BURG_BLAUSTEIN}</h2>
   {#if innerWidth}
     <div class="pieces" style="zoom:{zoom};-moz-transform:scale({zoom});">
       <div class="pieces__wrap flex">
-        <img class="piece__img" alt={STR_BURG_BLAUSTEIN} src="./images/burg-blaustein.png" />
+        <img class="piece__img" alt={STR_BURG_BLAUSTEIN} src="./images/specials/burg-blaustein.png" />
         {#each pieces as piece}
           <div
-            class="piece piece--{piece.nr} {piece.state}"
+            class="piece piece--{piece.nr} color--{piece.state} chip large round small-padding"
             on:click={event => {
               setActive(event, piece.id);
             }}
           >
-            {piece.title}
-            <span
-              >{piece.parts}
-              {#if piece.price} - {handlePrice(piece)}{/if}</span
-            >
+            <span>{piece.title}</span>
+            <span class="sub">
+              {piece.parts}
+              {#if piece.price} - {handlePrice(piece)}{/if}
+            </span>
           </div>
         {/each}
       </div>
@@ -105,10 +102,12 @@
       background: rgba($color-primary, 0.75);
       color: $color-white;
       font-weight: bold;
-      padding: $space-md;
-      border-radius: $border-radius-xl;
 
       span {
+        white-space: nowrap;
+      }
+
+      span.sub {
         font-size: ms(-2);
         display: block;
       }
@@ -152,19 +151,19 @@
       }
     }
 
-    &.blue {
+    &.color--blue {
       background: rgba($color-primary, 0.75);
     }
 
-    &.green {
+    &.color--green {
       background: rgba($color-comingsoon, 0.75);
     }
 
-    &.red {
+    &.color--red {
       background: rgba($color-unavailable, 0.75);
     }
 
-    &.orange {
+    &.color--orange {
       background: rgba($color-annoucement, 0.75);
     }
   }

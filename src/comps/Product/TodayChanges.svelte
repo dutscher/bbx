@@ -1,23 +1,30 @@
 <script lang="ts">
   import Product from './Product.svelte';
-  import Icon from '../Icon.svelte';
-  import Toggle from '../Toggle.svelte';
   import { storedProducts, storedStates } from '../../stores';
   import { getLatestStateOfToday, pad, stopClick } from '../../utils';
   import { ID_PARTS } from '../../_interfaces';
+  import { onMount } from 'svelte';
+  import { beerui } from '../../beerui';
 
   let products: any;
   let states: any;
   let isVisible = true;
   let isToday = false;
+  let showSets = true;
   let showParts = false;
+  let countSets = 0;
   let countParts = 0;
   let dayStr = '';
+  let sortedProducts: any;
   // 2017-06-01
   let selectedDate: string = '';
   let selectedDateMin: string = '2021-04-30';
   let selectedDateMax: string = '';
   const days = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+
+  onMount(() => {
+    beerui();
+  });
 
   storedProducts.subscribe(store => (products = store));
   storedStates.subscribe(store => (states = store));
@@ -49,20 +56,23 @@
     return hasTodayChanges;
   };
 
-  const sortProducts = (products, showParts, selectedDate) => {
+  const sortProducts = (products, showParts, showSets, selectedDate) => {
+    countSets = 0;
     countParts = 0;
     let sortedData = [];
     // do filtering api changes
     sortedData = products
       // show only changes from today
       .filter(product => hasTodayHistory(product))
-      // filter part changes
+      // filter checkbox sets vs parts
       .filter(product => {
         const isPart = product.tags.includes(ID_PARTS);
         if (isPart) {
           countParts++;
+        } else {
+          countSets++;
         }
-        return (!showParts && !isPart) || (showParts && isPart);
+        return (showSets && !isPart) || (showParts && isPart);
       })
       // sort by name
       .sort((a, b) => {
@@ -107,7 +117,7 @@
     }
   }
 
-  $: sortedProducts = sortProducts(products, showParts, selectedDate);
+  $: sortedProducts = sortProducts(products, showParts, showSets, selectedDate);
 </script>
 
 <!--
@@ -121,73 +131,77 @@
     {/each}
 {/if}
 -->
-<Toggle title="Status vom" open>
-  <div slot="description">
-    <span class="datepicker">
-      <Icon svg="true" modifier="arrow left" on:click={event => handleDate(event, 'prev')} />
-      <input
-        type="date"
-        min={selectedDateMin}
-        max={selectedDateMax}
-        bind:value={selectedDate}
-        on:click={event => event.stopPropagation()}
-      />
-      <span class="day-str">{dayStr}</span>
-      {#if !isToday}
-        <Icon svg="true" modifier="arrow" on:click={event => handleDate(event, 'next')} />
-      {/if}
-      <b>({sortedProducts.length})</b>
-    </span>
+
+<article>
+  <h2 class="headline">
+    <span>Status vom</span>
+    <i class="prev-day" on:click={event => handleDate(event, 'prev')}>arrow_back_ios</i>
+    <span class="day-str">{dayStr}</span>
+    {#if !isToday}
+      <i on:click={event => handleDate(event, 'next')}>arrow_forward_ios</i>
+    {/if}
+  </h2>
+  <div class="field suffix border">
+    <input
+      type="date"
+      min={selectedDateMin}
+      max={selectedDateMax}
+      bind:value={selectedDate}
+      on:click={event => event.stopPropagation()}
+    />
+    <i>today</i>
   </div>
-  <div class="changes">
-    <label>
-      <input type="checkbox" bind:checked={showParts} />
-      Auf Parts ({countParts}) umschalten
-    </label>
-    <div class="flex flex--wrap">
-      {#if isVisible}
-        {#each sortedProducts as product (product.id)}
-          <Product {product} type="todaychanges" todayChangesDate={selectedDate} />
-        {/each}
-      {/if}
-    </div>
+</article>
+
+<article class="changes border">
+  <div class="field middle-align">
+    <nav class="wrap">
+      <label class="checkbox">
+        <input type="checkbox" bind:checked={showSets} />
+        <span>Sets<span class="badge round">{countSets}</span></span>
+      </label>
+      <label class="checkbox">
+        <input type="checkbox" bind:checked={showParts} />
+        <span>Parts<span class="badge round">{countParts}</span></span>
+      </label>
+    </nav>
   </div>
-</Toggle>
+
+  <div class="flex flex--gap flex--wrap">
+    {#if isVisible}
+      {#each sortedProducts as product (product.id)}
+        <Product {product} type="todaychanges" todayChangesDate={selectedDate} />
+      {/each}
+    {/if}
+  </div>
+</article>
 
 <style lang="scss">
   @import '../../scss/variables';
 
-  .datepicker {
-    :global .icon {
-      font-size: ms(1);
-      vertical-align: middle;
+  .headline {
+    user-select: none;
+
+    span.day-str {
+      width: 45rem;
+      text-align: center;
     }
 
-    @media (max-width: 600px) {
-      display: block;
-      padding-left: $space-xl * 2;
-    }
+    i {
+      margin: 0 0 0 8rem;
 
-    input {
-      vertical-align: middle;
-      font-family: inherit;
-      position: relative;
-      top: -2px;
-    }
+      &.prev-day {
+        margin: 0 0 0 16rem;
+      }
 
-    .day-str {
-      display: inline-block;
-      width: 40px;
-      padding-left: 0;
+      &:hover {
+        color: var(--primary);
+        cursor: pointer;
+      }
     }
   }
 
-  .changes {
-    margin-bottom: $space-xl;
-
-    label {
-      user-select: none;
-      cursor: pointer;
-    }
+  .field {
+    width: 250rem;
   }
 </style>

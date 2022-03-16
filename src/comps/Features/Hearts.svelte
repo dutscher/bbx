@@ -1,15 +1,17 @@
 <script lang="ts">
   import { storedProducts, storedHearts, localStore, lsKeyHeart } from '../../stores';
-  import Toggle from '../Toggle.svelte';
   import Product from '../Product/Product.svelte';
-  import Icon from '../Icon.svelte';
   import { stopClick } from '../../utils';
 
   export let list = 'default';
-  let heartSummary = { price: 0, parts: 0 };
-  let title = '';
-  let hearts = [];
-  let products = [];
+  let heartItems: any;
+  let heartSummary: any = { price: 0, parts: 0 };
+  let title: string = '';
+  let hearts: any = [];
+  let products: any = [];
+  let isEdit: boolean = false;
+  let editTitle: string = '';
+  let input: any;
 
   storedProducts.subscribe(store => (products = store));
   storedHearts.subscribe(store => {
@@ -25,6 +27,40 @@
       storedHearts.update(store => {
         delete store[list];
         localStore.set(lsKeyHeart, JSON.stringify(store));
+        return store;
+      });
+    }
+  };
+
+  const onClick = event => {
+    if (list === 'default') {
+      stopClick(event);
+    }
+  };
+
+  const clickEdit = () => {
+    isEdit = true;
+    editTitle = title;
+
+    setTimeout(() => {
+      input.focus();
+      input.select();
+    }, 50);
+  };
+
+  const onKeyDown = e => {
+    if (e.key === 'Escape') {
+      isEdit = false;
+    }
+  };
+
+  const onKeyPress = e => {
+    if (e.key === 'Enter') {
+      storedHearts.update(store => {
+        store[list].t = editTitle;
+        localStore.set(lsKeyHeart, JSON.stringify(store));
+
+        isEdit = false;
         return store;
       });
     }
@@ -66,39 +102,51 @@
   }
 </script>
 
-<Toggle {title} alwaysopen={list === 'default'}>
-  <div slot="icon">
-    <Icon modifier="heart" svg="true" class="active" title="Will ich haben" />
-  </div>
-  <div slot="description">
-    {#if heartItems.length > 1}
-      <span class="summary">
-        {heartItems.length} Set´s =
-        <strong>Listenpreis:</strong>
-        {heartSummary.price.toFixed(2).replace('.', ',')} EUR /
-        <strong>Steine:</strong>
-        {heartSummary.parts}
-      </span>
-    {/if}
-  </div>
-  <div slot="right">
-    {#if list !== 'default'}
-      <Icon modifier="delete" svg="true" title="Lösche Liste" on:click={clickDeleteList} />
-    {/if}
-  </div>
-  <!--slot-->
-  <div class="flex flex--wrap">
+<details class="card" open={list === 'default'} on:click={onClick}>
+  <summary class="none small-margin">
+    <div class="row no-wrap middle-align">
+      <div class="col min">
+        <i class="red-text">favorite</i>
+      </div>
+      <div class="col">
+        {#if !isEdit}
+          <span class="large-text">
+            {title}
+          </span>
+        {:else}
+          <div class="field border small">
+            <input type="text" bind:this={input} on:keydown={onKeyDown} on:keypress={onKeyPress} bind:value={editTitle} />
+          </div>
+        {/if}
+        <div class="small-text">
+          {#if heartItems.length > 1}
+            <b>{heartItems.length}</b> Set´s =
+            <b>Listenpreis:</b>
+            {heartSummary.price.toFixed(2).replace('.', ',')} EUR /
+            <b>Steine:</b>
+            {heartSummary.parts}
+          {/if}
+        </div>
+      </div>
+      <div class="col min">
+        <i on:click={clickEdit}>edit</i>
+        <div class="tooltip">Editiere Liste</div>
+      </div>
+      {#if list !== 'default'}
+        <div class="col min">
+          <i on:click={clickDeleteList}>delete</i>
+          <div class="tooltip">Lösche Liste</div>
+        </div>
+      {/if}
+    </div>
+  </summary>
+  <div class="flex flex--gap flex--wrap">
     {#each heartItems as product (product.id)}
       <Product {product} type="hearts-{list}" />
     {/each}
   </div>
-</Toggle>
+</details>
 
 <style lang="scss">
   @import '../../scss/variables';
-
-  .summary {
-    font-size: ms(-2);
-    vertical-align: middle;
-  }
 </style>

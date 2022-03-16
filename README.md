@@ -2,6 +2,7 @@ https://bbx.watch/
 
 Buzzwords:
 * Svelte
+  * https://www.beercss.com/
   * Scss
   * Typescript
   * Nodejs Modulejs
