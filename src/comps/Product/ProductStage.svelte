@@ -106,17 +106,17 @@
       </span>
     {/if}
 
-    <a href={data.url + product.href + AFF_LINK} target="_blank">
-      <i>shopping_cart</i>
-      <div class="tooltip bottom small-margin">Zum Shop{!!AFF_LINK ? '*' : ''}</div>
-    </a>
-
     <span on:click={goFurther}>
       <i class={ess((imageIndex === images.length - 1 || videoVisible) && 'disable')}>arrow_forward_ios</i>
       {#if !videoVisible}
         <div class="tooltip bottom small-margin">Nächstes Bild</div>
       {/if}
     </span>
+
+    <a href={data.url + product.href + AFF_LINK} target="_blank">
+      <i>shopping_cart</i>
+      <div class="tooltip bottom small-margin">Zum Shop{!!AFF_LINK ? '*' : ''}</div>
+    </a>
   </div>
 {/if}
 

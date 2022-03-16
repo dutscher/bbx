@@ -1,7 +1,6 @@
 import { storedProducts } from '../products';
 import { sortedStates, storedActiveSelection } from '../states';
 import { ID_STATE_ANNOUNCEMENT, ID_STATE_AVAILABLE, ID_STATE_COMING_SOON, LOADED, LOADING } from '../../_interfaces';
-import { getDateTime } from '../../utils';
 
 export const loadHistoryData = async () => {
   storedActiveSelection.update(store => {
