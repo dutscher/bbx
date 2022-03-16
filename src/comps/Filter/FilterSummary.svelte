@@ -44,7 +44,7 @@
 
     storedActiveSelection.update(store => {
       if (type === 'all') {
-        const types = ['search', 'tags', 'states', 'colors', 'parts', 'partTypes'];
+        const types = ['search', 'tags', 'states', 'colors', 'parts', 'partTypes', 'product'];
         types.map(type => {
           const value = type === 'search' ? '' : [];
           store[type] = value;
