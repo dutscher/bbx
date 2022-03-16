@@ -18,6 +18,7 @@
     storedActiveProduct,
     localStore,
   } from '../../stores';
+  import { ID_PARTS } from '../../_interfaces';
 
   export let bbUrl: string;
 
@@ -29,6 +30,10 @@
   let activeSearchString: string = '';
   let filteredProducts: any = [];
   let sortedItems: any = [];
+  let showSets = true;
+  let showParts = false;
+  let countSets = 0;
+  let countParts = 0;
 
   let parts: any;
   let partTypes: any;
@@ -37,6 +42,7 @@
   let states: any;
   let tags: any;
   let sorting: any;
+
   const urlParam = 'product';
   const chunks = 500;
 
@@ -106,8 +112,13 @@
     activePartId,
     activePartTypeIds,
     products,
-    sorting
+    sorting,
+    showSets,
+    showParts
   ) => {
+    countSets = 0;
+    countParts = 0;
+
     let raw = [];
     let withFilter = [];
 
@@ -186,6 +197,16 @@
             }
           });
           return activeStateIds.length === 0 || countMatched > 0;
+        })
+        // filter checkbox sets vs parts
+        .filter(product => {
+          const isPart = product.tags.includes(ID_PARTS);
+          if (isPart) {
+            countParts++;
+          } else {
+            countSets++;
+          }
+          return (showSets && !isPart) || (showParts && isPart);
         });
 
       withFilter = handleProductSort(withFilter);
@@ -264,7 +285,9 @@
     activePartIds,
     activePartTypeIds,
     products,
-    sorting
+    sorting,
+    showSets,
+    showParts
   );
 
   // first to remove localstorage keys before onMount
@@ -276,6 +299,19 @@
 </script>
 
 <h2>{filteredProducts.withFilter.length} / {products.length}</h2>
+
+<div class="field middle-align">
+  <nav class="wrap">
+    <label class="checkbox">
+      <input type="checkbox" bind:checked={showSets} />
+      <span>Sets<span class="badge round">{countSets}</span></span>
+    </label>
+    <label class="checkbox">
+      <input type="checkbox" bind:checked={showParts} />
+      <span>Parts<span class="badge round">{countParts}</span></span>
+    </label>
+  </nav>
+</div>
 
 <FilterSummary
   {activeSearchString}

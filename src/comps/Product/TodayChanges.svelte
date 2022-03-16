@@ -64,7 +64,7 @@
     sortedData = products
       // show only changes from today
       .filter(product => hasTodayHistory(product))
-      // filter part changes
+      // filter checkbox sets vs parts
       .filter(product => {
         const isPart = product.tags.includes(ID_PARTS);
         if (isPart) {
