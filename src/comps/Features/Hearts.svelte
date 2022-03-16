@@ -115,7 +115,13 @@
           </span>
         {:else}
           <div class="field border small">
-            <input type="text" bind:this={input} on:keydown={onKeyDown} on:keypress={onKeyPress} bind:value={editTitle} />
+            <input
+              type="text"
+              bind:this={input}
+              on:keydown={onKeyDown}
+              on:keypress={onKeyPress}
+              bind:value={editTitle}
+            />
           </div>
         {/if}
         <div class="small-text">
@@ -146,7 +152,3 @@
     {/each}
   </div>
 </details>
-
-<style lang="scss">
-  @import '../../scss/variables';
-</style>

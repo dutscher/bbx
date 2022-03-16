@@ -13,11 +13,11 @@
   storedProducts.subscribe(store => (products = store.length));
   storedActiveSelection.subscribe(store => (lastCursor = store.lastCursor));
 
-  const open = (site, showTags = false) => {
+  const open = (site, type) => {
     storedActiveSelection.update(store => {
       store.site = site;
-      if (showTags) {
-        store.reason = 'show-tags';
+      if (!!type) {
+        store.reason = `show-${type}`;
       }
       return store;
     });
@@ -46,16 +46,15 @@
     <div class="welcome">
       <p>
         Willkommen im neuen Bluebrixx Watcher<br />
-        Hier findest du nur {products} Bluebrixx eigene Produkte.<br />
-        Dies ist ein Hobby Projekt welches ausgeartet ist :)<br />
+        Hier findest du ausschließlich Bluebrixx eigene Produkte.<br />
+        Dies ist ein Hobby Projekt, welches einwenig ausgeartet ist :)<br />
         <b>Wir sind nicht Bluebrixx</b>.
       </p>
-      <p />
       <p>
-        Wähle einen der <a class="link bold" href={jsVoid} on:click={() => open('products', true)}>{tags} Tags</a> aus,
-        suche nach einem von
-        <a class="link bold" href={jsVoid} on:click={() => open('products')}>{products} Produkten</a> oder wähle einen
-        einfach einen Status.<br />
+        Wähle einen der <a class="link bold" href={jsVoid} on:click={() => open('products', 'tags')}>{tags} Tags</a>,
+        durchstöber die
+        <a class="link bold" href={jsVoid} on:click={() => open('products')}>{products} Produkte</a> oder nutze einfach
+        einen <a class="link bold" href={jsVoid} on:click={() => open('products', 'states')}>Status</a>.<br />
       </p>
       <p>
         Außerdem gibt es noch einen Status-Verlauf pro Produkt in der Detailansicht.<br />

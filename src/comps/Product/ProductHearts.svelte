@@ -90,6 +90,8 @@
   const onKeyDown = e => {
     if (e.key === 'Escape') {
       newValue = '';
+      editList = '';
+      editValue = '';
     }
   };
 
@@ -141,7 +143,7 @@
             <i on:click={e => clickEditList(e, listName, hearts[listName].t)}>edit</i>
             <span>{hearts[listName].t}</span>
           {:else}
-            <div class="field small">
+            <div class="field small no-margin">
               <input
                 type="text"
                 bind:this={input}
@@ -155,8 +157,14 @@
       {/each}
       <div class="hearts__list hearts__list--new">
         <i>add</i>
-        <div class="field small">
-          <input type="text" placeholder="Neue Liste" on:keypress={onKeyPress} bind:value={newValue} />
+        <div class="field small no-margin">
+          <input
+            type="text"
+            placeholder="Neue Liste"
+            on:keypress={onKeyPress}
+            on:keydown={onKeyDown}
+            bind:value={newValue}
+          />
         </div>
       </div>
     </div>
@@ -200,10 +208,15 @@
         flex: 1;
       }
 
+      .field.small {
+        height: 25rem;
+      }
+
       input {
         width: 100rem;
         border: solid 1rem var(--on-surface-variant);
         border-radius: 4rem;
+        padding: 0 5rem;
         flex: 1;
       }
     }
