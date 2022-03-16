@@ -1,7 +1,8 @@
 <script lang="ts">
+  import ProductHearts from './ProductHearts.svelte';
   import { AFF_LINK } from '../../_interfaces';
   import { internetConnection, storedGlobalData } from '../../stores';
-  import { ess, stopClick } from '../../utils';
+  import { ess, stopClick, jsVoid } from '../../utils';
 
   export let product: any;
   export let onLoad = () => {};
@@ -65,7 +66,7 @@
 <div class="stage">
   {#if isOnline && !!imageSrc}
     {#if !imageLoaded}
-      <a class="absolute front loader medium small-margin" />
+      <a href={jsVoid} class="absolute front loader medium small-margin" />
     {/if}
 
     {#if !videoVisible}
@@ -86,18 +87,22 @@
 
 {#if isOnline && !!imageSrc}
   <div class="navi flex flex--horizontal-center front small-margin small-text bold">
-    <span on:click={goBack}>
-      <i class={ess((imageIndex === 0 || videoVisible) && 'disable')}>arrow_back_ios</i>
-      {#if !videoVisible}
-        <div class="tooltip bottom small-margin">Vorheriges Bild</div>
-      {/if}
-    </span>
+    <ProductHearts {product} />
 
-    {#each images as image, i}
-      <span on:click={() => setIndex(i)}>
-        <i class={ess(i === imageIndex && !videoVisible && 'active')}>fiber_manual_record</i>
+    {#if images.length > 1}
+      <span on:click={goBack}>
+        <i class={ess((imageIndex === 0 || videoVisible) && 'disable')}>arrow_back_ios</i>
+        {#if !videoVisible}
+          <div class="tooltip bottom small-margin">Vorheriges Bild</div>
+        {/if}
       </span>
-    {/each}
+
+      {#each images as image, i}
+        <span on:click={() => setIndex(i)}>
+          <i class={ess(i === imageIndex && !videoVisible && 'active')}>fiber_manual_record</i>
+        </span>
+      {/each}
+    {/if}
 
     {#if video}
       <span on:click={showVideo}>
@@ -106,12 +111,14 @@
       </span>
     {/if}
 
-    <span on:click={goFurther}>
-      <i class={ess((imageIndex === images.length - 1 || videoVisible) && 'disable')}>arrow_forward_ios</i>
-      {#if !videoVisible}
-        <div class="tooltip bottom small-margin">Nächstes Bild</div>
-      {/if}
-    </span>
+    {#if images.length > 1}
+      <span on:click={goFurther}>
+        <i class={ess((imageIndex === images.length - 1 || videoVisible) && 'disable')}>arrow_forward_ios</i>
+        {#if !videoVisible}
+          <div class="tooltip bottom small-margin">Nächstes Bild</div>
+        {/if}
+      </span>
+    {/if}
 
     <a href={data.url + product.href + AFF_LINK} target="_blank">
       <i>shopping_cart</i>

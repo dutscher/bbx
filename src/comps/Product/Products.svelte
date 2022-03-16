@@ -75,7 +75,7 @@
     const queryProductId = getUrlParam(urlParam);
     if (
       !Object.keys(allParams).includes('search') &&
-      Object.keys(allParams).some(param => ['page', 'product'].includes(param)) &&
+      Object.keys(allParams).some(param => ['site', 'product'].includes(param)) &&
       !!queryProductId
     ) {
       // close all toggles
@@ -83,7 +83,7 @@
       // update search for product
       // open page
       storedActiveSelection.update(store => {
-        store.page = 'products';
+        store.site = 'products';
         store.search = queryProductId;
         return store;
       });

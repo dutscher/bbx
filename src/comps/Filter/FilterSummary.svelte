@@ -79,7 +79,7 @@
     <div class="flex flex--wrap flex--vertical-center filter-summary__wrap">
       <b>Filter:</b>&nbsp;
       <a href={jsVoid} on:click={e => removeItem('all', e)} class="link">
-        <i class="small primary-text">delete</i>
+        <i class="small link">delete</i>
         <span>Zurücksetzen</span>
         <div class="tooltip bottom small-margin">Lösche alle Filter</div>
       </a>

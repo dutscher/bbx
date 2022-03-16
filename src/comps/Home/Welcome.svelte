@@ -13,9 +13,9 @@
   storedProducts.subscribe(store => (products = store.length));
   storedActiveSelection.subscribe(store => (lastCursor = store.lastCursor));
 
-  const open = (page, showTags = false) => {
+  const open = (site, showTags = false) => {
     storedActiveSelection.update(store => {
-      store.page = page;
+      store.site = site;
       if (showTags) {
         store.reason = 'show-tags';
       }
@@ -45,26 +45,29 @@
     {/if}
     <div class="welcome">
       <p>
-        Dies ist ein Kompakter Bluebrixx only Produkte Katalog.<br />
-        Aufgrund des vielen klickens und langen Ladezeiten im BB eigenen Online-Shop, haben wir das hier entwickelt.
+        Willkommen im neuen Bluebrixx Watcher<br />
+        Hier findest du nur {products} Bluebrixx eigene Produkte.<br />
+        Dies ist ein Hobby Projekt welches ausgeartet ist :)<br />
         <b>Wir sind nicht Bluebrixx</b>.
       </p>
       <p />
       <p>
         Wähle einen der <a class="link bold" href={jsVoid} on:click={() => open('products', true)}>{tags} Tags</a> aus,
         suche nach einem von
-        <a class="link bold" href={jsVoid} on:click={() => open('products')}>{products} Bluebrixx Produkten</a> oder
-        wähle einen Verfügbarkeit Status.<br />
+        <a class="link bold" href={jsVoid} on:click={() => open('products')}>{products} Produkten</a> oder wähle einen
+        einfach einen Status.<br />
       </p>
       <p>
         Außerdem gibt es noch einen Status-Verlauf pro Produkt in der Detailansicht.<br />
         Obendrauf sind noch die passenden Anleitungen verfügbar (Zum herunterladen müsst ihr aber bei Bluebrixx registriert
         und eingeloggt sein.)<br />
-        Als Special gibts noch {IDS_SPECIAL_TAGS.length} Filter/Tags mit besonderen Funktionen. Tip: siehe Grüne Badge Zahl.<br
-        />
+        Als Special gibts noch {IDS_SPECIAL_TAGS.length} Filter/Tags mit besonderen Funktionen.<br />
       </p>
       <p>
-        Viel Spaß damit und Feedback bitte via <a href="//www.facebook.com/bbxwatcher" class="link">Facebook</a> oder
+        Viel Spaß damit<br />
+        Bei Fragen, Anregungen, Probleme oder Wünsche gerne via
+        <a href="//www.facebook.com/bbxwatcher" class="link">Facebook</a>
+        oder
         <a href="mailto:kontakt@bbx.watch" class="link">E-Mail</a>
       </p>
     </div>

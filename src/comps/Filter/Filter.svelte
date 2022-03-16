@@ -5,7 +5,7 @@
   import FilterPartTypes from './Brickbar/FilterPartTypes.svelte';
   import FilterStates from './FilterStates.svelte';
   import FilterSearch from './FilterSearch.svelte';
-  import { ID_PARTS, lsPageSettingsKey } from '../../_interfaces';
+  import { ID_PARTS, lsSiteSettingsKey } from '../../_interfaces';
   import { localStore, storedActiveSelection } from '../../stores';
   import { jsVoid, ess } from '../../utils';
 
@@ -14,6 +14,7 @@
   let activePartTypeIds: any = [];
   let activeColorIds: any = [];
   let activeStateIds: any = [];
+  let activeTab: any;
   let activeSearchString: string = '';
   const tabs = [
     { name: 'states', title: 'Status' },
@@ -31,14 +32,14 @@
 
     const reasons = ['init-tags-url', 'show-tags', 'tooltip-tag-clicked'];
 
-    if (store.page === 'products' && reasons.includes(store.reason)) {
+    if (store.site === 'products' && reasons.includes(store.reason)) {
       if (store.reason === 'show-tags') {
         newTab = 'tags';
       }
       if (store.reason === 'init-tags-url' || store.reason === 'tooltip-tag-clicked') {
         newTab = '';
       }
-      localStore.set(lsPageSettingsKey, store.page);
+      localStore.set(lsSiteSettingsKey, store.site);
       // remove reason
       storedActiveSelection.update(store => {
         store.reason = '';

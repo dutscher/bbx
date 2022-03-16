@@ -27,6 +27,10 @@
       editList = '';
       editValue = '';
     }
+
+    if (isActive && heartLists.length === 1) {
+      clickHandleList(heartLists[0]);
+    }
   };
 
   const clickHandleList = listName => {
@@ -115,7 +119,7 @@
 <div class="hearts{isActive ? ' active' : ''}">
   <ClickOutside on:clickoutside={onClickOutside}>
     <i
-      on:click={() => clickHeart()}
+      on:click={() => /* keep this due param forceClose instead of event */ clickHeart()}
       on:focus={onMouseOver}
       on:mouseover={onMouseOver}
       on:mouseout={onMouseOut}
@@ -124,7 +128,7 @@
     >
       {isHeart || isHover ? 'favorite' : 'favorite_border'}
     </i>
-    <div class="hearts__flyout">
+    <div class="hearts__flyout border small-padding absolute surface">
       {#each heartLists as listName}
         <div class="hearts__list">
           <i
@@ -159,25 +163,25 @@
   @import '../../scss/variables';
 
   .trigger {
-    position: relative;
-    top: -2px;
+    top: -2rem;
   }
 
   .hearts {
-    position: relative;
     display: inline-block;
     line-height: 26rem;
+    margin-right: 8rem;
+
+    i {
+      cursor: pointer;
+    }
 
     &__flyout {
-      color: $color-black;
-      position: absolute;
       z-index: 1;
-      top: -2px;
-      left: -4px;
-      background: $color-white;
-      border-radius: $border-radius-lg;
-      padding: $space-lg;
+      top: -9rem;
+      left: -9rem;
+      border-radius: 8rem;
       display: none;
+      color: var(--on-surface-variant);
 
       .active & {
         display: block;
@@ -193,16 +197,10 @@
       }
 
       input {
-        width: 100px;
-        border-radius: $border-radius;
-        margin-bottom: 5px;
+        width: 100rem;
+        border: solid 1rem var(--on-surface-variant);
+        border-radius: 4rem;
         flex: 1;
-      }
-
-      &--new {
-        i {
-          margin-right: 2px;
-        }
       }
     }
   }

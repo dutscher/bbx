@@ -32,5 +32,5 @@ export const UNLOADED = 'unloaded';
 export const LOADING = 'loading';
 export const LOADED = 'loaded';
 
-export const lsPageSettingsKey = 'pageSettings';
+export const lsSiteSettingsKey = 'siteSettings';
 export const urlKeyTags = 'tags';

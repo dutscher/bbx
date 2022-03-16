@@ -9,7 +9,7 @@
 </script>
 
 <details class="card small-padding" on:click={clickNews}>
-  <summary>News <b>(2)</b></summary>
+  <summary><b>News (2)</b></summary>
   <div>
     {#if isVisible}
       <br />

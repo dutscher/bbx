@@ -3,7 +3,7 @@
 </script>
 
 <details class="card small-padding">
-  <summary>Changelog</summary>
+  <summary><b>Changelog</b></summary>
   <Changelog />
   <a href="https://github.com/dutscher/bbx/blob/master/CHANGELOG.md" target="_blank" class="link">
     Die komplette Übersicht gibts hier >

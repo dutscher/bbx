@@ -12,7 +12,7 @@
     ID_BURG_BLAUSTEIN,
     UNLOADED,
     LOADED,
-    lsPageSettingsKey,
+    lsSiteSettingsKey,
     urlKeyTags,
   } from './_interfaces';
   import Welcome from './comps/Home/Welcome.svelte';
@@ -32,30 +32,30 @@
   import Github from './comps/Features/Github.svelte';
   import Darkmode from './comps/Features/Darkmode.svelte';
   import Legend from './comps/Legend.svelte';
-  import Page from './comps/Page.svelte';
+  import Site from './comps/Site.svelte';
 
-  let activePage: any;
+  let activeSite: any;
   let activeTagIds: any;
   let loadedData: any;
   let hearts: any;
-  const pages = [
+  const sites = [
     { short: 'home', icon: 'home', title: 'Home' },
     { short: 'hearts', icon: 'favorite', title: 'Merkliste' },
     { short: 'products', icon: 'category', title: 'Produkte' },
     { short: 'changes', icon: 'star_rate', title: 'Status' },
     { short: 'history', icon: 'schedule', title: 'Aktuelles' },
   ];
-  const defaultPage = localStore.getRaw(lsPageSettingsKey) || 'home';
-  let nextPage: any;
+  const defaultSite = localStore.getRaw(lsSiteSettingsKey) || 'home';
+  let nextSite: any;
 
   storedActiveSelection.subscribe(store => {
     activeTagIds = store.tags;
     loadedData = store.loadedData;
 
-    if (!!store.page) {
-      nextPage = store.page;
-      setUrlParams('page', store.page);
-      localStore.set(lsPageSettingsKey, store.page);
+    if (!!store.site) {
+      nextSite = store.site;
+      setUrlParams('site', store.site);
+      localStore.set(lsSiteSettingsKey, store.site);
     }
 
     // load movie data
@@ -73,23 +73,23 @@
 
   loadHistoryData();
 
-  const isActive = page => (page === activePage ? 'active' : '');
+  const isActive = site => (site === activeSite ? 'active' : '');
 
-  const clickTab = page => {
+  const clickTab = site => {
     storedActiveSelection.update(store => {
-      store.page = page;
+      store.site = site;
       store.reason = 'click-navigation';
       return store;
     });
   };
 
-  $: activePage = nextPage || defaultPage;
+  $: activeSite = nextSite || defaultSite;
 
   onMount(() => {
     // ?tags=mittelalter,star-trek -> product page
     if (!!getUrlParam(urlKeyTags)) {
       storedActiveSelection.update(store => {
-        store.page = 'products';
+        store.site = 'products';
         store.reason = 'init-tags-url';
         return store;
       });
@@ -98,15 +98,15 @@
 </script>
 
 <main>
-  <nav class="menu top" data-avite={activePage}>
-    {#each pages as page}
-      <a class={isActive(page.short, activePage)} href={jsVoid} on:click={() => clickTab(page.short)}>
-        {#if page.icon === 'home'}
+  <nav class="menu top" data-active={activeSite}>
+    {#each sites as site}
+      <a class={isActive(site.short, activeSite)} href={jsVoid} on:click={() => clickTab(site.short)}>
+        {#if site.icon === 'home'}
           <img class="logo" src="./images/logo.png" alt="Logo" />
         {:else}
-          <i>{page.icon}</i>
+          <i>{site.icon}</i>
         {/if}
-        {page.title}
+        {site.title}
       </a>
     {/each}
   </nav>
@@ -121,19 +121,19 @@
   <Darkmode />
 
   {#if loadedData.history === LOADED}
-    <Page name="home" {activePage} {isActive}>
+    <Site name="home" {activeSite} {isActive}>
       <Welcome />
       <Support />
       <News />
       <Changelog />
       <Imprint />
-    </Page>
-    <Page name="hearts" {activePage} {isActive}>
+    </Site>
+    <Site name="hearts" {activeSite} {isActive}>
       {#each Object.keys(hearts) as list}
         <Hearts {list} />
       {/each}
-    </Page>
-    <Page name="products" {activePage} {isActive}>
+    </Site>
+    <Site name="products" {activeSite} {isActive}>
       <Filter />
       {#if activeTagIds.includes(ID_MANHATTAN) && activeTagIds.length === 1}
         <br />
@@ -149,13 +149,13 @@
       {/if}
       <Products />
       <Legend />
-    </Page>
-    <Page name="changes" {activePage} {isActive}>
+    </Site>
+    <Site name="changes" {activeSite} {isActive}>
       <Changes />
-    </Page>
-    <Page name="history" {activePage} {isActive}>
+    </Site>
+    <Site name="history" {activeSite} {isActive}>
       <History />
-    </Page>
+    </Site>
   {/if}
 </main>
 

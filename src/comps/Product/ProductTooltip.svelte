@@ -10,7 +10,6 @@
   import { jsVoid, setUrlParams, handlePrice, ess } from '../../utils';
   import ProductHistory from './ProductHistory.svelte';
   import ProductStage from './ProductStage.svelte';
-  import ProductHearts from './ProductHearts.svelte';
 
   export let product: any;
   export let states: any;
@@ -103,7 +102,7 @@
       if (!store.tags.includes(tagID)) {
         store.tags.push(tagID);
         store.reason = 'tooltip-tag-clicked';
-        store.page = 'products';
+        store.site = 'products';
 
         setUrlParams(
           'tags',
@@ -155,7 +154,6 @@
           {#if product.title}
             <div class="tooltip__title-wrap">
               <b class="tooltip__title">
-                <ProductHearts {product} />
                 {product.title}
               </b>
             </div>
@@ -168,7 +166,7 @@
               {product.id}
               {#if product.partNr}
                 /
-                <b>BricklinkID: </b>
+                <b>BricklinkID:</b>
                 <a
                   href="{data.partNr}{product.partNr}{product.partColor ? `#C=${product.partColor.id}` : ''}"
                   target="_blank"
@@ -229,6 +227,13 @@
                   {getInstLabel(product.inst)}
                 </a>
               {/if}
+              <!--
+              &nbsp;|&nbsp;
+              <a class="partlist-link link" href="https://api.bbx.watch/tool/partlist/{product.id}.pdf" target="_blank">
+                <i>checklist_rtl</i>
+                <div class="tooltip bottom">Teileliste</div>
+              </a>
+              -->
             </div>
           {/if}
           <br />
@@ -253,6 +258,7 @@
     z-index: 2;
 
     .link {
+      user-select: none;
       i {
         color: var(--primary);
       }
@@ -262,6 +268,10 @@
       i {
         cursor: default;
       }
+    }
+
+    .partlist-link {
+      cursor: pointer;
     }
 
     article {

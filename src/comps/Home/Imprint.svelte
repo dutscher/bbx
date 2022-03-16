@@ -1,5 +1,5 @@
 <details class="card small-padding">
-  <summary>Impressum</summary>
+  <summary><b>Impressum</b></summary>
   <p>Angaben gemäß § 5 TMG</p>
   <p>
     Willy Woitas<br />
