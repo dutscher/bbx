@@ -172,6 +172,10 @@
     height: 100%;
   }
 
+  .menu {
+    user-select: none;
+  }
+
   .logo {
     height: 24rem;
     padding: 4rem;

@@ -27,7 +27,7 @@
 <style>
   .github-corner svg {
     position: fixed;
-    z-index: 2;
+    z-index: 3;
     right: 0;
     top: 64rem;
   }

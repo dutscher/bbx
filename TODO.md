@@ -1,4 +1,6 @@
 next todos:
+* share merkliste über mehrere geräte
+* right collision of tooltip
 * altes scss raus hauen
   * vars + colors + components
 * typescript shortcut import pfade
@@ -16,7 +18,6 @@ next todos:
 * cypress tests
 * warenkorb noise ausblenden
 * history back not going
-* share merkliste über mehrere geräte
 * remove warning:
   (node:18656) [DEP0148] DeprecationWarning: Use of deprecated folder mapping "./" in the "exports" field module resolution of the package at C:\www\repos\dutscher\bbx\node_modules\tslib\package.json.
   Update this package.json to use a subpath pattern like "./*".

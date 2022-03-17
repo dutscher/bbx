@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { storedProducts, storedHearts, localStore, lsKeyHeart } from '../../stores';
   import Product from '../Product/Product.svelte';
+  import { storedProducts, storedHearts, localStore, lsKeyHeart } from '../../stores';
   import { stopClick } from '../../utils';
 
   export let list = 'default';
@@ -29,12 +29,6 @@
         localStore.set(lsKeyHeart, JSON.stringify(store));
         return store;
       });
-    }
-  };
-
-  const onClick = event => {
-    if (list === 'default') {
-      stopClick(event);
     }
   };
 
@@ -102,8 +96,8 @@
   }
 </script>
 
-<details class="card" open={list === 'default'} on:click={onClick}>
-  <summary class="none small-margin">
+<details class="card" open={list === 'default'}>
+  <summary class="none small-margin" style={list === 'default' ? 'pointer-events: none;cursor:default' : ''}>
     <div class="row no-wrap middle-align">
       <div class="col min">
         <i class="red-text">favorite</i>
@@ -152,3 +146,9 @@
     {/each}
   </div>
 </details>
+
+<style>
+  summary {
+    user-select: none;
+  }
+</style>

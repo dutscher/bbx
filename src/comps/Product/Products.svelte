@@ -298,7 +298,7 @@
   });
 </script>
 
-<div class="field middle-align">
+<div class="field middle-align small-margin">
   <h2>{filteredProducts.withFilter.length} / {products.length}</h2>
   <nav class="wrap small-margin">
     <label class="checkbox">

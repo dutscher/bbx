@@ -70,7 +70,7 @@
         <span>
           <span class="s">
             <i class="{tab.color}-text">fiber_manual_record</i>
-            <div class="tooltip bottom">{tab.title}</div>
+            <div class="tooltip bottom small-margin">{tab.title}</div>
           </span>
           <span class="m l">{tab.title}</span>
           <span class="badge round">{tab.count}</span>
