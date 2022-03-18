@@ -1,18 +1,20 @@
 <script lang="ts">
-  import Product from './Product.svelte';
-  import { storedProducts, storedStates } from '../../stores';
-  import { onMount, getLatestStateOfToday, pad, stopClick } from '../../utils';
-  import { ID_PARTS } from '../../_interfaces';
+  import Product from '../Product/Product.svelte';
+  import { storedProducts, storedProductsSorting, storedStates } from '../../stores';
+  import { onMount, getLatestStateOfToday, pad, stopClick, getUrlParam, setUrlParams } from '../../utils';
   import { beerui } from '../../beerui';
 
   let products: any;
   let states: any;
   let isVisible = true;
-  let isToday = false;
-  let showSets = true;
-  let showParts = false;
-  let countSets = 0;
-  let countParts = 0;
+  let isToday: any;
+  const extraFilter = {
+    sets: { show: true, count: 0 },
+    parts: { show: false, count: 0 },
+    hot: { show: false, count: 0 },
+    new: { show: false, count: 0 },
+  };
+
   let dayStr = '';
   let sortedProducts: any;
   // 2017-06-01
@@ -20,13 +22,16 @@
   let selectedDateMin: string = '2021-04-30';
   let selectedDateMax: string = '';
   const days = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
-
-  onMount(() => {
-    beerui();
-  });
+  const urlParam = 'date';
 
   storedProducts.subscribe(store => (products = store));
   storedStates.subscribe(store => (states = store));
+
+  const getUrlParams = () => {
+    // ?date=2017-06-01
+    const dateStr = getUrlParam(urlParam);
+    selectedDate = dateStr;
+  };
 
   const handleDate = (e, direction) => {
     stopClick(e);
@@ -55,23 +60,39 @@
     return hasTodayChanges;
   };
 
-  const sortProducts = (products, showParts, showSets, selectedDate) => {
-    countSets = 0;
-    countParts = 0;
+  const sortProducts = (products, selectedDate, filterSets, filterParts, filterHot, filterNew) => {
+    // reset counter
+    Object.keys(extraFilter).map(filter => {
+      extraFilter[filter].count = 0;
+    });
+
     let sortedData = [];
     // do filtering api changes
     sortedData = products
       // show only changes from today
       .filter(product => hasTodayHistory(product))
-      // filter checkbox sets vs parts
+      // filter parts
       .filter(product => {
-        const isPart = product.tags.includes(ID_PARTS);
-        if (isPart) {
-          countParts++;
+        if (product.isPart) {
+          extraFilter.parts.count++;
         } else {
-          countSets++;
+          extraFilter.sets.count++;
         }
-        return (showSets && !isPart) || (showParts && isPart);
+        return (extraFilter.sets.show && !product.isPart) || (extraFilter.parts.show && product.isPart);
+      })
+      // filter flags
+      .filter(product => {
+        if (product.isHot) {
+          extraFilter.hot.count++;
+        }
+        if (product.isNew || product.isNewSoon) {
+          extraFilter.new.count++;
+        }
+        return (
+          (!extraFilter.hot.show && !extraFilter.new.show) ||
+          (extraFilter.hot.show && product.isHot) ||
+          (extraFilter.new.show && (product.isNew || product.isNewSoon))
+        );
       })
       // sort by name
       .sort((a, b) => {
@@ -113,10 +134,24 @@
     // set today as max value
     if (useNow) {
       selectedDateMax = selectedDate;
+    } else {
+      setUrlParams(urlParam, !isToday ? selectedDate : '');
     }
   }
 
-  $: sortedProducts = sortProducts(products, showParts, showSets, selectedDate);
+  $: sortedProducts = sortProducts(
+    products,
+    selectedDate,
+    extraFilter.sets.show,
+    extraFilter.parts.show,
+    extraFilter.hot.show,
+    extraFilter.new.show
+  );
+
+  onMount(() => {
+    beerui();
+    getUrlParams();
+  });
 </script>
 
 <!--
@@ -131,7 +166,7 @@
 {/if}
 -->
 
-<article>
+<article class="filter">
   <h2 class="headline">
     <span>Status vom</span>
     <i class="prev-day" on:click={event => handleDate(event, 'prev')}>arrow_back_ios</i>
@@ -154,14 +189,30 @@
 
 <article class="changes border">
   <div class="field middle-align">
-    <nav class="wrap">
+    <nav class="wrap small-margin">
       <label class="checkbox">
-        <input type="checkbox" bind:checked={showSets} />
-        <span>Sets<span class="badge round">{countSets}</span></span>
+        <input type="checkbox" bind:checked={extraFilter.sets.show} />
+        <span>Sets<span class="badge round">{extraFilter.parts.count}</span></span>
       </label>
       <label class="checkbox">
-        <input type="checkbox" bind:checked={showParts} />
-        <span>Parts<span class="badge round">{countParts}</span></span>
+        <input type="checkbox" bind:checked={extraFilter.parts.show} />
+        <span>Parts<span class="badge round">{extraFilter.parts.count}</span></span>
+      </label>
+      <label class="checkbox">
+        <input type="checkbox" bind:checked={extraFilter.hot.show} />
+        <span>
+          <i class="orange-text">local_fire_department</i>
+          <div class="tooltip bottom small-margin">Beliebte Produkte</div>
+          <span class="badge round">{extraFilter.hot.count}</span>
+        </span>
+      </label>
+      <label class="checkbox">
+        <input type="checkbox" bind:checked={extraFilter.new.show} />
+        <span>
+          <i class="yellow-text">star</i>
+          <span class="badge round">{extraFilter.new.count}</span>
+          <div class="tooltip bottom small-margin">Neue Produkte</div>
+        </span>
       </label>
     </nav>
   </div>
@@ -200,7 +251,7 @@
     }
   }
 
-  .field {
+  .filter .field {
     width: 250rem;
   }
 </style>

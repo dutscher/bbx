@@ -89,7 +89,8 @@ export const sortedProducts = products.map(product => {
   }
   // flags
   product.isPart = product.tags.includes(ID_PARTS);
-  // changed in history-data.ts
+  // changed in history-data.ts -> product-data.ts setFlags
+  product.isNewSoon = false;
   product.isNew = false;
   product.isHot = false;
 

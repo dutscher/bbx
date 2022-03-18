@@ -1,6 +1,6 @@
 <script lang="ts">
   import { writable } from 'svelte/store';
-  import LatestProducts from './ChangesLatestProducts.svelte';
+  import LatestProducts from './LatestProductsPerMonth.svelte';
   import { LOADED, UNLOADED } from '../../_interfaces';
   import { storedActiveSelection, storedTags, storedProducts, loadChanges, internetConnection } from '../../stores';
   import { onMount, jsVoid, ess } from '../../utils';

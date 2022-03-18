@@ -1,4 +1,5 @@
 next todos:
+* cleanup page params date not necessary on products
 * offline note where?
 * news not loaded?
 * right collision of tooltip
@@ -16,10 +17,10 @@ next todos:
 * split cache
   * bb resources
   * app reources
-* filter for hot, new
 * cypress tests
 * warenkorb noise ausblenden
 * history back not going
+  
 * remove warning:
   (node:18656) [DEP0148] DeprecationWarning: Use of deprecated folder mapping "./" in the "exports" field module resolution of the package at C:\www\repos\dutscher\bbx\node_modules\tslib\package.json.
   Update this package.json to use a subpath pattern like "./*".

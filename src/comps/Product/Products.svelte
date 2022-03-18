@@ -18,7 +18,6 @@
     localStore,
   } from '../../stores';
   import { handleProductSort } from './sorting';
-  import { ID_PARTS } from '../../_interfaces';
 
   export let bbUrl: string;
 
@@ -30,10 +29,11 @@
   let activeSearchString: string = '';
   let filteredProducts: any = [];
   let sortedItems: any = [];
-  let showSets = true;
-  let showParts = false;
-  let countSets = 0;
-  let countParts = 0;
+  const extraFilter = {
+    parts: { show: false, count: 0 },
+    hot: { show: false, count: 0 },
+    new: { show: false, count: 0 },
+  };
 
   let parts: any;
   let partTypes: any;
@@ -113,11 +113,14 @@
     activePartTypeIds,
     products,
     sorting,
-    showSets,
-    showParts
+    filterParts,
+    filterNew,
+    filterHot
   ) => {
-    countSets = 0;
-    countParts = 0;
+    // reset counter
+    Object.keys(extraFilter).map(filter => {
+      extraFilter[filter].count = 0;
+    });
 
     let raw = [];
     let withFilter = [];
@@ -198,15 +201,26 @@
           });
           return activeStateIds.length === 0 || countMatched > 0;
         })
-        // filter checkbox sets vs parts
+        // filter parts
         .filter(product => {
-          const isPart = product.tags.includes(ID_PARTS);
-          if (isPart) {
-            countParts++;
-          } else {
-            countSets++;
+          if (product.isPart) {
+            extraFilter.parts.count++;
           }
-          return (showSets && !isPart) || (showParts && isPart);
+          return (!extraFilter.parts.show && !product.isPart) || (extraFilter.parts.show && product.isPart);
+        })
+        // filter flags
+        .filter(product => {
+          if (product.isHot) {
+            extraFilter.hot.count++;
+          }
+          if (product.isNew || product.isNewSoon) {
+            extraFilter.new.count++;
+          }
+          return (
+            (!extraFilter.hot.show && !extraFilter.new.show) ||
+            (extraFilter.hot.show && product.isHot) ||
+            (extraFilter.new.show && (product.isNew || product.isNewSoon))
+          );
         });
 
       withFilter = handleProductSort(withFilter, activeSorting);
@@ -228,8 +242,9 @@
     activePartTypeIds,
     products,
     activeSorting,
-    showSets,
-    showParts
+    extraFilter.parts.show,
+    extraFilter.hot.show,
+    extraFilter.new.show
   );
 
   // first to remove localstorage keys before onMount
@@ -244,12 +259,24 @@
   <h2>{filteredProducts.withFilter.length} / {products.length}</h2>
   <nav class="wrap small-margin">
     <label class="checkbox">
-      <input type="checkbox" bind:checked={showSets} />
-      <span>Sets<span class="badge round">{countSets}</span></span>
+      <input type="checkbox" bind:checked={extraFilter.parts.show} />
+      <span>Parts<span class="badge round">{extraFilter.parts.count}</span></span>
     </label>
     <label class="checkbox">
-      <input type="checkbox" bind:checked={showParts} />
-      <span>Parts<span class="badge round">{countParts}</span></span>
+      <input type="checkbox" bind:checked={extraFilter.new.show} />
+      <span>
+        <i class="yellow-text">star</i>
+        <span class="badge round">{extraFilter.new.count}</span>
+        <div class="tooltip bottom small-margin">Neue Produkte</div>
+      </span>
+    </label>
+    <label class="checkbox">
+      <input type="checkbox" bind:checked={extraFilter.hot.show} />
+      <span>
+        <i class="orange-text">local_fire_department</i>
+        <div class="tooltip bottom small-margin">Beliebte Produkte</div>
+        <span class="badge round">{extraFilter.hot.count}</span>
+      </span>
     </label>
   </nav>
 </div>
@@ -271,10 +298,10 @@
   {/each}
 
   {#if filteredProducts.withFilter.length > chunks}
-    <span class="warning red-text bold"
-      >Aus Performancegründen werden nur {chunks} von {filteredProducts.withFilter.length}
-      Produkte angezeigt</span
-    >
+    <span class="warning red-text bold">
+      Aus Performancegründen werden nur {chunks} von {filteredProducts.withFilter.length}
+      Produkte angezeigt
+    </span>
   {/if}
 </div>
 

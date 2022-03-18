@@ -1,3 +1,9 @@
+* [19.03.2022]
+  * add share button
+  * add search button
+  * hot and new filter at all pages
+  * add history date to url
+  
 * [17.03.2022]
   * new design issue solving
   * sorting in url

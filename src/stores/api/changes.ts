@@ -8,6 +8,7 @@ import { sortedProducts, storedProducts } from '../products';
 import { sortedStates, storedActiveSelection } from '../states';
 import { internetConnection } from '../internet-connection';
 import { doNotify } from '../notifications';
+import { setFlags } from './product-data';
 
 // ["MzIyMTA=|02.02.2022 13:37|25"]
 const [lastCursorFromJson, lastCursorDate] = endCursorsFromParse[0].split('|');
@@ -189,6 +190,8 @@ const evalChanges = (edges: any) => {
         };
 
         cleanUpHistoryChanges(product);
+
+        setFlags(product);
 
         if (false && product.id === 103209) console.log(product, updates[product.id].history);
 

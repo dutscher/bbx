@@ -20,8 +20,8 @@
   import Changelog from './comps/Home/Changelog.svelte';
   import Imprint from './comps/Home/Imprint.svelte';
   import Hearts from './comps/Features/Hearts.svelte';
-  import Changes from './comps/Product/Changes.svelte';
-  import History from './comps/Product/History.svelte';
+  import Changes from './comps/Changes/Changes.svelte';
+  import History from './comps/History/History.svelte';
   import Filter from './comps/Filter/Filter.svelte';
   import Manhattan from './comps/Specials/Manhattan.svelte';
   import Netherland from './comps/Specials/Netherland.svelte';
@@ -29,6 +29,8 @@
   import Products from './comps/Product/Products.svelte';
   import Notifications from './comps/Features/Notifications.svelte';
   import Github from './comps/Features/Github.svelte';
+  import Search from './comps/Features/Search.svelte';
+  import Share from './comps/Features/Share.svelte';
   import Darkmode from './comps/Features/Darkmode.svelte';
   import Legend from './comps/Legend.svelte';
   import Site from './comps/Site.svelte';
@@ -119,6 +121,10 @@
             🚨 Bei uns gibts es die <a href="/?tags=burg-blaustein">Burg Blaustein Anleitungen</a> 🚨
         </div>
   -->
+  {#if activeSite !== 'products'}
+    <Search />
+  {/if}
+  <Share />
   <Darkmode />
 
   {#if loadedData.history === LOADED}

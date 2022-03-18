@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Product from './Product.svelte';
+  import Product from '../Product/Product.svelte';
   import { storedProducts, storedStates } from '../../stores';
-  import { ID_STATE_AVAILABLE, ID_STATE_ANNOUNCEMENT, ID_STATE_COMING_SOON } from '../../_interfaces';
+  import { ID_STATE_AVAILABLE, ID_STATE_ANNOUNCEMENT } from '../../_interfaces';
 
   export let state: number = ID_STATE_ANNOUNCEMENT;
   export let onCounterAvailable: any = () => {};
@@ -11,10 +11,14 @@
   let sortedMonths: any;
   let states: any;
   let reverseSort = false;
-  let showParts = false;
-  let showFirstRelease = false;
+
+  const extraFilter = {
+    parts: { show: false, count: 0 },
+    hot: { show: false, count: 0 },
+    new: { show: false, count: 0 },
+  };
+
   export let isVisible = false;
-  let countParts = 0;
   const monthNames = [
     'Januar',
     'Februar',
@@ -35,29 +39,39 @@
   storedProducts.subscribe(store => (products = store));
   storedStates.subscribe(store => (states = store));
 
-  const sortProducts = (products, showParts, showFirstRelease) => {
-    countParts = 0;
+  const sortProducts = (products, filterParts, firstNew, filterHot) => {
+    // reset counter
+    Object.keys(extraFilter).map(filter => {
+      extraFilter[filter].count = 0;
+    });
+
     let sortedData = [];
     // do filtering api changes
     sortedData = products
-      // show only products with same state
+      // filter states
       .filter(product => {
-        if (showFirstRelease) {
-          if (state === ID_STATE_COMING_SOON) {
-            return product.isNewSoon;
-          } else if (state === ID_STATE_AVAILABLE) {
-            return product.isNew && product.state.id === state;
-          }
-        } else {
-          return product.state.id === state;
-        }
+        return product.state.id === state;
       })
-      // filter part changes
+      // filter parts
       .filter(product => {
         if (product.isPart) {
-          countParts++;
+          extraFilter.parts.count++;
         }
-        return (!showParts && !product.isPart) || (showParts && product.isPart);
+        return (!extraFilter.parts.show && !product.isPart) || (extraFilter.parts.show && product.isPart);
+      })
+      // filter flags
+      .filter(product => {
+        if (product.isHot) {
+          extraFilter.hot.count++;
+        }
+        if (product.isNew || product.isNewSoon) {
+          extraFilter.new.count++;
+        }
+        return (
+          (!extraFilter.hot.show && !extraFilter.new.show) ||
+          (extraFilter.hot.show && product.isHot) ||
+          (extraFilter.new.show && (product.isNew || product.isNewSoon))
+        );
       })
       // sort by highest date
       .sort((a, b) => {
@@ -110,7 +124,7 @@
   };
 
   $: {
-    sortedProducts = sortProducts(products, showParts, showFirstRelease);
+    sortedProducts = sortProducts(products, extraFilter.parts.show, extraFilter.new.show, extraFilter.hot.show);
     sortedMonths = sortMonths(sortedProducts, reverseSort);
 
     onCounterAvailable(state, sortedProducts.length);
@@ -120,24 +134,33 @@
 {#if isVisible}
   <div class="changes">
     <div class="field middle-align">
-      <nav class="wrap">
-        {#if state !== ID_STATE_ANNOUNCEMENT}
-          <label class="checkbox">
-            <input type="checkbox" bind:checked={showFirstRelease} />
-            <span>
-              <i class="yellow-text">star</i>
-              Erstveröffentlichung
-            </span>
-          </label>
-        {/if}
+      <nav class="wrap small-margin">
         {#if state !== ID_STATE_AVAILABLE}
           <label class="checkbox">
             <input type="checkbox" bind:checked={reverseSort} />
-            <span>Neueste zuerst</span>
+            <span>Aktuellste Änderungen</span>
           </label>
           <label class="checkbox">
-            <input type="checkbox" bind:checked={showParts} />
-            <span>Parts<span class="badge round">{countParts}</span></span>
+            <input type="checkbox" bind:checked={extraFilter.parts.show} />
+            <span>Parts<span class="badge round">{extraFilter.parts.count}</span></span>
+          </label>
+        {/if}
+        {#if state !== ID_STATE_ANNOUNCEMENT}
+          <label class="checkbox">
+            <input type="checkbox" bind:checked={extraFilter.hot.show} />
+            <span>
+              <i class="orange-text">local_fire_department</i>
+              <div class="tooltip bottom small-margin">Beliebte Produkte</div>
+              <span class="badge round">{extraFilter.hot.count}</span>
+            </span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" bind:checked={extraFilter.new.show} />
+            <span>
+              <i class="yellow-text">star</i>
+              <span class="badge round">{extraFilter.new.count}</span>
+              <div class="tooltip bottom small-margin">Neue Produkte</div>
+            </span>
           </label>
         {/if}
       </nav>

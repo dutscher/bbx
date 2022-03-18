@@ -11,9 +11,10 @@ Buzzwords:
   * JSDOM vs. Cherrio Scraping
 * PWA
   * Offlinemode
-* Browser
+* Browser API
   * Darkmode
   * Notifications
+  * Share
 * Deployment
   * Github Actions
   * Uberspace Cronjob
