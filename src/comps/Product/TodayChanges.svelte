@@ -1,9 +1,8 @@
 <script lang="ts">
   import Product from './Product.svelte';
   import { storedProducts, storedStates } from '../../stores';
-  import { getLatestStateOfToday, pad, stopClick } from '../../utils';
+  import { onMount, getLatestStateOfToday, pad, stopClick } from '../../utils';
   import { ID_PARTS } from '../../_interfaces';
-  import { onMount } from 'svelte';
   import { beerui } from '../../beerui';
 
   let products: any;

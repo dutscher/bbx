@@ -1,9 +1,8 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
   import 'beercss';
   import { ApolloClient, InMemoryCache } from '@apollo/client';
   import { setClient } from 'svelte-apollo';
-  import { convertOldParams, getUrlParam, jsVoid, setUrlParams } from './utils';
+  import { onMount, convertOldParams, getUrlParam, jsVoid, setUrlParams } from './utils';
   import { loadMovieData, loadHistoryData, storedActiveSelection, storedHearts, localStore } from './stores';
   import {
     ID_MANHATTAN,
@@ -134,6 +133,7 @@
       {#each Object.keys(hearts) as list}
         <Hearts {list} />
       {/each}
+      <Legend />
     </Site>
     <Site name="products" {activeSite} {isActive}>
       <Filter />
@@ -154,9 +154,11 @@
     </Site>
     <Site name="changes" {activeSite} {isActive}>
       <Changes />
+      <Legend />
     </Site>
     <Site name="history" {activeSite} {isActive}>
       <History />
+      <Legend />
     </Site>
   {/if}
 </main>

@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
   import { storedActiveSelection } from '../../stores';
-  import { getUrlParam, setUrlParams } from '../../utils';
+  import { onMount, getUrlParam, setUrlParams } from '../../utils';
   import { beerui } from '../../beerui';
 
   export let activeSearchString: any = '';

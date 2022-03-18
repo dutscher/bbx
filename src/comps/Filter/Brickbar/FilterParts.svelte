@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
   import { storedActiveSelection, storedParts, storedProducts, storedFilteredProducts } from '../../../stores';
-  import { getUrlParam, setUrlParams, ess, jsVoid } from '../../../utils';
+  import { onMount, getUrlParam, setUrlParams, ess, jsVoid } from '../../../utils';
 
   export let activePartIds: any = [];
   export let parts: any;

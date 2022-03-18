@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
   import { storedActiveSelection, storedColors, storedProducts, storedFilteredProducts } from '../../../stores';
-  import { getUrlParam, setUrlParams, titleMatch, ess } from '../../../utils';
+  import { onMount, getUrlParam, setUrlParams, titleMatch, ess } from '../../../utils';
 
   export let colors: any;
   export let products: any;

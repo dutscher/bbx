@@ -1,3 +1,4 @@
+import { onMount as svelteMount_ } from 'svelte';
 import {
   API,
   ID_STATE_ANNOUNCEMENT,
@@ -13,6 +14,7 @@ import {
 } from '../scripts/src/clean-utils.js';
 
 // reexport
+export const onMount = svelteMount_;
 export const pad = pad_;
 export const isDST = isDST_;
 export const getHRDate = getHRDate_;

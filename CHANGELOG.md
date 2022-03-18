@@ -1,3 +1,7 @@
+* [17.03.2022]
+  * new design issue solving
+  * sorting in url
+  
 * [16.03.2022]
   * new beer design
 

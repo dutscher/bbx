@@ -92,6 +92,11 @@ export const sortedProducts = products.map(product => {
   // changed in history-data.ts
   product.isNew = false;
   product.isHot = false;
+
+  if (!('parts' in product) || product.parts === undefined) {
+    product.parts = 0;
+  }
+
   return product;
 });
 storedProducts.set(sortedProducts);

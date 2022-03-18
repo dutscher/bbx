@@ -1,10 +1,8 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
   import TodayChanges from './TodayChanges.svelte';
-  // app
+  import { onMount } from '../../utils';
   import { LOADED, UNLOADED } from '../../_interfaces';
   import { storedActiveSelection, storedTags, storedProducts, loadChanges, internetConnection } from '../../stores';
-  import Legend from '../Legend.svelte';
 
   let loadedChanges;
   let tags: number = 0;
@@ -34,7 +32,6 @@
 {:else}
   <TodayChanges />
 {/if}
-<Legend />
 
 <style lang="scss">
   @import '../../scss/variables';

@@ -1,11 +1,9 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
   import { writable } from 'svelte/store';
   import LatestProducts from './ChangesLatestProducts.svelte';
-  import Legend from '../Legend.svelte';
   import { LOADED, UNLOADED } from '../../_interfaces';
   import { storedActiveSelection, storedTags, storedProducts, loadChanges, internetConnection } from '../../stores';
-  import { jsVoid, ess } from '../../utils';
+  import { onMount, jsVoid, ess } from '../../utils';
 
   let loadedChanges;
   let tags: number = 0;
@@ -84,4 +82,3 @@
     </div>
   {/each}
 {/if}
-<Legend />

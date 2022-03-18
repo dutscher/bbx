@@ -1,9 +1,8 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
   import Product from './Product.svelte';
   import FilterSummary from '../Filter/FilterSummary.svelte';
   import ProductSorter from '../Product/ProductSorter.svelte';
-  import { titleMatch, setUrlParams, getUrlParam, getAllUrlParams } from '../../utils';
+  import { onMount, titleMatch, setUrlParams, getUrlParam, getAllUrlParams } from '../../utils';
   import {
     storedProductsSorting,
     storedProducts,
@@ -18,6 +17,7 @@
     storedActiveProduct,
     localStore,
   } from '../../stores';
+  import { handleProductSort } from './sorting';
   import { ID_PARTS } from '../../_interfaces';
 
   export let bbUrl: string;
@@ -41,13 +41,12 @@
   let products: any;
   let states: any;
   let tags: any;
-  let sorting: any;
+  let activeSorting: any;
 
   const urlParam = 'product';
   const chunks = 500;
 
   storedStates.subscribe(store => (states = store));
-  storedProductsSorting.subscribe(store => (sorting = store));
   storedProducts.subscribe(store => (products = store));
   storedParts.subscribe(store => (parts = store));
   storedPartTypes.subscribe(store => (partTypes = store));
@@ -55,6 +54,7 @@
   storedTags.subscribe(store => (tags = store));
   storedGlobalData.subscribe(store => (bbUrl = store.url));
   storedFilteredProducts.subscribe(store => (filteredProducts = store));
+  storedProductsSorting.subscribe(store => (activeSorting = store));
   storedActiveSelection.subscribe(store => {
     activeTagIds = store.tags;
     activePartIds = store.parts;
@@ -209,7 +209,7 @@
           return (showSets && !isPart) || (showParts && isPart);
         });
 
-      withFilter = handleProductSort(withFilter);
+      withFilter = handleProductSort(withFilter, activeSorting);
     }
 
     storedFilteredProducts.update(() => ({
@@ -220,64 +220,6 @@
     return withFilter.slice(0, chunks);
   };
 
-  const handleProductSort = withFilter => {
-    // default sort
-    if (sorting.sorting === '') {
-      // sort unit 01-17
-      withFilter
-        .sort((a, b) => {
-          if (a.title < b.title) {
-            return -1;
-          }
-          if (a.title > b.title) {
-            return 1;
-          }
-          return 0;
-        })
-        // sort state
-        .sort((a, b) => {
-          if (a.state.id < b.state.id) {
-            return -1;
-          }
-          if (a.state.id > b.state.id) {
-            return 1;
-          }
-          return 0;
-        });
-    }
-
-    if (!!sorting.sorting) {
-      if (sorting.sortTitle === '1111') {
-        withFilter = withFilter.filter(product => product.parts <= 1111);
-      }
-
-      // sort by
-      // asc > aufsteigend 123
-      // desc < absteigend 321
-      withFilter = withFilter.sort((a, b) => {
-        let prev = a[sorting.sorting];
-        let next = b[sorting.sorting];
-        const isASC = sorting.sortDirection === 'asc';
-        const isDESC = sorting.sortDirection === 'desc';
-
-        if (sorting.sorting === 'title') {
-          prev = prev.toLowerCase();
-          next = next.toLowerCase();
-        }
-
-        if ((isASC && prev > next) || (isDESC && prev < next)) {
-          return -1;
-        }
-        if ((isASC && prev < next) || (isDESC && prev > next)) {
-          return 1;
-        }
-        return 0;
-      });
-    }
-
-    return withFilter;
-  };
-
   $: sortedItems = sortItems(
     activeTagIds,
     activeColorIds,
@@ -285,7 +227,7 @@
     activePartIds,
     activePartTypeIds,
     products,
-    sorting,
+    activeSorting,
     showSets,
     showParts
   );

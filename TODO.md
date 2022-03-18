@@ -1,6 +1,9 @@
 next todos:
-* share merkliste über mehrere geräte
+* offline note where?
+* news not loaded?
 * right collision of tooltip
+* scroll tooltip into viewport manchmal zuweit
+* share merkliste über mehrere geräte
 * altes scss raus hauen
   * vars + colors + components
 * typescript shortcut import pfade
@@ -13,7 +16,6 @@ next todos:
 * split cache
   * bb resources
   * app reources
-* sort in url
 * filter for hot, new
 * cypress tests
 * warenkorb noise ausblenden

@@ -1,6 +1,5 @@
 <script>
-  import { onMount } from 'svelte';
-  import { getUrlParam } from '../../utils';
+  import { onMount, getUrlParam } from '../../utils';
   import { storedPermissions, promptThePermission } from '../../stores';
 
   let isVisible = false;
