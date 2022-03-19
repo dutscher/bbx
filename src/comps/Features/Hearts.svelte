@@ -97,7 +97,7 @@
 </script>
 
 <details class="card" open={list === 'default'}>
-  <summary class="none small-margin" style={list === 'default' ? 'pointer-events: none;cursor:default' : ''}>
+  <summary class="none small-marginb{list === 'default' ? 'no-interaction' : ''}">
     <div class="row no-wrap middle-align">
       <div class="col min">
         <i class="red-text">favorite</i>
@@ -128,12 +128,12 @@
           {/if}
         </div>
       </div>
-      <div class="col min">
+      <div class="user-interaction col min">
         <i on:click={clickEdit}>edit</i>
         <div class="tooltip">Editiere Liste</div>
       </div>
       {#if list !== 'default'}
-        <div class="col min">
+        <div class="user-interaction col min">
           <i on:click={clickDeleteList}>delete</i>
           <div class="tooltip">Lösche Liste</div>
         </div>
@@ -150,5 +150,14 @@
 <style>
   summary {
     user-select: none;
+
+    &.no-interaction {
+       pointer-events: none;
+       cursor: default;
+    }
+
+    .user-interaction {
+       pointer-events: inherit;
+    }
   }
 </style>
