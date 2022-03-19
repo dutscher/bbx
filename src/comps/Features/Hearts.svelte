@@ -97,7 +97,7 @@
 </script>
 
 <details class="card" open={list === 'default'}>
-  <summary class="none small-marginb{list === 'default' ? 'no-interaction' : ''}">
+  <summary class="none small-margin {list === 'default' ? 'no-interaction' : ''}">
     <div class="row no-wrap middle-align">
       <div class="col min">
         <i class="red-text">favorite</i>
@@ -147,7 +147,7 @@
   </div>
 </details>
 
-<style>
+<style lang="scss">
   summary {
     user-select: none;
 
