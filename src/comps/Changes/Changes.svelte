@@ -56,8 +56,7 @@
 {#if isOnline && loadedChanges !== LOADED}
   <div class="loader center" />
 {:else}
-  <p class="small-text">Die Produkte sind nach neustem Veröffentlichungsdatum sortiert</p>
-  <div class="tabs">
+  <article class="tabs">
     {#each tabs as tab}
       <a
         data-ui="#{tab.name}"
@@ -75,9 +74,9 @@
         </span>
       </a>
     {/each}
-  </div>
+  </article>
   {#each tabs as tab}
-    <div id="available" class={ess('page padding', activeTab === tab.name && 'active')}>
+    <div id="available" class={ess(activeTab === tab.name && 'active')}>
       <LatestProducts state={tab.id} isVisible={activeTab === tab.name} onCounterAvailable={updateCounter} />
     </div>
   {/each}

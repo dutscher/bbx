@@ -132,55 +132,53 @@
 </script>
 
 {#if isVisible}
-  <div class="changes">
-    <div class="field middle-align">
-      <nav class="wrap small-margin">
-        {#if state !== ID_STATE_AVAILABLE}
-          <label class="checkbox">
-            <input type="checkbox" bind:checked={reverseSort} />
-            <span>Aktuellste Änderungen</span>
-          </label>
-          <label class="checkbox">
-            <input type="checkbox" bind:checked={extraFilter.parts.show} />
-            <span>Parts<span class="badge round">{extraFilter.parts.count}</span></span>
-          </label>
-        {/if}
-        {#if state !== ID_STATE_ANNOUNCEMENT}
-          <label class="checkbox">
-            <input type="checkbox" bind:checked={extraFilter.hot.show} />
-            <span>
-              <i class="orange-text">local_fire_department</i>
-              <div class="tooltip bottom small-margin">Beliebte Produkte</div>
-              <span class="badge round">{extraFilter.hot.count}</span>
-            </span>
-          </label>
-          <label class="checkbox">
-            <input type="checkbox" bind:checked={extraFilter.new.show} />
-            <span>
-              <i class="yellow-text">star</i>
-              <span class="badge round">{extraFilter.new.count}</span>
-              <div class="tooltip bottom small-margin">Neue Produkte</div>
-            </span>
-          </label>
-        {/if}
-      </nav>
-    </div>
-    {#if state !== ID_STATE_AVAILABLE && !reverseSort}
-      <p class="bold">Was kommt womöglich als nächstes:</p>
+  <nav class="wrap small-margin no-h-margin">
+    {#if state !== ID_STATE_AVAILABLE}
+      <label class="checkbox">
+        <input type="checkbox" bind:checked={reverseSort} />
+        <span>Aktuellste Änderungen</span>
+      </label>
+      <label class="checkbox">
+        <input type="checkbox" bind:checked={extraFilter.parts.show} />
+        <span>Parts<span class="badge round">{extraFilter.parts.count}</span></span>
+      </label>
     {/if}
-    <div>
-      {#each sortedMonths as month (month.id)}
-        {#if month.products.length > 0}
-          <h6>
-            {month.label} ({month.monthPad}{#if month.year !== thisYear}&nbsp;{month.year}{/if})
-          </h6>
-          <div class="flex flex--gap flex--wrap">
-            {#each month.products as product (product.id)}
-              <Product {product} type="latestproducts" />
-            {/each}
-          </div>
-        {/if}
-      {/each}
-    </div>
+    {#if state !== ID_STATE_ANNOUNCEMENT}
+      <label class="checkbox">
+        <input type="checkbox" bind:checked={extraFilter.hot.show} />
+        <span>
+          <i class="orange-text">local_fire_department</i>
+          <div class="tooltip bottom small-margin">Beliebte Produkte</div>
+          <span class="badge round">{extraFilter.hot.count}</span>
+        </span>
+      </label>
+      <label class="checkbox">
+        <input type="checkbox" bind:checked={extraFilter.new.show} />
+        <span>
+          <i class="yellow-text">star</i>
+          <span class="badge round">{extraFilter.new.count}</span>
+          <div class="tooltip bottom small-margin">Neue Produkte</div>
+        </span>
+      </label>
+    {/if}
+  </nav>
+  {#if state !== ID_STATE_AVAILABLE && !reverseSort}
+    <p class="bold">Was kommt womöglich als nächstes:</p>
+  {:else}
+    <p class="small-text">Die Produkte sind nach neustem Veröffentlichungsdatum sortiert</p>
+  {/if}
+  <div>
+    {#each sortedMonths as month (month.id)}
+      {#if month.products.length > 0}
+        <h6>
+          {month.label} ({month.monthPad}{#if month.year !== thisYear}&nbsp;{month.year}{/if})
+        </h6>
+        <div class="flex flex--gap flex--wrap">
+          {#each month.products as product (product.id)}
+            <Product {product} type="latestproducts" />
+          {/each}
+        </div>
+      {/if}
+    {/each}
   </div>
 {/if}

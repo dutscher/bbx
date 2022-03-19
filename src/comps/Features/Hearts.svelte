@@ -11,7 +11,7 @@
   let products: any = [];
   let isEdit: boolean = false;
   let editTitle: string = '';
-  let input: any;
+  let inputElement: any;
 
   storedProducts.subscribe(store => (products = store));
   storedHearts.subscribe(store => {
@@ -32,14 +32,21 @@
     }
   };
 
-  const clickEdit = () => {
-    isEdit = true;
-    editTitle = title;
+  const clickEdit = e => {
+    stopClick(e);
 
-    setTimeout(() => {
-      input.focus();
-      input.select();
-    }, 50);
+    if (isEdit) {
+      isEdit = false;
+      editTitle = '';
+    } else {
+      isEdit = true;
+      editTitle = title;
+
+      setTimeout(() => {
+        inputElement.focus();
+        inputElement.select();
+      }, 50);
+    }
   };
 
   const onKeyDown = e => {
@@ -111,7 +118,7 @@
           <div class="field border small">
             <input
               type="text"
-              bind:this={input}
+              bind:this={inputElement}
               on:keydown={onKeyDown}
               on:keypress={onKeyPress}
               bind:value={editTitle}
@@ -128,13 +135,15 @@
           {/if}
         </div>
       </div>
-      <div class="user-interaction col min">
-        <i on:click={clickEdit}>edit</i>
+      <div class="user-interaction col min" on:click={clickEdit}>
+        <i>
+          {#if !isEdit}edit{:else}cancel{/if}
+        </i>
         <div class="tooltip">Editiere Liste</div>
       </div>
       {#if list !== 'default'}
-        <div class="user-interaction col min">
-          <i on:click={clickDeleteList}>delete</i>
+        <div class="user-interaction col min" on:click={clickDeleteList}>
+          <i>delete</i>
           <div class="tooltip">Lösche Liste</div>
         </div>
       {/if}
@@ -152,12 +161,13 @@
     user-select: none;
 
     &.no-interaction {
-       pointer-events: none;
-       cursor: default;
+      pointer-events: none;
+      cursor: default;
     }
 
     .user-interaction {
-       pointer-events: inherit;
+      pointer-events: all;
+      cursor: pointer;
     }
   }
 </style>

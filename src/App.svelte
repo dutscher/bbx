@@ -2,7 +2,7 @@
   import 'beercss';
   import { ApolloClient, InMemoryCache } from '@apollo/client';
   import { setClient } from 'svelte-apollo';
-  import { onMount, convertOldParams, getUrlParam, jsVoid, setUrlParams } from './utils';
+  import { onMount, jsVoid, sites, convertOldParams, getUrlParam, setUrlParams } from './utils';
   import { loadMovieData, loadHistoryData, storedActiveSelection, storedHearts, localStore } from './stores';
   import {
     ID_MANHATTAN,
@@ -39,13 +39,7 @@
   let activeTagIds: any;
   let loadedData: any;
   let hearts: any;
-  const sites = [
-    { short: 'home', icon: 'home', title: 'Home' },
-    { short: 'hearts', icon: 'favorite', title: 'Merkliste' },
-    { short: 'products', icon: 'category', title: 'Produkte' },
-    { short: 'changes', icon: 'star_rate', title: 'Status' },
-    { short: 'history', icon: 'schedule', title: 'Aktuelles' },
-  ];
+
   const defaultSite = localStore.getRaw(lsSiteSettingsKey) || 'home';
   let nextSite: any;
 
@@ -55,7 +49,7 @@
 
     if (!!store.site) {
       nextSite = store.site;
-      setUrlParams('site', store.site);
+      setUrlParams('site', store.site, true);
       localStore.set(lsSiteSettingsKey, store.site);
     }
 

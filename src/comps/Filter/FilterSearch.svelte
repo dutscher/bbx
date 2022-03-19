@@ -6,6 +6,20 @@
   export let activeSearchString: any = '';
 
   const urlParam = 'search';
+  let inputElement: any;
+
+  storedActiveSelection.subscribe(store => {
+    if (store.site === 'products' && store.reason === 'click-search') {
+      setTimeout(() => {
+        inputElement.focus();
+      }, 50);
+      // remove reason
+      storedActiveSelection.update(store => {
+        store.reason = '';
+        return store;
+      });
+    }
+  });
 
   const getUrlParams = () => {
     // ?search=piraten
@@ -65,6 +79,7 @@
       class="search"
       type="search"
       value={activeSearchString}
+      bind:this={inputElement}
       on:input={({ target: { value } }) => checkInput(value)}
       on:keyup={({ target: { value } }) => debounce(value)}
       spellcheck="false"

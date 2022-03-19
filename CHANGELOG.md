@@ -1,3 +1,9 @@
+* [20.03.2022]
+  * remove params at site switch
+  * search input focus
+  * default merklist is editable
+  * space shiftes at all pages
+  
 * [19.03.2022]
   * add share button
   * add search button

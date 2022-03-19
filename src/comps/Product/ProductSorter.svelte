@@ -57,32 +57,29 @@
 </script>
 
 {#if filteredProducts.withFilter.length > 0}
-  <div class="flex flex--gap flex--inline flex--vertical-center flex--wrap filter">
-    <b>| Sortieren:</b>
+  <div class="flex flex--gap flex--inline flex--wrap filter">
+    <b>Sortieren:</b>
     {#each sorterItems as item}
-      <a href={jsVoid} class="link" on:click={() => clickSort(item)}>
+      <span class="link" on:click={() => clickSort(item)}>
         {item.title}
         {#if sortType === item.productType && sortTitle === item.title}
           {sortDirection === 'asc' ? '>' : '<'}
         {/if}
-      </a>
+      </span>
     {/each}
 
     {#if activeTagIds.includes(ID_PARTS)}
       <b>&nbsp;| CSV export:</b>
       <a href={jsVoid} class="link" on:click={() => exportCSV()}>Do IT</a>
     {/if}
-    <br />
-    <br />
   </div>
 {/if}
 
 <style lang="scss">
-  @import '../../scss/variables';
-
-  $selector: '.filter';
-  #{$selector} {
-    font-size: ms(-1);
-    cursor: default;
+  .link {
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 </style>

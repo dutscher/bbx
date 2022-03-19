@@ -187,48 +187,42 @@
   </div>
 </article>
 
-<article class="changes border">
-  <div class="field middle-align">
-    <nav class="wrap small-margin">
-      <label class="checkbox">
-        <input type="checkbox" bind:checked={extraFilter.sets.show} />
-        <span>Sets<span class="badge round">{extraFilter.parts.count}</span></span>
-      </label>
-      <label class="checkbox">
-        <input type="checkbox" bind:checked={extraFilter.parts.show} />
-        <span>Parts<span class="badge round">{extraFilter.parts.count}</span></span>
-      </label>
-      <label class="checkbox">
-        <input type="checkbox" bind:checked={extraFilter.hot.show} />
-        <span>
-          <i class="orange-text">local_fire_department</i>
-          <div class="tooltip bottom small-margin">Beliebte Produkte</div>
-          <span class="badge round">{extraFilter.hot.count}</span>
-        </span>
-      </label>
-      <label class="checkbox">
-        <input type="checkbox" bind:checked={extraFilter.new.show} />
-        <span>
-          <i class="yellow-text">star</i>
-          <span class="badge round">{extraFilter.new.count}</span>
-          <div class="tooltip bottom small-margin">Neue Produkte</div>
-        </span>
-      </label>
-    </nav>
-  </div>
+<nav class="wrap small-margin no-h-margin">
+  <label class="checkbox">
+    <input type="checkbox" bind:checked={extraFilter.sets.show} />
+    <span>Sets<span class="badge round">{extraFilter.sets.count}</span></span>
+  </label>
+  <label class="checkbox">
+    <input type="checkbox" bind:checked={extraFilter.parts.show} />
+    <span>Parts<span class="badge round">{extraFilter.parts.count}</span></span>
+  </label>
+  <label class="checkbox">
+    <input type="checkbox" bind:checked={extraFilter.hot.show} />
+    <span>
+      <i class="orange-text">local_fire_department</i>
+      <div class="tooltip bottom small-margin">Beliebte Produkte</div>
+      <span class="badge round">{extraFilter.hot.count}</span>
+    </span>
+  </label>
+  <label class="checkbox">
+    <input type="checkbox" bind:checked={extraFilter.new.show} />
+    <span>
+      <i class="yellow-text">star</i>
+      <span class="badge round">{extraFilter.new.count}</span>
+      <div class="tooltip bottom small-margin">Neue Produkte</div>
+    </span>
+  </label>
+</nav>
 
-  <div class="flex flex--gap flex--wrap">
-    {#if isVisible}
-      {#each sortedProducts as product (product.id)}
-        <Product {product} type="todaychanges" todayChangesDate={selectedDate} />
-      {/each}
-    {/if}
-  </div>
-</article>
+<div class="flex flex--gap flex--wrap">
+  {#if isVisible}
+    {#each sortedProducts as product (product.id)}
+      <Product {product} type="todaychanges" todayChangesDate={selectedDate} />
+    {/each}
+  {/if}
+</div>
 
 <style lang="scss">
-  @import '../../scss/variables';
-
   .headline {
     user-select: none;
 

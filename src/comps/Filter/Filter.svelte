@@ -63,39 +63,41 @@
 
 <FilterSearch {activeSearchString} />
 
-<div class="tabs">
-  {#each tabs as tab}
-    <a
-      data-ui="#{tab.name}"
-      href={jsVoid}
-      class={ess(tab.name === activeTab && 'active')}
-      on:click={() => clickTab(tab.name)}
-    >
-      <span>
-        {tab.title}
-        {#if tab.name === 'states' && activeStateIds.length > 0}
-          <span class="badge round">{activeStateIds.length}</span>
-        {:else if tab.name === 'tags' && activeTagIds.length > 0}
-          <span class="badge round">{activeTagIds.length}</span>
-        {/if}
-      </span>
-    </a>
-  {/each}
-</div>
+<article>
+  <div class="tabs">
+    {#each tabs as tab}
+      <a
+        data-ui="#{tab.name}"
+        href={jsVoid}
+        class={ess(tab.name === activeTab && 'active')}
+        on:click={() => clickTab(tab.name)}
+      >
+        <span>
+          {tab.title}
+          {#if tab.name === 'states' && activeStateIds.length > 0}
+            <span class="badge round">{activeStateIds.length}</span>
+          {:else if tab.name === 'tags' && activeTagIds.length > 0}
+            <span class="badge round">{activeTagIds.length}</span>
+          {/if}
+        </span>
+      </a>
+    {/each}
+  </div>
 
-<div id="states" class={ess('page padding', activeTab === 'states' && 'active')}>
-  <FilterStates
-    {activeStateIds}
-    {activeColorIds}
-    {activePartIds}
-    {activePartTypeIds}
-    {activeSearchString}
-    isVisible={activeTab === 'states'}
-  />
-</div>
-<div id="tags" class={ess('page padding', activeTab === 'tags' && 'active')}>
-  <FilterTags {activeTagIds} isVisible={activeTab === 'tags'} />
-</div>
+  <div id="states" class={ess('page small-padding no-h-padding', activeTab === 'states' && 'active')}>
+    <FilterStates
+      {activeStateIds}
+      {activeColorIds}
+      {activePartIds}
+      {activePartTypeIds}
+      {activeSearchString}
+      isVisible={activeTab === 'states'}
+    />
+  </div>
+  <div id="tags" class={ess('page small-padding no-h-padding', activeTab === 'tags' && 'active')}>
+    <FilterTags {activeTagIds} isVisible={activeTab === 'tags'} />
+  </div>
+</article>
 
 {#if activeTagIds.includes(ID_PARTS) && activeTagIds.length === 1}
   <h2>Brickbar</h2>

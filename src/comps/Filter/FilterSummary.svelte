@@ -8,7 +8,7 @@
     storedStates,
     storedTags,
   } from '../../stores';
-  import { setUrlParams, stopClick, jsVoid } from '../../utils';
+  import { setUrlParams, stopClick } from '../../utils';
 
   export let activeSearchString: string = '';
   export let activeTagIds: any = [];
@@ -75,52 +75,34 @@
 </script>
 
 {#if !invisible}
-  <div class="flex flex--inline filter-summary  with-text-shadow">
-    <div class="flex flex--wrap flex--vertical-center filter-summary__wrap">
-      <b>Filter:</b>&nbsp;
-      <a href={jsVoid} on:click={e => removeItem('all', e)} class="link">
-        <i class="small link">delete</i>
-        <span>Zurücksetzen</span>
-        <div class="tooltip bottom small-margin">Lösche alle Filter</div>
-      </a>
-      <FilterSummaryActive label="Suche nach" activStr={activeSearchString} onClick={removeItem.bind(this, 'search')} />
-      <FilterSummaryActive label="Tags" activeIds={activeTagIds} store={tags} onClick={removeItem.bind(this, 'tags')} />
-      <FilterSummaryActive
-        label="Status"
-        activeIds={activeStateIds}
-        store={states}
-        onClick={removeItem.bind(this, 'states')}
-      />
-      <FilterSummaryActive
-        label="Farben"
-        activeIds={activeColorIds}
-        store={colors}
-        onClick={removeItem.bind(this, 'colors')}
-      />
-      <FilterSummaryActive
-        label="Parts"
-        activeIds={activePartIds}
-        store={parts}
-        onClick={removeItem.bind(this, 'parts')}
-      />
-      <FilterSummaryActive
-        label="Parttypen"
-        activeIds={activePartTypeIds}
-        store={partTypes}
-        onClick={removeItem.bind(this, 'partTypes')}
-      />
-    </div>
+  <div class="flex flex--inline flex--gap flex--wrap">
+    <b>Filter:</b>
+    <FilterSummaryActive label="Zurücksetzen" reset onClick={removeItem.bind(this, 'all')} />
+    <FilterSummaryActive label="Suche nach" activeStr={activeSearchString} onClick={removeItem.bind(this, 'search')} />
+    <FilterSummaryActive label="Tags" activeIds={activeTagIds} store={tags} onClick={removeItem.bind(this, 'tags')} />
+    <FilterSummaryActive
+      label="Status"
+      activeIds={activeStateIds}
+      store={states}
+      onClick={removeItem.bind(this, 'states')}
+    />
+    <FilterSummaryActive
+      label="Farben"
+      activeIds={activeColorIds}
+      store={colors}
+      onClick={removeItem.bind(this, 'colors')}
+    />
+    <FilterSummaryActive
+      label="Parts"
+      activeIds={activePartIds}
+      store={parts}
+      onClick={removeItem.bind(this, 'parts')}
+    />
+    <FilterSummaryActive
+      label="Parttypen"
+      activeIds={activePartTypeIds}
+      store={partTypes}
+      onClick={removeItem.bind(this, 'partTypes')}
+    />
   </div>
 {/if}
-
-<style lang="scss">
-  @import '../../scss/variables';
-
-  :global .filter-summary__wrap .link {
-    cursor: pointer;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-</style>

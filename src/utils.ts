@@ -1,4 +1,3 @@
-import { onMount as svelteMount_ } from 'svelte';
 import {
   API,
   ID_STATE_ANNOUNCEMENT,
@@ -6,101 +5,11 @@ import {
   ID_STATE_COMING_SOON,
   ID_STATE_UNAVAILABLE,
 } from './_interfaces';
-import {
-  pad as pad_,
-  isDST as isDST_,
-  getHRDate as getHRDate_,
-  getDateTime as getDateTime_,
-} from '../scripts/src/clean-utils.js';
-
 // reexport
-export const onMount = svelteMount_;
-export const pad = pad_;
-export const isDST = isDST_;
-export const getHRDate = getHRDate_;
-export const getDateTime = getDateTime_;
-
-const convertParams = {
-  site: 's',
-  product: 'p',
-  tags: 't',
-  search: 'q',
-  states: 'e',
-};
-
-export function convertOldParams() {
-  const oldParams = getAllUrlParams(false);
-  Object.entries(oldParams).map(([longParam, value]) => {
-    if (longParam in convertParams) {
-      setUrlParams(longParam, []);
-      // @ts-ignore TS2339: Property 'split' does not exist on type 'unknown'.
-      setUrlParams(convertParams[longParam], value.split(','));
-    }
-  });
-}
-
-export function getUrlParam(variable) {
-  // remove ? with substring
-  let query = window.location.search.substring(1);
-  // fallback for old hash urls
-  const hash = window.location.hash.substring(1);
-  if (!!hash) {
-    query = hash;
-  }
-  const vars = query.split('&');
-  for (let i = 0; i < vars.length; i++) {
-    const pair = vars[i].split('=');
-    const useConverted = variable in convertParams ? convertParams[variable] : variable;
-    if (decodeURIComponent(pair[0]) === useConverted) {
-      return decodeURIComponent(pair[1]);
-    }
-  }
-  return '';
-}
-
-export function getAllUrlParams(converted: boolean = true) {
-  // remove ? with substring
-  const query = window.location.search.substring(1);
-  const vars = query ? query.split('&') : [];
-  const convertedValues = Object.values(convertParams);
-  const obj = {};
-  for (let i = 0; i < vars.length; i++) {
-    const [key, value] = vars[i].split('=');
-    const indexConverted = converted ? convertedValues.indexOf(key) : key;
-    const useConverted = indexConverted > -1 ? Object.keys(convertParams)[indexConverted] : key;
-    if (decodeURIComponent(useConverted)) {
-      obj[useConverted] = decodeURIComponent(value);
-    }
-  }
-  return obj;
-}
-
-export function setUrlParams(param, array) {
-  // compare the active params to querystring
-  const allSearch = getAllUrlParams(false);
-  const useConverted = param in convertParams ? convertParams[param] : param;
-  // no array
-  if (!Array.isArray(array)) {
-    if (!!array) {
-      allSearch[useConverted] = array;
-    } else {
-      delete allSearch[useConverted];
-    }
-    // empty array
-  } else if (array.length === 0) {
-    delete allSearch[param];
-    delete allSearch[useConverted];
-    // full array
-  } else {
-    allSearch[useConverted] = array.join(',');
-  }
-  let newUrl = '';
-  Object.keys(allSearch).forEach(function (param, index) {
-    newUrl += (index === 0 ? '' : '&') + param + '=' + allSearch[param];
-  });
-
-  history.pushState('', '', newUrl ? '?' + newUrl : '/');
-}
+import { onMount as svelteOnMount } from 'svelte';
+export const onMount = svelteOnMount;
+export { pad, isDST, getHRDate, getDateTime } from '../scripts/src/clean-utils.js';
+export { sites, convertOldParams, getUrlParam, getAllUrlParams, setUrlParams } from './url';
 
 export const titleMatch = (tag, product) => {
   let countMatched = 0;

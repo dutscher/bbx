@@ -1,5 +1,4 @@
 next todos:
-* cleanup page params date not necessary on products
 * offline note where?
 * news not loaded?
 * right collision of tooltip

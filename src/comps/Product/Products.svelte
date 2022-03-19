@@ -255,42 +255,41 @@
   });
 </script>
 
-<div class="field middle-align small-margin">
+<article>
   <h2>{filteredProducts.withFilter.length} / {products.length}</h2>
-  <nav class="wrap small-margin">
-    <label class="checkbox">
-      <input type="checkbox" bind:checked={extraFilter.parts.show} />
-      <span>Parts<span class="badge round">{extraFilter.parts.count}</span></span>
-    </label>
-    <label class="checkbox">
-      <input type="checkbox" bind:checked={extraFilter.new.show} />
-      <span>
-        <i class="yellow-text">star</i>
-        <span class="badge round">{extraFilter.new.count}</span>
-        <div class="tooltip bottom small-margin">Neue Produkte</div>
-      </span>
-    </label>
-    <label class="checkbox">
-      <input type="checkbox" bind:checked={extraFilter.hot.show} />
-      <span>
-        <i class="orange-text">local_fire_department</i>
-        <div class="tooltip bottom small-margin">Beliebte Produkte</div>
-        <span class="badge round">{extraFilter.hot.count}</span>
-      </span>
-    </label>
-  </nav>
-</div>
+  <FilterSummary
+    {activeSearchString}
+    {activeTagIds}
+    {activeStateIds}
+    {activeColorIds}
+    {activePartIds}
+    {activePartTypeIds}
+  />
+  <ProductSorter {filteredProducts} {activeTagIds} />
+</article>
 
-<FilterSummary
-  {activeSearchString}
-  {activeTagIds}
-  {activeStateIds}
-  {activeColorIds}
-  {activePartIds}
-  {activePartTypeIds}
-/>
-
-<ProductSorter {filteredProducts} {activeTagIds} />
+<nav class="wrap small-margin no-h-margin">
+  <label class="checkbox">
+    <input type="checkbox" bind:checked={extraFilter.parts.show} />
+    <span>Parts<span class="badge round">{extraFilter.parts.count}</span></span>
+  </label>
+  <label class="checkbox">
+    <input type="checkbox" bind:checked={extraFilter.new.show} />
+    <span>
+      <i class="yellow-text">star</i>
+      <span class="badge round">{extraFilter.new.count}</span>
+      <div class="tooltip bottom small-margin">Neue Produkte</div>
+    </span>
+  </label>
+  <label class="checkbox">
+    <input type="checkbox" bind:checked={extraFilter.hot.show} />
+    <span>
+      <i class="orange-text">local_fire_department</i>
+      <div class="tooltip bottom small-margin">Beliebte Produkte</div>
+      <span class="badge round">{extraFilter.hot.count}</span>
+    </span>
+  </label>
+</nav>
 
 <div class="flex flex--gap flex--wrap">
   {#each sortedItems as product (product.id)}
@@ -298,17 +297,9 @@
   {/each}
 
   {#if filteredProducts.withFilter.length > chunks}
-    <span class="warning red-text bold">
+    <span class="warning red-text bold small-margin">
       Aus Performancegründen werden nur {chunks} von {filteredProducts.withFilter.length}
       Produkte angezeigt
     </span>
   {/if}
 </div>
-
-<style lang="scss">
-  @import '../../scss/variables';
-
-  .warning {
-    margin-top: $space-lg;
-  }
-</style>
