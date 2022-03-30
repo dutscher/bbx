@@ -1,7 +1,8 @@
-* [27.03.2022]
+* [31.03.2022]
   * new offline corner
   * remove old scss
   * search everywhere & scroll to top
+  * new offline cache spltting
   
 * [20.03.2022]
   * remove params at site switch
