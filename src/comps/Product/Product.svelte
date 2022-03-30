@@ -171,8 +171,6 @@
 </ClickOutside>
 
 <style lang="scss">
-  @import '../../scss/variables';
-
   .product {
     user-select: none;
     cursor: pointer;
@@ -189,13 +187,12 @@
     &__movie {
       align-self: flex-end;
       display: block;
-      font-size: ms(-1);
-      position: relative;
-      top: -3px;
+      font-size: 12rem;
+      top: -3rem;
       margin-left: 0 !important;
 
       @media (min-width: 750px) {
-        font-size: ms(-3);
+        font-size: 8rem;
       }
     }
   }

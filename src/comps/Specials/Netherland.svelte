@@ -74,17 +74,13 @@
 </div>
 
 <style lang="scss">
-  @import '../../scss/variables';
-
   .pieces {
-    position: relative;
     -moz-transform-origin: left;
 
     &__wrap {
-      width: 1673px;
-      height: 750px;
-      position: relative;
-      margin-bottom: $space-xl * 4;
+      width: 1673rem;
+      height: 750rem;
+      margin-bottom: 36rem;
     }
   }
 
@@ -93,7 +89,6 @@
     display: block;
 
     &__img {
-      position: relative;
       z-index: 1;
     }
 
@@ -102,30 +97,6 @@
 
       #{$selector}__img {
         opacity: 0.5;
-      }
-    }
-
-    &.blue {
-      &::after {
-        background: rgba($color-primary, 0.75);
-      }
-    }
-
-    &.green {
-      &::after {
-        background: rgba($color-comingsoon, 0.75);
-      }
-    }
-
-    &.red {
-      &::after {
-        background: rgba($color-unavailable, 0.75);
-      }
-    }
-
-    &.orange {
-      &::after {
-        background: rgba($color-annoucement, 0.75);
       }
     }
   }

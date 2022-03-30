@@ -10,13 +10,13 @@
   };
 </script>
 
-<button class="circle right-round top-round extra" on:click={onClick}>
+<button class="circle fixed right-round top-round extra" on:click={onClick}>
   <i>search</i>
+  <div class="tooltip top">Produkt Suche</div>
 </button>
 
 <style lang="scss">
   button {
-    position: fixed;
     z-index: 1337;
     left: 12rem;
     bottom: 16rem;

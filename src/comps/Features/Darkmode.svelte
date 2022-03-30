@@ -77,7 +77,7 @@
   });
 </script>
 
-<button class="circle extra {isReady ? 'is-ready' : ''}" on:click={toggleDarkMode}>
+<button class="circle fixed extra {isReady ? 'is-ready' : ''}" on:click={toggleDarkMode}>
   <svg
     class="darkmode"
     xmlns="http://www.w3.org/2000/svg"
@@ -113,6 +113,9 @@
       <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
     </g>
   </svg>
+  <div class="tooltip top">
+    {#if isDarkmode}Helles{:else}Dunkles{/if} Design
+  </div>
 </button>
 
 <style lang="scss">
@@ -120,7 +123,6 @@
     transition: opacity 1000ms ease-in-out;
     will-change: opacity;
     opacity: 0;
-    position: fixed;
     z-index: 1337;
     right: 84rem;
     bottom: 16rem;

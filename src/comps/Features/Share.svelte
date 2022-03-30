@@ -15,13 +15,13 @@
   };
 </script>
 
-<button class="circle left-round top-round extra" on:click={onClick}>
+<button class="circle fixed left-round top-round extra" on:click={onClick}>
   <i>share</i>
+  <div class="tooltip top">Teilen</div>
 </button>
 
 <style lang="scss">
   button {
-    position: fixed;
     z-index: 1337;
     right: 12rem;
     bottom: 16rem;

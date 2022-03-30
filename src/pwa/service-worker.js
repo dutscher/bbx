@@ -1,33 +1,11 @@
 const pre = '[ServiceWorker]';
-const debug = 'notification'.split(','); // message,install,activate,caching,push
+const debug = 'notification,fetch'.split(','); // message,install,activate,caching,push
 // store svelte data
-
 const store = {};
 // Update cache names any time any of the cached files change.
 // Add list of files to cache here.
 const CACHE_NAME = 'cacheBuster-v1';
-
-const IGNORE_REQUESTS = [
-  'matomo.bbx.watch',
-  'api.bbx.watch',
-  'facebook.com',
-  'facebook.net',
-  'chrome-extension',
-  'localhost',
-];
-// TODO: cache bb resource in different cache
-const FILES_TO_CACHE = [
-  './index.html',
-  './manifest.json',
-  './favicon.ico',
-  './service-worker.js?cb=1626458022163',
-  './pwa/loader.js?cb=1626458022163',
-  './data/inst.json?cb=1626458022163',
-  './build/bundle.js?cb=1626458022163',
-  './build/bundle.css?cb=1626458022163',
-  './images/color-pearl-gold.jpg',
-  './images/color-pearl-gray.jpg',
-];
+const CACHE_NAME_STATIC = 'noCacheBuster';
 
 const log = (...args) => {
   if (debug.some(loggy => args[0].toLowerCase().includes(loggy))) {
@@ -35,13 +13,46 @@ const log = (...args) => {
   }
 };
 
+const removeCB = file => {
+  return file.replace(/\?cb=.*/, '');
+};
+
+const IGNORE_REQUESTS = [
+  'matomo.bbx.watch',
+  'api.bbx.watch/api/graphql',
+  'facebook.com',
+  'facebook.net',
+  'chrome-extension',
+  'localhost',
+];
+const FILES_TO_CACHE = [
+  './index.html',
+  './service-worker.js?cb=1626458022163',
+  './pwa/loader.js?cb=1626458022163',
+  './data/inst.json?cb=1626458022163',
+  './build/bundle.js?cb=1626458022163',
+  './build/bundle.css?cb=1626458022163',
+];
+const FILES_TO_CACHE_WITHOUT_CB = FILES_TO_CACHE.map(file => removeCB(file));
+const FILES_TO_CACHE_STATIC = [
+  './manifest.json',
+  './favicon.ico',
+  './images/color-chrome.jpg',
+  './images/color-pearl-gold.jpg',
+  './images/color-pearl-gray.jpg',
+  './images/logo.png',
+  './images/partner/noppensteinnews.png',
+];
+
 self.addEventListener('install', e => {
-  log('install', CACHE_NAME);
+  log('install', CACHE_NAME, CACHE_NAME_STATIC);
 
   e.waitUntil(
     (async () => {
       const cache = await caches.open(CACHE_NAME);
       await cache.addAll(FILES_TO_CACHE);
+      const cacheStatic = await caches.open(CACHE_NAME_STATIC);
+      await cacheStatic.addAll(FILES_TO_CACHE_STATIC);
     })()
   );
 
@@ -49,14 +60,14 @@ self.addEventListener('install', e => {
 });
 
 self.addEventListener('activate', evt => {
-  log('activate', CACHE_NAME);
+  log('activate', CACHE_NAME, CACHE_NAME_STATIC);
   // Remove previous cached data from disk.
   evt.waitUntil(
     caches.keys().then(keyList => {
       return Promise.all(
         keyList.map(key => {
-          if (key !== CACHE_NAME) {
-            log('activate,Removing old cache', key);
+          if (key !== CACHE_NAME_STATIC && key !== CACHE_NAME) {
+            log('activate ,Removing old cache', key);
             return caches.delete(key);
           }
         })
@@ -68,19 +79,25 @@ self.addEventListener('activate', evt => {
 });
 
 self.addEventListener('fetch', e => {
-  log('fetch ', CACHE_NAME);
+  log('fetch', CACHE_NAME);
   e.respondWith(
     (async () => {
       const r = await caches.match(e.request);
-      log(`fetch,Fetching resource: ${e.request.url}`);
+      log(`fetch ,Fetching resource: ${e.request.url}`);
       if (r) {
         return r;
       }
       const response = await fetch(e.request);
       if (!IGNORE_REQUESTS.some(request => e.request.url.includes(request))) {
-        const cache = await caches.open(CACHE_NAME);
-        log(`fetch,Caching new resource: ${e.request.url}`);
-        cache.put(e.request, response.clone());
+        if (FILES_TO_CACHE_WITHOUT_CB.includes(removeCB(e.request.url))) {
+          log(`fetch ,cache ,Caching new resource: ${e.request.url}`);
+          const cache = await caches.open(CACHE_NAME);
+          cache.put(e.request, response.clone());
+        } else {
+          log(`fetch ,cache ,static ,Caching new resource: ${e.request.url}`);
+          const cacheStatic = await caches.open(CACHE_NAME_STATIC);
+          cacheStatic.put(e.request, response.clone());
+        }
       }
       return response;
     })()

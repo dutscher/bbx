@@ -104,8 +104,6 @@
 </div>
 
 <style lang="scss">
-  @import '../../../scss/variables';
-
   h4 {
     width: 64rem;
   }

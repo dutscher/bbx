@@ -58,7 +58,7 @@
       <div class="pieces__wrap">
         {#each pieces as piece}
           <div
-            class="piece piece--{piece.nr} state--{piece.state}"
+            class="piece white-text absolute piece--{piece.nr} state--{piece.state}"
             on:click={event => {
               setActive(event, piece.id);
             }}
@@ -78,29 +78,23 @@
 </div>
 
 <style lang="scss">
-  @import '../../scss/variables';
-
   .pieces {
-    position: relative;
-    margin-bottom: $space-xl * 4;
     -moz-transform-origin: left;
 
     &__wrap {
-      height: 700px;
-      width: 730px;
-      position: relative;
+      height: 700rem;
+      width: 730rem;
       margin: 0 auto;
+      margin-bottom: 36rem;
     }
   }
 
   $selector: '.piece';
   #{$selector} {
-    position: absolute;
     top: 0;
     display: block;
 
     &__img {
-      position: relative;
       z-index: 1;
       opacity: 0.2;
     }
@@ -113,8 +107,6 @@
       top: 50%;
       transform: translate(-50%, -50%);
       z-index: 2;
-      background: rgba($color-primary, 0.75);
-      color: $color-white;
       font-weight: bold;
       padding: 6rem;
       border-radius: 16rem;
@@ -138,61 +130,61 @@
 
     &.state--blue {
       &::after {
-        background: rgba($color-primary, 0.75);
+        background: #2196f3cc;
       }
     }
 
     &.state--green {
       &::after {
-        background: rgba($color-comingsoon, 0.75);
+        background: #4caf50cc;
       }
     }
 
     &.state--red {
       &::after {
-        background: rgba($color-unavailable, 0.75);
+        background: #f44336cc;
       }
     }
 
     &.state--orange {
       &::after {
-        background: rgba($color-annoucement, 0.75);
+        background: #ff9800cc;
       }
     }
 
     &--01 {
-      top: 32px;
+      top: 32rem;
     }
 
     &--02 {
-      left: 122px;
+      left: 122rem;
     }
 
     &--03 {
-      left: 262px;
+      left: 262rem;
     }
 
     &--04 {
-      left: 445px;
+      left: 445rem;
     }
 
     &--05 {
-      left: 569px;
+      left: 569rem;
     }
 
     &--06 {
-      top: 226px;
-      left: 52px;
+      top: 226rem;
+      left: 52rem;
     }
 
     &--07 {
-      top: 227px;
-      left: 188px;
+      top: 227rem;
+      left: 188rem;
     }
 
     &--08 {
-      top: 108px;
-      left: 311px;
+      top: 108rem;
+      left: 311rem;
 
       &::after {
         left: 45%;
@@ -201,33 +193,33 @@
     }
 
     &--09 {
-      top: 121px;
-      left: 418px;
+      top: 121rem;
+      left: 418rem;
     }
 
     &--10 {
-      top: 178px;
-      left: 360px;
+      top: 178rem;
+      left: 360rem;
     }
 
     &--11 {
-      top: 183px;
-      left: 441px;
+      top: 183rem;
+      left: 441rem;
     }
 
     &--12 {
-      top: 219px;
-      left: 518px;
+      top: 219rem;
+      left: 518rem;
     }
 
     &--13 {
-      top: 372px;
-      left: 115px;
+      top: 372rem;
+      left: 115rem;
     }
 
     &--14 {
-      top: 324px;
-      left: 220px;
+      top: 324rem;
+      left: 220rem;
 
       &::after {
         left: 61%;
@@ -236,13 +228,13 @@
     }
 
     &--15 {
-      top: 433px;
-      left: 360px;
+      top: 433rem;
+      left: 360rem;
     }
 
     &--16 {
-      top: 361px;
-      left: 457px;
+      top: 361rem;
+      left: 457rem;
 
       &::after {
         top: 43%;
@@ -250,36 +242,36 @@
     }
 
     &--17 {
-      top: 524px;
-      left: 293px;
+      top: 524rem;
+      left: 293rem;
     }
 
     &--18 {
-      top: 675px;
-      left: 540px;
+      top: 675rem;
+      left: 540rem;
 
       &::after {
-        left: -20px;
+        left: -20rem;
       }
     }
 
     &--19 {
-      top: 622px;
-      left: 51px;
+      top: 622rem;
+      left: 51rem;
       z-index: 4;
 
       &::after {
-        left: -20px;
+        left: -20rem;
       }
     }
 
     &--20 {
-      top: 660px;
-      left: 92px;
+      top: 660rem;
+      left: 92rem;
       z-index: 3;
 
       &::after {
-        left: -20px;
+        left: -20rem;
       }
     }
   }

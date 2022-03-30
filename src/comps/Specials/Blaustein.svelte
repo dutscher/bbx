@@ -62,7 +62,7 @@
         <img class="piece__img" alt={STR_BURG_BLAUSTEIN} src="./images/specials/burg-blaustein.png" />
         {#each pieces as piece}
           <div
-            class="piece piece--{piece.nr} color--{piece.state} chip large round small-padding"
+            class="piece absolute piece--{piece.nr} color--{piece.state} chip large round small-padding"
             on:click={event => {
               setActive(event, piece.id);
             }}
@@ -80,27 +80,20 @@
 </div>
 
 <style lang="scss">
-  @import '../../scss/variables';
-
   .pieces {
-    position: relative;
     -moz-transform-origin: left;
 
     &__wrap {
-      width: 750px;
-      height: 563px;
-      position: relative;
-      margin-bottom: $space-xl * 4;
+      width: 750rem;
+      height: 563rem;
+      margin-bottom: 36rem;
     }
 
     .piece {
-      position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
       z-index: 2;
-      background: rgba($color-primary, 0.75);
-      color: $color-white;
       font-weight: bold;
 
       span {
@@ -108,28 +101,28 @@
       }
 
       span.sub {
-        font-size: ms(-2);
+        font-size: 10rem;
         display: block;
       }
 
       &--01 {
-        top: 218px;
-        left: 519px;
+        top: 218rem;
+        left: 519rem;
       }
 
       &--02 {
-        left: 404px;
-        top: 107px;
+        left: 404rem;
+        top: 107rem;
       }
 
       &--03 {
-        left: 611px;
-        top: 293px;
+        left: 611rem;
+        top: 293rem;
       }
 
       &--04 {
-        left: 129px;
-        top: 221px;
+        left: 129rem;
+        top: 221rem;
       }
     }
   }
@@ -139,7 +132,6 @@
     display: block;
 
     &__img {
-      position: relative;
       z-index: 1;
     }
 
@@ -151,20 +143,21 @@
       }
     }
 
+    // cc=80
     &.color--blue {
-      background: rgba($color-primary, 0.75);
+      background: #2196f3cc;
     }
 
     &.color--green {
-      background: rgba($color-comingsoon, 0.75);
+      background: #4caf50cc;
     }
 
     &.color--red {
-      background: rgba($color-unavailable, 0.75);
+      background: #f44336cc;
     }
 
     &.color--orange {
-      background: rgba($color-annoucement, 0.75);
+      background: #ff9800cc;
     }
   }
 </style>

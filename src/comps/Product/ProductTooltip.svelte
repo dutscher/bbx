@@ -155,8 +155,8 @@
       <div class="small-padding">
         <h5 class="no-margin">
           {#if product.title}
-            <div class="tooltip__title-wrap">
-              <b class="tooltip__title">
+            <div class="product-tooltip__title-wrap">
+              <b class="product-tooltip__title">
                 {product.title}
               </b>
             </div>
@@ -165,7 +165,7 @@
         <div>
           {#if product.movieData}<b>{product.movieData}</b><br />{/if}
           {#if product.id}<b>ID:</b>
-            <span class="tooltip__content">
+            <span class="product-tooltip__content">
               {product.id}
               {#if product.partNr}
                 /
@@ -180,15 +180,16 @@
               {/if}
             </span><br />
           {/if}
-          {#if product.parts}<b>Steine:</b> <span class="tooltip__content">{product.parts}</span><br />{/if}
+          {#if product.parts}<b>Steine:</b> <span class="product-tooltip__content">{product.parts}</span><br />{/if}
           {#if !!product.price}
-            <b>Preis:</b> <span class="tooltip__content">{handlePrice(product)}</span><br />
+            <b>Preis:</b> <span class="product-tooltip__content">{handlePrice(product)}</span><br />
           {/if}
-          {#if product.designer}<b>Designer:</b> <span class="tooltip__content">{product.designer}</span><br />{/if}
-          {#if product.size}<b>Maße:</b> <span class="tooltip__content">{product.size}</span><br />{/if}
+          {#if product.designer}<b>Designer:</b> <span class="product-tooltip__content">{product.designer}</span><br
+            />{/if}
+          {#if product.size}<b>Maße:</b> <span class="product-tooltip__content">{product.size}</span><br />{/if}
           {#if product.cats && product.cats.length > 0}
-            <b class="tooltip__content--top">Kategorien:</b>
-            <span class="tooltip__content tooltip__content--cats">
+            <b class="product-tooltip__content--top">Kategorien:</b>
+            <span class="product-tooltip__content product-tooltip__content--cats">
               {#each product.cats as categoryId, i}
                 <span data-divider={i + 1 < product.cats.length && '/'}>
                   {categories[categoryId]}
@@ -198,8 +199,8 @@
             <br />
           {/if}
           {#if product.tags && product.tags.length > 0}
-            <b class="tooltip__content--top">Tags:</b>
-            <span class="tooltip__content tooltip__content--no-select tooltip__content--tags">
+            <b class="product-tooltip__content--top">Tags:</b>
+            <span class="product-tooltip__content product-tooltip__content--no-select product-tooltip__content--tags">
               {#each product.tags as tagID, i}
                 <a
                   href={jsVoid}
@@ -216,7 +217,7 @@
           {#if product.inst}
             <br />
             <b>Anleitung:</b><br />
-            <div class="tooltip__content tooltip__content--rows flex flex--wrap">
+            <div class="product-tooltip__content product-tooltip__content--rows flex flex--wrap">
               {#if Array.isArray(product.inst)}
                 {#each product.inst as inst}
                   <a class="inst-link link" target="_blank" href="https://www.bluebrixx.com/de/inst#{product.id}">
@@ -241,7 +242,7 @@
           {/if}
           <br />
           <b>Verlauf:</b><br />
-          <div class="tooltip__content tooltip__content--rows">
+          <div class="product-tooltip__content product-tooltip__content--rows">
             <ProductHistory {product} />
           </div>
         </div>
@@ -251,11 +252,8 @@
 </div>
 
 <style lang="scss">
-  @import '../../scss/variables';
-
   .product-tooltip {
     cursor: default;
-    position: absolute;
     white-space: nowrap;
     padding-bottom: 32rem;
     z-index: 2;
@@ -284,46 +282,29 @@
     [data-divider] {
       margin-right: 8rem;
     }
-  }
-
-  .tooltip {
-    &__title-wrap {
-      padding-right: $space-lg * 2.5;
-    }
-
     // break headline which is longer as tooltip
     &__title {
       white-space: normal;
-      font-size: ms(1);
+      font-size: 16rem;
       display: block;
-      margin-bottom: $space-xs;
       line-height: 18rem;
     }
 
     &__content {
       user-select: all;
 
-      a {
-        display: inline-block;
-        margin-right: $space-xl;
-      }
-
-      &--rows {
-        margin-left: $space-xs;
-      }
-
       &--no-select {
         user-select: none;
       }
 
       &--tags {
-        max-width: 215px;
+        max-width: 215rem;
         display: inline-flex;
         flex-wrap: wrap;
       }
 
       &--cats {
-        max-width: 190px;
+        max-width: 190rem;
         display: inline-flex;
         flex-wrap: wrap;
       }

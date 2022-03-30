@@ -50,11 +50,9 @@
 </div>
 
 <style lang="scss">
-  @import '../scss/variables';
-
   .legend {
-    padding-top: 50px;
-    font-size: ms(-1);
+    padding-top: 50rem;
+    font-size: 12rem;
 
     span {
       cursor: pointer;

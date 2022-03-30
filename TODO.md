@@ -1,21 +1,17 @@
 next todos:
-* offline note where?
-* news not loaded?
+* filter color active
+  * url params
+* share merkliste über mehrere geräte
+* news not loaded? BUG
 * right collision of tooltip
 * scroll tooltip into viewport manchmal zuweit
-* share merkliste über mehrere geräte
-* altes scss raus hauen
-  * vars + colors + components
-* typescript shortcut import pfade
 * live api changes
   * tags use cats-n-tags script!
   * ios pwa notifications?
 * pdf download proxy -> weiterleitung auf external storage?
+* typescript shortcut import pfade
 * typescript types
   * same interfaces node + svelte
-* split cache
-  * bb resources
-  * app reources
 * cypress tests
 * warenkorb noise ausblenden
 * history back not going

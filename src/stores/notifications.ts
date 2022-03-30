@@ -22,14 +22,12 @@ export const promptThePermission = () => {
     storedPermissions.update(store => {
       store.isGranted = permission === granted;
       store.isDenied = permission === denied;
-      console.log({ permission });
       return store;
     });
 
     if ('permissions' in navigator) {
       navigator.permissions.query({ name: 'notifications' }).then(notificationPerm => {
         notificationPerm.onchange = () => {
-          console.log({ stateChange: notificationPerm.state });
           storedPermissions.set({
             isGranted: notificationPerm.state === granted,
             isDenied: notificationPerm.state === denied,

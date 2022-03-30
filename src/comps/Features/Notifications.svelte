@@ -21,27 +21,29 @@
 </script>
 
 {#if isVisible}
-  <button class={permissions.isDenied ? 'is-denied' : ''} on:click={() => promptThePermission()}>
-    Notify on Updates{!permissions.isGranted ? '?' : '!'}
+  <button class="circle fixed extra" on:click={promptThePermission}>
+    {#if !permissions.isGranted && !permissions.isDenied}<i>notifications</i>{/if}
+    {#if permissions.isGranted}<i>notifications_active</i>{/if}
+    {#if permissions.isDenied}<i>notifications_off</i>{/if}
+    <div class="tooltip top">
+      {#if !permissions.isGranted && !permissions.isDenied}Empfange Verfügbarkeits Browserbenachrichtigungen für
+        Produkte aus deiner Merkliste{/if}
+      {#if permissions.isGranted}Du empfängst Verfügbarkeits Browserbenachrichtigungen für Produkte aus deiner Merkliste{/if}
+      {#if permissions.isDenied}Browserbenachrichtigungen deaktiviert{/if}
+    </div>
   </button>
 {/if}
 
 <style lang="scss">
-  @import '../../scss/variables';
-
   button {
-    position: fixed;
-    left: 1rem;
-    bottom: 1rem;
-    padding: 1rem;
-    cursor: pointer;
-    background: white;
-    color: black;
     z-index: 1337;
-    border: none;
+    left: 84rem;
+    bottom: 16rem;
 
-    &.is-denied {
-      text-decoration: line-through;
+    .tooltip {
+      white-space: normal;
+      width: 50vw;
+      max-width: 200rem;
     }
   }
 </style>

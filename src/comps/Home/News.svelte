@@ -45,31 +45,32 @@
 </details>
 
 <style lang="scss">
-  @import '../../scss/variables';
+  .iframe--podcast {
+    width: 100%;
+    height: 450rem;
+
+    @media (min-width: 470px) {
+      height: 380rem;
+    }
+    @media (min-width: 720px) {
+      height: 240rem;
+    }
+    @media (min-width: 1024px) {
+      height: 360rem;
+    }
+    @media (min-width: 1060px) {
+      height: 240rem;
+    }
+  }
 
   .iframe--youtube {
-    padding: $space-xl * 3;
+    padding: 34rem;
+
     iframe {
       width: 100%;
       @media (min-width: 470px) {
-        height: 380px;
+        height: 380rem;
       }
-    }
-  }
-  .iframe--podcast {
-    width: 100%;
-    height: 450px;
-    @media (min-width: 470px) {
-      height: 380px;
-    }
-    @media (min-width: 720px) {
-      height: 240px;
-    }
-    @media (min-width: 1024px) {
-      height: 360px;
-    }
-    @media (min-width: 1060px) {
-      height: 240px;
     }
   }
 </style>

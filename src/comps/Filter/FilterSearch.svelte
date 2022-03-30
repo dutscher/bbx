@@ -12,6 +12,10 @@
     if (store.site === 'products' && store.reason === 'click-search') {
       setTimeout(() => {
         inputElement.focus();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
       }, 50);
       // remove reason
       storedActiveSelection.update(store => {

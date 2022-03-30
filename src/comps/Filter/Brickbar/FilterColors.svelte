@@ -163,30 +163,27 @@
 </div>
 
 <style lang="scss">
-  @import '../../../scss/variables';
-
   h4 {
     width: 64rem;
   }
 
   .color {
     padding: 16rem;
-    margin: $space-xs;
-    border: solid 1px $color-primary-darker;
+    margin: 2rem;
+    border: solid 1rem var(--secondary);
     border-radius: 100%;
     cursor: pointer;
-    position: relative;
     background-size: contain;
 
     &.active {
-      border-color: $color-white;
+      border-color: var(--error);
 
       &::after {
         position: absolute;
         display: block;
         content: '';
-        padding: $space-xl + 0.25;
-        background: $color-primary-darker;
+        padding: 12rem;
+        background: var(--secondary);
         transform: translate(-50%, -50%);
         z-index: -1;
         border-radius: inherit;

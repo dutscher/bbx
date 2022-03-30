@@ -95,8 +95,6 @@
 {/if}
 
 <style lang="scss">
-  @import '../../scss/variables';
-
   .chip {
     cursor: pointer;
     user-select: none;

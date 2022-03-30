@@ -172,8 +172,6 @@
 </div>
 
 <style lang="scss">
-  @import '../../scss/variables';
-
   .trigger {
     top: -2rem;
   }
@@ -204,7 +202,7 @@
       display: flex;
 
       span {
-        margin: 0 $space-lg;
+        margin: 0 4rem;
         flex: 1;
       }
 

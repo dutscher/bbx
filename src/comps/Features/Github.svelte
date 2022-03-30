@@ -1,4 +1,4 @@
-<div class="github-corner">
+<div class="github-corner fixed">
   <svg width="160" height="160" viewBox="0 0 500 500" style="transform: rotate(315deg) translate(137px, 23px);">
     <a
       href="https://github.com/dutscher/bbx"
@@ -24,16 +24,20 @@
   </svg>
 </div>
 
-<style>
-  .github-corner svg {
-    position: fixed;
+<style lang="scss">
+  .github-corner {
     z-index: 3;
     right: 0;
     top: 64rem;
+    height: 0;
+
+    svg {
+      &:hover .octo-arm {
+        animation: octocat-wave 560ms ease-in-out;
+      }
+    }
   }
-  .github-corner svg:hover .octo-arm {
-    animation: octocat-wave 560ms ease-in-out;
-  }
+
   @keyframes octocat-wave {
     0%,
     100% {

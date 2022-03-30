@@ -8,8 +8,6 @@
 </div>
 
 <style lang="scss">
-  @import '../../scss/variables';
-
   .chip__letter {
     border: 2rem solid transparent;
     box-sizing: border-box;

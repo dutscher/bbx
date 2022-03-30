@@ -20,6 +20,7 @@
   import Changelog from './comps/Home/Changelog.svelte';
   import Imprint from './comps/Home/Imprint.svelte';
   import Hearts from './comps/Features/Hearts.svelte';
+  import Offline from './comps/Features/Offline.svelte';
   import Changes from './comps/Changes/Changes.svelte';
   import History from './comps/History/History.svelte';
   import Filter from './comps/Filter/Filter.svelte';
@@ -107,17 +108,11 @@
       </a>
     {/each}
   </nav>
-  <Github />
 
+  <Offline />
+  <Github />
   <Notifications />
-  <!--
-        <div class="notice">
-            🚨 Bei uns gibts es die <a href="/?tags=burg-blaustein">Burg Blaustein Anleitungen</a> 🚨
-        </div>
-  -->
-  {#if activeSite !== 'products'}
-    <Search />
-  {/if}
+  <Search />
   <Share />
   <Darkmode />
 
@@ -164,7 +159,6 @@
 </main>
 
 <style lang="scss">
-  @import './scss/variables';
   // https://fonts.google.com/icons
   @import url('https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined&display=swap');
 
@@ -194,28 +188,16 @@
     }
   }
 
-  .notice {
-    font-weight: bold;
-    padding: $space-lg;
-    border-radius: $space-lg;
-    background: $color-white;
-    color: $color-primary;
-
-    a {
-      color: $color-primary-darker;
-    }
-  }
-
   :global .page:not(.active) {
     display: none;
   }
 
   .small {
-    font-size: ms(-2);
+    font-size: 8rem;
   }
 
   :global body {
-    font-size: $base-font-size;
+    font-size: 16px;
     overflow-y: scroll;
     margin: 0;
     // chrome blue touch highlight
@@ -250,10 +232,6 @@
     font-size: 15rem !important;
   }
 
-  :global(h1, h2, h3) {
-    margin: $space-lg 0;
-  }
-
   :global(.flex) {
     display: flex;
   }
@@ -268,7 +246,7 @@
   }
 
   :global(.flex--gap) {
-    gap: $space-lg;
+    gap: 4rem;
   }
 
   :global(.flex--vertical-center) {

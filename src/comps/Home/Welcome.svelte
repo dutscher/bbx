@@ -5,13 +5,9 @@
 
   let tags: number = 0;
   let products: number = 0;
-  let isOnline = false;
-  let lastCursor;
 
-  internetConnection.subscribe(store => (isOnline = store.isOnline));
   storedTags.subscribe(store => (tags = store.length));
   storedProducts.subscribe(store => (products = store.length));
-  storedActiveSelection.subscribe(store => (lastCursor = store.lastCursor));
 
   const open = (site, type) => {
     storedActiveSelection.update(store => {
@@ -36,13 +32,6 @@
     data-share="true"
   />
   <div>
-    {#if !isOnline}
-      <span class="warning small-padding">
-        Deine Internet Verbindung ist weg aber du kannst den Watcher weiterhin nutzen.<br />
-        <b>Letzter Stand:</b>
-        {lastCursor.dateStr}
-      </span>
-    {/if}
     <div class="welcome">
       <p>
         Willkommen im neuen Bluebrixx Watcher<br />
@@ -74,24 +63,13 @@
 </div>
 
 <style lang="scss">
-  @import '../../scss/variables';
-
   .fb-like {
     display: inline-block;
-    height: 30px;
-    width: 170px;
+    height: 30rem;
+    width: 170rem;
 
     :global iframe {
-      width: 170px !important;
+      width: 170rem !important;
     }
-  }
-
-  .warning {
-    font-size: ms(-1);
-    display: block;
-    color: $color-white;
-    background: $color-warning;
-    border-radius: $space-md;
-    padding: $space-md $space-lg;
   }
 </style>
