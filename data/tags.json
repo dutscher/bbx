@@ -49,7 +49,8 @@
   ],
   [
     "Scifi",
-    "Star Trek"
+    "Star Trek",
+    "Quantum Colony"
   ],
   [
     "Eisenbahn",
@@ -86,6 +87,7 @@
     "Werkstatt",
     "Pizzeria",
     "Studio",
+    "Praxis",
     [
       "Manhattan",
       "Lattice",
@@ -129,12 +131,14 @@
     "Zug",
     "Triebwagen",
     "Steuerwagen",
+    "Gailtalbahn",
     [
       "Schuppen",
       "Halle",
       "Kraftstoff",
       "Caboose",
-      "Bordrestaurant"
+      "Bordrestaurant",
+      "Zugmaschine"
     ]
   ],
   [
@@ -146,6 +150,7 @@
     "Transporter",
     "1te Klasse",
     "2te Klasse",
+    "Schlieren",
     [
       "Kübelwagen",
       "Funkspähwagen",
@@ -279,7 +284,8 @@
     "Commerzbank",
     "Talmberg",
     "Hamburger",
-    "Forum Romanum"
+    "Forum Romanum",
+    "Rockefeller Center"
   ],
   [
     "Film Modelle",
@@ -388,7 +394,8 @@
   [
     "Piraten",
     "Pirates",
-    "Galeone"
+    "Galeone",
+    "Gouverneursinsel"
   ],
   [
     "Spiel",

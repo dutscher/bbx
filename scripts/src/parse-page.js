@@ -72,6 +72,7 @@ const parsePageJSDOM = async url => {
     const state = item.querySelector('.label_announcement,.label_comingsoon,.label_unavailable');
     const parts = item.querySelector('.label_parts');
     const price = item.querySelector('.regPrice');
+    const specPrice = item.querySelector('.specPrice');
     const title = getTextOfElement(item.querySelector('.searchItemTitle'));
     const cat = getTextOfElement(item.querySelector('.searchItemDesc'));
     // https://www.bluebrixx.com/de/architecture/103360/Bockwindmuehle-BlueBrixx-Special
@@ -92,6 +93,15 @@ const parsePageJSDOM = async url => {
       debug({ url, urlDirs, cat, id });
     }
 
+    let endPrice;
+    if (price || specPrice) {
+      endPrice = parseFloat(
+        getTextOfElement(price || specPrice)
+          .replace('*', '')
+          .replace(',', '.')
+      );
+    }
+
     const data = updateProductData(
       {
         title,
@@ -101,7 +111,7 @@ const parsePageJSDOM = async url => {
         partTags: getPartTags(urlDirs, title, id),
         partNr: -1,
         parts: parts ? parseInt(getTextOfElement(parts).replace(' PCS')) : 0,
-        price: price ? parseFloat(getTextOfElement(price).replace('*', '').replace(',', '.')) : 0,
+        price: endPrice,
         state: state ? states.de.indexOf(getTextOfElement(state)) : 0,
         history: {},
       },
@@ -146,6 +156,7 @@ const parsePageCherrio = async url => {
     const state = $(item).find('.label_announcement,.label_comingsoon,.label_unavailable').text();
     const parts = $(item).find('.label_parts').text();
     const price = $(item).find('.regPrice').text();
+    const specPrice = $(item).find('.specPrice').text();
     const title = getCleanText($(item).find('.searchItemTitle').text());
     const cat = getCleanText($(item).find('.searchItemDesc').text());
     // https://www.bluebrixx.com/de/architecture/103360/Bockwindmuehle-BlueBrixx-Special
@@ -168,6 +179,15 @@ const parsePageCherrio = async url => {
       debug('getTags', getTags(urlDirs, title, cat, href, id), href);
     }
 
+    let endPrice = 0;
+    if (price || specPrice) {
+      endPrice = parseFloat(
+        getCleanText(price || specPrice)
+          .replace('*', '')
+          .replace(',', '.')
+      );
+    }
+
     const data = updateProductData(
       {
         title,
@@ -176,7 +196,7 @@ const parsePageCherrio = async url => {
         tags: getTags(urlDirs, title, cat, href, id),
         partTags: getPartTags(urlDirs, title, id),
         parts: parts ? parseInt(getCleanText(parts).replace(' PCS')) : 0,
-        price: price ? parseFloat(getCleanText(price).replace('*', '').replace(',', '.')) : 0,
+        price: endPrice,
         state: state ? states.de.indexOf(getCleanText(state)) : 0,
         history: {},
       },

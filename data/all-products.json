@@ -1602,7 +1602,9 @@
       0
     ],
     "tg": [
-      0
+      0,
+      8,
+      56
     ],
     "pa": 3561,
     "pr": 149.95
@@ -2180,6 +2182,7 @@
     ],
     "tg": [
       0,
+      2,
       10,
       56
     ],
@@ -4660,7 +4663,6 @@
     "tg": [
       0,
       6,
-      13,
       30,
       56
     ],
@@ -7678,6 +7680,7 @@
     ],
     "tg": [
       0,
+      5,
       6,
       28,
       30
@@ -7710,7 +7713,6 @@
     "tg": [
       0,
       6,
-      13,
       30,
       37
     ],
@@ -7820,6 +7822,7 @@
     ],
     "tg": [
       0,
+      5,
       26,
       56
     ],
@@ -8011,6 +8014,7 @@
     ],
     "tg": [
       0,
+      5,
       6,
       28,
       30
@@ -8104,6 +8108,7 @@
     "tg": [
       0,
       19,
+      54,
       56
     ],
     "pa": 5258,
@@ -8261,7 +8266,8 @@
     "tg": [
       0,
       6,
-      30
+      30,
+      56
     ],
     "pa": 526,
     "pr": 25.95,
@@ -8293,7 +8299,8 @@
       0,
       6,
       28,
-      30
+      30,
+      56
     ],
     "pa": 1139,
     "pr": 49.95,
@@ -9416,7 +9423,7 @@
       8,
       11
     ],
-    "pa": 2,
+    "pa": 0,
     "pr": 29.95,
     "ie": 0
   },
@@ -9754,8 +9761,10 @@
       1
     ],
     "tg": [
-      1
+      1,
+      51
     ],
+    "pa": 0,
     "pr": 0,
     "ie": 0
   },
@@ -9801,7 +9810,7 @@
       58
     ],
     "pa": 1146,
-    "pr": 0,
+    "pr": 44.95,
     "ie": 0
   },
   {
@@ -9818,7 +9827,7 @@
       58
     ],
     "pa": 763,
-    "pr": 0,
+    "pr": 32.95,
     "ie": 0
   },
   {
@@ -10056,7 +10065,7 @@
       58
     ],
     "pa": 720,
-    "pr": 0,
+    "pr": 39.95,
     "ie": 0
   },
   {
@@ -10149,6 +10158,7 @@
     "tg": [
       0,
       8,
+      13,
       56
     ],
     "pa": 3376,
@@ -11352,7 +11362,8 @@
     ],
     "tg": [
       0,
-      19
+      19,
+      56
     ],
     "pa": 1684,
     "pr": 0,
@@ -11379,7 +11390,9 @@
       0
     ],
     "tg": [
-      0
+      0,
+      10,
+      56
     ],
     "pa": 2526,
     "pr": 0,
@@ -11392,7 +11405,9 @@
       0
     ],
     "tg": [
-      0
+      0,
+      8,
+      13
     ],
     "pa": 723,
     "pr": 0,
@@ -11405,7 +11420,9 @@
       0
     ],
     "tg": [
-      0
+      0,
+      8,
+      14
     ],
     "pa": 730,
     "pr": 0,
@@ -11418,7 +11435,9 @@
       0
     ],
     "tg": [
-      0
+      0,
+      8,
+      14
     ],
     "pa": 759,
     "pr": 0,
@@ -11431,7 +11450,9 @@
       0
     ],
     "tg": [
-      0
+      0,
+      8,
+      14
     ],
     "pa": 819,
     "pr": 0,
@@ -11447,6 +11468,7 @@
       1,
       20
     ],
+    "pa": 0,
     "pr": 0,
     "ie": 0
   },
@@ -11457,7 +11479,8 @@
       0
     ],
     "tg": [
-      0
+      0,
+      40
     ],
     "pa": 1547,
     "pr": 0,
@@ -11471,7 +11494,8 @@
     ],
     "tg": [
       0,
-      40
+      40,
+      51
     ],
     "pa": 325,
     "pr": 0,
@@ -11499,6 +11523,7 @@
     ],
     "tg": [
       0,
+      28,
       61
     ],
     "pa": 446,
@@ -11527,6 +11552,7 @@
     ],
     "tg": [
       0,
+      28,
       61
     ],
     "pa": 545,
@@ -11568,6 +11594,7 @@
     ],
     "tg": [
       0,
+      2,
       27
     ],
     "pa": 1452,
@@ -11581,7 +11608,8 @@
       0
     ],
     "tg": [
-      0
+      0,
+      7
     ],
     "pa": 513,
     "pr": 0
@@ -11593,7 +11621,8 @@
       0
     ],
     "tg": [
-      0
+      0,
+      7
     ],
     "pa": 973,
     "pr": 0
@@ -11605,7 +11634,8 @@
       0
     ],
     "tg": [
-      0
+      0,
+      7
     ],
     "pa": 653,
     "pr": 0
@@ -11617,7 +11647,8 @@
       0
     ],
     "tg": [
-      0
+      0,
+      7
     ],
     "pa": 791,
     "pr": 0
@@ -11629,7 +11660,8 @@
       0
     ],
     "tg": [
-      0
+      0,
+      7
     ],
     "pa": 1509,
     "pr": 0
@@ -11641,7 +11673,8 @@
       0
     ],
     "tg": [
-      0
+      0,
+      7
     ],
     "pa": 2065,
     "pr": 0
@@ -11653,7 +11686,8 @@
       0
     ],
     "tg": [
-      0
+      0,
+      7
     ],
     "pa": 2509,
     "pr": 0
@@ -11665,7 +11699,9 @@
       0
     ],
     "tg": [
-      0
+      0,
+      2,
+      27
     ],
     "pa": 4551,
     "pr": 0
@@ -11677,7 +11713,8 @@
       0
     ],
     "tg": [
-      0
+      0,
+      40
     ],
     "pa": 1569,
     "pr": 0
@@ -11689,7 +11726,9 @@
       0
     ],
     "tg": [
-      0
+      0,
+      10,
+      56
     ],
     "pa": 3489,
     "pr": 0
@@ -11698,7 +11737,7 @@
     "ti": "Panzerketten 1 1/2 breit, schwarz (100st.)",
     "id": 400001,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -11712,7 +11751,7 @@
     "ti": "Panzerketten 1 1/2 breit, dunkelsilber (100st.)",
     "id": 400002,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -11726,7 +11765,7 @@
     "ti": "Panzerketten 1 1/2 breit, grau (100st.)",
     "id": 400003,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -11740,7 +11779,7 @@
     "ti": "Panzerketten 2 breit, schwarz (100st.)",
     "id": 400004,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -11754,7 +11793,7 @@
     "ti": "Panzerketten 2 breit, dunkelsilber (100st.)",
     "id": 400005,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -11768,7 +11807,7 @@
     "ti": "Panzerketten 2 breit, grau (100st.)",
     "id": 400006,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -11782,7 +11821,7 @@
     "ti": "Panzerketten 3 breit (innen 2), schwarz (100st.)",
     "id": 400007,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -11796,7 +11835,7 @@
     "ti": "Panzerketten 3 breit (innen 2), dunkelsilber (100st.)",
     "id": 400008,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -11810,7 +11849,7 @@
     "ti": "Panzerketten 3 breit (innen 2), grau (100st.)",
     "id": 400009,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -11824,7 +11863,7 @@
     "ti": "Panzerketten 1 breit , schwarz (100st.)",
     "id": 400010,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -11838,7 +11877,7 @@
     "ti": "Panzerketten 1 breit , dunkelsilber (100st.)",
     "id": 400011,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -11852,7 +11891,7 @@
     "ti": "Panzerketten 1 breit , grau (100st.)",
     "id": 400012,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -11866,7 +11905,7 @@
     "ti": "Panzerketten 5x1,5 breit , schwarz (100st.)",
     "id": 400013,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -11880,7 +11919,7 @@
     "ti": "Panzerketten 5x1,5 breit , dunkelsilber (100st.)",
     "id": 400014,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -11894,7 +11933,7 @@
     "ti": "Panzerketten 5x1,5 breit , grau (100st.)",
     "id": 400015,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -11908,7 +11947,7 @@
     "ti": "200 Stück, Slopes, gemischt, Dark Bluish Grey",
     "id": 400016,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -12330,7 +12369,7 @@
     "ti": "200 Teile, Roof Slopes, gemischt, Rot",
     "id": 400050,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -12999,7 +13038,8 @@
       2
     ],
     "tg": [
-      48
+      48,
+      61
     ],
     "pa": 10,
     "pr": 2.95,
@@ -13012,7 +13052,8 @@
       2
     ],
     "tg": [
-      48
+      48,
+      61
     ],
     "pa": 10,
     "pr": 2.95,
@@ -13025,7 +13066,8 @@
       2
     ],
     "tg": [
-      48
+      48,
+      61
     ],
     "pa": 10,
     "pr": 2.95,
@@ -13038,7 +13080,8 @@
       2
     ],
     "tg": [
-      48
+      48,
+      61
     ],
     "pa": 10,
     "pr": 2.95,
@@ -13051,7 +13094,8 @@
       2
     ],
     "tg": [
-      48
+      48,
+      61
     ],
     "pa": 10,
     "pr": 2.95,
@@ -13064,7 +13108,8 @@
       2
     ],
     "tg": [
-      48
+      48,
+      61
     ],
     "pa": 10,
     "pr": 2.95,
@@ -13178,7 +13223,7 @@
     "ti": "Tarn-Set Camouflage 36pcs",
     "id": 400125,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0
@@ -13490,7 +13535,7 @@
     "ti": "200 Stück, Roof Slopes, gemischt, Dunkelrot",
     "id": 400152,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13505,7 +13550,7 @@
     "ti": "200 Stück, Roof Slopes, gemischt, Dark Bluish Grey",
     "id": 400153,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13520,7 +13565,7 @@
     "ti": "200 Stück, Roof Slopes, Gemischt, Schwarz",
     "id": 400154,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13535,7 +13580,7 @@
     "ti": "200 Stück, Roof Slopes, Gemischt, Dark Blue",
     "id": 400155,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13550,7 +13595,7 @@
     "ti": "100 Stück, LIMB ELEMENT, Dunkelgrün",
     "id": 400156,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13567,7 +13612,7 @@
     "ti": "100 Stück, LIMB ELEMENT, Grün",
     "id": 400157,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13584,7 +13629,7 @@
     "ti": "150 pcs, LIMB ELEMENT, SMALL, Grün",
     "id": 400158,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -13599,7 +13644,7 @@
     "ti": "150 Stück, LIMB ELEMENT, SMALL, Bright Green",
     "id": 400159,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13616,7 +13661,7 @@
     "ti": "50 Stück, BUSCH, grün",
     "id": 400160,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13634,7 +13679,7 @@
     "ti": "50 Stück, FINGER LEAF, Grün",
     "id": 400161,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13651,7 +13696,7 @@
     "ti": "150 Stück, BAMBOO LEAVES 3X3, Green",
     "id": 400162,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13668,7 +13713,7 @@
     "ti": "150 Stück, BAMBOO LEAVES 3X3, Dunkelgrün",
     "id": 400163,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13685,7 +13730,7 @@
     "ti": "200 Stück, 1er Steine gemischt, White",
     "id": 401051,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13701,7 +13746,7 @@
     "ti": "200 Stück, 1er Steine gemischt, Reddish Brown",
     "id": 401052,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13717,7 +13762,7 @@
     "ti": "200 Stück, 1er Steine gemischt, Light Bluish Gray",
     "id": 401053,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13733,7 +13778,7 @@
     "ti": "200 Stück, 1er Steine gemischt, Dark Bluish Gray",
     "id": 401054,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13749,7 +13794,7 @@
     "ti": "200 Stück, 1er Steine gemischt, Tan",
     "id": 401055,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13765,7 +13810,7 @@
     "ti": "200 Stück, 1er Steine gemischt, Dark Tan",
     "id": 401056,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13781,7 +13826,7 @@
     "ti": "200 Stück, 1er Steine gemischt, Dark Red",
     "id": 401057,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13797,7 +13842,7 @@
     "ti": "200 Stück, 1er Steine gemischt, Sand Blue",
     "id": 401058,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13813,7 +13858,7 @@
     "ti": "200 Stück, 1er Steine gemischt, Sand Green",
     "id": 401059,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13829,7 +13874,7 @@
     "ti": "200 Stück, 1er Steine gemischt, Dark Green",
     "id": 401060,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13845,7 +13890,7 @@
     "ti": "50 Stück, BUSCH, Olive",
     "id": 401081,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13863,7 +13908,7 @@
     "ti": "50 Stück, BUSCH, Dark Tan",
     "id": 401082,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13881,7 +13926,7 @@
     "ti": "50 Stück, BUSCH, Tan",
     "id": 401083,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13899,7 +13944,7 @@
     "ti": "50 Stück, BUSCH, Dark Green",
     "id": 401084,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -13917,7 +13962,7 @@
     "ti": "Kleine Plates, gemischt, weiß",
     "id": 401086,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -13933,7 +13978,7 @@
     "ti": "Lange Plates, gemischt, weiß",
     "id": 401087,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -13949,7 +13994,7 @@
     "ti": "Große Plates, gemischt, weiß",
     "id": 401088,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -13964,7 +14009,7 @@
     "ti": "Kleine Plates, gemischt, hellgrau (Light Bluish Gray)",
     "id": 401089,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -13980,7 +14025,7 @@
     "ti": "Lange Plates, gemischt, hellgrau (Light Bluish Gray)",
     "id": 401090,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -13996,7 +14041,7 @@
     "ti": "Große Plates, gemischt, hellgrau (Light Bluish Gray)",
     "id": 401091,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14012,7 +14057,7 @@
     "ti": "Große Plates, gemischt, dunkelgrau (Dark Bluish Gray)",
     "id": 401092,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14028,7 +14073,7 @@
     "ti": "Kleine Plates, gemischt, dunkelgrau (Dark Bluish Gray)",
     "id": 401093,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14044,7 +14089,7 @@
     "ti": "Lange Plates, gemischt, dunkelgrau (Dark Bluish Gray)",
     "id": 401094,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14060,7 +14105,7 @@
     "ti": "Lange Plates, gemischt, schwarz",
     "id": 401095,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14076,7 +14121,7 @@
     "ti": "Kleine Plates, gemischt, schwarz",
     "id": 401096,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14092,7 +14137,7 @@
     "ti": "Große Plates, gemischt, schwarz",
     "id": 401097,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14108,7 +14153,7 @@
     "ti": "Große Plates, gemischt, beige (Tan)",
     "id": 401098,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14124,7 +14169,7 @@
     "ti": "Kleine Plates, gemischt, beige (Tan)",
     "id": 401099,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14140,7 +14185,7 @@
     "ti": "Lange Plates, gemischt, beige (Tan)",
     "id": 401100,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14156,7 +14201,7 @@
     "ti": "Lange Plates, gemischt, Medium Dark Flesh",
     "id": 401101,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14172,7 +14217,7 @@
     "ti": "Kleine Plates, gemischt, Medium Dark Flesh",
     "id": 401102,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14188,7 +14233,7 @@
     "ti": "Große Plates, gemischt, Medium Dark Flesh",
     "id": 401103,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14204,7 +14249,7 @@
     "ti": "Kleine Plates, gemischt, dunkelbeige (Dark Tan)",
     "id": 401104,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14220,7 +14265,7 @@
     "ti": "Lange Plates, gemischt, dunkelbeige (Dark Tan)",
     "id": 401105,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14236,7 +14281,7 @@
     "ti": "Große Plates, gemischt, dunkelbeige (Dark Tan)",
     "id": 401106,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14251,7 +14296,7 @@
     "ti": "Kleine Plates, gemischt, braun (Reddish Brown)",
     "id": 401107,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14267,7 +14312,7 @@
     "ti": "Lange Plates, gemischt, braun (Reddish Brown)",
     "id": 401108,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14283,7 +14328,7 @@
     "ti": "Große Plates, gemischt, braun (Reddish Brown)",
     "id": 401109,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14299,7 +14344,7 @@
     "ti": "Kleine Plates, gemischt, grün",
     "id": 401110,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14315,7 +14360,7 @@
     "ti": "Lange Plates, gemischt, grün",
     "id": 401111,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14331,7 +14376,7 @@
     "ti": "Große Plates, gemischt, grün",
     "id": 401112,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14347,7 +14392,7 @@
     "ti": "Kleine Plates, gemischt, rot",
     "id": 401113,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14363,7 +14408,7 @@
     "ti": "Lange Plates, gemischt, rot",
     "id": 401114,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14379,7 +14424,7 @@
     "ti": "Große Plates, gemischt, rot",
     "id": 401115,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14395,7 +14440,7 @@
     "ti": "Kleine Plates, gemischt, blau",
     "id": 401116,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14411,7 +14456,7 @@
     "ti": "Lange Plates, gemischt, blau",
     "id": 401117,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14427,7 +14472,7 @@
     "ti": "Große Plates, gemischt, blau",
     "id": 401118,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14443,7 +14488,7 @@
     "ti": "Kleine Plates, gemischt, gelb",
     "id": 401119,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14459,7 +14504,7 @@
     "ti": "Lange Plates, gemischt, gelb",
     "id": 401120,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14475,7 +14520,7 @@
     "ti": "Große Plates, gemischt, gelb",
     "id": 401121,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14491,7 +14536,7 @@
     "ti": "Kleine Plates, gemischt, dunkelbraun (Dark Brown)",
     "id": 401122,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14507,7 +14552,7 @@
     "ti": "Lange Plates, gemischt, dunkelbraun (Dark Brown)",
     "id": 401123,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14523,7 +14568,7 @@
     "ti": "Große Plates, gemischt, dunkelbraun (Dark Brown)",
     "id": 401124,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14539,7 +14584,7 @@
     "ti": "Kleine Plates, gemischt, dunkelgrün (Dark Green)",
     "id": 401125,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14555,7 +14600,7 @@
     "ti": "Lange Plates, gemischt, dunkelgrün (Dark Green)",
     "id": 401126,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14571,7 +14616,7 @@
     "ti": "Große Plates, gemischt, dunkelgrün (Dark Green)",
     "id": 401127,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14587,7 +14632,7 @@
     "ti": "Kleine Plates, gemischt, dunkelrot (Dark Red)",
     "id": 401128,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14603,7 +14648,7 @@
     "ti": "Lange Plates, gemischt, dunkelrot (Dark Red)",
     "id": 401129,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14619,7 +14664,7 @@
     "ti": "Große Plates, gemischt, dunkelrot (Dark Red)",
     "id": 401130,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14635,7 +14680,7 @@
     "ti": "Kleine Plates, gemischt, transparent (Trans Clear)",
     "id": 401131,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14651,7 +14696,7 @@
     "ti": "Lange Plates, gemischt, transparent (Trans Clear)",
     "id": 401132,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14667,7 +14712,7 @@
     "ti": "Große Plates, gemischt, transparent (Trans Clear)",
     "id": 401133,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -14851,7 +14896,7 @@
     "ti": "Felsenset, 40 Stück, Dark Bluish Gray",
     "id": 401147,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -14867,7 +14912,7 @@
     "ti": "Felsenset, 40 Stück, Light Bluish Gray",
     "id": 401148,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -14883,7 +14928,7 @@
     "ti": "Felsenset, 40 Stück, White",
     "id": 401149,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -14899,7 +14944,7 @@
     "ti": "Felsenset, 40 Stück, Tan",
     "id": 401150,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -14915,7 +14960,7 @@
     "ti": "Felsenset, 40 Stück, Dark Tan",
     "id": 401151,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -14993,7 +15038,7 @@
     "ti": "200 Stück, Slopes, gemischt, weiß",
     "id": 401157,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -15010,7 +15055,7 @@
     "ti": "200 Stück, Slopes, gemischt, Tan",
     "id": 401158,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -15026,7 +15071,7 @@
     "ti": "200 Stück, Slopes, gemischt, Dark Tan",
     "id": 401159,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -15042,7 +15087,7 @@
     "ti": "200 Stück, Slopes, gemischt, Light Bluish Gray",
     "id": 401160,
     "ca": [
-      0,
+      2,
       6
     ],
     "tg": [
@@ -15058,7 +15103,7 @@
     "ti": "Fliesen, gemischt, weiß",
     "id": 401161,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -15089,7 +15134,7 @@
     "ti": "Fliesen, gemischt, Light Bluish Gray",
     "id": 401164,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -15104,7 +15149,7 @@
     "ti": "Fliesen, gemischt, Dark Bluish Gray",
     "id": 401165,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -15119,7 +15164,7 @@
     "ti": "Fliesen, gemischt, Black",
     "id": 401166,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -15134,7 +15179,7 @@
     "ti": "Fliesen, gemischt, Tan",
     "id": 401167,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -15149,7 +15194,7 @@
     "ti": "Fliesen, gemischt, Dark Tan",
     "id": 401168,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -15164,7 +15209,7 @@
     "ti": "Fliesen, gemischt, Reddish Brown",
     "id": 401169,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -15287,7 +15332,7 @@
     "ti": "10 x Kupplungselement mit Magnet",
     "id": 401178,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -15359,7 +15404,7 @@
     "ti": "Roof Slopes 25°, gemischt, Rot",
     "id": 401187,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -15374,7 +15419,7 @@
     "ti": "Roof Slopes 25°, gemischt, Dunkelrot",
     "id": 401189,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -15389,7 +15434,7 @@
     "ti": "Roof Slopes 25°, gemischt, Dunkelgrau",
     "id": 401190,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -15404,7 +15449,7 @@
     "ti": "Roof Slopes 25°, gemischt, Schwarz",
     "id": 401191,
     "ca": [
-      0
+      2
     ],
     "tg": [
       0,
@@ -16829,6 +16874,7 @@
     ],
     "tg": [
       0,
+      8,
       53,
       59
     ],
@@ -16844,6 +16890,7 @@
     ],
     "tg": [
       0,
+      8,
       53,
       59
     ],

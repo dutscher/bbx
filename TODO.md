@@ -1,10 +1,8 @@
 next todos:
+* share merkliste über mehrere geräte
 * filter color active
   * url params
-* share merkliste über mehrere geräte
 * news not loaded? BUG
-* right collision of tooltip
-* scroll tooltip into viewport manchmal zuweit
 * live api changes
   * tags use cats-n-tags script!
   * ios pwa notifications?
@@ -15,6 +13,7 @@ next todos:
 * cypress tests
 * warenkorb noise ausblenden
 * history back not going
+* designer overview
   
 * remove warning:
   (node:18656) [DEP0148] DeprecationWarning: Use of deprecated folder mapping "./" in the "exports" field module resolution of the package at C:\www\repos\dutscher\bbx\node_modules\tslib\package.json.

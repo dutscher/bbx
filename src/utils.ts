@@ -7,6 +7,7 @@ import {
 } from './_interfaces';
 // reexport
 import { onMount as svelteOnMount } from 'svelte';
+
 export const onMount = svelteOnMount;
 export { pad, isDST, getHRDate, getDateTime } from '../scripts/src/clean-utils.js';
 export { sites, convertOldParams, getUrlParam, getAllUrlParams, setUrlParams } from './url';
@@ -141,4 +142,30 @@ export const getMinInMs = (minutes: number) => {
 export const stopClick = e => {
   e.preventDefault();
   e.stopPropagation();
+};
+
+export const getOffsetRect = el => {
+  let rect = el.getBoundingClientRect();
+
+  // add window scroll position to get the offset position
+  let left = rect.left + window.scrollX;
+  let top = rect.top + window.scrollY;
+  let right = rect.right + window.scrollX;
+  let bottom = rect.bottom + window.scrollY;
+  let x;
+  let y;
+
+  // polyfill missing 'x' and 'y' rect properties not returned
+  // from getBoundingClientRect() by older browsers
+  if (rect.x === undefined) x = left;
+  else x = rect.x + window.scrollX;
+
+  if (rect.y === undefined) y = top;
+  else y = rect.y + window.scrollY;
+
+  // width and height are the same
+  let width = rect.width;
+  let height = rect.height;
+
+  return { left, top, right, bottom, x, y, width, height };
 };

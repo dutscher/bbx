@@ -6,10 +6,11 @@
     storedStates,
     storedActiveSelection,
     loadProductData,
-  } from '../../stores';
-  import { jsVoid, setUrlParams, handlePrice, ess } from '../../utils';
-  import ProductHistory from './ProductHistory.svelte';
+  } from '../../../stores';
+  import { jsVoid, setUrlParams, handlePrice, ess, getOffsetRect } from '../../../utils';
   import ProductStage from './ProductStage.svelte';
+  import ProductInst from './ProductInst.svelte';
+  import ProductHistory from './ProductHistory.svelte';
 
   export let product: any;
   export let states: any;
@@ -35,47 +36,14 @@
   storedCategories.subscribe(store => (categories = store));
   storedTags.subscribe(store => (tags = store));
 
-  // /101/101857%20Das%20Schwarze%20Auge,%20Thowaler%20Drachenschiff,%20Otta%20(45MB).pdf
-  // https://www.bluebrixx.com/data/files/manuals/103/103272%20Nimitz%20Teil%202%20(26MB).pdf
-  const getInstLabel = str => {
-    let strReturn = '';
-    const defaultLabel = 'Download';
-    const foundSize = str.match(/\((\d*MB)\)/);
-    const foundPart = str.match(/Teil(%20| )(\d{1})/);
-    const foundUnit = str.match(/Unit (\d{1,2})/);
-    if (foundSize || foundPart || foundUnit) {
-      if (foundUnit) {
-        strReturn = 'Unit ' + foundUnit[1] + (foundSize ? ' - ' + foundSize[1] : '');
-      } else if (foundPart) {
-        strReturn = 'Teil ' + foundPart[2] + (foundSize ? ' - ' + foundSize[1] : '');
-      } else {
-        strReturn = foundSize[1];
-      }
-    } else {
-      strReturn = defaultLabel;
-    }
-    return strReturn;
-  };
-
-  const openInstHref = pdfLink => {
-    let url;
-    if (pdfLink.includes('http')) {
-      url = pdfLink;
-    } else {
-      url = data.instUrl + pdfLink;
-    }
-    window.open(url);
-  };
-
   const handleLeftAdjust = () => {
     const { left, width } = wrapElement.getBoundingClientRect();
-    const mobileWidth = 320;
     const leftEdge = left + leftAdjustInt;
     const rightEdge = Math.round(leftEdge + width);
     const rightEdgeWithSpace = rightEdge + spaceing * 2;
     let maxLeft;
 
-    if (mobileWidth >= innerWidth) {
+    if (width + 120 >= innerWidth) {
       isMobile = true;
       wrapWidth = innerWidth - spaceing;
       maxLeft = Math.round(leftEdge - spaceing / 2);
@@ -117,21 +85,29 @@
     });
   };
 
-  const scrollIntoView = () => {
-    const { bottom, height } = wrapElement.getBoundingClientRect();
-    if (bottom > window.innerHeight) {
-      const header = 64;
-      const newTop = window.pageYOffset + height - header;
-      window.scrollTo({ top: newTop, left: 0, behavior: 'smooth' });
+  const scrollIntoView = (notScroll?) => {
+    const { y } = getOffsetRect(wrapElement);
+    let newTop = -1;
+    // tooltip bottom corner not visible
+    if (y + 120 > window.innerHeight) {
+      newTop = y - 120;
+    }
+    // scroll to top of product
+    if (newTop >= 0) {
+      newTop = Math.round(newTop);
+      if (!notScroll) {
+        window.scrollTo({ top: newTop, left: 0, behavior: 'smooth' });
+      }
     }
   };
 
   $: {
-    if (wrapElement) {
-      if (showTooltip) {
-        handleLeftAdjust();
-        loadProductData(product);
-      }
+    if (wrapElement && showTooltip) {
+      handleLeftAdjust();
+      loadProductData(product);
+      setTimeout(() => {
+        scrollIntoView();
+      }, 50);
     }
   }
 </script>
@@ -145,12 +121,7 @@
   {#if showTooltip}
     <article class="no-padding border round" bind:this={wrapElement}>
       <div class="top">
-        <ProductStage
-          {product}
-          onLoad={() => {
-            scrollIntoView();
-          }}
-        />
+        <ProductStage {product} />
       </div>
       <div class="small-padding">
         <h5 class="no-margin">
@@ -218,26 +189,7 @@
             <br />
             <b>Anleitung:</b><br />
             <div class="product-tooltip__content product-tooltip__content--rows flex flex--wrap">
-              {#if Array.isArray(product.inst)}
-                {#each product.inst as inst}
-                  <a class="inst-link link" target="_blank" href="https://www.bluebrixx.com/de/inst#{product.id}">
-                    <i on:click={() => openInstHref(inst)}>article</i>
-                    {getInstLabel(inst)}
-                  </a>
-                {/each}
-              {:else}
-                <a class="inst-link link" target="_blank" href="https://www.bluebrixx.com/de/inst#{product.id}">
-                  <i on:click={() => openInstHref(product.inst)}>article</i>
-                  {getInstLabel(product.inst)}
-                </a>
-              {/if}
-              <!--
-              &nbsp;|&nbsp;
-              <a class="partlist-link link" href="https://api.bbx.watch/tool/partlist/{product.id}.pdf" target="_blank">
-                <i>checklist_rtl</i>
-                <div class="tooltip bottom">Teileliste</div>
-              </a>
-              -->
+              <ProductInst {product} />
             </div>
           {/if}
           <br />
@@ -265,12 +217,6 @@
       }
     }
 
-    .inst-link {
-      i {
-        cursor: default;
-      }
-    }
-
     .partlist-link {
       cursor: pointer;
     }
@@ -288,6 +234,7 @@
       font-size: 16rem;
       display: block;
       line-height: 18rem;
+      user-select: text;
     }
 
     &__content {

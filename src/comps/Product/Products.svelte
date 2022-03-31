@@ -269,26 +269,32 @@
 </article>
 
 <nav class="wrap small-margin no-h-margin">
-  <label class="checkbox">
-    <input type="checkbox" bind:checked={extraFilter.parts.show} />
-    <span>Parts<span class="badge round">{extraFilter.parts.count}</span></span>
-  </label>
-  <label class="checkbox">
-    <input type="checkbox" bind:checked={extraFilter.new.show} />
-    <span>
-      <i class="yellow-text">star</i>
-      <span class="badge round">{extraFilter.new.count}</span>
-      <div class="tooltip bottom small-margin">Neue Produkte</div>
-    </span>
-  </label>
-  <label class="checkbox">
-    <input type="checkbox" bind:checked={extraFilter.hot.show} />
-    <span>
-      <i class="orange-text">local_fire_department</i>
-      <div class="tooltip bottom small-margin">Beliebte Produkte</div>
-      <span class="badge round">{extraFilter.hot.count}</span>
-    </span>
-  </label>
+  {#if extraFilter.parts.count > 0}
+    <label class="checkbox">
+      <input type="checkbox" bind:checked={extraFilter.parts.show} />
+      <span>Parts<span class="badge round">{extraFilter.parts.count}</span></span>
+    </label>
+  {/if}
+  {#if extraFilter.new.count > 0}
+    <label class="checkbox">
+      <input type="checkbox" bind:checked={extraFilter.new.show} />
+      <span>
+        <i class="yellow-text">star</i>
+        <span class="badge round">{extraFilter.new.count}</span>
+        <div class="tooltip bottom small-margin">Neue Produkte</div>
+      </span>
+    </label>
+  {/if}
+  {#if extraFilter.hot.count > 0}
+    <label class="checkbox">
+      <input type="checkbox" bind:checked={extraFilter.hot.show} />
+      <span>
+        <i class="orange-text">local_fire_department</i>
+        <div class="tooltip bottom small-margin">Beliebte Produkte</div>
+        <span class="badge round">{extraFilter.hot.count}</span>
+      </span>
+    </label>
+  {/if}
 </nav>
 
 <div class="flex flex--gap flex--wrap">

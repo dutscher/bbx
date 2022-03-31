@@ -9,11 +9,10 @@ export const loadProductData = async product => {
   }
 
   const data = await fetch(`${API}/bapi/product/detail/${product.id}`).then(res => res.json());
-
   // {101005: "Blade Runner - Spinner Car", 101472: ... }
   storedProducts.update(products => {
     return products.map(product => {
-      if (product.id === data.id) {
+      if (product.id === data.id || product.id === data.brandNr) {
         // https://api.bbx.watch/bapi/product/detail/104000
         product.designer = data.designer;
         product.size = data.size;
@@ -30,6 +29,7 @@ export const loadProductData = async product => {
             product.video = media.link.replace('/watch?v=', '/embed/');
           }
         });
+
         if (images.length > 0) {
           product.images = images;
         }

@@ -1,8 +1,8 @@
 <script lang="ts">
   import ProductHearts from './ProductHearts.svelte';
-  import { AFF_LINK } from '../../_interfaces';
-  import { internetConnection, storedGlobalData } from '../../stores';
-  import { ess, stopClick } from '../../utils';
+  import { AFF_LINK } from '../../../_interfaces';
+  import { internetConnection, storedGlobalData } from '../../../stores';
+  import { ess, stopClick } from '../../../utils';
 
   export let product: any;
   export let onLoad = () => {};
@@ -85,10 +85,10 @@
   {/if}
 </div>
 
-{#if isOnline && !!imageSrc}
-  <div class="navi flex flex--horizontal-center front small-margin small-text bold">
-    <ProductHearts {product} />
+<div class="navi flex flex--horizontal-center front small-margin small-text bold">
+  <ProductHearts {product} />
 
+  {#if isOnline && !!imageSrc}
     {#if images.length > 1}
       <span on:click={goBack}>
         <i class={ess((imageIndex === 0 || videoVisible) && 'disable')}>arrow_back_ios</i>
@@ -119,13 +119,13 @@
         {/if}
       </span>
     {/if}
+  {/if}
 
-    <a href={data.url + product.href + AFF_LINK} target="_blank">
-      <i>shopping_cart</i>
-      <div class="tooltip bottom small-margin">Zum Shop{!!AFF_LINK ? '*' : ''}</div>
-    </a>
-  </div>
-{/if}
+  <a href={data.url + product.href + AFF_LINK} target="_blank">
+    <i>shopping_cart</i>
+    <div class="tooltip bottom small-margin">Zum Shop{!!AFF_LINK ? '*' : ''}</div>
+  </a>
+</div>
 
 <style lang="scss">
   .stage {

@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { storedStates } from '../../stores';
-  import { jsVoid, pad } from '../../utils';
-  import { ID_STATE_AVAILABLE } from '../../_interfaces';
+  import { storedStates } from '../../../stores';
+  import { jsVoid, pad } from '../../../utils';
+  import { ID_STATE_AVAILABLE } from '../../../_interfaces';
 
   export let product: any;
 

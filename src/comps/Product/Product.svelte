@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Tooltip from './ProductTooltip.svelte';
+  import Tooltip from './Tooltip/ProductTooltip.svelte';
   import ClickOutside from 'svelte-click-outside';
   import {
     ID_BURG_BLAUSTEIN,

@@ -1,3 +1,6 @@
+* [01.04.2022]
+  * tooltip refactoring  
+
 * [31.03.2022]
   * new offline corner
   * remove old scss
