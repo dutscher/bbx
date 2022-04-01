@@ -10005,6 +10005,42 @@
     "ie": 0
   },
   {
+    "ti": "Star Trek Klingonischer D7-Klasse-Schlachtkreuzer",
+    "id": 104571,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 579,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek USS Voyager NCC-74656",
+    "id": 104572,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 599,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek Romulanischer D´deridex-Warbird",
+    "id": 104573,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 510,
+    "pr": 0
+  },
+  {
     "ti": "Lokomotive BR 146 weiß rot",
     "id": 104594,
     "ca": [
@@ -11560,7 +11596,7 @@
     "ie": 0
   },
   {
-    "ti": "japanischer Sportwagen",
+    "ti": "Japanischer Sportwagen",
     "id": 105134,
     "ca": [
       0
