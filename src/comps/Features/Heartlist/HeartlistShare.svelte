@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { storedHearts, storedHeartsShare, getHeartCloud, updateHeartCloud, generateHeartCloud } from '@stores';
+  import { storedHearts, storedHeartsShare, getHeartCloud, generateHeartCloud } from '@stores';
 
   let heartShare: any;
   let heartLists: any;
