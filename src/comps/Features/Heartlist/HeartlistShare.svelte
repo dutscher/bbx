@@ -5,16 +5,13 @@
   let heartLists: any;
 
   storedHeartsShare.subscribe(store => (heartShare = store));
-  storedHearts.subscribe(store => {
-    heartLists = store;
-    // update changes from tooltip or page
-    if (heartShare.uuid) {
-      updateHeartCloud(heartLists);
-    }
-  });
+  storedHearts.subscribe(store => (heartLists = store));
 </script>
 
-<input bind:value={heartShare.key} />
+<input bind:value={heartShare.uuid} />
+{#if heartShare.uuid}
+  Letzter Stand: {heartShare.time}
+{/if}
 
 {#if !heartShare.uuid}
   <i on:click={() => generateHeartCloud(heartLists)}>cloud_upload</i>

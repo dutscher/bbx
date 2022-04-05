@@ -4,24 +4,26 @@ import { storedHearts } from '../hearts';
 import { lsKeyHeart } from '../../stores';
 
 export const lsKey = 'heartsShare';
-let lsStoreUuid = localStore.getRaw(lsKey);
-const api = '//myjson.dit.upm.es/';
-//const api = '//api.willy-selma.de/bbx/stores/';
-const apiBins = api + 'api/bins/';
+const api = '//myjson.dit.upm.es/api/bins/';
+let lsStore = localStore.get(lsKey);
 
-// https://myjson.dit.upm.es/
-// http://myjson.dit.upm.es/api/bins/apor
-
-const { subscribe, set, update } = writable({ uuid: lsStoreUuid, time: 0 });
+const { subscribe, set, update } = writable(lsStore || { uuid: '', time: 0 });
 export const storedHeartsShare = {
   subscribe,
   set,
   update,
 };
 
+// store changes from tooltip or page
+storedHearts.subscribe(store => {
+  if (lsStore.uuid) {
+    updateHeartCloud(store);
+  }
+});
+
 export function generateHeartCloud(data) {
   const time = new Date().getTime();
-  fetch(apiBins, {
+  fetch(api, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -32,29 +34,30 @@ export function generateHeartCloud(data) {
     .then(responseJSON => {
       // responseJSON = {"uri":"https://myjson.dit.upm.es/api/bins//94nz"}
       const uuid = responseJSON.uri.split('/').pop();
-      lsStoreUuid = uuid;
-      storedHeartsShare.set({ uuid: lsStoreUuid, time });
-      localStore.set(lsKey, lsStoreUuid);
+      lsStore.uuid = uuid;
+      storedHeartsShare.set({ uuid, time });
+      localStore.set(lsKey, { uuid, time });
       localStore.set(lsKeyHeart, JSON.stringify(data));
     });
 }
 
 export function getHeartCloud() {
-  if (lsStoreUuid) {
-    fetch(apiBins + lsStoreUuid)
+  if (lsStore.uuid) {
+    fetch(api + lsStore.uuid)
       .then(res => res.json())
       .then(cloudStore => {
         console.log('getHeartCloud', cloudStore);
-        storedHeartsShare.set({ uuid: lsStoreUuid, time: cloudStore.time });
+        storedHeartsShare.set({ uuid: lsStore.uuid, time: cloudStore.time });
         storedHearts.set(cloudStore.data);
+        localStore.set(lsKey, { uuid: lsStore.uuid, time: cloudStore.time });
         localStore.set(lsKeyHeart, JSON.stringify(cloudStore.data));
       });
   }
 }
 
 export function updateHeartCloud(data) {
-  if (lsStoreUuid) {
-    fetch(apiBins + lsStoreUuid, {
+  if (lsStore.uuid) {
+    fetch(api + lsStore.uuid, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -64,7 +67,8 @@ export function updateHeartCloud(data) {
       .then(res => res.json())
       .then(cloudStore => {
         console.log('updateHeartCloud', cloudStore);
-        storedHeartsShare.set({ uuid: lsStoreUuid, time: cloudStore.time });
+        storedHeartsShare.set({ uuid: lsStore.uuid, time: cloudStore.time });
+        localStore.set(lsKey, { uuid: lsStore.uuid, time: cloudStore.time });
         localStore.set(lsKeyHeart, JSON.stringify(cloudStore.data));
       });
   }
