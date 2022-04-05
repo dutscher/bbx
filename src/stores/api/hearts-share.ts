@@ -21,6 +21,8 @@ export const storedHeartsShare = {
 //   }
 // });
 
+console.log(lsStore);
+
 export function generateHeartCloud(data) {
   const time = new Date().getTime();
   fetch(api, {

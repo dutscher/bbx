@@ -1,6 +1,6 @@
 <script lang="ts">
   import { pad } from '@utils';
-  import { storedHearts, storedHeartsShare, getHeartCloud, generateHeartCloud } from '@stores';
+  import { storedHearts, storedHeartsShare, getHeartCloud, updateHeartCloud, generateHeartCloud } from '@stores';
 
   let uuid: string;
   let hrTime: string;
@@ -33,4 +33,5 @@
 {/if}
 {#if uuid}
   <i on:click={() => getHeartCloud(heartLists)}>cloud_download</i>
+  <i on:click={() => updateHeartCloud(heartLists)}>cloud_upload</i>
 {/if}

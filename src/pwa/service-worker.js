@@ -28,13 +28,12 @@ const IGNORE_REQUESTS = [
 ];
 const FILES_TO_CACHE = [
   './index.html',
-  './service-worker.js?cb=1626458022163',
-  './pwa/loader.js?cb=1626458022163',
-  './data/inst.json?cb=1626458022163',
-  './build/bundle.js?cb=1626458022163',
-  './build/bundle.css?cb=1626458022163',
+  './service-worker.js',
+  './pwa/loader.js',
+  './data/inst.json',
+  './build/bundle.js',
+  './build/bundle.css',
 ];
-const FILES_TO_CACHE_WITHOUT_CB = FILES_TO_CACHE.map(file => removeCB(file));
 const FILES_TO_CACHE_STATIC = [
   './manifest.json',
   './favicon.ico',
@@ -90,7 +89,7 @@ self.addEventListener('fetch', e => {
       }
       const response = await fetch(e.request);
       if (!IGNORE_REQUESTS.some(request => e.request.url.includes(request))) {
-        if (FILES_TO_CACHE_WITHOUT_CB.includes(removeCB(e.request.url))) {
+        if (FILES_TO_CACHE.includes(removeCB(e.request.url))) {
           log(`fetch ,cache ,Caching new resource: ${e.request.url}`);
           const cache = await caches.open(CACHE_NAME);
           cache.put(e.request, response.clone());
