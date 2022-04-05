@@ -207,7 +207,7 @@
   .product-tooltip {
     cursor: default;
     white-space: nowrap;
-    padding-bottom: 32rem;
+    padding-bottom: 86rem;
     z-index: 2;
 
     .link {

@@ -3,8 +3,8 @@
   // https://stackoverflow.com/questions/56300132/how-to-override-css-prefers-color-scheme-setting
   // https://svelte.dev/tutorial/spring
   import { spring } from 'svelte/motion';
-  import { localStore } from '../../stores';
-  import { onMount } from '../../utils';
+  import { localStore } from '@stores';
+  import { onMount } from '@utils';
 
   const properties = {
     dark: {

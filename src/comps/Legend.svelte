@@ -1,6 +1,6 @@
 <script lang="ts">
   import { storedActiveSelection } from '../stores/states';
-  import { AFF_LINK } from '../_interfaces';
+  import { AFF_LINK } from '@interfaces';
 
   let lastCursor;
 

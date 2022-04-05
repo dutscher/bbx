@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { storedTags, storedProducts, internetConnection, storedActiveSelection } from '../../stores';
-  import { IDS_SPECIAL_TAGS } from '../../_interfaces';
-  import { jsVoid } from '../../utils';
+  import { storedTags, storedProducts, storedActiveSelection } from '@stores';
+  import { IDS_SPECIAL_TAGS } from '@interfaces';
+  import { jsVoid } from '@utils';
 
   let tags: number = 0;
   let products: number = 0;

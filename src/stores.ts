@@ -7,6 +7,13 @@ export { storedColors } from './stores/colors';
 export { storedParts, storedPartTypes } from './stores/parts';
 export { storedImageExtension } from './stores/image-extension';
 export { storedHearts, lsKey as lsKeyHeart } from './stores/hearts';
+export {
+  storedHeartsShare,
+  lsKey as lsKeyHeartShare,
+  generateHeartCloud,
+  getHeartCloud,
+  updateHeartCloud,
+} from './stores/api/hearts-share';
 export { internetConnection } from './stores/internet-connection';
 export { storedProductsSorting, storedFilteredProducts, storedProducts, sortedProducts } from './stores/products';
 export { storedPermissions, promptThePermission } from './stores/notifications';

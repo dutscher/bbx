@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { storedProducts, storedGlobalData, storedActiveProduct } from '../../stores';
-  import { STR_MANHATTAN } from '../../_interfaces';
-  import { getEEProduct, getEEState, pad } from '../../utils';
+  import { storedProducts, storedGlobalData, storedActiveProduct } from '@stores';
+  import { STR_MANHATTAN } from '@interfaces';
+  import { getEEProduct, getEEState, pad } from '@utils';
 
   const type = STR_MANHATTAN;
   let products: any;

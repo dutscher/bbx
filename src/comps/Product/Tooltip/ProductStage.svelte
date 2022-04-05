@@ -1,8 +1,8 @@
 <script lang="ts">
+  import { internetConnection, storedGlobalData } from '@stores';
+  import { ess, stopClick } from '@utils';
+  import { AFF_LINK } from '@interfaces';
   import ProductHearts from './ProductHearts.svelte';
-  import { AFF_LINK } from '../../../_interfaces';
-  import { internetConnection, storedGlobalData } from '../../../stores';
-  import { ess, stopClick } from '../../../utils';
 
   export let product: any;
   export let onLoad = () => {};

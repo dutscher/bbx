@@ -5,9 +5,9 @@
   import FilterPartTypes from './Brickbar/FilterPartTypes.svelte';
   import FilterStates from './FilterStates.svelte';
   import FilterSearch from './FilterSearch.svelte';
-  import { ID_PARTS, lsSiteSettingsKey } from '../../_interfaces';
-  import { localStore, storedActiveSelection } from '../../stores';
-  import { jsVoid, ess } from '../../utils';
+  import { ID_PARTS, lsSiteSettingsKey } from '@interfaces';
+  import { localStore, storedActiveSelection } from '@stores';
+  import { jsVoid, ess } from '@utils';
 
   let activeTagIds: any = [];
   let activePartIds: any = [];

@@ -1,8 +1,8 @@
 <script lang="ts">
+  import { storedActiveSelection, storedTags } from '@stores';
+  import { onMount, getUrlParam, setUrlParams, ess } from '@utils';
+  import { IDS_SPECIAL_TAGS, urlKeyTags } from '@interfaces';
   import ChipLetter from './ChipLetter.svelte';
-  import { storedActiveSelection, storedTags } from '../../stores';
-  import { onMount, getUrlParam, setUrlParams, ess } from '../../utils';
-  import { IDS_SPECIAL_TAGS, urlKeyTags } from '../../_interfaces';
 
   export let activeTagIds: any = [];
   export let isVisible: boolean = false;

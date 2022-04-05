@@ -7,7 +7,7 @@ export const localStore = {
   },
   get: (key: string, defaultShizzle?: any) => {
     const lsShizzle = localStorage.getItem(key);
-    return JSON.parse(lsShizzle);
+    return lsShizzle ? JSON.parse(lsShizzle) : defaultShizzle;
   },
   remove: (key: string) => {
     return localStorage.removeItem(key);

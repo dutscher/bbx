@@ -1,8 +1,8 @@
 import { writable } from 'svelte/store';
+import { ID_PARTS } from '@interfaces';
+import { getProductHref } from '@utils';
 import { products } from '../../data/all-products.reducer';
-import { getProductHref } from '../utils';
 import { storedColors } from './colors';
-import { ID_PARTS } from '../_interfaces';
 
 let colors;
 storedColors.subscribe(store => (colors = store));

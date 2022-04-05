@@ -1,5 +1,7 @@
 next todos:
 * share merkliste über mehrere geräte
+  * window.URL.createObjectURL(new Blob([])).substring(31);
+  * js db for storage
 * filter color active
   * url params
 * news not loaded? BUG

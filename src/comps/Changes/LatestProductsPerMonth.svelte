@@ -1,7 +1,7 @@
 <script lang="ts">
+  import { storedProducts, storedStates } from '@stores';
+  import { ID_STATE_AVAILABLE, ID_STATE_ANNOUNCEMENT } from '@interfaces';
   import Product from '../Product/Product.svelte';
-  import { storedProducts, storedStates } from '../../stores';
-  import { ID_STATE_AVAILABLE, ID_STATE_ANNOUNCEMENT } from '../../_interfaces';
 
   export let state: number = ID_STATE_ANNOUNCEMENT;
   export let onCounterAvailable: any = () => {};

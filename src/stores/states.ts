@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
-import { UNLOADED } from '../_interfaces';
-import { capitalizeFirstLetter } from '../utils';
+import { UNLOADED } from '@interfaces';
+import { capitalizeFirstLetter } from '@utils';
 
 const storedActiveSelectionWritable = writable({
   loadedData: {

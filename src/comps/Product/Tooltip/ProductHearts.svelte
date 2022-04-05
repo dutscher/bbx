@@ -155,7 +155,7 @@
           {/if}
         </div>
       {/each}
-      <div class="hearts__list hearts__list--new">
+      <div class="hearts__list hearts__list--add">
         <i>add</i>
         <div class="field small no-margin">
           <input
@@ -208,6 +208,10 @@
 
       .field.small {
         height: 25rem;
+      }
+
+      &--add i {
+        margin: 0;
       }
 
       input {

@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { storedActiveSelection, storedPartTypes, storedProducts, storedFilteredProducts } from '../../../stores';
-  import { onMount, getUrlParam, setUrlParams, titleMatch, ess, jsVoid } from '../../../utils';
-  import { ID_PARTS } from '../../../_interfaces';
+  import { storedActiveSelection, storedPartTypes, storedProducts, storedFilteredProducts } from '@stores';
+  import { onMount, getUrlParam, setUrlParams, titleMatch, ess, jsVoid } from '@utils';
+  import { ID_PARTS } from '@interfaces';
 
   export let activePartTypeIds: any = [];
   export let partTypes: any;

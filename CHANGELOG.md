@@ -1,5 +1,9 @@
+* [05.04.2022]
+  * heartlist sort
+  * heartlist cloud share
+
 * [01.04.2022]
-  * tooltip refactoring  
+  * tooltip refactoring
 
 * [31.03.2022]
   * new offline corner

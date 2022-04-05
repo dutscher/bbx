@@ -1,8 +1,8 @@
 <script lang="ts">
+  import { onMount } from '@utils';
+  import { LOADED, UNLOADED } from '@interfaces';
+  import { storedActiveSelection, storedTags, storedProducts, loadChanges, internetConnection } from '@stores';
   import TodayChanges from './TodayChanges.svelte';
-  import { onMount } from '../../utils';
-  import { LOADED, UNLOADED } from '../../_interfaces';
-  import { storedActiveSelection, storedTags, storedProducts, loadChanges, internetConnection } from '../../stores';
 
   let loadedChanges;
   let tags: number = 0;

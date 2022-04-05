@@ -6,6 +6,7 @@ Buzzwords:
   * Scss
   * Typescript
   * Nodejs Modulejs
+  * Drag n Drop
 * API
   * Graphql + Appollo Client
   * JSDOM vs. Cherrio Scraping

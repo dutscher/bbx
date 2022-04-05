@@ -30,7 +30,7 @@
             </form>
             -->
 
-        <a href="//www.noppensteinnews.de/" target="_blank" title="Partner: Noppensteinnews">
+        <a href="//www.noppenstein.news/" target="_blank" title="Partner: Noppensteinnews">
           <img src="/images/partner/noppensteinnews.png" alt="Noppensteinnews" width="150" />
         </a>
       </div>

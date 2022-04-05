@@ -1,5 +1,4 @@
 <script lang="ts">
-  import Tooltip from './Tooltip/ProductTooltip.svelte';
   import ClickOutside from 'svelte-click-outside';
   import {
     ID_BURG_BLAUSTEIN,
@@ -12,10 +11,17 @@
     STR_BURG_BLAUSTEIN,
     STR_STAR_TREK,
     UNLOADED,
-  } from '../../_interfaces';
-  import { storedGlobalData, storedActiveSelection, storedStates, storedHearts, loadInstData } from '../../stores';
-  import { getLatestStateOfToday, ess } from '../../utils';
-  import { storedActiveProduct } from '../../stores/states';
+  } from '@interfaces';
+  import {
+    storedGlobalData,
+    storedActiveSelection,
+    storedStates,
+    storedHearts,
+    loadInstData,
+    storedActiveProduct,
+  } from '@stores';
+  import { getLatestStateOfToday, ess } from '@utils';
+  import Tooltip from './Tooltip/ProductTooltip.svelte';
 
   export let product: any;
   export let withoutTooltip: boolean = false;

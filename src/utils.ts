@@ -4,7 +4,7 @@ import {
   ID_STATE_AVAILABLE,
   ID_STATE_COMING_SOON,
   ID_STATE_UNAVAILABLE,
-} from './_interfaces';
+} from '@interfaces';
 // reexport
 import { onMount as svelteOnMount } from 'svelte';
 

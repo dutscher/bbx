@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { getUrlParam, jsVoid, onMount, setUrlParams } from '../../utils';
-  import { storedProductsSorting } from '../../stores';
+  import { getUrlParam, jsVoid, onMount, setUrlParams } from '@utils';
+  import { storedProductsSorting } from '@stores';
+  import { ID_PARTS } from '@interfaces';
   import { sorter, exportCSV } from './sorting';
-  import { ID_PARTS } from '../../_interfaces';
 
   export let filteredProducts: any = [];
   export let activeTagIds: any = [];

@@ -81,6 +81,7 @@
     "svelte-assets-preprocessor": "^0.0.7",
     "svelte-check": "^1.0.0",
     "svelte-click-outside": "^1.0.0",
+    "svelte-dnd-action": "^0.9.18",
     "svelte-preprocess-markdown": "^2.7.3",
     "svelte-preprocess": "^4.0.0",
     "svelte-watch-resize": "^1.0.3",

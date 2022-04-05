@@ -1,6 +1,6 @@
+import { LOADED, LOADING } from '@interfaces';
 import { storedProducts } from '../products';
 import { sortedStates, storedActiveSelection } from '../states';
-import { LOADED, LOADING } from '../../_interfaces';
 import { setFlags } from './product-data';
 
 export const loadHistoryData = async () => {

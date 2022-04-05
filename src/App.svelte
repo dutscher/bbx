@@ -2,8 +2,8 @@
   import 'beercss';
   import { ApolloClient, InMemoryCache } from '@apollo/client';
   import { setClient } from 'svelte-apollo';
-  import { onMount, jsVoid, sites, convertOldParams, getUrlParam, setUrlParams } from './utils';
-  import { loadMovieData, loadHistoryData, storedActiveSelection, storedHearts, localStore } from './stores';
+  import { onMount, jsVoid, sites, convertOldParams, getUrlParam, setUrlParams } from '@utils';
+  import { loadMovieData, loadHistoryData, storedActiveSelection, localStore } from '@stores';
   import {
     ID_MANHATTAN,
     ID_NETHERLAND,
@@ -13,13 +13,12 @@
     LOADED,
     lsSiteSettingsKey,
     urlKeyTags,
-  } from './_interfaces';
+  } from '@interfaces';
   import Welcome from './comps/Home/Welcome.svelte';
   import Support from './comps/Home/Support.svelte';
   import News from './comps/Home/News.svelte';
   import Changelog from './comps/Home/Changelog.svelte';
   import Imprint from './comps/Home/Imprint.svelte';
-  import Hearts from './comps/Features/Hearts.svelte';
   import Offline from './comps/Features/Offline.svelte';
   import Changes from './comps/Changes/Changes.svelte';
   import History from './comps/History/History.svelte';
@@ -35,11 +34,11 @@
   import Darkmode from './comps/Features/Darkmode.svelte';
   import Legend from './comps/Legend.svelte';
   import Site from './comps/Site.svelte';
+  import HeartlistWrap from './comps/Features/Heartlist/HeartlistWrap.svelte';
 
   let activeSite: any;
   let activeTagIds: any;
   let loadedData: any;
-  let hearts: any;
 
   const defaultSite = localStore.getRaw(lsSiteSettingsKey) || 'home';
   let nextSite: any;
@@ -59,7 +58,6 @@
       loadMovieData();
     }
   });
-  storedHearts.subscribe(store => (hearts = store));
 
   const client = new ApolloClient({
     uri: 'https://api.bbx.watch/api/graphql',
@@ -125,9 +123,7 @@
       <Imprint />
     </Site>
     <Site name="hearts" {activeSite} {isActive}>
-      {#each Object.keys(hearts) as list}
-        <Hearts {list} />
-      {/each}
+      <HeartlistWrap />
       <Legend />
     </Site>
     <Site name="products" {activeSite} {isActive}>

@@ -1,7 +1,7 @@
 // listen to messages from service worker
+import { AFF_LINK } from '@interfaces';
 import { storedProducts } from './products';
 import { storedHearts } from './hearts';
-import { AFF_LINK } from '../_interfaces';
 
 export const serviceWorkerSvelteSyncer = () => {
   if (navigator && 'serviceWorker' in navigator) {

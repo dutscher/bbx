@@ -1,5 +1,5 @@
+import { API, ID_STATE_ANNOUNCEMENT, ID_STATE_AVAILABLE, ID_STATE_COMING_SOON } from '@interfaces';
 import { storedProducts } from '../products';
-import { API, ID_STATE_ANNOUNCEMENT, ID_STATE_AVAILABLE, ID_STATE_COMING_SOON } from '../../_interfaces';
 
 export const loadProductData = async product => {
   if (product.loaded) {
