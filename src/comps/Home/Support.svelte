@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from '../../utils';
+  import { onMount } from '@utils';
 
   let kofi;
 

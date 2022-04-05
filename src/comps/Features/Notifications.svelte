@@ -1,6 +1,6 @@
 <script>
-  import { onMount, getUrlParam } from '../../utils';
-  import { storedPermissions, promptThePermission } from '../../stores';
+  import { onMount, getUrlParam } from '@utils';
+  import { storedPermissions, promptThePermission } from '@stores';
 
   let isVisible = false;
   let permissions;

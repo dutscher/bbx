@@ -1,5 +1,4 @@
 <script lang="ts">
-  import FilterSummaryActive from './FilterSummaryActive.svelte';
   import {
     storedActiveSelection,
     storedColors,
@@ -7,8 +6,9 @@
     storedPartTypes,
     storedStates,
     storedTags,
-  } from '../../stores';
-  import { setUrlParams, stopClick } from '../../utils';
+  } from '@stores';
+  import { setUrlParams, stopClick } from '@utils';
+  import FilterSummaryActive from './FilterSummaryActive.svelte';
 
   export let activeSearchString: string = '';
   export let activeTagIds: any = [];

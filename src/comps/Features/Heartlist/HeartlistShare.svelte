@@ -1,21 +1,34 @@
 <script lang="ts">
+  import { pad } from '@utils';
   import { storedHearts, storedHeartsShare, getHeartCloud, generateHeartCloud } from '@stores';
 
-  let heartShare: any;
+  let uuid: string;
+  let hrTime: string;
   let heartLists: any;
 
-  storedHeartsShare.subscribe(store => (heartShare = store));
+  storedHeartsShare.subscribe(store => {
+    uuid = store.uuid;
+    const date = new Date(store.time);
+    hrTime = `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+  });
   storedHearts.subscribe(store => (heartLists = store));
+
+  const checkInput = newUuid => {
+    storedHeartsShare.update(store => {
+      store.uuid = newUuid;
+      return store;
+    });
+  };
 </script>
 
-<input bind:value={heartShare.uuid} />
-{#if heartShare.uuid}
-  Letzter Stand: {heartShare.time}
+<input bind:value={uuid} on:input={({ target: { value } }) => checkInput(value)} />
+{#if uuid && time > 0}
+  Letzter Stand: {hrTime}
 {/if}
 
-{#if !heartShare.uuid}
+{#if !uuid}
   <i on:click={() => generateHeartCloud(heartLists)}>cloud_upload</i>
 {/if}
-{#if heartShare.uuid}
+{#if uuid}
   <i on:click={() => getHeartCloud(heartLists)}>cloud_download</i>
 {/if}

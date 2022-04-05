@@ -1,8 +1,5 @@
 <script lang="ts">
-  import Product from './Product.svelte';
-  import FilterSummary from '../Filter/FilterSummary.svelte';
-  import ProductSorter from '../Product/ProductSorter.svelte';
-  import { onMount, titleMatch, setUrlParams, getUrlParam, getAllUrlParams } from '../../utils';
+  import { onMount, titleMatch, setUrlParams, getUrlParam, getAllUrlParams } from '@utils';
   import {
     storedProductsSorting,
     storedProducts,
@@ -16,7 +13,10 @@
     storedActiveSelection,
     storedActiveProduct,
     localStore,
-  } from '../../stores';
+  } from '@stores';
+  import Product from './Product.svelte';
+  import FilterSummary from '../Filter/FilterSummary.svelte';
+  import ProductSorter from '../Product/ProductSorter.svelte';
   import { handleProductSort } from './sorting';
 
   export let bbUrl: string;

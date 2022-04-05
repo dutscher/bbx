@@ -1,7 +1,7 @@
 <script lang="ts">
+  import { storedProducts, storedStates } from '@stores';
+  import { onMount, getLatestStateOfToday, pad, stopClick, getUrlParam, setUrlParams } from '@utils';
   import Product from '../Product/Product.svelte';
-  import { storedProducts, storedProductsSorting, storedStates } from '../../stores';
-  import { onMount, getLatestStateOfToday, pad, stopClick, getUrlParam, setUrlParams } from '../../utils';
   import { beerui } from '../../beerui';
 
   let products: any;

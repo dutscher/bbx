@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { storedActiveSelection, storedStates, storedProducts, storedFilteredProducts } from '../../stores';
-  import { onMount, getUrlParam, setUrlParams, ess } from '../../utils';
+  import { storedActiveSelection, storedStates, storedProducts, storedFilteredProducts } from '@stores';
+  import { onMount, getUrlParam, setUrlParams, ess } from '@utils';
 
   export let activeStateIds: any = [];
   export let activeColorIds: any = [];

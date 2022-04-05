@@ -1,13 +1,13 @@
 import { writable } from 'svelte/store';
+import { lsKeyHeart } from '@stores';
 import { localStore } from '../local-storage';
 import { storedHearts } from '../hearts';
-import { lsKeyHeart } from '../../stores';
 
 export const lsKey = 'heartsShare';
 const api = '//myjson.dit.upm.es/api/bins/';
-let lsStore = localStore.get(lsKey);
+let lsStore = localStore.get(lsKey, { uuid: '', time: 0 });
 
-const { subscribe, set, update } = writable(lsStore || { uuid: '', time: 0 });
+const { subscribe, set, update } = writable(lsStore);
 export const storedHeartsShare = {
   subscribe,
   set,
@@ -36,7 +36,7 @@ export function generateHeartCloud(data) {
       const uuid = responseJSON.uri.split('/').pop();
       lsStore.uuid = uuid;
       storedHeartsShare.set({ uuid, time });
-      localStore.set(lsKey, { uuid, time });
+      localStore.set(lsKey, JSON.stringify({ uuid, time }));
       localStore.set(lsKeyHeart, JSON.stringify(data));
     });
 }
@@ -49,7 +49,7 @@ export function getHeartCloud() {
         console.log('getHeartCloud', cloudStore);
         storedHeartsShare.set({ uuid: lsStore.uuid, time: cloudStore.time });
         storedHearts.set(cloudStore.data);
-        localStore.set(lsKey, { uuid: lsStore.uuid, time: cloudStore.time });
+        localStore.set(lsKey, JSON.stringify({ uuid: lsStore.uuid, time: cloudStore.time }));
         localStore.set(lsKeyHeart, JSON.stringify(cloudStore.data));
       });
   }
@@ -68,7 +68,7 @@ export function updateHeartCloud(data) {
       .then(cloudStore => {
         console.log('updateHeartCloud', cloudStore);
         storedHeartsShare.set({ uuid: lsStore.uuid, time: cloudStore.time });
-        localStore.set(lsKey, { uuid: lsStore.uuid, time: cloudStore.time });
+        localStore.set(lsKey, JSON.stringify({ uuid: lsStore.uuid, time: cloudStore.time }));
         localStore.set(lsKeyHeart, JSON.stringify(cloudStore.data));
       });
   }

@@ -1,7 +1,7 @@
 <script lang="ts">
   import ClickOutside from 'svelte-click-outside';
-  import { lsKeyHeart, localStore, storedHearts } from '../../../stores';
-  import { stopClick } from '../../../utils';
+  import { lsKeyHeart, localStore, storedHearts } from '@stores';
+  import { stopClick } from '@utils';
 
   export let product: any;
   let isActive: boolean = false;

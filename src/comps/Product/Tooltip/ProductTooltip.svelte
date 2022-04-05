@@ -6,8 +6,8 @@
     storedStates,
     storedActiveSelection,
     loadProductData,
-  } from '../../../stores';
-  import { jsVoid, setUrlParams, handlePrice, ess, getOffsetRect } from '../../../utils';
+  } from '@stores';
+  import { jsVoid, setUrlParams, handlePrice, ess, getOffsetRect } from '@utils';
   import ProductStage from './ProductStage.svelte';
   import ProductInst from './ProductInst.svelte';
   import ProductHistory from './ProductHistory.svelte';

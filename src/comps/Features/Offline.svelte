@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { storedTags, storedProducts, internetConnection, storedActiveSelection } from '../../stores';
+  import { internetConnection, storedActiveSelection } from '@stores';
 
   let isOnline = false;
   let lastCursor;
