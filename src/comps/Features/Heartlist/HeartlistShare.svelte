@@ -8,8 +8,10 @@
 
   storedHeartsShare.subscribe(store => {
     uuid = store.uuid;
-    const date = new Date(store.time);
-    hrTime = `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+    if (store.time > 0) {
+      const date = new Date(store.time);
+      hrTime = `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+    }
   });
   storedHearts.subscribe(store => (heartLists = store));
 
@@ -22,7 +24,7 @@
 </script>
 
 <input bind:value={uuid} on:input={({ target: { value } }) => checkInput(value)} />
-{#if uuid && time > 0}
+{#if uuid && hrTime}
   Letzter Stand: {hrTime}
 {/if}
 

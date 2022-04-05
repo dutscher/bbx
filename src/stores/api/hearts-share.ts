@@ -15,11 +15,11 @@ export const storedHeartsShare = {
 };
 
 // store changes from tooltip or page
-storedHearts.subscribe(store => {
-  if (lsStore.uuid) {
-    updateHeartCloud(store);
-  }
-});
+// storedHearts.subscribe(store => {
+//   if (lsStore.uuid) {
+//     updateHeartCloud(store);
+//   }
+// });
 
 export function generateHeartCloud(data) {
   const time = new Date().getTime();
