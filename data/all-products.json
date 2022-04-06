@@ -11415,7 +11415,7 @@
       0,
       8
     ],
-    "pa": 1618,
+    "pa": 1579,
     "pr": 0,
     "ie": 0
   },
@@ -11767,6 +11767,30 @@
       56
     ],
     "pa": 3487,
+    "pr": 0
+  },
+  {
+    "ti": "DR Kleinlokomotive Leistungsgruppe I (8w)",
+    "id": 105221,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 301,
+    "pr": 0
+  },
+  {
+    "ti": "DR Kleinlokomotive Leistungsgruppe III (8w)",
+    "id": 105226,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 481,
     "pr": 0
   },
   {
