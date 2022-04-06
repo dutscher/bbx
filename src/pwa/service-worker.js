@@ -12,7 +12,7 @@ const log = (...args) => {
     console.log(pre, ...args);
   }
 };
-
+// /build/bundle.js?cb=1648792884777 -> /build/bundle.js
 const removeCB = file => {
   return file.replace(/\?cb=.*/, '');
 };
@@ -27,21 +27,21 @@ const IGNORE_REQUESTS = [
   'localhost',
 ];
 const FILES_TO_CACHE = [
-  './index.html',
-  './service-worker.js',
-  './pwa/loader.js',
-  './data/inst.json',
-  './build/bundle.js',
-  './build/bundle.css',
+  '/index.html',
+  '/service-worker.js',
+  '/pwa/loader.js',
+  '/data/inst.json',
+  '/build/bundle.js',
+  '/build/bundle.css',
 ];
 const FILES_TO_CACHE_STATIC = [
-  './manifest.json',
-  './favicon.ico',
-  './images/color-chrome.jpg',
-  './images/color-pearl-gold.jpg',
-  './images/color-pearl-gray.jpg',
-  './images/logo.png',
-  './images/partner/noppensteinnews.png',
+  '/manifest.json',
+  '/favicon.ico',
+  '/images/color-chrome.jpg',
+  '/images/color-pearl-gold.jpg',
+  '/images/color-pearl-gray.jpg',
+  '/images/logo.png',
+  '/images/partner/noppensteinnews.png',
 ];
 
 self.addEventListener('install', e => {
@@ -89,8 +89,9 @@ self.addEventListener('fetch', e => {
       }
       const response = await fetch(e.request);
       if (!IGNORE_REQUESTS.some(request => e.request.url.includes(request))) {
+        // e.request.url -> /build/bundle.js?cb=1648792884777 -> /build/bundle.js
         if (FILES_TO_CACHE.includes(removeCB(e.request.url))) {
-          log(`fetch ,cache ,Caching new resource: ${e.request.url}`);
+          console.log(`fetch ,cache ,Caching new resource: ${e.request.url}`);
           const cache = await caches.open(CACHE_NAME);
           cache.put(e.request, response.clone());
         } else {
