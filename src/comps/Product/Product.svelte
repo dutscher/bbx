@@ -54,7 +54,7 @@
   storedGlobalData.subscribe(store => (data = store));
   storedStates.subscribe(store => (states = store));
   storedHearts.subscribe(store => {
-    hearts = store;
+    hearts = store.lists;
     heartLists = Object.keys(hearts);
   });
 

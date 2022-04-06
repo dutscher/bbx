@@ -1,10 +1,10 @@
 import { writable } from 'svelte/store';
-import { lsKeyHeart } from '@stores';
+import { lsKey as lsKeyHeart } from '../hearts';
 import { localStore } from '../local-storage';
 import { storedHearts } from '../hearts';
 
 export const lsKey = 'heartsShare';
-const api = '//myjson.dit.upm.es/api/bins/';
+const api = '//myjson.dit.upm.es/api/bins/'; // bp9b
 let lsStore = localStore.get(lsKey, { uuid: '', time: 0 });
 
 const { subscribe, set, update } = writable(lsStore);
@@ -14,14 +14,15 @@ export const storedHeartsShare = {
   update,
 };
 
-// store changes from tooltip or page
-// storedHearts.subscribe(store => {
-//   if (lsStore.uuid) {
-//     updateHeartCloud(store);
-//   }
-// });
+storedHeartsShare.subscribe(store => (lsStore = store));
 
-console.log(lsStore);
+// store changes from tooltip or page
+storedHearts.subscribe(store => {
+  //console.log('changes in da house', lsStore, store);
+  if (lsStore.uuid && !['init', 'get-cloud'].includes(store.reason)) {
+    updateHeartCloud(store.lists);
+  }
+});
 
 export function generateHeartCloud(data) {
   const time = new Date().getTime();
@@ -44,13 +45,14 @@ export function generateHeartCloud(data) {
 }
 
 export function getHeartCloud() {
+  //console.log('getHeartCloud', lsStore);
   if (lsStore.uuid) {
     fetch(api + lsStore.uuid)
       .then(res => res.json())
       .then(cloudStore => {
-        console.log('getHeartCloud', cloudStore);
+        //console.log('getHeartCloud', cloudStore);
         storedHeartsShare.set({ uuid: lsStore.uuid, time: cloudStore.time });
-        storedHearts.set(cloudStore.data);
+        storedHearts.set({ reason: 'get-cloud', lists: cloudStore.data });
         localStore.set(lsKey, JSON.stringify({ uuid: lsStore.uuid, time: cloudStore.time }));
         localStore.set(lsKeyHeart, JSON.stringify(cloudStore.data));
       });
@@ -68,7 +70,7 @@ export function updateHeartCloud(data) {
     })
       .then(res => res.json())
       .then(cloudStore => {
-        console.log('updateHeartCloud', cloudStore);
+        //console.log('updateHeartCloud', cloudStore);
         storedHeartsShare.set({ uuid: lsStore.uuid, time: cloudStore.time });
         localStore.set(lsKey, JSON.stringify({ uuid: lsStore.uuid, time: cloudStore.time }));
         localStore.set(lsKeyHeart, JSON.stringify(cloudStore.data));

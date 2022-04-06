@@ -8,53 +8,52 @@
   let isHeart: boolean = false;
   let isHover: boolean = false;
   let mouseOver: boolean = false;
-  let hearts: any;
   let heartLists: any;
-  let editList: string = '';
+  let editListID: number = -1;
   let editValue: string = '';
   let newValue: string = '';
   let input: any;
 
   storedHearts.subscribe(store => {
-    hearts = store;
-    heartLists = Object.keys(hearts);
+    heartLists = store.lists;
   });
 
   const clickHeart = forceClose => {
     isActive = forceClose ? false : !isActive;
 
     if (!isActive) {
-      editList = '';
+      editListID = -1;
       editValue = '';
     }
 
     if (isActive && heartLists.length === 1) {
-      clickHandleList(heartLists[0]);
+      clickHandleList(heartLists[0].id);
     }
   };
 
-  const clickHandleList = listName => {
+  const clickHandleList = listID => {
     storedHearts.update(store => {
-      if (!(listName in store)) {
-        store[listName] = { t: listName, i: [] };
-      }
+      store.lists = store.lists.map(list => {
+        if (list.id === listID) {
+          if (!list.i.includes(product.id)) {
+            list.i.push(product.id);
+          } else {
+            list.i = list.i.filter(pid => pid !== product.id);
+          }
+        }
+        return list;
+      });
 
-      if (!store[listName].i.includes(product.id)) {
-        store[listName].i.push(product.id);
-      } else {
-        store[listName].i = store[listName].i.filter(pid => pid !== product.id);
-      }
-
-      localStore.set(lsKeyHeart, JSON.stringify(store));
-
+      localStore.set(lsKeyHeart, JSON.stringify(store.lists));
+      store.reason = 'list-item-handler';
       return store;
     });
   };
 
-  const clickEditList = (e, listName, title) => {
+  const clickEditList = (e, listId, title) => {
     stopClick(e);
 
-    editList = listName;
+    editListID = listId;
     editValue = title;
 
     setTimeout(() => {
@@ -65,24 +64,27 @@
 
   const handleEditList = () => {
     storedHearts.update(store => {
-      if (!(editValue in store)) {
-        store[editList].t = editValue;
-      }
-      editList = '';
+      store.lists = store.lists.map(list => {
+        if (list.id === editListID) {
+          list.t = editValue;
+        }
+        return list;
+      });
+      editListID = -1;
       editValue = '';
-      localStore.set(lsKeyHeart, JSON.stringify(store));
+      localStore.set(lsKeyHeart, JSON.stringify(store.lists));
+      store.reason = 'edit-list';
       return store;
     });
   };
 
   const handleNewList = () => {
     storedHearts.update(store => {
-      if (!(newValue in store)) {
-        store[newValue.toLowerCase()] = { t: newValue, i: [product.id] };
-      }
-
+      const nextId = store.lists.length;
+      store.lists.push({ id: nextId, t: newValue, i: [product.id] });
       newValue = '';
-      localStore.set(lsKeyHeart, JSON.stringify(store));
+      localStore.set(lsKeyHeart, JSON.stringify(store.lists));
+      store.reason = 'new-list';
       return store;
     });
   };
@@ -90,14 +92,16 @@
   const onKeyDown = e => {
     if (e.key === 'Escape') {
       newValue = '';
-      editList = '';
+      editListID = -1;
       editValue = '';
     }
   };
 
-  const onKeyPress = (e, listName) => {
+  const onKeyPress = (e, listId) => {
     if (e.key === 'Enter') {
-      if (!!listName) handleEditList();
+      // from input edit is id given
+      if (listId) handleEditList();
+      // from new input is id not given
       else handleNewList();
     }
   };
@@ -114,7 +118,7 @@
     mouseOver = false;
   };
 
-  $: isHeart = heartLists.find(list => hearts[list].i.includes(product.id)) || false;
+  $: isHeart = heartLists.find(list => list.i.includes(product.id)) || false;
   $: isHover = mouseOver;
 </script>
 
@@ -131,24 +135,21 @@
       {isHeart || isHover ? 'favorite' : 'favorite_border'}
     </i>
     <div class="hearts__flyout border small-padding absolute surface">
-      {#each heartLists as listName}
+      {#each heartLists as list}
         <div class="hearts__list">
-          <i
-            on:click={() => clickHandleList(listName)}
-            class={hearts[listName].i.includes(product.id) ? 'red-text' : ''}
-          >
-            {hearts[listName].i.includes(product.id) ? 'favorite' : 'favorite_border'}
+          <i on:click={() => clickHandleList(list.id)} class={list.i.includes(product.id) ? 'red-text' : ''}>
+            {list.i.includes(product.id) ? 'favorite' : 'favorite_border'}
           </i>
-          {#if editList !== listName}
-            <i on:click={e => clickEditList(e, listName, hearts[listName].t)}>edit</i>
-            <span>{hearts[listName].t}</span>
+          {#if editListID !== list.id}
+            <i on:click={e => clickEditList(e, list.id, list.t)}>edit</i>
+            <span>{list.t}</span>
           {:else}
             <div class="field small no-margin">
               <input
                 type="text"
                 bind:this={input}
                 on:keydown={onKeyDown}
-                on:keypress={e => onKeyPress(e, listName)}
+                on:keypress={e => onKeyPress(e, list.id)}
                 bind:value={editValue}
               />
             </div>

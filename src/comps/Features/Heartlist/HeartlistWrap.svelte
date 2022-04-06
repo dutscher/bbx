@@ -9,7 +9,7 @@
   let heartLists: any;
   let items: any;
 
-  storedHearts.subscribe(store => (heartLists = store));
+  storedHearts.subscribe(store => (heartLists = store.lists));
 
   const handleDndConsider = e => {
     items = e.detail.items;
@@ -18,7 +18,7 @@
   const handleDndFinalize = e => {
     items = e.detail.items;
     localStore.set(lsKeyHeart, JSON.stringify(items));
-    storedHearts.set(items);
+    storedHearts.set({ reason: 'change-order', lists: items });
   };
 
   $: {
@@ -26,12 +26,23 @@
   }
 </script>
 
-<HeartlistShare />
-
-<div use:dndzone={{ items, flipDurationMs }} on:consider={handleDndConsider} on:finalize={handleDndFinalize}>
+<div
+  class="wrap"
+  use:dndzone={{ items, flipDurationMs }}
+  on:consider={handleDndConsider}
+  on:finalize={handleDndFinalize}
+>
   {#each items as list (list.id)}
     <details class="card" open={list.d} animate:flip={{ duration: flipDurationMs }}>
       <Heartlist {list} />
     </details>
   {/each}
 </div>
+
+<HeartlistShare />
+
+<style lang="scss">
+  .wrap {
+    margin-bottom: 16rem;
+  }
+</style>

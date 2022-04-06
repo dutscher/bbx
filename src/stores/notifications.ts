@@ -44,7 +44,7 @@ let heartLists: any;
 
 storedGlobalData.subscribe(store => (data = store));
 storedHearts.subscribe(store => {
-  hearts = store;
+  hearts = store.lists;
   heartLists = Object.keys(hearts);
 });
 

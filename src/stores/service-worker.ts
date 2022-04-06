@@ -27,7 +27,7 @@ export const serviceWorkerSvelteSyncer = () => {
         registration.active.postMessage({ type: 'update-store', key: 'AFF_LINK', store: AFF_LINK });
 
         storedHearts.subscribe(store => {
-          registration.active.postMessage({ type: 'update-store', key: 'hearts', store });
+          registration.active.postMessage({ type: 'update-store', key: 'hearts', store: store.lists });
         });
 
         storedProducts.subscribe(store => {

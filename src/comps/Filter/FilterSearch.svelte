@@ -1,7 +1,7 @@
 <script lang="ts">
   import { storedActiveSelection } from '@stores';
   import { onMount, getUrlParam, setUrlParams } from '@utils';
-  import { beerui } from '../../beerui';
+  import beerui from '@beerui';
 
   export let activeSearchString: any = '';
 

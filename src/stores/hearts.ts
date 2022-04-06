@@ -34,7 +34,7 @@ if (lsStore) {
   }
 }
 
-const { subscribe, set, update } = writable(lsStore);
+const { subscribe, set, update } = writable({ reason: 'init', lists: lsStore });
 export const storedHearts = {
   subscribe,
   set,

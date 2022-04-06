@@ -13,7 +13,8 @@
     "paths": {
       "@utils": ["src/utils.ts"],
       "@stores": ["src/stores.ts"],
-      "@interfaces": ["src/_interfaces.ts"]
+      "@interfaces": ["src/_interfaces.ts"],
+      "@beerui": ["src/beerui.ts"]
     }
   }
 }

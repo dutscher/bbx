@@ -13,7 +13,7 @@
   let inputElement: any;
 
   storedProducts.subscribe(store => (products = store));
-  storedHearts.subscribe(store => (heartListCount = store.length));
+  storedHearts.subscribe(store => (heartListCount = store.lists.length));
 
   const clickDeleteList = e => {
     stopClick(e);
@@ -21,8 +21,9 @@
     const choice = confirm(`"${list.t}" wirklich löschen?`);
     if (choice) {
       storedHearts.update(store => {
-        store = store.filter(list_ => list_.id === list.id);
-        localStore.set(lsKeyHeart, JSON.stringify(store));
+        store.lists = store.lists.filter(list_ => list_.id !== list.id);
+        localStore.set(lsKeyHeart, JSON.stringify(store.lists));
+        store.reason = 'delete-list';
         return store;
       });
     }
@@ -56,16 +57,17 @@
       storedHearts.update(store => {
         list.t = editTitle;
 
-        store = store.map(list_ => {
+        store.lists = store.lists.map(list_ => {
           if (list_.id === list.id) {
             list_.t = editTitle;
           }
           return list_;
         });
 
-        localStore.set(lsKeyHeart, JSON.stringify(store));
+        localStore.set(lsKeyHeart, JSON.stringify(store.lists));
 
         isEdit = false;
+        store.reason = 'edit-title';
         return store;
       });
     }
