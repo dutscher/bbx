@@ -1,7 +1,8 @@
 <script lang="ts">
   import { storedProducts, storedGlobalData, storedActiveProduct } from '@stores';
   import { STR_BURG_BLAUSTEIN } from '@interfaces';
-  import { getEEProduct, getEEState, handlePrice, pad } from '@utils';
+  import { getEEProduct, getEEState, getStateAgo, handlePrice, pad } from '@utils';
+  import { product } from '../Product/Tooltip/ProductHistory.svelte';
 
   const type = STR_BURG_BLAUSTEIN;
   let products: any;
@@ -26,6 +27,7 @@
 
     pieces = data.blaustein.pieces.map((piece, i) => {
       const product = getEEProduct(products, piece);
+      const [timestamp, stateId] = Object.entries(product.history).pop();
 
       return {
         id: product.id,
@@ -34,7 +36,9 @@
         parts: product.parts,
         price: product.price,
         pricePerPart: product.pricePerPart,
-        state: getEEState(product),
+        stateAgo: getStateAgo(product, stateId, timestamp, 0, 0),
+        stateColor: getEEState(product),
+        state: product.state,
       };
     });
   }
@@ -59,19 +63,21 @@
   {#if innerWidth}
     <div class="pieces" style="zoom:{zoom};-moz-transform:scale({zoom});">
       <div class="pieces__wrap flex">
-        <img class="piece__img" alt={STR_BURG_BLAUSTEIN} src="./images/specials/burg-blaustein.png" />
+        <img class="piece__img" alt={STR_BURG_BLAUSTEIN} src="./images/specials/burg-blaustein.4.png" />
         {#each pieces as piece}
           <div
-            class="piece absolute piece--{piece.nr} color--{piece.state} chip large round small-padding"
+            class="piece absolute piece--{piece.nr} color--{piece.stateColor} chip large round small-padding"
             on:click={event => {
               setActive(event, piece.id);
             }}
           >
             <span>{piece.title}</span>
-            <span class="sub">
+            <span class="sub no-margin">
               {piece.parts}
-              {#if piece.price} - {handlePrice(piece)}{/if}
+              {#if piece.price} - {handlePrice(piece)}{/if}<br />
+              {piece.stateAgo}
             </span>
+            <div class="tooltip bottom">{piece.state.de}</div>
           </div>
         {/each}
       </div>
@@ -123,6 +129,11 @@
       &--04 {
         left: 129rem;
         top: 221rem;
+      }
+
+      &--05 {
+        left: 284rem;
+        top: 401rem;
       }
     }
   }

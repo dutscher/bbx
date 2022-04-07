@@ -24,12 +24,14 @@
     });
   };
 
-  const clickTag = (tag, withUrlUpdate?) => {
+  const clickTag = (tag, withUrlUpdate?, isSpecialTag = false) => {
     storedActiveSelection.update(store => {
+      let isNewSelected = false;
       if (!(urlKeyTags in store)) {
         store[urlKeyTags] = [];
       }
       if (!store[urlKeyTags].includes(tag.id)) {
+        isNewSelected = true;
         store[urlKeyTags].push(tag.id);
       } else {
         store[urlKeyTags] = store[urlKeyTags].filter(tagId => tagId !== tag.id);
@@ -40,7 +42,7 @@
           urlKeyTags,
           tags.filter(tag => store[urlKeyTags].includes(tag.id)).map(tag => tag.seoName)
         );
-        store.reason = 'tag-clicked';
+        store.reason = `tag-clicked${isSpecialTag && isNewSelected ? '-close-tab' : ''}`;
       } else {
         store.reason = 'url-parsed';
       }
@@ -80,7 +82,7 @@
             'chip small round no-margin',
             activeTagIds.includes(tag.id) ? 'red' : IDS_SPECIAL_TAGS.includes(tag.id) ? 'tertiary' : 'secondary'
           )}
-          on:click={() => clickTag(tag, true)}
+          on:click={() => clickTag(tag, true, IDS_SPECIAL_TAGS.includes(tag.id))}
           data-id={tag.id}
         >
           {#if index === 0}

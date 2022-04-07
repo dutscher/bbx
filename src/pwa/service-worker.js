@@ -94,7 +94,6 @@ self.addEventListener('fetch', e => {
         // e.request.url -> /build/bundle.js?cb=1648792884777 -> /build/bundle.js
         const clearUrl = removeCB(e.request.url);
         if (FILES_TO_CACHE.includes(clearUrl)) {
-          console.log(`fetch ,cache ,Caching new resource: ${e.request.url}`);
           const cache = await caches.open(CACHE_NAME);
           cache.put(e.request, response.clone());
         } else {

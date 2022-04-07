@@ -30,7 +30,7 @@
     activeStateIds = store.states;
     activeSearchString = store.search;
 
-    const reasons = ['init-tags-url', 'show-states', 'show-tags', 'tooltip-tag-clicked'];
+    const reasons = ['init-tags-url', 'show-states', 'show-tags', 'tooltip-tag-clicked', 'tag-clicked-close-tab'];
 
     if (store.site === 'products' && reasons.includes(store.reason)) {
       if (store.reason === 'show-states') {
@@ -39,7 +39,11 @@
       if (store.reason === 'show-tags') {
         newTab = 'tags';
       }
-      if (store.reason === 'init-tags-url' || store.reason === 'tooltip-tag-clicked') {
+      if (
+        store.reason === 'init-tags-url' ||
+        store.reason === 'tooltip-tag-clicked' ||
+        store.reason === 'tag-clicked-close-tab'
+      ) {
         newTab = '';
       }
       localStore.set(lsSiteSettingsKey, store.site);

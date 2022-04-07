@@ -102,8 +102,10 @@
     heartSummary = { price: 0, parts: 0 };
     // calc again
     heartItems.map(product => {
-      if (!!product.price && !!product.parts) {
+      if ('price' in product && !!product.price) {
         heartSummary.price += product.price;
+      }
+      if ('parts' in product && !!product.parts) {
         heartSummary.parts += product.parts;
       }
     });

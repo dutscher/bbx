@@ -1,3 +1,8 @@
+* [07.04.2022]
+  * new blaustein image
+  * fixxed cache splitting static and app (cacheBuster)
+  * new tag click handling to close tagtab
+
 * [05.04.2022]
   * heartlist sort
   * heartlist cloud share
