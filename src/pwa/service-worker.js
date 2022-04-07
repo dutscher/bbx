@@ -35,7 +35,7 @@ const FILES_TO_CACHE = [
   '/data/all-products-history.json',
   '/build/bundle.js',
   '/build/bundle.css',
-];
+].map(url => location.origin + url);
 const FILES_TO_CACHE_STATIC = [
   '/manifest.json',
   '/favicon.ico',
@@ -44,7 +44,7 @@ const FILES_TO_CACHE_STATIC = [
   '/images/color-pearl-gray.jpg',
   '/images/logo.png',
   '/images/partner/noppensteinnews.png',
-];
+].map(url => location.origin + url);
 
 self.addEventListener('install', e => {
   log('install', CACHE_NAME, CACHE_NAME_STATIC);
@@ -92,7 +92,7 @@ self.addEventListener('fetch', e => {
       const response = await fetch(e.request);
       if (!IGNORE_REQUESTS.some(request => e.request.url.includes(request))) {
         // e.request.url -> /build/bundle.js?cb=1648792884777 -> /build/bundle.js
-        const clearUrl = removeCB(e.request.url).replace(location.origin, '');
+        const clearUrl = removeCB(e.request.url);
         if (FILES_TO_CACHE.includes(clearUrl)) {
           console.log(`fetch ,cache ,Caching new resource: ${e.request.url}`);
           const cache = await caches.open(CACHE_NAME);
