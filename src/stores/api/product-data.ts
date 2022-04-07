@@ -41,16 +41,20 @@ export const loadProductData = async product => {
 
 export const setFlags = product => {
   // flags
-  const historyStates = Object.values(product.history);
-  const lastHistory = historyStates[historyStates.length - 1];
-  const beforeLastHistory = historyStates[historyStates.length - 2];
-  const beforeBeforeLastHistory = historyStates[historyStates.length - 3];
+  if (!('history' in product)) {
+    console.log('missing history for', product);
+  } else {
+    const historyStates = Object.values(product.history);
+    const lastHistory = historyStates[historyStates.length - 1];
+    const beforeLastHistory = historyStates[historyStates.length - 2];
+    const beforeBeforeLastHistory = historyStates[historyStates.length - 3];
 
-  product.isNewSoon = lastHistory === ID_STATE_COMING_SOON && beforeLastHistory === ID_STATE_ANNOUNCEMENT;
-  product.isNew =
-    (lastHistory === ID_STATE_AVAILABLE && beforeLastHistory === ID_STATE_ANNOUNCEMENT) ||
-    (lastHistory === ID_STATE_AVAILABLE &&
-      beforeLastHistory === ID_STATE_COMING_SOON &&
-      beforeBeforeLastHistory === ID_STATE_ANNOUNCEMENT);
-  product.isHot = historyStates.filter(state => state === ID_STATE_AVAILABLE).length >= 3;
+    product.isNewSoon = lastHistory === ID_STATE_COMING_SOON && beforeLastHistory === ID_STATE_ANNOUNCEMENT;
+    product.isNew =
+      (lastHistory === ID_STATE_AVAILABLE && beforeLastHistory === ID_STATE_ANNOUNCEMENT) ||
+      (lastHistory === ID_STATE_AVAILABLE &&
+        beforeLastHistory === ID_STATE_COMING_SOON &&
+        beforeBeforeLastHistory === ID_STATE_ANNOUNCEMENT);
+    product.isHot = historyStates.filter(state => state === ID_STATE_AVAILABLE).length >= 3;
+  }
 };

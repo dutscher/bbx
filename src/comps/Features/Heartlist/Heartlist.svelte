@@ -4,6 +4,7 @@
   import Product from '../../Product/Product.svelte';
 
   export let list = { id: 0, d: false, t: '', i: [] };
+  export let changeOrder: boolean = false;
   let heartItems: any;
   let heartSummary: any = { price: 0, parts: 0 };
   let heartListCount: number = 0;
@@ -153,7 +154,7 @@
         <div class="tooltip">Lösche Liste</div>
       </div>
     {/if}
-    {#if heartListCount > 1}
+    {#if heartListCount > 1 && changeOrder}
       <div class="user-interaction col min drag">
         <i>drag_indicator</i>
         <div class="tooltip">Reihenfolge ändern</div>

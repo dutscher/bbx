@@ -31,6 +31,8 @@ const FILES_TO_CACHE = [
   '/service-worker.js',
   '/pwa/loader.js',
   '/data/inst.json',
+  '/data/movie-names.json',
+  '/data/all-product-history.json',
   '/build/bundle.js',
   '/build/bundle.css',
 ];

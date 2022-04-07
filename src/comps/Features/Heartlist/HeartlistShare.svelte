@@ -11,7 +11,9 @@
     uuid = store.uuid;
     if (store.time > 0) {
       const date = new Date(store.time);
-      hrTime = `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+      hrTime = `${pad(date.getDate())}.${pad(date.getMonth() + 1)}.${date.getFullYear()} ${pad(date.getHours())}:${pad(
+        date.getMinutes()
+      )}`;
     }
   });
   storedHearts.subscribe(store => (heartLists = store.lists));
@@ -54,13 +56,13 @@
       <div class="col min">
         <button class="chip circle no-margin" on:click={() => getHeartCloud()}>
           <i>cloud_download</i>
-          <div class="tooltip bottom small-margin">Merklisten aus der Cloud</div>
+          <div class="tooltip bottom small-margin">Herunterladen aus der Cloud</div>
         </button>
       </div>
       <div class="col min">
         <button class="chip circle no-margin" on:click={() => updateHeartCloud(heartLists)}>
           <i>cloud_upload</i>
-          <div class="tooltip bottom small-margin">Merklisten in die Cloud</div>
+          <div class="tooltip bottom small-margin">Hochladen in die Cloud</div>
         </button>
       </div>
     {/if}

@@ -155,6 +155,8 @@
 </main>
 
 <style lang="scss">
+  // https://www.beercss.com/
+  // https://github.com/beercss/beercss/blob/main/docs/INDEX.md
   // https://fonts.google.com/icons
   @import url('https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined&display=swap');
 
