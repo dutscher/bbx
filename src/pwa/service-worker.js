@@ -32,7 +32,7 @@ const FILES_TO_CACHE = [
   '/pwa/loader.js',
   '/data/inst.json',
   '/data/movie-names.json',
-  '/data/all-product-history.json',
+  '/data/all-products-history.json',
   '/build/bundle.js',
   '/build/bundle.css',
 ];
