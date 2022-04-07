@@ -9454,7 +9454,7 @@
       56
     ],
     "pa": 5588,
-    "pr": 219.95
+    "pr": 149
   },
   {
     "ti": "Kampfhubschrauber Tiger, Bundeswehr",
@@ -9663,7 +9663,7 @@
       1
     ],
     "pa": 3606,
-    "pr": 0,
+    "pr": 159.95,
     "ie": 0
   },
   {
@@ -11770,6 +11770,18 @@
     "pr": 0
   },
   {
+    "ti": "Petersdom",
+    "id": 105218,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 2716,
+    "pr": 0
+  },
+  {
     "ti": "DR Kleinlokomotive Leistungsgruppe I (8w)",
     "id": 105221,
     "ca": [
@@ -11791,6 +11803,30 @@
       0
     ],
     "pa": 481,
+    "pr": 0
+  },
+  {
+    "ti": "Lokomotive V100 dunkel blau(8w)",
+    "id": 105231,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 544,
+    "pr": 0
+  },
+  {
+    "ti": "Schienenbus (8w)",
+    "id": 105232,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 625,
     "pr": 0
   },
   {
