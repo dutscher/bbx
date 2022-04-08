@@ -17038,6 +17038,17 @@
     "ie": 0
   },
   {
+    "ti": "Auto-RC-Fernbedienung mit Kreuztasten",
+    "id": 401294,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pr": 0
+  },
+  {
     "ti": "Stickerbogen Schnellzug weiß rot",
     "id": 401295,
     "ca": [
@@ -17052,6 +17063,17 @@
     "pa": 0,
     "pr": 3.95,
     "ie": 0
+  },
+  {
+    "ti": "Auto-Empfänger mit Akkubox",
+    "id": 401299,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pr": 0
   },
   {
     "ti": "WALL 1X2X2 W. BOWED SLIT, Chrome Silver",
