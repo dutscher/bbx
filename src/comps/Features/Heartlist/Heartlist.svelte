@@ -77,6 +77,7 @@
   $: heartItems = list.i
     ? list.i
         .map(pID => products.find(product => product.id === pID))
+        .filter(product => product !== undefined)
         .sort((a, b) => {
           if (a.title < b.title) {
             return -1;
@@ -102,10 +103,10 @@
     heartSummary = { price: 0, parts: 0 };
     // calc again
     heartItems.map(product => {
-      if ('price' in product && !!product.price) {
+      if (!!product.price) {
         heartSummary.price += product.price;
       }
-      if ('parts' in product && !!product.parts) {
+      if (!!product.parts) {
         heartSummary.parts += product.parts;
       }
     });
