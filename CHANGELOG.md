@@ -1,3 +1,6 @@
+* [11.04.2022]
+  * fix migration of merkliste
+  
 * [07.04.2022]
   * new blaustein image
   * fixxed cache splitting static and app (cacheBuster)
