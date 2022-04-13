@@ -6,7 +6,6 @@ next todos:
   * tags use cats-n-tags script!
   * ios pwa notifications?
 * pdf download proxy -> weiterleitung auf external storage?
-* typescript shortcut import pfade
 * typescript types
   * same interfaces node + svelte
 * cypress tests
