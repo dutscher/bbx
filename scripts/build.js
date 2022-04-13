@@ -21,7 +21,7 @@ Object.entries(copy).map(([src, dest]) => {
     // replace cachebuster for ajax on global window
     .replace(/(cacheBuster = ')\d*(')/, `$1${cacheBuster}$2`)
     // replace cachebuster in service worker cache
-    .replace(/cacheBuster-v1/, `cache-${cacheBuster}`);
+    .replace(/cacheBuster-v2/, `cacheBuster-${cacheBuster}`);
 
   if (isProd) {
     fileContent = fileContent

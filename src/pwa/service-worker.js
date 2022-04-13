@@ -4,8 +4,8 @@ const debug = 'notification'.split(','); // message,install,activate,caching,pus
 const store = {};
 // Update cache names any time any of the cached files change.
 // Add list of files to cache here.
-const CACHE_NAME = 'cacheBuster-v1';
-const CACHE_NAME_STATIC = 'noCacheBuster';
+const CACHE_NAME = 'cacheBuster-v2';
+const CACHE_NAME_STATIC = 'noCacheBuster-v2';
 
 const log = (...args) => {
   if (debug.some(loggy => args[0].toLowerCase().includes(loggy))) {
