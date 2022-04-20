@@ -6612,7 +6612,7 @@
     "ie": 0
   },
   {
-    "ti": "Amerikanisches Strand-Motel",
+    "ti": "American Beach - Motel",
     "id": 103091,
     "ca": [
       0
@@ -7088,7 +7088,7 @@
     "ie": 0
   },
   {
-    "ti": "Strand Abschnitt 1",
+    "ti": "American Beach - Strandabschnitt 1",
     "id": 103299,
     "ca": [
       0
@@ -7103,7 +7103,7 @@
     "ie": 0
   },
   {
-    "ti": "Strand Abschnitt 2",
+    "ti": "American Beach - Strandabschnitt 2",
     "id": 103300,
     "ca": [
       0
@@ -7296,7 +7296,7 @@
     "ie": 0
   },
   {
-    "ti": "Casino",
+    "ti": "American Beach - Casino",
     "id": 103365,
     "ca": [
       0
@@ -7893,7 +7893,7 @@
     "ie": 0
   },
   {
-    "ti": "Kino",
+    "ti": "American Beach - Kino",
     "id": 103582,
     "ca": [
       0
@@ -11883,6 +11883,30 @@
       39
     ],
     "pa": 4461,
+    "pr": 0
+  },
+  {
+    "ti": "Akropolis",
+    "id": 105265,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 2086,
+    "pr": 0
+  },
+  {
+    "ti": "Pirateninsel: Schatzhöhle",
+    "id": 105266,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1142,
     "pr": 0
   },
   {
