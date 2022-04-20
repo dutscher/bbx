@@ -1,3 +1,10 @@
+* [21.04.2022]
+  * new modal for bigger images
+  * url params for changes ?s=changes&tab=announcement&latest=true
+  
+* [18.04.2022]
+  * podcast folge 2
+
 * [11.04.2022]
   * fix migration of merkliste
   

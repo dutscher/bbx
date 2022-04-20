@@ -3,13 +3,14 @@
   import LatestProducts from './LatestProductsPerMonth.svelte';
   import { LOADED, UNLOADED } from '@interfaces';
   import { storedActiveSelection, storedTags, storedProducts, loadChanges, internetConnection } from '@stores';
-  import { onMount, jsVoid, ess } from '@utils';
+  import { onMount, jsVoid, ess, setUrlParams, getUrlParam } from '@utils';
 
   let loadedChanges;
   let tags: number = 0;
   let products: number = 0;
   let isOnline = false;
   let activeTab: string = 'available';
+  const urlParam = 'tab';
   const tabsStore = writable([
     { id: 0, name: 'available', color: 'blue', title: 'Verfügbar', count: 0 },
     { id: 1, name: 'coming_soon', color: 'green', title: 'Bald erhältlich', count: 0 },
@@ -36,6 +37,7 @@
       tabId = undefined;
     }
     activeTab = tabId;
+    setUrlParams(urlParam, activeTab);
   };
 
   const updateCounter = (tabId, counter) => {
@@ -46,10 +48,16 @@
     });
   };
 
+  const getUrlParams = () => {
+    const tab = getUrlParam(urlParam);
+    activeTab = tab;
+  };
+
   onMount(() => {
     if (isOnline && loadedChanges === UNLOADED) {
       loadChanges();
     }
+    getUrlParams();
   });
 </script>
 
@@ -77,7 +85,9 @@
   </article>
   {#each tabs as tab}
     <div id="available" class={ess(activeTab === tab.name && 'active')}>
-      <LatestProducts state={tab.id} isVisible={activeTab === tab.name} onCounterAvailable={updateCounter} />
+      {#if activeTab === tab.name}
+        <LatestProducts state={tab.id} isVisible={activeTab === tab.name} onCounterAvailable={updateCounter} />
+      {/if}
     </div>
   {/each}
 {/if}

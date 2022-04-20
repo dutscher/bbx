@@ -1,7 +1,15 @@
 <script lang="ts">
   import { onMount, pad } from '@utils';
-  import { storedHearts, storedHeartsShare, getHeartCloud, updateHeartCloud, generateHeartCloud } from '@stores';
+  import {
+    storedHearts,
+    storedHeartsShare,
+    getHeartCloud,
+    updateHeartCloud,
+    generateHeartCloud,
+    localStore,
+  } from '@stores';
   import beerui from '@beerui';
+  import { lsKey } from '../../../stores/api/hearts-share';
 
   let uuid: string;
   let hrTime: string;
@@ -19,6 +27,8 @@
   storedHearts.subscribe(store => (heartLists = store.lists));
 
   const checkInput = newUuid => {
+    const time = new Date().getTime();
+    localStore.set(lsKey, JSON.stringify({ uuid: newUuid, time }));
     storedHeartsShare.update(store => {
       store.uuid = newUuid;
       return store;

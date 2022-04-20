@@ -10,7 +10,7 @@ export const sites = [
   { short: 'home', icon: 'home', title: 'Home' },
   { short: 'hearts', icon: 'favorite', title: 'Merkliste' },
   { short: 'products', icon: 'category', title: 'Produkte', params: ['product', 'tags', 'search', 'states', 'filter'] },
-  { short: 'changes', icon: 'star_rate', title: 'Status' },
+  { short: 'changes', icon: 'star_rate', title: 'Status', params: ['tab', 'latest'] },
   { short: 'history', icon: 'schedule', title: 'Aktuelles', params: ['date'] },
 ];
 // add site to every site as valid param
@@ -91,11 +91,13 @@ export function setUrlParams(param, array, removeSiteParams: boolean = false) {
 
   if (removeSiteParams) {
     const site = sites.find(site => site.short === array);
-    Object.keys(allSearch).map(param => {
-      if (!site.params.includes(param)) {
-        delete allSearch[param];
-      }
-    });
+    if (site) {
+      Object.keys(allSearch).map(param => {
+        if ('params' in site && !site.params.includes(param)) {
+          delete allSearch[param];
+        }
+      });
+    }
   }
 
   let newUrl = '';

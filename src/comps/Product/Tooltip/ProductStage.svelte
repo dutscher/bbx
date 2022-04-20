@@ -1,7 +1,8 @@
 <script lang="ts">
   import { internetConnection, storedGlobalData } from '@stores';
-  import { ess, stopClick } from '@utils';
+  import { ess, onMount, stopClick } from '@utils';
   import { AFF_LINK } from '@interfaces';
+  import beerui from '@beerui';
   import ProductHearts from './ProductHearts.svelte';
 
   export let product: any;
@@ -11,6 +12,8 @@
   let data: any;
 
   let imageLoaded: boolean = false;
+  let openModal: boolean = false;
+  let modalLoaded: boolean = false;
   let imageSrc: string = '';
   let imageIndex = 0;
   let images: any;
@@ -52,6 +55,11 @@
     videoVisible = !videoVisible;
   };
 
+  const openInModal = () => {
+    openModal = !openModal;
+    modalLoaded = false;
+  };
+
   $: {
     if ('images' in product) {
       images = product.images;
@@ -61,6 +69,12 @@
       video = product.video;
     }
   }
+
+  onMount(() => {
+    setTimeout(() => {
+      beerui();
+    }, 50);
+  });
 </script>
 
 <div class="stage center-align middle-align">
@@ -70,7 +84,14 @@
     {/if}
 
     {#if !videoVisible}
-      <img class="top-round" src={imageSrc} on:load={() => onImageLoaded()} alt={product.title} width="100%" />
+      <img
+        class="top-round"
+        src={imageSrc}
+        on:click={() => openInModal()}
+        on:load={() => onImageLoaded()}
+        alt={product.title}
+        width="100%"
+      />
     {:else}
       <iframe
         class="top-round"
@@ -83,6 +104,18 @@
       />
     {/if}
   {/if}
+</div>
+
+<div class="overlay center-align middle-align{openModal ? ' active' : ''}" on:click={() => openInModal()}>
+  <div class="modal round{openModal ? ' active' : ''}">
+    <h5>{product.title}</h5>
+    {#if !modalLoaded}
+      <div class="loader medium small-margin" />
+    {/if}
+    {#if openModal}
+      <img class="round" src={imageSrc + '?size=1000'} on:load={() => (modalLoaded = true)} alt={product.title} />
+    {/if}
+  </div>
 </div>
 
 <div class="navi flex flex--horizontal-center front small-margin small-text bold">
@@ -155,6 +188,19 @@
       opacity: 0.2;
       pointer-events: none;
       cursor: default;
+    }
+  }
+
+  .overlay {
+    z-index: 1337;
+  }
+
+  .modal {
+    top: auto;
+
+    img {
+      width: 100% !important;
+      height: auto !important;
     }
   }
 </style>

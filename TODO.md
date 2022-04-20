@@ -12,6 +12,7 @@ next todos:
 * warenkorb noise ausblenden
 * history back not going
 * designer overview
+* partlist
   
 * remove warning:
   (node:18656) [DEP0148] DeprecationWarning: Use of deprecated folder mapping "./" in the "exports" field module resolution of the package at C:\www\repos\dutscher\bbx\node_modules\tslib\package.json.

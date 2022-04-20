@@ -1,5 +1,6 @@
 <script lang="ts">
   import { storedProducts, storedStates } from '@stores';
+  import { getUrlParam, onMount, setUrlParams } from '@utils';
   import { ID_STATE_AVAILABLE, ID_STATE_ANNOUNCEMENT } from '@interfaces';
   import Product from '../Product/Product.svelte';
 
@@ -10,7 +11,8 @@
   let sortedProducts: any;
   let sortedMonths: any;
   let states: any;
-  let reverseSort = false;
+  let reverseSort: boolean = false;
+  const urlParam = 'latest';
 
   const extraFilter = {
     parts: { show: false, count: 0 },
@@ -123,20 +125,34 @@
     return months;
   };
 
+  const handleChange = () => {
+    console.log('reverseSort', reverseSort);
+    setUrlParams(urlParam, reverseSort);
+  };
+
+  const getUrlParams = () => {
+    const bool = getUrlParam(urlParam);
+    reverseSort = bool === 'true';
+  };
+
   $: {
     sortedProducts = sortProducts(products, extraFilter.parts.show, extraFilter.new.show, extraFilter.hot.show);
     sortedMonths = sortMonths(sortedProducts, reverseSort);
 
     onCounterAvailable(state, sortedProducts.length);
   }
+
+  onMount(() => {
+    getUrlParams();
+  });
 </script>
 
 {#if isVisible}
   <nav class="wrap small-margin no-h-margin">
     {#if state !== ID_STATE_AVAILABLE}
       <label class="checkbox">
-        <input type="checkbox" bind:checked={reverseSort} />
-        <span>Aktuellste Änderungen</span>
+        <input type="checkbox" bind:checked={reverseSort} on:change={handleChange} />
+        <span>Letzte Änderungen</span>
       </label>
       <label class="checkbox">
         <input type="checkbox" bind:checked={extraFilter.parts.show} />
