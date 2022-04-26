@@ -78,7 +78,9 @@
             <div class="tooltip bottom small-margin">{tab.title}</div>
           </span>
           <span class="m l">{tab.title}</span>
-          <span class="badge round">{tab.count}</span>
+          {#if tab.count > 0}
+            <span class="badge round">{tab.count}</span>
+          {/if}
         </span>
       </a>
     {/each}

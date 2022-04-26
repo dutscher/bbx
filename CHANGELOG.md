@@ -1,3 +1,7 @@
+* [26.04.2022]
+  * remove empty badge of state tabs
+  * add new tags for new products
+
 * [21.04.2022]
   * new modal for bigger images
   * url params for changes ?s=changes&tab=announcement&latest=true
