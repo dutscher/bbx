@@ -10228,7 +10228,7 @@
     "ie": 0
   },
   {
-    "ti": "Schweizer Schnellzug",
+    "ti": "SBB CFF FFS EuroCity Schweiz",
     "id": 104621,
     "ca": [
       0
@@ -10244,7 +10244,7 @@
     "ie": 0
   },
   {
-    "ti": "Schweizer Elektrolokomotive",
+    "ti": "SBB CFF FFS RE 460 Schweizer Elektrolokomotive",
     "id": 104622,
     "ca": [
       0
@@ -11381,7 +11381,7 @@
       14,
       47
     ],
-    "pa": 511,
+    "pa": 513,
     "pr": 0,
     "ie": 0
   },
