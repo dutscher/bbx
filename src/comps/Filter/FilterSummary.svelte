@@ -1,12 +1,5 @@
 <script lang="ts">
-  import {
-    storedActiveSelection,
-    storedColors,
-    storedParts,
-    storedPartTypes,
-    storedStates,
-    storedTags,
-  } from '@stores';
+  import { storedActiveSelection, storedColors, storedParts, storedPartTypes, storedStates, storedTags } from '@stores';
   import { setUrlParams, stopClick } from '@utils';
   import FilterSummaryActive from './FilterSummaryActive.svelte';
 
@@ -75,11 +68,11 @@
 </script>
 
 {#if !invisible}
-  <div class="flex flex--inline flex--gap flex--wrap">
+  <div class="flex flex--inline flex--gap flex--wrap flex--middle">
     <b>Filter:</b>
-    <FilterSummaryActive label="Zurücksetzen" reset onClick={removeItem.bind(this, 'all')} />
+    <FilterSummaryActive label="Alle" reset onClick={removeItem.bind(this, 'all')} />
     <FilterSummaryActive label="Suche nach" activeStr={activeSearchString} onClick={removeItem.bind(this, 'search')} />
-    <FilterSummaryActive label="Tags" activeIds={activeTagIds} store={tags} onClick={removeItem.bind(this, 'tags')} />
+    <FilterSummaryActive label="Tag" activeIds={activeTagIds} store={tags} onClick={removeItem.bind(this, 'tags')} />
     <FilterSummaryActive
       label="Status"
       activeIds={activeStateIds}

@@ -5,7 +5,7 @@
   import ChipLetter from './ChipLetter.svelte';
 
   export let activeTagIds: any = [];
-  export let isVisible: boolean = false;
+  export let isVisible: boolean = true;
 
   let tags: any;
   const abc = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
@@ -42,7 +42,7 @@
           urlKeyTags,
           tags.filter(tag => store[urlKeyTags].includes(tag.id)).map(tag => tag.seoName)
         );
-        store.reason = `tag-clicked${isSpecialTag && isNewSelected ? '-close-tab' : ''}`;
+        store.reason = `tag-clicked${isSpecialTag && isNewSelected ? '-close-filter' : ''}`;
       } else {
         store.reason = 'url-parsed';
       }

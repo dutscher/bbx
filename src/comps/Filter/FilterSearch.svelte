@@ -75,19 +75,23 @@
   });
 </script>
 
-<article>
-  <div class="field label prefix border no-margin">
-    <i>search</i>
-    <input
-      id="search"
-      class="search"
-      type="search"
-      value={activeSearchString}
-      bind:this={inputElement}
-      on:input={({ target: { value } }) => checkInput(value)}
-      on:keyup={({ target: { value } }) => debounce(value)}
-      spellcheck="false"
-    />
-    <label for="search">Suche nach Produkt oder ID</label>
-  </div>
-</article>
+<div class="field label prefix border">
+  <i>search</i>
+  <input
+    id="search"
+    class="search"
+    type="search"
+    value={activeSearchString}
+    bind:this={inputElement}
+    on:input={({ target: { value } }) => checkInput(value)}
+    on:keyup={({ target: { value } }) => debounce(value)}
+    spellcheck="false"
+  />
+  <label for="search">Produktname oder ID</label>
+</div>
+
+<style lang="scss">
+  .field {
+    margin: 8rem 0;
+  }
+</style>

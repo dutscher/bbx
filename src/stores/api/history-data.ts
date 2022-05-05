@@ -1,6 +1,7 @@
 import { LOADED, LOADING } from '@interfaces';
 import { storedProducts } from '../products';
-import { sortedStates, storedActiveSelection } from '../states';
+import { sortedStates } from '../states';
+import { storedActiveSelection } from '../active-selection';
 import { setFlags } from './product-data';
 
 export const loadHistoryData = async () => {
@@ -32,7 +33,6 @@ export const loadHistoryData = async () => {
       product.state = state;
 
       setFlags(product);
-
       // new products with history is ready
       return product;
     });

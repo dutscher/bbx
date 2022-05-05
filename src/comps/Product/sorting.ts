@@ -1,4 +1,4 @@
-export const sorter = ['Teile:parts', 'Preise:price', 'PreisProTeil:pricePerPart', 'ABC:title', '1111:parts'];
+export const sorter = ['Teile:parts', 'Preise:price', 'PreisProTeil:pricePerPart', 'ABC:title']; // , '1111:parts'
 
 export const handleProductSort = (unsorted, sorting) => {
   let sorted = [];

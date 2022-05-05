@@ -76,35 +76,6 @@
     }
   });
 
-  const getUrlParams = () => {
-    const allParams = getAllUrlParams();
-    const queryProductId = getUrlParam(urlParam);
-    if (
-      !Object.keys(allParams).includes('search') &&
-      Object.keys(allParams).some(param => ['site', 'product'].includes(param)) &&
-      !!queryProductId
-    ) {
-      // close all toggles
-      localStore.visibility('reset');
-      // update search for product
-      // open page
-      storedActiveSelection.update(store => {
-        store.site = 'products';
-        store.search = queryProductId;
-        return store;
-      });
-      // open tooltip
-      storedActiveProduct.update(store => {
-        store.product = {
-          id: parseInt(queryProductId),
-          type: 'products',
-        };
-        store.reason = 'url-init';
-        return store;
-      });
-    }
-  };
-
   const sortItems = (
     activeTagIds,
     activeColorIds,
@@ -246,26 +217,20 @@
     extraFilter.hot.show,
     extraFilter.new.show
   );
-
-  // first to remove localstorage keys before onMount
-  getUrlParams();
-  // to update stores
-  onMount(() => {
-    getUrlParams();
-  });
 </script>
 
 <article>
-  <h2>{filteredProducts.withFilter.length} / {products.length}</h2>
-  <FilterSummary
-    {activeSearchString}
-    {activeTagIds}
-    {activeStateIds}
-    {activeColorIds}
-    {activePartIds}
-    {activePartTypeIds}
-  />
-  <ProductSorter {filteredProducts} {activeTagIds} />
+  <div class="filter flex flex--wrap flex--gap">
+    <FilterSummary
+      {activeSearchString}
+      {activeTagIds}
+      {activeStateIds}
+      {activeColorIds}
+      {activePartIds}
+      {activePartTypeIds}
+    />
+    <ProductSorter {filteredProducts} {activeTagIds} />
+  </div>
 </article>
 
 <nav class="wrap small-margin no-h-margin">
@@ -297,6 +262,8 @@
   {/if}
 </nav>
 
+<h3>{filteredProducts.withFilter.length} von {products.length} Produkte</h3>
+
 <div class="flex flex--gap flex--wrap">
   {#each sortedItems as product (product.id)}
     <Product {product} type="products" />
@@ -309,3 +276,13 @@
     </span>
   {/if}
 </div>
+
+<style lang="scss">
+  .filter {
+    flex-direction: column;
+
+    @media (min-width: 1024px) {
+      flex-direction: row;
+    }
+  }
+</style>

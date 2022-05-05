@@ -1,5 +1,7 @@
 // Cannot find module '../data/tags.json'. Consider using '--resolveJsonModule' to import module with '.json' extension.
-export { storedActiveSelection, storedActiveProduct, storedStates, sortedStates } from './stores/states';
+export { storedStates, sortedStates } from './stores/states';
+export { storedActiveProduct } from './stores/active-product';
+export { storedActiveSelection } from './stores/active-selection';
 export { storedTags } from './stores/tags';
 export { storedCategories } from './stores/categories';
 export { storedGlobalData } from './stores/global-data';
@@ -7,6 +9,7 @@ export { storedColors } from './stores/colors';
 export { storedParts, storedPartTypes } from './stores/parts';
 export { storedImageExtension } from './stores/image-extension';
 export { storedHearts, lsKey as lsKeyHeart } from './stores/hearts';
+export { storedProductMedia } from './stores/product-media';
 export {
   storedHeartsShare,
   lsKey as lsKeyHeartShare,

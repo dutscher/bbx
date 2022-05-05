@@ -78,19 +78,6 @@
   };
 
   $: activeSite = nextSite || defaultSite;
-
-  onMount(() => {
-    // ?tags=mittelalter,star-trek -> ?t=mittelalter,star-trek
-    convertOldParams();
-    // ?t=mittelalter,star-trek -> product page
-    if (!!getUrlParam(urlKeyTags)) {
-      storedActiveSelection.update(store => {
-        store.site = 'products';
-        store.reason = 'init-tags-url';
-        return store;
-      });
-    }
-  });
 </script>
 
 <main>
@@ -247,12 +234,20 @@
     gap: 4rem;
   }
 
-  :global(.flex--vertical-center) {
+  :global(.flex--middle) {
     align-items: center;
   }
 
-  :global(.flex--horizontal-center) {
+  :global(.flex--center) {
     justify-content: center;
+  }
+
+  :global(.flex--top) {
+    align-content: flex-start;
+  }
+
+  :global(.flex--right) {
+    justify-content: flex-end;
   }
 
   :global(.flex--block) {

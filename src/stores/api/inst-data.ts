@@ -1,6 +1,6 @@
 import { LOADED, LOADING } from '@interfaces';
 import { storedProducts } from '../products';
-import { storedActiveSelection } from '../states';
+import { storedActiveSelection } from '../active-selection';
 
 export const loadInstData = async () => {
   storedActiveSelection.update(store => {

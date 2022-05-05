@@ -57,18 +57,19 @@
 </script>
 
 {#if filteredProducts.withFilter.length > 0}
-  <div class="flex flex--gap flex--inline flex--wrap filter">
+  <div class="flex flex--gap flex--top flex--inline flex--wrap flex--middle flex--right">
     <b>Sortieren:</b>
     {#each sorterItems as item}
-      <span class="link" on:click={() => clickSort(item)}>
-        {item.title}
+      <div class="chip round small link white-text no-margin" on:click={() => clickSort(item)}>
         {#if sortType === item.productType && sortTitle === item.title}
           {sortDirection === 'asc' ? '>' : '<'}
+          &nbsp;
         {/if}
-      </span>
+        <span>{item.title}</span>
+      </div>
     {/each}
 
-    {#if activeTagIds.includes(ID_PARTS)}
+    {#if false && activeTagIds.includes(ID_PARTS)}
       <b>&nbsp;| CSV export:</b>
       <a href={jsVoid} class="link" on:click={() => exportCSV()}>Do IT</a>
     {/if}

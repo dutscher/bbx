@@ -50,7 +50,9 @@
 
   const getUrlParams = () => {
     const tab = getUrlParam(urlParam);
-    activeTab = tab;
+    if (tab !== '') {
+      activeTab = tab;
+    }
   };
 
   onMount(() => {
@@ -87,9 +89,7 @@
   </article>
   {#each tabs as tab}
     <div id="available" class={ess(activeTab === tab.name && 'active')}>
-      {#if activeTab === tab.name}
-        <LatestProducts state={tab.id} isVisible={activeTab === tab.name} onCounterAvailable={updateCounter} />
-      {/if}
+      <LatestProducts state={tab.id} isVisible={activeTab === tab.name} onCounterAvailable={updateCounter} />
     </div>
   {/each}
 {/if}

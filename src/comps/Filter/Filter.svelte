@@ -7,20 +7,14 @@
   import FilterSearch from './FilterSearch.svelte';
   import { ID_PARTS, lsSiteSettingsKey } from '@interfaces';
   import { localStore, storedActiveSelection } from '@stores';
-  import { jsVoid, ess } from '@utils';
 
   let activeTagIds: any = [];
   let activePartIds: any = [];
   let activePartTypeIds: any = [];
   let activeColorIds: any = [];
   let activeStateIds: any = [];
-  let activeTab: any;
+  let showFilter = true;
   let activeSearchString: string = '';
-  const tabs = [
-    { name: 'states', title: 'Status' },
-    { name: 'tags', title: 'Tags' },
-  ];
-  let newTab = 'states';
 
   storedActiveSelection.subscribe(store => {
     activeTagIds = store.tags;
@@ -30,21 +24,21 @@
     activeStateIds = store.states;
     activeSearchString = store.search;
 
-    const reasons = ['init-tags-url', 'show-states', 'show-tags', 'tooltip-tag-clicked', 'tag-clicked-close-tab'];
+    const reasons = ['init-tags-url', 'show-states', 'show-tags', 'tooltip-tag-clicked', 'tag-clicked-close-filter'];
 
     if (store.site === 'products' && reasons.includes(store.reason)) {
       if (store.reason === 'show-states') {
-        newTab = 'states';
+        showFilter = true;
       }
       if (store.reason === 'show-tags') {
-        newTab = 'tags';
+        showFilter = true;
       }
       if (
         store.reason === 'init-tags-url' ||
         store.reason === 'tooltip-tag-clicked' ||
-        store.reason === 'tag-clicked-close-tab'
+        store.reason === 'tag-clicked-close-filter'
       ) {
-        newTab = '';
+        showFilter = false;
       }
       localStore.set(lsSiteSettingsKey, store.site);
       // remove reason
@@ -54,58 +48,18 @@
       });
     }
   });
-
-  const clickTab = tabId => {
-    if (newTab === tabId) {
-      tabId = undefined;
-    }
-    newTab = tabId;
-  };
-
-  $: activeTab = newTab;
 </script>
 
-<FilterSearch {activeSearchString} />
+<details class="card" open={showFilter}>
+  <summary class="large-text"><b>Suche & Filter</b></summary>
+  <FilterSearch {activeSearchString} />
+  <FilterStates {activeStateIds} {activeColorIds} {activePartIds} {activePartTypeIds} {activeSearchString} />
+  <FilterTags {activeTagIds} />
 
-<article>
-  <div class="tabs">
-    {#each tabs as tab}
-      <a
-        data-ui="#{tab.name}"
-        href={jsVoid}
-        class={ess(tab.name === activeTab && 'active')}
-        on:click={() => clickTab(tab.name)}
-      >
-        <span>
-          {tab.title}
-          {#if tab.name === 'states' && activeStateIds.length > 0}
-            <span class="badge round">{activeStateIds.length}</span>
-          {:else if tab.name === 'tags' && activeTagIds.length > 0}
-            <span class="badge round">{activeTagIds.length}</span>
-          {/if}
-        </span>
-      </a>
-    {/each}
-  </div>
-
-  <div id="states" class={ess('page small-padding no-h-padding', activeTab === 'states' && 'active')}>
-    <FilterStates
-      {activeStateIds}
-      {activeColorIds}
-      {activePartIds}
-      {activePartTypeIds}
-      {activeSearchString}
-      isVisible={activeTab === 'states'}
-    />
-  </div>
-  <div id="tags" class={ess('page small-padding no-h-padding', activeTab === 'tags' && 'active')}>
-    <FilterTags {activeTagIds} isVisible={activeTab === 'tags'} />
-  </div>
-</article>
-
-{#if activeTagIds.includes(ID_PARTS) && activeTagIds.length === 1}
-  <h2>Brickbar</h2>
-  <FilterParts {activePartIds} />
-  <FilterColors {activeColorIds} />
-  <FilterPartTypes {activePartTypeIds} />
-{/if}
+  {#if activeTagIds.includes(ID_PARTS) && activeTagIds.length === 1}
+    <h2>Brickbar</h2>
+    <FilterParts {activePartIds} />
+    <FilterColors {activeColorIds} />
+    <FilterPartTypes {activePartTypeIds} />
+  {/if}
+</details>

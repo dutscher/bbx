@@ -7,7 +7,6 @@
   export let activePartIds: any = [];
   export let activePartTypeIds: any = [];
   export let activeSearchString: string = '';
-  export let isVisible: boolean = false;
 
   let sortedItems: any = [];
   let filteredProducts: any = [];
@@ -102,27 +101,29 @@
   });
 </script>
 
-{#if isVisible}
-  <div class="flex flex--gap flex--wrap">
-    {#each sortedItems as state (state.id)}
-      <div
-        class={ess(
-          'chip small round no-margin white-text', // beercss
-          activeStateIds.includes(state.id) && 'active',
-          state.count === 0 && 'disabled',
-          state.color
-        )}
-        data-count={state.count}
-        on:click={() => clickItem(state, true)}
-      >
-        <p>{state.de}</p>
-        <span class="chip_state">{state.count}</span>
-      </div>
-    {/each}
-  </div>
-{/if}
+<div class="states flex flex--gap flex--wrap">
+  {#each sortedItems as state (state.id)}
+    <div
+      class={ess(
+        'chip small round no-margin white-text', // beercss
+        activeStateIds.includes(state.id) && 'active',
+        state.count === 0 && 'disabled',
+        state.color
+      )}
+      data-count={state.count}
+      on:click={() => clickItem(state, true)}
+    >
+      <p>{state.de}</p>
+      <span class="chip_state">{state.count}</span>
+    </div>
+  {/each}
+</div>
 
 <style lang="scss">
+  .states {
+    margin: 8rem 0;
+  }
+
   .chip {
     cursor: pointer;
     user-select: none;

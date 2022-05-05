@@ -1,3 +1,10 @@
+* [05.05.2022]
+  * better search + tags filter box
+  * new chips for active filter
+  * better async loading for better rendering
+  * new media navigation
+  * add new cats
+  
 * [26.04.2022]
   * remove empty badge of state tabs
   * add new tags for new products

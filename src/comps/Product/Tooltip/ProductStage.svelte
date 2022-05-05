@@ -1,74 +1,32 @@
 <script lang="ts">
-  import { internetConnection, storedGlobalData } from '@stores';
-  import { ess, onMount, stopClick } from '@utils';
-  import { AFF_LINK } from '@interfaces';
+  import { internetConnection, storedProductMedia } from '@stores';
+  import { onMount } from '@utils';
   import beerui from '@beerui';
-  import ProductHearts from './ProductHearts.svelte';
+  import ProductMediaNavigation from './ProductMediaNavigation.svelte';
 
   export let product: any;
-  export let onLoad = () => {};
 
   let isOnline: boolean = false;
-  let data: any;
+  let productMedia: any;
 
-  let imageLoaded: boolean = false;
   let openModal: boolean = false;
   let modalLoaded: boolean = false;
-  let imageSrc: string = '';
-  let imageIndex = 0;
-  let images: any;
-  let videoVisible: boolean = false;
-  let video: any;
 
   internetConnection.subscribe(store => (isOnline = store.isOnline));
-  storedGlobalData.subscribe(store => (data = store));
-
-  const setIndex = index => {
-    videoVisible = false;
-    imageLoaded = false;
-    imageIndex = index;
-  };
-
-  const goBack = e => {
-    stopClick(e);
-    if (imageIndex > 0) {
-      imageLoaded = false;
-      imageIndex--;
-    }
-  };
-
-  const goFurther = e => {
-    stopClick(e);
-    if (imageIndex < images.length - 1) {
-      imageLoaded = false;
-      imageIndex++;
-    }
-  };
+  storedProductMedia.subscribe(store => (productMedia = store));
 
   const onImageLoaded = () => {
-    imageLoaded = true;
-    onLoad();
-  };
-
-  const showVideo = () => {
-    imageLoaded = true;
-    videoVisible = !videoVisible;
+    storedProductMedia.update(store => {
+      store.imageLoaded = true;
+      store.reason = 'image-loaded';
+      return store;
+    });
   };
 
   const openInModal = () => {
     openModal = !openModal;
     modalLoaded = false;
   };
-
-  $: {
-    if ('images' in product) {
-      images = product.images;
-      imageSrc = images[imageIndex];
-    }
-    if ('video' in product) {
-      video = product.video;
-    }
-  }
 
   onMount(() => {
     setTimeout(() => {
@@ -78,16 +36,18 @@
 </script>
 
 <div class="stage center-align middle-align">
-  {#if isOnline && !!imageSrc}
-    {#if !imageLoaded}
+  {#if isOnline && !!productMedia.imageSrc}
+    {#if !productMedia.imageLoaded}
       <div class="absolute front loader medium small-margin" />
     {/if}
 
-    {#if !videoVisible}
+    {#if !productMedia.videoVisible}
       <img
         class="top-round"
-        src={imageSrc}
-        on:click={() => openInModal()}
+        src={productMedia.imageSrc}
+        on:click={() => {
+          /* openInModal() */
+        }}
         on:load={() => onImageLoaded()}
         alt={product.title}
         width="100%"
@@ -96,7 +56,7 @@
       <iframe
         class="top-round"
         width="100%"
-        src={video}
+        src={product.video}
         title="YouTube video player"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -105,59 +65,27 @@
     {/if}
   {/if}
 </div>
+<ProductMediaNavigation {product} />
 
 <div class="overlay center-align middle-align{openModal ? ' active' : ''}" on:click={() => openInModal()}>
+  TODO: hearts and video
   <div class="modal round{openModal ? ' active' : ''}">
-    <h5>{product.title}</h5>
-    {#if !modalLoaded}
-      <div class="loader medium small-margin" />
-    {/if}
-    {#if openModal}
-      <img class="round" src={imageSrc + '?size=1000'} on:load={() => (modalLoaded = true)} alt={product.title} />
-    {/if}
+    <div class="wrap">
+      <h5>{product.title}</h5>
+      {#if !modalLoaded}
+        <div class="loader medium small-margin" />
+      {/if}
+      {#if openModal}
+        <img
+          class="round"
+          src={productMedia.imageSrc + '?size=1000'}
+          on:load={() => (modalLoaded = true)}
+          alt={product.title}
+        />
+      {/if}
+    </div>
+    <ProductMediaNavigation {product} />
   </div>
-</div>
-
-<div class="navi flex flex--horizontal-center front small-margin small-text bold">
-  <ProductHearts {product} />
-
-  {#if isOnline && !!imageSrc}
-    {#if images.length > 1}
-      <span on:click={goBack}>
-        <i class={ess((imageIndex === 0 || videoVisible) && 'disable')}>arrow_back_ios</i>
-        {#if !videoVisible}
-          <div class="tooltip bottom small-margin">Vorheriges Bild</div>
-        {/if}
-      </span>
-
-      {#each images as image, i}
-        <span on:click={() => setIndex(i)}>
-          <i class={ess(i === imageIndex && !videoVisible && 'active')}>fiber_manual_record</i>
-        </span>
-      {/each}
-    {/if}
-
-    {#if video}
-      <span on:click={showVideo}>
-        <i class={ess(videoVisible && 'active')}>{videoVisible ? 'cancel' : 'play_circle'}</i>
-        <div class="tooltip bottom small-margin">Youtube Video {videoVisible ? 'schließen' : 'öffnen'}</div>
-      </span>
-    {/if}
-
-    {#if images.length > 1}
-      <span on:click={goFurther}>
-        <i class={ess((imageIndex === images.length - 1 || videoVisible) && 'disable')}>arrow_forward_ios</i>
-        {#if !videoVisible}
-          <div class="tooltip bottom small-margin">Nächstes Bild</div>
-        {/if}
-      </span>
-    {/if}
-  {/if}
-
-  <a href={data.url + product.href + AFF_LINK} target="_blank">
-    <i>shopping_cart</i>
-    <div class="tooltip bottom small-margin">Zum Shop{!!AFF_LINK ? '*' : ''}</div>
-  </a>
 </div>
 
 <style lang="scss">
@@ -173,34 +101,23 @@
     height: 100%;
   }
 
-  i {
-    color: var(--on-surface-variant);
-    cursor: pointer;
-    width: auto;
-
-    &.active,
-    &:hover,
-    &:active {
-      color: var(--primary);
-    }
-
-    &.disable {
-      opacity: 0.2;
-      pointer-events: none;
-      cursor: default;
-    }
-  }
-
   .overlay {
     z-index: 1337;
   }
 
   .modal {
     top: auto;
+    overflow-x: visible;
+    overflow-y: visible;
 
     img {
       width: 100% !important;
       height: auto !important;
+    }
+
+    .warp {
+      overflow-x: hidden;
+      overflow-y: auto;
     }
   }
 </style>
