@@ -288,7 +288,9 @@
     "Forum Romanum",
     "Rockefeller Center",
     "Petersdom",
-    "Akropolis"
+    "Akropolis",
+    "Markusplatz",
+    "Pisa"
   ],
   [
     "Film Modelle",
@@ -378,6 +380,7 @@
     "Schiff",
     "Flugzeugträger",
     "Kreuzer",
+    "Brigantine",
     [
       "Mutterschiff",
       "Raumschiff",
@@ -470,7 +473,8 @@
     "Schiffe",
     "ships",
     "Gorch Forck",
-    "Galeone"
+    "Galeone",
+    "Brigantine"
   ],
   [
     "Sonstiges",
