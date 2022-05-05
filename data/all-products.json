@@ -10240,7 +10240,7 @@
     "ie": 0
   },
   {
-    "ti": "SBB CFF FFS EuroCity Schweiz",
+    "ti": "Schweizer Reisezug",
     "id": 104621,
     "ca": [
       0
@@ -10256,7 +10256,7 @@
     "ie": 0
   },
   {
-    "ti": "SBB CFF FFS RE 460 Schweizer Elektrolokomotive",
+    "ti": "Schweizer Elektrolokomotive",
     "id": 104622,
     "ca": [
       0
@@ -11963,6 +11963,42 @@
       0
     ],
     "pa": 3489,
+    "pr": 0
+  },
+  {
+    "ti": "Gouverneursinsel: Wachturm-Erweiterung",
+    "id": 105326,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 435,
+    "pr": 0
+  },
+  {
+    "ti": "Gouverneursinsel: Pergola-Erweiterung",
+    "id": 105327,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 451,
+    "pr": 0
+  },
+  {
+    "ti": "Pirateninsel: Brigantine",
+    "id": 105328,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1471,
     "pr": 0
   },
   {
