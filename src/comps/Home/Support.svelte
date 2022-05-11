@@ -13,9 +13,9 @@
 
 <div>
   <h2>Support & Partner</h2>
-  <div class="row small-space middle-align">
+  <div class="row small-space">
     <div class="col s12 m6">
-      <div class="center-align">
+      <div class="center-align middle-align">
         {@html kofi}
       </div>
     </div>
@@ -28,8 +28,7 @@
                 <input type="image" src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Spenden mit dem PayPal-Button" />
                 <img alt="" border="0" src="https://www.paypal.com/de_DE/i/scr/pixel.gif" width="1" height="1" />
             </form>
-            -->
-
+        -->
         <a href="//www.noppenstein.news/" target="_blank" title="Partner: Noppensteinnews">
           <img src="/images/partner/noppensteinnews.png" alt="Noppensteinnews" width="150" />
         </a>
