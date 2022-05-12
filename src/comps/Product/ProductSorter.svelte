@@ -57,22 +57,24 @@
 </script>
 
 {#if filteredProducts.withFilter.length > 0}
-  <div class="flex flex--gap flex--top flex--inline flex--wrap flex--middle flex--right">
-    <b>Sortieren:</b>
-    {#each sorterItems as item}
-      <div class="chip round small link white-text no-margin" on:click={() => clickSort(item)}>
-        {#if sortType === item.productType && sortTitle === item.title}
-          {sortDirection === 'asc' ? '>' : '<'}
-          &nbsp;
-        {/if}
-        <span>{item.title}</span>
-      </div>
-    {/each}
+  <div class="flex flex--gap flex--right flex--column">
+    <b class="right">Sortieren</b>
+    <div class="flex flex--gap flex--top flex--inline flex--wrap flex--middle">
+      {#each sorterItems as item}
+        <div class="chip round small link white-text no-margin" on:click={() => clickSort(item)}>
+          {#if sortType === item.productType && sortTitle === item.title}
+            {sortDirection === 'asc' ? '>' : '<'}
+            &nbsp;
+          {/if}
+          <span>{item.title}</span>
+        </div>
+      {/each}
 
-    {#if false && activeTagIds.includes(ID_PARTS)}
-      <b>&nbsp;| CSV export:</b>
-      <a href={jsVoid} class="link" on:click={() => exportCSV()}>Do IT</a>
-    {/if}
+      {#if false && activeTagIds.includes(ID_PARTS)}
+        <b>&nbsp;| CSV export:</b>
+        <a href={jsVoid} class="link" on:click={() => exportCSV()}>Do IT</a>
+      {/if}
+    </div>
   </div>
 {/if}
 

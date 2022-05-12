@@ -2,7 +2,7 @@
   import 'beercss';
   import { ApolloClient, InMemoryCache } from '@apollo/client';
   import { setClient } from 'svelte-apollo';
-  import { onMount, jsVoid, sites, convertOldParams, getUrlParam, setUrlParams } from '@utils';
+  import { jsVoid, sites, setUrlParams } from '@utils';
   import { loadMovieData, loadHistoryData, storedActiveSelection, localStore } from '@stores';
   import {
     ID_MANHATTAN,
@@ -12,7 +12,6 @@
     UNLOADED,
     LOADED,
     lsSiteSettingsKey,
-    urlKeyTags,
   } from '@interfaces';
   import Welcome from './comps/Home/Welcome.svelte';
   import Support from './comps/Home/Support.svelte';
@@ -252,5 +251,9 @@
 
   :global(.flex--block) {
     width: 100%;
+  }
+
+  :global(.flex--column) {
+    flex-direction: column;
   }
 </style>

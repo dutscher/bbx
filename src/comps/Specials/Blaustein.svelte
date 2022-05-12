@@ -8,6 +8,7 @@
   let products: any;
   let data: any;
   let innerWidth = 0;
+  let allParts = 0;
   let zoom;
   let pieces;
   let activeProductID = -1;
@@ -21,6 +22,7 @@
   });
 
   $: {
+    allParts = 0;
     const imgWidth = 750;
     const maxWidth = innerWidth < imgWidth ? innerWidth : 750;
     zoom = maxWidth / (imgWidth + 64);
@@ -28,6 +30,8 @@
     pieces = data.blaustein.pieces.map((piece, i) => {
       const product = getEEProduct(products, piece);
       const [timestamp, stateId] = Object.entries(product.history).pop();
+
+      allParts += product.parts;
 
       return {
         id: product.id,
@@ -59,7 +63,7 @@
 </script>
 
 <div>
-  <h2 bind:clientWidth={innerWidth}>{STR_BURG_BLAUSTEIN}</h2>
+  <h2 bind:clientWidth={innerWidth}>{STR_BURG_BLAUSTEIN} - {allParts} Teile</h2>
   {#if innerWidth}
     <div class="pieces" style="zoom:{zoom};-moz-transform:scale({zoom});">
       <div class="pieces__wrap flex">
@@ -73,7 +77,7 @@
           >
             <span>{piece.title}</span>
             <span class="sub no-margin">
-              {piece.parts}
+              {piece.parts} Teile
               {#if piece.price} - {handlePrice(piece)}{/if}<br />
               {piece.stateAgo}
             </span>
@@ -112,8 +116,8 @@
       }
 
       &--01 {
-        top: 218rem;
-        left: 519rem;
+        top: 207rem;
+        left: 469rem;
       }
 
       &--02 {

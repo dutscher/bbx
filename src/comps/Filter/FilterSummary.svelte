@@ -9,7 +9,7 @@
   export let activeColorIds: any = [];
   export let activePartIds: any = [];
   export let activePartTypeIds: any = [];
-  let invisible: any;
+
   let parts: any;
   let partTypes: any;
   let colors: any;
@@ -21,14 +21,6 @@
   storedPartTypes.subscribe(store => (partTypes = store));
   storedColors.subscribe(store => (colors = store));
   storedTags.subscribe(store => (tags = store));
-
-  $: invisible =
-    !activeSearchString &&
-    activeTagIds.length === 0 &&
-    activeStateIds.length === 0 &&
-    activeColorIds.length === 0 &&
-    activePartIds.length === 0 &&
-    activePartTypeIds.length === 0;
 
   const removeItem = (type, e, id) => {
     stopClick(e);
@@ -67,9 +59,9 @@
   };
 </script>
 
-{#if !invisible}
+<div class="flex flex--gap flex--column">
+  <b>Filter</b>
   <div class="flex flex--inline flex--gap flex--wrap flex--middle">
-    <b>Filter:</b>
     <FilterSummaryActive label="Alle" reset onClick={removeItem.bind(this, 'all')} />
     <FilterSummaryActive label="Suche nach" activeStr={activeSearchString} onClick={removeItem.bind(this, 'search')} />
     <FilterSummaryActive label="Tag" activeIds={activeTagIds} store={tags} onClick={removeItem.bind(this, 'tags')} />
@@ -98,4 +90,4 @@
       onClick={removeItem.bind(this, 'partTypes')}
     />
   </div>
-{/if}
+</div>

@@ -7,6 +7,7 @@
   let products: any;
   let data: any;
   let innerWidth = 0;
+  let allParts = 0;
   let zoom;
   let pieces;
   let activeProductID = -1;
@@ -20,12 +21,15 @@
   });
 
   $: {
+    allParts = 0;
     const imgWidth = 800;
     const minWidth = innerWidth < imgWidth ? innerWidth : imgWidth;
     zoom = minWidth / imgWidth;
 
     pieces = data.manhattan.pieces.map((piece, i) => {
       const product = getEEProduct(products, piece);
+
+      allParts += product.parts;
 
       return {
         id: product.id,
@@ -52,7 +56,7 @@
 </script>
 
 <div>
-  <h2 bind:clientWidth={innerWidth}>{STR_MANHATTAN}</h2>
+  <h2 bind:clientWidth={innerWidth}>{STR_MANHATTAN} - {allParts} Teile</h2>
   {#if innerWidth}
     <div class="pieces" style="zoom:{zoom};-moz-transform:scale({zoom});">
       <div class="pieces__wrap">

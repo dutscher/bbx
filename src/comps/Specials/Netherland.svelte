@@ -7,6 +7,7 @@
   let products: any;
   let data: any;
   let innerWidth = 0;
+  let allParts = 0;
   let zoom;
   let pieces;
   let activeProductID = -1;
@@ -20,12 +21,15 @@
   });
 
   $: {
+    allParts = 0;
     const maxWidth = innerWidth < 1050 ? innerWidth : innerWidth / 1.5;
     const imgWidth = 201 + 153 + 184 + 179 + 229 + 249 + 184 + 294 + 100; // 100 extra pixel
     zoom = maxWidth / imgWidth;
 
     pieces = data.netherland.pieces.map((piece, i) => {
       const product = getEEProduct(products, piece);
+
+      allParts += product.parts;
 
       return {
         id: product.id,
@@ -52,7 +56,7 @@
 </script>
 
 <div>
-  <h2 bind:clientWidth={innerWidth}>{STR_NETHERLAND}</h2>
+  <h2 bind:clientWidth={innerWidth}>{STR_NETHERLAND} - {allParts} Teile</h2>
   {#if innerWidth}
     <div class="pieces" style="zoom:{zoom};-moz-transform:scale({zoom});">
       <div class="pieces__wrap flex">

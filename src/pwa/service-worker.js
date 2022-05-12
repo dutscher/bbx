@@ -180,7 +180,8 @@ const notificationSendable = (productID, notificationBody) => {
   // is product in store
   let isSendable = false;
   let isProductExists = 'products' in store && store.products.some(product => product.id === productID);
-  let isProductInHearts = 'hearts' in store && store.hearts.default.i.includes(productID);
+  let isProductInHearts =
+    'hearts' in store && store.hearts.filter(list => 'd' in list && list.d)[0].i.includes(productID);
   let isMessageStateAvailable = notificationBody.includes('=> AVAILABLE') || notificationBody.includes('=> Verfügbar');
   let isMessageProductNew = notificationBody.includes('NEU ');
   if ((isProductExists && isProductInHearts && isMessageStateAvailable) || isMessageProductNew) {

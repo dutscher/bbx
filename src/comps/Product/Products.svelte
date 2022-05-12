@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount, titleMatch, setUrlParams, getUrlParam, getAllUrlParams } from '@utils';
+  import { titleMatch, setUrlParams } from '@utils';
   import {
     storedProductsSorting,
     storedProducts,
@@ -12,12 +12,10 @@
     storedTags,
     storedActiveSelection,
     storedActiveProduct,
-    localStore,
   } from '@stores';
   import Product from './Product.svelte';
-  import FilterSummary from '../Filter/FilterSummary.svelte';
-  import ProductSorter from '../Product/ProductSorter.svelte';
   import { handleProductSort } from './sorting';
+  import ProductFilter from './ProductFilter.svelte';
 
   export let bbUrl: string;
 
@@ -219,19 +217,7 @@
   );
 </script>
 
-<article>
-  <div class="filter flex flex--wrap flex--gap">
-    <FilterSummary
-      {activeSearchString}
-      {activeTagIds}
-      {activeStateIds}
-      {activeColorIds}
-      {activePartIds}
-      {activePartTypeIds}
-    />
-    <ProductSorter {filteredProducts} {activeTagIds} />
-  </div>
-</article>
+<ProductFilter {filteredProducts} />
 
 <nav class="wrap small-margin no-h-margin">
   {#if extraFilter.parts.count > 0}

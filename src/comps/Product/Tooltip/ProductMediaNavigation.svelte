@@ -15,7 +15,9 @@
   storedGlobalData.subscribe(store => (globalData = store));
 
   const setIndex = (index, e?) => {
-    stopClick(e);
+    if (e) {
+      stopClick(e);
+    }
     storedProductMedia.update(store => {
       store.videoVisible = false;
       store.imageLoaded = false;
@@ -35,7 +37,7 @@
 
   const goFurther = e => {
     stopClick(e);
-    if (productMedia.imageIndex < product.images.length - 1) {
+    if (productMedia.imageIndex + 1 < product.images.length) {
       setIndex(productMedia.imageIndex + 1);
     }
   };

@@ -1,3 +1,8 @@
+* [12.05.2022]
+  * fix pwa heartlist check
+  * better product filter + sort handling
+  * burg blaustein special page 
+
 * [05.05.2022]
   * better search + tags filter box
   * new chips for active filter

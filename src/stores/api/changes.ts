@@ -110,7 +110,7 @@ const evalChanges = (edges: any) => {
             id,
             parts: product.pcs,
             price: product.price,
-            pricePerPart: product.price && product.parts ? (product.price / product.parts) * 100 : 0,
+            pricePerPart: product.price && product.pcs ? (product.price / product.pcs) * 100 : 0,
             cats: [],
             tags: [],
             state: stateProduct,
