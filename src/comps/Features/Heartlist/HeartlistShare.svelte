@@ -91,7 +91,7 @@
         />
         <label for="uuid">CloudID</label>
         <span class="helper">
-          {#if !uuid}Drücke auf <b>"Generiere CloudID"</b> oder gebe hier eine vorhanden 4 stellige <b>CloudID</b> ein{/if}
+          {#if !uuid}Drücke auf <b>"Generiere CloudID"</b> oder gib hier eine vorhandene 4-stellige <b>CloudID</b> ein{/if}
         </span>
       </div>
     </div>
