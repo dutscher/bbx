@@ -5,6 +5,9 @@
   import ProductHearts from './ProductHearts.svelte';
 
   export let product: any;
+  export let onlyImages: boolean = false;
+  let className = '';
+  export { className as class };
 
   let isOnline: boolean = false;
   let productMedia: any;
@@ -67,8 +70,10 @@
   }
 </script>
 
-<div class="navi flex flex--center front small-margin small-text bold">
-  <ProductHearts {product} />
+<div class={ess('navi flex flex--center front small-margin small-text bold', className)}>
+  {#if !onlyImages}
+    <ProductHearts {product} />
+  {/if}
 
   {#if isOnline && product.images}
     {#if product.images.length > 1}
@@ -88,7 +93,7 @@
       {/each}
     {/if}
 
-    {#if product.video}
+    {#if !onlyImages && product.video}
       <span on:click={showVideo}>
         <i class={ess(productMedia.videoVisible && 'active')}>{productMedia.videoVisible ? 'cancel' : 'play_circle'}</i>
         <div class="tooltip bottom small-margin">

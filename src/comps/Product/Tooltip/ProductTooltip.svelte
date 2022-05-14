@@ -127,9 +127,9 @@
         <h5 class="no-margin">
           {#if product.title}
             <div class="product-tooltip__title-wrap">
-              <b class="product-tooltip__title">
+              <h5 class="product-tooltip__title">
                 {product.title}
-              </b>
+              </h5>
             </div>
           {/if}
         </h5>
@@ -231,7 +231,6 @@
     // break headline which is longer as tooltip
     &__title {
       white-space: normal;
-      font-size: 16rem;
       display: block;
       line-height: 18rem;
       user-select: text;

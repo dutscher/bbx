@@ -3,6 +3,7 @@
   import { onMount } from '@utils';
   import beerui from '@beerui';
   import ProductMediaNavigation from './ProductMediaNavigation.svelte';
+  import ProductVideo from './ProductVideo.svelte';
 
   export let product: any;
 
@@ -45,30 +46,19 @@
       <img
         class="top-round"
         src={productMedia.imageSrc}
-        on:click={() => {
-          /* openInModal() */
-        }}
+        on:click={() => openInModal()}
         on:load={() => onImageLoaded()}
         alt={product.title}
         width="100%"
       />
     {:else}
-      <iframe
-        class="top-round"
-        width="100%"
-        src={product.video}
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      />
+      <ProductVideo src={product.video} class="top-round" />
     {/if}
   {/if}
 </div>
 <ProductMediaNavigation {product} />
 
 <div class="overlay center-align middle-align{openModal ? ' active' : ''}" on:click={() => openInModal()}>
-  TODO: hearts and video
   <div class="modal round{openModal ? ' active' : ''}">
     <div class="wrap">
       <h5>{product.title}</h5>
@@ -84,7 +74,7 @@
         />
       {/if}
     </div>
-    <ProductMediaNavigation {product} />
+    <ProductMediaNavigation onlyImages={true} {product} class="round" />
   </div>
 </div>
 
@@ -97,7 +87,7 @@
   iframe {
     display: block;
     object-fit: contain;
-    background: #fff;
+    background: var(--surface);
     height: 100%;
   }
 
@@ -109,15 +99,21 @@
     top: auto;
     overflow-x: visible;
     overflow-y: visible;
+    padding-bottom: 40rem;
 
     img {
       width: 100% !important;
       height: auto !important;
     }
+  }
 
-    .warp {
-      overflow-x: hidden;
-      overflow-y: auto;
-    }
+  :global .modal .navi {
+    position: absolute;
+    background-color: var(--surface);
+    left: 33%;
+    bottom: 0;
+    right: 33%;
+    padding: 6rem;
+    box-shadow: var(--shadow2);
   }
 </style>

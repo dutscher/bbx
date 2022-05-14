@@ -1,3 +1,6 @@
+* [14.05.2022]
+  * big images in modal
+  
 * [12.05.2022]
   * fix pwa heartlist check
   * better product filter + sort handling
