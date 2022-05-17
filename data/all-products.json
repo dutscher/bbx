@@ -12026,6 +12026,18 @@
     "pr": 0
   },
   {
+    "ti": "Strassenbahn gelb weiß",
+    "id": 105329,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1432,
+    "pr": 0
+  },
+  {
     "ti": "Kaltfräse",
     "id": 105330,
     "ca": [
@@ -12035,6 +12047,42 @@
       0
     ],
     "pa": 554,
+    "pr": 0
+  },
+  {
+    "ti": "Oldtimer Trecker",
+    "id": 105331,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 335,
+    "pr": 0
+  },
+  {
+    "ti": "Dieselschnelltriebwagen (7w)",
+    "id": 105392,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1530,
+    "pr": 0
+  },
+  {
+    "ti": "Amerikanischer Pumpwagen",
+    "id": 105393,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1938,
     "pr": 0
   },
   {
