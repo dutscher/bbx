@@ -4,7 +4,6 @@
   // https://svelte.dev/tutorial/spring
   import { spring } from 'svelte/motion';
   import { localStore } from '@stores';
-  import { onMount } from '@utils';
 
   const properties = {
     dark: {
@@ -28,18 +27,17 @@
   };
 
   let isDarkmode = false;
-  let isReady = false;
-  let svgContainerProps = spring({ transform: 0 }, properties.springConfig);
-  let maskedCircleProps = spring({ cx: 0, cy: 0 }, properties.springConfig);
-  let centerCircleProps = spring({ r: 0 }, properties.springConfig);
-  let linesProps = spring({ opacity: 0 }, properties.springConfig);
+  let svgContainerProps;
+  let maskedCircleProps;
+  let centerCircleProps;
+  let sunStrings;
 
   const toggleDarkMode = () => {
     isDarkmode = !isDarkmode;
-    updateToggle();
+    updateToggle(false);
   };
 
-  const initToggle = () => {
+  const initToggle = isInit => {
     // local storage is used to override OS theme settings
     if (localStore.getRaw('theme')) {
       if (localStore.getRaw('theme') === 'dark') {
@@ -50,34 +48,35 @@
       isDarkmode = true;
     }
 
-    updateToggle();
+    updateToggle(isInit);
   };
 
-  const updateToggle = () => {
+  const updateToggle = isInit => {
     const theme = isDarkmode ? 'dark' : 'light';
     const { r, transform, cx, cy, opacity } = properties[theme];
 
-    svgContainerProps.set({ transform });
-    maskedCircleProps.set({ cx, cy });
-    centerCircleProps.set({ r });
-    linesProps.set({ opacity });
-
+    if (!isInit) {
+      svgContainerProps.set({ transform });
+      maskedCircleProps.set({ cx, cy });
+      centerCircleProps.set({ r });
+      sunStrings.set({ opacity });
+    } else {
+      svgContainerProps = spring({ transform }, properties.springConfig);
+      maskedCircleProps = spring({ cx, cy }, properties.springConfig);
+      centerCircleProps = spring({ r }, properties.springConfig);
+      sunStrings = spring({ opacity }, properties.springConfig);
+    }
     // dark theme preferred, set body with a `is-dark` class
     if (isDarkmode) document.body.classList.add('is-dark');
     else document.body.classList.remove('is-dark');
 
     localStore.set('theme', theme);
-    setTimeout(() => {
-      isReady = true;
-    }, 500);
   };
 
-  onMount(() => {
-    initToggle();
-  });
+  initToggle(true);
 </script>
 
-<button class="circle fixed extra {isReady ? 'is-ready' : ''}" on:click={toggleDarkMode}>
+<button class="circle fixed extra" on:click={toggleDarkMode}>
   <svg
     class="darkmode"
     xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +84,7 @@
     height="24"
     viewBox="0 0 24 24"
     fill="none"
-    stroke-width="2"
+    stroke-width={isDarkmode ? 0 : 2}
     stroke-linecap="round"
     stroke-linejoin="round"
     stroke="currentColor"
@@ -102,7 +101,7 @@
       mask="url(#myMask2)"
       r={$centerCircleProps.r > 0 ? $centerCircleProps.r : 0}
     />
-    <g stroke="currentColor" style="opacity:{$linesProps.opacity || 0}">
+    <g stroke="currentColor" style="opacity:{$sunStrings.opacity || 0}">
       <line x1="12" y1="1" x2="12" y2="3" />
       <line x1="12" y1="21" x2="12" y2="23" />
       <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
@@ -122,14 +121,9 @@
   button {
     transition: opacity 1000ms ease-in-out;
     will-change: opacity;
-    opacity: 0;
     z-index: 1337;
     right: 84rem;
     bottom: 16rem;
-
-    &.is-ready {
-      opacity: 1 !important;
-    }
   }
 
   .darkmode {

@@ -7,6 +7,7 @@
   import FilterSearch from './FilterSearch.svelte';
   import { ID_PARTS, lsSiteSettingsKey } from '@interfaces';
   import { localStore, storedActiveSelection } from '@stores';
+  import { stopClick } from '../../utils';
 
   let activeTagIds: any = [];
   let activePartIds: any = [];
@@ -24,13 +25,17 @@
     activeStateIds = store.states;
     activeSearchString = store.search;
 
-    const reasons = ['init-tags-url', 'show-states', 'show-tags', 'tooltip-tag-clicked', 'tag-clicked-close-filter'];
+    const reasons = [
+      'init-tags-url',
+      'show-states',
+      'show-tags',
+      'tooltip-tag-clicked',
+      'tag-clicked-close-filter',
+      'click-search',
+    ];
 
     if (store.site === 'products' && reasons.includes(store.reason)) {
-      if (store.reason === 'show-states') {
-        showFilter = true;
-      }
-      if (store.reason === 'show-tags') {
+      if (['show-states', 'show-tags', 'click-search'].includes(store.reason)) {
         showFilter = true;
       }
       if (
@@ -40,6 +45,7 @@
       ) {
         showFilter = false;
       }
+
       localStore.set(lsSiteSettingsKey, store.site);
       // remove reason
       storedActiveSelection.update(store => {
@@ -48,10 +54,15 @@
       });
     }
   });
+
+  const handleClick = e => {
+    stopClick(e);
+    showFilter = !showFilter;
+  };
 </script>
 
 <details class="card" open={showFilter}>
-  <summary class="large-text"><b>Suche & Filter</b></summary>
+  <summary class="large-text" on:click={handleClick}><b>Suche & Filter</b></summary>
   <FilterSearch {activeSearchString} />
   <FilterStates {activeStateIds} {activeColorIds} {activePartIds} {activePartTypeIds} {activeSearchString} />
   <FilterTags {activeTagIds} />

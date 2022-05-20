@@ -1,7 +1,8 @@
 next todos:
+* tooltip images ratio + video verfügbar machen
+* history year separation
 * filter color active
   * url params
-* news not loaded? BUG
 * live api changes
   * tags use cats-n-tags script!
   * ios pwa notifications?

@@ -1,3 +1,9 @@
+* [20.05.2022]
+  * newest announcement with tags
+  * fix darkmode init animation bug and remove stroke on moon
+  * changelog is now fresh
+  * fix news open bug
+
 * [14.05.2022]
   * big images in modal
   

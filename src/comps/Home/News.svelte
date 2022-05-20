@@ -1,15 +1,18 @@
 <script lang="ts">
+  import { stopClick } from '@utils';
+
   let toggle = false;
 
-  const clickNews = () => {
+  const clickNews = e => {
+    stopClick(e);
     toggle = !toggle;
   };
 
   $: isVisible = toggle;
 </script>
 
-<details class="card small-padding" on:click={clickNews}>
-  <summary><b>News (2)</b></summary>
+<details class="card small-padding" open={isVisible}>
+  <summary on:click={clickNews}><b>News (2)</b></summary>
   <div>
     {#if isVisible}
       <br />
