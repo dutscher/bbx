@@ -94,7 +94,7 @@
     {/if}
 
     {#if product.video}
-      <span on:click={showVideo}>
+      <span on:click={showVideo} class="video">
         <i class={ess(productMedia.videoVisible && 'active')}>{productMedia.videoVisible ? 'cancel' : 'play_circle'}</i>
         <div class="tooltip bottom small-margin">
           Youtube Video {productMedia.videoVisible ? 'schließen' : 'öffnen'}
@@ -116,7 +116,7 @@
     {/if}
   {/if}
 
-  <a href={globalData.url + product.href + AFF_LINK} target="_blank">
+  <a href={globalData.url + product.href + AFF_LINK} target="_blank" class="shop">
     <i>shopping_cart</i>
     <div class="tooltip bottom small-margin">Zum Shop{!!AFF_LINK ? '*' : ''}</div>
   </a>
@@ -139,5 +139,9 @@
       pointer-events: none;
       cursor: default;
     }
+  }
+
+  .video + .shop {
+    margin-left: 8rem;
   }
 </style>

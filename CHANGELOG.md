@@ -1,6 +1,7 @@
 * [21.05.2022]
   * bug images now better usable
   * big videos in modals
+  * new history year separation
 
 * [20.05.2022]
   * newest announcement with tags

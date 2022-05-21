@@ -1,7 +1,8 @@
 next todos:
-* history year separation
 * filter color active
   * url params
+* ssh install node on server
+* notifications
 * live api changes
   * tags use cats-n-tags script!
   * ios pwa notifications?
