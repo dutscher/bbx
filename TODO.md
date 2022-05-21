@@ -1,5 +1,4 @@
 next todos:
-* tooltip images ratio + video verfügbar machen
 * history year separation
 * filter color active
   * url params

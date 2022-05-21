@@ -1,6 +1,6 @@
 <script lang="ts">
   import { internetConnection, storedProductMedia } from '@stores';
-  import { onMount } from '@utils';
+  import { onMount, stopClick } from '@utils';
   import beerui from '@beerui';
   import ProductMediaNavigation from './ProductMediaNavigation.svelte';
   import ProductVideo from './ProductVideo.svelte';
@@ -11,7 +11,6 @@
   let productMedia: any;
 
   let openModal: boolean = false;
-  let modalLoaded: boolean = false;
 
   internetConnection.subscribe(store => (isOnline = store.isOnline));
   storedProductMedia.subscribe(store => (productMedia = store));
@@ -24,9 +23,13 @@
     });
   };
 
-  const openInModal = () => {
+  const openInModal = e => {
+    stopClick(e);
     openModal = !openModal;
-    modalLoaded = false;
+  };
+
+  const stopModalClick = e => {
+    stopClick(e);
   };
 
   onMount(() => {
@@ -41,40 +44,41 @@
     {#if !productMedia.imageLoaded}
       <div class="absolute front loader medium small-margin" />
     {/if}
-
-    {#if !productMedia.videoVisible}
-      <img
-        class="top-round"
-        src={productMedia.imageSrc}
-        on:click={() => openInModal()}
-        on:load={() => onImageLoaded()}
-        alt={product.title}
-        width="100%"
-      />
-    {:else}
-      <ProductVideo src={product.video} class="top-round" />
+    {#if !openModal}
+      {#if !productMedia.videoVisible}
+        <img
+          class="top-round"
+          src={productMedia.imageSrc}
+          on:click={openInModal}
+          on:load={onImageLoaded}
+          alt={product.title}
+          width="100%"
+        />
+      {:else}
+        <ProductVideo src={product.video} class="top-round" />
+      {/if}
     {/if}
   {/if}
 </div>
 <ProductMediaNavigation {product} />
 
-<div class="overlay center-align middle-align{openModal ? ' active' : ''}" on:click={() => openInModal()}>
-  <div class="modal round{openModal ? ' active' : ''}">
-    <div class="wrap">
-      <h5>{product.title}</h5>
-      {#if !modalLoaded}
-        <div class="loader medium small-margin" />
-      {/if}
-      {#if openModal}
-        <img
-          class="round"
-          src={productMedia.imageSrc + '?size=1000'}
-          on:load={() => (modalLoaded = true)}
-          alt={product.title}
-        />
-      {/if}
-    </div>
-    <ProductMediaNavigation onlyImages={true} {product} class="round" />
+<div class="overlay center-align middle-align{openModal ? ' active' : ''}" on:click={openInModal}>
+  <div class="modal round{openModal ? ' active' : ''}" on:click={stopModalClick}>
+    <i class="close" on:click={openInModal}>cancel</i>
+    <h5>{product.title}</h5>
+    {#if openModal}
+      <div class="wrap">
+        {#if !productMedia.imageLoaded}
+          <div class="absolute front loader medium small-margin" />
+        {/if}
+        {#if !productMedia.videoVisible}
+          <img src={productMedia.imageSrc + '?size=1000'} on:load={onImageLoaded} alt={product.title} />
+        {:else}
+          <ProductVideo src={product.video} />
+        {/if}
+      </div>
+      <ProductMediaNavigation noHearts={true} {product} class="bottom-round bigger-icons" />
+    {/if}
   </div>
 </div>
 
@@ -84,11 +88,12 @@
   }
 
   img,
-  iframe {
+  // ProductVideo
+  :global iframe {
     display: block;
     object-fit: contain;
     background: var(--surface);
-    height: 100%;
+    height: 100% !important;
   }
 
   .overlay {
@@ -99,21 +104,53 @@
     top: auto;
     overflow-x: visible;
     overflow-y: visible;
-    padding-bottom: 40rem;
+    height: 90vw;
+    width: 90vw;
 
-    img {
-      width: 100% !important;
-      height: auto !important;
+    h5 {
+      width: 100%;
+      white-space: normal;
+    }
+
+    .close {
+      position: absolute;
+      right: 4rem;
+      top: 4rem;
+      cursor: pointer;
+      font-size: 40rem;
+      width: auto;
+      color: var(--on-surface-variant);
+
+      &:hover {
+        color: var(--primary);
+      }
+    }
+
+    .wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 90%;
+      overflow: hidden;
+
+      img,
+      :global iframe {
+        border-radius: 8rem;
+      }
     }
   }
 
   :global .modal .navi {
     position: absolute;
     background-color: var(--surface);
-    left: 33%;
-    bottom: 0;
-    right: 33%;
-    padding: 6rem;
+    left: -8rem;
+    bottom: -46rem;
+    right: -8rem;
+    padding: 16rem;
     box-shadow: var(--shadow2);
+  }
+
+  :global .modal .navi.bigger-icons i {
+    font-size: 40rem;
   }
 </style>

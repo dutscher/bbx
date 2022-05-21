@@ -232,7 +232,7 @@
     &__title {
       white-space: normal;
       display: block;
-      line-height: 18rem;
+      line-height: 26rem;
       user-select: text;
     }
 

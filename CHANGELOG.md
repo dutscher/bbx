@@ -1,3 +1,7 @@
+* [21.05.2022]
+  * bug images now better usable
+  * big videos in modals
+
 * [20.05.2022]
   * newest announcement with tags
   * fix darkmode init animation bug and remove stroke on moon

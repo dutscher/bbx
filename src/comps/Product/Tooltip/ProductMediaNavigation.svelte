@@ -5,7 +5,7 @@
   import ProductHearts from './ProductHearts.svelte';
 
   export let product: any;
-  export let onlyImages: boolean = false;
+  export let noHearts: boolean = false;
   let className = '';
   export { className as class };
 
@@ -71,7 +71,7 @@
 </script>
 
 <div class={ess('navi flex flex--center front small-margin small-text bold', className)}>
-  {#if !onlyImages}
+  {#if !noHearts}
     <ProductHearts {product} />
   {/if}
 
@@ -93,7 +93,7 @@
       {/each}
     {/if}
 
-    {#if !onlyImages && product.video}
+    {#if product.video}
       <span on:click={showVideo}>
         <i class={ess(productMedia.videoVisible && 'active')}>{productMedia.videoVisible ? 'cancel' : 'play_circle'}</i>
         <div class="tooltip bottom small-margin">
