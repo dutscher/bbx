@@ -45,7 +45,7 @@
         );
         store.reason = 'part-clicked';
       } else {
-        store.reason = 'url-parsed';
+        store.reason = 'url-parsed--colors';
       }
 
       return store;
@@ -154,8 +154,8 @@
         data-id={color.id}
         on:click={() => clickItem(color, true)}
         title="{color.name}{color.de ? ' / ' + color.de : ''}"
-        style="background-color:#{color.hex}"
       >
+        <div class="dot" style="background-color:#{color.hex}" />
         <span class="badge round">{color.countFiltered}</span>
       </div>
     {/each}
@@ -168,12 +168,16 @@
   }
 
   .color {
-    padding: 16rem;
     margin: 2rem;
     border: solid 1rem var(--secondary);
-    border-radius: 100%;
     cursor: pointer;
     background-size: contain;
+    border-radius: 100%;
+
+    .dot {
+      padding: 16rem;
+      border-radius: inherit;
+    }
 
     &.active {
       border-color: var(--error);
@@ -190,19 +194,19 @@
       }
     }
 
-    &.chrome {
+    &.chrome .dot {
       background-image: url('../images/color-chrome.jpg');
     }
 
-    &.pearl-gray {
+    &.pearl-gray .dot {
       background-image: url('../images/color-pearl-gray.jpg');
     }
 
-    &.pearl-gold {
+    &.pearl-gold .dot {
       background-image: url('../images/color-pearl-gold.jpg');
     }
 
-    &.trans {
+    &.trans .dot {
       opacity: 0.5;
 
       &.active {
@@ -210,7 +214,7 @@
       }
     }
 
-    &.disabled {
+    &.disabled .dot {
       opacity: 0.1;
       cursor: pointer;
     }

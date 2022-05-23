@@ -68,7 +68,7 @@
         id: showTooltip ? product.id : 0,
         type,
       };
-      store.reason = 'open-tooltip';
+      store.reason = (showTooltip ? 'open' : 'close') + '-tooltip';
       return store;
     });
   };

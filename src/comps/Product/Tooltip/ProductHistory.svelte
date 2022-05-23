@@ -63,7 +63,7 @@
   {#each splittedHistory.first as entry}
     <ProductHistoryEntry {entry} />
   {/each}
-  {#if splittedHistory.next}
+  {#if splittedHistory.next && splittedHistory.next.length > 0}
     {#if !nextVisible}
       <a
         on:click={e => {
@@ -81,7 +81,7 @@
       {/each}
     {/if}
   {/if}
-  {#if splittedHistory.last.length > 0 && nextVisible}
+  {#if splittedHistory.last && splittedHistory.last.length > 0 && nextVisible}
     {#if !fullVisible}
       <a
         on:click={e => {

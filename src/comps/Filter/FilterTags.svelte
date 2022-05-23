@@ -44,7 +44,7 @@
         );
         store.reason = `tag-clicked${isSpecialTag && isNewSelected ? '-close-filter' : ''}`;
       } else {
-        store.reason = 'url-parsed';
+        store.reason = 'url-parsed--tags';
       }
 
       return store;

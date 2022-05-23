@@ -4,15 +4,7 @@
   import { setClient } from 'svelte-apollo';
   import { jsVoid, sites, setUrlParams } from '@utils';
   import { loadMovieData, loadHistoryData, storedActiveSelection, localStore } from '@stores';
-  import {
-    ID_MANHATTAN,
-    ID_NETHERLAND,
-    ID_MOVIE,
-    ID_BURG_BLAUSTEIN,
-    UNLOADED,
-    LOADED,
-    lsSiteSettingsKey,
-  } from '@interfaces';
+  import { ID_MOVIE, UNLOADED, LOADED, lsSiteSettingsKey } from '@interfaces';
   import Welcome from './comps/Home/Welcome.svelte';
   import Support from './comps/Home/Support.svelte';
   import News from './comps/Home/News.svelte';
@@ -22,9 +14,6 @@
   import Changes from './comps/Changes/Changes.svelte';
   import History from './comps/History/History.svelte';
   import Filter from './comps/Filter/Filter.svelte';
-  import Manhattan from './comps/Specials/Manhattan.svelte';
-  import Netherland from './comps/Specials/Netherland.svelte';
-  import Blaustein from './comps/Specials/Blaustein.svelte';
   import Products from './comps/Product/Products.svelte';
   import Notifications from './comps/Features/Notifications.svelte';
   import Github from './comps/Features/Github.svelte';
@@ -114,18 +103,6 @@
     </Site>
     <Site name="products" {activeSite} {isActive}>
       <Filter />
-      {#if activeTagIds.includes(ID_MANHATTAN) && activeTagIds.length === 1}
-        <br />
-        <Manhattan />
-      {/if}
-      {#if activeTagIds.includes(ID_NETHERLAND) && activeTagIds.length === 1}
-        <br />
-        <Netherland />
-      {/if}
-      {#if activeTagIds.includes(ID_BURG_BLAUSTEIN) && activeTagIds.length === 1}
-        <br />
-        <Blaustein />
-      {/if}
       <Products />
       <Legend />
     </Site>

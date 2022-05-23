@@ -1,7 +1,11 @@
 <script lang="ts">
+  import { ID_PARTS } from '@interfaces';
+  import { storedActiveSelection } from '../../stores/active-selection';
   import FilterSummary from '../Filter/FilterSummary.svelte';
   import ProductSorter from '../Product/ProductSorter.svelte';
-  import { storedActiveSelection } from '../../stores/active-selection';
+  import FilterColors from '../Filter/Brickbar/FilterColors.svelte';
+  import FilterParts from '../Filter/Brickbar/FilterParts.svelte';
+  import FilterPartTypes from '../Filter/Brickbar/FilterPartTypes.svelte';
 
   export let filteredProducts: any = [];
   let invisible: any;
@@ -34,6 +38,13 @@
 
 {#if !invisible}
   <article>
+    {#if activeTagIds.includes(ID_PARTS) && activeTagIds.length === 1}
+      <h2>Brickbar</h2>
+      <FilterParts {activePartIds} />
+      <FilterColors {activeColorIds} />
+      <FilterPartTypes {activePartTypeIds} />
+    {/if}
+
     <div class="filter flex flex--wrap flex--gap">
       <FilterSummary
         {activeSearchString}

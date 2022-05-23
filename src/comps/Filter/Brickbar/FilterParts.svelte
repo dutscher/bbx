@@ -44,7 +44,7 @@
         );
         store.reason = 'part-clicked';
       } else {
-        store.reason = 'url-parsed';
+        store.reason = 'url-parsed--parts';
       }
       return store;
     });

@@ -29,7 +29,9 @@
     // ?search=piraten
     const queryTags = getUrlParam(urlParam);
     activeSearchString = queryTags;
-    onInput();
+    if (!!activeSearchString) {
+      onInput();
+    }
   };
 
   const onInput = (withUrlUpdate?) => {
@@ -43,7 +45,7 @@
         setUrlParams(urlParam, !!activeSearchString ? [activeSearchString] : []);
         store.reason = 'search-typed';
       } else {
-        store.reason = 'url-parsed';
+        store.reason = 'url-parsed--search';
       }
       return store;
     });

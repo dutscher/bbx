@@ -1,3 +1,10 @@
+* [23.05.2022]
+  * fix reported issue with click on tooltip
+  * fix deep url
+  * better handling with open product filter
+  * optimize brickbar
+  * switch search input
+
 * [21.05.2022]
   * bug images now better usable
   * big videos in modals

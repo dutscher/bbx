@@ -56,7 +56,7 @@
   });
 </script>
 
-{#if filteredProducts.withFilter.length > 0}
+{#if filteredProducts.withFilter.length > 1}
   <div class="flex flex--gap flex--right flex--column">
     <b class="right">Sortieren</b>
     <div class="flex flex--gap flex--top flex--inline flex--wrap flex--middle">

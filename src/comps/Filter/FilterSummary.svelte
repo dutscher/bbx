@@ -15,6 +15,8 @@
   let colors: any;
   let states: any;
   let tags: any;
+  let moreThanOne: any;
+  let showAll: any;
 
   storedStates.subscribe(store => (states = store));
   storedParts.subscribe(store => (parts = store));
@@ -57,12 +59,21 @@
       return store;
     });
   };
+
+  $: {
+    moreThanOne = [activeTagIds, activeStateIds, activeColorIds, activePartIds, activePartTypeIds].filter(
+      ids => ids.length > 0
+    );
+    showAll = (!!activeSearchString && moreThanOne.length >= 1) || moreThanOne.length >= 2;
+  }
 </script>
 
 <div class="flex flex--gap flex--column">
   <b>Filter</b>
   <div class="flex flex--inline flex--gap flex--wrap flex--middle">
-    <FilterSummaryActive label="Alle" reset onClick={removeItem.bind(this, 'all')} />
+    {#if showAll}
+      <FilterSummaryActive label="Alle" reset onClick={removeItem.bind(this, 'all')} />
+    {/if}
     <FilterSummaryActive label="Suche nach" activeStr={activeSearchString} onClick={removeItem.bind(this, 'search')} />
     <FilterSummaryActive label="Tag" activeIds={activeTagIds} store={tags} onClick={removeItem.bind(this, 'tags')} />
     <FilterSummaryActive

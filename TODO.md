@@ -1,4 +1,5 @@
 next todos:
+* checkbox sorter refactoren
 * filter color active
   * url params
 * ssh install node on server

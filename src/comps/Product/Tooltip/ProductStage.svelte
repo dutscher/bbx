@@ -23,6 +23,15 @@
     });
   };
 
+  const onImageError = e => {
+    console.log(e);
+    storedProductMedia.update(store => {
+      store.imageLoaded = true;
+      store.reason = 'image-error';
+      return store;
+    });
+  };
+
   const openInModal = e => {
     stopClick(e);
     openModal = !openModal;
@@ -51,6 +60,7 @@
           src={productMedia.imageSrc}
           on:click={openInModal}
           on:load={onImageLoaded}
+          on:error={onImageError}
           alt={product.title}
           width="100%"
         />
@@ -72,7 +82,12 @@
           <div class="absolute front loader medium small-margin" />
         {/if}
         {#if !productMedia.videoVisible}
-          <img src={productMedia.imageSrc + '?size=1000'} on:load={onImageLoaded} alt={product.title} />
+          <img
+            src={productMedia.imageSrc + '?size=1000'}
+            on:load={onImageLoaded}
+            on:error={onImageError}
+            alt={product.title}
+          />
         {:else}
           <ProductVideo src={product.video} />
         {/if}

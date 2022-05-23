@@ -46,7 +46,7 @@
         );
         store.reason = 'state-clicked';
       } else {
-        store.reason = 'url-parsed';
+        store.reason = 'url-parsed--states';
       }
 
       return store;

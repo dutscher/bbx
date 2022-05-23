@@ -42,7 +42,7 @@
         );
         store.reason = 'part-type-clicked';
       } else {
-        store.reason = 'url-parsed';
+        store.reason = 'url-parsed--part-types';
       }
       return store;
     });

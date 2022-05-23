@@ -86,17 +86,19 @@
   };
 
   const scrollIntoView = (notScroll?) => {
-    const { y } = getOffsetRect(wrapElement);
-    let newTop = -1;
-    // tooltip bottom corner not visible
-    if (y + 120 > window.innerHeight) {
-      newTop = y - 120;
-    }
-    // scroll to top of product
-    if (newTop >= 0) {
-      newTop = Math.round(newTop);
-      if (!notScroll) {
-        window.scrollTo({ top: newTop, left: 0, behavior: 'smooth' });
+    if (!wrapElement) {
+      const { y } = getOffsetRect(wrapElement);
+      let newTop = -1;
+      // tooltip bottom corner not visible
+      if (y + 120 > window.innerHeight) {
+        newTop = y - 120;
+      }
+      // scroll to top of product
+      if (newTop >= 0) {
+        newTop = Math.round(newTop);
+        if (!notScroll) {
+          window.scrollTo({ top: newTop, left: 0, behavior: 'smooth' });
+        }
       }
     }
   };
