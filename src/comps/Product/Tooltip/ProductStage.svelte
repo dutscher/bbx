@@ -135,6 +135,7 @@
       font-size: 40rem;
       width: auto;
       color: var(--on-surface-variant);
+      z-index: 1;
 
       &:hover {
         color: var(--primary);
