@@ -85,6 +85,7 @@
     "svelte-preprocess-markdown": "^2.7.3",
     "svelte-preprocess": "^4.0.0",
     "svelte-watch-resize": "^1.0.3",
+    "svelte-scrollto": "^0.2.0",
     "tslib": "^2.3.1",
     "typescript": "^4.0.0",
     "yargs": "^17.3.1"

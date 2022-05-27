@@ -46,11 +46,13 @@
       }
 
       localStore.set(lsSiteSettingsKey, store.site);
-      // remove reason
-      storedActiveSelection.update(store => {
-        store.reason = '';
-        return store;
-      });
+      if (store.reason !== 'click-search') {
+        // remove reason
+        storedActiveSelection.update(store => {
+          store.reason = '';
+          return store;
+        });
+      }
     }
   });
 

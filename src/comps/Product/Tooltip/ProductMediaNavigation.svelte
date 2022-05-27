@@ -10,11 +10,11 @@
   export { className as class };
 
   let isOnline: boolean = false;
-  let productMedia: any;
+  let mediaState: any;
   let globalData: any;
 
   internetConnection.subscribe(store => (isOnline = store.isOnline));
-  storedProductMedia.subscribe(store => (productMedia = store));
+  storedProductMedia.subscribe(store => (mediaState = store));
   storedGlobalData.subscribe(store => (globalData = store));
 
   const setIndex = (index, e?) => {
@@ -33,15 +33,21 @@
 
   const goBack = e => {
     stopClick(e);
-    if (productMedia.imageIndex > 0) {
-      setIndex(productMedia.imageIndex - 1);
+    // show last image if video is active
+    if (mediaState.videoVisible) {
+      setIndex(product.images.length - 1);
+    } else if (mediaState.imageIndex > 0) {
+      setIndex(mediaState.imageIndex - 1);
     }
   };
 
   const goFurther = e => {
     stopClick(e);
-    if (productMedia.imageIndex + 1 < product.images.length) {
-      setIndex(productMedia.imageIndex + 1);
+    if (mediaState.imageIndex + 1 < product.images.length) {
+      setIndex(mediaState.imageIndex + 1);
+      // after last image show video
+    } else if (!mediaState.videoVisible && product.video) {
+      showVideo(e);
     }
   };
 
@@ -56,7 +62,7 @@
   };
 
   $: {
-    if (productMedia.id !== product.id && product.images) {
+    if (mediaState.id !== product.id && product.images) {
       storedProductMedia.update(store => {
         store.id = product.id;
         store.videoVisible = false;
@@ -78,38 +84,34 @@
   {#if isOnline && product.images}
     {#if product.images.length > 1}
       <span on:click={goBack}>
-        <i class={ess((productMedia.imageIndex === 0 || productMedia.videoVisible) && 'disable')}>arrow_back_ios</i>
-        {#if !productMedia.videoVisible}
+        <i class={ess(mediaState.imageIndex === 0 && 'disable')}>arrow_back_ios</i>
+        {#if !mediaState.videoVisible}
           <div class="tooltip bottom small-margin">Vorheriges Bild</div>
         {/if}
       </span>
 
       {#each product.images as image, i}
         <span on:click={e => setIndex(i, e)}>
-          <i class={ess(i === productMedia.imageIndex && !productMedia.videoVisible && 'active')}>
-            fiber_manual_record
-          </i>
+          <i class={ess(i === mediaState.imageIndex && !mediaState.videoVisible && 'active')}> fiber_manual_record </i>
         </span>
       {/each}
     {/if}
 
     {#if product.video}
       <span on:click={showVideo} class="video">
-        <i class={ess(productMedia.videoVisible && 'active')}>{productMedia.videoVisible ? 'cancel' : 'play_circle'}</i>
+        <i class={ess(mediaState.videoVisible && 'active')}>{mediaState.videoVisible ? 'cancel' : 'play_circle'}</i>
         <div class="tooltip bottom small-margin">
-          Youtube Video {productMedia.videoVisible ? 'schließen' : 'öffnen'}
+          Youtube Video {mediaState.videoVisible ? 'schließen' : 'öffnen'}
         </div>
       </span>
     {/if}
 
     {#if product.images.length > 1}
       <span on:click={goFurther}>
-        <i
-          class={ess((productMedia.imageIndex === product.images.length - 1 || productMedia.videoVisible) && 'disable')}
-        >
+        <i class={ess((mediaState.imageIndex === product.images.length || mediaState.videoVisible) && 'disable')}>
           arrow_forward_ios
         </i>
-        {#if !productMedia.videoVisible}
+        {#if !mediaState.videoVisible}
           <div class="tooltip bottom small-margin">Nächstes Bild</div>
         {/if}
       </span>

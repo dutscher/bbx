@@ -1,4 +1,5 @@
 next todos:
+* tooltip mobile open blocks below products
 * checkbox sorter refactoren
 * filter color active
   * url params

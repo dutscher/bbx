@@ -2,6 +2,7 @@
   import 'beercss';
   import { ApolloClient, InMemoryCache } from '@apollo/client';
   import { setClient } from 'svelte-apollo';
+  import * as animateScroll from 'svelte-scrollto';
   import { jsVoid, sites, setUrlParams } from '@utils';
   import { loadMovieData, loadHistoryData, storedActiveSelection, localStore } from '@stores';
   import { ID_MOVIE, UNLOADED, LOADED, lsSiteSettingsKey } from '@interfaces';
@@ -23,6 +24,12 @@
   import Legend from './comps/Legend.svelte';
   import Site from './comps/Site.svelte';
   import HeartlistWrap from './comps/Features/Heartlist/HeartlistWrap.svelte';
+
+  // https://www.npmjs.com/package/svelte-scrollto
+  animateScroll.setGlobalOptions({
+    // header height
+    offset: 100,
+  });
 
   let activeSite: any;
   let activeTagIds: any;

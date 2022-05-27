@@ -1,3 +1,7 @@
+* [27.05.2022]
+  * fix search focus
+  * media navigation includes video
+  
 * [23.05.2022]
   * fix reported issue with click on tooltip
   * fix deep url

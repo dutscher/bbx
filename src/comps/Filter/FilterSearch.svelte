@@ -1,4 +1,5 @@
 <script lang="ts">
+  import * as animateScroll from 'svelte-scrollto';
   import { storedActiveSelection } from '@stores';
   import { onMount, getUrlParam, setUrlParams } from '@utils';
   import beerui from '@beerui';
@@ -12,10 +13,7 @@
     if (store.site === 'products' && store.reason === 'click-search') {
       setTimeout(() => {
         inputElement.focus();
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth',
-        });
+        animateScroll.scrollTo({ element: inputElement });
       }, 50);
       // remove reason
       storedActiveSelection.update(store => {
