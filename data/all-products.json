@@ -10258,7 +10258,7 @@
     "ie": 0
   },
   {
-    "ti": "Schweizer Reisezug",
+    "ti": "Elektrolokomotive SBB CFF FFS EuroCity Schweiz",
     "id": 104621,
     "ca": [
       0
@@ -10274,7 +10274,7 @@
     "ie": 0
   },
   {
-    "ti": "Schweizer Elektrolokomotive",
+    "ti": "Elektrolokomotive SBB CFF FFS LOK Re 460 Schweiz",
     "id": 104622,
     "ca": [
       0
@@ -12140,7 +12140,7 @@
       40,
       51
     ],
-    "pa": 1579,
+    "pa": 1576,
     "pr": 0
   },
   {
@@ -17429,6 +17429,17 @@
       59
     ],
     "pa": 0,
+    "pr": 0
+  },
+  {
+    "ti": "Stickerbogen SBB CFF FFS EuroCity Schweiz",
+    "id": 401300,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
     "pr": 0
   },
   {
