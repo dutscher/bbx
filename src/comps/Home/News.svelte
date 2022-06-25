@@ -50,19 +50,19 @@
 <style lang="scss">
   .iframe--podcast {
     width: 100%;
-    height: 450rem;
+    height: 450rem !important;
 
     @media (min-width: 470px) {
-      height: 380rem;
+      height: 380rem !important;
     }
     @media (min-width: 720px) {
-      height: 240rem;
+      height: 240rem !important;
     }
     @media (min-width: 1024px) {
-      height: 360rem;
+      height: 360rem !important;
     }
     @media (min-width: 1060px) {
-      height: 240rem;
+      height: 240rem !important;
     }
   }
 
@@ -71,8 +71,9 @@
 
     iframe {
       width: 100%;
+
       @media (min-width: 470px) {
-        height: 380rem;
+        height: 380rem !important;
       }
     }
   }
