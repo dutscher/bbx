@@ -13,6 +13,9 @@ import url from '@rollup/plugin-url';
 import { svelteSVG } from 'rollup-plugin-svelte-svg';
 import replace from '@rollup/plugin-replace';
 import { markdown } from 'svelte-preprocess-markdown';
+// import partsJSON from '../data/parts.json' assert { type: 'json' };
+import { importAssertionsPlugin } from 'rollup-plugin-import-assert';
+import { importAssertions } from 'acorn-import-assertions';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -46,7 +49,9 @@ export default {
     file: 'public/build/bundle.js',
   },
   external: ['react'],
+  acornInjectPlugins: [importAssertions],
   plugins: [
+    importAssertionsPlugin(),
     url({ destDir: 'public' }),
     json({
       // All JSON files will be parsed by default,

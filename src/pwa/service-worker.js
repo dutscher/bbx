@@ -1,5 +1,5 @@
 const pre = '[ServiceWorker]';
-const debug = 'notification'.split(','); // message,install,activate,caching,push
+const debug = '*'.split(','); // message,install,activate,caching,push,notification
 // store svelte data
 const store = {};
 // Update cache names any time any of the cached files change.
@@ -8,7 +8,7 @@ const CACHE_NAME = 'cacheBuster-v2';
 const CACHE_NAME_STATIC = 'noCacheBuster-v2';
 
 const log = (...args) => {
-  if (debug.some(loggy => args[0].toLowerCase().includes(loggy))) {
+  if (debug.some(loggy => args[0].toLowerCase().includes(loggy)) || debug.includes('*')) {
     console.log(pre, ...args);
   }
 };

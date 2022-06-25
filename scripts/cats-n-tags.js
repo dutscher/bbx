@@ -1,6 +1,6 @@
 import { products, convertToReduce } from '../data/all-products.reducer.js';
-import tagsJSON from '../data/tags.json';
-import partsJSON from '../data/parts.json';
+import tagsJSON from '../data/tags.json' assert { type: 'json' };
+import partsJSON from '../data/parts.json' assert { type: 'json' };
 import { handleCache, getTags, sortTags } from './src/utils.js';
 import { IDs, specialsIDs } from './src/interfaces.js';
 

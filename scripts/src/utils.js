@@ -3,10 +3,10 @@ import chalk from 'chalk';
 import sanitizeHtml from 'sanitize-html';
 import fetch from 'node-fetch';
 import fs from 'fs-extra';
-import tags from '../../data/tags.json';
-import partTags from '../../data/parts.json';
-import categories from '../../data/categories.json';
-import movienamesJSON from '../../data/movie-names.json';
+import tags from '../../data/tags.json' assert { type: 'json' };
+import partTags from '../../data/parts.json' assert { type: 'json' };
+import categories from '../../data/categories.json' assert { type: 'json' };
+import movienamesJSON from '../../data/movie-names.json' assert { type: 'json' };
 import { IDs } from './interfaces.js';
 
 export const graphql = async query => {

@@ -3,7 +3,7 @@ import { handleCache, printTime } from './src/utils.js';
 import { fetchChanges, cleanUpHistoryChanges } from './src/api-changes.js';
 import { parsePages, parsePagesNParts } from './src/parse-page.js';
 import { products, convertToReduce } from '../data/all-products.reducer.js';
-import allProductHistory from '../data/all-products-history.json';
+import allProductHistory from '../data/all-products-history.json' assert { type: 'json' };
 const params = process.argv;
 
 // self parsed

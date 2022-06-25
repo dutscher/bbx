@@ -1,5 +1,5 @@
-import bricklinkColors from '../../data/bricklink-hex.json';
-import partNrs from '../../data/parts/nr.json';
+import bricklinkColors from '../../data/bricklink-hex.json' assert { type: 'json' };
+import partNrs from '../../data/parts/nr.json' assert { type: 'json' };
 import { mergeTags } from './clean-utils.js';
 
 export const partNrDivider = 'Nr.: ';

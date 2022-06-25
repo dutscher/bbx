@@ -229,6 +229,7 @@
     "Limb",
     "Leaf",
     "Bamboo",
+    "Blühender Bonsai",
     [
       "Ausstellungsstück",
       "Ausstellungsstueck",
@@ -290,7 +291,8 @@
     "Petersdom",
     "Akropolis",
     "Markusplatz",
-    "Pisa"
+    "Pisa",
+    "Kolosseum"
   ],
   [
     "Film Modelle",
@@ -474,7 +476,8 @@
     "ships",
     "Gorch Forck",
     "Galeone",
-    "Brigantine"
+    "Brigantine",
+    "Santa Maria"
   ],
   [
     "Sonstiges",
@@ -531,5 +534,6 @@
   [
     "Helme",
     "Helm"
-  ]
+  ],
+  "Frankfurter Römer Hausfassade"
 ]

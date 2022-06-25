@@ -1,10 +1,10 @@
 import { graphql, handleCache, debug } from './utils.js';
 import chalk from 'chalk';
 import { getHRDate, cleanUpHistoryChanges as utilCleanUpHistoryChanges } from './clean-utils.js';
-import allProductHistory from '../../data/all-products-history.json';
-import states from '../../data/states.json';
+import allProductHistory from '../../data/all-products-history.json' assert { type: 'json' };
+import states from '../../data/states.json' assert { type: 'json' };
 import { isBluebrixxProduct, updateProductData } from './interfaces.js';
-import lastCursors from '../../data/api-changes.last-cursors.json';
+import lastCursors from '../../data/api-changes.last-cursors.json' assert { type: 'json' };
 
 // filled due graphql api
 let allTimeChanges = {};

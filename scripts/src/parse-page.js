@@ -16,8 +16,8 @@ import {
 } from './utils.js';
 import { mergeTags, pad, cleanUpHistoryChanges } from './clean-utils.js';
 import { ignoreProductsOnUrl, includedProducts, updateProductData } from './interfaces.js';
-import states from '../../data/states.json';
-import globalData from '../../data/data.json';
+import states from '../../data/states.json' assert { type: 'json' };
+import globalData from '../../data/data.json' assert { type: 'json' };
 const { parseCategories, parsePartPacks } = globalData;
 
 const bbUrl = 'https://www.bluebrixx.com';

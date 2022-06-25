@@ -2,8 +2,8 @@ import { products, convertToReduce } from '../../data/all-products.reducer.js';
 import { handleCache, sortTags } from './utils.js';
 import { IDs, ID_STATE_ANNOUNCEMENT } from './interfaces.js';
 import { getDateTime } from './clean-utils.js';
-import allHistory from '../../data/all-products-history.json';
-import allHistoryBackup from '../../data/api/all-products-history.backup.with.lost.history.json';
+import allHistory from '../../data/all-products-history.json' assert { type: 'json' };
+import allHistoryBackup from '../../data/api/all-products-history.backup.with.lost.history.json' assert { type: 'json' };
 
 export const convertProducts = async () => {
   let changes = [];
