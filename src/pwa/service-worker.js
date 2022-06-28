@@ -1,5 +1,5 @@
 const pre = '[ServiceWorker]';
-const debug = '*'.split(','); // message,install,activate,caching,push,notification
+const debug = '-'.split(','); // message,install,activate,caching,push,notification
 // store svelte data
 const store = {};
 // Update cache names any time any of the cached files change.
