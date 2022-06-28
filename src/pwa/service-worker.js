@@ -84,11 +84,17 @@ self.addEventListener('fetch', e => {
   log('fetch', CACHE_NAME);
   e.respondWith(
     (async () => {
+      // get pages with queryparam for offline mode
+      if (e.request.startsWith('?')) {
+        e.request = 'index.html';
+      }
+      // fetch from cache
       const r = await caches.match(e.request);
       log(`fetch ,Fetching resource: ${e.request.url}`);
       if (r) {
         return r;
       }
+      // fetch from server and cache
       const response = await fetch(e.request);
       if (!IGNORE_REQUESTS.some(request => e.request.url.includes(request))) {
         // e.request.url -> /build/bundle.js?cb=1648792884777 -> /build/bundle.js
