@@ -6,12 +6,16 @@
 
   export let product: any;
   export let noHearts: boolean = false;
+
   let className = '';
   export { className as class };
 
   let isOnline: boolean = false;
   let mediaState: any;
   let globalData: any;
+  let onStart: boolean = false;
+  let onEndShowVideo: boolean = false;
+  let onEnd: boolean = false;
 
   internetConnection.subscribe(store => (isOnline = store.isOnline));
   storedProductMedia.subscribe(store => (mediaState = store));
@@ -73,6 +77,17 @@
         return store;
       });
     }
+
+    if (product.images) {
+      onStart = mediaState.imageIndex === 0;
+      onEnd = mediaState.imageIndex === product.images.length - 1;
+      onEndShowVideo = false;
+
+      if (onEnd && product.video && !mediaState.videoVisible) {
+        onEndShowVideo = true;
+        onEnd = false;
+      }
+    }
   }
 </script>
 
@@ -84,9 +99,12 @@
   {#if isOnline && product.images}
     {#if product.images.length > 1}
       <span on:click={goBack}>
-        <i class={ess(mediaState.imageIndex === 0 && 'disable')}>arrow_back_ios</i>
-        {#if !mediaState.videoVisible}
+        <i class={ess(onStart && 'disable')}>arrow_back_ios</i>
+        {#if !onStart && !mediaState.videoVisible}
           <div class="tooltip bottom small-margin">Vorheriges Bild</div>
+        {/if}
+        {#if mediaState.videoVisible}
+          <div class="tooltip bottom small-margin">Schließe Video</div>
         {/if}
       </span>
 
@@ -101,18 +119,19 @@
       <span on:click={showVideo} class="video">
         <i class={ess(mediaState.videoVisible && 'active')}>{mediaState.videoVisible ? 'cancel' : 'play_circle'}</i>
         <div class="tooltip bottom small-margin">
-          Youtube Video {mediaState.videoVisible ? 'schließen' : 'öffnen'}
+          Video {mediaState.videoVisible ? 'schließen' : 'öffnen'}
         </div>
       </span>
     {/if}
 
     {#if product.images.length > 1}
       <span on:click={goFurther}>
-        <i class={ess((mediaState.imageIndex === product.images.length || mediaState.videoVisible) && 'disable')}>
-          arrow_forward_ios
-        </i>
-        {#if !mediaState.videoVisible}
+        <i class={ess(onEnd && 'disable')}>arrow_forward_ios</i>
+        {#if !onEnd && !onEndShowVideo}
           <div class="tooltip bottom small-margin">Nächstes Bild</div>
+        {/if}
+        {#if onEndShowVideo}
+          <div class="tooltip bottom small-margin">Öffne Video</div>
         {/if}
       </span>
     {/if}
