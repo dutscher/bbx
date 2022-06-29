@@ -85,7 +85,7 @@ self.addEventListener('fetch', e => {
   e.respondWith(
     (async () => {
       // get pages with queryparam for offline mode
-      if (e.request.startsWith('?')) {
+      if (e.request && e.request.startsWith('?')) {
         e.request = 'index.html';
       }
       // fetch from cache
