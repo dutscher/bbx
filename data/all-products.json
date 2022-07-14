@@ -10560,7 +10560,7 @@
       14
     ],
     "pa": 496,
-    "pr": 0,
+    "pr": 29.95,
     "ie": 0
   },
   {
@@ -10575,7 +10575,7 @@
       14
     ],
     "pa": 542,
-    "pr": 0,
+    "pr": 32.95,
     "ie": 0
   },
   {
@@ -10591,11 +10591,11 @@
       14
     ],
     "pa": 2206,
-    "pr": 0,
+    "pr": 99.95,
     "ie": 0
   },
   {
-    "ti": "moderne Lokhalle",
+    "ti": "Moderne Lokhalle",
     "id": 104775,
     "ca": [
       0
@@ -10652,7 +10652,7 @@
       52
     ],
     "pa": 176,
-    "pr": 0,
+    "pr": 11.95,
     "ie": 0
   },
   {
@@ -10668,7 +10668,7 @@
       52
     ],
     "pa": 286,
-    "pr": 0,
+    "pr": 15.95,
     "ie": 0
   },
   {
@@ -10729,7 +10729,7 @@
       52
     ],
     "pa": 287,
-    "pr": 0,
+    "pr": 15.95,
     "ie": 0
   },
   {
@@ -10744,7 +10744,7 @@
       52
     ],
     "pa": 295,
-    "pr": 0,
+    "pr": 15.95,
     "ie": 0
   },
   {
@@ -10774,7 +10774,7 @@
       52
     ],
     "pa": 344,
-    "pr": 0,
+    "pr": 15.95,
     "ie": 0
   },
   {
@@ -10789,7 +10789,7 @@
       52
     ],
     "pa": 157,
-    "pr": 0,
+    "pr": 9.95,
     "ie": 0
   },
   {
@@ -10804,7 +10804,7 @@
       52
     ],
     "pa": 189,
-    "pr": 0,
+    "pr": 11.95,
     "ie": 0
   },
   {
@@ -10819,7 +10819,7 @@
       52
     ],
     "pa": 142,
-    "pr": 0,
+    "pr": 8.95,
     "ie": 0
   },
   {
@@ -10834,7 +10834,7 @@
       52
     ],
     "pa": 145,
-    "pr": 0,
+    "pr": 9.95,
     "ie": 0
   },
   {
@@ -10868,7 +10868,7 @@
     "ie": 0
   },
   {
-    "ti": "gelber Rettungshubschrauber",
+    "ti": "Gelber Rettungshubschrauber",
     "id": 104847,
     "ca": [
       0
@@ -10877,7 +10877,7 @@
       0,
       56
     ],
-    "pa": 262,
+    "pa": 278,
     "pr": 0,
     "ie": 0
   },
@@ -10971,7 +10971,7 @@
       56
     ],
     "pa": 619,
-    "pr": 0,
+    "pr": 29.95,
     "ie": 0
   },
   {
@@ -11030,7 +11030,7 @@
       56,
       57
     ],
-    "pa": 1548,
+    "pa": 1549,
     "pr": 0,
     "ie": 0
   },
@@ -11165,7 +11165,7 @@
       13,
       47
     ],
-    "pa": 1031,
+    "pa": 1026,
     "pr": 0,
     "ie": 0
   },
@@ -11260,7 +11260,7 @@
       54,
       56
     ],
-    "pa": 1568,
+    "pa": 1430,
     "pr": 0,
     "ie": 0
   },
@@ -11456,8 +11456,8 @@
       14,
       47
     ],
-    "pa": 513,
-    "pr": 0,
+    "pa": 511,
+    "pr": 24.95,
     "ie": 0
   },
   {
@@ -11563,7 +11563,7 @@
       8,
       13
     ],
-    "pa": 723,
+    "pa": 750,
     "pr": 0,
     "ie": 0
   },
@@ -11782,7 +11782,7 @@
     "pr": 0
   },
   {
-    "ti": "Quantum Colony: HD-500 \"Juggernaut\"",
+    "ti": "Quantum Colony: Schwerlast Transporter \"Juggernaut\"",
     "id": 105174,
     "ca": [
       0
@@ -11795,7 +11795,7 @@
     "pr": 0
   },
   {
-    "ti": "Quantum Colony: FT-01 \"Hauler\"",
+    "ti": "Quantum Colony: Sattelschlepper \"Hauler\"",
     "id": 105175,
     "ca": [
       0
@@ -11808,7 +11808,7 @@
     "pr": 0
   },
   {
-    "ti": "Quantum Colony: MPU-604 \"Quasar\"",
+    "ti": "Quantum Colony: Mobile Energieversorgungseinheit \"Quasar\"",
     "id": 105176,
     "ca": [
       0
@@ -11843,7 +11843,7 @@
       0,
       7
     ],
-    "pa": 2065,
+    "pa": 2577,
     "pr": 0
   },
   {
@@ -12199,7 +12199,7 @@
       0,
       56
     ],
-    "pa": 554,
+    "pa": 556,
     "pr": 0
   },
   {
@@ -12257,6 +12257,114 @@
       27
     ],
     "pa": 3412,
+    "pr": 0
+  },
+  {
+    "ti": "Zukunftspolizei: Flugauto",
+    "id": 105505,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1033,
+    "pr": 0
+  },
+  {
+    "ti": "Burg Bärenfels: Grundburg",
+    "id": 105506,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1446,
+    "pr": 0
+  },
+  {
+    "ti": "Gepäckwagon in dunkelgrün",
+    "id": 105507,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 339,
+    "pr": 0
+  },
+  {
+    "ti": "Gleiswaage mit Lademass",
+    "id": 105508,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 429,
+    "pr": 0
+  },
+  {
+    "ti": "Mediterane Stadtvilla",
+    "id": 105523,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 6517,
+    "pr": 0
+  },
+  {
+    "ti": "Dschungel Expedition: Expeditionsbus",
+    "id": 105533,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 3302,
+    "pr": 0
+  },
+  {
+    "ti": "Dschungel Expedition: Dreier-Set Geländewagen",
+    "id": 105534,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 983,
+    "pr": 0
+  },
+  {
+    "ti": "Quantum Colony: Container Shuttle \"Vulture\"",
+    "id": 105543,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1532,
+    "pr": 0
+  },
+  {
+    "ti": "Lokomotive V60 (8w)",
+    "id": 105544,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 607,
     "pr": 0
   },
   {
@@ -47445,7 +47553,7 @@
     ],
     "pn": "24135",
     "pa": 200,
-    "pr": 0,
+    "pr": 4.95,
     "ie": 0
   },
   {
@@ -117039,6 +117147,906 @@
     "pr": 4.95
   },
   {
+    "ti": "BRICK 1X2X3 X 10, Reddish Brown",
+    "id": 609621,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 10,
+    "pr": 4.95
+  },
+  {
+    "ti": "BRICK 1X12 X 10, Dark Red",
+    "id": 609624,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 10,
+    "pr": 4.95
+  },
+  {
+    "ti": "BOW UPPER PART 2X8X2 Ø4.85 X 10, Trans-Clear",
+    "id": 609625,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 10,
+    "pr": 4.95
+  },
+  {
+    "ti": "BRICK W. BOW 1X1X2 X 50, Trans-Clear",
+    "id": 609626,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 50,
+    "pr": 4.95
+  },
+  {
+    "ti": "Modified 1 x 3 with 2 Studs (Double Jumper) X 100, Trans-Clear",
+    "id": 609627,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 4.95
+  },
+  {
+    "ti": "GLOBE W. 3.2 STICK X 200, Light Bluish Gray",
+    "id": 609628,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 200,
+    "pr": 5.95
+  },
+  {
+    "ti": "Brick, Modified 1 x 1 x 1 2/3 with Studs on 1 Side X 100, Trans-Clear",
+    "id": 609629,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 5.95
+  },
+  {
+    "ti": "Brick, Modified 1 x 1 x 1 2/3 with Studs on 1 Side X 100, Dark Red",
+    "id": 609630,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 5.95
+  },
+  {
+    "ti": "1/4 CIRCLE TILE 1X1 X 200, Pearl Dark Gray",
+    "id": 609631,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 200,
+    "pr": 4.95
+  },
+  {
+    "ti": "GLASS FOR FRAME 1X2X2 X 100, Dark Red",
+    "id": 609632,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 4.95
+  },
+  {
+    "ti": "WALL DOUBLE CORNER 1X2X1 X 100, Flat Silver",
+    "id": 609634,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 5.95
+  },
+  {
+    "ti": "WALL ELEMENT 1X2X1 X 100, Flat Silver",
+    "id": 609635,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 4.95
+  },
+  {
+    "ti": "BRICK 1X4 X 25, Flat Silver",
+    "id": 609636,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 25,
+    "pr": 4.95
+  },
+  {
+    "ti": "FACET BRICK 3X3X1 X 25, Reddish Brown",
+    "id": 609638,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 25,
+    "pr": 4.95
+  },
+  {
+    "ti": "BRICK W. INSIDE BOW 1X6X2 X 20, Dark Bluish Gray",
+    "id": 609641,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 20,
+    "pr": 5.95
+  },
+  {
+    "ti": "Horn w. shaft ø 3.2 X 200, Dark Bluish Gray",
+    "id": 609642,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 200,
+    "pr": 4.95
+  },
+  {
+    "ti": "SKELETON ARM NO. 4 X 200, Reddish Brown",
+    "id": 609643,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 200,
+    "pr": 4.95
+  },
+  {
+    "ti": "LATTICE PLATE 1X4X3 X 50, Reddish Brown",
+    "id": 609644,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 50,
+    "pr": 6.95
+  },
+  {
+    "ti": "Wedge, Plate 2 x 2 Cut Corner X 100, Dark Brown",
+    "id": 609645,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 5.95
+  },
+  {
+    "ti": "BRICK 1X6 W/INSIDE BOW X 25, Dark Tan",
+    "id": 609646,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 25,
+    "pr": 4.95
+  },
+  {
+    "ti": "CORNER PLATE 45 DEG. 8X8 X 10, White",
+    "id": 609649,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 10,
+    "pr": 5.95
+  },
+  {
+    "ti": "WALL DOUBLE CORNER 1X2X1 X 100, Reddish Brown",
+    "id": 609651,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 5.95
+  },
+  {
+    "ti": "PLATE 2X14 X 10, Dark Brown",
+    "id": 609652,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 10,
+    "pr": 4.95
+  },
+  {
+    "ti": "FENCE 4X4X2 X 25, Reddish Brown",
+    "id": 609654,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 25,
+    "pr": 4.95
+  },
+  {
+    "ti": "PLADE 1X1 M. 1 LOD. TAND X 100, Bright Light Orange",
+    "id": 609656,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 4.95
+  },
+  {
+    "ti": "PLADE 1X1 M. 1 LOD. TAND X 100, Dark Red",
+    "id": 609657,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 4.95
+  },
+  {
+    "ti": "PLADE 1X1 M. 1 LOD. TAND X 100, Dark Blue",
+    "id": 609658,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 4.95
+  },
+  {
+    "ti": "Brick with bow 1x4 X 50, Bright Light Orange",
+    "id": 609660,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 50,
+    "pr": 4.95
+  },
+  {
+    "ti": "PLATE W/ HALF BOW INV. 1X2X2/3 X 100, Bright Light Orange",
+    "id": 609661,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 4.95
+  },
+  {
+    "ti": "PLATE W/ HALF BOW INV. 1X2X2/3 X 100, Dark Red",
+    "id": 609662,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 4.95
+  },
+  {
+    "ti": "BRICK W/BOW 1/3 X 50, Bright Light Orange",
+    "id": 609663,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 50,
+    "pr": 4.95
+  },
+  {
+    "ti": "PLATE 6X6 ROUND WITH TUBE SNAP X 15, Blue",
+    "id": 609664,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 15,
+    "pr": 5.95
+  },
+  {
+    "ti": "Ø3.2 HOLDER W. CLAW X 100, Dark Bluish Gray",
+    "id": 609665,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 4.95
+  },
+  {
+    "ti": "PLATE 1X2 BALL Ø5.9/CUP/FRICTION X 100, White",
+    "id": 609666,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 5.95
+  },
+  {
+    "ti": "PLATE 1X1 ROUND with BALL X 200, Black",
+    "id": 609667,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 200,
+    "pr": 5.95
+  },
+  {
+    "ti": "SPACE SKELETON ARM X 200, Reddish Brown",
+    "id": 609668,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 200,
+    "pr": 4.95
+  },
+  {
+    "ti": "PLATE 4X6X2/3 X 15, Dark Red",
+    "id": 609674,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 15,
+    "pr": 5.95
+  },
+  {
+    "ti": "BRACELET UPPER PART X 200, Blue",
+    "id": 609675,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 200,
+    "pr": 4.95
+  },
+  {
+    "ti": "BRICK 1X4X1 INV. BOW X 50, Dark Bluish Gray",
+    "id": 609676,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 50,
+    "pr": 4.95
+  },
+  {
+    "ti": "FLAT TILE 1X4 W/STUBS VERTICAL X 100, Dark Bluish Gray",
+    "id": 609677,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 5.95
+  },
+  {
+    "ti": "CROSS HOLES W/ DOUBLE Ø 3.2 SHAFT HOLE X 100, Light Bluish Gray",
+    "id": 609678,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 4.95
+  },
+  {
+    "ti": "FLAT TILE 2X2 INV. X 100, Dark Blue",
+    "id": 609679,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 5.95
+  },
+  {
+    "ti": "TECHNIC ROTOR, 2 BLADES X 50, Dark Blue",
+    "id": 609680,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 50,
+    "pr": 4.95
+  },
+  {
+    "ti": "GOLD INGOT X 200, Dark Blue",
+    "id": 609681,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 200,
+    "pr": 5.95
+  },
+  {
+    "ti": "BRICK 1X1X5 X 20, Flat Silver",
+    "id": 609682,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 20,
+    "pr": 5.95
+  },
+  {
+    "ti": "PLATE 1X10 X 25, Flat Silver",
+    "id": 609683,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 25,
+    "pr": 4.95
+  },
+  {
+    "ti": "PLATE 1X1 W/3.2 SHAFT/1.5 HOLE X 200, Trans-Clear",
+    "id": 609684,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 200,
+    "pr": 4.95
+  },
+  {
+    "ti": "BRICK W. ARCH 1X1X3 1/3 X 25, Trans-Clear",
+    "id": 609685,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 25,
+    "pr": 4.95
+  },
+  {
+    "ti": "FLAT TILE 1X6 X 50, Trans-Clear",
+    "id": 609686,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 50,
+    "pr": 4.95
+  },
+  {
+    "ti": "PLATE 3X3, 1/4 CIRCLE X 50, Sand Green",
+    "id": 609687,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 50,
+    "pr": 6.95
+  },
+  {
+    "ti": "PLATE 1X6 X 50, Trans-Black",
+    "id": 609688,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 50,
+    "pr": 6.95
+  },
+  {
+    "ti": "BRICK 1X6 W/BOW, REV. X 25, Dark Blue",
+    "id": 609689,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 25,
+    "pr": 4.95
+  },
+  {
+    "ti": "RIGHT SHELL 2X6W/BOW/ANGLE,INV X 20, Dark Blue",
+    "id": 609690,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 20,
+    "pr": 5.95
+  },
+  {
+    "ti": "ROOF TILE CORN. INVERT.2X2/45° X 50, Dark Blue",
+    "id": 609692,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 50,
+    "pr": 6.95
+  },
+  {
+    "ti": "LAMP HOLDER X 100, Dark Blue",
+    "id": 609693,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 4.95
+  },
+  {
+    "ti": "RIGHT PLATE 3X6 W. ANGLE X 25, Dark Blue",
+    "id": 609694,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 25,
+    "pr": 4.95
+  },
+  {
+    "ti": "LEFT PLATE 3X6 W ANGLE X 25, Dark Blue",
+    "id": 609695,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 25,
+    "pr": 4.95
+  },
+  {
+    "ti": "CORNER PLATE 45 DEG. 3X3 X 50, Dark Blue",
+    "id": 609696,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 50,
+    "pr": 4.95
+  },
+  {
+    "ti": "ROOF TILE 2X3/25° INV. X 25, Dark Blue",
+    "id": 609697,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 25,
+    "pr": 4.95
+  },
+  {
+    "ti": "PLATE 1X2 W/HOLDER, VERTICAL X 100, Tan",
+    "id": 609698,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 4.95
+  },
+  {
+    "ti": "PLATE 1X2 W. STICK X 100, Dark Blue",
+    "id": 609699,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 5.95
+  },
+  {
+    "ti": "RIGHT BRICK 2X4 W/ANGLE X 25, White",
+    "id": 609702,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 25,
+    "pr": 4.95
+  },
+  {
+    "ti": "LEFT BRICK 2X4 W/ANGLE X 25, White",
+    "id": 609703,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 25,
+    "pr": 4.95
+  },
+  {
+    "ti": "Tile 2 x 2 with 2 Studs X 100, Trans-Black",
+    "id": 609704,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 5.95
+  },
+  {
+    "ti": "PLATE 1X2 W. STICK 3.18 X 100, Trans-Black",
+    "id": 609705,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 5.95
+  },
+  {
+    "ti": "DUSTBIN X 50, Dark Bluish Gray",
+    "id": 609707,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 50,
+    "pr": 6.95
+  },
+  {
+    "ti": "GLASS DOOR FOR FRAME 1X4X6 X 20, White",
+    "id": 609708,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 20,
+    "pr": 5.95
+  },
+  {
+    "ti": "Brick, Modified 1 x 1 x 2/3 No Studs, Curved Top X 200, White",
+    "id": 609709,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 200,
+    "pr": 5.95
+  },
+  {
+    "ti": "GRASS W/ TUBE& Ø 3.2 X 100, Bright Green",
+    "id": 609710,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 4.95
+  },
+  {
+    "ti": "BRICK 2X10 X 10, White",
+    "id": 609711,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 10,
+    "pr": 5.95
+  },
+  {
+    "ti": "BEVEL GEAR Z20 X 100, Black",
+    "id": 609713,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 5.95
+  },
+  {
+    "ti": "BOW 1/4 4X4X1 X 25, Black",
+    "id": 609714,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 25,
+    "pr": 4.95
+  },
+  {
+    "ti": "CORNER PLATE 1X2X2 X 100, Medium Azure",
+    "id": 609715,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 100,
+    "pr": 5.95
+  },
+  {
+    "ti": "LEFT PLATE 3X8 W/ANGLE X 20, Dark Blue",
+    "id": 609716,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 20,
+    "pr": 5.95
+  },
+  {
+    "ti": "CORNER PLATE 45 DEG. 4X4 X 25, Dark Red",
+    "id": 609717,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 25,
+    "pr": 4.95
+  },
+  {
     "ti": "Hose, Rigid 3mm D. 625.0L / 500.0cm X 50, Trans-Clear",
     "id": 609806,
     "ca": [
@@ -117052,6 +118060,18 @@
     ],
     "pn": "75c10",
     "pa": 0,
+    "pr": 4.95
+  },
+  {
+    "ti": "BRICK W/BOW 1/3 X 50, Trans-Light Blue",
+    "id": 609828,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 50,
     "pr": 4.95
   },
   {
@@ -120956,7 +121976,7 @@
     ],
     "pn": "15092",
     "pa": 20,
-    "pr": 0
+    "pr": 6.95
   },
   {
     "ti": "PLATE 2X2 INVERTED W. SNAP, 20 Stück, Chrome Silver",
@@ -122429,7 +123449,7 @@
     ],
     "pn": "4595",
     "pa": 20,
-    "pr": 0
+    "pr": 4.95
   },
   {
     "ti": "MOTOR 2X2X1 1/3, 20 Stück, Chrome Silver",
@@ -124635,7 +125655,7 @@
     ],
     "pn": "4349",
     "pa": 20,
-    "pr": 0
+    "pr": 4.95
   },
   {
     "ti": "MINI HANDLE, 20 Stück, Chrome Silver",
@@ -125306,7 +126326,7 @@
     ],
     "pn": "59230",
     "pa": 20,
-    "pr": 0
+    "pr": 4.95
   },
   {
     "ti": "SPACE SKELETON ARM, 20 Stück, Chrome Silver",
