@@ -13,10 +13,7 @@
     storedActiveSelection,
     storedActiveProduct,
   } from '@stores';
-  import { ID_MANHATTAN, ID_NETHERLAND, ID_BURG_BLAUSTEIN } from '@interfaces';
-  import Manhattan from '../Specials/Manhattan.svelte';
-  import Netherland from '../Specials/Netherland.svelte';
-  import Blaustein from '../Specials/Blaustein.svelte';
+  import Specials from '../Specials/Specials.svelte';
   import Product from './Product.svelte';
   import { handleProductSort } from './sorting';
   import ProductFilter from './ProductFilter.svelte';
@@ -224,18 +221,7 @@
 
 <ProductFilter {filteredProducts} />
 
-{#if activeTagIds.includes(ID_MANHATTAN) && activeTagIds.length === 1}
-  <br />
-  <Manhattan />
-{/if}
-{#if activeTagIds.includes(ID_NETHERLAND) && activeTagIds.length === 1}
-  <br />
-  <Netherland />
-{/if}
-{#if activeTagIds.includes(ID_BURG_BLAUSTEIN) && activeTagIds.length === 1}
-  <br />
-  <Blaustein />
-{/if}
+<Specials />
 
 <nav class="wrap small-margin no-h-margin">
   {#if extraFilter.parts.count > 0}

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { internetConnection, storedProductMedia } from '@stores';
-  import { onMount, stopClick } from '@utils';
+  import { onMount, onDestroy, stopClick } from '@utils';
   import beerui from '@beerui';
   import ProductMediaNavigation from './ProductMediaNavigation.svelte';
   import ProductVideo from './ProductVideo.svelte';
@@ -24,7 +24,6 @@
   };
 
   const onImageError = e => {
-    console.log(e);
     storedProductMedia.update(store => {
       store.imageLoaded = true;
       store.reason = 'image-error';
@@ -45,6 +44,14 @@
     setTimeout(() => {
       beerui();
     }, 50);
+  });
+
+  onDestroy(() => {
+    storedProductMedia.update(store => {
+      store.imageLoaded = false;
+      store.reason = 'destroy-stage';
+      return store;
+    });
   });
 </script>
 

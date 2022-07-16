@@ -1,9 +1,8 @@
 next todos:
-* tooltip mobile open blocks below products
+* designer overview
 * checkbox sorter refactoren
 * filter color active
   * url params
-* ssh install node on server
 * notifications
 * live api changes
   * tags use cats-n-tags script!
@@ -14,7 +13,6 @@ next todos:
 * cypress tests
 * warenkorb noise ausblenden
 * history back not going
-* designer overview
 * partlist
 * merkliste passwort schützen
   

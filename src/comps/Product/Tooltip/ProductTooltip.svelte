@@ -43,7 +43,7 @@
     const rightEdgeWithSpace = rightEdge + spaceing * 2;
     let maxLeft;
 
-    if (width + 120 >= innerWidth) {
+    if (width + 200 >= innerWidth) {
       isMobile = true;
       wrapWidth = innerWidth - spaceing;
       maxLeft = Math.round(leftEdge - spaceing / 2);
@@ -118,7 +118,7 @@
 
 <div
   class={ess('product-tooltip absolute', showTooltip && 'open')}
-  style="{isMobile ? 'width:' + wrapWidth + 'rem; ' : ''}left:{leftAdjust}"
+  style="{showTooltip && isMobile ? 'width:' + wrapWidth + 'rem;' : ''}{leftAdjust ? 'left:' + leftAdjust : ''}"
 >
   {#if showTooltip}
     <article class="no-padding border round" bind:this={wrapElement}>
@@ -209,11 +209,15 @@
   .product-tooltip {
     cursor: default;
     white-space: nowrap;
-    padding-bottom: 86rem;
     z-index: 2;
+
+    &.open {
+      padding-bottom: 86rem;
+    }
 
     .link {
       user-select: none;
+
       i {
         color: var(--primary);
       }
@@ -230,6 +234,7 @@
     [data-divider] {
       margin-right: 8rem;
     }
+
     // break headline which is longer as tooltip
     &__title {
       white-space: normal;

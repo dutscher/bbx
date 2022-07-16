@@ -6,9 +6,10 @@ import {
   ID_STATE_UNAVAILABLE,
 } from '@interfaces';
 // reexport
-import { onMount as svelteOnMount } from 'svelte';
+import { onMount as svelteOnMount, onDestroy as svelteOnDestory } from 'svelte';
 
 export const onMount = svelteOnMount;
+export const onDestroy = svelteOnDestory;
 export { pad, isDST, getHRDate, getDateTime } from '../scripts/src/clean-utils.js';
 export { sites, convertOldParams, getUrlParam, getAllUrlParams, setUrlParams } from './url';
 

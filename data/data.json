@@ -296,6 +296,16 @@
       "/104919/niederl%C3%A4ndische-Hausfassade-Amstel-8"
     ]
   },
+  "frankfurt": {
+    "pieces": [
+      "https://www.bluebrixx.com/de/105322/Frankfurter-R%C3%B6mer-Hausfassade-1",
+      "https://www.bluebrixx.com/de/105323/Frankfurter-R%C3%B6mer-Hausfassade-2",
+      "https://www.bluebrixx.com/de/105281/Frankfurter-R%C3%B6mer-Hausfassade-3",
+      "https://www.bluebrixx.com/de/105282/Frankfurter-R%C3%B6mer-Hausfassade-4",
+      "https://www.bluebrixx.com/de/105283/Frankfurter-R%C3%B6mer-Hausfassade-5",
+      "https://www.bluebrixx.com/de/105284/Frankfurter-R%C3%B6mer-Hausfassade-6"
+    ]
+  },
   "manhattan": {
     "complete": "/103047/Manhattan-Suedspitze",
     "border": "/103046/Manhattan-Unit-18-Umrandung",
