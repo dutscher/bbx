@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { internetConnection, storedProductMedia } from '@stores';
-  import { onMount, onDestroy, stopClick } from '@utils';
+  import { internetConnection, storedActiveProduct, storedProductMedia } from '@stores';
+  import { onMount, stopClick } from '@utils';
   import beerui from '@beerui';
   import ProductMediaNavigation from './ProductMediaNavigation.svelte';
   import ProductVideo from './ProductVideo.svelte';
@@ -9,7 +9,6 @@
 
   let isOnline: boolean = false;
   let productMedia: any;
-
   let openModal: boolean = false;
 
   internetConnection.subscribe(store => (isOnline = store.isOnline));
@@ -44,14 +43,6 @@
     setTimeout(() => {
       beerui();
     }, 50);
-  });
-
-  onDestroy(() => {
-    storedProductMedia.update(store => {
-      store.imageLoaded = false;
-      store.reason = 'destroy-stage';
-      return store;
-    });
   });
 </script>
 
@@ -110,7 +101,7 @@
   }
 
   img,
-  // ProductVideo
+    // ProductVideo
   :global iframe {
     display: block;
     object-fit: contain;

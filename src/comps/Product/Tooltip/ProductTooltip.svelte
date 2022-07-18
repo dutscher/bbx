@@ -29,8 +29,6 @@
   let leftAdjust: string;
   let leftAdjustInt: number = 0;
 
-  let timer;
-
   storedStates.subscribe(store => (states = store));
   storedGlobalData.subscribe(store => (data = store));
   storedCategories.subscribe(store => (categories = store));

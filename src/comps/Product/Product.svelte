@@ -11,6 +11,10 @@
     STR_BURG_BLAUSTEIN,
     STR_STAR_TREK,
     UNLOADED,
+    ID_QUANTUM,
+    STR_QUANTUM,
+    ID_FRANKFURT,
+    STR_FRANKFURT,
   } from '@interfaces';
   import {
     storedGlobalData,
@@ -90,7 +94,9 @@
   const getTitle = product => {
     const isBurgBlaustein = activeTagsIds && activeTagsIds.includes(ID_BURG_BLAUSTEIN) && activeTagsIds.length === 1;
     const isNetherland = activeTagsIds && activeTagsIds.includes(ID_NETHERLAND) && activeTagsIds.length === 1;
+    const isFrankfurt = activeTagsIds && activeTagsIds.includes(ID_FRANKFURT) && activeTagsIds.length === 1;
     const isManhattan = activeTagsIds && activeTagsIds.includes(ID_MANHATTAN) && activeTagsIds.length === 1;
+    const isQuantum = activeTagsIds && activeTagsIds.includes(ID_QUANTUM) && activeTagsIds.length === 1;
     const isMovieFilterOnly = activeTagsIds && activeTagsIds.includes(ID_MOVIE) && activeTagsIds.length === 1;
     const isStarTrekFilterOnly = activeTagsIds && activeTagsIds.includes(ID_STAR_TREK) && activeTagsIds.length === 1;
     const isStarTrek = !!product.title && product.title.includes(STR_STAR_TREK);
@@ -104,8 +110,16 @@
       title = title.replace(STR_NETHERLAND + ' ', '');
     }
 
+    if (isFrankfurt) {
+      title = title.replace(STR_FRANKFURT + ' ', '');
+    }
+
     if (isManhattan) {
       title = title.replace(STR_MANHATTAN + ' ', '');
+    }
+
+    if (isQuantum) {
+      title = title.replace(STR_QUANTUM + ': ', '');
     }
 
     if (isStarTrek && (isMovieFilterOnly || isStarTrekFilterOnly)) {
@@ -154,7 +168,7 @@
 <ClickOutside on:clickoutside={onClickOutside}>
   <div class="product" data-state={handleStateName(product)}>
     <span class={ess('chip large round no-margin white-text', stateColor)} on:click={onClick}>
-      <span>
+      <span class="product__title">
         {#if isHeart && !type.startsWith('hearts')}
           <i class={stateColor === 'red' ? 'orange-text' : 'red-text'}>favorite</i>
         {/if}
@@ -181,17 +195,23 @@
     user-select: none;
     cursor: pointer;
 
+    &__title {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+    }
+
     i {
       overflow: inherit;
-      margin-right: 4rem;
     }
 
     .chip {
       flex-direction: column;
+      align-items: flex-start;
+      height: auto !important;
     }
 
     &__movie {
-      align-self: flex-end;
       display: block;
       font-size: 12rem;
       top: -3rem;
