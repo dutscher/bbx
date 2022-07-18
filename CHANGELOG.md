@@ -1,3 +1,9 @@
+* [18.07.2022]
+  * fix tooltip hide below producs
+  * add quantum colony special
+  * add frankfurt römer special
+  * add newest announced products with tags
+
 * [27.05.2022]
   * fix search focus
   * media navigation includes video
