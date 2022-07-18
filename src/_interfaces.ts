@@ -8,24 +8,22 @@
 export const AFF_LINK = ''; //'?aff=wrhjxrxb';
 // ID Stuff
 export const ID_MANHATTAN = 17;
-export const STR_MANHATTAN = 'Manhattan';
 export const ID_NETHERLAND = 57;
-export const STR_NETHERLAND = 'niederländische Hausfassade Amstel';
 export const ID_FRANKFURT = 62;
-export const STR_FRANKFURT = 'Frankfurter Römer Hausfassade';
 export const ID_BURG_BLAUSTEIN = 39;
+export const ID_QUANTUM_COLONY = 63;
 export const ID_STAR_TREK = 49;
 export const STR_STAR_TREK = 'Star Trek';
 
 export const SPECIALS_TAGS = [
   {
-    id: 17,
+    id: ID_MANHATTAN,
     title: 'Manhattan',
     data: 'manhattan',
     clearTitle: (productTitle, tagTitle) => productTitle.replace(tagTitle + ' ', ''),
   },
   {
-    id: 57,
+    id: ID_NETHERLAND,
     title: 'niederländische Hausfassade Amstel',
     data: 'netherland',
     clearTitle: (productTitle, tagTitle) => productTitle.replace(tagTitle + ' ', ''),
@@ -43,9 +41,9 @@ export const SPECIALS_TAGS = [
     clearTitle: (productTitle, tagTitle) => productTitle.replace(' für ' + tagTitle, ''),
   },
   {
-    id: 63,
+    id: ID_QUANTUM_COLONY,
     title: 'Quantum Colony',
-    data: null,
+    data: 'quantum-colony',
     clearTitle: (productTitle, tagTitle) => productTitle.replace(tagTitle + ': ', ''),
   },
   {

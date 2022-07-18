@@ -1,10 +1,18 @@
 <script lang="ts">
   import { storedActiveSelection } from '@stores';
-  import { ID_MANHATTAN, ID_NETHERLAND, ID_FRANKFURT, ID_BURG_BLAUSTEIN, SPECIALS_TAGS } from '@interfaces';
+  import {
+    ID_MANHATTAN,
+    ID_NETHERLAND,
+    ID_FRANKFURT,
+    ID_BURG_BLAUSTEIN,
+    ID_QUANTUM_COLONY,
+    SPECIALS_TAGS,
+  } from '@interfaces';
   import Manhattan from '../Specials/Manhattan.svelte';
   import Netherland from '../Specials/Netherland.svelte';
   import Frankfurt from '../Specials/Frankfurt.svelte';
   import Blaustein from '../Specials/Blaustein.svelte';
+  import QuantumColony from '../Specials/QuantumColony.svelte';
 
   let activeTagIds: any = [];
   storedActiveSelection.subscribe(store => {
@@ -27,4 +35,8 @@
 {#if activeTagIds.includes(ID_BURG_BLAUSTEIN) && activeTagIds.length === 1}
   <br />
   <Blaustein tag={SPECIALS_TAGS.find(tag => tag.id === ID_BURG_BLAUSTEIN)} />
+{/if}
+{#if activeTagIds.includes(ID_QUANTUM_COLONY) && activeTagIds.length === 1}
+  <br />
+  <QuantumColony tag={SPECIALS_TAGS.find(tag => tag.id === ID_QUANTUM_COLONY)} />
 {/if}

@@ -284,6 +284,18 @@
       "/105236/Hurde-Erweiterung-für-Burg-Blaustein"
     ]
   },
+  "quantum-colony": {
+    "pieces": [
+      "/105178/Quantum-Colony-Hangar",
+      "/105177/Quantum-Colony-Landeplattform",
+      "/105179/Quantum-Colony-Kontrollzentrum",
+      "/105175/Quantum-Colony-Sattelschlepper",
+      "/105176/Quantum-Colony-Mobile-Energieversorgungseinheit",
+      "/105174/Quantum-Colony-Schwerlast-Transporter",
+      "/105173/Quantum-Colony-Fliegerstaffel",
+      "/105543/Quantum-Colony-Container-Shuttle"
+    ]
+  },
   "netherland": {
     "pieces": [
       "/104904/niederl%C3%A4ndische-Hausfassade-Amstel-1",
@@ -298,12 +310,12 @@
   },
   "frankfurt": {
     "pieces": [
-      "https://www.bluebrixx.com/de/105322/Frankfurter-R%C3%B6mer-Hausfassade-1",
-      "https://www.bluebrixx.com/de/105323/Frankfurter-R%C3%B6mer-Hausfassade-2",
-      "https://www.bluebrixx.com/de/105281/Frankfurter-R%C3%B6mer-Hausfassade-3",
-      "https://www.bluebrixx.com/de/105282/Frankfurter-R%C3%B6mer-Hausfassade-4",
-      "https://www.bluebrixx.com/de/105283/Frankfurter-R%C3%B6mer-Hausfassade-5",
-      "https://www.bluebrixx.com/de/105284/Frankfurter-R%C3%B6mer-Hausfassade-6"
+      "/105322/Frankfurter-R%C3%B6mer-Hausfassade-1",
+      "/105323/Frankfurter-R%C3%B6mer-Hausfassade-2",
+      "/105281/Frankfurter-R%C3%B6mer-Hausfassade-3",
+      "/105282/Frankfurter-R%C3%B6mer-Hausfassade-4",
+      "/105283/Frankfurter-R%C3%B6mer-Hausfassade-5",
+      "/105284/Frankfurter-R%C3%B6mer-Hausfassade-6"
     ]
   },
   "manhattan": {
