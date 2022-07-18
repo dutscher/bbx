@@ -1,9 +1,8 @@
 <script lang="ts">
   import { storedProducts, storedGlobalData, storedActiveProduct } from '@stores';
-  import { STR_FRANKFURT } from '@interfaces';
   import { getEEProduct, getEEState, pad } from '@utils';
 
-  const type = STR_FRANKFURT;
+  export let tag;
   let products: any;
   let data: any;
   let innerWidth = 0;
@@ -15,7 +14,7 @@
   storedProducts.subscribe(store => (products = store));
   storedGlobalData.subscribe(store => (data = store));
   storedActiveProduct.subscribe(store => {
-    if (store.product && (store.product.type !== type || store.product.id === 0)) {
+    if (store.product && (store.product.type !== tag.title || store.product.id === 0)) {
       activeProductID = -1;
     }
   });
@@ -34,7 +33,7 @@
       return {
         id: product.id,
         nr: pad(i + 1),
-        title: product.title.replace(STR_FRANKFURT + ' ', ''),
+        title: tag.clearTitle(product.title, tag.title),
         state: getEEState(product),
       };
     });
@@ -56,7 +55,7 @@
 </script>
 
 <div>
-  <h2 bind:clientWidth={innerWidth}>{STR_FRANKFURT} - {allParts} Teile</h2>
+  <h2 bind:clientWidth={innerWidth}>{tag.title} - {allParts} Teile</h2>
   {#if innerWidth}
     <div class="pieces" style="zoom:{zoom};-moz-transform:scale({zoom});">
       <div class="pieces__wrap flex">

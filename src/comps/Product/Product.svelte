@@ -1,21 +1,6 @@
 <script lang="ts">
   import ClickOutside from 'svelte-click-outside';
-  import {
-    ID_BURG_BLAUSTEIN,
-    ID_MANHATTAN,
-    ID_MOVIE,
-    ID_NETHERLAND,
-    ID_STAR_TREK,
-    STR_MANHATTAN,
-    STR_NETHERLAND,
-    STR_BURG_BLAUSTEIN,
-    STR_STAR_TREK,
-    UNLOADED,
-    ID_QUANTUM,
-    STR_QUANTUM,
-    ID_FRANKFURT,
-    STR_FRANKFURT,
-  } from '@interfaces';
+  import { ID_MOVIE, ID_STAR_TREK, STR_STAR_TREK, UNLOADED, SPECIALS_TAGS } from '@interfaces';
   import {
     storedGlobalData,
     storedActiveSelection,
@@ -92,38 +77,21 @@
   };
 
   const getTitle = product => {
-    const isBurgBlaustein = activeTagsIds && activeTagsIds.includes(ID_BURG_BLAUSTEIN) && activeTagsIds.length === 1;
-    const isNetherland = activeTagsIds && activeTagsIds.includes(ID_NETHERLAND) && activeTagsIds.length === 1;
-    const isFrankfurt = activeTagsIds && activeTagsIds.includes(ID_FRANKFURT) && activeTagsIds.length === 1;
-    const isManhattan = activeTagsIds && activeTagsIds.includes(ID_MANHATTAN) && activeTagsIds.length === 1;
-    const isQuantum = activeTagsIds && activeTagsIds.includes(ID_QUANTUM) && activeTagsIds.length === 1;
     const isMovieFilterOnly = activeTagsIds && activeTagsIds.includes(ID_MOVIE) && activeTagsIds.length === 1;
     const isStarTrekFilterOnly = activeTagsIds && activeTagsIds.includes(ID_STAR_TREK) && activeTagsIds.length === 1;
     const isStarTrek = !!product.title && product.title.includes(STR_STAR_TREK);
+
     let title = product.title;
 
-    if (isBurgBlaustein) {
-      title = title.replace(' für ' + STR_BURG_BLAUSTEIN, '');
-    }
-
-    if (isNetherland) {
-      title = title.replace(STR_NETHERLAND + ' ', '');
-    }
-
-    if (isFrankfurt) {
-      title = title.replace(STR_FRANKFURT + ' ', '');
-    }
-
-    if (isManhattan) {
-      title = title.replace(STR_MANHATTAN + ' ', '');
-    }
-
-    if (isQuantum) {
-      title = title.replace(STR_QUANTUM + ': ', '');
-    }
+    // remove tag name from product title
+    SPECIALS_TAGS.map(tag => {
+      const isTagActive = activeTagsIds && activeTagsIds.includes(tag.id) && activeTagsIds.length === 1;
+      if (isTagActive) {
+        title = tag.clearTitle(title, tag.title);
+      }
+    });
 
     if (isStarTrek && (isMovieFilterOnly || isStarTrekFilterOnly)) {
-      title = title.replace(STR_STAR_TREK + ' ', '');
       product.movieData = STR_STAR_TREK;
     }
 

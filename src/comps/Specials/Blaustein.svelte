@@ -1,10 +1,8 @@
 <script lang="ts">
   import { storedProducts, storedGlobalData, storedActiveProduct } from '@stores';
-  import { STR_BURG_BLAUSTEIN } from '@interfaces';
   import { getEEProduct, getEEState, getStateAgo, handlePrice, pad } from '@utils';
-  import { product } from '../Product/Tooltip/ProductHistory.svelte';
 
-  const type = STR_BURG_BLAUSTEIN;
+  export let tag;
   let products: any;
   let data: any;
   let innerWidth = 0;
@@ -16,7 +14,7 @@
   storedProducts.subscribe(store => (products = store));
   storedGlobalData.subscribe(store => (data = store));
   storedActiveProduct.subscribe(store => {
-    if (store.product && (store.product.type !== type || store.product.id === 0)) {
+    if (store.product && (store.product.type !== tag.title || store.product.id === 0)) {
       activeProductID = -1;
     }
   });
@@ -27,7 +25,7 @@
     const maxWidth = innerWidth < imgWidth ? innerWidth : 750;
     zoom = maxWidth / (imgWidth + 64);
 
-    pieces = data.blaustein.pieces.map((piece, i) => {
+    pieces = data[tag.data].pieces.map((piece, i) => {
       const product = getEEProduct(products, piece);
       const [timestamp, stateId] = Object.entries(product.history).pop();
 
@@ -36,7 +34,7 @@
       return {
         id: product.id,
         nr: pad(i + 1),
-        title: product.title.replace(' für ' + STR_BURG_BLAUSTEIN, ''),
+        title: tag.clearTitle(product.title, tag.title),
         parts: product.parts,
         price: product.price,
         pricePerPart: product.pricePerPart,
@@ -63,11 +61,11 @@
 </script>
 
 <div>
-  <h2 bind:clientWidth={innerWidth}>{STR_BURG_BLAUSTEIN} - {allParts} Teile</h2>
+  <h2 bind:clientWidth={innerWidth}>{tag.title} - {allParts} Teile</h2>
   {#if innerWidth}
     <div class="pieces" style="zoom:{zoom};-moz-transform:scale({zoom});">
       <div class="pieces__wrap flex">
-        <img class="piece__img" alt={STR_BURG_BLAUSTEIN} src="./images/specials/burg-blaustein.4.png" />
+        <img class="piece__img" alt={tag.title} src="./images/specials/burg-blaustein.4.png" />
         {#each pieces as piece}
           <div
             class="piece absolute piece--{piece.nr} color--{piece.stateColor} chip large round small-padding"

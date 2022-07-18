@@ -14,19 +14,62 @@ export const STR_NETHERLAND = 'niederländische Hausfassade Amstel';
 export const ID_FRANKFURT = 62;
 export const STR_FRANKFURT = 'Frankfurter Römer Hausfassade';
 export const ID_BURG_BLAUSTEIN = 39;
-export const STR_BURG_BLAUSTEIN = 'Burg Blaustein';
-export const ID_QUANTUM = 63;
-export const STR_QUANTUM = 'Quantum Colony';
+export const ID_STAR_TREK = 49;
+export const STR_STAR_TREK = 'Star Trek';
+
+export const SPECIALS_TAGS = [
+  {
+    id: 17,
+    title: 'Manhattan',
+    data: 'manhattan',
+    clearTitle: (productTitle, tagTitle) => productTitle.replace(tagTitle + ' ', ''),
+  },
+  {
+    id: 57,
+    title: 'niederländische Hausfassade Amstel',
+    data: 'netherland',
+    clearTitle: (productTitle, tagTitle) => productTitle.replace(tagTitle + ' ', ''),
+  },
+  {
+    id: ID_FRANKFURT,
+    title: 'Frankfurter Römer Hausfassade',
+    data: 'frankfurt',
+    clearTitle: (productTitle, tagTitle) => productTitle.replace(tagTitle + ' ', ''),
+  },
+  {
+    id: ID_BURG_BLAUSTEIN,
+    title: 'Burg Blaustein',
+    data: 'blaustein',
+    clearTitle: (productTitle, tagTitle) => productTitle.replace(' für ' + tagTitle, ''),
+  },
+  {
+    id: 63,
+    title: 'Quantum Colony',
+    data: null,
+    clearTitle: (productTitle, tagTitle) => productTitle.replace(tagTitle + ': ', ''),
+  },
+  {
+    id: ID_STAR_TREK,
+    title: STR_STAR_TREK,
+    data: null,
+    clearTitle: (productTitle, tagTitle) => productTitle.replace(tagTitle + ' ', ''),
+  },
+];
+
 export const ID_MOVIE = 28;
 export const ID_PARTS = 48;
-export const ID_STAR_TREK = 49;
 export const ID_CAT_CHROME_PARTS = 3;
-export const STR_STAR_TREK = 'Star Trek';
 export const ID_STATE_AVAILABLE = 0;
 export const ID_STATE_COMING_SOON = 1;
 export const ID_STATE_UNAVAILABLE = 2;
 export const ID_STATE_ANNOUNCEMENT = 3;
-export const IDS_SPECIAL_TAGS = [ID_PARTS, ID_MANHATTAN, ID_MOVIE, ID_NETHERLAND, ID_FRANKFURT, ID_BURG_BLAUSTEIN];
+// highlighted in tag overview
+export const IDS_SPECIAL_TAGS = [
+  ID_PARTS,
+  ID_MOVIE,
+  // add id's
+  ...SPECIALS_TAGS.filter(tag => tag.data !== null).map(tag => tag.id),
+];
 
 // api
 export const API = 'https://api.bbx.watch';
