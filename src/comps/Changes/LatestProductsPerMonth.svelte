@@ -122,7 +122,7 @@
       id: -1,
       monthPad: 'Pipeline',
       year: actualYear,
-      label: '11 Monate+',
+      label: 'vor 12 Monate+',
       products: sortedProducts.filter(product => {
         const productTime = new Date(product.stateDate);
         const lastMonth = new Date(actualYear, nextMonth, 1, 0, 0, 0, 0);
