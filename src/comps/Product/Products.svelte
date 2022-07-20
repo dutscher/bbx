@@ -17,6 +17,7 @@
   import Product from './Product.svelte';
   import { handleProductSort } from './sorting';
   import ProductFilter from './ProductFilter.svelte';
+  import ExtraFilter from '../Filter/ExtraFilter.svelte';
 
   export let bbUrl: string;
 
@@ -28,7 +29,7 @@
   let activeSearchString: string = '';
   let filteredProducts: any = [];
   let sortedItems: any = [];
-  const extraFilter = {
+  let extraFilter = {
     parts: { show: false, count: 0 },
     hot: { show: false, count: 0 },
     new: { show: false, count: 0 },
@@ -223,34 +224,7 @@
 
 <Specials />
 
-<nav class="wrap small-margin no-h-margin">
-  {#if extraFilter.parts.count > 0}
-    <label class="checkbox">
-      <input type="checkbox" bind:checked={extraFilter.parts.show} />
-      <span>Parts<span class="badge round">{extraFilter.parts.count}</span></span>
-    </label>
-  {/if}
-  {#if extraFilter.new.count > 0}
-    <label class="checkbox">
-      <input type="checkbox" bind:checked={extraFilter.new.show} />
-      <span>
-        <i class="yellow-text">star</i>
-        <span class="badge round">{extraFilter.new.count}</span>
-        <div class="tooltip bottom small-margin">Neue Produkte</div>
-      </span>
-    </label>
-  {/if}
-  {#if extraFilter.hot.count > 0}
-    <label class="checkbox">
-      <input type="checkbox" bind:checked={extraFilter.hot.show} />
-      <span>
-        <i class="orange-text">local_fire_department</i>
-        <div class="tooltip bottom small-margin">Beliebte Produkte</div>
-        <span class="badge round">{extraFilter.hot.count}</span>
-      </span>
-    </label>
-  {/if}
-</nav>
+<ExtraFilter {extraFilter} onChange={store => (extraFilter = store)} />
 
 <h3>{filteredProducts.withFilter.length} von {products.length} Produkte</h3>
 

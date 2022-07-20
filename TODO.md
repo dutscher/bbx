@@ -1,6 +1,5 @@
 next todos:
 * designer overview
-* checkbox sorter refactoren
 * filter color active
   * url params
 * notifications

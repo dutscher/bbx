@@ -3,6 +3,8 @@
   import { getUrlParam, onMount, setUrlParams } from '@utils';
   import { ID_STATE_AVAILABLE, ID_STATE_ANNOUNCEMENT } from '@interfaces';
   import Product from '../Product/Product.svelte';
+  import Checkbox from '../Filter/Checkbox.svelte';
+  import ExtraFilter from '../Filter/ExtraFilter.svelte';
 
   export let state: number = ID_STATE_ANNOUNCEMENT;
   export let onCounterAvailable: any = () => {};
@@ -14,7 +16,7 @@
   let reverseSort: boolean = false;
   const urlParam = 'latest';
 
-  const extraFilter = {
+  let extraFilter = {
     parts: { show: false, count: 0 },
     hot: { show: false, count: 0 },
     new: { show: false, count: 0 },
@@ -162,32 +164,11 @@
 {#if isVisible}
   <nav class="wrap small-margin no-h-margin">
     {#if state !== ID_STATE_AVAILABLE}
-      <label class="checkbox">
-        <input type="checkbox" bind:checked={reverseSort} on:change={handleChange} />
-        <span>Letzte Änderungen</span>
-      </label>
-      <label class="checkbox">
-        <input type="checkbox" bind:checked={extraFilter.parts.show} />
-        <span>Parts<span class="badge round">{extraFilter.parts.count}</span></span>
-      </label>
+      <Checkbox label="Letzte Änderungen" bind:checked={reverseSort} onChange={handleChange} />
+      <Checkbox label="Parts" badge={extraFilter.parts.count} bind:checked={extraFilter.parts.show} />
     {/if}
     {#if state !== ID_STATE_ANNOUNCEMENT}
-      <label class="checkbox">
-        <input type="checkbox" bind:checked={extraFilter.hot.show} />
-        <span>
-          <i class="orange-text">local_fire_department</i>
-          <div class="tooltip bottom small-margin">Beliebte Produkte</div>
-          <span class="badge round">{extraFilter.hot.count}</span>
-        </span>
-      </label>
-      <label class="checkbox">
-        <input type="checkbox" bind:checked={extraFilter.new.show} />
-        <span>
-          <i class="yellow-text">star</i>
-          <span class="badge round">{extraFilter.new.count}</span>
-          <div class="tooltip bottom small-margin">Neue Produkte</div>
-        </span>
-      </label>
+      <ExtraFilter {extraFilter} noNav={true} noParts={true} onChange={store => (extraFilter = store)} />
     {/if}
   </nav>
   {#if state !== ID_STATE_AVAILABLE && !reverseSort}

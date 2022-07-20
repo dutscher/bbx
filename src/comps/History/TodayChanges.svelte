@@ -3,12 +3,13 @@
   import { onMount, getLatestStateOfToday, pad, stopClick, getUrlParam, setUrlParams } from '@utils';
   import beerui from '@beerui';
   import Product from '../Product/Product.svelte';
+  import ExtraFilter from '../Filter/ExtraFilter.svelte';
 
   let products: any;
   let states: any;
   let isVisible = true;
   let isToday: any;
-  const extraFilter = {
+  let extraFilter = {
     sets: { show: true, count: 0 },
     parts: { show: false, count: 0 },
     hot: { show: false, count: 0 },
@@ -187,40 +188,7 @@
   </div>
 </article>
 
-<nav class="wrap small-margin no-h-margin">
-  {#if extraFilter.sets.count > 0}
-    <label class="checkbox">
-      <input type="checkbox" bind:checked={extraFilter.sets.show} />
-      <span>Sets<span class="badge round">{extraFilter.sets.count}</span></span>
-    </label>
-  {/if}
-  {#if extraFilter.parts.count > 0}
-    <label class="checkbox">
-      <input type="checkbox" bind:checked={extraFilter.parts.show} />
-      <span>Parts<span class="badge round">{extraFilter.parts.count}</span></span>
-    </label>
-  {/if}
-  {#if extraFilter.hot.count > 0}
-    <label class="checkbox">
-      <input type="checkbox" bind:checked={extraFilter.hot.show} />
-      <span>
-        <i class="orange-text">local_fire_department</i>
-        <div class="tooltip bottom small-margin">Beliebte Produkte</div>
-        <span class="badge round">{extraFilter.hot.count}</span>
-      </span>
-    </label>
-  {/if}
-  {#if extraFilter.new.count > 0}
-    <label class="checkbox">
-      <input type="checkbox" bind:checked={extraFilter.new.show} />
-      <span>
-        <i class="yellow-text">star</i>
-        <span class="badge round">{extraFilter.new.count}</span>
-        <div class="tooltip bottom small-margin">Neue Produkte</div>
-      </span>
-    </label>
-  {/if}
-</nav>
+<ExtraFilter {extraFilter} onChange={store => (extraFilter = store)} />
 
 <div class="flex flex--gap flex--wrap">
   {#if isVisible}
