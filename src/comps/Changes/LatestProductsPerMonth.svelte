@@ -118,6 +118,18 @@
       }
     }
 
+    months.push({
+      id: -1,
+      monthPad: 'Pipeline',
+      year: actualYear,
+      label: '11 Monate+',
+      products: sortedProducts.filter(product => {
+        const productTime = new Date(product.stateDate);
+        const lastMonth = new Date(actualYear, nextMonth, 1, 0, 0, 0, 0);
+        return productTime.getTime() < lastMonth.getTime();
+      }),
+    });
+
     if (state !== ID_STATE_AVAILABLE && !reverseSort) {
       return months.reverse();
     }
