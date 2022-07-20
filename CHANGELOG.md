@@ -1,3 +1,6 @@
+* [20.07.2022]
+  * add 12 months+ pipeline for older announcement products
+
 * [18.07.2022]
   * fix tooltip hide below producs
   * add quantum colony special
