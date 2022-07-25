@@ -1,3 +1,6 @@
+* [26.07.2022]
+  * add new priates special
+  
 * [20.07.2022]
   * add 12 months+ pipeline for older announcement products
   * refactore checkbox filter to one component

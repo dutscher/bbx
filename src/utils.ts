@@ -81,7 +81,7 @@ export const jsVoid = 'javascript:void(0)';
 
 export const getProductHref = product => {
   // "href": "/103464/Klassischer-schwarzer-LKW-mit-Trailer-BlueBrixx-Special",
-  const urlSafeTitle = product.title.replace(/ /g, '-').replace(/,|(|)/g, '').replace(/ß/g, 'ss');
+  const urlSafeTitle = product.title.replace(' & ', '-').replace(/ /g, '-').replace(/,|(|)/g, '').replace(/ß/g, 'ss');
   return `/${product.id}/${urlSafeTitle}`;
 };
 
