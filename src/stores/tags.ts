@@ -7,6 +7,7 @@ const sortedTags = tagsJSON.map((tag, i) => ({
   seoName: (Array.isArray(tag) ? tag[0] : tag)
     // @ts-ignore TS2339
     .toLowerCase()
+    .replace(' & ', '-')
     .replace('ä', 'ae')
     .replace('ö', 'oe')
     .replace('ü', 'ue')
