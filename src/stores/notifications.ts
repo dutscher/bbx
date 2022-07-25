@@ -38,11 +38,11 @@ export const promptThePermission = () => {
   });
 };
 
-let data: any;
+let globalData: any;
 let hearts = [];
 let heartLists: any;
 
-storedGlobalData.subscribe(store => (data = store));
+storedGlobalData.subscribe(store => (globalData = store));
 storedHearts.subscribe(store => {
   hearts = store.lists;
   heartLists = Object.keys(hearts);
@@ -56,7 +56,7 @@ export const doNotify = (product, fetchTries) => {
   if (heartLists.find(list => hearts[list].i.includes(product.id))) {
     serviceWorkerNotify({
       // 500 Stück, 2x4 Stein, Hellgrün : state: BUYABLE => UNAVAILABLE;  https://www.bluebrixx.com/de//400132/.html
-      body: product.title + ' => ' + product.state.de + '; ' + data.url + product.href,
+      body: product.title + ' => ' + product.state.de + '; ' + globalData.url + product.href,
       tag: 'bbx-notify-graphql-tag',
     });
   }

@@ -19,8 +19,6 @@
   import ProductFilter from './ProductFilter.svelte';
   import ExtraFilter from '../Filter/ExtraFilter.svelte';
 
-  export let bbUrl: string;
-
   let activeTagIds: any = [];
   let activePartIds: any = [];
   let activePartTypeIds: any = [];
@@ -52,7 +50,6 @@
   storedPartTypes.subscribe(store => (partTypes = store));
   storedColors.subscribe(store => (colors = store));
   storedTags.subscribe(store => (tags = store));
-  storedGlobalData.subscribe(store => (bbUrl = store.url));
   storedFilteredProducts.subscribe(store => (filteredProducts = store));
   storedProductsSorting.subscribe(store => (activeSorting = store));
   storedActiveSelection.subscribe(store => {

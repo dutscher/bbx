@@ -16,7 +16,7 @@
   export let states: any;
   export let showTooltip: boolean = true;
 
-  let data: any;
+  let globalData: any;
 
   let categories: any;
   let tags: any;
@@ -30,7 +30,7 @@
   let leftAdjustInt: number = 0;
 
   storedStates.subscribe(store => (states = store));
-  storedGlobalData.subscribe(store => (data = store));
+  storedGlobalData.subscribe(store => (globalData = store));
   storedCategories.subscribe(store => (categories = store));
   storedTags.subscribe(store => (tags = store));
 
@@ -142,7 +142,7 @@
                 /
                 <b>BricklinkID:</b>
                 <a
-                  href="{data.partNr}{product.partNr}{product.partColor ? `#C=${product.partColor.id}` : ''}"
+                  href="{globalData.partNr}{product.partNr}{product.partColor ? `#C=${product.partColor.id}` : ''}"
                   target="_blank"
                   class="link"
                 >

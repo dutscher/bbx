@@ -5,6 +5,7 @@ export { storedActiveSelection } from './stores/active-selection';
 export { storedTags } from './stores/tags';
 export { storedCategories } from './stores/categories';
 export { storedGlobalData } from './stores/global-data';
+export { storedSpecialData } from './stores/specials';
 export { storedColors } from './stores/colors';
 export { storedParts, storedPartTypes } from './stores/parts';
 export { storedImageExtension } from './stores/image-extension';

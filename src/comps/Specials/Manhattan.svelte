@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { storedProducts, storedGlobalData, storedActiveProduct } from '@stores';
+  import { storedProducts, storedSpecialData, storedActiveProduct } from '@stores';
   import { getEEProduct, getEEState, pad } from '@utils';
 
   export let tag;
@@ -12,7 +12,7 @@
   let activeProductID = -1;
 
   storedProducts.subscribe(store => (products = store));
-  storedGlobalData.subscribe(store => (data = store));
+  storedSpecialData.subscribe(store => (data = store));
   storedActiveProduct.subscribe(store => {
     if (store.product && (store.product.type !== tag.title || store.product.id === 0)) {
       activeProductID = -1;

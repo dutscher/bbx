@@ -1,14 +1,7 @@
 <script lang="ts">
   import ClickOutside from 'svelte-click-outside';
   import { ID_MOVIE, ID_STAR_TREK, STR_STAR_TREK, UNLOADED, SPECIALS_TAGS } from '@interfaces';
-  import {
-    storedGlobalData,
-    storedActiveSelection,
-    storedStates,
-    storedHearts,
-    loadInstData,
-    storedActiveProduct,
-  } from '@stores';
+  import { storedActiveSelection, storedStates, storedHearts, loadInstData, storedActiveProduct } from '@stores';
   import { getLatestStateOfToday, ess } from '@utils';
   import Tooltip from './Tooltip/ProductTooltip.svelte';
 
@@ -17,7 +10,6 @@
   export let type: string = ''; // todayChanges
   export let todayChangesDate: string = ''; // 08.10.2021
 
-  let data: any;
   let states: any;
   let hearts: any;
   let heartLists: any;
@@ -40,7 +32,6 @@
       showTooltip = false;
     }
   });
-  storedGlobalData.subscribe(store => (data = store));
   storedStates.subscribe(store => (states = store));
   storedHearts.subscribe(store => {
     hearts = store.lists;

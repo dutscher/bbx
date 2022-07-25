@@ -1,18 +1,18 @@
 <script lang="ts">
-  import { storedGlobalData } from '../../../stores/global-data';
+  import { storedGlobalData } from '@stores';
 
   export let product: any;
 
-  let data: any;
+  let globalData: any;
 
-  storedGlobalData.subscribe(store => (data = store));
+  storedGlobalData.subscribe(store => (globalData = store));
 
   const openInstHref = pdfLink => {
     let url;
     if (pdfLink.includes('http')) {
       url = pdfLink;
     } else {
-      url = data.instUrl + pdfLink;
+      url = globalData.instUrl + pdfLink;
     }
     window.open(url);
   };

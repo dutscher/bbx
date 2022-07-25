@@ -11,6 +11,7 @@ export const ID_MANHATTAN = 17;
 export const ID_NETHERLAND = 57;
 export const ID_FRANKFURT = 62;
 export const ID_BURG_BLAUSTEIN = 39;
+export const ID_PIRATES = 40;
 export const ID_QUANTUM_COLONY = 63;
 export const ID_STAR_TREK = 49;
 export const STR_STAR_TREK = 'Star Trek';
@@ -39,6 +40,12 @@ export const SPECIALS_TAGS = [
     title: 'Burg Blaustein',
     data: 'blaustein',
     clearTitle: (productTitle, tagTitle) => productTitle.replace(' für ' + tagTitle, ''),
+  },
+  {
+    id: ID_PIRATES,
+    title: 'Pirateninsel & Gouverneursinsel',
+    data: 'pirates',
+    clearTitle: productTitle => productTitle.replace(/(Gouverneursinsel|Pirateninsel): /, ''),
   },
   {
     id: ID_QUANTUM_COLONY,
