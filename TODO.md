@@ -1,5 +1,6 @@
 next todos:
 * designer overview
+* history back not going
 * filter color active
   * url params
 * notifications
@@ -11,7 +12,6 @@ next todos:
   * same interfaces node + svelte
 * cypress tests
 * warenkorb noise ausblenden
-* history back not going
 * partlist
 * merkliste passwort schützen
   
