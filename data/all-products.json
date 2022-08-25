@@ -10865,7 +10865,7 @@
       58
     ],
     "pa": 490,
-    "pr": 0
+    "pr": 19.95
   },
   {
     "ti": "Dieselhydraulische Güterlok",
@@ -10911,6 +10911,18 @@
     ],
     "pa": 560,
     "pr": 0
+  },
+  {
+    "ti": "Rialtobrücke, Venedig",
+    "id": 104863,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 4153,
+    "pr": 199.95
   },
   {
     "ti": "Tandemwalze",
