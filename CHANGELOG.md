@@ -1,5 +1,8 @@
+* [29.08.2022]
+  * add tags for "regierung viertel" and "krippenspiel"
+
 * [26.07.2022]
-  * add new priates special
+  * add new pirates special
   
 * [20.07.2022]
   * add 12 months+ pipeline for older announcement products
