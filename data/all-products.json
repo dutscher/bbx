@@ -11852,7 +11852,7 @@
       63
     ],
     "pa": 653,
-    "pr": 0
+    "pr": 29.95
   },
   {
     "ti": "Quantum Colony: Mobile Energieversorgungseinheit \"Quasar\"",
@@ -12475,6 +12475,30 @@
       27
     ],
     "pa": 3234,
+    "pr": 0
+  },
+  {
+    "ti": "Flugtaxi",
+    "id": 105597,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1215,
+    "pr": 0
+  },
+  {
+    "ti": "Fliegendes Polizeiauto",
+    "id": 105598,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1189,
     "pr": 0
   },
   {
