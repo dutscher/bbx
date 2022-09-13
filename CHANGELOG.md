@@ -1,3 +1,8 @@
+* [13.09.2022]
+  * add newest star trek products
+  * add mr beans car
+  * add new empire state
+  
 * [03.09.2022]
   * add newest star trek products
   
@@ -19,7 +24,7 @@
   * add quantum colony special
   * add frankfurt römer special
   * add newest announced products with tags
-
+  
 * [27.05.2022]
   * fix search focus
   * media navigation includes video
