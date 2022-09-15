@@ -12754,6 +12754,66 @@
     "pr": 0
   },
   {
+    "ti": "Zeche Zollverein",
+    "id": 105634,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1909,
+    "pr": 0
+  },
+  {
+    "ti": "BR 623",
+    "id": 105636,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1521,
+    "pr": 0
+  },
+  {
+    "ti": "Kesselwagenabfüllstation",
+    "id": 105637,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1325,
+    "pr": 0
+  },
+  {
+    "ti": "Ladegutzubehör für LKW's und Wagons",
+    "id": 105638,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 736,
+    "pr": 0
+  },
+  {
+    "ti": "Logistik LKW mit Dolly und Anhänger",
+    "id": 105639,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 574,
+    "pr": 0
+  },
+  {
     "ti": "Brix Panzerketten 1 1/2 breit, schwarz (100st.)",
     "id": 400001,
     "ca": [
