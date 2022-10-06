@@ -12885,6 +12885,90 @@
     "pr": 0
   },
   {
+    "ti": "Burg Bärenfels: Torhaus",
+    "id": 105650,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 962,
+    "pr": 0
+  },
+  {
+    "ti": "Römisches Atrium Domus",
+    "id": 105651,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 3261,
+    "pr": 0
+  },
+  {
+    "ti": "Burg Bärenfels: Palisade",
+    "id": 105652,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1011,
+    "pr": 0
+  },
+  {
+    "ti": "Burg Bärenfels: Schmied",
+    "id": 105653,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 359,
+    "pr": 0
+  },
+  {
+    "ti": "Burg Bärenfels: Wanderweiterung",
+    "id": 105654,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 421,
+    "pr": 0
+  },
+  {
+    "ti": "Mittelalterliches Köhlerlager",
+    "id": 105655,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1103,
+    "pr": 0
+  },
+  {
+    "ti": "Lokomotive BR 103 rot",
+    "id": 105656,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 727,
+    "pr": 0
+  },
+  {
     "ti": "Brix Panzerketten 1 1/2 breit, schwarz (100st.)",
     "id": 400001,
     "ca": [
