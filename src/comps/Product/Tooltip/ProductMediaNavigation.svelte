@@ -25,6 +25,11 @@
     if (e) {
       stopClick(e);
     }
+
+    if (index === mediaState.imageIndex) {
+      return false;
+    }
+
     storedProductMedia.update(store => {
       store.videoVisible = false;
       store.imageLoaded = false;
@@ -98,15 +103,17 @@
 
   {#if isOnline && product.images}
     {#if product.images.length > 1}
-      <span on:click={goBack}>
-        <i class={ess(onStart && 'disable')}>arrow_back_ios</i>
-        {#if !onStart && !mediaState.videoVisible}
-          <div class="tooltip bottom small-margin">Vorheriges Bild</div>
-        {/if}
-        {#if mediaState.videoVisible}
-          <div class="tooltip bottom small-margin">Schließe Video</div>
-        {/if}
-      </span>
+      {#if product.images.length > 2}
+        <span on:click={goBack}>
+          <i class={ess(onStart && 'disable')}>arrow_back_ios</i>
+          {#if !onStart && !mediaState.videoVisible}
+            <div class="tooltip bottom small-margin">Vorheriges Bild</div>
+          {/if}
+          {#if mediaState.videoVisible}
+            <div class="tooltip bottom small-margin">Schließe Video</div>
+          {/if}
+        </span>
+      {/if}
 
       {#each product.images as image, i}
         <span on:click={e => setIndex(i, e)}>
@@ -124,7 +131,7 @@
       </span>
     {/if}
 
-    {#if product.images.length > 1}
+    {#if product.images.length > 2}
       <span on:click={goFurther}>
         <i class={ess(onEnd && 'disable')}>arrow_forward_ios</i>
         {#if !onEnd && !onEndShowVideo}

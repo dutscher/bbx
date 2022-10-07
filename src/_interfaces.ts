@@ -15,6 +15,7 @@ export const ID_PIRATES = 40;
 export const ID_QUANTUM_COLONY = 63;
 export const ID_STAR_TREK = 49;
 export const STR_STAR_TREK = 'Star Trek';
+export const ID_BURG_BAERENFELS = 64;
 
 export const SPECIALS_TAGS = [
   {
@@ -51,6 +52,12 @@ export const SPECIALS_TAGS = [
     id: ID_QUANTUM_COLONY,
     title: 'Quantum Colony',
     data: 'quantum-colony',
+    clearTitle: (productTitle, tagTitle) => productTitle.replace(tagTitle + ': ', ''),
+  },
+  {
+    id: ID_BURG_BAERENFELS,
+    title: 'Burg Bärenfels',
+    data: 'baerenfels',
     clearTitle: (productTitle, tagTitle) => productTitle.replace(tagTitle + ': ', ''),
   },
   {

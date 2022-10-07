@@ -265,7 +265,8 @@
     "Schiffswerft",
     "Hafenkneipe",
     [
-      "Leuchtturm des Astronomen"
+      "Leuchtturm des Astronomen",
+      "Schiffswerft Hamburg"
     ]
   ],
   "Jahreszeiten",
@@ -295,7 +296,9 @@
     "Pisa",
     "Kolosseum",
     "Regierungsviertel",
-    "Empire State Building"
+    "Empire State Building",
+    "Schiffswerft Hamburg",
+    "Zeche Zollverein"
   ],
   [
     "Film Modelle",
@@ -542,5 +545,6 @@
     "Helm"
   ],
   "Frankfurter Römer Hausfassade",
-  "Quantum Colony"
+  "Quantum Colony",
+  "Burg Bärenfels"
 ]

@@ -1,3 +1,7 @@
+* [07.10.2022]
+  * newest announces with correct tags
+  * burg bärenfels own tag
+
 * [13.09.2022]
   * add newest star trek products
   * add mr beans car

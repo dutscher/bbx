@@ -1,4 +1,12 @@
 {
+  "baerenfels": {"pieces": [
+    "/105545/Burg-B%C3%A4renfels:-Bergfried",
+    "/105506/Burg-B%C3%A4renfels:-Grundburg",
+    "/105652/Burg-B%C3%A4renfels:-Palisade",
+    "/105653/Burg-B%C3%A4renfels:-Schmied",
+    "/105650/Burg-B%C3%A4renfels:-Torhaus",
+    "/105654/Burg-B%C3%A4renfels:-Wanderweiterung"
+  ]},
   "pirates": {
     "pieces": [
       "/105181/Gouverneursinsel:-Hafen",

@@ -5,6 +5,7 @@
     ID_NETHERLAND,
     ID_FRANKFURT,
     ID_BURG_BLAUSTEIN,
+    ID_BURG_BAERENFELS,
     ID_QUANTUM_COLONY,
     ID_PIRATES,
     SPECIALS_TAGS,
@@ -13,6 +14,7 @@
   import Netherland from '../Specials/Netherland.svelte';
   import Frankfurt from '../Specials/Frankfurt.svelte';
   import Blaustein from '../Specials/Blaustein.svelte';
+  import Baerenfels from '../Specials/Baerenfels.svelte';
   import Pirates from '../Specials/Pirates.svelte';
   import QuantumColony from '../Specials/QuantumColony.svelte';
 
@@ -45,4 +47,8 @@
 {#if activeTagIds.includes(ID_PIRATES) && activeTagIds.length === 1}
   <br />
   <Pirates tag={SPECIALS_TAGS.find(tag => tag.id === ID_PIRATES)} />
+{/if}
+{#if activeTagIds.includes(ID_BURG_BAERENFELS) && activeTagIds.length === 1}
+  <br />
+  <Baerenfels tag={SPECIALS_TAGS.find(tag => tag.id === ID_BURG_BAERENFELS)} />
 {/if}
