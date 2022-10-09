@@ -4,8 +4,8 @@ import designerJSON from '../../data/designer.json';
 export const sortedDesigner = designerJSON.map(designer => {
   return {
     id: designer.id,
-    name: designer.name,
-    url: designer.name.toLowerCase().replace(' ', '-').replace('.', ''),
+    de: designer.name,
+    seoName: designer.name.toLowerCase().replace(/ /g, '-').replace('.', ''),
   };
 });
 

@@ -1,11 +1,20 @@
 <script lang="ts">
-  import { storedActiveSelection, storedColors, storedParts, storedPartTypes, storedStates, storedTags } from '@stores';
+  import {
+    storedActiveSelection,
+    storedColors,
+    storedParts,
+    storedPartTypes,
+    storedStates,
+    storedTags,
+    storedDesigner,
+  } from '@stores';
   import { setUrlParams, stopClick } from '@utils';
   import FilterSummaryActive from './FilterSummaryActive.svelte';
 
   export let activeSearchString: string = '';
   export let activeTagIds: any = [];
   export let activeStateIds: any = [];
+  export let activeDesignerIds: any = [];
   export let activeColorIds: any = [];
   export let activePartIds: any = [];
   export let activePartTypeIds: any = [];
@@ -13,12 +22,14 @@
   let parts: any;
   let partTypes: any;
   let colors: any;
+  let designer: any;
   let states: any;
   let tags: any;
   let moreThanOne: any;
   let showAll: any;
 
   storedStates.subscribe(store => (states = store));
+  storedDesigner.subscribe(store => (designer = store));
   storedParts.subscribe(store => (parts = store));
   storedPartTypes.subscribe(store => (partTypes = store));
   storedColors.subscribe(store => (colors = store));
@@ -31,7 +42,7 @@
 
     storedActiveSelection.update(store => {
       if (type === 'all') {
-        const types = ['search', 'tags', 'states', 'colors', 'parts', 'partTypes', 'product'];
+        const types = ['search', 'tags', 'states', 'designer', 'colors', 'parts', 'partTypes', 'product'];
         types.map(type => {
           const value = type === 'search' ? '' : [];
           store[type] = value;
@@ -81,6 +92,12 @@
       activeIds={activeStateIds}
       store={states}
       onClick={removeItem.bind(this, 'states')}
+    />
+    <FilterSummaryActive
+      label="Designer"
+      activeIds={activeDesignerIds}
+      store={designer}
+      onClick={removeItem.bind(this, 'designer')}
     />
     <FilterSummaryActive
       label="Farben"

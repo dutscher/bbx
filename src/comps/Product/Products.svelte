@@ -177,8 +177,8 @@
         // filter designer
         .filter(product => {
           let countMatched = 0;
-          activeDesignerIds.map(designerUrl => {
-            if (product.designer && product.designer.url === designerUrl) {
+          activeDesignerIds.map(designerId => {
+            if (product.designer && product.designer.id === designerId) {
               countMatched++;
             }
           });
@@ -205,8 +205,6 @@
             (extraFilter.new.show && (product.isNew || product.isNewSoon))
           );
         });
-
-      console.log({ withFilter, activeSorting });
 
       withFilter = handleProductSort(withFilter, activeSorting);
     }

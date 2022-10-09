@@ -15,7 +15,7 @@
     const queryTags = getUrlParam(urlParam).split(',');
     designer.map(designer => {
       queryTags.map(queryTag => {
-        if (designer.url === queryTag) {
+        if (designer.seoName === queryTag) {
           clickItem(designer);
         }
       });
@@ -29,16 +29,16 @@
       if (!(urlParam in store)) {
         store[urlParam] = [];
       }
-      if (!store[urlParam].includes(item.url)) {
-        store[urlParam].push(item.url);
+      if (!store[urlParam].includes(item.id)) {
+        store[urlParam].push(item.id);
       } else {
-        store[urlParam] = store[urlParam].filter(itemUrl => itemUrl !== item.url);
+        store[urlParam] = store[urlParam].filter(itemUrl => itemUrl !== item.id);
       }
 
       if (withUrlUpdate) {
         setUrlParams(
           urlParam,
-          designer.filter(item => store[urlParam].includes(item.url)).map(item => item.url)
+          designer.filter(item => store[urlParam].includes(item.id)).map(item => item.seoName)
         );
         store.reason = 'designer-clicked';
       } else {
@@ -95,13 +95,13 @@
     <div
       class={ess(
         'chip small round no-margin white-text',
-        activeDesignerIds.includes(designer.url) && 'indigo5',
+        activeDesignerIds.includes(designer.id) && 'indigo5',
         designer.count === 0 && 'disabled'
       )}
       data-count={designer.count}
       on:click={() => clickItem(designer, true)}
     >
-      <p>{designer.name}</p>
+      <p>{designer.de}</p>
       <span class="chip__state">{designer.count}</span>
     </div>
   {/each}

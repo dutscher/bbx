@@ -14,6 +14,7 @@
   let activePartTypeIds: any = [];
   let activeColorIds: any = [];
   let activeStateIds: any = [];
+  let activeDesignerIds: any = [];
   let activeSearchString: string = '';
 
   storedActiveSelection.subscribe(store => {
@@ -22,6 +23,7 @@
     activePartTypeIds = store.partTypes;
     activeColorIds = store.colors;
     activeStateIds = store.states;
+    activeDesignerIds = store.designer;
     activeSearchString = store.search;
   });
 
@@ -30,6 +32,7 @@
       activeSearchString === '' &&
       activeTagIds.length === 0 &&
       activeStateIds.length === 0 &&
+      activeDesignerIds.length === 0 &&
       activeColorIds.length === 0 &&
       activePartIds.length === 0 &&
       activePartTypeIds.length === 0;
@@ -50,6 +53,7 @@
         {activeSearchString}
         {activeTagIds}
         {activeStateIds}
+        {activeDesignerIds}
         {activeColorIds}
         {activePartIds}
         {activePartTypeIds}
