@@ -1,6 +1,7 @@
 <script lang="ts">
   import FilterTags from './FilterTags.svelte';
   import FilterStates from './FilterStates.svelte';
+  import FilterDesigner from './FilterDesigner.svelte';
   import FilterSearch from './FilterSearch.svelte';
   import { lsSiteSettingsKey } from '@interfaces';
   import { localStore, storedActiveSelection } from '@stores';
@@ -11,6 +12,7 @@
   let activePartTypeIds: any = [];
   let activeColorIds: any = [];
   let activeStateIds: any = [];
+  let activeDesignerIds: any = [];
   let showFilter = true;
   let activeSearchString: string = '';
 
@@ -20,6 +22,7 @@
     activePartTypeIds = store.partTypes;
     activeColorIds = store.colors;
     activeStateIds = store.states;
+    activeDesignerIds = store.designer;
     activeSearchString = store.search;
 
     const reasons = [
@@ -66,5 +69,13 @@
   <summary class="large-text" on:click={handleClick}><b>Filter & Suche</b></summary>
   <FilterStates {activeStateIds} {activeColorIds} {activePartIds} {activePartTypeIds} {activeSearchString} />
   <FilterTags {activeTagIds} />
+  <FilterDesigner {activeDesignerIds} />
   <FilterSearch {activeSearchString} />
 </details>
+
+<style lang="scss">
+  :global .chip__state {
+    right: -4rem;
+    opacity: 0.6;
+  }
+</style>

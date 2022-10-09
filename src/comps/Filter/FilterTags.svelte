@@ -89,7 +89,7 @@
             <ChipLetter letter={abc.letter} />&nbsp;
           {/if}
           {tag.name}&nbsp;
-          <span class="chip_state">{tag.count}</span>
+          <span class="chip__state">{tag.count}</span>
         </span>
       {/each}
     {/each}

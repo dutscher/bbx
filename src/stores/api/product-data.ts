@@ -14,7 +14,6 @@ export const loadProductData = async product => {
     return products.map(product => {
       if (product.id === data.id || product.id === data.brandNr) {
         // https://api.bbx.watch/bapi/product/detail/104000
-        product.designer = data.designer;
         product.size = data.size;
 
         let images = [];

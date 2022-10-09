@@ -16,15 +16,18 @@ productsJSON.map(product => {
     history: product.hi,
     image: product.im,
     imageExt: product.ie,
+    designerId: product.di,
   });
 });
 
 export const convertToReduce = product => {
   const image = !!product.image ? { im: product.image } : {};
+  // warning integer
   const imageExt = !!product.imageExt || product.imageExt === 0 ? { ie: product.imageExt } : {};
   const partTags = Array.isArray(product.partTags) && product.partTags.length > 0 ? { pt: product.partTags } : {};
-
   const partNr = !!product.partNr ? { pn: product.partNr } : {};
+  // warning integer
+  const designerId = !!product.designerId || product.designerId === 0 ? { di: product.designerId } : {};
 
   return {
     ti: product.title,
@@ -38,5 +41,6 @@ export const convertToReduce = product => {
     hi: product.history,
     ...image,
     ...imageExt,
+    ...designerId,
   };
 };

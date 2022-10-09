@@ -4,6 +4,8 @@ import { IDs, ID_STATE_ANNOUNCEMENT } from './interfaces.js';
 import { getDateTime } from './clean-utils.js';
 import allHistory from '../../data/all-products-history.json' assert { type: 'json' };
 import allHistoryBackup from '../../data/api/all-products-history.backup.with.lost.history.json' assert { type: 'json' };
+import allDesigner from '../../data/designer.json' assert { type: 'json' };
+import allDesignerBackup from '../../data/designer-json.compare.json' assert { type: 'json' };
 
 export const convertProducts = async () => {
   let changes = [];
@@ -11,11 +13,32 @@ export const convertProducts = async () => {
   const convertedDB = [];
   const update = -1;
 
+  let productsWithDesigner = {};
+
+  if (update === 11) {
+    allDesignerBackup.data.products.edges.map(edge => {
+      const designerName = edge.node.designer;
+      if (designerName !== null) {
+        const foundDesigner = allDesigner.find(designer => designer.name === designerName);
+        if (foundDesigner) {
+          productsWithDesigner[edge.node['_id']] = foundDesigner.id;
+        } else {
+          console.log('not found', { designerName });
+        }
+      }
+      return true;
+    });
+  }
+
   if (update === 10) {
     changes = {};
   }
 
   products.map(product => {
+    // 11. add designer id
+    if (update === 11 && product.id in productsWithDesigner) {
+      product.designerId = productsWithDesigner[product.id];
+    }
     // 10. split history into own
     if (update === 10) {
       changes[product.id] = product.history;

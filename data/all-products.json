@@ -79,7 +79,8 @@
     ],
     "pa": 1443,
     "pr": 59.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Schiebewandwagen",
@@ -94,7 +95,8 @@
     ],
     "pa": 266,
     "pr": 17.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Regionalexpress DB Steuerwagen",
@@ -110,7 +112,8 @@
     ],
     "pa": 561,
     "pr": 27.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "LKW Turin IV, Feuerwehr, GW-IUK",
@@ -126,7 +129,8 @@
     ],
     "pa": 343,
     "pr": 17.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "LKW Augsburg, Feuerwehr, 8163 ELW",
@@ -142,7 +146,8 @@
     ],
     "pa": 551,
     "pr": 24.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Burg Talmberg",
@@ -173,7 +178,8 @@
     ],
     "pa": 1003,
     "pr": 37.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Manhattan Unit 9 Brooklyn Bridge",
@@ -188,7 +194,8 @@
     ],
     "pa": 578,
     "pr": 24.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Manhattan Unit 10 Federal Reserve",
@@ -203,7 +210,8 @@
     ],
     "pa": 2263,
     "pr": 69.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Manhattan Unit 11 Southbridge",
@@ -218,7 +226,8 @@
     ],
     "pa": 1805,
     "pr": 59.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Manhattan Unit 12 South Street Seaport",
@@ -233,7 +242,8 @@
     ],
     "pa": 750,
     "pr": 29.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Manhattan Unit 15 Hanover Square",
@@ -248,7 +258,8 @@
     ],
     "pa": 1475,
     "pr": 49.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Manhattan Unit 16 FDR Drive",
@@ -263,7 +274,8 @@
     ],
     "pa": 1309,
     "pr": 44.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Manhattan Unit 17 Battery Park",
@@ -278,7 +290,8 @@
     ],
     "pa": 1244,
     "pr": 47.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Feuerwehr LKW T52, Flugfeldlöschfahrzeug FLF",
@@ -294,7 +307,8 @@
     ],
     "pa": 749,
     "pr": 37.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "LKW Augsburg, Feuerwehr, TGS, GTLF 26-360",
@@ -327,7 +341,8 @@
     ],
     "pa": 5631,
     "pr": 199.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Lokschuppen Mittelstück",
@@ -344,7 +359,8 @@
     ],
     "pa": 1489,
     "pr": 59.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Gerade Schienen im Set, 12 Stück",
@@ -377,7 +393,8 @@
     ],
     "pa": 1963,
     "pr": 129.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Moderne Feuerwehrstation mit Schlauchturm",
@@ -394,7 +411,8 @@
     "pa": 1820,
     "pr": 86.95,
     "im": 2,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "LKW Turin, Feuerwehr, 65C17, TSF-W",
@@ -458,7 +476,8 @@
     ],
     "pa": 337,
     "pr": 17.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Pierce Quantum Pumper Version 2 Rot/Schwarz",
@@ -518,7 +537,8 @@
     "pa": 404,
     "pr": 17.95,
     "im": 5,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "M5 Stuart",
@@ -533,7 +553,8 @@
     ],
     "pa": 473,
     "pr": 18.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "GMC M10 Wolverine",
@@ -548,7 +569,8 @@
     ],
     "pa": 670,
     "pr": 19.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "GMC M36 Jackson",
@@ -563,7 +585,8 @@
     ],
     "pa": 653,
     "pr": 19.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Panzer 38(t)",
@@ -579,7 +602,8 @@
     "pa": 453,
     "pr": 17.95,
     "im": 5,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "HMC M7 Priest",
@@ -594,7 +618,8 @@
     ],
     "pa": 569,
     "pr": 19.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Sturmgeschütz III",
@@ -743,7 +768,8 @@
     ],
     "pa": 1188,
     "pr": 39.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Einmannbunker",
@@ -1120,7 +1146,8 @@
     ],
     "pa": 683,
     "pr": 39.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Manhattan Unit 3 Foley Square",
@@ -1135,7 +1162,8 @@
     ],
     "pa": 1212,
     "pr": 44.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Manhattan Ellis Island",
@@ -1150,7 +1178,8 @@
     ],
     "pa": 261,
     "pr": 9.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "24 Bäume",
@@ -1196,7 +1225,8 @@
     ],
     "pa": 1225,
     "pr": 44.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Manhattan Unit 4 NYC Police HQ",
@@ -1211,7 +1241,8 @@
     ],
     "pa": 852,
     "pr": 36.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Viper",
@@ -1622,7 +1653,8 @@
     ],
     "pa": 1570,
     "pr": 59.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Manhattan Unit 13 South Cove",
@@ -1637,7 +1669,8 @@
     ],
     "pa": 1134,
     "pr": 49.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Schwerlast-LKW Stuttgart 4-Achs mit 3-Achs Trailer",
@@ -1653,7 +1686,8 @@
     ],
     "pa": 599,
     "pr": 29.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Lokomotive GE ES44AC Gelb",
@@ -1668,7 +1702,8 @@
     ],
     "pa": 725,
     "pr": 35.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Tankstelle",
@@ -1774,7 +1809,8 @@
     ],
     "pa": 403,
     "pr": 19.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Prellbock 2x mit zwei geraden Gleisen",
@@ -1804,7 +1840,8 @@
     ],
     "pa": 2543,
     "pr": 99.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Jp US Army, 2. Weltkrieg SWB",
@@ -1818,7 +1855,8 @@
     ],
     "pa": 182,
     "pr": 12.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Panzer II",
@@ -2248,7 +2286,8 @@
     ],
     "pa": 1086,
     "pr": 36.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Dampflokomotive BR 65",
@@ -2263,7 +2302,8 @@
     ],
     "pa": 658,
     "pr": 35.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Regionalexpress DB Passagierwagen",
@@ -2278,7 +2318,8 @@
     ],
     "pa": 476,
     "pr": 25.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Containerwagen",
@@ -2567,7 +2608,8 @@
     ],
     "pa": 1099,
     "pr": 37.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Manhattan Unit 2 Tribeca",
@@ -2582,7 +2624,8 @@
     ],
     "pa": 1752,
     "pr": 59.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Gedeckter Güterwagen, braun, mit dunkelgrauem Rahmen",
@@ -2629,7 +2672,8 @@
     ],
     "pa": 450,
     "pr": 23.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Rheingold DB Aussichtswagen",
@@ -2810,7 +2854,8 @@
     ],
     "pa": 697,
     "pr": 32.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "59er Cabriolet USA",
@@ -2841,7 +2886,8 @@
     "pa": 1421,
     "pr": 49.95,
     "im": 2,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "London Taxi",
@@ -2887,7 +2933,8 @@
     ],
     "pa": 1130,
     "pr": 47.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Tankstellen Service Truck",
@@ -2949,7 +2996,8 @@
     "pa": 578,
     "pr": 29.95,
     "im": 2,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "offener Güterwagen Gattung Es 5er Set",
@@ -2980,7 +3028,8 @@
     "pa": 535,
     "pr": 49.95,
     "im": 4,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Gedeckter Güterwagen, braun mit grauem Dach 5er Set",
@@ -2996,7 +3045,8 @@
     "pa": 735,
     "pr": 49.95,
     "im": 4,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Passagierwagen mit Unterstand V2, 5er Set",
@@ -3027,7 +3077,8 @@
     ],
     "pa": 808,
     "pr": 39.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Panzerzug Artilleriewagen",
@@ -3044,7 +3095,8 @@
     ],
     "pa": 512,
     "pr": 24.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Panzerschiff Admiral Graf Spee",
@@ -3061,7 +3113,8 @@
     ],
     "pa": 1407,
     "pr": 59.95,
-    "ie": 0
+    "ie": 0,
+    "di": 9
   },
   {
     "ti": "Panzerzug Geschützwagen",
@@ -3078,7 +3131,8 @@
     ],
     "pa": 495,
     "pr": 24.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Panzerzug Kommandowagen",
@@ -3094,7 +3148,8 @@
     ],
     "pa": 518,
     "pr": 24.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Panzerzug Panzerjäger",
@@ -3110,7 +3165,8 @@
     ],
     "pa": 334,
     "pr": 19.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Panzerzug PanzerTragwagen Typ 1",
@@ -3127,7 +3183,8 @@
     ],
     "pa": 352,
     "pr": 22.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Panzerzug PanzerTragwagen Typ 2",
@@ -3144,7 +3201,8 @@
     ],
     "pa": 211,
     "pr": 19.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Schwerer Kreuzer Prinz Eugen",
@@ -3160,7 +3218,8 @@
     ],
     "pa": 1747,
     "pr": 79.95,
-    "ie": 0
+    "ie": 0,
+    "di": 9
   },
   {
     "ti": "Behälterwagen",
@@ -3175,7 +3234,8 @@
     ],
     "pa": 191,
     "pr": 16.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Säuretopfwagen",
@@ -3239,7 +3299,8 @@
     ],
     "pa": 686,
     "pr": 44.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Pz. Kpfw. VI Tiger Ausf. E „früh\"",
@@ -3298,7 +3359,8 @@
       14
     ],
     "pa": 178,
-    "pr": 16.95
+    "pr": 16.95,
+    "di": 1
   },
   {
     "ti": "M4 A3E8 HVSS Sherman",
@@ -3357,7 +3419,8 @@
     ],
     "pa": 240,
     "pr": 12.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Polizeifahrzeug USA SUV",
@@ -3372,7 +3435,8 @@
     ],
     "pa": 242,
     "pr": 12.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Kraftstofftankwagen",
@@ -3388,7 +3452,8 @@
     ],
     "pa": 566,
     "pr": 24.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Main Base Mars - Kipplaster Schildkröte",
@@ -3402,7 +3467,8 @@
     ],
     "pa": 266,
     "pr": 16.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Main Base Mars - Rover Baufahrzeuge",
@@ -3417,7 +3483,8 @@
     ],
     "pa": 318,
     "pr": 12.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Main Base Mars - Rover mit Truppentransporter",
@@ -3431,7 +3498,8 @@
     ],
     "pa": 254,
     "pr": 9.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Main Base Mars - Muldenkipper Digger",
@@ -3445,7 +3513,8 @@
     ],
     "pa": 168,
     "pr": 9.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Schloss Neuschwanstein",
@@ -3461,7 +3530,8 @@
     ],
     "pa": 7436,
     "pr": 229.95,
-    "ie": 0
+    "ie": 0,
+    "di": 0
   },
   {
     "ti": "Main Base Mars - Raumbasis",
@@ -3475,7 +3545,8 @@
     ],
     "pa": 1861,
     "pr": 59.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Main Base Mars - Kommunikationsmodul",
@@ -3489,7 +3560,8 @@
     ],
     "pa": 292,
     "pr": 12.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Main Base Mars - Landeplattform",
@@ -3536,7 +3608,8 @@
     ],
     "pa": 1648,
     "pr": 69.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Pz. Kpfw. 38 (t)",
@@ -3659,7 +3732,8 @@
     ],
     "pa": 1778,
     "pr": 64.95,
-    "ie": 0
+    "ie": 0,
+    "di": 0
   },
   {
     "ti": "Bekohlungsanlage",
@@ -3676,7 +3750,8 @@
     ],
     "pa": 458,
     "pr": 24.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Lokomotive BR 132 DR",
@@ -3691,7 +3766,8 @@
     ],
     "pa": 800,
     "pr": 37.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Lokomotive E 69",
@@ -3706,7 +3782,8 @@
     ],
     "pa": 334,
     "pr": 22.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Lokomotive BR 232",
@@ -3721,7 +3798,8 @@
     ],
     "pa": 813,
     "pr": 36.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Westernschmiede",
@@ -3736,7 +3814,8 @@
     ],
     "pa": 1093,
     "pr": 47.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "General Store",
@@ -3751,7 +3830,8 @@
     ],
     "pa": 1630,
     "pr": 74.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Sheriffs Office",
@@ -3781,7 +3861,8 @@
     ],
     "pa": 408,
     "pr": 22.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Lokomotive BR 218 DB",
@@ -3826,7 +3907,8 @@
     ],
     "pa": 613,
     "pr": 27.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Intermodaler Flachwagen mit Sattelauflieger",
@@ -3840,7 +3922,8 @@
       14
     ],
     "pa": 335,
-    "pr": 19.95
+    "pr": 19.95,
+    "di": 3
   },
   {
     "ti": "Lokomotive EMD SD50, Blau",
@@ -3855,7 +3938,8 @@
     ],
     "pa": 711,
     "pr": 34.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Wasserturm",
@@ -3871,7 +3955,8 @@
     ],
     "pa": 1568,
     "pr": 59.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Lokomotive EMD E8 Gelb",
@@ -3886,7 +3971,8 @@
     ],
     "pa": 645,
     "pr": 32.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Lokomotive BR 118 DR",
@@ -3900,7 +3986,8 @@
       13
     ],
     "pa": 902,
-    "pr": 42.95
+    "pr": 42.95,
+    "di": 3
   },
   {
     "ti": "Queen Mary I",
@@ -3915,7 +4002,8 @@
     ],
     "pa": 4904,
     "pr": 189.95,
-    "ie": 0
+    "ie": 0,
+    "di": 9
   },
   {
     "ti": "Australian Shepherd, Hund",
@@ -4019,7 +4107,8 @@
     ],
     "pa": 404,
     "pr": 23.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Dampflokomotive BR 92 Grün",
@@ -4049,7 +4138,8 @@
     ],
     "pa": 2000,
     "pr": 79.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Bahnübergang",
@@ -4066,7 +4156,8 @@
     ],
     "pa": 515,
     "pr": 24.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Bahnsteig",
@@ -4162,7 +4253,8 @@
     ],
     "pa": 321,
     "pr": 14.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Main Base Mars - Snail Kraftstoffcontainer",
@@ -4206,7 +4298,8 @@
     ],
     "pa": 362,
     "pr": 19.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "3-achsiger Muldenkipper mit Anhänger",
@@ -4282,7 +4375,8 @@
     ],
     "pa": 1414,
     "pr": 59.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Lokomotive BR 218 DB",
@@ -4560,7 +4654,8 @@
     ],
     "pa": 676,
     "pr": 26.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Kleinbahn Schienenbus VT133",
@@ -4591,7 +4686,8 @@
     ],
     "pa": 643,
     "pr": 26.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "DR Passagier Wagon lang",
@@ -4606,7 +4702,8 @@
     ],
     "pa": 601,
     "pr": 23.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Schlachtschiff IJN Nagato",
@@ -4622,7 +4719,8 @@
     ],
     "pa": 2615,
     "pr": 99.95,
-    "ie": 0
+    "ie": 0,
+    "di": 9
   },
   {
     "ti": "Unterseeboot U 96 Typ VII C",
@@ -4638,7 +4736,8 @@
     ],
     "pa": 827,
     "pr": 39.95,
-    "ie": 0
+    "ie": 0,
+    "di": 9
   },
   {
     "ti": "LKW mit Anhänger",
@@ -4654,7 +4753,8 @@
     ],
     "pa": 550,
     "pr": 26.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Lkw mit zwei Zugmaschinen",
@@ -4687,7 +4787,8 @@
     ],
     "pa": 533,
     "pr": 26.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Das Schwarze Auge, Magierturm zu Yol-Ghurmak",
@@ -4705,7 +4806,8 @@
     ],
     "pa": 1793,
     "pr": 74.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Traktor mit Heuanhänger",
@@ -4769,7 +4871,8 @@
     ],
     "pa": 433,
     "pr": 22.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Pop Wagen weiß grün",
@@ -4784,7 +4887,8 @@
     ],
     "pa": 792,
     "pr": 32.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Pop-Wagen weiß orange",
@@ -4882,7 +4986,8 @@
     ],
     "pa": 586,
     "pr": 24.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Kriegsschiff Fregatte 125",
@@ -4898,7 +5003,8 @@
     ],
     "pa": 1047,
     "pr": 49.95,
-    "ie": 0
+    "ie": 0,
+    "di": 9
   },
   {
     "ti": "Französisches Hochgeschwindigkeits-Taxi",
@@ -4927,7 +5033,8 @@
     ],
     "pa": 4114,
     "pr": 159.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Seagrave Aerial Scope rot/weiß",
@@ -5004,7 +5111,8 @@
     ],
     "pa": 1108,
     "pr": 39.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Oldtimer",
@@ -5018,7 +5126,8 @@
     ],
     "pa": 924,
     "pr": 39.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Klassischer Transporter",
@@ -5034,7 +5143,8 @@
     ],
     "pa": 955,
     "pr": 42.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Dreiteilige Elektrotriebzüge BR 420",
@@ -5048,7 +5158,8 @@
     ],
     "pa": 1728,
     "pr": 77.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Schnellzug grau blau",
@@ -5063,7 +5174,8 @@
     ],
     "pa": 3076,
     "pr": 134.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Traktor mit 3 Anhängern",
@@ -5080,7 +5192,8 @@
     "pa": 570,
     "pr": 27.95,
     "im": 2,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Französische Elektrolokomotive BB 9200",
@@ -5095,7 +5208,8 @@
     ],
     "pa": 477,
     "pr": 26.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Langstreckenbus",
@@ -5111,7 +5225,8 @@
     ],
     "pa": 502,
     "pr": 22.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "französischer Expresszugwagon",
@@ -5127,7 +5242,8 @@
     ],
     "pa": 738,
     "pr": 34.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Stickerbogen für Polizeifahrzeuge",
@@ -5158,7 +5274,8 @@
     ],
     "pa": 879,
     "pr": 34.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "französische Elektro Lokomotive BB 7200",
@@ -5173,7 +5290,8 @@
     ],
     "pa": 644,
     "pr": 34.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Oranges US-Muscle-Car",
@@ -5189,7 +5307,8 @@
     ],
     "pa": 1143,
     "pr": 46.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Amerikanisches Sport Cabriolet der 70er Jahre",
@@ -5205,7 +5324,8 @@
     ],
     "pa": 1048,
     "pr": 39.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Güterschuppen",
@@ -5222,7 +5342,8 @@
     ],
     "pa": 1033,
     "pr": 64.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Klassischer Italienischer Sportwagen",
@@ -5238,7 +5359,8 @@
     ],
     "pa": 902,
     "pr": 39.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Burg Blaustein",
@@ -5255,7 +5377,8 @@
     ],
     "pa": 5250,
     "pr": 199.95,
-    "ie": 0
+    "ie": 0,
+    "di": 0
   },
   {
     "ti": "US Classic 2-türiges Hardtop",
@@ -5270,7 +5393,8 @@
     ],
     "pa": 1195,
     "pr": 47.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Französische Bulldogge, Hund",
@@ -5331,7 +5455,8 @@
     "pa": 811,
     "pr": 34.95,
     "im": 3,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Roter Sportwagen",
@@ -5347,7 +5472,8 @@
     ],
     "pa": 161,
     "pr": 11.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "kleines Schwarzes Heldenfahrzeug",
@@ -5363,7 +5489,8 @@
     ],
     "pa": 202,
     "pr": 9.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "AMAZONE Landmaschinen großes Set",
@@ -5378,7 +5505,8 @@
     ],
     "pa": 1252,
     "pr": 47.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Kleines oranges US-Muscle-Car",
@@ -5395,7 +5523,8 @@
     ],
     "pa": 203,
     "pr": 9.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Raddampfer",
@@ -5410,7 +5539,8 @@
     ],
     "pa": 1536,
     "pr": 69.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "1974 Limousine Coupe",
@@ -5444,7 +5574,8 @@
     ],
     "pa": 198,
     "pr": 12.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "kleines grünes US-Muscle-Car",
@@ -5461,7 +5592,8 @@
     ],
     "pa": 188,
     "pr": 12.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "kleines Limousinen Coupe 1974",
@@ -5477,7 +5609,8 @@
     ],
     "pa": 186,
     "pr": 12.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Großes US-Polizeifahrzeug",
@@ -5509,7 +5642,8 @@
     ],
     "pa": 206,
     "pr": 15.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "LKW Augsburg 2-Achs mit 3-Achs Koffer dunkelrot",
@@ -5525,7 +5659,8 @@
     ],
     "pa": 403,
     "pr": 19.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "LKW Augsburg 2-Achs mit 3-Achs Koffer dunkelgrün",
@@ -5541,7 +5676,8 @@
     ],
     "pa": 403,
     "pr": 19.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "LKW Augsburg 2-Achs mit 3-Achs Koffer dunkelblau",
@@ -5557,7 +5693,8 @@
     ],
     "pa": 403,
     "pr": 19.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "LKW Augsburg 2-Achs mit 3-Achs Koffer hellgrau",
@@ -5573,7 +5710,8 @@
     ],
     "pa": 403,
     "pr": 19.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "LKW Augsburg 2-Achs mit 3-Achs Koffer schwarz",
@@ -5589,7 +5727,8 @@
     ],
     "pa": 403,
     "pr": 19.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "LKW Augsburg 2-Achs mit 3-Achs Koffer blau",
@@ -5605,7 +5744,8 @@
     ],
     "pa": 403,
     "pr": 19.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "LKW Augsburg 2-Achs mit 3-Achs Koffer sandgrün",
@@ -5621,7 +5761,8 @@
     ],
     "pa": 403,
     "pr": 19.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "LKW Augsburg 2-Achs mit 3-Achs Koffer grün",
@@ -5637,7 +5778,8 @@
     ],
     "pa": 403,
     "pr": 19.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Legendäre Lokomotive: Krokodil in grün",
@@ -5653,7 +5795,8 @@
     "pa": 1009,
     "pr": 44.95,
     "im": 2,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Schloss Neuschwanstein",
@@ -5682,7 +5825,8 @@
     ],
     "pa": 1010,
     "pr": 44.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Klassische Straßenbahn mit Anhänger",
@@ -5697,7 +5841,8 @@
     ],
     "pa": 788,
     "pr": 36.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Klassischer Westernzug Lokomotive mit Tender",
@@ -5730,7 +5875,8 @@
     ],
     "pa": 1049,
     "pr": 39.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Klassischer Westernzug Caboose Wagon",
@@ -5799,7 +5945,8 @@
     ],
     "pa": 1118,
     "pr": 39.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Schwarzes Heldenfahrzeug",
@@ -5814,7 +5961,8 @@
     ],
     "pa": 1047,
     "pr": 39.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Le Mont-Saint-Michel",
@@ -5829,7 +5977,8 @@
     ],
     "pa": 3077,
     "pr": 119.95,
-    "ie": 0
+    "ie": 0,
+    "di": 0
   },
   {
     "ti": "Lokomotive USA 4884",
@@ -5845,7 +5994,8 @@
     ],
     "pa": 1388,
     "pr": 64.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Pfannenwagen",
@@ -5860,7 +6010,8 @@
     ],
     "pa": 225,
     "pr": 15.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Weiß roter LKW mit 2 Anhängern",
@@ -5876,7 +6027,8 @@
     ],
     "pa": 648,
     "pr": 29.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "LKW mit 3 Anhängern",
@@ -5892,7 +6044,8 @@
     ],
     "pa": 1133,
     "pr": 44.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Diesellokomotive V36",
@@ -5907,7 +6060,8 @@
     ],
     "pa": 323,
     "pr": 19.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Diesellokomotive V36 grün",
@@ -5922,7 +6076,8 @@
     ],
     "pa": 320,
     "pr": 19.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "elektrische Güterzuglokomotive E91",
@@ -5937,7 +6092,8 @@
     ],
     "pa": 775,
     "pr": 34.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "LKW mit 3 Viehanhängern",
@@ -5953,7 +6109,8 @@
     ],
     "pa": 1617,
     "pr": 69.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Weiß-grüner Road Train",
@@ -5968,7 +6125,8 @@
     ],
     "pa": 1862,
     "pr": 74.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Set aus 2 Langstrecken-Haustransportern",
@@ -5984,7 +6142,8 @@
     ],
     "pa": 2579,
     "pr": 99.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Zug Personenwagen dunkelgrün",
@@ -6001,7 +6160,8 @@
     "pa": 679,
     "pr": 28.95,
     "im": 2,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Zug Personenwagen dunkelblau 1. Klasse",
@@ -6017,7 +6177,8 @@
     ],
     "pa": 699,
     "pr": 28.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Zug Paketwagen dunkelgrün",
@@ -6033,7 +6194,8 @@
     ],
     "pa": 672,
     "pr": 32.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Klassischer alter Bus in tan",
@@ -6050,7 +6212,8 @@
     ],
     "pa": 291,
     "pr": 16.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Speisewagen dunkelrot",
@@ -6065,7 +6228,8 @@
     ],
     "pa": 699,
     "pr": 32.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Klassischer alter Gelenkbus in tan",
@@ -6082,7 +6246,8 @@
     ],
     "pa": 460,
     "pr": 22.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Abschlepper mit Grünem Sportwagen",
@@ -6098,7 +6263,8 @@
     ],
     "pa": 459,
     "pr": 21.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "große Bekohlungsanlage",
@@ -6115,7 +6281,8 @@
     ],
     "pa": 1551,
     "pr": 56.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "kleines schwarzes Gangsterauto",
@@ -6130,7 +6297,8 @@
     ],
     "pa": 203,
     "pr": 9.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Amerikanischer Truck + Sport Cabriolet der 70er Jahre",
@@ -6147,7 +6315,8 @@
     ],
     "pa": 699,
     "pr": 29.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "US Classic 2-türiges Hardtop klein",
@@ -6162,7 +6331,8 @@
     ],
     "pa": 198,
     "pr": 12.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Technisches Hilfswerk MLW II",
@@ -6178,7 +6348,8 @@
     ],
     "pa": 269,
     "pr": 14.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Technisches Hilfswerk MTW mit Anhänger",
@@ -6194,7 +6365,8 @@
     ],
     "pa": 302,
     "pr": 17.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Eisenbahndisplay in 3 Segmenten",
@@ -6211,7 +6383,8 @@
     ],
     "pa": 1360,
     "pr": 54.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Technisches Hilfswerk GKW",
@@ -6227,7 +6400,8 @@
     ],
     "pa": 386,
     "pr": 18.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Erweiterung für Eisenbahndisplay",
@@ -6244,7 +6418,8 @@
     ],
     "pa": 868,
     "pr": 34.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Technisches Hilfswerk WLF mit zwei Containern",
@@ -6260,7 +6435,8 @@
     ],
     "pa": 593,
     "pr": 25.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Kleiner Lokschuppen",
@@ -6277,7 +6453,8 @@
     ],
     "pa": 2926,
     "pr": 99.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Domkirche",
@@ -6292,7 +6469,8 @@
     ],
     "pa": 3982,
     "pr": 139.95,
-    "ie": 0
+    "ie": 0,
+    "di": 0
   },
   {
     "ti": "Manhattan Unit 18 Umrandung",
@@ -6307,7 +6485,8 @@
     ],
     "pa": 372,
     "pr": 19.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Manhattan Südspitze",
@@ -6323,7 +6502,8 @@
     "pa": 21515,
     "pr": 777,
     "im": 1,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Rheingold DB Personenwagen V2",
@@ -6419,7 +6599,8 @@
     ],
     "pa": 654,
     "pr": 29.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Henschel Wegmann Lokomotive",
@@ -6434,7 +6615,8 @@
     ],
     "pa": 623,
     "pr": 32.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Lokomotive BR 120",
@@ -6449,7 +6631,8 @@
     ],
     "pa": 602,
     "pr": 29.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Schiffswerft-Restaurant",
@@ -6481,7 +6664,8 @@
     ],
     "pa": 446,
     "pr": 23.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Henschel Wegmann Speisewagen",
@@ -6496,7 +6680,8 @@
     ],
     "pa": 466,
     "pr": 23.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "RTW Feuerwehr",
@@ -6511,7 +6696,8 @@
     ],
     "pa": 376,
     "pr": 18.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Feuerwehrkran",
@@ -6528,7 +6714,8 @@
     ],
     "pa": 610,
     "pr": 29.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Technisches Hilfswerk LKW mit Radlader BRmG",
@@ -6545,7 +6732,8 @@
     ],
     "pa": 730,
     "pr": 34.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Technisches Hilfswerk MzKW",
@@ -6561,7 +6749,8 @@
     ],
     "pa": 285,
     "pr": 15.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "US Verstärkter Flachladewagen",
@@ -6576,7 +6765,8 @@
     ],
     "pa": 416,
     "pr": 22.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Mobiler Baukran",
@@ -6593,7 +6783,8 @@
     "pa": 610,
     "pr": 29.95,
     "im": 2,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Manhattan Sonnenuntergang Skyline Bild",
@@ -6611,7 +6802,8 @@
     "pa": 2023,
     "pr": 84.95,
     "im": 2,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "American Beach - Motel",
@@ -6626,7 +6818,8 @@
     ],
     "pa": 1911,
     "pr": 79.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Offener US Geländewagen",
@@ -6641,7 +6834,8 @@
     ],
     "pa": 604,
     "pr": 33.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Technisches Hilfswerk Autokran",
@@ -6658,7 +6852,8 @@
     ],
     "pa": 652,
     "pr": 29.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Lokomotive V60",
@@ -6673,7 +6868,8 @@
     ],
     "pa": 398,
     "pr": 24.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Dampflokomotive BR 23",
@@ -6688,7 +6884,8 @@
     ],
     "pa": 702,
     "pr": 38.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Technisches Hilfswerk LKW mit Ladekran",
@@ -6706,7 +6903,8 @@
     ],
     "pa": 371,
     "pr": 22.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "RC Technik Traktor",
@@ -6736,7 +6934,8 @@
     ],
     "pa": 852,
     "pr": 42.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "American Van",
@@ -6767,7 +6966,8 @@
     ],
     "pa": 2729,
     "pr": 119.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Autobahnabschnitt mit Baustelle",
@@ -6784,7 +6984,8 @@
     "pa": 1393,
     "pr": 49.95,
     "im": 2,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Der Hai-Angriff",
@@ -6801,7 +7002,8 @@
     ],
     "pa": 1257,
     "pr": 59.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "T-Rex Skelett Ausstellungsstück",
@@ -6817,7 +7019,8 @@
     ],
     "pa": 646,
     "pr": 26.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Elektrolokomotive E 70",
@@ -6832,7 +7035,8 @@
     ],
     "pa": 465,
     "pr": 24.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "klassischer Geländewagen 4WD",
@@ -6848,7 +7052,8 @@
     ],
     "pa": 941,
     "pr": 38.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "S-Bahn BR 423",
@@ -6862,7 +7067,8 @@
     ],
     "pa": 1496,
     "pr": 69.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Western Goldmine",
@@ -6876,7 +7082,8 @@
     ],
     "pa": 2898,
     "pr": 129.95,
-    "ie": 0
+    "ie": 0,
+    "di": 0
   },
   {
     "ti": "1963 US Sportwagen 2in1 Set",
@@ -6921,7 +7128,8 @@
     ],
     "pa": 376,
     "pr": 17.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Herbst Eiche",
@@ -6939,7 +7147,8 @@
     ],
     "pa": 643,
     "pr": 29.95,
-    "ie": 0
+    "ie": 0,
+    "di": 0
   },
   {
     "ti": "Roter Rennwagen 1975",
@@ -6953,7 +7162,8 @@
     ],
     "pa": 755,
     "pr": 36.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "American Beach - Diner",
@@ -6968,7 +7178,8 @@
     ],
     "pa": 2038,
     "pr": 79.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Motorisierbarer Passagier- und Gepäckwagen",
@@ -6984,7 +7195,8 @@
     ],
     "pa": 675,
     "pr": 29.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Motorisierbarer Güterwagen",
@@ -7000,7 +7212,8 @@
     ],
     "pa": 508,
     "pr": 24.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "4 Jahreszeiten Frühling",
@@ -7018,7 +7231,8 @@
     ],
     "pa": 904,
     "pr": 34.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "4 Jahreszeiten Sommer",
@@ -7036,7 +7250,8 @@
     ],
     "pa": 809,
     "pr": 32.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "4 Jahreszeiten Herbst",
@@ -7054,7 +7269,8 @@
     ],
     "pa": 700,
     "pr": 29.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "4 Jahreszeiten Winter",
@@ -7072,7 +7288,8 @@
     ],
     "pa": 722,
     "pr": 29.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "amerikanisches gelbes Taxi",
@@ -7088,7 +7305,8 @@
     ],
     "pa": 1164,
     "pr": 44.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "American Beach - Strandabschnitt 1",
@@ -7103,7 +7321,8 @@
     ],
     "pa": 633,
     "pr": 32.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "American Beach - Strandabschnitt 2",
@@ -7118,7 +7337,8 @@
     ],
     "pa": 699,
     "pr": 32.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Western Fort",
@@ -7132,7 +7352,8 @@
     ],
     "pa": 3436,
     "pr": 139.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Diesel-Tankanlage für Lokomotiven",
@@ -7150,7 +7371,8 @@
     ],
     "pa": 811,
     "pr": 34.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Western Fort Erweiterung",
@@ -7164,7 +7386,8 @@
     ],
     "pa": 1944,
     "pr": 79.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Formsignale",
@@ -7180,7 +7403,8 @@
     ],
     "pa": 447,
     "pr": 26.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "AMAZONE Cataya inklusive Kreiselgrubber",
@@ -7196,7 +7420,8 @@
     ],
     "pa": 1050,
     "pr": 39.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Klassischer Feuerwehr Leiterwagen",
@@ -7212,7 +7437,8 @@
     ],
     "pa": 359,
     "pr": 21.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Klassischer Feuerwehr Einsatzwagen",
@@ -7228,7 +7454,8 @@
     ],
     "pa": 302,
     "pr": 17.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Gebogene Gleise R56 im Set, 16 Stück",
@@ -7280,7 +7507,8 @@
     ],
     "pa": 1117,
     "pr": 49.95,
-    "ie": 0
+    "ie": 0,
+    "di": 0
   },
   {
     "ti": "Schwarzer Hubschrauber",
@@ -7296,7 +7524,8 @@
     ],
     "pa": 584,
     "pr": 27.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "American Beach - Casino",
@@ -7311,7 +7540,8 @@
     ],
     "pa": 3684,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Container Lastwagen mit Anhänger",
@@ -7327,7 +7557,8 @@
     ],
     "pa": 446,
     "pr": 22.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Torpedopfannenwagen",
@@ -7342,7 +7573,8 @@
     ],
     "pa": 749,
     "pr": 39.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "1972er schwarzer Formel Wagen",
@@ -7357,7 +7589,8 @@
     ],
     "pa": 600,
     "pr": 29.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "1977er sechsrädriger Formel Wagen blau/weiß",
@@ -7372,7 +7605,8 @@
     ],
     "pa": 548,
     "pr": 28.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "1979er Formel Wagen weiß/gelb",
@@ -7387,7 +7621,8 @@
     ],
     "pa": 634,
     "pr": 33.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "1974er Formel Wagen weiß/rot",
@@ -7402,7 +7637,8 @@
     ],
     "pa": 635,
     "pr": 33.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "FLF Flughafen Feuerwehr",
@@ -7417,7 +7653,8 @@
     ],
     "pa": 599,
     "pr": 27.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Dampflokomotive Adler mit 1.-3. Klasse-Wagen",
@@ -7434,7 +7671,8 @@
     ],
     "pa": 1749,
     "pr": 69.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "BR 475 Schnell-Bahn",
@@ -7448,7 +7686,8 @@
     ],
     "pa": 1699,
     "pr": 69.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Bergfried Erweiterung für Burg Blaustein",
@@ -7465,7 +7704,8 @@
     ],
     "pa": 1958,
     "pr": 79.95,
-    "ie": 0
+    "ie": 0,
+    "di": 0
   },
   {
     "ti": "1992er Formel Wagen blau/weiß/gelb",
@@ -7480,7 +7720,8 @@
     ],
     "pa": 581,
     "pr": 29.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Western Saloon",
@@ -7596,7 +7837,8 @@
     ],
     "pa": 647,
     "pr": 19.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Individualisierbare Oberleitung",
@@ -7612,7 +7854,8 @@
     ],
     "pa": 1484,
     "pr": 39.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Western Train",
@@ -7658,7 +7901,8 @@
     ],
     "pa": 526,
     "pr": 25.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Apokalypse-LKW",
@@ -7675,7 +7919,8 @@
     ],
     "pa": 698,
     "pr": 28.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Kampftruck",
@@ -7692,7 +7937,8 @@
     ],
     "pa": 493,
     "pr": 24.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Kleine Scheune mit Gemüsegarten",
@@ -7707,7 +7953,8 @@
     ],
     "pa": 1404,
     "pr": 59.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Klassische US-Zugmaschine",
@@ -7723,7 +7970,8 @@
     ],
     "pa": 1083,
     "pr": 47.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Klassischer schwarzer LKW mit Trailer",
@@ -7740,7 +7988,8 @@
     ],
     "pa": 1970,
     "pr": 84.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Intercity NL Zug",
@@ -7756,7 +8005,8 @@
     ],
     "pa": 1801,
     "pr": 84.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Flying Scotsman Lokomotive",
@@ -7771,7 +8021,8 @@
     ],
     "pa": 649,
     "pr": 35.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Dunkelroter Passagierwagen mit goldenem Band",
@@ -7786,7 +8037,8 @@
     ],
     "pa": 525,
     "pr": 26.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "kleine Bootsreparaturwerkstatt",
@@ -7803,7 +8055,8 @@
     ],
     "pa": 1038,
     "pr": 39.95,
-    "ie": 0
+    "ie": 0,
+    "di": 10
   },
   {
     "ti": "Fachwerkhaus",
@@ -7817,7 +8070,8 @@
       56
     ],
     "pa": 5337,
-    "pr": 189.95
+    "pr": 189.95,
+    "di": 4
   },
   {
     "ti": "Diorama: Schlacht um Frankreich",
@@ -7833,7 +8087,8 @@
     ],
     "pa": 3969,
     "pr": 149.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Mittelalterlicher Bauernhof",
@@ -7848,7 +8103,8 @@
     ],
     "pa": 3782,
     "pr": 149.95,
-    "ie": 0
+    "ie": 0,
+    "di": 0
   },
   {
     "ti": "Große Fachwerkscheune",
@@ -7863,7 +8119,8 @@
     ],
     "pa": 3471,
     "pr": 149.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Großer Kampftruck",
@@ -7879,7 +8136,8 @@
     ],
     "pa": 1412,
     "pr": 69.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "kleiner Tanklaster",
@@ -7895,7 +8153,8 @@
     ],
     "pa": 511,
     "pr": 22.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "American Beach - Kino",
@@ -7910,7 +8169,8 @@
     ],
     "pa": 2749,
     "pr": 99.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Kesselwagen schwarz gelb",
@@ -7925,7 +8185,8 @@
     ],
     "pa": 107,
     "pr": 13.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Langtransportwagen",
@@ -7939,7 +8200,8 @@
       14
     ],
     "pa": 191,
-    "pr": 16.95
+    "pr": 16.95,
+    "di": 1
   },
   {
     "ti": "Gepäckwagon mit Unterstand in dunkelgrün",
@@ -7953,7 +8215,8 @@
       14
     ],
     "pa": 246,
-    "pr": 16.95
+    "pr": 16.95,
+    "di": 1
   },
   {
     "ti": "Gepäckwagon mit Unterstand in rot/beige",
@@ -7967,7 +8230,8 @@
       14
     ],
     "pa": 256,
-    "pr": 16.95
+    "pr": 16.95,
+    "di": 1
   },
   {
     "ti": "Niederbordwagon mit 2 Achsen",
@@ -7981,7 +8245,8 @@
       14
     ],
     "pa": 75,
-    "pr": 9.95
+    "pr": 9.95,
+    "di": 1
   },
   {
     "ti": "Niederbordwagon mit 4 Achsen",
@@ -7995,7 +8260,8 @@
       14
     ],
     "pa": 106,
-    "pr": 14.95
+    "pr": 14.95,
+    "di": 1
   },
   {
     "ti": "Apokalypse V8 Interceptor",
@@ -8010,7 +8276,8 @@
     ],
     "pa": 1182,
     "pr": 46.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "großer Apokalypse-Truck",
@@ -8056,7 +8323,8 @@
     ],
     "pa": 3277,
     "pr": 179.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "klassischer US Pick-UP",
@@ -8071,7 +8339,8 @@
     ],
     "pa": 972,
     "pr": 39.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Amerikanischer Truck + Black Herocar",
@@ -8088,7 +8357,8 @@
     ],
     "pa": 1086,
     "pr": 54.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Schnellzug weiß rot",
@@ -8103,7 +8373,8 @@
     ],
     "pa": 2518,
     "pr": 119.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Fachwerk Stadttor",
@@ -8119,7 +8390,8 @@
     ],
     "pa": 5258,
     "pr": 179.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Fachwerk-Restaurant",
@@ -8134,7 +8406,8 @@
     ],
     "pa": 3019,
     "pr": 99.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Fachwerkmauer mit Hoftor",
@@ -8149,7 +8422,8 @@
     ],
     "pa": 331,
     "pr": 15.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Centurion Raumbasis",
@@ -8165,7 +8439,8 @@
     "pa": 4057,
     "pr": 149.95,
     "im": 2,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Klassischer Pick-Up Camper",
@@ -8180,7 +8455,8 @@
     ],
     "pa": 1652,
     "pr": 64.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Hafenkneipe",
@@ -8212,7 +8488,8 @@
     ],
     "pa": 2533,
     "pr": 89.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Logistik LKW mit Seecontainer",
@@ -8228,7 +8505,8 @@
     ],
     "pa": 394,
     "pr": 19.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Logistik LKW mit Kofferanhänger",
@@ -8245,7 +8523,8 @@
     "pa": 379,
     "pr": 19.95,
     "im": 2,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Logistik LKW mit Anhänger",
@@ -8261,7 +8540,8 @@
     ],
     "pa": 379,
     "pr": 19.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Logistik LKW mit Seecontainer und Anhänger",
@@ -8278,7 +8558,8 @@
     "pa": 526,
     "pr": 25.95,
     "im": 2,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Stromliniendampflokomotive BR 03",
@@ -8293,7 +8574,8 @@
     ],
     "pa": 856,
     "pr": 44.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Rot-Weißer LKW",
@@ -8310,7 +8592,8 @@
     ],
     "pa": 1139,
     "pr": 49.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Gedeckter Güterwagen, gelb",
@@ -8325,7 +8608,8 @@
     ],
     "pa": 194,
     "pr": 14.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Burg Eltz",
@@ -8356,7 +8640,8 @@
     ],
     "pa": 274,
     "pr": 15.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Kuppelwagen USA grau-schwarz",
@@ -8372,7 +8657,8 @@
     ],
     "pa": 575,
     "pr": 27.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Passagierwagen USA grau-schwarz",
@@ -8388,7 +8674,8 @@
     ],
     "pa": 549,
     "pr": 25.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Gepäckwagen dunkelgrün",
@@ -8403,7 +8690,8 @@
     ],
     "pa": 456,
     "pr": 24.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Passagierwagen dunkelgrün",
@@ -8418,7 +8706,8 @@
     ],
     "pa": 449,
     "pr": 23.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Diesellokomotive USA grau-schwarz",
@@ -8434,7 +8723,8 @@
     ],
     "pa": 514,
     "pr": 32.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Klassischer EU-Camper",
@@ -8449,7 +8739,8 @@
     ],
     "pa": 2014,
     "pr": 89.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Klassischer gelber US Sportwagen",
@@ -8465,7 +8756,8 @@
     ],
     "pa": 1072,
     "pr": 47.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Abschlepper gelb rot",
@@ -8481,7 +8773,8 @@
     ],
     "pa": 451,
     "pr": 22.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Lokomotive BR 160 in dunkel grün",
@@ -8496,7 +8789,8 @@
     ],
     "pa": 444,
     "pr": 24.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Wachturm mit Palisade",
@@ -8512,7 +8806,8 @@
     ],
     "pa": 1510,
     "pr": 57.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "US Stromlinenlokomotive",
@@ -8528,7 +8823,8 @@
     ],
     "pa": 2859,
     "pr": 124.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "US Flughafen Feuerwehr",
@@ -8542,7 +8838,8 @@
     ],
     "pa": 933,
     "pr": 37.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Berliner Sehenswürdigkeiten",
@@ -8559,7 +8856,8 @@
     ],
     "pa": 1702,
     "pr": 74.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Technik Hakenlift-Anhänger mit zwei Aufliegern",
@@ -8575,7 +8873,8 @@
     ],
     "pa": 1255,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Bergepanzer Büffel, BPz3, Bundeswehr",
@@ -8608,7 +8907,8 @@
     ],
     "pa": 4721,
     "pr": 189.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Lokomotive BR 160 in dunkel rot",
@@ -8623,7 +8923,8 @@
     ],
     "pa": 444,
     "pr": 24.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Klassischer 2in1 Sportwagen in dunkelgrün",
@@ -8638,7 +8939,8 @@
     ],
     "pa": 1089,
     "pr": 39.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "US Rangierlokomotive",
@@ -8653,7 +8955,8 @@
     ],
     "pa": 898,
     "pr": 42.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Tenderlokomotive BR 89 inklusive Display",
@@ -8669,7 +8972,8 @@
     ],
     "pa": 1543,
     "pr": 69.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Italienischer Sportwagen rot",
@@ -8684,7 +8988,8 @@
     ],
     "pa": 1069,
     "pr": 44.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Schachbrett / Dame",
@@ -8699,7 +9004,8 @@
     ],
     "pa": 2645,
     "pr": 119.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Seenotrettungskreuzer",
@@ -8715,7 +9021,8 @@
     ],
     "pa": 3027,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 9
   },
   {
     "ti": "Reichstag Berlin",
@@ -8826,7 +9133,8 @@
     "pa": 217,
     "pr": 14.95,
     "im": 5,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Star Trek Klingon Bird-of-Prey",
@@ -8843,7 +9151,8 @@
     "pa": 253,
     "pr": 14.95,
     "im": 5,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Star Trek Borg-Kubus",
@@ -8860,7 +9169,8 @@
     "pa": 406,
     "pr": 19.95,
     "im": 5,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Star Trek Raumstation Deep Space Nine",
@@ -8877,7 +9187,8 @@
     "pa": 200,
     "pr": 12.95,
     "im": 4,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Star Trek USS Enterprise NCC-1701-D",
@@ -8894,7 +9205,8 @@
     "pa": 182,
     "pr": 12.95,
     "im": 5,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Star Trek Klingon D'k tahg",
@@ -8911,7 +9223,8 @@
     "pa": 280,
     "pr": 22.95,
     "im": 5,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Star Trek Phaser Typ 2 (TOS)",
@@ -8928,7 +9241,8 @@
     "pa": 361,
     "pr": 22.95,
     "im": 5,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Star Trek USS Enterprise NCC-1701",
@@ -8945,7 +9259,8 @@
     "pa": 98,
     "pr": 7.95,
     "im": 5,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Star Trek Phaser Typ 2 (TNG)",
@@ -8962,7 +9277,8 @@
     "pa": 236,
     "pr": 19.95,
     "im": 4,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Star Trek USS Voyager NCC-74656",
@@ -8979,7 +9295,8 @@
     "pa": 179,
     "pr": 12.95,
     "im": 5,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Star Trek USS Enterprise NCC-1701-D",
@@ -8996,7 +9313,8 @@
     "pa": 521,
     "pr": 34.95,
     "im": 5,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Star Trek Borg-Kubus",
@@ -9013,7 +9331,8 @@
     "pa": 877,
     "pr": 39.95,
     "im": 5,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Star Trek USS Enterprise NCC-1701-A",
@@ -9030,7 +9349,8 @@
     "pa": 504,
     "pr": 27.95,
     "im": 5,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Star Trek Shuttle der Klasse F",
@@ -9047,7 +9367,8 @@
     "pa": 493,
     "pr": 37.95,
     "im": 5,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Star Trek Shuttle Typ 6",
@@ -9064,7 +9385,8 @@
     "pa": 548,
     "pr": 39.95,
     "im": 2,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Star Trek USS Enterprise NCC-1701",
@@ -9081,7 +9403,8 @@
     "pa": 2888,
     "pr": 219.95,
     "im": 5,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Star Trek USS Enterprise NCC-1701-D",
@@ -9098,7 +9421,8 @@
     "pa": 1971,
     "pr": 199.95,
     "im": 5,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Vorburg Erweiterung für Burg Blaustein",
@@ -9116,7 +9440,8 @@
     ],
     "pa": 4852,
     "pr": 199.95,
-    "ie": 0
+    "ie": 0,
+    "di": 0
   },
   {
     "ti": "Wolkenkratzer Angriff",
@@ -9132,7 +9457,8 @@
     ],
     "pa": 1671,
     "pr": 74.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Passagierwagen Silberling (8w)",
@@ -9149,7 +9475,8 @@
     ],
     "pa": 785,
     "pr": 35.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Lokomotive V100 (8w)",
@@ -9165,7 +9492,8 @@
     ],
     "pa": 528,
     "pr": 29.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Raumschiff Sulu",
@@ -9180,7 +9508,8 @@
     ],
     "pa": 2689,
     "pr": 119.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Schüttgutwagen (8w)",
@@ -9196,7 +9525,8 @@
     ],
     "pa": 372,
     "pr": 22.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Lucky Hot Pot, Chinesisches Restaurant",
@@ -9226,7 +9556,8 @@
     ],
     "pa": 1293,
     "pr": 49.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Rat Rod braun grau",
@@ -9240,7 +9571,8 @@
     ],
     "pa": 503,
     "pr": 24.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Rat Rod schwarz",
@@ -9254,7 +9586,8 @@
     ],
     "pa": 372,
     "pr": 18.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Rat Rod Pick up braun",
@@ -9268,7 +9601,8 @@
     ],
     "pa": 563,
     "pr": 27.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Wandbild - Leben im Ozean",
@@ -9284,7 +9618,8 @@
     ],
     "pa": 2451,
     "pr": 99.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Anhänger für klassischer US Pick-UP",
@@ -9299,7 +9634,8 @@
     ],
     "pa": 289,
     "pr": 18.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Rat Rod braun",
@@ -9313,7 +9649,8 @@
     ],
     "pa": 435,
     "pr": 22.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Kesselwagen (8w)",
@@ -9329,7 +9666,8 @@
     ],
     "pa": 260,
     "pr": 19.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Niederbordwagen (8w)",
@@ -9345,7 +9683,8 @@
     ],
     "pa": 239,
     "pr": 15.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Lokomotive BR103 DB Rheingold (8w)",
@@ -9362,7 +9701,8 @@
     ],
     "pa": 1129,
     "pr": 49.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Rheingold DB Abteilwagen (8w)",
@@ -9379,7 +9719,8 @@
     ],
     "pa": 863,
     "pr": 42.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Rheingold DB Großraumpersonenwagen (8w)",
@@ -9396,7 +9737,8 @@
     ],
     "pa": 739,
     "pr": 34.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Rheingold DB Panoramawagen (8w)",
@@ -9413,7 +9755,8 @@
     ],
     "pa": 1019,
     "pr": 47.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Rheingold DB Speisewagen (8w)",
@@ -9430,7 +9773,8 @@
     ],
     "pa": 794,
     "pr": 37.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Doppelweiche",
@@ -9460,7 +9804,8 @@
     ],
     "pa": 1038,
     "pr": 39.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Pizzeria",
@@ -9550,7 +9895,8 @@
     ],
     "pa": 2667,
     "pr": 94.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Pick-Up mit Wohnauflieger",
@@ -9564,7 +9910,8 @@
     ],
     "pa": 1143,
     "pr": 44.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Mittelalterliche Stadt - Windmühle",
@@ -9596,7 +9943,8 @@
     ],
     "pa": 2002,
     "pr": 89.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Moderner Bahnsteig",
@@ -9613,7 +9961,8 @@
     ],
     "pa": 1468,
     "pr": 79.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Retro-Schreibmaschine",
@@ -9641,7 +9990,8 @@
     ],
     "pa": 5142,
     "pr": 199.95,
-    "ie": 0
+    "ie": 0,
+    "di": 5
   },
   {
     "ti": "Gedeckter Güterwagen, braun (8w)",
@@ -9657,7 +10007,8 @@
     ],
     "pa": 259,
     "pr": 18.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Hamburger Michel",
@@ -9713,7 +10064,8 @@
     ],
     "pa": 1025,
     "pr": 49.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Leuchtturm des Astronomen",
@@ -9729,7 +10081,8 @@
     ],
     "pa": 6892,
     "pr": 239.95,
-    "ie": 0
+    "ie": 0,
+    "di": 7
   },
   {
     "ti": "Baufahrzeug Radlader",
@@ -9757,7 +10110,8 @@
     ],
     "pa": 1109,
     "pr": 59.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Netz Instandhaltung BR 701",
@@ -9772,7 +10126,8 @@
     ],
     "pa": 932,
     "pr": 42.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Gorch Fock",
@@ -9786,7 +10141,8 @@
     ],
     "pa": 4007,
     "pr": 199.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Wartburg",
@@ -9814,7 +10170,8 @@
     ],
     "pa": 560,
     "pr": 27.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "FlaRakPz Roland II, Bundeswehr",
@@ -9862,7 +10219,8 @@
     ],
     "pa": 675,
     "pr": 22.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Legendäre Lokomotive: Krokodil in grün (8W)",
@@ -9878,7 +10236,8 @@
     ],
     "pa": 1534,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Mitteleinstiegswagen 1. und 2. Klasse (8w)",
@@ -9894,7 +10253,8 @@
     ],
     "pa": 634,
     "pr": 29.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Mitteleinstiegswagen 2. Klasse (8w)",
@@ -9910,7 +10270,8 @@
     ],
     "pa": 649,
     "pr": 29.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Diorama: D-Day",
@@ -9925,7 +10286,8 @@
     ],
     "pa": 3639,
     "pr": 149.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Star Trek Romulan D´deridex Warbird",
@@ -10141,7 +10503,8 @@
     ],
     "pa": 650,
     "pr": 32.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Steuerwagen weiß rot",
@@ -10157,7 +10520,8 @@
     ],
     "pa": 821,
     "pr": 39.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Personenwagen weiß rot",
@@ -10172,7 +10536,8 @@
     ],
     "pa": 730,
     "pr": 34.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "LKW 7t gl 6x6 Autokran 4",
@@ -10206,7 +10571,8 @@
     ],
     "pa": 489,
     "pr": 29.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Umbauwagen 2. Klasse (8w)",
@@ -10222,7 +10588,8 @@
     ],
     "pa": 471,
     "pr": 29.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Umbauwagen 2te Klasse und Gepäckabteil (8w)",
@@ -10238,7 +10605,8 @@
     ],
     "pa": 505,
     "pr": 29.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "DR Kleinlokomotive Leistungsgruppe II (8w)",
@@ -10254,7 +10622,8 @@
     ],
     "pa": 447,
     "pr": 24.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Science-Fiction gepanzerter Mannschaftstransporter (APC)",
@@ -10271,7 +10640,8 @@
     ],
     "pa": 588,
     "pr": 27.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Elektrolokomotive SBB CFF FFS EuroCity Schweiz",
@@ -10287,7 +10657,8 @@
     ],
     "pa": 3376,
     "pr": 139.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Elektrolokomotive SBB CFF FFS LOK Re 460 Schweiz",
@@ -10302,7 +10673,8 @@
     ],
     "pa": 674,
     "pr": 34.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Kesselwagen schwarz blau",
@@ -10363,7 +10735,8 @@
     ],
     "pa": 1394,
     "pr": 59.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Neuseelandfächerschwanz",
@@ -10378,7 +10751,8 @@
     ],
     "pa": 120,
     "pr": 7.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Neuseeland-Kuckuckskauz",
@@ -10393,7 +10767,8 @@
     ],
     "pa": 172,
     "pr": 11.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Einheitskesselwagen blau",
@@ -10423,7 +10798,8 @@
     ],
     "pa": 5624,
     "pr": 219.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Mittelalterliche Baustelle",
@@ -10439,7 +10815,8 @@
     ],
     "pa": 2207,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Auto-Transportwagen (8w)",
@@ -10455,7 +10832,8 @@
     ],
     "pa": 1331,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Einheitskesselwagen gelb",
@@ -10514,7 +10892,8 @@
     ],
     "pa": 551,
     "pr": 27.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Rosellasittich",
@@ -10529,7 +10908,8 @@
     ],
     "pa": 165,
     "pr": 9.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Sittich",
@@ -10544,7 +10924,8 @@
     ],
     "pa": 178,
     "pr": 11.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Kakadu",
@@ -10559,7 +10940,8 @@
     ],
     "pa": 174,
     "pr": 11.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "VT 18.16 1te Klasse",
@@ -10574,7 +10956,8 @@
     ],
     "pa": 496,
     "pr": 29.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "VT 18.16 Speisewagen",
@@ -10589,7 +10972,8 @@
     ],
     "pa": 542,
     "pr": 32.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "VT 18.16 Triebwagen + 2te Klasse",
@@ -10605,7 +10989,8 @@
     ],
     "pa": 2206,
     "pr": 99.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Moderne Lokhalle",
@@ -10622,7 +11007,8 @@
     "pa": 2973,
     "pr": 149.95,
     "im": 2,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Oberleitungswagen BR 711",
@@ -10637,7 +11023,8 @@
     ],
     "pa": 984,
     "pr": 42.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Kommunales Mehrzweckfahrzeug",
@@ -10651,7 +11038,8 @@
     ],
     "pa": 536,
     "pr": 25.95,
-    "ie": 0
+    "ie": 0,
+    "di": 11
   },
   {
     "ti": "Felsentaube",
@@ -10666,7 +11054,8 @@
     ],
     "pa": 176,
     "pr": 11.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Bilderrahmen Liebe",
@@ -10682,7 +11071,8 @@
     ],
     "pa": 286,
     "pr": 15.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Burj Khalifa",
@@ -10697,7 +11087,8 @@
     ],
     "pa": 7342,
     "pr": 269.95,
-    "ie": 0
+    "ie": 0,
+    "di": 12
   },
   {
     "ti": "Willis Tower",
@@ -10713,7 +11104,8 @@
     ],
     "pa": 4683,
     "pr": 179.95,
-    "ie": 0
+    "ie": 0,
+    "di": 12
   },
   {
     "ti": "Bilderrahmen Strandurlaub",
@@ -10728,7 +11120,8 @@
     ],
     "pa": 287,
     "pr": 15.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Bilderrahmen Baby Junge",
@@ -10743,7 +11136,8 @@
     ],
     "pa": 287,
     "pr": 15.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Bilderrahmen Baby Mädchen",
@@ -10758,7 +11152,8 @@
     ],
     "pa": 295,
     "pr": 15.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Bilderrahmen Geburtstag",
@@ -10773,7 +11168,8 @@
     ],
     "pa": 317,
     "pr": 15.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Bilderrahmen Bergurlaub",
@@ -10788,7 +11184,8 @@
     ],
     "pa": 344,
     "pr": 15.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Blaukehlchen",
@@ -10803,7 +11200,8 @@
     ],
     "pa": 157,
     "pr": 9.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Buchfink",
@@ -10818,7 +11216,8 @@
     ],
     "pa": 189,
     "pr": 11.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Wintergoldhähnchen",
@@ -10833,7 +11232,8 @@
     ],
     "pa": 142,
     "pr": 8.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Blaumeise",
@@ -10848,7 +11248,8 @@
     ],
     "pa": 145,
     "pr": 9.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Tiny House (Haus auf Rädern)",
@@ -10863,7 +11264,8 @@
     ],
     "pa": 1986,
     "pr": 74.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Wiesel 2, Bundeswehr",
@@ -10893,7 +11295,8 @@
     ],
     "pa": 630,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Gelber Rettungshubschrauber",
@@ -10907,7 +11310,8 @@
     ],
     "pa": 278,
     "pr": 14.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "LKW 2t GL Ambulanz, Bundeswehr",
@@ -10949,7 +11353,8 @@
     ],
     "pa": 251,
     "pr": 14.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "LKW mit Teerkocher",
@@ -10964,7 +11369,8 @@
     ],
     "pa": 464,
     "pr": 24.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "InterCity AT",
@@ -10980,7 +11386,8 @@
     "pa": 2473,
     "pr": 0,
     "im": 2,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "InterCity AT Speisewagen und Barrierefreie Zone",
@@ -10996,7 +11403,8 @@
     ],
     "pa": 630,
     "pr": 29.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "InterCity AT Familienwaggon",
@@ -11012,7 +11420,8 @@
     ],
     "pa": 619,
     "pr": 29.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Dampflokomotive BR 18 (8w)",
@@ -11028,7 +11437,8 @@
     ],
     "pa": 1337,
     "pr": 59.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Santa Maria",
@@ -11056,7 +11466,8 @@
     ],
     "pa": 542,
     "pr": 25.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "niederländische Hausfassade Amstel 1",
@@ -11073,7 +11484,8 @@
     ],
     "pa": 1549,
     "pr": 59.95,
-    "ie": 0
+    "ie": 0,
+    "di": 6
   },
   {
     "ti": "niederländische Hausfassade Amstel 2",
@@ -11090,7 +11502,8 @@
     ],
     "pa": 1309,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 6
   },
   {
     "ti": "niederländische Hausfassade Amstel 3",
@@ -11107,7 +11520,8 @@
     ],
     "pa": 1163,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 6
   },
   {
     "ti": "niederländische Hausfassade Amstel 4",
@@ -11124,7 +11538,8 @@
     ],
     "pa": 1324,
     "pr": 49.95,
-    "ie": 0
+    "ie": 0,
+    "di": 6
   },
   {
     "ti": "niederländische Hausfassade Amstel 5",
@@ -11141,7 +11556,8 @@
     ],
     "pa": 1116,
     "pr": 39.95,
-    "ie": 0
+    "ie": 0,
+    "di": 6
   },
   {
     "ti": "niederländische Hausfassade Amstel 6",
@@ -11158,7 +11574,8 @@
     ],
     "pa": 1249,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 6
   },
   {
     "ti": "niederländische Hausfassade Amstel 7",
@@ -11175,7 +11592,8 @@
     ],
     "pa": 1090,
     "pr": 39.95,
-    "ie": 0
+    "ie": 0,
+    "di": 6
   },
   {
     "ti": "niederländische Hausfassade Amstel 8",
@@ -11192,7 +11610,8 @@
     ],
     "pa": 2334,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 6
   },
   {
     "ti": "Dampflokomotive BR 78 (8w)",
@@ -11208,7 +11627,8 @@
     ],
     "pa": 1026,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 11
   },
   {
     "ti": "Saalbau-Erweiterung für Burg Blaustein",
@@ -11225,7 +11645,8 @@
       56
     ],
     "pa": 5335,
-    "pr": 199.95
+    "pr": 199.95,
+    "di": 0
   },
   {
     "ti": "Star Trek USS Enterprise NX-01",
@@ -11450,7 +11871,8 @@
     ],
     "pa": 1104,
     "pr": 47.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Klassischer Kabinenroller",
@@ -11464,7 +11886,8 @@
     ],
     "pa": 881,
     "pr": 39.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Raumfrachter E.R.S. Levitarus",
@@ -11479,7 +11902,8 @@
     ],
     "pa": 3703,
     "pr": 149.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Mittelalter-Szenerie",
@@ -11496,7 +11920,8 @@
     "pa": 1073,
     "pr": 39.95,
     "im": 4,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Mittelalterliches Wohnhaus",
@@ -11513,7 +11938,8 @@
     ],
     "pa": 1430,
     "pr": 59.95,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Bewaffnetes Landungsschiff",
@@ -11528,7 +11954,8 @@
     ],
     "pa": 785,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Mittelalterliches Backhaus",
@@ -11544,7 +11971,8 @@
     ],
     "pa": 1739,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 0
   },
   {
     "ti": "Schwarzes US-Muscle-Car",
@@ -11558,7 +11986,8 @@
     ],
     "pa": 1013,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "LKW mit Baucontainer",
@@ -11573,7 +12002,8 @@
     ],
     "pa": 413,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Baustellen-Zubehör",
@@ -11588,7 +12018,8 @@
     ],
     "pa": 755,
     "pr": 32.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Eisenbahn-Zubehör",
@@ -11604,7 +12035,8 @@
     ],
     "pa": 624,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Gray Runner",
@@ -11619,7 +12051,8 @@
     ],
     "pa": 850,
     "pr": 37.95,
-    "ie": 0
+    "ie": 0,
+    "di": 3
   },
   {
     "ti": "Fitnessstudio",
@@ -11635,7 +12068,8 @@
     ],
     "pa": 2863,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 5
   },
   {
     "ti": "Indianerdorf",
@@ -11678,7 +12112,8 @@
     ],
     "pa": 292,
     "pr": 19.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Kühlwagen groß (8w)",
@@ -11694,7 +12129,8 @@
     ],
     "pa": 457,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "offener Güterwagen klein (8w)",
@@ -11710,7 +12146,8 @@
     ],
     "pa": 511,
     "pr": 24.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "offener Güterwagen groß (8w)",
@@ -11726,7 +12163,8 @@
     ],
     "pa": 891,
     "pr": 42.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Rungenwagen klein (8w)",
@@ -11742,7 +12180,8 @@
     ],
     "pa": 321,
     "pr": 19.95,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Rungenwagen groß (8w)",
@@ -11758,7 +12197,8 @@
     ],
     "pa": 439,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Fachwerk Bäckerei",
@@ -11773,7 +12213,8 @@
     ],
     "pa": 1684,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "BR 642",
@@ -11787,7 +12228,8 @@
     ],
     "pa": 1583,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 8
   },
   {
     "ti": "Physiotherapeutische Praxis",
@@ -11802,7 +12244,8 @@
     ],
     "pa": 2526,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 5
   },
   {
     "ti": "Gailtalbahn BR 2043",
@@ -11817,7 +12260,8 @@
     ],
     "pa": 750,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 13
   },
   {
     "ti": "Schlieren 1735",
@@ -11832,7 +12276,8 @@
     ],
     "pa": 739,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 13
   },
   {
     "ti": "Schlieren 2935",
@@ -11847,7 +12292,8 @@
     ],
     "pa": 725,
     "pr": 32.95,
-    "ie": 0
+    "ie": 0,
+    "di": 13
   },
   {
     "ti": "Schlieren 8235",
@@ -11862,7 +12308,8 @@
     ],
     "pa": 789,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 13
   },
   {
     "ti": "Burg Hohenzollern",
@@ -11890,7 +12337,8 @@
     ],
     "pa": 1572,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Pirateninsel: Insel mit Floß",
@@ -11905,7 +12353,8 @@
     ],
     "pa": 325,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Pirateninsel: Inselversteck",
@@ -11919,7 +12368,8 @@
     ],
     "pa": 966,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 4
   },
   {
     "ti": "Gladiatorhelm",
@@ -11934,7 +12384,8 @@
     ],
     "pa": 447,
     "pr": 24.95,
-    "ie": 0
+    "ie": 0,
+    "di": 12
   },
   {
     "ti": "Römerhelm",
@@ -11948,7 +12399,8 @@
     ],
     "pa": 527,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 12
   },
   {
     "ti": "Spartanerhelm",
@@ -11963,7 +12415,8 @@
     ],
     "pa": 538,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 12
   },
   {
     "ti": "Japanischer Sportwagen",
@@ -11976,7 +12429,8 @@
     ],
     "pa": 949,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Monstertruck dunkelblau",
@@ -11990,7 +12444,8 @@
     ],
     "pa": 1158,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Café \"Princess Hut\"",
@@ -12031,7 +12486,8 @@
     ],
     "pa": 1452,
     "pr": 59.95,
-    "ie": 0
+    "ie": 0,
+    "di": 12
   },
   {
     "ti": "Empire State Building",
@@ -12059,7 +12515,8 @@
       63
     ],
     "pa": 513,
-    "pr": 0
+    "pr": 0,
+    "di": 5
   },
   {
     "ti": "Quantum Colony: Schwerlast Transporter \"Juggernaut\"",
@@ -12074,7 +12531,8 @@
       63
     ],
     "pa": 968,
-    "pr": 0
+    "pr": 0,
+    "di": 5
   },
   {
     "ti": "Quantum Colony: Sattelschlepper \"Hauler\"",
@@ -12088,7 +12546,8 @@
       63
     ],
     "pa": 653,
-    "pr": 29.95
+    "pr": 29.95,
+    "di": 5
   },
   {
     "ti": "Quantum Colony: Mobile Energieversorgungseinheit \"Quasar\"",
@@ -12102,7 +12561,8 @@
       63
     ],
     "pa": 788,
-    "pr": 0
+    "pr": 0,
+    "di": 5
   },
   {
     "ti": "Quantum Colony: Landeplattform",
@@ -12116,7 +12576,8 @@
       63
     ],
     "pa": 1608,
-    "pr": 0
+    "pr": 0,
+    "di": 5
   },
   {
     "ti": "Quantum Colony: Hangar",
@@ -12130,7 +12591,8 @@
       63
     ],
     "pa": 2568,
-    "pr": 0
+    "pr": 0,
+    "di": 5
   },
   {
     "ti": "Quantum Colony: Kontrollzentrum",
@@ -12144,7 +12606,8 @@
       63
     ],
     "pa": 2303,
-    "pr": 0
+    "pr": 0,
+    "di": 5
   },
   {
     "ti": "Rockefeller Center",
@@ -12158,7 +12621,8 @@
       27
     ],
     "pa": 4580,
-    "pr": 0
+    "pr": 0,
+    "di": 12
   },
   {
     "ti": "Gouverneursinsel: Hafen",
@@ -12171,7 +12635,8 @@
       40
     ],
     "pa": 1647,
-    "pr": 0
+    "pr": 0,
+    "di": 4
   },
   {
     "ti": "Eckkneipe Old Pub",
@@ -12185,7 +12650,8 @@
       56
     ],
     "pa": 3478,
-    "pr": 149.95
+    "pr": 149.95,
+    "di": 5
   },
   {
     "ti": "Petersdom",
@@ -12199,7 +12665,8 @@
       27
     ],
     "pa": 2728,
-    "pr": 0
+    "pr": 0,
+    "di": 12
   },
   {
     "ti": "DR Kleinlokomotive Leistungsgruppe I (8w)",
@@ -12214,7 +12681,8 @@
       47
     ],
     "pa": 295,
-    "pr": 17.95
+    "pr": 17.95,
+    "di": 2
   },
   {
     "ti": "Kleinlokomotive Leistungsgruppe III (8w)",
@@ -12229,7 +12697,8 @@
       47
     ],
     "pa": 479,
-    "pr": 0
+    "pr": 0,
+    "di": 2
   },
   {
     "ti": "Lokomotive V100 dunkel blau(8w)",
@@ -12244,7 +12713,8 @@
       47
     ],
     "pa": 540,
-    "pr": 0
+    "pr": 0,
+    "di": 2
   },
   {
     "ti": "Schienenbus (8w)",
@@ -12259,7 +12729,8 @@
       47
     ],
     "pa": 623,
-    "pr": 0
+    "pr": 0,
+    "di": 2
   },
   {
     "ti": "Hurde-Erweiterung für Burg Blaustein",
@@ -12275,7 +12746,8 @@
       54
     ],
     "pa": 4473,
-    "pr": 0
+    "pr": 0,
+    "di": 0
   },
   {
     "ti": "Akropolis",
@@ -12289,7 +12761,8 @@
       27
     ],
     "pa": 2143,
-    "pr": 0
+    "pr": 0,
+    "di": 12
   },
   {
     "ti": "Pirateninsel: Schatzhöhle",
@@ -12302,7 +12775,8 @@
       40
     ],
     "pa": 1146,
-    "pr": 0
+    "pr": 0,
+    "di": 4
   },
   {
     "ti": "Frankfurter Römer Hausfassade 3",
@@ -12317,7 +12791,8 @@
       62
     ],
     "pa": 1689,
-    "pr": 0
+    "pr": 0,
+    "di": 6
   },
   {
     "ti": "Frankfurter Römer Hausfassade 4",
@@ -12332,7 +12807,8 @@
       62
     ],
     "pa": 2591,
-    "pr": 0
+    "pr": 0,
+    "di": 6
   },
   {
     "ti": "Frankfurter Römer Hausfassade 5",
@@ -12347,7 +12823,8 @@
       62
     ],
     "pa": 1699,
-    "pr": 0
+    "pr": 0,
+    "di": 6
   },
   {
     "ti": "Frankfurter Römer Hausfassade 6",
@@ -12362,7 +12839,8 @@
       62
     ],
     "pa": 2790,
-    "pr": 0
+    "pr": 0,
+    "di": 6
   },
   {
     "ti": "Pisa",
@@ -12376,7 +12854,8 @@
       27
     ],
     "pa": 1150,
-    "pr": 0
+    "pr": 0,
+    "di": 12
   },
   {
     "ti": "Frankfurter Römer Hausfassade 1",
@@ -12390,7 +12869,8 @@
       62
     ],
     "pa": 2838,
-    "pr": 0
+    "pr": 0,
+    "di": 6
   },
   {
     "ti": "Frankfurter Römer Hausfassade 2",
@@ -12404,7 +12884,8 @@
       62
     ],
     "pa": 1245,
-    "pr": 0
+    "pr": 0,
+    "di": 6
   },
   {
     "ti": "Markusplatz",
@@ -12418,7 +12899,8 @@
       27
     ],
     "pa": 3479,
-    "pr": 0
+    "pr": 0,
+    "di": 12
   },
   {
     "ti": "Gouverneursinsel: Wachturm-Erweiterung",
@@ -12433,7 +12915,8 @@
       40
     ],
     "pa": 443,
-    "pr": 0
+    "pr": 0,
+    "di": 4
   },
   {
     "ti": "Gouverneursinsel: Pergola-Erweiterung",
@@ -12446,7 +12929,8 @@
       40
     ],
     "pa": 463,
-    "pr": 0
+    "pr": 0,
+    "di": 4
   },
   {
     "ti": "Pirateninsel: Brigantine",
@@ -12461,7 +12945,8 @@
       51
     ],
     "pa": 1576,
-    "pr": 0
+    "pr": 0,
+    "di": 4
   },
   {
     "ti": "Straßenbahn gelb-weiß",
@@ -12474,7 +12959,8 @@
       8
     ],
     "pa": 1372,
-    "pr": 0
+    "pr": 0,
+    "di": 2
   },
   {
     "ti": "Kaltfräse",
@@ -12487,7 +12973,8 @@
       56
     ],
     "pa": 556,
-    "pr": 0
+    "pr": 0,
+    "di": 2
   },
   {
     "ti": "Oldtimer Trecker",
@@ -12500,7 +12987,8 @@
       55
     ],
     "pa": 335,
-    "pr": 0
+    "pr": 0,
+    "di": 2
   },
   {
     "ti": "Krippenspiel",
@@ -12529,7 +13017,8 @@
       14
     ],
     "pa": 1368,
-    "pr": 0
+    "pr": 0,
+    "di": 2
   },
   {
     "ti": "Amerikanischer Pumpwagen",
@@ -12544,7 +13033,8 @@
       56
     ],
     "pa": 1938,
-    "pr": 0
+    "pr": 0,
+    "di": 3
   },
   {
     "ti": "Burg Löwenstein Standard Edition",
@@ -12556,7 +13046,8 @@
       1,
       20
     ],
-    "pr": 0
+    "pr": 0,
+    "di": 0
   },
   {
     "ti": "Kolosseum",
@@ -12570,7 +13061,8 @@
       27
     ],
     "pa": 3407,
-    "pr": 0
+    "pr": 0,
+    "di": 12
   },
   {
     "ti": "Großer Blue Runner",
@@ -12584,7 +13076,8 @@
       28
     ],
     "pa": 1058,
-    "pr": 0
+    "pr": 0,
+    "di": 3
   },
   {
     "ti": "Burg Bärenfels: Grundburg",
@@ -12599,7 +13092,8 @@
       64
     ],
     "pa": 1610,
-    "pr": 0
+    "pr": 0,
+    "di": 4
   },
   {
     "ti": "Gepäckwagon in Dunkelgrün",
@@ -12613,7 +13107,8 @@
       14
     ],
     "pa": 368,
-    "pr": 0
+    "pr": 0,
+    "di": 2
   },
   {
     "ti": "Gleiswaage mit Lademass",
@@ -12627,7 +13122,8 @@
       56
     ],
     "pa": 431,
-    "pr": 0
+    "pr": 0,
+    "di": 2
   },
   {
     "ti": "Mediterane Stadtvilla",
@@ -12640,7 +13136,8 @@
       56
     ],
     "pa": 6513,
-    "pr": 0
+    "pr": 0,
+    "di": 6
   },
   {
     "ti": "Dschungel Expedition: Expeditionsbus",
@@ -12654,7 +13151,8 @@
       33
     ],
     "pa": 3301,
-    "pr": 0
+    "pr": 0,
+    "di": 6
   },
   {
     "ti": "Dschungel Expedition: Dreier-Set Geländewagen",
@@ -12667,7 +13165,8 @@
       28
     ],
     "pa": 983,
-    "pr": 0
+    "pr": 0,
+    "di": 6
   },
   {
     "ti": "Quantum Colony: Container Shuttle \"Vulture\"",
@@ -12681,7 +13180,8 @@
       63
     ],
     "pa": 1544,
-    "pr": 0
+    "pr": 0,
+    "di": 5
   },
   {
     "ti": "Lokomotive V60 (8w)",
@@ -12696,7 +13196,8 @@
       47
     ],
     "pa": 611,
-    "pr": 0
+    "pr": 0,
+    "di": 2
   },
   {
     "ti": "Burg Bärenfels: Bergfried",
@@ -12711,7 +13212,8 @@
       64
     ],
     "pa": 1140,
-    "pr": 0
+    "pr": 0,
+    "di": 4
   },
   {
     "ti": "Regierungsviertel",
@@ -12725,7 +13227,8 @@
       27
     ],
     "pa": 3234,
-    "pr": 0
+    "pr": 0,
+    "di": 12
   },
   {
     "ti": "Flugtaxi",
@@ -12738,7 +13241,8 @@
       28
     ],
     "pa": 1263,
-    "pr": 0
+    "pr": 0,
+    "di": 3
   },
   {
     "ti": "Fliegendes Polizeiauto",
@@ -12752,7 +13256,8 @@
       28
     ],
     "pa": 1219,
-    "pr": 0
+    "pr": 0,
+    "di": 3
   },
   {
     "ti": "Britischer Kleinwagen",
@@ -12765,7 +13270,8 @@
       28
     ],
     "pa": 1195,
-    "pr": 0
+    "pr": 0,
+    "di": 3
   },
   {
     "ti": "Zeche Zollverein",
@@ -12779,7 +13285,8 @@
       27
     ],
     "pa": 1909,
-    "pr": 0
+    "pr": 0,
+    "di": 12
   },
   {
     "ti": "BR 623",
@@ -12792,7 +13299,8 @@
       8
     ],
     "pa": 1521,
-    "pr": 0
+    "pr": 0,
+    "di": 8
   },
   {
     "ti": "Kesselwagenabfüllstation",
@@ -12808,7 +13316,8 @@
       56
     ],
     "pa": 1325,
-    "pr": 0
+    "pr": 0,
+    "di": 8
   },
   {
     "ti": "Ladegutzubehör für LKW's und Wagons",
@@ -12825,7 +13334,8 @@
       56
     ],
     "pa": 736,
-    "pr": 0
+    "pr": 0,
+    "di": 8
   },
   {
     "ti": "Logistik LKW mit Dolly und Anhänger",
@@ -12838,7 +13348,8 @@
       30
     ],
     "pa": 574,
-    "pr": 0
+    "pr": 0,
+    "di": 8
   },
   {
     "ti": "Halbspeisewagen Dunkel Blau/Dunkel Rot 1. Klasse",
@@ -12852,7 +13363,8 @@
       14
     ],
     "pa": 605,
-    "pr": 0
+    "pr": 0,
+    "di": 2
   },
   {
     "ti": "Halbspeisewagen Dunkel Grün/Dunkel Rot",
@@ -12866,7 +13378,8 @@
       14
     ],
     "pa": 609,
-    "pr": 0
+    "pr": 0,
+    "di": 2
   },
   {
     "ti": "Personenwagen Blau",
@@ -12880,7 +13393,8 @@
       14
     ],
     "pa": 577,
-    "pr": 0
+    "pr": 0,
+    "di": 2
   },
   {
     "ti": "Personenwagen Türkis",
@@ -12894,7 +13408,8 @@
       14
     ],
     "pa": 588,
-    "pr": 0
+    "pr": 0,
+    "di": 2
   },
   {
     "ti": "Burg Bärenfels: Torhaus",
@@ -12909,7 +13424,8 @@
       64
     ],
     "pa": 962,
-    "pr": 0
+    "pr": 0,
+    "di": 4
   },
   {
     "ti": "Römisches Atrium Domus",
@@ -12922,7 +13438,8 @@
       2
     ],
     "pa": 3261,
-    "pr": 0
+    "pr": 0,
+    "di": 6
   },
   {
     "ti": "Burg Bärenfels: Palisade",
@@ -12937,7 +13454,8 @@
       64
     ],
     "pa": 1011,
-    "pr": 0
+    "pr": 0,
+    "di": 4
   },
   {
     "ti": "Burg Bärenfels: Schmied",
@@ -12952,7 +13470,8 @@
       64
     ],
     "pa": 359,
-    "pr": 0
+    "pr": 0,
+    "di": 4
   },
   {
     "ti": "Burg Bärenfels: Wanderweiterung",
@@ -12967,7 +13486,8 @@
       64
     ],
     "pa": 421,
-    "pr": 0
+    "pr": 0,
+    "di": 4
   },
   {
     "ti": "Mittelalterliches Köhlerlager",
@@ -12982,7 +13502,8 @@
       54
     ],
     "pa": 1103,
-    "pr": 0
+    "pr": 0,
+    "di": 0
   },
   {
     "ti": "Lokomotive BR 103 rot",
@@ -12996,7 +13517,8 @@
       13
     ],
     "pa": 727,
-    "pr": 0
+    "pr": 0,
+    "di": 2
   },
   {
     "ti": "Schiffswerft Hamburg",
@@ -13012,7 +13534,8 @@
       34
     ],
     "pa": 1376,
-    "pr": 0
+    "pr": 0,
+    "di": 12
   },
   {
     "ti": "Lokomotive BR 101 rot",
@@ -13024,7 +13547,8 @@
       0
     ],
     "pa": 581,
-    "pr": 0
+    "pr": 0,
+    "di": 2
   },
   {
     "ti": "Passagierwagen weiß rot",
@@ -13036,7 +13560,8 @@
       0
     ],
     "pa": 437,
-    "pr": 0
+    "pr": 0,
+    "di": 2
   },
   {
     "ti": "Triebwagen weiß rot",
@@ -13048,7 +13573,8 @@
       0
     ],
     "pa": 495,
-    "pr": 0
+    "pr": 0,
+    "di": 2
   },
   {
     "ti": "Brix Panzerketten 1 1/2 breit, schwarz (100st.)",
@@ -16680,7 +17206,8 @@
     ],
     "pa": 0,
     "pr": 4.95,
-    "ie": 0
+    "ie": 0,
+    "di": 14
   },
   {
     "ti": "Licht-Einheit",
@@ -17955,7 +18482,8 @@
     ],
     "pa": 0,
     "pr": 9.95,
-    "ie": 0
+    "ie": 0,
+    "di": 1
   },
   {
     "ti": "Stickerbogen Casino",
@@ -17970,7 +18498,8 @@
     ],
     "pa": 0,
     "pr": 3.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Stickerbogen American Diner",
@@ -17985,7 +18514,8 @@
     ],
     "pa": 0,
     "pr": 3.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Stickerbogen BR 146",
@@ -18000,7 +18530,8 @@
     ],
     "pa": 0,
     "pr": 3.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Stickerbogen Pick-Up Camper",
@@ -18015,7 +18546,8 @@
     ],
     "pa": 0,
     "pr": 3.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Stickerbogen für roter Rennwagen 1975",
@@ -18029,7 +18561,8 @@
     ],
     "pa": 0,
     "pr": 3.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Stickerbogen für 1979er Formel Racer weiß/gelb",
@@ -18044,7 +18577,8 @@
     ],
     "pa": 0,
     "pr": 3.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Stickerbogen für den Bahnsteig",
@@ -18059,7 +18593,8 @@
     ],
     "pa": 0,
     "pr": 4.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Polumschalter",
@@ -18101,7 +18636,8 @@
     ],
     "pa": 0,
     "pr": 4.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Stickerbogen für 1974er Formel Wagen weiß/rot",
@@ -18117,7 +18653,8 @@
     "pa": 0,
     "pr": 4.95,
     "im": 2,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Stickerbogen für 1977er sechsrädriger Formel Wagen blau/weiß",
@@ -18132,7 +18669,8 @@
     ],
     "pa": 0,
     "pr": 3.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Stickerbogen für 1992er Formel Wagen blau/weiß/gelb",
@@ -18147,7 +18685,8 @@
     ],
     "pa": 0,
     "pr": 4.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Stickerbogen WWII Germany",
@@ -18162,7 +18701,8 @@
     ],
     "pa": 0,
     "pr": 1.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Eisenbahn-Empfänger mit Akku-Box Generation 2",
@@ -18210,7 +18750,8 @@
     ],
     "pa": 0,
     "pr": 7.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Stickerbogen US Geldtransporter",
@@ -18224,7 +18765,8 @@
     ],
     "pa": 0,
     "pr": 4.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Auto-RC-Fernbedienung mit Kreuztasten",
@@ -18254,7 +18796,8 @@
     ],
     "pa": 0,
     "pr": 3.95,
-    "ie": 0
+    "ie": 0,
+    "di": 2
   },
   {
     "ti": "Auto-Empfänger mit Akkubox",
@@ -18283,7 +18826,8 @@
       56
     ],
     "pa": 0,
-    "pr": 7.95
+    "pr": 7.95,
+    "di": 2
   },
   {
     "ti": "Stickerbogen THW Technisches Hilfswerk Fahrzeuge",
@@ -18299,7 +18843,8 @@
       32
     ],
     "pa": 0,
-    "pr": 4.95
+    "pr": 4.95,
+    "di": 2
   },
   {
     "ti": "Stickerbogen ÖBB Gailtalbahn / Schlieren",
@@ -18313,7 +18858,8 @@
       15
     ],
     "pa": 0,
-    "pr": 3.95
+    "pr": 3.95,
+    "di": 2
   },
   {
     "ti": "WALL 1X2X2 W. BOWED SLIT, Chrome Silver",

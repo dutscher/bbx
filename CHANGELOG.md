@@ -1,3 +1,6 @@
+* [08.10.2022]
+  * designer id's for every product
+
 * [07.10.2022]
   * newest announces with correct tags
   * burg bärenfels own tag

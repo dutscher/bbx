@@ -155,8 +155,8 @@
           {#if !!product.price}
             <b>Preis:</b> <span class="product-tooltip__content">{handlePrice(product)}</span><br />
           {/if}
-          {#if product.designer}<b>Designer:</b> <span class="product-tooltip__content">{product.designer}</span><br
-            />{/if}
+          {#if product.designer}<b>Designer:</b>
+            <span class="product-tooltip__content">{product.designer.name}</span><br />{/if}
           {#if product.size}<b>Maße:</b> <span class="product-tooltip__content">{product.size}</span><br />{/if}
           {#if product.cats && product.cats.length > 0}
             <b class="product-tooltip__content--top">Kategorien:</b>

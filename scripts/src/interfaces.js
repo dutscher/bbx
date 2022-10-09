@@ -199,6 +199,7 @@ export const updateProductData = (product, change) => {
       product.parts = 200;
     }
     if (
+      product.title.includes('Stickerbogen') ||
       product.title.includes('32x32') ||
       product.title.includes('without Minifigure') ||
       product.title.includes('Gutschein')

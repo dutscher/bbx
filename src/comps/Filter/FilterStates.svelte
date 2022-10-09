@@ -114,7 +114,7 @@
       on:click={() => clickItem(state, true)}
     >
       <p>{state.de}</p>
-      <span class="chip_state">{state.count}</span>
+      <span class="chip__state">{state.count}</span>
     </div>
   {/each}
 </div>

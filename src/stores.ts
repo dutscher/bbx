@@ -11,6 +11,7 @@ export { storedParts, storedPartTypes } from './stores/parts';
 export { storedImageExtension } from './stores/image-extension';
 export { storedHearts, lsKey as lsKeyHeart } from './stores/hearts';
 export { storedProductMedia } from './stores/product-media';
+export { storedDesigner } from './stores/designer';
 export {
   storedHeartsShare,
   lsKey as lsKeyHeartShare,

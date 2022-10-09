@@ -20,6 +20,7 @@ const storedActiveSelectionWritable = writable({
   partTypes: [],
   colors: [],
   states: [],
+  designer: [],
   search: '',
   reason: 'default',
   site: '',

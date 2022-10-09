@@ -3,11 +3,12 @@ import { ID_PARTS } from '@interfaces';
 import { getProductHref } from '@utils';
 import { products } from '../../data/all-products.reducer';
 import { storedColors } from './colors';
+import { sortedDesigner } from './designer';
 
 let colors;
 storedColors.subscribe(store => (colors = store));
 
-const storedProductsSortingWriteable = writable({ sorting: '', sortTitle: '', sortDirection: 'desc' });
+const storedProductsSortingWriteable = writable({ sortType: '', sortTitle: '', sortDirection: 'desc' });
 export const storedProductsSorting = {
   subscribe: storedProductsSortingWriteable.subscribe,
   set: storedProductsSortingWriteable.set,
@@ -93,6 +94,10 @@ export const sortedProducts = products.map(product => {
   product.isNewSoon = false;
   product.isNew = false;
   product.isHot = false;
+
+  if (Number.isInteger(product.designerId)) {
+    product.designer = sortedDesigner[product.designerId];
+  }
 
   if (!('parts' in product) || product.parts === undefined) {
     product.parts = 0;

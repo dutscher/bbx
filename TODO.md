@@ -1,5 +1,4 @@
 next todos:
-* designer overview
 * history back not going
 * filter color active
   * url params

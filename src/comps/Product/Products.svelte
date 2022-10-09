@@ -4,7 +4,7 @@
     storedProductsSorting,
     storedProducts,
     storedFilteredProducts,
-    storedGlobalData,
+    storedDesigner,
     storedColors,
     storedParts,
     storedPartTypes,
@@ -24,6 +24,7 @@
   let activePartTypeIds: any = [];
   let activeColorIds: any = [];
   let activeStateIds: any = [];
+  let activeDesignerIds: any = [];
   let activeSearchString: string = '';
   let filteredProducts: any = [];
   let sortedItems: any = [];
@@ -58,6 +59,7 @@
     activePartTypeIds = store.partTypes;
     activeColorIds = store.colors;
     activeStateIds = store.states;
+    activeDesignerIds = store.designer;
     activeSearchString = store.search;
 
     if (store.reason === 'remove-all-filters') {
@@ -78,6 +80,7 @@
     activeTagIds,
     activeColorIds,
     activeStateIds,
+    activeDesignerIds,
     activePartId,
     activePartTypeIds,
     products,
@@ -100,7 +103,8 @@
       activePartIds.length > 0 ||
       activePartTypeIds.length > 0 ||
       activeColorIds.length > 0 ||
-      activeStateIds.length > 0
+      activeStateIds.length > 0 ||
+      activeDesignerIds.length > 0
     ) {
       raw = products
         // filter products without cats
@@ -170,6 +174,16 @@
           });
           return activeStateIds.length === 0 || countMatched > 0;
         })
+        // filter designer
+        .filter(product => {
+          let countMatched = 0;
+          activeDesignerIds.map(designerUrl => {
+            if (product.designer && product.designer.url === designerUrl) {
+              countMatched++;
+            }
+          });
+          return activeDesignerIds.length === 0 || countMatched > 0;
+        })
         // filter parts
         .filter(product => {
           if (product.isPart) {
@@ -192,6 +206,8 @@
           );
         });
 
+      console.log({ withFilter, activeSorting });
+
       withFilter = handleProductSort(withFilter, activeSorting);
     }
 
@@ -207,6 +223,7 @@
     activeTagIds,
     activeColorIds,
     activeStateIds,
+    activeDesignerIds,
     activePartIds,
     activePartTypeIds,
     products,
