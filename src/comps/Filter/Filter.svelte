@@ -31,6 +31,7 @@
       'show-states',
       'show-tags',
       'tooltip-tag-clicked',
+      'tooltip-designer-clicked',
       'tag-clicked-close-filter',
       'remove-all-filters',
       'click-search',
@@ -41,9 +42,13 @@
         showFilter = true;
       }
       if (
-        ['init-tags-url', 'init-search-via-url', 'tooltip-tag-clicked', 'tag-clicked-close-filter'].includes(
-          store.reason
-        )
+        [
+          'init-tags-url',
+          'init-search-via-url',
+          'tooltip-tag-clicked',
+          'tooltip-designer-clicked',
+          'tag-clicked-close-filter',
+        ].includes(store.reason)
       ) {
         showFilter = false;
       }

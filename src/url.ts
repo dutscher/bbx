@@ -4,12 +4,18 @@ const convertParams = {
   tags: 't',
   search: 'q',
   states: 'e',
+  designer: 'd',
 };
 
 export const sites = [
   { short: 'home', icon: 'home', title: 'Home' },
   { short: 'hearts', icon: 'favorite', title: 'Merkliste' },
-  { short: 'products', icon: 'category', title: 'Produkte', params: ['product', 'tags', 'search', 'states', 'filter'] },
+  {
+    short: 'products',
+    icon: 'category',
+    title: 'Produkte',
+    params: ['product', 'tags', 'search', 'states', 'filter', 'designer'],
+  },
   { short: 'changes', icon: 'star_rate', title: 'Status', params: ['tab', 'latest'] },
   { short: 'history', icon: 'schedule', title: 'Aktuelles', params: ['date'] },
 ];

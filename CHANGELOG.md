@@ -1,3 +1,6 @@
+* [10.10.2022]
+  * soled designer filter function
+
 * [08.10.2022]
   * designer id's for every product
 

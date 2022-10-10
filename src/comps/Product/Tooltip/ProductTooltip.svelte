@@ -6,6 +6,7 @@
     storedStates,
     storedActiveSelection,
     loadProductData,
+    storedDesigner,
   } from '@stores';
   import { jsVoid, setUrlParams, handlePrice, ess, getOffsetRect } from '@utils';
   import ProductStage from './ProductStage.svelte';
@@ -20,6 +21,7 @@
 
   let categories: any;
   let tags: any;
+  let designer: any;
   const spaceing: number = 32;
 
   let innerWidth = 0;
@@ -33,6 +35,7 @@
   storedGlobalData.subscribe(store => (globalData = store));
   storedCategories.subscribe(store => (categories = store));
   storedTags.subscribe(store => (tags = store));
+  storedDesigner.subscribe(store => (designer = store));
 
   const handleLeftAdjust = () => {
     const { left, width } = wrapElement.getBoundingClientRect();
@@ -77,6 +80,25 @@
         setUrlParams(
           'tags',
           tags.filter(tag => store.tags.includes(tag.id)).map(tag => tag.seoName)
+        );
+      }
+      return store;
+    });
+  };
+
+  const setActiveDesigner = designerObj => {
+    storedActiveSelection.update(store => {
+      if (!('designer' in store)) {
+        store.designer = [];
+      }
+      if (!store.designer.includes(designerObj.id)) {
+        store.designer.push(designerObj.id);
+        store.reason = 'tooltip-designer-clicked';
+        store.site = 'products';
+
+        setUrlParams(
+          'designer',
+          designer.filter(designer => store.designer.includes(designer.id)).map(designer => designer.seoName)
         );
       }
       return store;
@@ -156,7 +178,11 @@
             <b>Preis:</b> <span class="product-tooltip__content">{handlePrice(product)}</span><br />
           {/if}
           {#if product.designer}<b>Designer:</b>
-            <span class="product-tooltip__content">{product.designer.name}</span><br />{/if}
+            <span class="product-tooltip__content">
+              <a href={jsVoid} class="link" on:click={() => setActiveDesigner(product.designer)}
+                >{product.designer.de}
+              </a>
+            </span><br />{/if}
           {#if product.size}<b>Maße:</b> <span class="product-tooltip__content">{product.size}</span><br />{/if}
           {#if product.cats && product.cats.length > 0}
             <b class="product-tooltip__content--top">Kategorien:</b>
