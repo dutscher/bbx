@@ -28,6 +28,7 @@
     const reasons = [
       'init-tags-url',
       'init-search-via-url',
+      'url-parsed--designer',
       'show-states',
       'show-tags',
       'tooltip-tag-clicked',
@@ -36,6 +37,8 @@
       'remove-all-filters',
       'click-search',
     ];
+
+    console.log('Filter.svelte', store.site, store.reason);
 
     if (store.site === 'products' && reasons.includes(store.reason)) {
       if (['show-states', 'show-tags', 'click-search', 'remove-all-filters'].includes(store.reason)) {
@@ -48,6 +51,7 @@
           'tooltip-tag-clicked',
           'tooltip-designer-clicked',
           'tag-clicked-close-filter',
+          'url-parsed--designer',
         ].includes(store.reason)
       ) {
         showFilter = false;

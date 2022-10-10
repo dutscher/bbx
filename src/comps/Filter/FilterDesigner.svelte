@@ -43,6 +43,7 @@
         store.reason = 'designer-clicked';
       } else {
         store.reason = 'url-parsed--designer';
+        store.site = 'products';
       }
 
       return store;
