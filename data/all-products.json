@@ -13592,7 +13592,8 @@
       0
     ],
     "pa": 569,
-    "pr": 0
+    "pr": 0,
+    "di": 2
   },
   {
     "ti": "Triebwagen grau",
@@ -13604,7 +13605,8 @@
       0
     ],
     "pa": 511,
-    "pr": 0
+    "pr": 0,
+    "di": 2
   },
   {
     "ti": "Personenwagen grau",
@@ -13616,7 +13618,8 @@
       0
     ],
     "pa": 479,
-    "pr": 0
+    "pr": 0,
+    "di": 2
   },
   {
     "ti": "Barwagen grau",
@@ -13628,7 +13631,8 @@
       0
     ],
     "pa": 510,
-    "pr": 0
+    "pr": 0,
+    "di": 2
   },
   {
     "ti": "Brix Panzerketten 1 1/2 breit, schwarz (100st.)",
