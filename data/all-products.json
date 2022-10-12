@@ -11435,7 +11435,7 @@
       13,
       47
     ],
-    "pa": 1337,
+    "pa": 1338,
     "pr": 59.95,
     "ie": 0,
     "di": 3
@@ -11661,7 +11661,7 @@
       49
     ],
     "pa": 492,
-    "pr": 0
+    "pr": 32.95
   },
   {
     "ti": "Star Trek USS Enterprise NCC-1701-E",
@@ -11676,7 +11676,7 @@
       49
     ],
     "pa": 489,
-    "pr": 0
+    "pr": 32.95
   },
   {
     "ti": "Star Trek Klingon Bird-of-Prey",
@@ -11691,7 +11691,7 @@
       49
     ],
     "pa": 565,
-    "pr": 0
+    "pr": 34.95
   },
   {
     "ti": "Star Trek Klingon D7 Klasse Schlachtkreuzer Getarnt",
@@ -11706,7 +11706,7 @@
       49
     ],
     "pa": 580,
-    "pr": 0
+    "pr": 34.95
   },
   {
     "ti": "Star Trek Romulan Bird-of-Prey",
@@ -11721,7 +11721,7 @@
       49
     ],
     "pa": 238,
-    "pr": 0
+    "pr": 14.95
   },
   {
     "ti": "Star Trek USS Excelsior NX-2000",
@@ -11736,7 +11736,7 @@
       49
     ],
     "pa": 131,
-    "pr": 0
+    "pr": 10.95
   },
   {
     "ti": "Star Trek Klingon Vor’cha Class",
@@ -11751,7 +11751,7 @@
       49
     ],
     "pa": 183,
-    "pr": 0
+    "pr": 12.95
   },
   {
     "ti": "Star Trek Phoenix",
@@ -11765,8 +11765,8 @@
       28,
       49
     ],
-    "pa": 120,
-    "pr": 0
+    "pa": 121,
+    "pr": 9.95
   },
   {
     "ti": "Star Trek USS Stargazer NCC-2893",
@@ -11781,7 +11781,7 @@
       49
     ],
     "pa": 220,
-    "pr": 0
+    "pr": 14.95
   },
   {
     "ti": "Star Trek Cardassianische Galor Klasse",
@@ -11826,7 +11826,7 @@
       49
     ],
     "pa": 2856,
-    "pr": 0
+    "pr": 219.95
   },
   {
     "ti": "Star Trek USS Voyager NCC-74656",
@@ -13034,7 +13034,7 @@
       45,
       56
     ],
-    "pa": 1938,
+    "pa": 1994,
     "pr": 0,
     "di": 3
   },
@@ -13349,7 +13349,7 @@
       0,
       30
     ],
-    "pa": 574,
+    "pa": 558,
     "pr": 0,
     "di": 8
   },
