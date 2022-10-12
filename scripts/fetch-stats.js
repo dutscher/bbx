@@ -4,7 +4,9 @@ import { fetchChanges, cleanUpHistoryChanges } from './src/api-changes.js';
 import { parsePages, parsePagesNParts } from './src/parse-page.js';
 import { products, convertToReduce } from '../data/all-products.reducer.js';
 import allProductHistory from '../data/all-products-history.json' assert { type: 'json' };
+
 const params = process.argv;
+const writeLastCursor = true;
 
 // self parsed
 let parsedDataToday = {
@@ -12,13 +14,13 @@ let parsedDataToday = {
 };
 let allTimeChanges = {};
 
-const mergeChangesWithDB = allTimeChanges => {
+const mergeChangesWithDB = (allTimeChanges, items) => {
   Object.entries(allTimeChanges).map(productChange => {
+    let isNewProduct = false;
     const productId = parseInt(productChange[0]);
     const changes = productChange[1];
-    let isNewProduct = false;
 
-    let product = parsedDataToday.items.find(product => product.id === productId);
+    let product = items.find(product => product.id === productId);
     // new product
     if (!product) {
       product = {};
@@ -28,14 +30,12 @@ const mergeChangesWithDB = allTimeChanges => {
     product.id = productId;
     product.title = changes.title;
     product.state = changes.state;
+    product.designerId = changes.designerId;
+    product.designer = changes.designer;
+    product.price = changes.price;
     if (changes.parts !== null) {
       product.parts = changes.parts;
     }
-    product.price = changes.price;
-    // TODO: parse cats for existing products
-    //product.cats = changes.cats;
-    //product.tags = changes.tags;
-    // history
     product.history = {
       ...product.history,
       ...changes.history,
@@ -43,7 +43,7 @@ const mergeChangesWithDB = allTimeChanges => {
 
     cleanUpHistoryChanges(product);
 
-    if (false && product.id === 100090) {
+    if (false && product.id === 105664) {
       console.log(product, changes);
     }
 
@@ -51,14 +51,14 @@ const mergeChangesWithDB = allTimeChanges => {
       product.cats = changes.cats;
       product.tags = changes.tags;
 
-      parsedDataToday.items.push(product);
+      items.push(product);
     }
   });
 };
 
 (async () => {
   let startDate = moment(new Date());
-  allTimeChanges = await fetchChanges(true);
+  allTimeChanges = await fetchChanges(writeLastCursor);
 
   startDate = printTime('fetchChanges', startDate); // 1394ms
 
@@ -67,7 +67,8 @@ const mergeChangesWithDB = allTimeChanges => {
     product.history = allProductHistory[product.id];
   });
 
-  mergeChangesWithDB(allTimeChanges);
+  // parsedDataToday.items get filled
+  mergeChangesWithDB(allTimeChanges, parsedDataToday.items);
 
   startDate = printTime('mergeChangesWithDB', startDate); // 289ms
 

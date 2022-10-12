@@ -1,5 +1,6 @@
 import bricklinkColors from '../../data/bricklink-hex.json' assert { type: 'json' };
 import partNrs from '../../data/parts/nr.json' assert { type: 'json' };
+import allDesigner from '../../data/designer.json' assert { type: 'json' };
 import { mergeTags } from './clean-utils.js';
 
 export const partNrDivider = 'Nr.: ';
@@ -174,6 +175,10 @@ export const updateProductData = (product, change) => {
     }
   }
 
+  if (product.designer) {
+    product.designerId = allDesigner.find(designer => designer.name === product.designer).id;
+  }
+
   if (isBluebrixxPart({ name: product.title }, { name: change.catName })) {
     product.cats.push(IDs.ID_CAT_BBX_PART_PACKS);
     product.tags.push(IDs.ID_TAG_BBX_PART_PACKS);
@@ -206,6 +211,10 @@ export const updateProductData = (product, change) => {
     ) {
       product.parts = 1;
     }
+  }
+
+  if (false && product.id === 105664) {
+    console.log('updateProductData', product);
   }
 
   return product;

@@ -21,6 +21,9 @@ productsJSON.map(product => {
 });
 
 export const convertToReduce = product => {
+  if (false && product.id === 105664) {
+    console.log('convertToReduce', product);
+  }
   const image = !!product.image ? { im: product.image } : {};
   // warning integer
   const imageExt = !!product.imageExt || product.imageExt === 0 ? { ie: product.imageExt } : {};

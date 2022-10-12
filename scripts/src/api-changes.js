@@ -36,6 +36,7 @@ const loadChanges = async endCursor => {
               product {
                 _id
                 name
+                designer
                 lastchange
                 price
                 pcs
@@ -86,11 +87,8 @@ export const fetchChanges = async (writeLastCursor = true) => {
 
   console.log(chalk.yellow('fetchChanges after loadChanges', lastCursor, '=', edges.length));
 
-  const handleChanges = (product, category) => {
-    const productId = product['_id'];
-    const parts = product.pcs;
-    const price = product.price;
-    let title = product.name;
+  const handleChanges = ({ pcs, _id, price, designer, name }, category) => {
+    const productId = _id;
     let catId = category['_id'];
     let history = {};
     if (productId in allTimeChanges) {
@@ -99,12 +97,13 @@ export const fetchChanges = async (writeLastCursor = true) => {
 
     allTimeChanges[productId] = updateProductData(
       {
-        title,
-        parts,
+        title: name,
+        parts: pcs,
         price: price !== null ? price : 0,
         cats: [],
         tags: [],
         history,
+        designer,
       },
       {
         catName: category.name,
