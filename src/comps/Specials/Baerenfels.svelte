@@ -62,6 +62,30 @@
 
 <div>
   <h2 bind:clientWidth={innerWidth}>{tag.title} - {allParts} Teile</h2>
+
+  {#if innerWidth}
+    <div class="pieces" style="zoom:{zoom};-moz-transform:scale({zoom});">
+      <div class="pieces__wrap flex">
+        <img class="piece__img" alt={tag.title} src="./images/specials/burg-baerenfels.png" />
+        {#each pieces as piece}
+          <div
+            class="piece absolute piece--{piece.nr} color--{piece.stateColor} chip large round small-padding"
+            on:click={event => {
+              setActive(event, piece.id);
+            }}
+          >
+            <span>{piece.title}</span>
+            <span class="sub no-margin">
+              {piece.parts} Teile
+              {#if piece.price} - {handlePrice(piece)}{/if}<br />
+              {piece.stateAgo}
+            </span>
+            <div class="tooltip bottom">{piece.state.de}</div>
+          </div>
+        {/each}
+      </div>
+    </div>
+  {/if}
 </div>
 
 <style lang="scss">
@@ -91,28 +115,33 @@
       }
 
       &--01 {
-        top: 207rem;
-        left: 469rem;
+        top: 157rem;
+        left: 679rem;
       }
 
       &--02 {
-        left: 404rem;
+        left: 144rem;
         top: 107rem;
       }
 
       &--03 {
-        left: 611rem;
-        top: 293rem;
+        left: 107rem;
+        top: 473rem;
       }
 
       &--04 {
-        left: 129rem;
-        top: 221rem;
+        left: 209rem;
+        top: 281rem;
       }
 
       &--05 {
-        left: 284rem;
-        top: 401rem;
+        left: 564rem;
+        top: 451rem;
+      }
+
+      &--06 {
+        left: 404rem;
+        top: 91rem;
       }
     }
   }

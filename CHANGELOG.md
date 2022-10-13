@@ -1,5 +1,8 @@
+* [13.10.2022]
+  * add burg bärenfels image
+
 * [10.10.2022]
-  * soled designer filter function
+  * solved designer filter function
 
 * [08.10.2022]
   * designer id's for every product
