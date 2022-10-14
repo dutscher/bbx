@@ -134,7 +134,7 @@
       }
 
       &--05 {
-        left: 284rem;
+        left: 86rem;
         top: 401rem;
       }
     }
