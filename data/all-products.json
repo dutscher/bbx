@@ -13636,6 +13636,45 @@
     "di": 2
   },
   {
+    "ti": "Rettungswagen",
+    "id": 105684,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1528,
+    "pr": 0,
+    "di": 3
+  },
+  {
+    "ti": "Kommunaler Müllwagen",
+    "id": 105687,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 552,
+    "pr": 0,
+    "di": 8
+  },
+  {
+    "ti": "Stahlwerk",
+    "id": 105688,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1547,
+    "pr": 0,
+    "di": 12
+  },
+  {
     "ti": "Brix Panzerketten 1 1/2 breit, schwarz (100st.)",
     "id": 400001,
     "ca": [
