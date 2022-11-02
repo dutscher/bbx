@@ -1,3 +1,7 @@
+* [02.11.2022]
+  * newest manuals
+  * add newest announcements tags
+
 * [13.10.2022]
   * add burg bärenfels image
 
