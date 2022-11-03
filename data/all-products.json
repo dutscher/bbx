@@ -18950,6 +18950,20 @@
     "di": 2
   },
   {
+    "ti": "Brix 10 Stück, 16x16 Plate, Medium Azure",
+    "id": 401301,
+    "ca": [
+      2,
+      6
+    ],
+    "tg": [
+      2,
+      48
+    ],
+    "pa": 10,
+    "pr": 0
+  },
+  {
     "ti": "Stickerbogen THW Technisches Hilfswerk Fahrzeuge",
     "id": 401302,
     "ca": [
