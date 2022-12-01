@@ -168,6 +168,12 @@
       flex-direction: column;
       align-items: flex-start;
       height: auto !important;
+
+      &.orange {
+        .orange-text {
+          color: #f44336 !important;
+        }
+      }
     }
 
     &__movie {

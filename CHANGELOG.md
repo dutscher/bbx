@@ -1,3 +1,7 @@
+* [01.12.2022]
+* newest manuals
+* fix hot product on announcment
+
 * [02.11.2022]
   * newest manuals
   * add newest announcements tags
