@@ -13234,7 +13234,7 @@
       0,
       28
     ],
-    "pa": 1023,
+    "pa": 1038,
     "pr": 0,
     "di": 6
   },
@@ -13813,6 +13813,19 @@
     "pa": 3570,
     "pr": 0,
     "di": 12
+  },
+  {
+    "ti": "Mittelalterlicher Rüstmeister",
+    "id": 105785,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1909,
+    "pr": 0,
+    "di": 0
   },
   {
     "ti": "Mittelalterlicher Wohnturm",
