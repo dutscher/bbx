@@ -45,11 +45,16 @@ if (!!getUrlParam(urlKeyTags)) {
 const allParams = getAllUrlParams();
 const queryProductId = getUrlParam('product');
 
-if (
-  !Object.keys(allParams).includes('search') &&
-  Object.keys(allParams).some(param => ['site', 'product'].includes(param)) &&
-  !!queryProductId
-) {
+// ?s=products&q=Ulmer%20Münster
+if (Object.keys(allParams).includes('search') && !queryProductId) {
+  storedActiveSelection.update(store => {
+    store.site = 'products';
+    store.reason = 'init-search-url';
+    return store;
+  });
+}
+// ?s=products&q=Ulmer%20Münster&p=105709
+if (Object.keys(allParams).some(param => ['site', 'product'].includes(param)) && !!queryProductId) {
   // close all toggles
   localStore.visibility('reset');
   // update search for product

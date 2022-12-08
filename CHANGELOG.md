@@ -1,6 +1,15 @@
+* [08.12.2022]
+  * fix entry search
+  * fix wrong category for wachturm 
+  * fix one day calculation for history
+
+* [04.12.2022]
+  * add new movie product
+  * import newest announcments
+
 * [01.12.2022]
-* newest manuals
-* fix hot product on announcment
+  * newest manuals
+  * fix hot icon on product announcment
 
 * [02.11.2022]
   * newest manuals

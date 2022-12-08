@@ -81,7 +81,7 @@ export const jsVoid = 'javascript:void(0)';
 
 export const getProductHref = product => {
   // "href": "/103464/Klassischer-schwarzer-LKW-mit-Trailer-BlueBrixx-Special",
-  const urlSafeTitle = product.title.replace(' \& ', '-').replace(/ /g, '-').replace(/,|(|)/g, '').replace(/ß/g, 'ss');
+  const urlSafeTitle = product.title.replace(' & ', '-').replace(/ /g, '-').replace(/,|(|)/g, '').replace(/ß/g, 'ss');
   return `/${product.id}/${urlSafeTitle}`;
 };
 
@@ -210,10 +210,13 @@ const calcTimeAgo = product => {
 
 const getTimeDiff = (dateNow, dateDiff) => {
   const now = new Date(dateNow).getTime();
-  const ms = now - new Date(dateDiff).getTime();
-  const days = Math.round(ms / 86400000); // days
-  const hrs = Math.round((ms % 86400000) / 3600000); // hours
-  const mins = Math.round(((ms % 86400000) % 3600000) / 60000); // minutes
+  const restMilliseconds = now - new Date(dateDiff).getTime();
+  const oneDayInMs = 86400000;
+  const oneHourInMs = 3600000;
+  const oneMinuteInMs = 60000;
+  const days = restMilliseconds > oneDayInMs ? Math.round(restMilliseconds / oneDayInMs) : 0; // days
+  const hrs = Math.round((restMilliseconds % oneDayInMs) / oneHourInMs); // hours
+  const mins = Math.round(((restMilliseconds % oneDayInMs) % oneHourInMs) / oneMinuteInMs); // minutes
   let strReturn = '';
 
   let daysStr = days > 0 ? days + ` Tag${days !== 1 ? 'e' : ''}` : '';
@@ -223,6 +226,6 @@ const getTimeDiff = (dateNow, dateDiff) => {
   } else {
     strReturn = `${daysStr}${hrs > 0 ? ' ' + hrs + 'h' : ''}${mins > 0 && mins < 60 ? mins + 'm' : ''}`;
   }
-
+  console.log({ restMilliseconds, oneDayInMs, strReturn });
   return strReturn;
 };

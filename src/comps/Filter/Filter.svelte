@@ -38,8 +38,6 @@
       'click-search',
     ];
 
-    console.log('Filter.svelte', store.site, store.reason);
-
     if (store.site === 'products' && reasons.includes(store.reason)) {
       if (['show-states', 'show-tags', 'click-search', 'remove-all-filters'].includes(store.reason)) {
         showFilter = true;
