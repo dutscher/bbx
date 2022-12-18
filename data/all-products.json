@@ -13118,6 +13118,78 @@
     "di": 0
   },
   {
+    "ti": "Star Trek Jem´Hadar Attack Ship",
+    "id": 105441,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 251,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek Maquis Raider Val Jean",
+    "id": 105442,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 206,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek USS Enterprise NCC-1701-C",
+    "id": 105443,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 163,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek USS Farragut NCC-60597",
+    "id": 105444,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 224,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek USS Enterprise NCC-1701-E",
+    "id": 105445,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 207,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek Ferengi D´Kora Marauder",
+    "id": 105446,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 208,
+    "pr": 0
+  },
+  {
     "ti": "Kolosseum",
     "id": 105475,
     "ca": [
