@@ -44,12 +44,15 @@
 
 <details class="card">
   <summary>
+    <b>Aktuell ist das Teilen über mehrere Geräte nicht möglich. Ich arbeite an einer Lösung. Stand 12.01.2023</b>
+  </summary>
+  <summary style="display: none">
     <b>Teile deine Merklisten über mehrere Geräte</b>
     {#if uuid && hrTime}
       <br />CloudID: <b>{uuid}</b> | Letzter Stand: <b>{hrTime}</b>
     {/if}
   </summary>
-  <div class="row no-wrap middle-align small-padding">
+  <div style="display: none" class="row no-wrap middle-align small-padding">
     {#if !uuid}
       <div class="col min">
         <button class="chip circle no-margin" on:click={() => generateHeartCloud(heartLists)}>
