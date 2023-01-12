@@ -1,5 +1,6 @@
 * [12.01.2023]
   * add message that heart cloud saving is broken, thanks to andy
+  * update newest products
 
 * [08.12.2022]
   * fix entry search
