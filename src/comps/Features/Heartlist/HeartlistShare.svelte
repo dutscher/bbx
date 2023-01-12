@@ -52,50 +52,52 @@
       <br />CloudID: <b>{uuid}</b> | Letzter Stand: <b>{hrTime}</b>
     {/if}
   </summary>
-  <div style="display: none" class="row no-wrap middle-align small-padding">
-    {#if !uuid}
-      <div class="col min">
-        <button class="chip circle no-margin" on:click={() => generateHeartCloud(heartLists)}>
-          <i>cloud_upload</i>
-          <div class="tooltip bottom small-margin">Generiere CloudID</div>
-        </button>
-      </div>
-    {/if}
-    {#if uuid}
-      <!--      <div class="col min link">-->
-      <!--        <i on:click={() => getHeartCloud(heartLists)}>cloud_sync</i>-->
-      <!--        <div class="tooltip bottom small-margin">Merklisten aus der Cloud</div>-->
-      <!--      </div>-->
-      <div class="col min">
-        <button class="chip circle no-margin" on:click={() => getHeartCloud()}>
-          <i>cloud_download</i>
-          <div class="tooltip bottom small-margin">Herunterladen aus der Cloud</div>
-        </button>
-      </div>
-      <div class="col min">
-        <button class="chip circle no-margin" on:click={() => updateHeartCloud(heartLists)}>
-          <i>cloud_upload</i>
-          <div class="tooltip bottom small-margin">Hochladen in die Cloud</div>
-        </button>
-      </div>
-    {/if}
-    <div class="col">
-      <div class="field label prefix border no-margin">
-        <i>
-          {#if uuid}cloud{:else}cloud_off{/if}
-        </i>
-        <input
-          id="uuid"
-          class="search"
-          type="search"
-          bind:value={uuid}
-          on:input={({ target: { value } }) => checkInput(value)}
-          spellcheck="false"
-        />
-        <label for="uuid">CloudID</label>
-        <span class="helper">
-          {#if !uuid}Drücke auf <b>"Generiere CloudID"</b> oder gib hier eine vorhandene 4-stellige <b>CloudID</b> ein{/if}
-        </span>
+  <div class="row no-wrap middle-align small-padding">
+    <div style="display: none">
+      {#if !uuid}
+        <div class="col min">
+          <button class="chip circle no-margin" on:click={() => generateHeartCloud(heartLists)}>
+            <i>cloud_upload</i>
+            <div class="tooltip bottom small-margin">Generiere CloudID</div>
+          </button>
+        </div>
+      {/if}
+      {#if uuid}
+        <!--      <div class="col min link">-->
+        <!--        <i on:click={() => getHeartCloud(heartLists)}>cloud_sync</i>-->
+        <!--        <div class="tooltip bottom small-margin">Merklisten aus der Cloud</div>-->
+        <!--      </div>-->
+        <div class="col min">
+          <button class="chip circle no-margin" on:click={() => getHeartCloud()}>
+            <i>cloud_download</i>
+            <div class="tooltip bottom small-margin">Herunterladen aus der Cloud</div>
+          </button>
+        </div>
+        <div class="col min">
+          <button class="chip circle no-margin" on:click={() => updateHeartCloud(heartLists)}>
+            <i>cloud_upload</i>
+            <div class="tooltip bottom small-margin">Hochladen in die Cloud</div>
+          </button>
+        </div>
+      {/if}
+      <div class="col">
+        <div class="field label prefix border no-margin">
+          <i>
+            {#if uuid}cloud{:else}cloud_off{/if}
+          </i>
+          <input
+            id="uuid"
+            class="search"
+            type="search"
+            bind:value={uuid}
+            on:input={({ target: { value } }) => checkInput(value)}
+            spellcheck="false"
+          />
+          <label for="uuid">CloudID</label>
+          <span class="helper">
+            {#if !uuid}Drücke auf <b>"Generiere CloudID"</b> oder gib hier eine vorhandene 4-stellige <b>CloudID</b> ein{/if}
+          </span>
+        </div>
       </div>
     </div>
   </div>
