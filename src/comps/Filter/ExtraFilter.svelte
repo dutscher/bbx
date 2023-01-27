@@ -3,6 +3,7 @@
   import Checkbox from './Checkbox.svelte';
 
   export let extraFilter = {};
+  export let activateParts = false;
   export let onChange = () => {};
   export let noParts = false;
   export let noNav = false;
@@ -20,6 +21,7 @@
   {#if 'parts' in extraFilter && !noParts && extraFilter.parts.count > 0}
     <Checkbox
       label="Parts"
+      disabled={activateParts}
       badge={extraFilter.parts.count}
       bind:checked={extraFilter.parts.show}
       onChange={() => onChange(extraFilter)}

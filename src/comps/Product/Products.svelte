@@ -19,6 +19,7 @@
   import ProductFilter from './ProductFilter.svelte';
   import ExtraFilter from '../Filter/ExtraFilter.svelte';
 
+  export let activateParts: boolean = false;
   let activeTagIds: any = [];
   let activePartIds: any = [];
   let activePartTypeIds: any = [];
@@ -29,7 +30,7 @@
   let filteredProducts: any = [];
   let sortedItems: any = [];
   let extraFilter = {
-    parts: { show: false, count: 0 },
+    parts: { show: activateParts, count: 0 },
     hot: { show: false, count: 0 },
     new: { show: false, count: 0 },
   };
@@ -56,7 +57,7 @@
   storedActiveSelection.subscribe(store => {
     activeTagIds = store.tags;
     activePartIds = store.parts;
-    activePartTypeIds = store.partTypes;
+    activePartTypeIds = store.parttypes;
     activeColorIds = store.colors;
     activeStateIds = store.states;
     activeDesignerIds = store.designer;
@@ -236,7 +237,7 @@
 
 <Specials />
 
-<ExtraFilter {extraFilter} onChange={store => (extraFilter = store)} />
+<ExtraFilter {activateParts} {extraFilter} onChange={store => (extraFilter = store)} />
 
 <h3>{filteredProducts.withFilter.length} von {products.length} Produkte</h3>
 

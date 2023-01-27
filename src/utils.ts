@@ -226,6 +226,5 @@ const getTimeDiff = (dateNow, dateDiff) => {
   } else {
     strReturn = `${daysStr}${hrs > 0 ? ' ' + hrs + 'h' : ''}${mins > 0 && mins < 60 ? mins + 'm' : ''}`;
   }
-  console.log({ restMilliseconds, oneDayInMs, strReturn });
   return strReturn;
 };

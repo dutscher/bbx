@@ -2,21 +2,30 @@ const convertParams = {
   site: 's',
   product: 'p',
   tags: 't',
-  search: 'q',
-  states: 'e',
+  search: 'q', // query
+  states: 'st',
   designer: 'd',
+  parts: 'ps',
+  parttypes: 'pt',
+  colors: 'c',
 };
 
 export const sites = [
   { short: 'home', icon: 'home', title: 'Home' },
   { short: 'hearts', icon: 'favorite', title: 'Merkliste' },
   {
-    short: 'products',
-    icon: 'category',
-    title: 'Produkte',
-    params: ['product', 'tags', 'search', 'states', 'filter', 'designer'],
+    short: 'brickbar',
+    icon: 'stacked_bar_chart',
+    title: 'Brickbar',
+    params: ['product', 'tags', 'search', 'states', 'filter', 'parts', 'parttypes', 'colors'],
   },
-  { short: 'changes', icon: 'star_rate', title: 'Status', params: ['tab', 'latest'] },
+  {
+    short: 'products',
+    icon: 'interests',
+    title: 'Produkte',
+    params: ['product', 'tags', 'search', 'states', 'filter', 'designer', 'parts', 'parttypes', 'colors'],
+  },
+  { short: 'changes', icon: 'monitor_heart', title: 'Status', params: ['tab', 'latest'] },
   { short: 'history', icon: 'schedule', title: 'Aktuelles', params: ['date'] },
 ];
 // add site to every site as valid param

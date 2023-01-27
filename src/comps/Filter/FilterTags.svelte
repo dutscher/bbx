@@ -8,7 +8,7 @@
   export let isVisible: boolean = true;
 
   let tags: any;
-  const abc = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
+  const abc = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'];
 
   storedTags.subscribe(store => (tags = store));
 

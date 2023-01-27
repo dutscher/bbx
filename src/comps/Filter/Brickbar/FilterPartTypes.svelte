@@ -1,7 +1,8 @@
 <script lang="ts">
-  import { storedActiveSelection, storedPartTypes, storedProducts, storedFilteredProducts } from '@stores';
-  import { onMount, getUrlParam, setUrlParams, titleMatch, ess, jsVoid } from '@utils';
+  import { storedPartTypes, storedProducts, storedFilteredProducts } from '@stores';
+  import { onMount, getUrlParam, titleMatch, ess, jsVoid } from '@utils';
   import { ID_PARTS } from '@interfaces';
+  import { clickItem } from './click-item';
 
   export let activePartTypeIds: any = [];
   export let partTypes: any;
@@ -9,50 +10,24 @@
   export let filteredProducts: any = [];
 
   let sortedItems: any;
-
-  const urlParam = 'partTypes';
-  const getUrlParams = () => {
-    const queryTags = getUrlParam(urlParam).split(',');
-    partTypes.map(part => {
-      queryTags.map(queryTag => {
-        if (part.seoName === queryTag) {
-          clickItem(part);
-        }
-      });
-    });
-  };
-
-  const clickItem = (item, withUrlUpdate?) => {
-    if (item.count === 0) return;
-
-    storedActiveSelection.update(store => {
-      if (!(urlParam in store)) {
-        store[urlParam] = [];
-      }
-      if (!store[urlParam].includes(item.id)) {
-        store[urlParam].push(item.id);
-      } else {
-        store[urlParam] = store[urlParam].filter(itemId => itemId !== item.id);
-      }
-
-      if (withUrlUpdate) {
-        setUrlParams(
-          urlParam,
-          partTypes.filter(part => store[urlParam].includes(part.id)).map(part => part.seoName)
-        );
-        store.reason = 'part-type-clicked';
-      } else {
-        store.reason = 'url-parsed--part-types';
-      }
-      return store;
-    });
-  };
+  const urlParam = 'parttypes';
 
   storedPartTypes.subscribe(store => (partTypes = store));
   storedProducts.subscribe(store => (products = store));
   storedFilteredProducts.subscribe(store => (filteredProducts = store));
 
-  function sortItems(filteredProducts) {
+  const getUrlParams = () => {
+    const queryTags = getUrlParam(urlParam).split(',');
+    partTypes.map(part => {
+      queryTags.map(queryTag => {
+        if (part.seoName === queryTag) {
+          clickItem(urlParam, partTypes, part);
+        }
+      });
+    });
+  };
+
+  const sortItems = filteredProducts => {
     let sortedData = [];
     // get count of products
     sortedData = partTypes
@@ -75,7 +50,7 @@
         return 0;
       });
     return sortedData;
-  }
+  };
 
   $: sortedItems = sortItems(filteredProducts);
 
@@ -84,7 +59,7 @@
   });
 </script>
 
-<div class="flex">
+<div class="flex my-4">
   <h4>Typen</h4>
   <div class="flex flex--wrap flex--gap">
     {#each sortedItems as part (part.id)}
@@ -95,7 +70,7 @@
           part.count === 0 && 'disabled'
         )}
         data-id={part.id}
-        on:click={() => clickItem(part, true)}
+        on:click={() => clickItem(urlParam, partTypes, part, true)}
         title={part.name}
         href={jsVoid}
       >
@@ -113,9 +88,18 @@
     width: 64rem;
   }
 
+  .my-4 {
+    margin: 4rem 0;
+  }
+
   .chip {
     .badge {
       display: none;
+    }
+
+    &.disabled {
+      opacity: 0.1;
+      pointer-events: none;
     }
 
     &.active,

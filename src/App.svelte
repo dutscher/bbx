@@ -3,9 +3,10 @@
   import { ApolloClient, InMemoryCache } from '@apollo/client';
   import { setClient } from 'svelte-apollo';
   import * as animateScroll from 'svelte-scrollto';
-  import { jsVoid, sites, setUrlParams } from '@utils';
+  import { setUrlParams } from '@utils';
   import { loadMovieData, loadHistoryData, storedActiveSelection, localStore } from '@stores';
   import { ID_MOVIE, UNLOADED, LOADED, lsSiteSettingsKey } from '@interfaces';
+  import Navigation from './comps/Navigation.svelte';
   import Welcome from './comps/Home/Welcome.svelte';
   import Support from './comps/Home/Support.svelte';
   import News from './comps/Home/News.svelte';
@@ -44,8 +45,6 @@
 
     if (!!store.site) {
       nextSite = store.site;
-      setUrlParams('site', store.site, true);
-      localStore.set(lsSiteSettingsKey, store.site);
     }
 
     // load movie data
@@ -62,32 +61,13 @@
 
   loadHistoryData();
 
-  const isActive = site => (site === activeSite ? 'active' : '');
-
-  const clickTab = site => {
-    storedActiveSelection.update(store => {
-      store.site = site;
-      store.reason = 'click-navigation';
-      return store;
-    });
-  };
+  export const isActive = site => (site === activeSite ? 'active' : '');
 
   $: activeSite = nextSite || defaultSite;
 </script>
 
 <main>
-  <nav class="menu top" data-active={activeSite}>
-    {#each sites as site}
-      <a class={isActive(site.short, activeSite)} href={jsVoid} on:click={() => clickTab(site.short)}>
-        {#if site.icon === 'home'}
-          <img class="logo" src="./images/logo.png" alt="Logo" />
-        {:else}
-          <i>{site.icon}</i>
-        {/if}
-        {site.title}
-      </a>
-    {/each}
-  </nav>
+  <Navigation />
 
   <Offline />
   <Github />
@@ -108,9 +88,18 @@
       <HeartlistWrap />
       <Legend />
     </Site>
+    <Site name="brickbar" {activeSite} {isActive}>
+      <Filter notags />
+      {#if 'brickbar' === activeSite}
+        <Products activateParts={true} />
+      {/if}
+      <Legend />
+    </Site>
     <Site name="products" {activeSite} {isActive}>
       <Filter />
-      <Products />
+      {#if 'products' === activeSite}
+        <Products />
+      {/if}
       <Legend />
     </Site>
     <Site name="changes" {activeSite} {isActive}>

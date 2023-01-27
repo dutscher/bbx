@@ -5,8 +5,9 @@
   import FilterSearch from './FilterSearch.svelte';
   import { lsSiteSettingsKey } from '@interfaces';
   import { localStore, storedActiveSelection } from '@stores';
-  import { stopClick } from '../../utils';
+  import { stopClick } from '@utils';
 
+  export let notags: boolean = false;
   let activeTagIds: any = [];
   let activePartIds: any = [];
   let activePartTypeIds: any = [];
@@ -19,7 +20,7 @@
   storedActiveSelection.subscribe(store => {
     activeTagIds = store.tags;
     activePartIds = store.parts;
-    activePartTypeIds = store.partTypes;
+    activePartTypeIds = store.parttypes;
     activeColorIds = store.colors;
     activeStateIds = store.states;
     activeDesignerIds = store.designer;
@@ -73,10 +74,14 @@
 </script>
 
 <details class="card" open={showFilter}>
-  <summary class="large-text" on:click={handleClick}><b>Filter & Suche</b></summary>
+  <summary class="large-text" on:click={handleClick}>
+    <b>Filter & Suche</b>
+  </summary>
   <FilterStates {activeStateIds} {activeColorIds} {activePartIds} {activePartTypeIds} {activeSearchString} />
-  <FilterTags {activeTagIds} />
-  <FilterDesigner {activeDesignerIds} />
+  {#if !notags}
+    <FilterTags {activeTagIds} />
+    <FilterDesigner {activeDesignerIds} />
+  {/if}
   <FilterSearch {activeSearchString} />
 </details>
 

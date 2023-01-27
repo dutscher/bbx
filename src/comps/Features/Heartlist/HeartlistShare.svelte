@@ -44,7 +44,10 @@
 
 <details class="card">
   <summary>
-    <b>Aktuell ist das Teilen über mehrere Geräte nicht möglich. Ich arbeite an einer Lösung. Stand 12.01.2023</b>
+    <b>
+      Es ist leider imme rnoch nicht möglich die Merklisten über mehrere Geräte zuteilen. Bitte behalte deine Merklisten
+      auf diesem Gerät. Aktuell arbeiten wir an einer Lösung. (Stand 27.01.2023)
+    </b>
   </summary>
   <summary style="display: none">
     <b>Teile deine Merklisten über mehrere Geräte</b>

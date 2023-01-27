@@ -1,11 +1,13 @@
 <script lang="ts">
-  import { storedActiveSelection, storedColors, storedProducts, storedFilteredProducts } from '@stores';
-  import { onMount, getUrlParam, setUrlParams, titleMatch, ess } from '@utils';
+  import { storedColors, storedProducts, storedFilteredProducts } from '@stores';
+  import { onMount, getUrlParam, titleMatch, ess } from '@utils';
+  import { clickItem } from './click-item';
 
   export let colors: any;
   export let products: any;
   export let filteredProducts: any = [];
   export let activeColorIds: any = [];
+
   let sortedItems: any = [];
   const urlParam = 'colors';
 
@@ -19,36 +21,9 @@
     colors.map(color => {
       queryTags.map(queryTag => {
         if (color.seoName === queryTag) {
-          clickItem(color);
+          clickItem(urlParam, colors, color);
         }
       });
-    });
-  };
-
-  const clickItem = (item, withUrlUpdate?) => {
-    if (item.count === 0) return;
-
-    storedActiveSelection.update(store => {
-      if (!(urlParam in store)) {
-        store[urlParam] = [];
-      }
-      if (!store[urlParam].includes(item.id)) {
-        store[urlParam].push(item.id);
-      } else {
-        store[urlParam] = store[urlParam].filter(itemId => itemId !== item.id);
-      }
-
-      if (withUrlUpdate) {
-        setUrlParams(
-          urlParam,
-          colors.filter(color => store[urlParam].includes(color.id)).map(color => color.seoName)
-        );
-        store.reason = 'part-clicked';
-      } else {
-        store.reason = 'url-parsed--colors';
-      }
-
-      return store;
     });
   };
 
@@ -152,7 +127,7 @@
           color.name.toLowerCase().includes('trans') && 'trans'
         )}
         data-id={color.id}
-        on:click={() => clickItem(color, true)}
+        on:click={() => clickItem(urlParam, colors, color, true)}
         title="{color.name}{color.de ? ' / ' + color.de : ''}"
       >
         <div class="dot" style="background-color:#{color.hex}" />
@@ -214,9 +189,9 @@
       }
     }
 
-    &.disabled .dot {
+    &.disabled {
+      pointer-events: none;
       opacity: 0.1;
-      cursor: pointer;
     }
 
     .badge {

@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import { UNLOADED, urlKeyTags } from '@interfaces';
+import { ID_PARTS, UNLOADED, urlKeyTags } from '@interfaces';
 import { convertOldParams, getAllUrlParams, getUrlParam } from '@utils';
 import { localStore } from './local-storage';
 import { storedActiveProduct } from './active-product';
@@ -17,7 +17,7 @@ const storedActiveSelectionWritable = writable({
   },
   tags: [],
   parts: [],
-  partTypes: [],
+  parttypes: [],
   colors: [],
   states: [],
   designer: [],
@@ -44,6 +44,17 @@ if (!!getUrlParam(urlKeyTags)) {
 
 const allParams = getAllUrlParams();
 const queryProductId = getUrlParam('product');
+
+// /?s=brickbar
+// @ts-ignore
+if ('site' in allParams && allParams.site === 'brickbar') {
+  storedActiveSelection.update(store => {
+    store.site = 'brickbar';
+    store.reason = 'init-brickbar-url';
+    store.tags = [ID_PARTS];
+    return store;
+  });
+}
 
 // ?s=products&q=Ulmer%20Münster
 if (Object.keys(allParams).includes('search') && !queryProductId) {

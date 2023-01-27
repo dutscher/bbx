@@ -60,6 +60,7 @@ export function getHeartCloud() {
 }
 
 export function updateHeartCloud(data) {
+  console.log({ time: new Date().getTime(), data });
   if (lsStore.uuid) {
     fetch(api + lsStore.uuid, {
       method: 'PUT',

@@ -9,6 +9,7 @@
 
   export let filteredProducts: any = [];
   let invisible: any;
+  let activeSite: string = '';
   let activeTagIds: any = [];
   let activePartIds: any = [];
   let activePartTypeIds: any = [];
@@ -18,9 +19,10 @@
   let activeSearchString: string = '';
 
   storedActiveSelection.subscribe(store => {
+    activeSite = store.site;
     activeTagIds = store.tags;
     activePartIds = store.parts;
-    activePartTypeIds = store.partTypes;
+    activePartTypeIds = store.parttypes;
     activeColorIds = store.colors;
     activeStateIds = store.states;
     activeDesignerIds = store.designer;
@@ -44,20 +46,22 @@
     {#if activeTagIds.includes(ID_PARTS) && activeTagIds.length === 1}
       <h2>Brickbar</h2>
       <FilterParts {activePartIds} />
-      <FilterColors {activeColorIds} />
       <FilterPartTypes {activePartTypeIds} />
+      <FilterColors {activeColorIds} />
     {/if}
 
     <div class="filter flex flex--wrap flex--gap">
-      <FilterSummary
-        {activeSearchString}
-        {activeTagIds}
-        {activeStateIds}
-        {activeDesignerIds}
-        {activeColorIds}
-        {activePartIds}
-        {activePartTypeIds}
-      />
+      {#if activeSite !== 'brickbar'}
+        <FilterSummary
+          {activeSearchString}
+          {activeTagIds}
+          {activeStateIds}
+          {activeDesignerIds}
+          {activeColorIds}
+          {activePartIds}
+          {activePartTypeIds}
+        />
+      {/if}
       <ProductSorter {filteredProducts} {activeTagIds} />
     </div>
   </article>

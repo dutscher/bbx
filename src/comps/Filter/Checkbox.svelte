@@ -1,5 +1,6 @@
 <script lang="ts">
   export let checked = false;
+  export let disabled = false;
   export let onChange = () => {};
   export let label = '';
   export let icon = '';
@@ -9,7 +10,7 @@
 </script>
 
 <label class="checkbox">
-  <input type="checkbox" bind:checked on:change={e => onChange(e)} />
+  <input type="checkbox" {disabled} bind:checked on:change={e => onChange(e)} />
   <span>
     {label}
     {#if !!icon} <i class={iconColor}>{icon}</i>{/if}
