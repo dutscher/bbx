@@ -1,3 +1,8 @@
+* [28.01.2023]
+  * optimize brickbar
+  * readd prev next for only 2 images
+  * remove star trek from "Film Modelle"
+
 * [27.01.2023]
   * add 8w tag to products
   * add brickbar to navigation

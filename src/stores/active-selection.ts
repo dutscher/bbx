@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import { ID_PARTS, UNLOADED, urlKeyTags } from '@interfaces';
+import { ID_PARTS, lsSiteSettingsKey, UNLOADED, urlKeyTags } from '@interfaces';
 import { convertOldParams, getAllUrlParams, getUrlParam } from '@utils';
 import { localStore } from './local-storage';
 import { storedActiveProduct } from './active-product';
@@ -42,12 +42,13 @@ if (!!getUrlParam(urlKeyTags)) {
   });
 }
 
+const lastVisitedSite = localStore.getRaw(lsSiteSettingsKey);
 const allParams = getAllUrlParams();
 const queryProductId = getUrlParam('product');
 
 // /?s=brickbar
 // @ts-ignore
-if ('site' in allParams && allParams.site === 'brickbar') {
+if (('site' in allParams && allParams.site === 'brickbar') || lastVisitedSite === 'brickbar') {
   storedActiveSelection.update(store => {
     store.site = 'brickbar';
     store.reason = 'init-brickbar-url';
