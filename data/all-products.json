@@ -13871,7 +13871,7 @@
       2,
       27
     ],
-    "pa": 1600,
+    "pa": 1578,
     "pr": 0,
     "di": 12
   },
@@ -14009,6 +14009,58 @@
     "pa": 1933,
     "pr": 0,
     "di": 12
+  },
+  {
+    "ti": "Pont du Gard",
+    "id": 106671,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1501,
+    "pr": 0,
+    "di": 12
+  },
+  {
+    "ti": "U-Boot-Auto 2 in 1 Modell",
+    "id": 106672,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1357,
+    "pr": 0,
+    "di": 3
+  },
+  {
+    "ti": "Interstellarer Camper",
+    "id": 106673,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1529,
+    "pr": 0,
+    "di": 6
+  },
+  {
+    "ti": "Expeditionsmobil",
+    "id": 106674,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 2208,
+    "pr": 0,
+    "di": 6
   },
   {
     "ti": "Brix Panzerketten 1 1/2 breit, schwarz (100st.)",
