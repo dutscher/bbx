@@ -1,3 +1,6 @@
+* [30.01.2023]
+  * add new announced tags
+
 * [28.01.2023]
   * optimize brickbar
   * readd prev next for only 2 images
