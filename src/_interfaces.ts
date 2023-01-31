@@ -5,6 +5,8 @@
 //
 // Ihr könnt trotzdem noch hier rüber https://www.bluebrixx.com/?aff=wrhjxrxb noppensteinnews supporten ;)
 // Mir wurde es untersagt den Code hier einzubinden.
+import { localStore } from './stores/local-storage';
+
 export const AFF_LINK = ''; //'?aff=wrhjxrxb';
 // ID Stuff
 export const ID_MANHATTAN = 17;
@@ -84,7 +86,10 @@ export const IDS_SPECIAL_TAGS = [
 ];
 
 // api
-export const API = 'https://api.bbx.watch';
+let lsStore = localStore.get('testApi', undefined);
+const API_DEFAULT = 'https://api.bbx.watch';
+const API_TEST = 'https://api-test.bbx.watch';
+export const API = lsStore ? API_TEST : API_DEFAULT;
 
 // external data
 export const UNLOADED = 'unloaded';

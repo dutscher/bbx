@@ -1,3 +1,6 @@
+* [31.01.2023]
+  * Burg Bärenfels is now Bluebrixx Pro
+
 * [30.01.2023]
   * add new announced tags
 
