@@ -5,7 +5,7 @@
   import * as animateScroll from 'svelte-scrollto';
   import { setUrlParams } from '@utils';
   import { loadMovieData, loadHistoryData, storedActiveSelection, localStore } from '@stores';
-  import { ID_MOVIE, UNLOADED, LOADED, lsSiteSettingsKey } from '@interfaces';
+  import { API, ID_MOVIE, UNLOADED, LOADED, lsSiteSettingsKey } from '@interfaces';
   import Navigation from './comps/Navigation.svelte';
   import Welcome from './comps/Home/Welcome.svelte';
   import Support from './comps/Home/Support.svelte';
@@ -54,7 +54,7 @@
   });
 
   const client = new ApolloClient({
-    uri: 'https://api.bbx.watch/api/graphql',
+    uri: `${API}/api/graphql`,
     cache: new InMemoryCache(),
   });
   setClient(client);
