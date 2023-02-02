@@ -1,3 +1,6 @@
+* [02.02.2023]
+  * Update instructions
+
 * [31.01.2023]
   * Burg Bärenfels is now Bluebrixx Pro
 
