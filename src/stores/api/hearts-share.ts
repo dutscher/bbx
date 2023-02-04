@@ -5,7 +5,7 @@ import { storedHearts } from '../hearts';
 import { API } from '@interfaces';
 
 export const lsKey = 'heartsShare';
-const api = `${API}/uapi/list`;
+const api = `${API}/uapi/list`; // VFYNL
 export const apiVersion = 2;
 let lsStore = localStore.get(lsKey, { uuid: '', time: 0, apiVersion });
 
@@ -88,7 +88,7 @@ export function updateHeartCloud(data) {
 }
 
 // import old localstorage and make a new uuid for that
-if (!lsStore.apiVersion || lsStore.apiVersion < apiVersion) {
+if (!lsStore.apiVersion && !!lsStore.uuid || lsStore.apiVersion < apiVersion) {
   let lsStoreHearts = localStore.get(lsKeyHeart, defaultStore);
   generateHeartCloud(lsStoreHearts);
 }
