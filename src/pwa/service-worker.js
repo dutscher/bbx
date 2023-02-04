@@ -20,7 +20,9 @@ const removeCB = file => {
 const IGNORE_REQUESTS = [
   'matomo.bbx.watch',
   'api.bbx.watch/api/graphql',
+  'api.bbx.watch/uapi/list/',
   'api-test.bbx.watch/api/graphql',
+  'api-test.bbx.watch/uapi/list/',
   'myjson.dit.upm.es',
   'facebook.com',
   'facebook.net',

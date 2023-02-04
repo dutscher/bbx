@@ -9,7 +9,7 @@
     localStore,
   } from '@stores';
   import beerui from '@beerui';
-  import { lsKey } from '../../../stores/api/hearts-share';
+  import { lsKey, apiVersion } from '../../../stores/api/hearts-share';
 
   let uuid: string;
   let hrTime: string;
@@ -28,7 +28,7 @@
 
   const checkInput = newUuid => {
     const time = new Date().getTime();
-    localStore.set(lsKey, JSON.stringify({ uuid: newUuid, time }));
+    localStore.set(lsKey, JSON.stringify({ uuid: newUuid, time, apiVersion }));
     storedHeartsShare.update(store => {
       store.uuid = newUuid;
       return store;
@@ -44,63 +44,57 @@
 
 <details class="card">
   <summary>
-    <b>
-      Es ist leider imme rnoch nicht möglich die Merklisten über mehrere Geräte zuteilen. Bitte behalte deine Merklisten
-      auf diesem Gerät. Aktuell arbeiten wir an einer Lösung. (Stand 27.01.2023)
-    </b>
-  </summary>
-  <summary style="display: none">
     <b>Teile deine Merklisten über mehrere Geräte</b>
     {#if uuid && hrTime}
       <br />CloudID: <b>{uuid}</b> | Letzter Stand: <b>{hrTime}</b>
     {/if}
   </summary>
   <div class="row no-wrap middle-align small-padding">
-    <div style="display: none">
-      {#if !uuid}
-        <div class="col min">
-          <button class="chip circle no-margin" on:click={() => generateHeartCloud(heartLists)}>
-            <i>cloud_upload</i>
-            <div class="tooltip bottom small-margin">Generiere CloudID</div>
-          </button>
-        </div>
-      {/if}
-      {#if uuid}
-        <!--      <div class="col min link">-->
-        <!--        <i on:click={() => getHeartCloud(heartLists)}>cloud_sync</i>-->
-        <!--        <div class="tooltip bottom small-margin">Merklisten aus der Cloud</div>-->
-        <!--      </div>-->
-        <div class="col min">
-          <button class="chip circle no-margin" on:click={() => getHeartCloud()}>
-            <i>cloud_download</i>
-            <div class="tooltip bottom small-margin">Herunterladen aus der Cloud</div>
-          </button>
-        </div>
-        <div class="col min">
-          <button class="chip circle no-margin" on:click={() => updateHeartCloud(heartLists)}>
-            <i>cloud_upload</i>
-            <div class="tooltip bottom small-margin">Hochladen in die Cloud</div>
-          </button>
-        </div>
-      {/if}
-      <div class="col">
-        <div class="field label prefix border no-margin">
-          <i>
-            {#if uuid}cloud{:else}cloud_off{/if}
-          </i>
-          <input
-            id="uuid"
-            class="search"
-            type="search"
-            bind:value={uuid}
-            on:input={({ target: { value } }) => checkInput(value)}
-            spellcheck="false"
-          />
-          <label for="uuid">CloudID</label>
-          <span class="helper">
-            {#if !uuid}Drücke auf <b>"Generiere CloudID"</b> oder gib hier eine vorhandene 4-stellige <b>CloudID</b> ein{/if}
-          </span>
-        </div>
+    {#if !uuid}
+      <div class="col min">
+        <button class="chip circle no-margin" on:click={() => generateHeartCloud(heartLists)}>
+          <i>generating_tokens</i>
+          <div class="tooltip bottom small-margin">Generiere CloudID</div>
+        </button>
+      </div>
+    {/if}
+    {#if uuid}
+      <!--      <div class="col min link">-->
+      <!--        <i on:click={() => getHeartCloud(heartLists)}>cloud_sync</i>-->
+      <!--        <div class="tooltip bottom small-margin">Merklisten aus der Cloud</div>-->
+      <!--      </div>-->
+      <div class="col min">
+        <button class="chip round no-margin" on:click={() => getHeartCloud()}>
+          <i>cloud_download</i>
+          <span>Download</span>
+          <div class="tooltip bottom small-margin">Herunterladen aus der Cloud</div>
+        </button>
+      </div>
+      <div class="col min">
+        <button class="chip round no-margin" on:click={() => updateHeartCloud(heartLists)}>
+          <i>cloud_upload</i>
+          <span>Upload</span>
+          <div class="tooltip bottom small-margin">Hochladen in die Cloud</div>
+        </button>
+      </div>
+    {/if}
+    <div class="col">
+      <div class="field label prefix border no-margin">
+        <i>
+          {#if uuid}cloud{:else}cloud_off{/if}
+        </i>
+        <input
+          id="uuid"
+          class="search"
+          type="search"
+          bind:value={uuid}
+          on:input={({ target: { value } }) => checkInput(value)}
+          spellcheck="false"
+        />
+        <label for="uuid">CloudID</label>
+        <span class="helper">
+          {#if !uuid}Drücke auf <b>"Generiere CloudID"</b> oder gib hier eine vorhandene 4-stellige <b>CloudID</b> ein{/if}
+        </span>
       </div>
     </div>
   </div>

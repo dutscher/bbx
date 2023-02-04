@@ -1,5 +1,9 @@
+* [04.02.2023]
+  * reactivate heartsharing
+  * archived images are ignored
+  
 * [02.02.2023]
-  * Update instructions
+  * update instructions
 
 * [31.01.2023]
   * Burg Bärenfels is now Bluebrixx Pro

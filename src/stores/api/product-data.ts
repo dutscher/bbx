@@ -19,7 +19,7 @@ export const loadProductData = async product => {
         let images = [];
         data.media.map(media => {
           // /bapi/product/media/6139
-          if (media.type === 'PICTURE') {
+          if (media.type === 'PICTURE' && !media.archived) {
             images.push(API + media.link);
           }
           if (media.type === 'YOUTUBE') {
