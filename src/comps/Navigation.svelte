@@ -19,13 +19,17 @@
 
   const clickTab = site => {
     storedActiveSelection.update(store => {
+      const prevSite = store.site;
       store.site = site;
       store.reason = 'click-navigation';
-
+      // set brickbar tag
       if (site === 'brickbar') {
         store.tags = [ID_PARTS];
       }
-
+      // clean brickbar tag if navigate through pages
+      if (!!prevSite && site === 'products') {
+        store.tags = [];
+      }
       return store;
     });
   };
@@ -45,3 +49,21 @@
     </a>
   {/each}
 </nav>
+
+<style lang="scss">
+  .logo {
+    height: 24rem;
+    padding: 4rem;
+    margin: 0 12rem 4rem 12rem;
+    display: inline-block;
+    transition: var(--speed1) padding linear;
+
+    .active &,
+    &:hover {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      padding: 4rem 16rem;
+      border-radius: 32rem;
+    }
+  }
+</style>

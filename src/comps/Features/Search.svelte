@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { storedActiveSelection } from '../../stores/active-selection';
+  import { storedActiveSelection } from '@stores';
 
   const onClick = () => {
     storedActiveSelection.update(store => {
@@ -12,7 +12,7 @@
 
 <button class="circle fixed right-round top-round extra" on:click={onClick}>
   <i>search</i>
-  <div class="tooltip top">Produkt Suche</div>
+  <span class="tooltip top">Produkt Suche</span>
 </button>
 
 <style lang="scss">

@@ -46,19 +46,20 @@ export function generateHeartCloud(data) {
     });
 }
 
-export function getHeartCloud() {
-  //console.log('getHeartCloud', lsStore);
+export function getHeartCloud(keepDeviceSync: boolean = false, storeTime: number = 0) {
   if (lsStore.uuid) {
-    fetch(api + '/' + lsStore.uuid)
+    fetch(`${api}/${lsStore.uuid}`)
       .then(res => res.json())
       .then(cloudStore => {
-        console.log('getHeartCloud', { cloudStore, lsStore, lsKey, lsKeyHeart });
-        storedHeartsShare.set({ uuid: lsStore.uuid, time: parseInt(cloudStore.payload.time) });
+        const cloudTime = parseInt(cloudStore.payload.time);
+        const isCloudNewer = cloudTime > storeTime;
+        if (keepDeviceSync && !isCloudNewer) {
+          return;
+        }
+
+        storedHeartsShare.set({ uuid: lsStore.uuid, time: cloudTime });
         storedHearts.set({ reason: 'get-cloud', lists: cloudStore.payload.data });
-        localStore.set(
-          lsKey,
-          JSON.stringify({ uuid: lsStore.uuid, time: parseInt(cloudStore.payload.time), apiVersion })
-        );
+        localStore.set(lsKey, JSON.stringify({ uuid: lsStore.uuid, time: cloudTime, apiVersion }));
         localStore.set(lsKeyHeart, JSON.stringify(cloudStore.payload.data));
       });
   }
@@ -88,7 +89,7 @@ export function updateHeartCloud(data) {
 }
 
 // import old localstorage and make a new uuid for that
-if (!lsStore.apiVersion && !!lsStore.uuid || lsStore.apiVersion < apiVersion) {
+if ((!lsStore.apiVersion && !!lsStore.uuid) || lsStore.apiVersion < apiVersion) {
   let lsStoreHearts = localStore.get(lsKeyHeart, defaultStore);
   generateHeartCloud(lsStoreHearts);
 }

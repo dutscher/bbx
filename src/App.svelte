@@ -90,7 +90,6 @@
       <Legend />
     </Site>
     <Site name="brickbar" {activeSite} {isActive}>
-      <Loader />
       <Filter notags />
       {#if 'brickbar' === activeSite}
         <Products activateParts={true} />
@@ -129,22 +128,6 @@
 
   .menu {
     user-select: none;
-  }
-
-  .logo {
-    height: 24rem;
-    padding: 4rem;
-    margin: 0 12rem 4rem 12rem;
-    display: inline-block;
-    transition: var(--speed1) padding linear;
-    border-radius: 32rem;
-
-    :global .active &,
-    &:hover {
-      background-color: var(--primary);
-      color: var(--on-primary);
-      padding: 4rem 16rem;
-    }
   }
 
   :global .page:not(.active) {
@@ -230,5 +213,9 @@
 
   :global(.flex--column) {
     flex-direction: column;
+  }
+
+  :global(.nowrap) {
+    white-space: nowrap;
   }
 </style>
