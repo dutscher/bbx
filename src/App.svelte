@@ -25,6 +25,7 @@
   import Legend from './comps/Legend.svelte';
   import Site from './comps/Site.svelte';
   import HeartlistWrap from './comps/Features/Heartlist/HeartlistWrap.svelte';
+  import Loader from './comps/Loader.svelte';
 
   // https://www.npmjs.com/package/svelte-scrollto
   animateScroll.setGlobalOptions({
@@ -89,6 +90,7 @@
       <Legend />
     </Site>
     <Site name="brickbar" {activeSite} {isActive}>
+      <Loader />
       <Filter notags />
       {#if 'brickbar' === activeSite}
         <Products activateParts={true} />

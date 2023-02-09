@@ -3,6 +3,7 @@
   import { LOADED, UNLOADED } from '@interfaces';
   import { storedActiveSelection, storedTags, storedProducts, loadChanges, internetConnection } from '@stores';
   import TodayChanges from './TodayChanges.svelte';
+  import Loader from '../Loader.svelte';
 
   let loadedChanges;
   let tags: number = 0;
@@ -28,7 +29,7 @@
 </script>
 
 {#if isOnline && loadedChanges !== LOADED}
-  <div class="loader center" />
+  <Loader />
 {:else}
   <TodayChanges />
 {/if}
