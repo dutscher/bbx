@@ -1,7 +1,7 @@
 <script lang="ts">
   import { storedActiveSelection, storedTags } from '@stores';
   import { onMount, getUrlParam, setUrlParams, ess } from '@utils';
-  import { IDS_SPECIAL_TAGS, urlKeyTags } from '@interfaces';
+  import { ID_PARTS, IDS_SPECIAL_TAGS, urlKeyTags } from '@interfaces';
   import ChipLetter from './ChipLetter.svelte';
 
   export let activeTagIds: any = [];
@@ -25,6 +25,14 @@
   };
 
   const clickTag = (tag, withUrlUpdate?, isSpecialTag = false) => {
+    // open brickbar
+    if (tag.id === ID_PARTS) {
+      storedActiveSelection.setNextPage('brickbar', 'tag-clicked', {
+        tags: [ID_PARTS],
+      });
+      return true;
+    }
+
     storedActiveSelection.update(store => {
       let isNewSelected = false;
       if (!(urlKeyTags in store)) {

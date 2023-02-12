@@ -57,7 +57,7 @@
 </script>
 
 <div class="flex">
-  <h4>Parts</h4>
+  <strong class="label">Parts</strong>
   <div class="flex flex--wrap flex--gap">
     {#each sortedItems as part (part.id)}
       <a
@@ -80,7 +80,7 @@
 </div>
 
 <style lang="scss">
-  h4 {
+  .label {
     width: 64rem;
   }
 

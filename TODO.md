@@ -1,8 +1,10 @@
 next todos:
 * brickbar payload
-* brickbar under products
 * states into one file and refactoring setSite
+* pwa cache cleanup
 * tooltip scroll to
+* pwa cache check time from /product/detail technical
+* have money show hot products
 * history back not going
 * filter color active
   * url params

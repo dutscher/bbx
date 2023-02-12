@@ -113,7 +113,7 @@
 </script>
 
 <div class="flex">
-  <h4>Farben</h4>
+  <strong class="label">Farben</strong>
   <div class="flex flex--wrap">
     {#each sortedItems as color (color.id)}
       <div
@@ -138,7 +138,7 @@
 </div>
 
 <style lang="scss">
-  h4 {
+  .label {
     width: 64rem;
   }
 

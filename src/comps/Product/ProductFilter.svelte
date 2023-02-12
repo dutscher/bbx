@@ -44,7 +44,6 @@
 {#if !invisible}
   <article>
     {#if activeTagIds.includes(ID_PARTS) && activeTagIds.length === 1}
-      <h2>Brickbar</h2>
       <FilterParts {activePartIds} />
       <FilterPartTypes {activePartTypeIds} />
       <FilterColors {activeColorIds} />

@@ -30,11 +30,16 @@ export const storedActiveSelection = {
   subscribe: storedActiveSelectionWritable.subscribe,
   set: storedActiveSelectionWritable.set,
   update: storedActiveSelectionWritable.update,
-  setNextPage: (nextPage, reason) => {
+  setNextPage: (nextPage: string, reason: string, extraStoreData?) => {
     storedActiveSelection.update(store => {
       store.prevSite = store.site;
       store.site = nextPage;
       store.reason = reason;
+
+      if (extraStoreData) {
+        store = { ...store, ...extraStoreData };
+      }
+
       return store;
     });
   },

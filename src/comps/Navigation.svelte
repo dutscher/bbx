@@ -18,19 +18,8 @@
   const isActive = site => (site === activeSite ? 'active' : '');
 
   const clickTab = site => {
-    storedActiveSelection.update(store => {
-      const prevSite = store.site;
-      store.site = site;
-      store.reason = 'click-navigation';
-      // set brickbar tag
-      if (site === 'brickbar') {
-        store.tags = [ID_PARTS];
-      }
-      // clean brickbar tag if navigate through pages
-      if (!!prevSite && site === 'products') {
-        store.tags = [];
-      }
-      return store;
+    storedActiveSelection.setNextPage(site, 'navigation-clicked', {
+      tags: site === 'brickbar' ? [ID_PARTS] : [],
     });
   };
 

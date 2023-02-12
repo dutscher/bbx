@@ -60,7 +60,7 @@
 </script>
 
 <div class="flex my-4">
-  <h4>Typen</h4>
+  <strong class="label">Typen</strong>
   <div class="flex flex--wrap flex--gap">
     {#each sortedItems as part (part.id)}
       <a
@@ -84,7 +84,7 @@
 </div>
 
 <style lang="scss">
-  h4 {
+  .label {
     width: 64rem;
   }
 
