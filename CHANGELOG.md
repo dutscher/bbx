@@ -1,24 +1,28 @@
+* [12.02.2023]
+  * Der Suchbutton öffnet nun stabil die Suche
+  * Fehler im Cache speichern wurde behoben
+
 * [04.02.2023]
-  * reactivate heartsharing
-  * archived images are ignored
+  * Merklisten können wieder über mehrere Geräte geteilt werden
+  * Archivierte Bilder werden derzeit ausgeblendet
   
 * [02.02.2023]
-  * update instructions
+  * Anleitungen neu geparsed
 
 * [31.01.2023]
-  * Burg Bärenfels is now Bluebrixx Pro
+  * Burg Bärenfels ist nun Bluebrixx Pro
 
 * [30.01.2023]
-  * add new announced tags
+  * Neue Ankündigungen
 
 * [28.01.2023]
-  * optimize brickbar
-  * readd prev next for only 2 images
-  * remove star trek from "Film Modelle"
+  * Brickbar wurde überarbeitet
+  * Vor und Zrück bei 2 Bilder funktioniert nun
+  * StarTrek wurde von der Kategorie "Film Modelle" genommen
 
 * [27.01.2023]
-  * add 8w tag to products
-  * add brickbar to navigation
+  * "8w" ist nun als Tag verfügbar
+  * Brickbar ist nun in der Navigation
 
 * [12.01.2023]
   * add message that heart cloud saving is broken, thanks to andy
