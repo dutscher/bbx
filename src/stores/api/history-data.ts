@@ -7,6 +7,7 @@ import { setFlags } from './product-data';
 export const loadHistoryData = async () => {
   storedActiveSelection.update(store => {
     store.loadedData.history = LOADING;
+    store.reason = 'history-loading';
     return store;
   });
   // @ts-ignore TS2339
@@ -39,6 +40,7 @@ export const loadHistoryData = async () => {
 
     storedActiveSelection.update(store => {
       store.loadedData.history = LOADED;
+      store.reason = 'history-loaded';
       return store;
     });
 

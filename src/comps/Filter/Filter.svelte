@@ -4,6 +4,7 @@
   import FilterDesigner from './FilterDesigner.svelte';
   import FilterSearch from './FilterSearch.svelte';
   import { lsSiteSettingsKey } from '@interfaces';
+  import states from '@states';
   import { localStore, storedActiveSelection } from '@stores';
   import { stopClick } from '@utils';
 
@@ -36,11 +37,11 @@
       'tooltip-designer-clicked',
       'tag-clicked-close-filter',
       'remove-all-filters',
-      'click-search',
+      states.SEARCH_CLICKED,
     ];
 
     if (store.site === 'products' && reasons.includes(store.reason)) {
-      if (['show-states', 'show-tags', 'click-search', 'remove-all-filters'].includes(store.reason)) {
+      if (['show-states', 'show-tags', states.SEARCH_CLICKED, 'remove-all-filters'].includes(store.reason)) {
         showFilter = true;
       }
       if (
@@ -57,10 +58,11 @@
       }
 
       localStore.set(lsSiteSettingsKey, store.site);
-      if (store.reason !== 'click-search') {
+
+      if (store.reason !== states.SEARCH_CLICKED) {
         // remove reason
         storedActiveSelection.update(store => {
-          store.reason = '';
+          store.reason = states.EMPTY;
           return store;
         });
       }

@@ -5,6 +5,7 @@ import { storedActiveSelection } from '../active-selection';
 export const loadMovieData = async () => {
   storedActiveSelection.update(store => {
     store.loadedData.movie = LOADING;
+    store.reason = 'movie-loading';
     return store;
   });
   // @ts-ignore TS2339
@@ -12,6 +13,7 @@ export const loadMovieData = async () => {
 
   storedActiveSelection.update(store => {
     store.loadedData.movie = LOADED;
+    store.reason = 'movie-loaded';
     return store;
   });
 

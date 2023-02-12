@@ -1,4 +1,5 @@
 next todos:
+* brickbar under products
 * history back not going
 * filter color active
   * url params

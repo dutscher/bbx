@@ -1,27 +1,45 @@
 <script lang="ts">
   import * as animateScroll from 'svelte-scrollto';
   import { storedActiveSelection } from '@stores';
-  import { onMount, getUrlParam, setUrlParams } from '@utils';
+  import states from '@states';
+  import { onMount, afterUpdate, getUrlParam, setUrlParams } from '@utils';
   import beerui from '@beerui';
 
-  export let activeSearchString: any = '';
-
+  export let activeSearchString: string = '';
   const urlParam = 'search';
-  let inputElement: any;
+  // https://svelte.dev/tutorial/update
+  let scrollTo: boolean = false;
+  let inputElement: HTMLInputElement;
+
+  const iamOnSite = 'products';
 
   storedActiveSelection.subscribe(store => {
-    if (store.site === 'products' && store.reason === 'click-search') {
+    console.log('subscribe', store.site, store.prevSite, store.reason);
+    // scroll afterUpdate hook
+    if (store.reason === states.SEARCH_CLICKED) {
+      scrollTo = true;
+    }
+    // without remount this component scroll directly
+    if (store.site === iamOnSite && store.prevSite === iamOnSite && store.reason === states.SEARCH_CLICKED) {
+      scrollToElement();
+    }
+  });
+
+  const scrollToElement = () => {
+    if (scrollTo && inputElement) {
+      animateScroll.scrollTo({ element: inputElement, offset: -80 });
+      scrollTo = false;
+      // due beercss show hide filter
       setTimeout(() => {
         inputElement.focus();
-        animateScroll.scrollTo({ element: inputElement });
       }, 50);
-      // remove reason
+
       storedActiveSelection.update(store => {
-        store.reason = '';
+        store.reason = states.EMPTY;
         return store;
       });
     }
-  });
+  };
 
   const getUrlParams = () => {
     // ?search=piraten
@@ -41,9 +59,9 @@
 
       if (withUrlUpdate) {
         setUrlParams(urlParam, !!activeSearchString ? [activeSearchString] : []);
-        store.reason = 'search-typed';
+        store.reason = states.SEARCH_TYPED;
       } else {
-        store.reason = 'url-parsed--search';
+        store.reason = states.URL_PARSED_SEARCH;
       }
       return store;
     });
@@ -72,6 +90,10 @@
     setTimeout(() => {
       beerui();
     }, 50);
+  });
+
+  afterUpdate(() => {
+    scrollToElement();
   });
 </script>
 

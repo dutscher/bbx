@@ -5,6 +5,7 @@ import { storedActiveSelection } from '../active-selection';
 export const loadInstData = async () => {
   storedActiveSelection.update(store => {
     store.loadedData.inst = LOADING;
+    store.reason = 'inst-loading';
     return store;
   });
   // @ts-ignore TS2339
@@ -12,6 +13,7 @@ export const loadInstData = async () => {
 
   storedActiveSelection.update(store => {
     store.loadedData.inst = LOADED;
+    store.reason = 'inst-loaded';
     return store;
   });
 

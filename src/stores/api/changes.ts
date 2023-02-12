@@ -27,6 +27,7 @@ storedActiveSelection.update(store => {
     hash: lastCursorFromJson,
     dateStr: lastCursorDate,
   };
+  store.reason = 'set-last-cursor';
   return store;
 });
 
@@ -55,6 +56,7 @@ export const loadChanges = async (endCursor?: string) => {
   if (!endCursor) {
     storedActiveSelection.update(store => {
       store.loadedData.changes = LOADING;
+      store.reason = 'changes-loading';
       return store;
     });
   }
@@ -72,6 +74,7 @@ export const loadChanges = async (endCursor?: string) => {
           hash: firstPageChanges.productChanges.pageInfo.endCursor,
           dateStr: getHRDate(),
         };
+        store.reason = 'new-endcursor';
         return store;
       });
     }
@@ -209,6 +212,7 @@ const evalChanges = (edges: any) => {
 
     storedActiveSelection.update(store => {
       store.loadedData.changes = LOADED;
+      store.reason = 'changes-loaded';
       return store;
     });
 

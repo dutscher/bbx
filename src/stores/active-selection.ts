@@ -23,12 +23,21 @@ const storedActiveSelectionWritable = writable({
   designer: [],
   search: '',
   reason: 'default',
-  site: '',
+  site: 'home',
+  prevSite: '',
 });
 export const storedActiveSelection = {
   subscribe: storedActiveSelectionWritable.subscribe,
   set: storedActiveSelectionWritable.set,
   update: storedActiveSelectionWritable.update,
+  setNextPage: (nextPage, reason) => {
+    storedActiveSelection.update(store => {
+      store.prevSite = store.site;
+      store.site = nextPage;
+      store.reason = reason;
+      return store;
+    });
+  },
 };
 
 // ?tags=mittelalter,star-trek -> ?t=mittelalter,star-trek
@@ -56,9 +65,8 @@ if (('site' in allParams && allParams.site === 'brickbar') || lastVisitedSite ==
     return store;
   });
 }
-
 // ?s=products&q=Ulmer%20Münster
-if (Object.keys(allParams).includes('search') && !queryProductId) {
+else if (Object.keys(allParams).includes('search') && !queryProductId) {
   storedActiveSelection.update(store => {
     store.site = 'products';
     store.reason = 'init-search-url';
@@ -66,7 +74,7 @@ if (Object.keys(allParams).includes('search') && !queryProductId) {
   });
 }
 // ?s=products&q=Ulmer%20Münster&p=105709
-if (Object.keys(allParams).some(param => ['site', 'product'].includes(param)) && !!queryProductId) {
+else if (Object.keys(allParams).some(param => ['site', 'product'].includes(param)) && !!queryProductId) {
   // close all toggles
   localStore.visibility('reset');
   // update search for product
@@ -83,7 +91,13 @@ if (Object.keys(allParams).some(param => ['site', 'product'].includes(param)) &&
       id: parseInt(queryProductId),
       type: 'products',
     };
-    store.reason = 'url-init';
+    store.reason = 'init-url';
+    return store;
+  });
+} else {
+  storedActiveSelection.update(store => {
+    store.site = lastVisitedSite;
+    store.reason = 'init-url';
     return store;
   });
 }

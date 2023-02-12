@@ -1,12 +1,9 @@
 <script lang="ts">
   import { storedActiveSelection } from '@stores';
+  import states from '@states';
 
   const onClick = () => {
-    storedActiveSelection.update(store => {
-      store.site = 'products';
-      store.reason = 'click-search';
-      return store;
-    });
+    storedActiveSelection.setNextPage('products', states.SEARCH_CLICKED);
   };
 </script>
 

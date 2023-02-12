@@ -19,9 +19,9 @@
   import Products from './comps/Product/Products.svelte';
   import Notifications from './comps/Features/Notifications.svelte';
   import Github from './comps/Features/Github.svelte';
-  import Search from './comps/Features/Search.svelte';
-  import Share from './comps/Features/Share.svelte';
-  import Darkmode from './comps/Features/Darkmode.svelte';
+  import SearchButton from './comps/Features/SearchButton.svelte';
+  import ShareButton from './comps/Features/ShareButton.svelte';
+  import DarkmodeButton from './comps/Features/DarkmodeButton.svelte';
   import Legend from './comps/Legend.svelte';
   import Site from './comps/Site.svelte';
   import HeartlistWrap from './comps/Features/Heartlist/HeartlistWrap.svelte';
@@ -73,9 +73,9 @@
   <Offline />
   <Github />
   <Notifications />
-  <Search />
-  <Share />
-  <Darkmode />
+  <SearchButton />
+  <ShareButton />
+  <DarkmodeButton />
 
   {#if loadedData.history === LOADED}
     <Site name="home" {activeSite} {isActive}>
@@ -90,15 +90,15 @@
       <Legend />
     </Site>
     <Site name="brickbar" {activeSite} {isActive}>
-      <Filter notags />
       {#if 'brickbar' === activeSite}
+        <Filter notags />
         <Products activateParts={true} />
       {/if}
       <Legend />
     </Site>
     <Site name="products" {activeSite} {isActive}>
-      <Filter />
       {#if 'products' === activeSite}
+        <Filter />
         <Products />
       {/if}
       <Legend />
