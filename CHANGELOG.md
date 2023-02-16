@@ -3,6 +3,7 @@
   * Neue Tags für neue Ankündigungen
   * Star Trek ist nun ein Spezial Tag
   * Die Filmmodelle "Auf Achse" wurden umbenannt
+  * Suchlabel ist nicht im Overlay sichtbar
 
 * [12.02.2023]
   * Der Suchbutton öffnet nun stabil die Suche

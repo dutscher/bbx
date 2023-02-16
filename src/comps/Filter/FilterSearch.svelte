@@ -115,5 +115,9 @@
 <style lang="scss">
   .field {
     margin: 8rem 0;
+    // fix that label not in overlay
+    &.label > label {
+      z-index: 2;
+    }
   }
 </style>
