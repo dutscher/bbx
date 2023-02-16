@@ -82,7 +82,7 @@ export const IDS_SPECIAL_TAGS = [
   ID_PARTS,
   ID_MOVIE,
   // add id's
-  ...SPECIALS_TAGS.filter(tag => tag.data !== null).map(tag => tag.id),
+  ...SPECIALS_TAGS.map(tag => tag.id),
 ];
 
 // api

@@ -357,7 +357,8 @@
   [
     "Bild",
     "Jahreszeiten",
-    "Sehenswürdigkeiten"
+    "Sehenswürdigkeiten",
+    "Gemälde"
   ],
   [
     "LKW",
@@ -447,7 +448,13 @@
     "Felsentaube",
     "Blaukehlchen",
     "Wintergoldhähnchen",
-    "Blaumeise"
+    "Blaumeise",
+    "Bachstelze",
+    "Elster",
+    "Mäusebussard",
+    "Rotkehlchen",
+    "Specht",
+    "Sperling"
   ],
   [
     "USA",

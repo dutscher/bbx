@@ -1,3 +1,8 @@
+* [16.02.2023]
+  * Auf der Startseite werden nun Kaffee Supporter erwähnt
+  * Neue Tags für neue Ankündigungen
+  * Star Trek ist nun ein Spezial Tag
+
 * [12.02.2023]
   * Der Suchbutton öffnet nun stabil die Suche
   * Fehler im Cache speichern wurde behoben
