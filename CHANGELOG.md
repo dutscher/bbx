@@ -1,3 +1,7 @@
+* [26.02.2023]
+  * neue Anleitungen
+  * Tags bei neuen Ankündigungnen
+
 * [16.02.2023]
   * Auf der Startseite werden nun Kaffee Supporter erwähnt
   * Neue Tags für neue Ankündigungen
