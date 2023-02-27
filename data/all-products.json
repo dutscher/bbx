@@ -13723,7 +13723,7 @@
       8,
       13
     ],
-    "pa": 734,
+    "pa": 736,
     "pr": 0,
     "di": 2
   },
@@ -19509,6 +19509,114 @@
     "pa": 1,
     "pr": 3.95,
     "di": 2
+  },
+  {
+    "ti": "Wedge Plates, gemischt, Light Bluish Gray",
+    "id": 401305,
+    "ca": [
+      2
+    ],
+    "tg": [
+      2
+    ],
+    "pa": 237,
+    "pr": 0
+  },
+  {
+    "ti": "Wedge Plates, gemischt, Dark Bluish Gray",
+    "id": 401306,
+    "ca": [
+      2
+    ],
+    "tg": [
+      2
+    ],
+    "pa": 237,
+    "pr": 0
+  },
+  {
+    "ti": "Wedge Plates, gemischt, Tan",
+    "id": 401307,
+    "ca": [
+      2
+    ],
+    "tg": [
+      2
+    ],
+    "pa": 237,
+    "pr": 0
+  },
+  {
+    "ti": "Wedge Plates, gemischt, Dark Tan",
+    "id": 401308,
+    "ca": [
+      2
+    ],
+    "tg": [
+      2
+    ],
+    "pa": 237,
+    "pr": 0
+  },
+  {
+    "ti": "Wedge Plates, gemischt, green",
+    "id": 401309,
+    "ca": [
+      2
+    ],
+    "tg": [
+      2
+    ],
+    "pa": 237,
+    "pr": 0
+  },
+  {
+    "ti": "Wedge Plates, gemischt, dark green",
+    "id": 401310,
+    "ca": [
+      2
+    ],
+    "tg": [
+      2
+    ],
+    "pa": 237,
+    "pr": 0
+  },
+  {
+    "ti": "Wedge Plates, gemischt, reddish brown",
+    "id": 401311,
+    "ca": [
+      2
+    ],
+    "tg": [
+      2
+    ],
+    "pa": 237,
+    "pr": 0
+  },
+  {
+    "ti": "Wedge Plates, gemischt, white",
+    "id": 401312,
+    "ca": [
+      2
+    ],
+    "tg": [
+      2
+    ],
+    "pa": 237,
+    "pr": 0
+  },
+  {
+    "ti": "Wedge Plates, gemischt, schwarz",
+    "id": 401313,
+    "ca": [
+      2
+    ],
+    "tg": [
+      2
+    ],
+    "pa": 237,
+    "pr": 0
   },
   {
     "ti": "WALL 1X2X2 W. BOWED SLIT, Chrome Silver",
