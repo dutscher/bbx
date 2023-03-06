@@ -11342,7 +11342,7 @@
     "di": 2
   },
   {
-    "ti": "InterCity AT",
+    "ti": "ÖBB Railjet",
     "id": 104872,
     "ca": [
       0
@@ -11359,7 +11359,7 @@
     "di": 8
   },
   {
-    "ti": "InterCity AT Speisewagen und Barrierefreie Zone",
+    "ti": "ÖBB Railjet Speisewagen und Barrierefreie Zone",
     "id": 104874,
     "ca": [
       0
@@ -11376,7 +11376,7 @@
     "di": 8
   },
   {
-    "ti": "InterCity AT Familienwaggon",
+    "ti": "ÖBB Railjet Familienwaggon",
     "id": 104875,
     "ca": [
       0
