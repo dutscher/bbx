@@ -13060,6 +13060,18 @@
     "pr": 27.95
   },
   {
+    "ti": "Star Trek Worf",
+    "id": 105419,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 257,
+    "pr": 0
+  },
+  {
     "ti": "Star Trek Gemälde in Picards Bereitschaftsraum",
     "id": 105420,
     "ca": [
@@ -13227,6 +13239,30 @@
     ],
     "pa": 207,
     "pr": 14.95
+  },
+  {
+    "ti": "Star Trek Picard",
+    "id": 105447,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 190,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek Spock",
+    "id": 105448,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 223,
+    "pr": 0
   },
   {
     "ti": "Kolosseum",
