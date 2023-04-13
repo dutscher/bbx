@@ -167,7 +167,7 @@ const parsePageCherrio = async url => {
     // skip if wrong categorized
     if (
       (url in ignoreProductsOnUrl && ignoreProductsOnUrl[url].includes(id)) ||
-      (!cat.includes('BlueBrixx') && !href.includes('/BPP') && !includedProducts.includes(id))
+      (!cat.includes('BRIX') && !cat.includes('BlueBrixx') && !href.includes('/BPP') && !includedProducts.includes(id))
     ) {
       //console.log('wrong bb product', url, cat, id);
       return;

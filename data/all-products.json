@@ -70,7 +70,7 @@
     "ti": "Tragschnabelwagen",
     "id": 100247,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -86,7 +86,7 @@
     "ti": "Schiebewandwagen",
     "id": 100248,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -102,7 +102,7 @@
     "ti": "Regionalexpress DB Steuerwagen",
     "id": 100249,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -330,7 +330,7 @@
     "ti": "Lokschuppen",
     "id": 100284,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -348,7 +348,7 @@
     "ti": "Lokschuppen Mittelstück",
     "id": 100285,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -366,8 +366,7 @@
     "ti": "Gerade Schienen im Set, 12 Stück",
     "id": 100298,
     "ca": [
-      0,
-      6
+      9
     ],
     "tg": [
       0,
@@ -792,7 +791,7 @@
     "ti": "Gedeckter Güterwagen mit Bremserhaus",
     "id": 100839,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -807,7 +806,7 @@
     "ti": "Gedeckter Güterwagen mit Bremserhaus",
     "id": 100840,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -822,7 +821,7 @@
     "ti": "Klappdeckelwagen",
     "id": 100841,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -837,7 +836,7 @@
     "ti": "Kühlwagen, weiß",
     "id": 100842,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -852,7 +851,7 @@
     "ti": "Rungenwagen",
     "id": 100843,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -867,7 +866,7 @@
     "ti": "Rungenwagen, kurz",
     "id": 100844,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -882,7 +881,7 @@
     "ti": "Kesselwagen mit Bremserhaus",
     "id": 100845,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -897,7 +896,7 @@
     "ti": "Kohlewagen mit Drehgestellen",
     "id": 100846,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -912,7 +911,7 @@
     "ti": "Kesselwagen",
     "id": 100847,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -927,7 +926,7 @@
     "ti": "Hochbordwagen Eaos 106",
     "id": 100848,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -942,7 +941,7 @@
     "ti": "Selbstentladewagen",
     "id": 100849,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -957,7 +956,7 @@
     "ti": "Selbstentladewagen OOtz50",
     "id": 100850,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -972,7 +971,7 @@
     "ti": "Rungenwagen",
     "id": 100851,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -987,7 +986,7 @@
     "ti": "Rungenwagen, Version 2",
     "id": 100852,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1002,7 +1001,7 @@
     "ti": "Flachbettwagen mit Ladung",
     "id": 100853,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1017,7 +1016,7 @@
     "ti": "Tiefladewagen",
     "id": 100854,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1295,7 +1294,7 @@
     "ti": "Klassischer Wagen mit Bremserhaus",
     "id": 100998,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1311,7 +1310,7 @@
     "ti": "Lokomotive V100",
     "id": 100999,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1326,7 +1325,7 @@
     "ti": "V200 Lokomotive",
     "id": 101001,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1341,7 +1340,7 @@
     "ti": "Passagierwagen Silberling",
     "id": 101002,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1356,7 +1355,7 @@
     "ti": "Lokomotive BR 194",
     "id": 101003,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1371,7 +1370,7 @@
     "ti": "Klassischer Personenwagen",
     "id": 101004,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1403,7 +1402,7 @@
     "ti": "Doppelstockwagen DR Verbund",
     "id": 101006,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1418,7 +1417,7 @@
     "ti": "Doppelstockwagen DR Mittelwagen",
     "id": 101007,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1433,7 +1432,7 @@
     "ti": "Lokomotive E 44",
     "id": 101008,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1449,7 +1448,7 @@
     "ti": "Passagierwagen mit Unterstand",
     "id": 101009,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1464,7 +1463,7 @@
     "ti": "Lokomotive E 50",
     "id": 101017,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1479,7 +1478,7 @@
     "ti": "Lokomotive E 151",
     "id": 101018,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1494,7 +1493,7 @@
     "ti": "Dampflokomotive BR 89",
     "id": 101019,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1509,7 +1508,7 @@
     "ti": "Personenwagen, grün, lang",
     "id": 101020,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1538,7 +1537,7 @@
     "ti": "Dampflokomotive mit Tender BR 08",
     "id": 101035,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1567,7 +1566,7 @@
     "ti": "Stellwerk",
     "id": 101038,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1583,7 +1582,7 @@
     "ti": "Auto-Transportwagen",
     "id": 101039,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1598,7 +1597,7 @@
     "ti": "Eisenbahn LKW Transporter",
     "id": 101040,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1630,7 +1629,7 @@
     "ti": "Bahnhof",
     "id": 101043,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1693,7 +1692,7 @@
     "ti": "Lokomotive GE ES44AC Gelb",
     "id": 101048,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1816,7 +1815,7 @@
     "ti": "Prellbock 2x mit zwei geraden Gleisen",
     "id": 101066,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1920,7 +1919,7 @@
     "ti": "Weichenset 2x links, 2x rechts",
     "id": 101074,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -1935,8 +1934,7 @@
     "ti": "Flexible Schienen im Set, 64 Stück",
     "id": 101075,
     "ca": [
-      0,
-      6
+      9
     ],
     "tg": [
       0,
@@ -1952,7 +1950,7 @@
     "ti": "Schienendrehkran mit Rungenwagen",
     "id": 101076,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -2277,7 +2275,7 @@
     "ti": "Schienenbus",
     "id": 101297,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -2293,7 +2291,7 @@
     "ti": "Dampflokomotive BR 65",
     "id": 101298,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -2309,7 +2307,7 @@
     "ti": "Regionalexpress DB Passagierwagen",
     "id": 101299,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -2325,7 +2323,7 @@
     "ti": "Containerwagen",
     "id": 101300,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -2513,7 +2511,7 @@
     "ti": "Lokomotive BR103 DB Rheingold",
     "id": 101329,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -2631,7 +2629,7 @@
     "ti": "Gedeckter Güterwagen, braun, mit dunkelgrauem Rahmen",
     "id": 101340,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -2646,7 +2644,7 @@
     "ti": "Rheingold DB Personenwagen",
     "id": 101341,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -2662,7 +2660,7 @@
     "ti": "Rheingold DB Personenwagen",
     "id": 101342,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -2679,7 +2677,7 @@
     "ti": "Rheingold DB Aussichtswagen",
     "id": 101343,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -2695,7 +2693,7 @@
     "ti": "Rheingold DB Buckelspeisewagen",
     "id": 101344,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -2771,7 +2769,7 @@
     "ti": "Flachdachwagen 40 Fuß",
     "id": 101372,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -2786,7 +2784,7 @@
     "ti": "Flachdachwagen 50 Fuß in Gelb",
     "id": 101373,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -2801,7 +2799,7 @@
     "ti": "Flachdachwagen 60 Fuß Hicube",
     "id": 101374,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -2816,7 +2814,7 @@
     "ti": "Kesselwagen 56 Fuß",
     "id": 101392,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -2831,7 +2829,7 @@
     "ti": "Schüttgutwagen 50 Fuß",
     "id": 101393,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -2971,7 +2969,7 @@
     "ti": "Containerwagen 40 Fuß",
     "id": 101476,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -2986,7 +2984,7 @@
     "ti": "Lokomotive BR 146",
     "id": 101478,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3003,7 +3001,7 @@
     "ti": "offener Güterwagen Gattung Es 5er Set",
     "id": 101479,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3018,7 +3016,7 @@
     "ti": "Kesselwagen 5er Set",
     "id": 101480,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3035,7 +3033,7 @@
     "ti": "Gedeckter Güterwagen, braun mit grauem Dach 5er Set",
     "id": 101481,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3052,7 +3050,7 @@
     "ti": "Passagierwagen mit Unterstand V2, 5er Set",
     "id": 101482,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3067,7 +3065,7 @@
     "ti": "Panzerzug Lokomotive",
     "id": 101484,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3084,7 +3082,7 @@
     "ti": "Panzerzug Artilleriewagen",
     "id": 101485,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3120,7 +3118,7 @@
     "ti": "Panzerzug Geschützwagen",
     "id": 101487,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3138,7 +3136,7 @@
     "ti": "Panzerzug Kommandowagen",
     "id": 101488,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3155,7 +3153,7 @@
     "ti": "Panzerzug Panzerjäger",
     "id": 101489,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3172,7 +3170,7 @@
     "ti": "Panzerzug PanzerTragwagen Typ 1",
     "id": 101490,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3190,7 +3188,7 @@
     "ti": "Panzerzug PanzerTragwagen Typ 2",
     "id": 101491,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3225,7 +3223,7 @@
     "ti": "Behälterwagen",
     "id": 101767,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3241,7 +3239,7 @@
     "ti": "Säuretopfwagen",
     "id": 101771,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3336,7 +3334,7 @@
     "ti": "Schwerölkesselwagen",
     "id": 101860,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3351,7 +3349,7 @@
     "ti": "Einheitskesselwagen dunkelgrau",
     "id": 101861,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3380,7 +3378,7 @@
     "ti": "Schwenkdachwagen",
     "id": 101864,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3581,8 +3579,7 @@
     "ti": "Gebogene Gleise R40 im Set, 16 Stück",
     "id": 101908,
     "ca": [
-      0,
-      6
+      9
     ],
     "tg": [
       0,
@@ -3599,7 +3596,7 @@
     "ti": "TEE VT11.5 Diesel Triebzug",
     "id": 101909,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3739,7 +3736,7 @@
     "ti": "Bekohlungsanlage",
     "id": 102145,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3757,7 +3754,7 @@
     "ti": "Lokomotive BR 132 DR",
     "id": 102146,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3773,7 +3770,7 @@
     "ti": "Lokomotive E 69",
     "id": 102147,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3789,7 +3786,7 @@
     "ti": "Lokomotive BR 232",
     "id": 102148,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3868,7 +3865,7 @@
     "ti": "Lokomotive BR 218 DB",
     "id": 102245,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3883,7 +3880,7 @@
     "ti": "TEE VT11.5 Personenwagen",
     "id": 102360,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3898,7 +3895,7 @@
     "ti": "TEE VT11.5 Speisewagen",
     "id": 102363,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3914,7 +3911,7 @@
     "ti": "Intermodaler Flachwagen mit Sattelauflieger",
     "id": 102384,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3929,7 +3926,7 @@
     "ti": "Lokomotive EMD SD50, Blau",
     "id": 102385,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3962,7 +3959,7 @@
     "ti": "Lokomotive EMD E8 Gelb",
     "id": 102498,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -3978,7 +3975,7 @@
     "ti": "Lokomotive BR 118 DR",
     "id": 102499,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -4083,7 +4080,7 @@
     "ti": "Dampflokomotive BR 01",
     "id": 102525,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -4098,7 +4095,7 @@
     "ti": "Dampflokomotive BR 92",
     "id": 102531,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -4114,7 +4111,7 @@
     "ti": "Dampflokomotive BR 92 Grün",
     "id": 102532,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -4145,7 +4142,7 @@
     "ti": "Bahnübergang",
     "id": 102534,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -4163,7 +4160,7 @@
     "ti": "Bahnsteig",
     "id": 102535,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -4180,7 +4177,7 @@
     "ti": "Reiterstellwerk, zweigleisig",
     "id": 102536,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -4230,7 +4227,7 @@
     "ti": "Dampflokomotive BR 86",
     "id": 102540,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -4336,7 +4333,7 @@
     "ti": "Elektrolokomotive BR 143",
     "id": 102548,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -4351,7 +4348,7 @@
     "ti": "Elektrolokomotive BR 243",
     "id": 102549,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -4366,7 +4363,7 @@
     "ti": "zweiteiliger Dieseltriebzug",
     "id": 102554,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -4382,7 +4379,7 @@
     "ti": "Lokomotive BR 218 DB",
     "id": 102555,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -4397,7 +4394,7 @@
     "ti": "Lokomotive BR 218 DB",
     "id": 102556,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -4412,7 +4409,7 @@
     "ti": "Rheingold Gepäckwagen in lila",
     "id": 102579,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -4428,7 +4425,7 @@
     "ti": "Rheingold Salonwagen 1. Klasse",
     "id": 102580,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -4444,7 +4441,7 @@
     "ti": "Rheingold Passagier Wagon 1. Klasse",
     "id": 102581,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -4661,7 +4658,7 @@
     "ti": "Kleinbahn Schienenbus VT133",
     "id": 102599,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -4676,7 +4673,7 @@
     "ti": "NYC Subway Wagon",
     "id": 102600,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -4693,7 +4690,7 @@
     "ti": "DR Passagier Wagon lang",
     "id": 102601,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -4846,7 +4843,7 @@
     "ti": "Niederflurwagen",
     "id": 102631,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -4878,7 +4875,7 @@
     "ti": "Pop Wagen weiß grün",
     "id": 102633,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -4894,7 +4891,7 @@
     "ti": "Pop-Wagen weiß orange",
     "id": 102634,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -4909,7 +4906,7 @@
     "ti": "Tiefladewagen mit Leopard 2",
     "id": 102635,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -5025,7 +5022,7 @@
     "ti": "EU Star 320",
     "id": 102726,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -5150,7 +5147,7 @@
     "ti": "Dreiteilige Elektrotriebzüge BR 420",
     "id": 102742,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -5165,7 +5162,7 @@
     "ti": "Schnellzug grau blau",
     "id": 102743,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -5199,7 +5196,7 @@
     "ti": "Französische Elektrolokomotive BB 9200",
     "id": 102745,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -5232,7 +5229,7 @@
     "ti": "Französischer Expresszugwagon",
     "id": 102747,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -5281,7 +5278,7 @@
     "ti": "französische Elektro Lokomotive BB 7200",
     "id": 102750,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -5331,7 +5328,7 @@
     "ti": "Güterschuppen",
     "id": 102788,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -5633,7 +5630,7 @@
     "ti": "Passagierwagen mit Unterstand rot beige",
     "id": 102844,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -5785,7 +5782,7 @@
     "ti": "Legendäre Lokomotive: Krokodil in grün",
     "id": 102872,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -5816,7 +5813,7 @@
     "ti": "Legendäre Lokomotive: Krokodil in braun",
     "id": 102880,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -5832,7 +5829,7 @@
     "ti": "Klassische Straßenbahn mit Anhänger",
     "id": 102890,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -5848,7 +5845,7 @@
     "ti": "Klassischer Westernzug Lokomotive mit Tender",
     "id": 102891,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -5882,7 +5879,7 @@
     "ti": "Klassischer Westernzug Caboose Wagon",
     "id": 102895,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -5899,7 +5896,7 @@
     "ti": "Klassischer Westernzug Güterwagon",
     "id": 102896,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -5917,7 +5914,7 @@
     "ti": "Klassischer Westernzug Personenwagen",
     "id": 102897,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -5984,7 +5981,7 @@
     "ti": "Lokomotive USA 4884",
     "id": 102921,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -6001,7 +5998,7 @@
     "ti": "Pfannenwagen",
     "id": 102931,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -6051,7 +6048,7 @@
     "ti": "Diesellokomotive V36",
     "id": 102937,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -6067,7 +6064,7 @@
     "ti": "Diesellokomotive V36 grün",
     "id": 102938,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -6083,7 +6080,7 @@
     "ti": "elektrische Güterzuglokomotive E91",
     "id": 102939,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -6149,7 +6146,7 @@
     "ti": "Zug Personenwagen dunkelgrün",
     "id": 102954,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -6167,7 +6164,7 @@
     "ti": "Zug Personenwagen dunkelblau 1. Klasse",
     "id": 102955,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -6184,7 +6181,7 @@
     "ti": "Zug Paketwagen dunkelgrün",
     "id": 102956,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -6219,7 +6216,7 @@
     "ti": "Speisewagen dunkelrot",
     "id": 102958,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -6270,7 +6267,7 @@
     "ti": "große Bekohlungsanlage",
     "id": 102962,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -6372,7 +6369,7 @@
     "ti": "Eisenbahndisplay in 3 Segmenten",
     "id": 102971,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -6407,7 +6404,7 @@
     "ti": "Erweiterung für Eisenbahndisplay",
     "id": 102973,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -6442,7 +6439,7 @@
     "ti": "Kleiner Lokschuppen",
     "id": 103015,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -6509,7 +6506,7 @@
     "ti": "Rheingold DB Personenwagen V2",
     "id": 103049,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -6606,7 +6603,7 @@
     "ti": "Henschel Wegmann Lokomotive",
     "id": 103071,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -6622,7 +6619,7 @@
     "ti": "Lokomotive BR 120",
     "id": 103073,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -6655,7 +6652,7 @@
     "ti": "Henschel Wegmann Personenwagen",
     "id": 103082,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -6671,7 +6668,7 @@
     "ti": "Henschel Wegmann Speisewagen",
     "id": 103083,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -6756,7 +6753,7 @@
     "ti": "US Verstärkter Flachladewagen",
     "id": 103088,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -6859,7 +6856,7 @@
     "ti": "Lokomotive V60",
     "id": 103210,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -6875,7 +6872,7 @@
     "ti": "Dampflokomotive BR 23",
     "id": 103211,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -6925,7 +6922,7 @@
     "ti": "Dampflokomotive BR 52",
     "id": 103216,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -7026,7 +7023,7 @@
     "ti": "Elektrolokomotive E 70",
     "id": 103249,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -7059,7 +7056,7 @@
     "ti": "S-Bahn BR 423",
     "id": 103252,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -7185,7 +7182,7 @@
     "ti": "Motorisierbarer Passagier- und Gepäckwagen",
     "id": 103290,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -7202,7 +7199,7 @@
     "ti": "Motorisierbarer Güterwagen",
     "id": 103291,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -7359,7 +7356,7 @@
     "ti": "Diesel-Tankanlage für Lokomotiven",
     "id": 103303,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -7393,7 +7390,7 @@
     "ti": "Formsignale",
     "id": 103305,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -7461,8 +7458,7 @@
     "ti": "Gebogene Gleise R56 im Set, 16 Stück",
     "id": 103352,
     "ca": [
-      0,
-      6
+      9
     ],
     "tg": [
       0,
@@ -7479,8 +7475,7 @@
     "ti": "Gebogene Gleise R72 im Set, 32 Stück",
     "id": 103353,
     "ca": [
-      0,
-      6
+      9
     ],
     "tg": [
       0,
@@ -7564,7 +7559,7 @@
     "ti": "Torpedopfannenwagen",
     "id": 103367,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -7660,7 +7655,7 @@
     "ti": "Dampflokomotive Adler mit 1.-3. Klasse-Wagen",
     "id": 103400,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -7678,7 +7673,7 @@
     "ti": "BR 475 Schnell-Bahn",
     "id": 103404,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -7827,7 +7822,7 @@
     "ti": "Lichtsignale",
     "id": 103418,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -7844,7 +7839,7 @@
     "ti": "Individualisierbare Oberleitung",
     "id": 103419,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -7995,7 +7990,7 @@
     "ti": "Intercity NL Zug",
     "id": 103465,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -8012,7 +8007,7 @@
     "ti": "Flying Scotsman Lokomotive",
     "id": 103481,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -8028,7 +8023,7 @@
     "ti": "Dunkelroter Passagierwagen mit goldenem Band",
     "id": 103482,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -8176,7 +8171,7 @@
     "ti": "Kesselwagen schwarz gelb",
     "id": 103583,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -8192,7 +8187,7 @@
     "ti": "Langtransportwagen",
     "id": 103611,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -8207,7 +8202,7 @@
     "ti": "Gepäckwagon mit Unterstand in dunkelgrün",
     "id": 103612,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -8222,7 +8217,7 @@
     "ti": "Gepäckwagon mit Unterstand in rot/beige",
     "id": 103613,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -8237,7 +8232,7 @@
     "ti": "Niederbordwagon mit 2 Achsen",
     "id": 103614,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -8252,7 +8247,7 @@
     "ti": "Niederbordwagon mit 4 Achsen",
     "id": 103615,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -8364,7 +8359,7 @@
     "ti": "Schnellzug weiß rot",
     "id": 103738,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -8565,7 +8560,7 @@
     "ti": "Stromliniendampflokomotive BR 03",
     "id": 103815,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -8599,7 +8594,7 @@
     "ti": "Gedeckter Güterwagen, gelb",
     "id": 103826,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -8631,7 +8626,7 @@
     "ti": "Gedeckter Kühlwagen",
     "id": 103828,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -8647,7 +8642,7 @@
     "ti": "Kuppelwagen USA grau-schwarz",
     "id": 103857,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -8664,7 +8659,7 @@
     "ti": "Passagierwagen USA grau-schwarz",
     "id": 103858,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -8681,7 +8676,7 @@
     "ti": "Gepäckwagen dunkelgrün",
     "id": 103877,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -8697,7 +8692,7 @@
     "ti": "Passagierwagen dunkelgrün",
     "id": 103880,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -8713,7 +8708,7 @@
     "ti": "Diesellokomotive USA grau-schwarz",
     "id": 103881,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -8780,7 +8775,7 @@
     "ti": "Lokomotive BR 160 in dunkel grün",
     "id": 103974,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -8812,7 +8807,7 @@
     "ti": "US Stromlinienlokomotive",
     "id": 103984,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -8913,7 +8908,7 @@
     "ti": "Lokomotive BR 160 in dunkel rot",
     "id": 104001,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -8945,7 +8940,7 @@
     "ti": "US Rangierlokomotive",
     "id": 104004,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -8961,7 +8956,7 @@
     "ti": "Tenderlokomotive BR 89 inklusive Display",
     "id": 104012,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -9446,7 +9441,7 @@
     "ti": "Passagierwagen Silberling (8w)",
     "id": 104188,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -9464,7 +9459,7 @@
     "ti": "Lokomotive V100 (8w)",
     "id": 104189,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -9497,7 +9492,7 @@
     "ti": "Schüttgutwagen (8w)",
     "id": 104196,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -9638,7 +9633,7 @@
     "ti": "Kesselwagen (8w)",
     "id": 104276,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -9655,7 +9650,7 @@
     "ti": "Niederbordwagen (8w)",
     "id": 104280,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -9672,7 +9667,7 @@
     "ti": "Lokomotive BR103 DB Rheingold (8w)",
     "id": 104283,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -9690,7 +9685,7 @@
     "ti": "Rheingold DB Abteilwagen (8w)",
     "id": 104284,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -9708,7 +9703,7 @@
     "ti": "Rheingold DB Großraumpersonenwagen (8w)",
     "id": 104285,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -9726,7 +9721,7 @@
     "ti": "Rheingold DB Panoramawagen (8w)",
     "id": 104286,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -9744,7 +9739,7 @@
     "ti": "Rheingold DB Speisewagen (8w)",
     "id": 104287,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -9762,7 +9757,7 @@
     "ti": "Doppelweiche",
     "id": 104292,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -9932,7 +9927,7 @@
     "ti": "Moderner Bahnsteig",
     "id": 104324,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -9979,7 +9974,7 @@
     "ti": "Gedeckter Güterwagen, braun (8w)",
     "id": 104368,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10082,7 +10077,7 @@
     "ti": "Notfall Schienendrehkran (8w)",
     "id": 104458,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10099,7 +10094,7 @@
     "ti": "Netz Instandhaltung BR 701",
     "id": 104468,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10208,7 +10203,7 @@
     "ti": "Legendäre Lokomotive: Krokodil in grün (8W)",
     "id": 104521,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10225,7 +10220,7 @@
     "ti": "Mitteleinstiegswagen 1. und 2. Klasse (8w)",
     "id": 104522,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10242,7 +10237,7 @@
     "ti": "Mitteleinstiegswagen 2. Klasse (8w)",
     "id": 104523,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10463,7 +10458,7 @@
     "ti": "Lokomotive BR 146 weiß rot",
     "id": 104594,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10479,7 +10474,7 @@
     "ti": "Steuerwagen weiß rot",
     "id": 104595,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10496,7 +10491,7 @@
     "ti": "Personenwagen weiß rot",
     "id": 104596,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10530,7 +10525,7 @@
     "ti": "Umbauwagen 1. und 2. Klasse (8w)",
     "id": 104610,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10547,7 +10542,7 @@
     "ti": "Umbauwagen 2. Klasse (8w)",
     "id": 104611,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10564,7 +10559,7 @@
     "ti": "Umbauwagen 2te Klasse und Gepäckabteil (8w)",
     "id": 104612,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10581,7 +10576,7 @@
     "ti": "DR Kleinlokomotive Leistungsgruppe II (8w)",
     "id": 104613,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10616,7 +10611,7 @@
     "ti": "Elektrolokomotive SBB CFF FFS EuroCity Schweiz",
     "id": 104621,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10633,7 +10628,7 @@
     "ti": "Elektrolokomotive SBB CFF FFS LOK Re 460 Schweiz",
     "id": 104622,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10649,7 +10644,7 @@
     "ti": "Kesselwagen schwarz blau",
     "id": 104623,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10664,7 +10659,7 @@
     "ti": "Kesselwagen schwarz grün",
     "id": 104624,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10679,7 +10674,7 @@
     "ti": "Kesselwagen schwarz rot",
     "id": 104625,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10743,7 +10738,7 @@
     "ti": "Einheitskesselwagen blau",
     "id": 104702,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10791,7 +10786,7 @@
     "ti": "Auto-Transportwagen (8w)",
     "id": 104728,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10808,7 +10803,7 @@
     "ti": "Einheitskesselwagen gelb",
     "id": 104729,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10823,7 +10818,7 @@
     "ti": "Einheitskesselwagen grün",
     "id": 104730,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10838,7 +10833,7 @@
     "ti": "Einheitskesselwagen rot",
     "id": 104731,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10853,7 +10848,7 @@
     "ti": "Schnellzug weiß-rot Bordrestaurant",
     "id": 104732,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10916,7 +10911,7 @@
     "ti": "VT 18.16 1te Klasse",
     "id": 104753,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10932,7 +10927,7 @@
     "ti": "VT 18.16 Speisewagen",
     "id": 104754,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10948,7 +10943,7 @@
     "ti": "VT 18.16 Triebwagen + 2te Klasse",
     "id": 104755,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10965,7 +10960,7 @@
     "ti": "Moderne Lokhalle",
     "id": 104775,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -10983,7 +10978,7 @@
     "ti": "Oberleitungswagen BR 711",
     "id": 104776,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -11255,7 +11250,7 @@
     "ti": "Dieselhydraulische Güterlok",
     "id": 104846,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -11345,7 +11340,7 @@
     "ti": "ÖBB Railjet",
     "id": 104872,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -11362,7 +11357,7 @@
     "ti": "ÖBB Railjet Speisewagen und Barrierefreie Zone",
     "id": 104874,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -11379,7 +11374,7 @@
     "ti": "ÖBB Railjet Familienwaggon",
     "id": 104875,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -11396,7 +11391,7 @@
     "ti": "Dampflokomotive BR 18 (8w)",
     "id": 104876,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -11586,7 +11581,7 @@
     "ti": "Dampflokomotive BR 78 (8w)",
     "id": 104939,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -11981,7 +11976,7 @@
     "ti": "Eisenbahn-Zubehör",
     "id": 105053,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -12058,7 +12053,7 @@
     "ti": "Kühlwagen klein (8w)",
     "id": 105071,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -12075,7 +12070,7 @@
     "ti": "Kühlwagen groß (8w)",
     "id": 105072,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -12092,7 +12087,7 @@
     "ti": "offener Güterwagen klein (8w)",
     "id": 105073,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -12109,7 +12104,7 @@
     "ti": "offener Güterwagen groß (8w)",
     "id": 105074,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -12126,7 +12121,7 @@
     "ti": "Rungenwagen klein (8w)",
     "id": 105075,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -12143,7 +12138,7 @@
     "ti": "Rungenwagen groß (8w)",
     "id": 105076,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -12176,7 +12171,7 @@
     "ti": "BR 642",
     "id": 105078,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -12207,7 +12202,7 @@
     "ti": "Gailtalbahn BR 2043",
     "id": 105080,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -12223,7 +12218,7 @@
     "ti": "Schlieren 1735",
     "id": 105081,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -12239,7 +12234,7 @@
     "ti": "Schlieren 2935",
     "id": 105082,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -12255,7 +12250,7 @@
     "ti": "Schlieren 8235",
     "id": 105083,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -12632,7 +12627,7 @@
     "ti": "DR Kleinlokomotive Leistungsgruppe I (8w)",
     "id": 105221,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -12648,7 +12643,7 @@
     "ti": "Kleinlokomotive Leistungsgruppe III (8w)",
     "id": 105226,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -12664,7 +12659,7 @@
     "ti": "Lokomotive V100 dunkel blau(8w)",
     "id": 105231,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -12680,7 +12675,7 @@
     "ti": "Schienenbus (8w)",
     "id": 105232,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -12939,7 +12934,7 @@
     "ti": "Straßenbahn gelb-weiß",
     "id": 105329,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -12995,7 +12990,7 @@
     "ti": "Dieselschnelltriebwagen (7w)",
     "id": 105392,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -13339,7 +13334,7 @@
     "ti": "Gepäckwagon in Dunkelgrün",
     "id": 105507,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -13354,7 +13349,7 @@
     "ti": "Gleiswaage mit Lademass",
     "id": 105508,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -13440,7 +13435,7 @@
     "ti": "Lokomotive V60 (8w)",
     "id": 105544,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -13559,7 +13554,7 @@
     "ti": "BR 623",
     "id": 105636,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -13573,7 +13568,7 @@
     "ti": "Kesselwagenabfüllstation",
     "id": 105637,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -13590,7 +13585,7 @@
     "ti": "Ladegutzubehör für LKW's und Wagons",
     "id": 105638,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -13622,7 +13617,7 @@
     "ti": "Halbspeisewagen Dunkel Blau/Dunkel Rot 1. Klasse",
     "id": 105640,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -13637,7 +13632,7 @@
     "ti": "Halbspeisewagen Dunkel Grün/Dunkel Rot",
     "id": 105641,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -13652,7 +13647,7 @@
     "ti": "Personenwagen Blau",
     "id": 105642,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -13667,7 +13662,7 @@
     "ti": "Personenwagen Türkis",
     "id": 105643,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -13776,7 +13771,7 @@
     "ti": "Lokomotive BR 103 rot",
     "id": 105656,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -13808,10 +13803,11 @@
     "ti": "Lokomotive BR 101 rot",
     "id": 105658,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
+      8,
       13
     ],
     "pa": 579,
@@ -13822,10 +13818,11 @@
     "ti": "Passagierwagen weiß rot",
     "id": 105659,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
+      8,
       14
     ],
     "pa": 437,
@@ -13836,10 +13833,11 @@
     "ti": "Triebwagen weiß rot",
     "id": 105660,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
+      8,
       13,
       14
     ],
@@ -13851,10 +13849,11 @@
     "ti": "Lokomotive BR 101 grau",
     "id": 105661,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
+      8,
       13
     ],
     "pa": 571,
@@ -13865,10 +13864,11 @@
     "ti": "Triebwagen grau",
     "id": 105662,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
+      8,
       13,
       14
     ],
@@ -13880,10 +13880,11 @@
     "ti": "Personenwagen grau",
     "id": 105663,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
+      8,
       14
     ],
     "pa": 479,
@@ -13894,10 +13895,11 @@
     "ti": "Barwagen grau",
     "id": 105664,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
+      8,
       14
     ],
     "pa": 510,
@@ -14098,6 +14100,32 @@
     "pa": 1942,
     "pr": 0,
     "di": 12
+  },
+  {
+    "ti": "Class 66 Schwere Diesellokomotive",
+    "id": 106623,
+    "ca": [
+      9
+    ],
+    "tg": [
+      8,
+      13
+    ],
+    "pa": 790,
+    "pr": 0
+  },
+  {
+    "ti": "Lokomotive BR 101 weiß-rot",
+    "id": 106624,
+    "ca": [
+      9
+    ],
+    "tg": [
+      8,
+      13
+    ],
+    "pa": 607,
+    "pr": 0
   },
   {
     "ti": "Pont du Gard",
@@ -14309,6 +14337,20 @@
       2
     ],
     "pa": 73,
+    "pr": 0
+  },
+  {
+    "ti": "Display Lokomotive V100 dunkel rot",
+    "id": 106969,
+    "ca": [
+      9
+    ],
+    "tg": [
+      8,
+      13,
+      26
+    ],
+    "pa": 5140,
     "pr": 0
   },
   {
@@ -17375,7 +17417,7 @@
     "ti": "Stickerbogen Bahn BR 103 Rheingold",
     "id": 401140,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -17391,7 +17433,7 @@
     "ti": "Stickerbogen Eisenbahn Güterwagen",
     "id": 401141,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -17406,7 +17448,7 @@
     "ti": "Stickerbogen Eisenbahn Güterwagen braun",
     "id": 401142,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -17421,7 +17463,7 @@
     "ti": "Stickerbogen V Reihe",
     "id": 401143,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -17436,7 +17478,7 @@
     "ti": "Stickerbogen REGIO Express",
     "id": 401144,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -17452,7 +17494,7 @@
     "ti": "Stickerbogen Deutsche Reichsbahn dunkelgrün",
     "id": 401145,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -17577,7 +17619,7 @@
     "ti": "Stickerbogen Bahnhof",
     "id": 401153,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -19283,7 +19325,7 @@
     "ti": "Stickerbogen BR 146",
     "id": 401272,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -19502,7 +19544,7 @@
     "ti": "Stickerbogen Moderner Bahnsteig",
     "id": 401291,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -19548,7 +19590,7 @@
     "ti": "Stickerbogen Schnellzug weiß rot",
     "id": 401295,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
@@ -19579,7 +19621,7 @@
     "ti": "Stickerbogen SBB CFF FFS EuroCity Schweiz",
     "id": 401300,
     "ca": [
-      0
+      9
     ],
     "tg": [
       0,
