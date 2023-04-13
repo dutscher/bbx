@@ -1,4 +1,9 @@
 * [26.02.2023]
+  * neue Anleitungen (viele Modbrix sind dabei)
+  * neue Produktreihe Brix wird mit aufgenommen  
+  *  "105435": {},
+
+* [26.02.2023]
   * neue Anleitungen
   * Tags bei neuen Ankündigungnen
 
