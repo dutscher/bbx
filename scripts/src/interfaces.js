@@ -41,13 +41,15 @@ export const ignoreProductsOnUrl = {
   ],
 };
 
-// data/categories.json
-// [0: categories index, 1: id in api]
+// [
+// 0: data/categories.json index,
+// 1: id from api https://api.bbx.watch/bapi/product/detail/105435
+// ]
 export const IDs = {
   ID_CAT_BLUEBRIXX_SPECIAL: [0, 14],
   ID_CAT_BLUEBRIXX_PRO: [1, 19],
   ID_CAT_BLUEBRIXX: [2, 6],
-  ID_CAT_BLUEBRIXX_BRIX: [2, 6],
+  ID_CAT_BLUEBRIXX_BRIX: [9, 7385],
   ID_CAT_CHROME_PARTS: 3,
   ID_CAT_BBX_PART_PACKS: 6,
   ID_TAG_BLUEBRIXX_SPECIAL: 0,

@@ -1,7 +1,8 @@
-* [26.02.2023]
+* [14.04.2023]
   * neue Anleitungen (viele Modbrix sind dabei)
   * neue Produktreihe Brix wird mit aufgenommen  
-  *  "105435": {},
+  * Neues Tag Brickbuddies
+  * TODO: "105435": {}, maken history
 
 * [26.02.2023]
   * neue Anleitungen
