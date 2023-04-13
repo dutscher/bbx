@@ -2,7 +2,7 @@
   * neue Anleitungen (viele Modbrix sind dabei)
   * neue Produktreihe Brix wird mit aufgenommen  
   * Neues Tag Brickbuddies
-  * TODO: "105435": {}, maken history
+  * TODO: "105435" maken history, find new Brix products
 
 * [26.02.2023]
   * neue Anleitungen
