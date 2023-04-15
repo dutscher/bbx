@@ -108,9 +108,9 @@ export const apiCatsToWatcherIDs = [
 export const isBluebrixxProduct = (product, category) => {
   const productId = product['_id']; // "_id": 603721,
 
-  if (productId === 106969) {
-    console.log({ product, category });
-  }
+  // if (productId === 106969) {
+  //   console.log({ product, category });
+  // }
 
   let catId = category['_id'];
   const isIgnoredProduct = ignoredProducts.includes(productId);

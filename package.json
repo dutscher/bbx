@@ -17,6 +17,7 @@
     "fetch:compare": "npm run fetch -- -- --create-compare",
     "fetch:parse-pages": "npm run fetch -- -- --parse-pages --create-compare",
     "fetch:parse-pages-n-parts": "npm run fetch -- -- --parse-pages-n-parts --create-compare",
+    "changes-of-product": "npm run exec ./scripts/changes-of-product.js",
     "cat-n-tags": "npm run exec ./scripts/cats-n-tags.js",
     "parse-parts": "npm run exec ./scripts/src/parse-parts.js",
     "parse-part-nr": "npm run exec ./scripts/src/part-nr.js",
