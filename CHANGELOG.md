@@ -1,3 +1,6 @@
+* [16.04.2023]
+  * neuer Tag "BRIX" https://bbx.watch/?s=products&t=brix
+
 * [14.04.2023]
   * neue Anleitungen (viele Modbrix sind dabei)
   * neue Produktreihe BRIX wird mit aufgenommen  

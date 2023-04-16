@@ -14,7 +14,6 @@
   const iamOnSite = 'products';
 
   storedActiveSelection.subscribe(store => {
-    console.log('subscribe', store.site, store.prevSite, store.reason);
     // scroll afterUpdate hook
     if (store.reason === states.SEARCH_CLICKED) {
       scrollTo = true;

@@ -18,6 +18,7 @@
   import { handleProductSort } from './sorting';
   import ProductFilter from './ProductFilter.svelte';
   import ExtraFilter from '../Filter/ExtraFilter.svelte';
+  import { ID_CATEGORY_BRIX, ID_TAG_BRIX } from '@interfaces';
 
   export let activateParts: boolean = false;
   let activeTagIds: any = [];
@@ -114,7 +115,7 @@
         .filter(product => {
           let countMatched = 0;
           activeTagIds.map(tagId => {
-            if (product.tags.includes(tagId)) {
+            if ((tagId === ID_TAG_BRIX && product.cats.includes(ID_CATEGORY_BRIX)) || product.tags.includes(tagId)) {
               countMatched++;
             }
           });

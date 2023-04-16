@@ -1,5 +1,6 @@
 import { writable } from 'svelte/store';
 import { rawProducts } from './products';
+import { ID_CATEGORY_BRIX } from '@interfaces';
 import tagsJSON from '../../data/tags.json';
 
 const sortedTags = tagsJSON.map((tag, i) => ({
@@ -16,7 +17,11 @@ const sortedTags = tagsJSON.map((tag, i) => ({
   de: Array.isArray(tag) ? tag[0] : tag,
   id: i,
   count: rawProducts.filter(product => {
-    if (product.tags && product.tags.length > 0) {
+    const tagName = Array.isArray(tag) ? tag[0] : tag;
+    // count brix categories
+    if (tagName === 'BRIX' && product.cats.includes(ID_CATEGORY_BRIX)) {
+      return true;
+    } else if (product.tags && product.tags.length > 0) {
       return product.tags.includes(i);
     } else return false;
   }).length,

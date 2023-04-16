@@ -9,6 +9,8 @@ import { localStore } from './stores/local-storage';
 
 export const AFF_LINK = ''; //'?aff=wrhjxrxb';
 // ID Stuff
+export const ID_CATEGORY_BRIX = 9;
+export const ID_TAG_BRIX = 66;
 export const ID_MANHATTAN = 17;
 export const ID_NETHERLAND = 57;
 export const ID_FRANKFURT = 62;
