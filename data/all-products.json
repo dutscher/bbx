@@ -13085,7 +13085,7 @@
       49
     ],
     "pa": 3744,
-    "pr": 0
+    "pr": 189.95
   },
   {
     "ti": "Burg Löwenstein",
@@ -14378,6 +14378,19 @@
     ],
     "pa": 1398,
     "pr": 0
+  },
+  {
+    "ti": "Mittelalterliche Glockengießerei",
+    "id": 107071,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 2408,
+    "pr": 0,
+    "di": 12
   },
   {
     "ti": "Brix Panzerketten 1 1/2 breit, schwarz (100st.)",
