@@ -14418,7 +14418,7 @@
     "di": 8
   },
   {
-    "ti": "Ladegutzubehör für LKW's und Wagons",
+    "ti": "Ladegutzubehör für LKW und Wagons",
     "id": 105638,
     "ca": [
       9
@@ -15330,6 +15330,19 @@
     "pa": 2298,
     "pr": 0,
     "di": 0
+  },
+  {
+    "ti": "Futuristischer Belagerungs Panzer",
+    "id": 107181,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 2352,
+    "pr": 0,
+    "di": 3
   },
   {
     "ti": "Brix Panzerketten 1 1/2 breit, schwarz (100st.)",
