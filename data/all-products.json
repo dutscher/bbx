@@ -14224,7 +14224,7 @@
       66
     ],
     "pa": 1032,
-    "pr": 0,
+    "pr": 39.95,
     "di": 6
   },
   {
@@ -14396,7 +14396,7 @@
       66
     ],
     "pa": 1519,
-    "pr": 0,
+    "pr": 69.95,
     "di": 8
   },
   {
@@ -14529,7 +14529,7 @@
       66
     ],
     "pa": 983,
-    "pr": 0,
+    "pr": 44.95,
     "di": 4
   },
   {
@@ -15241,7 +15241,7 @@
     "pr": 0
   },
   {
-    "ti": "Rettungsschuttle",
+    "ti": "Rettungsshuttle",
     "id": 106971,
     "ca": [
       0
@@ -21141,7 +21141,7 @@
     "pr": 0
   },
   {
-    "ti": "Themenset: Gouverneurinsel",
+    "ti": "Themenset: Gouverneursinsel",
     "id": 401320,
     "ca": [
       2
@@ -21153,7 +21153,7 @@
     "pr": 0
   },
   {
-    "ti": "Themenset: Bärenfels",
+    "ti": "Themenset: Burg Bärenfels",
     "id": 401321,
     "ca": [
       2
