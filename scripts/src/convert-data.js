@@ -11,7 +11,7 @@ export const convertProducts = async () => {
   let changes = [];
   let changeName = 'compare';
   const convertedDB = [];
-  const update = 12;
+  const update = 13;
 
   let productsWithDesigner = {};
 
@@ -35,9 +35,17 @@ export const convertProducts = async () => {
   }
 
   products.map(product => {
+    // 13. remove architecture
+    if (update === 13 && product.tags.includes(IDs.ID_TAG_ARCHITECTURE)) {
+      product.tags = product.tags.filter(tag => tag !== IDs.ID_TAG_ARCHITECTURE);
+    }
     // 12. wrong tagged brix products
-    if (update === 12 && product.tags.includes(66) && !product.cats.includes(9)) {
-      product.tags = product.tags.filter(tag => tag !== 66);
+    if (
+      update === 12 &&
+      product.tags.includes(IDs.ID_TAG_BRIX) &&
+      !product.cats.includes(IDs.ID_CAT_BLUEBRIXX_BRIX[0])
+    ) {
+      product.tags = product.tags.filter(tag => tag !== IDs.ID_TAG_BRIX);
     }
     // 11. add designer id
     if (update === 11 && product.id in productsWithDesigner) {

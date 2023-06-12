@@ -1,5 +1,7 @@
 * [12.06.2023]
   * "BRIX" Tag wurde falsch getagged
+  * "Architektur" Tag wurde falsch getagged
+  * Neue Anleitungen wurden geladen
 
 * [16.04.2023]
   * neuer Tag "BRIX" https://bbx.watch/?s=products&t=brix

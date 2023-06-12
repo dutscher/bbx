@@ -69,6 +69,7 @@ export const IDs = {
   ID_TAG_KNIGHTS: 54,
   ID_TAG_LANDMASCHIENEN: 55,
   ID_TAG_CITY: 56,
+  ID_TAG_BRIX: 66,
 };
 // url parsing from bbx directly
 export const specialsIDs = [
