@@ -1,3 +1,6 @@
+* [12.06.2023]
+  * "BRIX" Tag wurde falsch getagged
+
 * [16.04.2023]
   * neuer Tag "BRIX" https://bbx.watch/?s=products&t=brix
 

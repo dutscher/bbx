@@ -1,8 +1,20 @@
 import { products, convertToReduce } from '../data/all-products.reducer.js';
+import catsJSON from '../data/categories.json' assert { type: 'json' };
 import tagsJSON from '../data/tags.json' assert { type: 'json' };
 import partsJSON from '../data/parts.json' assert { type: 'json' };
 import { handleCache, getTags, sortTags } from './src/utils.js';
 import { IDs, specialsIDs } from './src/interfaces.js';
+
+// catsJSON
+(async () => {
+  const cats = {};
+
+  catsJSON.map((tag, id) => {
+    cats[id] = Array.isArray(tag) ? tag[0] : tag;
+  });
+
+  await handleCache('./data/', `categories.id.compare.json`, () => JSON.stringify(cats, null, 2), true);
+})();
 
 // tagsJSON
 (async () => {

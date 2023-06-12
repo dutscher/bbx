@@ -5,13 +5,13 @@ import { getDateTime } from './clean-utils.js';
 import allHistory from '../../data/all-products-history.json' assert { type: 'json' };
 import allHistoryBackup from '../../data/api/all-products-history.backup.with.lost.history.json' assert { type: 'json' };
 import allDesigner from '../../data/designer.json' assert { type: 'json' };
-import allDesignerBackup from '../../data/designer-json.compare.json' assert { type: 'json' };
+//import allDesignerBackup from '../../data/designer-json.compare.json' assert { type: 'json' };
 
 export const convertProducts = async () => {
   let changes = [];
   let changeName = 'compare';
   const convertedDB = [];
-  const update = -1;
+  const update = 12;
 
   let productsWithDesigner = {};
 
@@ -35,6 +35,10 @@ export const convertProducts = async () => {
   }
 
   products.map(product => {
+    // 12. wrong tagged brix products
+    if (update === 12 && product.tags.includes(66) && !product.cats.includes(9)) {
+      product.tags = product.tags.filter(tag => tag !== 66);
+    }
     // 11. add designer id
     if (update === 11 && product.id in productsWithDesigner) {
       product.designerId = productsWithDesigner[product.id];

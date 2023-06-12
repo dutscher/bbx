@@ -1,4 +1,7 @@
 next todos:
+400015 wird nicht gefunden
+401153 stickerbar Stickerbogen verliert special
+400013 Panzerketten bekommt 66 brix tag
 * brickbar payload
 * states into one file and refactoring setSite
 * pwa cache cleanup
