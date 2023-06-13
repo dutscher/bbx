@@ -93,9 +93,10 @@ export const getCleanText = text => {
 // pageUrls = https://www.bluebrixx.com/de/bluebrixxspecials/military_models = [bluebrixxspecials,military_models]
 export const getTags = (pageUrls, title, cat, href, productId) => {
   const found = [];
+  const cleanTitle = title.replace(/^Brix /, '');
 
-  if (false && productId === 100264) {
-    console.log('getTags.in', { pageUrls, title, cat, href, productId });
+  if (false && productId === 401157) {
+    console.log('getTags.in', { pageUrls, cleanTitle, cat, href, productId });
   }
 
   const umlauts = { ue: 'ü', oe: 'ö', ae: 'ä' };
@@ -126,7 +127,7 @@ export const getTags = (pageUrls, title, cat, href, productId) => {
       // found should not have them twice
       !found.includes(tagID);
 
-    if (true && stringFormatted.includes('stickerbogen für tankstelle') && tagID === IDs.ID_TAG_BRIX) {
+    if (false && stringFormatted.includes('stickerbogen für tankstelle') && tagID === IDs.ID_TAG_BRIX) {
       console.log('checkAdd.debug', {
         whoIs,
         stringFormatted,
@@ -189,12 +190,12 @@ export const getTags = (pageUrls, title, cat, href, productId) => {
         // .replace('bluebrixxspecials', '') ?
         // search in url
         pageUrls.map(pageUrl => {
-          if (checkAdd(tagID, pageUrl, match + title, ignore, 'pageUrl')) {
+          if (checkAdd(tagID, pageUrl, match + cleanTitle, ignore, 'pageUrl')) {
             found.push(tagID);
           }
         });
         // search tag in title
-        if (checkAdd(tagID, title, match, ignore, 'tag')) {
+        if (checkAdd(tagID, cleanTitle, match, ignore, 'tag')) {
           found.push(tagID);
         }
         // search tag in cat
@@ -205,8 +206,10 @@ export const getTags = (pageUrls, title, cat, href, productId) => {
         let cleanHref = href
           .toLowerCase()
           .replaceAll('bluebrixxspecials', '')
+          .replaceAll('bluebrixxaccessories', '')
           .replaceAll('-bluebrixx-special', '')
-          .replaceAll('-bluebrixx', '');
+          .replaceAll('-bluebrixx', '')
+          .replaceAll('brix-', '');
         Object.entries(umlauts).map(([umlautIntl, umlautDe]) => {
           // ue => ü
           cleanHref = cleanHref.replaceAll(umlautIntl, umlautDe);
@@ -227,8 +230,8 @@ export const getTags = (pageUrls, title, cat, href, productId) => {
     found.push(IDs.ID_TAG_MOVIE_MODELLS);
   }
 
-  if (false && productId === 100264) {
-    console.log('getTags.out', { found, pageUrls, title, cat, href });
+  if (false && productId === 401157) {
+    console.log('getTags.out', { found, pageUrls, cleanTitle, cat, href });
   }
 
   return found.sort(sortTags);
