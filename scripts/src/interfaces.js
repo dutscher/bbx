@@ -128,6 +128,11 @@ export const isBluebrixxPart = (product, category) => {
 };
 
 export const updateProductData = (product, change) => {
+  // if tags are wrong see getTags
+  if (false && product.id === 100264) {
+    console.log('updateProductData.in', { product, change });
+  }
+
   // add chrome color
   const titleAdditionChrome = ', Chrome Silver';
   if (
@@ -224,8 +229,8 @@ export const updateProductData = (product, change) => {
     }
   }
 
-  if (false && product.id === 105664) {
-    console.log('updateProductData', product);
+  if (false && product.id === 100264) {
+    console.log('updateProductData.out', product);
   }
 
   return product;

@@ -94,12 +94,12 @@ export const getCleanText = text => {
 export const getTags = (pageUrls, title, cat, href, productId) => {
   const found = [];
 
-  if (false && productId === 101867) {
-    console.log('debug getTags', pageUrls, title, cat, href, productId);
+  if (false && productId === 100264) {
+    console.log('getTags.in', { pageUrls, title, cat, href, productId });
   }
 
   const umlauts = { ue: 'ü', oe: 'ö', ae: 'ä' };
-  const checkAdd = (tagID, string, match, ignoreArray) => {
+  const checkAdd = (tagID, string, match, ignoreArray, whoIs) => {
     // tagID: 0
     // string: "Lokschuppen"
     // match: "lok"
@@ -107,7 +107,6 @@ export const getTags = (pageUrls, title, cat, href, productId) => {
     const matchFormatted = match.toLowerCase();
     let shouldIgnore = false;
     ignoreArray.map(ignore => {
-      // console.log(tagName, string.toLowerCase(), i.toLowerCase(), string.toLowerCase().includes(i.toLowerCase()))
       if (stringFormatted.includes(ignore.toLowerCase())) {
         shouldIgnore = stringFormatted.includes(ignore.toLowerCase());
       }
@@ -127,21 +126,18 @@ export const getTags = (pageUrls, title, cat, href, productId) => {
       // found should not have them twice
       !found.includes(tagID);
 
-    if (false && stringFormatted.includes('t-rex') && matchFormatted.includes('pflanzen')) {
-      console.log(
-        'stringFormatted:',
+    if (true && stringFormatted.includes('stickerbogen für tankstelle') && tagID === IDs.ID_TAG_BRIX) {
+      console.log('checkAdd.debug', {
+        whoIs,
         stringFormatted,
-        'shouldAddTag:',
         shouldAddTag,
-        'match:',
         matchFormatted,
-        'tagID:',
         tagID,
-        'ignore:',
         ignoreArray,
-        shouldIgnore
-      );
+        shouldIgnore,
+      });
     }
+
     return shouldAddTag;
   };
 
@@ -191,28 +187,38 @@ export const getTags = (pageUrls, title, cat, href, productId) => {
       matches.map(match => {
         // TODO: refactore?
         // .replace('bluebrixxspecials', '') ?
+        // search in url
         pageUrls.map(pageUrl => {
-          if (checkAdd(tagID, pageUrl, match + title, ignore)) {
+          if (checkAdd(tagID, pageUrl, match + title, ignore, 'pageUrl')) {
             found.push(tagID);
           }
         });
-
-        if (checkAdd(tagID, title, match, ignore)) {
+        // search tag in title
+        if (checkAdd(tagID, title, match, ignore, 'tag')) {
           found.push(tagID);
         }
-
-        if (checkAdd(tagID, cat, match, ignore)) {
+        // search tag in cat
+        if (checkAdd(tagID, cat, match, ignore, 'cat')) {
           found.push(tagID);
         }
         // /de/bluebrixxspecials/104119/Reichstag-Berlin-BlueBrixx-Pro === kein special
-        let cleanHref = href.replace('bluebrixxspecials', '');
-        Object.entries(umlauts).map(umlaut => {
-          cleanHref = cleanHref.replace(umlaut[0], umlaut[1]);
+        let cleanHref = href
+          .toLowerCase()
+          .replaceAll('bluebrixxspecials', '')
+          .replaceAll('-bluebrixx-special', '')
+          .replaceAll('-bluebrixx', '');
+        Object.entries(umlauts).map(([umlautIntl, umlautDe]) => {
+          // ue => ü
+          cleanHref = cleanHref.replaceAll(umlautIntl, umlautDe);
         });
-        if (checkAdd(tagID, cleanHref, match, ignore)) {
+        if (checkAdd(tagID, cleanHref, match, ignore, 'cleanHref basedOf: ' + href)) {
           found.push(tagID);
         }
       });
+    }
+
+    if (false && tagID == 66) {
+      console.log('tagDebug', { matches, tagName, ignore });
     }
   });
 
@@ -221,8 +227,8 @@ export const getTags = (pageUrls, title, cat, href, productId) => {
     found.push(IDs.ID_TAG_MOVIE_MODELLS);
   }
 
-  if (false && productId === 101867) {
-    console.log('debug getTags result', found, pageUrls, title, cat, href);
+  if (false && productId === 100264) {
+    console.log('getTags.out', { found, pageUrls, title, cat, href });
   }
 
   return found.sort(sortTags);

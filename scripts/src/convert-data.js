@@ -11,7 +11,7 @@ export const convertProducts = async () => {
   let changes = [];
   let changeName = 'compare';
   const convertedDB = [];
-  const update = 13;
+  const update = 12;
 
   let productsWithDesigner = {};
 
