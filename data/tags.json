@@ -200,7 +200,8 @@
     "Western",
     "Sheriffs",
     "General Store",
-    "Indianer"
+    "Indianer",
+    "Sargmacher"
   ],
   [
     "Fachwerk",
@@ -571,7 +572,8 @@
   [
     "BRIX",
     [
-      "bluebrixx"
+      "Bluebrixx",
+      "Brixxbus"
     ]
   ]
 ]

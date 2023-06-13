@@ -53,11 +53,16 @@ import { IDs, specialsIDs } from './src/interfaces.js';
 
       // add special ???
       if (product.cats.includes(IDs.ID_CAT_BLUEBRIXX_SPECIAL[0])) {
-        product.tags.push(IDs.ID_CAT_BLUEBRIXX_SPECIAL[0]);
+        product.tags.push(IDs.ID_TAG_BLUEBRIXX_SPECIAL);
       }
       // add pro ???
       if (product.cats.includes(IDs.ID_CAT_BLUEBRIXX_PRO[0])) {
-        product.tags.push(IDs.ID_CAT_BLUEBRIXX_PRO[0]);
+        product.tags.push(IDs.ID_TAG_BLUEBRIXX_PRO);
+      }
+      // add brix ???
+      if (product.cats.includes(IDs.ID_CAT_BLUEBRIXX_BRIX[0])) {
+        product.tags.push(IDs.ID_TAG_BRIX);
+        product.tags.push(IDs.ID_TAG_BLUEBRIXX_SPECIAL);
       }
 
       if (hasSpecialID.length > 0) {
