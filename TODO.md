@@ -1,8 +1,4 @@
 next todos:
-specials: 788 vs 1479 watcher (812 sets, 667 parts)
-pro: 118 vs 139 watcher (xingbao)
-
-400015 wird nicht gefunden
 * brickbar payload
 * states into one file and refactoring setSite
 * pwa cache cleanup
