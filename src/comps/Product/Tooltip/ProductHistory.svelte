@@ -37,18 +37,19 @@
       const entryYear = new Date(timestamp).getFullYear();
       let newYear = false;
       if (entryYear !== latestYear) {
-        if (latestYear !== 0) {
+        if (latestYear !== 0 || fullHistory.length === 1) {
           newYear = true;
         }
         latestYear = entryYear;
       }
-      return {
+      const returnData = {
         formattedDate: getFormattedDate(timestamp),
         stateId,
         label: getStateLabel(stateId),
         ago: getStateAgo(product, stateId, timestamp, compareDate, i),
         ...(newYear && { newYear: entryYear }),
       };
+      return returnData;
     }),
   };
 

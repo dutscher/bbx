@@ -202,17 +202,29 @@ const calcTimeAgo = product => {
   const today: any = new Date();
   const lastDate: any = new Date(product.stateDate);
   let diff: any = Math.round((today - lastDate) / 1000);
+  let returnStr = '';
+
+  const getDiffStr = (t: number) => {
+    // @ts-ignore
+    diff = Math.round(diff / times[t - 1][1]);
+    return 'seit ' + diff + ' ' + times[t - 1][2] + (diff !== 1 && times[t - 1][3] ? times[t - 1][3] : '');
+  };
+
   for (let t = 0; t < times.length; t++) {
     if (diff < times[t][1]) {
-      if (t == 0) {
-        return 'jetzt';
+      if (t === 0) {
+        returnStr = 'jetzt';
       } else {
-        // @ts-ignore
-        diff = Math.round(diff / times[t - 1][1]);
-        return 'seit ' + diff + ' ' + times[t - 1][2] + (diff !== 1 && times[t - 1][3] ? times[t - 1][3] : '');
+        returnStr = getDiffStr(t);
       }
     }
   }
+
+  if (!returnStr) {
+    returnStr = getDiffStr(times.length);
+  }
+
+  return returnStr;
 };
 
 const getTimeDiff = (dateNow, dateDiff) => {

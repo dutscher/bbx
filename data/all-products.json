@@ -166,7 +166,8 @@
     ],
     "pa": 1167,
     "pr": 49.95,
-    "ie": 0
+    "ie": 0,
+    "di": 0
   },
   {
     "ti": "Manhattan Unit 5 Two Bridges",
@@ -8778,7 +8779,8 @@
     ],
     "pa": 6085,
     "pr": 239.95,
-    "ie": 0
+    "ie": 0,
+    "di": 0
   },
   {
     "ti": "Gedeckter Kühlwagen",
@@ -10313,7 +10315,8 @@
     ],
     "pa": 3167,
     "pr": 139.95,
-    "ie": 0
+    "ie": 0,
+    "di": 0
   },
   {
     "ti": "Western Büffelherde",
@@ -12497,7 +12500,8 @@
     ],
     "pa": 8933,
     "pr": 0,
-    "ie": 0
+    "ie": 0,
+    "di": 0
   },
   {
     "ti": "Gouverneursinsel: Taverne",

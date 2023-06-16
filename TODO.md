@@ -1,4 +1,5 @@
 next todos:
+* cronjob fail email an dutscher
 * brickbar payload
 * states into one file and refactoring setSite
 * pwa cache cleanup

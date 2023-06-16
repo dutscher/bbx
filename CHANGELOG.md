@@ -1,4 +1,10 @@
 * [12.06.2023]
+  * Neuer Designer "Ales" hinzugefügt
+  * Neue Ankünidgungen vertaggt
+  * Trim Sucheingabe
+  * Produkt Historie Fix für Einträge über ein Jahr hinaus (siehe Burg Hohenzollern)
+
+* [12.06.2023]
   * "BRIX" Tag wurde falsch getagged
   * "Architektur" Tag wurde falsch getagged
   * Neue Anleitungen wurden geladen

@@ -71,7 +71,7 @@
     clearTimeout(timer);
     timer = setTimeout(() => {
       // set value
-      activeSearchString = value;
+      activeSearchString = value.trim();
       onInput(true);
     }, 500);
   };
