@@ -192,7 +192,12 @@ export const updateProductData = (product, change) => {
   }
 
   if (product.designer) {
-    product.designerId = allDesigner.find(designer => designer.name === product.designer).id;
+    const foundDesigner = allDesigner.find(designer => designer.name === product.designer);
+    if (foundDesigner) {
+      product.designerId = foundDesigner.id;
+    } else {
+      console.log('no designer found', { product });
+    }
   }
 
   if (isBluebrixxPart({ name: product.title }, { name: change.catName })) {
