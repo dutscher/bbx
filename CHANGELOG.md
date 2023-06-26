@@ -1,4 +1,7 @@
-* [12.06.2023]
+* [26.06.2023]
+  * Neuer Designer "Jori" hinzugefügt
+
+* [16.06.2023]
   * Neuer Designer "Ales" hinzugefügt
   * Neue Ankünidgungen vertaggt
   * Trim Sucheingabe
