@@ -14762,6 +14762,18 @@
     "di": 15
   },
   {
+    "ti": "Holländerwindmühle",
+    "id": 107231,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1862,
+    "pr": 0
+  },
+  {
     "ti": "Brix Panzerketten 1 1/2 breit, schwarz (100st.)",
     "id": 400001,
     "ca": [
@@ -17208,7 +17220,7 @@
     "ie": 0
   },
   {
-    "ti": "Brix Lange Plates, gemischt, Medium Dark Flesh",
+    "ti": "Brix Lange Plates, gemischt, Medium Nougat",
     "id": 401101,
     "ca": [
       2
@@ -17224,7 +17236,7 @@
     "ie": 0
   },
   {
-    "ti": "Brix Kleine Plates, gemischt, Medium Dark Flesh",
+    "ti": "Brix Kleine Plates, gemischt, Medium Nougat",
     "id": 401102,
     "ca": [
       2
@@ -17240,7 +17252,7 @@
     "ie": 0
   },
   {
-    "ti": "Brix Große Plates, gemischt, Medium Dark Flesh",
+    "ti": "Brix Große Plates, gemischt, Medium Nougat",
     "id": 401103,
     "ca": [
       2
