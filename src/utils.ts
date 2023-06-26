@@ -197,31 +197,49 @@ const calcTimeAgo = product => {
     ['week', 604800, 'Woche', 'n'],
     ['month', 2592000, 'Mon.'],
     ['year', 31536000, 'Jahr', 'e'],
-  ];
+  ].map(([str, time, label, plural]) => {
+    return {
+      str,
+      time,
+      label,
+      plural,
+    };
+  });
 
   const today: any = new Date();
   const lastDate: any = new Date(product.stateDate);
-  let diff: any = Math.round((today - lastDate) / 1000);
+  let originDiff: number = Math.round((today - lastDate) / 1000);
   let returnStr = '';
 
   const getDiffStr = (t: number) => {
+    const prefix = product.state.id === ID_STATE_ANNOUNCEMENT ? 'vor' : 'seit';
     // @ts-ignore
-    diff = Math.round(diff / times[t - 1][1]);
-    return 'seit ' + diff + ' ' + times[t - 1][2] + (diff !== 1 && times[t - 1][3] ? times[t - 1][3] : '');
+    const diff = Math.round(originDiff / times[t - 1].time);
+    return {
+      diff,
+      str:
+        prefix + ' ' + diff + ' ' + times[t - 1].label + (diff !== 1 && times[t - 1].plural ? times[t - 1].plural : ''),
+    };
   };
 
   for (let t = 0; t < times.length; t++) {
-    if (diff < times[t][1]) {
+    if (originDiff < times[t].time) {
       if (t === 0) {
         returnStr = 'jetzt';
       } else {
-        returnStr = getDiffStr(t);
+        const newStr = getDiffStr(t);
+        if (newStr.diff > 0) {
+          returnStr = newStr.str;
+        }
       }
     }
   }
 
   if (!returnStr) {
-    returnStr = getDiffStr(times.length);
+    const newStr = getDiffStr(times.length);
+    if (newStr.diff > 0) {
+      returnStr = newStr.str;
+    }
   }
 
   return returnStr;

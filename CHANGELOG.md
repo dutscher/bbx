@@ -1,9 +1,10 @@
 * [26.06.2023]
   * Neuer Designer "Jori" hinzugefügt
+  * Fix CalcAgo Zeit im Tooltip
 
 * [16.06.2023]
   * Neuer Designer "Ales" hinzugefügt
-  * Neue Ankünidgungen vertaggt
+  * Neue Ankündigungen vertaggt
   * Trim Sucheingabe
   * Produkt Historie Fix für Einträge über ein Jahr hinaus (siehe Burg Hohenzollern)
 
