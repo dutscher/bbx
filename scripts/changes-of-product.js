@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 import states from '../data/states.json' assert { type: 'json' };
 
-const productId = 401153;
+const productId = 107284;
 
 const json = await fetch(`https://api.bbx.watch/bapi/product/detail/${productId}`).then(res => res.json());
 

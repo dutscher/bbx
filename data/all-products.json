@@ -14741,7 +14741,7 @@
     "di": 0
   },
   {
-    "ti": "Nakatomi Plaza",
+    "ti": "Fox Plaza",
     "id": 107190,
     "ca": [
       0
@@ -14783,6 +14783,20 @@
     "pa": 1862,
     "pr": 0,
     "di": 16
+  },
+  {
+    "ti": "Planetarium des Astronomen",
+    "id": 107284,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0,
+      56
+    ],
+    "pa": 7268,
+    "pr": 0,
+    "di": 17
   },
   {
     "ti": "Brix Panzerketten 1 1/2 breit, schwarz (100st.)",
