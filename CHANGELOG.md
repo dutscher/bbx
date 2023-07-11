@@ -1,3 +1,7 @@
+* [12.07.2023]
+  * Neue Ankündigungen vertaggt
+  * LuckyHotPot hat nun richtige History 
+
 * [26.06.2023]
   * Neuer Designer "Jori" hinzugefügt
   * Fix CalcAgo Zeit im Tooltip

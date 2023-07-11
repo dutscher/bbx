@@ -1,9 +1,10 @@
 import fetch from 'node-fetch';
 import states from '../data/states.json' assert { type: 'json' };
 
-const productId = 107284;
+const productId = 104262;
+const apiUrl = `https://api.bbx.watch/bapi/product/detail/${productId}`;
 
-const json = await fetch(`https://api.bbx.watch/bapi/product/detail/${productId}`).then(res => res.json());
+const json = await fetch(apiUrl).then(res => res.json());
 
 const actualState = json.status;
 const lastChanges = json.lastChanges;
@@ -17,3 +18,4 @@ lastChanges.map(change => {
 });
 
 console.log(JSON.stringify({ [productId]: history, json }, null, 2));
+console.log({ apiUrl });
