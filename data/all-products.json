@@ -14185,6 +14185,30 @@
     "di": 3
   },
   {
+    "ti": "Star Trek USS Enterprise NCC-1701-E",
+    "id": 105685,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 1600,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek Jem´Hadar Attack Ship",
+    "id": 105686,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 511,
+    "pr": 0
+  },
+  {
     "ti": "Kommunaler Müllwagen",
     "id": 105687,
     "ca": [
@@ -14213,6 +14237,234 @@
     "pa": 1569,
     "pr": 0,
     "di": 12
+  },
+  {
+    "ti": "Star Trek USS Excelsior NX-2000",
+    "id": 105689,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 585,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek USS Thunderchild NCC-63549",
+    "id": 105690,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 505,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek Danube-Klasse Runabout",
+    "id": 105691,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 693,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek USS Stargazer NCC-2893",
+    "id": 105692,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 700,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek V´Ger",
+    "id": 105693,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 275,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek Scimitar",
+    "id": 105694,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 218,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek Jem'Hadar battleship",
+    "id": 105695,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 306,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek USS Equinox NCC-72381",
+    "id": 105696,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 209,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek USS Raven NAR-32450",
+    "id": 105697,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 210,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek SS Botany Bay",
+    "id": 105698,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 123,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek Shuttlepod 1",
+    "id": 105699,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 748,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek Medizinischer Tricorder TR-590 Mark X",
+    "id": 105700,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 356,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek Hypospray",
+    "id": 105701,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 290,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek Data",
+    "id": 105702,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 208,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek Sisko",
+    "id": 105703,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 187,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek Quark",
+    "id": 105704,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 234,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek Seven of Nine",
+    "id": 105705,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 246,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek Q",
+    "id": 105706,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 217,
+    "pr": 0
+  },
+  {
+    "ti": "Star Trek Kirk",
+    "id": 105707,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 204,
+    "pr": 0
   },
   {
     "ti": "Ulmer Münster",
@@ -14604,6 +14856,18 @@
     "tg": [],
     "pa": 73,
     "pr": 4.95
+  },
+  {
+    "ti": "Star Trek Adventskalender",
+    "id": 106907,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 861,
+    "pr": 0
   },
   {
     "ti": "Display Lokomotive V100 dunkel rot",
