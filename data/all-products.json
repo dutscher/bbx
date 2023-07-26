@@ -14858,6 +14858,18 @@
     "pr": 4.95
   },
   {
+    "ti": "Burg Blaustein Adventskalender",
+    "id": 106906,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 930,
+    "pr": 0
+  },
+  {
     "ti": "Star Trek Adventskalender",
     "id": 106907,
     "ca": [
@@ -14927,6 +14939,30 @@
     "pa": 2408,
     "pr": 0,
     "di": 12
+  },
+  {
+    "ti": "Bergfried Erweiterung für Burg Blaustein, Version 2",
+    "id": 107089,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1687,
+    "pr": 0
+  },
+  {
+    "ti": "Bergfried Erweiterung für Burg Blaustein, Version 2, Upgradekit",
+    "id": 107091,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 186,
+    "pr": 0
   },
   {
     "ti": "Mittelalterliche Glashütte",
@@ -15028,7 +15064,7 @@
       0,
       28
     ],
-    "pa": 996,
+    "pa": 1012,
     "pr": 0,
     "di": 15
   },
