@@ -1,6 +1,7 @@
 * [05.08.2023]
   * Brickbuddies in BrickFigs umbenannt
   * Neue Ankündigungen vertaggt
+  * Neue Designer Maximilian und Jo hinzugefügt
 
 * [12.07.2023]
   * Neue Ankündigungen vertaggt
