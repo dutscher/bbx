@@ -169,6 +169,7 @@
       "Rennwagen",
       "Rettungswagen",
       " Sportwagen",
+      "Rallysportwagen",
       "Traktor",
       "Eiswagen",
       "Feuerwehr",
@@ -255,7 +256,7 @@
     "GMC",
     "HMC"
   ],
-  "Hund",
+  ["Hund",["Thunder"]],
   [
     "Hafen RA-MT",
     "RA-MT",
@@ -456,7 +457,8 @@
     "Mäusebussard",
     "Rotkehlchen",
     "Specht",
-    "Sperling"
+    "Sperling",
+    ["Thunder"]
   ],
   [
     "USA",
@@ -564,10 +566,15 @@
   "Quantum Colony",
   "Burg Bärenfels",
   [
-    "Brickbuddies",
+    "BrickFigs",
     "Star Trek Picard",
     "Star Trek Spock",
-    "Star Trek Worf"
+    "Star Trek Worf",
+    "Star Trek Quark",
+    "Star Trek Sisko",
+    "Star Trek Kirk",
+    "Star Trek Data",
+    "Star Trek Q"
   ],
   [
     "BRIX",
@@ -575,5 +582,6 @@
       "Bluebrixx",
       "Brixxbus"
     ]
-  ]
+  ],
+  "Adventskalender"
 ]

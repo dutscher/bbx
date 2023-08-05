@@ -1,3 +1,7 @@
+* [05.08.2023]
+  * Brickbuddies in BrickFigs umbenannt
+  * Neue Ankündigungen vertaggt
+
 * [12.07.2023]
   * Neue Ankündigungen vertaggt
   * LuckyHotPot hat nun richtige History 
