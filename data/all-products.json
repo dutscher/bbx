@@ -14088,7 +14088,7 @@
     "di": 2
   },
   {
-    "ti": "Triebwagen weiß rot",
+    "ti": "Steuerwagen weiß-rot",
     "id": 105660,
     "ca": [
       9
@@ -14847,7 +14847,7 @@
       2,
       27
     ],
-    "pa": 2347,
+    "pa": 2353,
     "pr": 0,
     "di": 12
   },
@@ -30488,7 +30488,7 @@
     "pr": 5.95
   },
   {
-    "ti": "BRICK 2X2W.INSIDE AND OUTS.BOW X 50, Sand Blue",
+    "ti": "CURVED BRICK 2 KNOBS, Sand Blue",
     "id": 600906,
     "ca": [
       6
@@ -51944,7 +51944,7 @@
     "pr": 4.95
   },
   {
-    "ti": "BRICK 2X2W.INSIDE AND OUTS.BOW X 50, White",
+    "ti": "CURVED BRICK 2 KNOBS, White",
     "id": 603319,
     "ca": [
       6
@@ -54247,7 +54247,7 @@
     "pr": 4.95
   },
   {
-    "ti": "BRICK 2X2W.INSIDE AND OUTS.BOW X 50, Light Bluish Gray",
+    "ti": "CURVED BRICK 2 KNOBS, Light Bluish Gray",
     "id": 603621,
     "ca": [
       6
@@ -70930,7 +70930,7 @@
     "pr": 5.95
   },
   {
-    "ti": "BRICK 2X2W.INSIDE AND OUTS.BOW X 50, Black",
+    "ti": "CURVED BRICK 2 KNOBS, Black",
     "id": 605014,
     "ca": [
       6
@@ -84280,7 +84280,7 @@
     "pr": 5.95
   },
   {
-    "ti": "BRICK 2X2W.INSIDE AND OUTS.BOW X 50, Red",
+    "ti": "CURVED BRICK 2 KNOBS, Red",
     "id": 605921,
     "ca": [
       6
@@ -100117,7 +100117,7 @@
     "pr": 5.95
   },
   {
-    "ti": "BRICK 2X2W.INSIDE AND OUTS.BOW X 50, Trans-Clear",
+    "ti": "CURVED BRICK 2 KNOBS, Trans-Clear",
     "id": 606970,
     "ca": [
       6
@@ -108102,7 +108102,7 @@
     "pr": 4.95
   },
   {
-    "ti": "BRICK 2X2W.INSIDE AND OUTS.BOW X 50, Sand Green",
+    "ti": "CURVED BRICK 2 KNOBS, Sand Green",
     "id": 607543,
     "ca": [
       6
@@ -112938,7 +112938,7 @@
     "pr": 4.95
   },
   {
-    "ti": "BRICK 2X2W.INSIDE AND OUTS.BOW X 50, Blue",
+    "ti": "CURVED BRICK 2 KNOBS, Blue",
     "id": 608001,
     "ca": [
       6
@@ -112954,7 +112954,7 @@
     "pr": 4.95
   },
   {
-    "ti": "BRICK 2X2W.INSIDE AND OUTS.BOW X 50, Flat Silver",
+    "ti": "CURVED BRICK 2 KNOBS, Flat Silver",
     "id": 608002,
     "ca": [
       6
@@ -116951,7 +116951,7 @@
     "pr": 5.95
   },
   {
-    "ti": "BRICK 2X2W.INSIDE AND OUTS.BOW X 50, Reddish Brown",
+    "ti": "CURVED BRICK 2 KNOBS, Reddish Brown",
     "id": 608277,
     "ca": [
       6
@@ -119907,7 +119907,7 @@
     "pr": 5.95
   },
   {
-    "ti": "BRICK 2X2W.INSIDE AND OUTS.BOW X 50, Dark Red",
+    "ti": "CURVED BRICK 2 KNOBS, Dark Red",
     "id": 608499,
     "ca": [
       6
@@ -128825,7 +128825,7 @@
     "pr": 6.95
   },
   {
-    "ti": "BRICK 2X2W.INSIDE AND OUTS.BOW X 50, Dark Bluish Gray",
+    "ti": "CURVED BRICK 2 KNOBS, Dark Bluish Gray",
     "id": 609823,
     "ca": [
       6
@@ -133701,7 +133701,7 @@
     "pr": 5.95
   },
   {
-    "ti": "BRICK 2X2W.INSIDE AND OUTS.BOW X 50, Tan",
+    "ti": "CURVED BRICK 2 KNOBS, Tan",
     "id": 610263,
     "ca": [
       6
