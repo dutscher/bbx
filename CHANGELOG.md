@@ -1,3 +1,6 @@
+* [05.09.2023]
+  * Neue Vertaggung der neuen Ankündigungen
+
 * [05.08.2023]
   * Brickbuddies in BrickFigs umbenannt
   * Neue Ankündigungen vertaggt
