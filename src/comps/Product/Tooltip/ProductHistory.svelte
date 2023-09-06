@@ -37,7 +37,7 @@
       const entryYear = new Date(timestamp).getFullYear();
       let newYear = false;
       if (entryYear !== latestYear) {
-        if (latestYear !== 0 || fullHistory.length === 1) {
+        if (latestYear !== 0 || fullHistory.length === 1 || i === 0) {
           newYear = true;
         }
         latestYear = entryYear;
