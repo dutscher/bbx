@@ -1,5 +1,5 @@
-* [05.09.2023]
-  * Neue Vertaggung der neuen Ankündigungen
+* [08.09.2023]
+  * Ausgemusterte Produkte entfernt
 
 * [05.08.2023]
   * Brickbuddies in BrickFigs umbenannt
