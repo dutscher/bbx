@@ -15728,6 +15728,27 @@
     "di": 17
   },
   {
+    "ti": "Trauerweide",
+    "id": 107465,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 471,
+    "pr": 0,
+    "di": 17
+  },
+  {
+    "ti": "Schienen Tanklöschfahrzeug",
+    "id": 107466,
+    "ca": [],
+    "tg": [],
+    "pa": 340,
+    "pr": 0
+  },
+  {
     "ti": "Brix Panzerketten 1 1/2 breit, schwarz (100st.)",
     "id": 400001,
     "ca": [
