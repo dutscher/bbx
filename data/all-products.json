@@ -14660,6 +14660,18 @@
     "pr": 0
   },
   {
+    "ti": "Seenotrettungskreuzer",
+    "id": 107004,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 2958,
+    "pr": 0
+  },
+  {
     "ti": "Mittelalterliche Glockengießerei",
     "id": 107071,
     "ca": [
@@ -15798,6 +15810,19 @@
     "pa": 1074,
     "pr": 0,
     "di": 6
+  },
+  {
+    "ti": "Hafenschlepper",
+    "id": 107470,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 904,
+    "pr": 0,
+    "di": 16
   },
   {
     "ti": "Brix Panzerketten 1 1/2 breit, schwarz (100st.)",
