@@ -14559,7 +14559,7 @@
     "di": 6
   },
   {
-    "ti": "Kompaktes Cabriolett 2 in 1",
+    "ti": "Kompaktes Cabriolet 2 in 1",
     "id": 106850,
     "ca": [
       0
@@ -15824,6 +15824,43 @@
     "pa": 971,
     "pr": 0,
     "di": 16
+  },
+  {
+    "ti": "Feuerwehr Tankwagen",
+    "id": 107499,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 341,
+    "pr": 0
+  },
+  {
+    "ti": "Feuerwehr Radlader",
+    "id": 107502,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 269,
+    "pr": 0
+  },
+  {
+    "ti": "Französischer Mittelklasse PKW",
+    "id": 107503,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1102,
+    "pr": 0,
+    "di": 15
   },
   {
     "ti": "Brix Panzerketten 1 1/2 breit, schwarz (100st.)",
