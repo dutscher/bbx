@@ -14818,7 +14818,7 @@
     "di": 0
   },
   {
-    "ti": "Kyanite Squad: Kyanite Helicopter",
+    "ti": "Kyanite Squad: Transporthubschrauber",
     "id": 107098,
     "ca": [
       1
@@ -14830,7 +14830,7 @@
     "pr": 0
   },
   {
-    "ti": "Kyanite Squad: Kyanite Bohrer",
+    "ti": "Kyanite Squad: Bohrfahrzeug",
     "id": 107099,
     "ca": [
       1
@@ -14854,7 +14854,7 @@
     "pr": 0
   },
   {
-    "ti": "Kyanite Squad: Kipplaster",
+    "ti": "Kyanite Squad: Bergbau-Muldenkipper",
     "id": 107101,
     "ca": [
       1
@@ -15044,7 +15044,7 @@
     "pr": 0
   },
   {
-    "ti": "Waldpolizei: Hubschrauber Mission",
+    "ti": "Waldpolizei: Hubschrauber-Mission",
     "id": 107131,
     "ca": [
       1
@@ -15084,7 +15084,7 @@
     "pr": 0
   },
   {
-    "ti": "Waldpolizei: fliegende Polizei Station",
+    "ti": "Waldpolizei: fliegende Polizeistation",
     "id": 107134,
     "ca": [
       1
@@ -15508,7 +15508,7 @@
     "pr": 0
   },
   {
-    "ti": "Sunshine Wasserpark",
+    "ti": "Sunshine-Wasserpark",
     "id": 107167,
     "ca": [
       1
