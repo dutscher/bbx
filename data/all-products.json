@@ -14689,7 +14689,7 @@
     "di": 12
   },
   {
-    "ti": "Kyanite Squad: Erkundungsfahrzeug",
+    "ti": "Kyanite Squad: Sondierungsfahrzeug",
     "id": 107085,
     "ca": [
       1
@@ -14713,7 +14713,7 @@
     "pr": 0
   },
   {
-    "ti": "Kyanite Squad: Labormobil",
+    "ti": "Kyanite Squad: Mobiles Labor",
     "id": 107087,
     "ca": [
       1
@@ -14725,7 +14725,7 @@
     "pr": 0
   },
   {
-    "ti": "Kyanite Squad: Kyanite Transporter",
+    "ti": "Kyanite Squad: Kyanit-Sammler",
     "id": 107088,
     "ca": [
       1
@@ -14842,7 +14842,7 @@
     "pr": 0
   },
   {
-    "ti": "Kyanite Squad: Kyanite Bagger",
+    "ti": "Kyanite Squad: großer Bagger",
     "id": 107100,
     "ca": [
       1
@@ -14866,7 +14866,7 @@
     "pr": 0
   },
   {
-    "ti": "Kyanite Squad: Verarbeitungsstation",
+    "ti": "Kyanite Squad: Erkundungsbasis",
     "id": 107102,
     "ca": [
       1
@@ -15484,7 +15484,7 @@
     "pr": 0
   },
   {
-    "ti": "Camping Van",
+    "ti": "Campingwagen",
     "id": 107165,
     "ca": [
       1
@@ -21150,7 +21150,7 @@
       40
     ],
     "pa": 263,
-    "pr": 0
+    "pr": 12.95
   },
   {
     "ti": "Themenset: Burg Bärenfels",
@@ -21164,7 +21164,7 @@
       64
     ],
     "pa": 264,
-    "pr": 0
+    "pr": 12.95
   },
   {
     "ti": "Kunststoff-Vitrine 6er Pack",
