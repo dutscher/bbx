@@ -14891,7 +14891,7 @@
     "pr": 0
   },
   {
-    "ti": "Kyanite Squad Undersea: Erkundung U-Boot",
+    "ti": "Kyanite Squad Undersea: Vermessungsgleiter",
     "id": 107104,
     "ca": [
       1
@@ -14916,7 +14916,7 @@
     "pr": 0
   },
   {
-    "ti": "Kyanite Squad: Kyanite UMF",
+    "ti": "Kyanite Squad: Bergbau-Exoanzug",
     "id": 107106,
     "ca": [
       1
@@ -15329,7 +15329,7 @@
     "pr": 0
   },
   {
-    "ti": "Stadtfeuerwehr: Wartungsauto",
+    "ti": "Stadtfeuerwehr: Wartungsfahrzeug",
     "id": 107153,
     "ca": [
       1
@@ -15873,6 +15873,19 @@
     ],
     "pa": 475,
     "pr": 0
+  },
+  {
+    "ti": "Gentlemans Oldtimer",
+    "id": 107510,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1505,
+    "pr": 0,
+    "di": 6
   },
   {
     "ti": "Brix Panzerketten 1 1/2 breit, schwarz (100st.)",
