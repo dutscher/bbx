@@ -14698,7 +14698,7 @@
       1
     ],
     "pa": 119,
-    "pr": 0
+    "pr": 6.95
   },
   {
     "ti": "Kyanite Squad: Prospektor",
@@ -14710,7 +14710,7 @@
       1
     ],
     "pa": 114,
-    "pr": 0
+    "pr": 6.95
   },
   {
     "ti": "Kyanite Squad: Mobiles Labor",
@@ -14722,7 +14722,7 @@
       1
     ],
     "pa": 291,
-    "pr": 0
+    "pr": 16.95
   },
   {
     "ti": "Kyanite Squad: Kyanit-Sammler",
@@ -14735,7 +14735,7 @@
       14
     ],
     "pa": 309,
-    "pr": 0
+    "pr": 17.95
   },
   {
     "ti": "Bergfried Erweiterung für Burg Blaustein, Version 2",
@@ -14827,7 +14827,7 @@
       1
     ],
     "pa": 283,
-    "pr": 0
+    "pr": 16.95
   },
   {
     "ti": "Kyanite Squad: Bohrfahrzeug",
@@ -14839,7 +14839,7 @@
       1
     ],
     "pa": 238,
-    "pr": 0
+    "pr": 14.95
   },
   {
     "ti": "Kyanite Squad: großer Bagger",
@@ -14851,7 +14851,7 @@
       1
     ],
     "pa": 457,
-    "pr": 0
+    "pr": 26.95
   },
   {
     "ti": "Kyanite Squad: Bergbau-Muldenkipper",
@@ -14863,7 +14863,7 @@
       1
     ],
     "pa": 458,
-    "pr": 0
+    "pr": 26.95
   },
   {
     "ti": "Kyanite Squad: Erkundungsbasis",
@@ -14879,7 +14879,7 @@
     "pr": 0
   },
   {
-    "ti": "Kyanite Squad Undersea: Mini Bergbau Mobil",
+    "ti": "Kyanite Squad Undersea: Mini-Bergbaumobil",
     "id": 107103,
     "ca": [
       1
@@ -14888,7 +14888,7 @@
       1
     ],
     "pa": 119,
-    "pr": 0
+    "pr": 6.95
   },
   {
     "ti": "Kyanite Squad Undersea: Vermessungsgleiter",
@@ -14901,10 +14901,10 @@
       34
     ],
     "pa": 119,
-    "pr": 0
+    "pr": 6.95
   },
   {
-    "ti": "Kyanite Squad: Kyanite Untersee Squad",
+    "ti": "Kyanite Squad: Tiefseebohrer",
     "id": 107105,
     "ca": [
       1
@@ -14925,7 +14925,7 @@
       1
     ],
     "pa": 131,
-    "pr": 0
+    "pr": 7.95
   },
   {
     "ti": "Kyanite Squad: Kyanite Entdecker U-Boot",
@@ -15002,10 +15002,10 @@
       4
     ],
     "pa": 108,
-    "pr": 0
+    "pr": 6.95
   },
   {
-    "ti": "Waldpolizei: Jäger Camp",
+    "ti": "Waldpolizei: Jäger-Camp",
     "id": 107128,
     "ca": [
       1
@@ -15015,7 +15015,7 @@
       4
     ],
     "pa": 98,
-    "pr": 0
+    "pr": 6.95
   },
   {
     "ti": "Waldpolizei: Pandarettung",
@@ -15028,7 +15028,7 @@
       4
     ],
     "pa": 261,
-    "pr": 0
+    "pr": 14.95
   },
   {
     "ti": "Waldpolizei: Halbketten Raub",
@@ -15041,7 +15041,7 @@
       4
     ],
     "pa": 227,
-    "pr": 0
+    "pr": 14.95
   },
   {
     "ti": "Waldpolizei: Hubschrauber-Mission",
@@ -15067,7 +15067,7 @@
       4
     ],
     "pa": 344,
-    "pr": 0
+    "pr": 19.95
   },
   {
     "ti": "Waldpolizei: Mobiler Jäger-HQ-Truck",
@@ -15095,7 +15095,7 @@
       10
     ],
     "pa": 961,
-    "pr": 0
+    "pr": 59.95
   },
   {
     "ti": "Princess Leah: Schlossgarten",
@@ -15260,7 +15260,7 @@
     "pr": 0
   },
   {
-    "ti": "Stadtpolizei: Wasser Streifenboat",
+    "ti": "Stadtpolizei: Wasserstreife auf Hovercraft",
     "id": 107148,
     "ca": [
       1
@@ -15270,7 +15270,7 @@
       4
     ],
     "pa": 105,
-    "pr": 0
+    "pr": 6.95
   },
   {
     "ti": "Stadtpolizei: Polizei SUV",
@@ -15283,7 +15283,7 @@
       4
     ],
     "pa": 149,
-    "pr": 0
+    "pr": 9.95
   },
   {
     "ti": "Stadtpolizei: Tankwagen Überfall",
@@ -15339,7 +15339,7 @@
       3
     ],
     "pa": 105,
-    "pr": 0
+    "pr": 6.95
   },
   {
     "ti": "Stadtfeuerwehr: Hebebühne",
@@ -15352,7 +15352,7 @@
       3
     ],
     "pa": 112,
-    "pr": 0
+    "pr": 6.95
   },
   {
     "ti": "Stadtfeuerwehr: Helicopter",
@@ -15365,7 +15365,7 @@
       3
     ],
     "pa": 117,
-    "pr": 0
+    "pr": 6.95
   },
   {
     "ti": "Stadtfeuerwehr: Brennender Bücherladen",
@@ -15378,7 +15378,7 @@
       3
     ],
     "pa": 88,
-    "pr": 0
+    "pr": 6.95
   },
   {
     "ti": "Stadtfeuerwehr: Waldbrandbekämpfung",
@@ -15430,7 +15430,7 @@
       3
     ],
     "pa": 523,
-    "pr": 0
+    "pr": 32.95
   },
   {
     "ti": "Stadtfeuerwehr: Flughafenfeuerwehr",
@@ -15481,7 +15481,7 @@
       10
     ],
     "pa": 131,
-    "pr": 0
+    "pr": 7.95
   },
   {
     "ti": "Campingwagen",
@@ -15493,7 +15493,7 @@
       1
     ],
     "pa": 319,
-    "pr": 0
+    "pr": 19.95
   },
   {
     "ti": "Fischrestaurant",
@@ -15517,7 +15517,7 @@
       1
     ],
     "pa": 798,
-    "pr": 0
+    "pr": 49.95
   },
   {
     "ti": "Ferienvilla",
