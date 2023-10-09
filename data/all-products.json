@@ -14701,7 +14701,7 @@
     "pr": 6.95
   },
   {
-    "ti": "Kyanite Squad: Prospektor",
+    "ti": "Kyanite Squad: Kettenlader",
     "id": 107086,
     "ca": [
       1
@@ -14879,7 +14879,7 @@
     "pr": 0
   },
   {
-    "ti": "Kyanite Squad Undersea: Mini-Bergbaumobil",
+    "ti": "Kyanite Squad Deep Sea: Pionierfahrzeug",
     "id": 107103,
     "ca": [
       1
@@ -14891,7 +14891,7 @@
     "pr": 6.95
   },
   {
-    "ti": "Kyanite Squad Undersea: Vermessungsgleiter",
+    "ti": "Kyanite Squad Deep Sea: Vermessungsgleiter",
     "id": 107104,
     "ca": [
       1
@@ -14904,7 +14904,7 @@
     "pr": 6.95
   },
   {
-    "ti": "Kyanite Squad: Tiefseebohrer",
+    "ti": "Kyanite Squad Deep Sea: Tiefseebohrer",
     "id": 107105,
     "ca": [
       1
@@ -14916,7 +14916,7 @@
     "pr": 0
   },
   {
-    "ti": "Kyanite Squad: Bergbau-Exoanzug",
+    "ti": "Kyanite Squad Deep Sea: Bergbau-Exoanzug",
     "id": 107106,
     "ca": [
       1
@@ -14928,7 +14928,7 @@
     "pr": 7.95
   },
   {
-    "ti": "Kyanite Squad: Kyanite Entdecker U-Boot",
+    "ti": "Kyanite Squad Deep Sea: Erkundungs-U-Boot",
     "id": 107107,
     "ca": [
       1
@@ -14941,7 +14941,7 @@
     "pr": 0
   },
   {
-    "ti": "Kyanite Squad: Kyanite Titan Bohrer",
+    "ti": "Kyanite Squad Deep Sea: Amphibischer Tunnelbohrer",
     "id": 107108,
     "ca": [
       1
@@ -14953,7 +14953,7 @@
     "pr": 0
   },
   {
-    "ti": "Kyanite Squad: Kyanite HQ Boot",
+    "ti": "Kyanite Squad Deep Sea: Kommandoschiff",
     "id": 107109,
     "ca": [
       1
@@ -14979,7 +14979,7 @@
     "pr": 0
   },
   {
-    "ti": "Waldpolizei: Tigerjäger",
+    "ti": "Waldpolizei: Jagdhubschrauber",
     "id": 107126,
     "ca": [
       1
@@ -15031,7 +15031,7 @@
     "pr": 14.95
   },
   {
-    "ti": "Waldpolizei: Halbketten Raub",
+    "ti": "Waldpolizei: Halbketten Überfall",
     "id": 107130,
     "ca": [
       1
@@ -15044,7 +15044,7 @@
     "pr": 14.95
   },
   {
-    "ti": "Waldpolizei: Hubschrauber-Mission",
+    "ti": "Waldpolizei: Polizei-Kampfhubschrauber",
     "id": 107131,
     "ca": [
       1
@@ -15260,7 +15260,7 @@
     "pr": 0
   },
   {
-    "ti": "Stadtpolizei: Wasserstreife auf Hovercraft",
+    "ti": "Stadtpolizei: Hovercraft der Wasserpolizei",
     "id": 107148,
     "ca": [
       1
@@ -15286,7 +15286,7 @@
     "pr": 9.95
   },
   {
-    "ti": "Stadtpolizei: Tankwagen Überfall",
+    "ti": "Stadtpolizei: Tankwagen-Überfall",
     "id": 107150,
     "ca": [
       1
@@ -15300,7 +15300,7 @@
     "pr": 0
   },
   {
-    "ti": "Stadtpolizei: Tankanlagen Überfall",
+    "ti": "Stadtpolizei: Sabotage an der Raffinerie",
     "id": 107151,
     "ca": [
       1
@@ -15459,7 +15459,7 @@
     "pr": 0
   },
   {
-    "ti": "Camping am Strand",
+    "ti": "Cherry: Camping am Strand",
     "id": 107163,
     "ca": [
       1
@@ -15471,7 +15471,7 @@
     "pr": 0
   },
   {
-    "ti": "Rettungsschwimmerstation",
+    "ti": "Cherry: Rettungsschwimmerstation",
     "id": 107164,
     "ca": [
       1
@@ -15484,7 +15484,7 @@
     "pr": 7.95
   },
   {
-    "ti": "Campingwagen",
+    "ti": "Cherry: Campingwagen",
     "id": 107165,
     "ca": [
       1
@@ -15496,7 +15496,7 @@
     "pr": 19.95
   },
   {
-    "ti": "Fischrestaurant",
+    "ti": "Cherry: Fischrestaurant",
     "id": 107166,
     "ca": [
       1
@@ -15508,7 +15508,7 @@
     "pr": 0
   },
   {
-    "ti": "Sunshine-Wasserpark",
+    "ti": "Cherry: Sunshine-Wasserpark",
     "id": 107167,
     "ca": [
       1
@@ -15520,7 +15520,7 @@
     "pr": 49.95
   },
   {
-    "ti": "Ferienvilla",
+    "ti": "Cherry: Ferienvilla",
     "id": 107168,
     "ca": [
       1
@@ -15813,6 +15813,19 @@
     "di": 6
   },
   {
+    "ti": "Mobile Drogenküche",
+    "id": 107469,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 3574,
+    "pr": 0,
+    "di": 6
+  },
+  {
     "ti": "Hafenschlepper",
     "id": 107470,
     "ca": [
@@ -15886,6 +15899,75 @@
     "pa": 1505,
     "pr": 0,
     "di": 6
+  },
+  {
+    "ti": "Lokomotive GE ES44AC schwarz/rot",
+    "id": 107511,
+    "ca": [],
+    "tg": [],
+    "pa": 747,
+    "pr": 0
+  },
+  {
+    "ti": "US Rettungswagen",
+    "id": 107512,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1505,
+    "pr": 0,
+    "di": 3
+  },
+  {
+    "ti": "Kommunale Alt Glas- und Papier LKW",
+    "id": 107513,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 606,
+    "pr": 0,
+    "di": 8
+  },
+  {
+    "ti": "US Schüttgutwagen",
+    "id": 107514,
+    "ca": [],
+    "tg": [],
+    "pa": 420,
+    "pr": 0,
+    "di": 8
+  },
+  {
+    "ti": "Feuerwehr Kleinbus Einsatzzentrale",
+    "id": 107517,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 287,
+    "pr": 0,
+    "di": 11
+  },
+  {
+    "ti": "Feuerwehr Bagger",
+    "id": 107518,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 551,
+    "pr": 0,
+    "di": 11
   },
   {
     "ti": "Brix Panzerketten 1 1/2 breit, schwarz (100st.)",
