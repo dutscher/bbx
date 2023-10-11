@@ -15970,6 +15970,30 @@
     "di": 11
   },
   {
+    "ti": "Große Landwirtschaftliche Zugmaschine mit Forsthänger (6w)",
+    "id": 107519,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 425,
+    "pr": 0
+  },
+  {
+    "ti": "Schwere Landwirtschaftliche Zugmaschine mit Forsthänger (6w)",
+    "id": 107520,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 293,
+    "pr": 0
+  },
+  {
     "ti": "Brix Panzerketten 1 1/2 breit, schwarz (100st.)",
     "id": 400001,
     "ca": [
