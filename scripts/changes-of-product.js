@@ -1,6 +1,6 @@
 import states from '../data/states.json' assert { type: 'json' };
 
-const productId = 105287;
+const productId = 107297;
 const apiUrl = `https://api.bbx.watch/bapi/product/detail/${productId}`;
 
 const json = await fetch(apiUrl).then(res => res.json());
