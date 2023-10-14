@@ -22,15 +22,6 @@
 
 <div>
   <h1>Bluebrixx Watcher</h1>
-  <div
-    class="fb-like"
-    data-href="https://www.facebook.com/bbxwatcher"
-    data-width="170px"
-    data-layout="button_count"
-    data-action="like"
-    data-size="small"
-    data-share="true"
-  />
   <div>
     <div class="welcome">
       <p>

@@ -15,21 +15,6 @@
   <summary on:click={clickNews}><b>News (2)</b></summary>
   <div>
     {#if isVisible}
-      <br />
-      <a
-        href="//www.noppensteinnews.de/2022/01/30/klemmbaustein-podcast-bluebrixx-watcher/"
-        target="_blank"
-        class="link medium-text"
-      >
-        Noppensteinnews: Klemmbaustein Podcast Bluebrixx Watcher
-      </a>
-      <iframe
-        class="iframe--podcast"
-        frameborder="0"
-        title="Noppensteinnews: Klemmbaustein Podcast Bluebrixx Watcher"
-        src="https://www.podcaster.de/webplayer/?id=show~eu4w2y~klemmbaustein-podcast-noppensteinnews~pod-17eb3227cb56870a92bfc2763&v=1645344640"
-      />
-
       <a href="//www.youtube.com/watch?v=jgKitU73Zhk" target="_blank" class="link medium-text">
         Youtube: Count of Bricks - Der BlueBrixx Watcher - Eine Webseite für Verfügbarkeiten - Was kann der "Watcher"?
       </a>
