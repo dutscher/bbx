@@ -43,9 +43,6 @@ export const setFlags = product => {
   if (!('history' in product) || product.history === 'null' || !product.history) {
     console.log('missing history for', { product });
   } else {
-    if (Object.keys(product.history).length === 0) {
-      console.log({ product });
-    }
     const historyStates = Object.values(product.history);
     const lastHistory = historyStates[historyStates.length - 1];
     const beforeLastHistory = historyStates[historyStates.length - 2];
