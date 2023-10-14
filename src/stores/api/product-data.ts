@@ -40,7 +40,7 @@ export const loadProductData = async product => {
 
 export const setFlags = product => {
   // flags
-  if (!('history' in product) || product.history === 'null') {
+  if (!('history' in product) || product.history === 'null' || !product.history) {
     console.log('missing history for', { product });
   } else {
     if (Object.keys(product.history).length === 0) {
