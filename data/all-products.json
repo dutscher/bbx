@@ -13330,6 +13330,18 @@
     "di": 6
   },
   {
+    "ti": "Das Schwarze Auge - Kaiserdrache",
+    "id": 105539,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1550,
+    "pr": 0
+  },
+  {
     "ti": "Relaxcube",
     "id": 105542,
     "ca": [
@@ -14600,7 +14612,7 @@
       67
     ],
     "pa": 929,
-    "pr": 0
+    "pr": 34.95
   },
   {
     "ti": "Star Trek Adventskalender",
@@ -14615,7 +14627,7 @@
       67
     ],
     "pa": 852,
-    "pr": 0
+    "pr": 29.95
   },
   {
     "ti": "Display Lokomotive V100 dunkel rot",
@@ -14940,7 +14952,7 @@
       34
     ],
     "pa": 401,
-    "pr": 0
+    "pr": 24.95
   },
   {
     "ti": "Kyanite Squad Deep Sea: Amphibischer Tunnelbohrer",
@@ -14978,7 +14990,7 @@
       4
     ],
     "pa": 104,
-    "pr": 0
+    "pr": 6.95
   },
   {
     "ti": "Waldpolizei: Jagdhubschrauber",
@@ -15259,7 +15271,7 @@
       14
     ],
     "pa": 111,
-    "pr": 0
+    "pr": 6.95
   },
   {
     "ti": "Stadtpolizei: Hovercraft der Wasserpolizei",
@@ -15445,7 +15457,7 @@
       3
     ],
     "pa": 647,
-    "pr": 0
+    "pr": 39.95
   },
   {
     "ti": "Stadtfeuerwehr: Großbrand",
@@ -15458,7 +15470,7 @@
       3
     ],
     "pa": 996,
-    "pr": 0
+    "pr": 59.95
   },
   {
     "ti": "Cherry: Camping am Strand",
@@ -15817,7 +15829,7 @@
     "di": 6
   },
   {
-    "ti": "Mobile Drogenküche",
+    "ti": "Mobiles Labor",
     "id": 107469,
     "ca": [
       0
