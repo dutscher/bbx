@@ -10672,7 +10672,7 @@
       66
     ],
     "pa": 1332,
-    "pr": 0,
+    "pr": 59.95,
     "ie": 0,
     "di": 2
   },
@@ -11143,7 +11143,7 @@
       66
     ],
     "pa": 630,
-    "pr": 0,
+    "pr": 32.95,
     "ie": 0,
     "di": 8
   },
@@ -12772,7 +12772,7 @@
       2,
       62
     ],
-    "pa": 1379,
+    "pa": 1382,
     "pr": 0,
     "di": 6
   },
@@ -12966,6 +12966,18 @@
     ],
     "pa": 0,
     "pr": 27.95
+  },
+  {
+    "ti": "Star Trek Borg Drohne Büste",
+    "id": 105418,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 1615,
+    "pr": 0
   },
   {
     "ti": "Star Trek Worf",
@@ -14259,7 +14271,7 @@
       27
     ],
     "pa": 4521,
-    "pr": 0,
+    "pr": 179.95,
     "di": 12
   },
   {
@@ -14683,7 +14695,7 @@
       34
     ],
     "pa": 2958,
-    "pr": 0
+    "pr": 119.95
   },
   {
     "ti": "Mittelalterliche Glockengießerei",
@@ -14889,7 +14901,7 @@
       10
     ],
     "pa": 753,
-    "pr": 44.95
+    "pr": 0
   },
   {
     "ti": "Kyanite Squad Deep Sea: Pionierfahrzeug",
@@ -14926,7 +14938,7 @@
       1
     ],
     "pa": 119,
-    "pr": 6.95
+    "pr": 0
   },
   {
     "ti": "Kyanite Squad Deep Sea: Bergbau-Exoanzug",
@@ -15196,7 +15208,7 @@
       1
     ],
     "pa": 422,
-    "pr": 0
+    "pr": 24.95
   },
   {
     "ti": "Princess Leah: Königliches Segelschiff",
@@ -15233,7 +15245,7 @@
       1
     ],
     "pa": 628,
-    "pr": 0
+    "pr": 36.95
   },
   {
     "ti": "Princess Leah: Sommerpalast",
@@ -15257,7 +15269,7 @@
       1
     ],
     "pa": 2482,
-    "pr": 0
+    "pr": 149.95
   },
   {
     "ti": "Stadtpolizei: Streifenwagen",
@@ -15602,7 +15614,7 @@
       0,
       28
     ],
-    "pa": 1062,
+    "pa": 1066,
     "pr": 0,
     "di": 15
   },
@@ -15682,6 +15694,18 @@
     "pr": 0
   },
   {
+    "ti": "Off-road SUV \"Texas\"",
+    "id": 107349,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 1855,
+    "pr": 0
+  },
+  {
     "ti": "Lokomotive V200 (8w)",
     "id": 107447,
     "ca": [
@@ -15693,7 +15717,7 @@
       47,
       66
     ],
-    "pa": 962,
+    "pa": 924,
     "pr": 0,
     "di": 8
   },
@@ -15899,6 +15923,17 @@
     "di": 15
   },
   {
+    "ti": "Burg Blaustein: Münzturm",
+    "id": 107505,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pr": 0
+  },
+  {
     "ti": "Feuerwehr Bus 2 in 1",
     "id": 107509,
     "ca": [
@@ -16042,6 +16077,115 @@
       55
     ],
     "pa": 293,
+    "pr": 0
+  },
+  {
+    "ti": "Amerikanisches Polizeiauto",
+    "id": 107545,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1143,
+    "pr": 0,
+    "di": 3
+  },
+  {
+    "ti": "Feuerwehr Löschraupe",
+    "id": 107546,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 607,
+    "pr": 0
+  },
+  {
+    "ti": "Feuerwehr Löschdrohne",
+    "id": 107547,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 190,
+    "pr": 0
+  },
+  {
+    "ti": "Feuerwehr Survivor",
+    "id": 107548,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 248,
+    "pr": 0
+  },
+  {
+    "ti": "Gangster Sportwagen",
+    "id": 107549,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1532,
+    "pr": 0,
+    "di": 6
+  },
+  {
+    "ti": "Mehrzweckfahrzeug",
+    "id": 107550,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1062,
+    "pr": 0,
+    "di": 11
+  },
+  {
+    "ti": "Kommunaler Pritschenwagen umbaubar",
+    "id": 107551,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 604,
+    "pr": 0,
+    "di": 8
+  },
+  {
+    "ti": "Schienenzeppelin",
+    "id": 107555,
+    "ca": [],
+    "tg": [],
+    "pa": 546,
+    "pr": 0,
+    "di": 8
+  },
+  {
+    "ti": "Polizei Survivor",
+    "id": 107560,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 256,
     "pr": 0
   },
   {
@@ -19402,7 +19546,7 @@
       59
     ],
     "pa": 0,
-    "pr": 9.95
+    "pr": 11.95
   },
   {
     "ti": "Motor Medium",
@@ -19415,7 +19559,7 @@
       59
     ],
     "pa": 0,
-    "pr": 6.95
+    "pr": 8.95
   },
   {
     "ti": "Motor Large",
@@ -19428,7 +19572,7 @@
       59
     ],
     "pa": 0,
-    "pr": 6.95
+    "pr": 8.95
   },
   {
     "ti": "Motor Extra Large",
@@ -19441,7 +19585,7 @@
       59
     ],
     "pa": 0,
-    "pr": 6.95
+    "pr": 8.95
   },
   {
     "ti": "Motor Servo",
@@ -19454,7 +19598,7 @@
       59
     ],
     "pa": 0,
-    "pr": 9.95
+    "pr": 11.95
   },
   {
     "ti": "Verlängerungskabel 25cm",
