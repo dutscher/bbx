@@ -17,8 +17,10 @@
     <div class="col s12 m6">
       <div class="center-align middle-align">
         {@html kofi}
-        <br />
-        <strong>Danke an unsere Supporter:</strong> Brick_Addicted, Andre, Jens Jensen, Andy, Schorse, Brickmicha & 2x Anonym
+        <div>
+          <strong>Danke an unsere Supporter:</strong> Brick_Addicted, Andre, Jens Jensen, Andy, Schorse, Brickmicha & 2x
+          Anonym
+        </div>
       </div>
     </div>
   </div>

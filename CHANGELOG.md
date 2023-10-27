@@ -1,8 +1,13 @@
+* [27.10.2023]
+  * Wir sind wieder online
+  * Neue Ankündigungen zu Film Modellen hinzugefügt
+  * Facebook entfernt
+
 * [12.10.2023]
   * Neue Ankündigungen zu Film Modellen hinzugefügt
 
 * [08.09.2023]
- * Ausgemusterte Produkte entfernt
+  * Ausgemusterte Produkte entfernt
 
 * [05.08.2023]
   * Brickbuddies in BrickFigs umbenannt
