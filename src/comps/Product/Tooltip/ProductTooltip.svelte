@@ -123,6 +123,14 @@
     }
   };
 
+  const copyToClipBoard = async () => {
+    try {
+      await navigator.clipboard.writeText(product.id);
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  };
+
   $: {
     if (wrapElement && showTooltip) {
       handleLeftAdjust();
@@ -145,21 +153,26 @@
       <div class="top">
         <ProductStage {product} />
       </div>
-      <div class="small-padding">
-        <h5 class="no-margin">
-          {#if product.title}
-            <div class="product-tooltip__title-wrap">
-              <h5 class="product-tooltip__title">
-                {product.title}
-              </h5>
+      <div class="small-padding body">
+        {#if product.title}
+          <div
+            class="product-tooltip__title-wrap{product.movieData ? ' product-tooltip__title-wrap--little-margin' : ''}"
+          >
+            <h5 class="product-tooltip__title no-margin">
+              {product.title}
+            </h5>
+          </div>
+        {/if}
+        <div>
+          {#if product.movieData}
+            <div class="product-tooltip__movie-data">
+              Bekannt aus dem Film:<br />
+              <b>{product.movieData}</b>
             </div>
           {/if}
-        </h5>
-        <div>
-          {#if product.movieData}<b>{product.movieData}</b><br />{/if}
           {#if product.id}<b>ID:</b>
             <span class="product-tooltip__content">
-              {product.id}
+              <span class="copy" on:click={copyToClipBoard}>{product.id}</span>
               {#if product.partNr}
                 /
                 <b>BricklinkID:</b>
@@ -235,6 +248,14 @@
     white-space: nowrap;
     z-index: 2;
 
+    .copy {
+      cursor: pointer;
+    }
+
+    .body {
+      padding-top: 0 !important;
+    }
+
     &.open {
       padding-bottom: 86rem;
     }
@@ -265,6 +286,22 @@
       display: block;
       line-height: 26rem;
       user-select: text;
+
+      &-wrap {
+        margin-bottom: 8rem;
+
+        &--little-margin {
+          margin-bottom: 4rem;
+        }
+      }
+    }
+
+    &__movie-data {
+      max-width: 250px;
+      white-space: normal;
+      margin: 0 -8rem;
+      padding: 4rem 8rem;
+      background: var(--surface);
     }
 
     &__content {

@@ -18,10 +18,16 @@
       <div class="center-align middle-align">
         {@html kofi}
         <div>
-          <strong>Danke an unsere Supporter:</strong> Brick_Addicted, Andre, Jens Jensen, Andy, Schorse, Brickmicha & 2x
-          Anonym
+          <strong>Danke an unsere Kaffeespender:</strong>
+          Brick_Addicted, Andre, Jens Jensen, Andy, Schorse, Brickmicha & 2x Anonym, Michael W.
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<style lang="scss">
+  :global .btn-container {
+    min-width: auto;
+  }
+</style>

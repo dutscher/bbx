@@ -52,15 +52,3 @@
     </div>
   </div>
 </div>
-
-<style lang="scss">
-  .fb-like {
-    display: inline-block;
-    height: 30rem;
-    width: 170rem;
-
-    :global iframe {
-      width: 170rem !important;
-    }
-  }
-</style>

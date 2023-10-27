@@ -3,13 +3,11 @@
   import { ApolloClient, InMemoryCache } from '@apollo/client';
   import { setClient } from 'svelte-apollo';
   import * as animateScroll from 'svelte-scrollto';
-  import { setUrlParams } from '@utils';
   import { loadMovieData, loadHistoryData, storedActiveSelection, localStore } from '@stores';
   import { API, ID_MOVIE, UNLOADED, LOADED, lsSiteSettingsKey } from '@interfaces';
   import Navigation from './comps/Navigation.svelte';
   import Welcome from './comps/Home/Welcome.svelte';
   import Support from './comps/Home/Support.svelte';
-  import News from './comps/Home/News.svelte';
   import Changelog from './comps/Home/Changelog.svelte';
   import Imprint from './comps/Home/Imprint.svelte';
   import Offline from './comps/Features/Offline.svelte';
@@ -40,7 +38,7 @@
   const defaultSite = localStore.getRaw(lsSiteSettingsKey) || 'home';
   let nextSite: any;
 
-  storedActiveSelection.subscribe(store => {
+  storedActiveSelection.subscribe(async store => {
     activeTagIds = store.tags;
     loadedData = store.loadedData;
 
@@ -48,9 +46,8 @@
       nextSite = store.site;
     }
 
-    // load movie data
-    if (store.loadedData.movie === UNLOADED && activeTagIds.includes(ID_MOVIE)) {
-      loadMovieData();
+    if (activeTagIds.includes(ID_MOVIE)) {
+      await loadMovieData();
     }
   });
 
@@ -81,7 +78,6 @@
     <Site name="home" {activeSite} {isActive}>
       <Welcome />
       <Support />
-      <News />
       <Changelog />
       <Imprint />
     </Site>

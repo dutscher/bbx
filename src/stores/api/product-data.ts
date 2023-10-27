@@ -1,5 +1,6 @@
-import { API, ID_STATE_ANNOUNCEMENT, ID_STATE_AVAILABLE, ID_STATE_COMING_SOON } from '@interfaces';
+import { API, ID_STATE_ANNOUNCEMENT, ID_STATE_AVAILABLE, ID_STATE_COMING_SOON, ID_MOVIE } from '@interfaces';
 import { storedProducts } from '../products';
+import { loadMovieData } from './movie-data';
 
 export const loadProductData = async product => {
   if (product.loaded) {
@@ -8,9 +9,14 @@ export const loadProductData = async product => {
     product.loaded = true;
   }
 
+  if (product.tags.includes(ID_MOVIE)) {
+    await loadMovieData();
+  }
+
   const data = await fetch(`${API}/bapi/product/detail/${product.id}`).then(res => res.json());
   // {101005: "Blade Runner - Spinner Car", 101472: ... }
   storedProducts.update(products => {
+    // TODO: payload, iterate all products??
     return products.map(product => {
       if (product.id === data.id || product.id === data.brandNr) {
         // https://api.bbx.watch/bapi/product/detail/104000

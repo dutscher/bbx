@@ -2,6 +2,7 @@
   * Wir sind wieder online
   * Neue Ankündigungen zu Film Modellen hinzugefügt
   * Facebook entfernt
+  * Film Modelle Loading angepasst
 
 * [12.10.2023]
   * Neue Ankündigungen zu Film Modellen hinzugefügt
