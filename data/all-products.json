@@ -14942,7 +14942,7 @@
       1
     ],
     "pa": 119,
-    "pr": 0
+    "pr": 6.95
   },
   {
     "ti": "Kyanite Squad Deep Sea: Bergbau-Exoanzug",
@@ -15496,7 +15496,7 @@
       1
     ],
     "pa": 206,
-    "pr": 0
+    "pr": 12.95
   },
   {
     "ti": "Cherry: Rettungsschwimmerstation",
@@ -16220,6 +16220,45 @@
     ],
     "pa": 256,
     "pr": 0
+  },
+  {
+    "ti": "Großtractor Dunkel Grün",
+    "id": 107584,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 837,
+    "pr": 0,
+    "di": 15
+  },
+  {
+    "ti": "Sagrada Familia",
+    "id": 107585,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 3988,
+    "pr": 0,
+    "di": 12
+  },
+  {
+    "ti": "Steinwaytower",
+    "id": 107591,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1293,
+    "pr": 0,
+    "di": 12
   },
   {
     "ti": "Brix Panzerketten 1 1/2 breit, schwarz (100st.)",
