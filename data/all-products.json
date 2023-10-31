@@ -15188,7 +15188,7 @@
       1
     ],
     "pa": 348,
-    "pr": 0
+    "pr": 19.95
   },
   {
     "ti": "Princess Leah: Pavillon am See",
@@ -15200,7 +15200,7 @@
       1
     ],
     "pa": 394,
-    "pr": 0
+    "pr": 24.95
   },
   {
     "ti": "Princess Leah: Königliche Bibliothek",
@@ -16272,6 +16272,19 @@
     "pa": 842,
     "pr": 0,
     "di": 16
+  },
+  {
+    "ti": "Gouverneursinsel: Richtplatz",
+    "id": 107599,
+    "ca": [
+      0
+    ],
+    "tg": [
+      0
+    ],
+    "pa": 1468,
+    "pr": 0,
+    "di": 4
   },
   {
     "ti": "Brix Panzerketten 1 1/2 breit, schwarz (100st.)",
