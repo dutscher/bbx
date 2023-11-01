@@ -14689,7 +14689,7 @@
       28
     ],
     "pa": 1411,
-    "pr": 0
+    "pr": 49.95
   },
   {
     "ti": "Seenotrettungskreuzer",
@@ -15225,7 +15225,7 @@
       34
     ],
     "pa": 456,
-    "pr": 0
+    "pr": 26.95
   },
   {
     "ti": "Princess Leah: Königliche Geburtstagsfeier",
@@ -15237,7 +15237,7 @@
       1
     ],
     "pa": 587,
-    "pr": 0
+    "pr": 34.95
   },
   {
     "ti": "Princess Leah: Königliche Akademie",
@@ -125694,6 +125694,18 @@
     ],
     "pa": 50,
     "pr": 6.95
+  },
+  {
+    "ti": "Speer Spitze X 200, Flat Silver",
+    "id": 609332,
+    "ca": [
+      6
+    ],
+    "tg": [
+      48
+    ],
+    "pa": 200,
+    "pr": 4.95
   },
   {
     "ti": "CROSS AXLE 8M X 50, Light Bluish Gray",
