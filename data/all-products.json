@@ -15274,7 +15274,7 @@
       1
     ],
     "pa": 940,
-    "pr": 0
+    "pr": 59.95
   },
   {
     "ti": "Princess Leah: Königlicher Palast",
@@ -15827,7 +15827,7 @@
     "di": 17
   },
   {
-    "ti": "TLF Straßen und Schienen",
+    "ti": "TLF Straße und Schiene",
     "id": 107466,
     "ca": [
       9
@@ -15838,7 +15838,7 @@
       11,
       66
     ],
-    "pa": 340,
+    "pa": 342,
     "pr": 0
   },
   {
