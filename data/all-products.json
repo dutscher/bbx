@@ -10892,7 +10892,7 @@
     "di": 11
   },
   {
-    "ti": "Felsentaube",
+    "ti": "Felsentaube \"Oskar\"",
     "id": 104782,
     "ca": [
       0
@@ -15151,7 +15151,7 @@
       20
     ],
     "pa": 261,
-    "pr": 0
+    "pr": 14.95
   },
   {
     "ti": "Princess Leah: Königliche Bäckerei",
@@ -15163,7 +15163,7 @@
       1
     ],
     "pa": 236,
-    "pr": 0
+    "pr": 14.95
   },
   {
     "ti": "Princess Leah: Regenbogenwindmühle",
@@ -15177,7 +15177,7 @@
       16
     ],
     "pa": 210,
-    "pr": 0
+    "pr": 12.95
   },
   {
     "ti": "Princess Leah: Königliche Kutsche",
@@ -15189,7 +15189,7 @@
       1
     ],
     "pa": 374,
-    "pr": 0
+    "pr": 22.95
   },
   {
     "ti": "Princess Leah: Königliche Schneiderei",
