@@ -12980,7 +12980,7 @@
       49
     ],
     "pa": 1615,
-    "pr": 0
+    "pr": 49.95
   },
   {
     "ti": "Star Trek Worf",
@@ -15648,6 +15648,18 @@
     "pa": 1915,
     "pr": 0,
     "di": 16
+  },
+  {
+    "ti": "Frankfurt Paulskirche",
+    "id": 107267,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 2952,
+    "pr": 0
   },
   {
     "ti": "Planetarium des Astronomen",
