@@ -5222,7 +5222,7 @@
     "di": 3
   },
   {
-    "ti": "Französische Bulldogge, Hund",
+    "ti": "Französische Bulldogge, Hund (diamond blocks)",
     "id": 102820,
     "ca": [
       1
@@ -5237,7 +5237,7 @@
     "ie": 0
   },
   {
-    "ti": "Berner Sennenhund",
+    "ti": "Berner Sennenhund (diamond blocks)",
     "id": 102821,
     "ca": [
       1
@@ -12653,7 +12653,7 @@
       56,
       62
     ],
-    "pa": 1816,
+    "pa": 1692,
     "pr": 0,
     "di": 6
   },
