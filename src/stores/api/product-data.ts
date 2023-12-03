@@ -47,7 +47,7 @@ export const loadProductData = async product => {
 export const setFlags = product => {
   // flags
   if (!('history' in product) || product.history === 'null' || !product.history) {
-    console.log('missing history for', { product });
+    console.log('missing history for', product.id, { product });
   } else {
     const historyStates = Object.values(product.history);
     const lastHistory = historyStates[historyStates.length - 1];

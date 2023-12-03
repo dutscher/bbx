@@ -24,5 +24,5 @@ if (!!response.productId && response.productId.toString().length === 6) {
     history[date.getTime() / 1000] = states.api.indexOf(state);
   });
 
-  console.log(JSON.stringify({ [response.productId]: history, json }, null, 2));
+  console.log(JSON.stringify({ [response.productId]: history }, null, 2));
 }
