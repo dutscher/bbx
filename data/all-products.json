@@ -14995,6 +14995,30 @@
     "pr": 29.95
   },
   {
+    "ti": "Kampfpanzer Leopard 2 A6, Bundeswehr",
+    "id": 106908,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 1367,
+    "pr": 49.95
+  },
+  {
+    "ti": "Panzerhaubitze 2000, Bundeswehr",
+    "id": 106909,
+    "ca": [
+      1
+    ],
+    "tg": [
+      1
+    ],
+    "pa": 1388,
+    "pr": 49.95
+  },
+  {
     "ti": "Display Lokomotive V100 dunkel rot",
     "id": 106969,
     "ca": [
@@ -16424,7 +16448,7 @@
     "pr": 0
   },
   {
-    "ti": "US Rettungswagen",
+    "ti": "Highway Rettungswagen",
     "id": 107512,
     "ca": [
       0
@@ -16528,7 +16552,7 @@
     "pr": 0
   },
   {
-    "ti": "Amerikanisches Polizeiauto",
+    "ti": "Highway Polizei",
     "id": 107545,
     "ca": [
       0
